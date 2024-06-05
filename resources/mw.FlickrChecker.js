@@ -56,7 +56,7 @@ mw.FlickrChecker.licenseMaps = {
 	'No known copyright restrictions': '{{Flickr-no known copyright restrictions}}{{flickrreview}}',
 	'United States Government Work': '{{PD-USGov}}{{flickrreview}}',
 	'Public Domain Dedication (CC0)': '{{cc-zero}}{{flickrreview}}',
-	'Public Domain Mark': '{{cc-zero}}{{flickrreview}}'
+	'Public Domain Mark': '{{PD-US}}{{flickrreview}}'
 };
 
 mw.FlickrChecker.prototype = {
