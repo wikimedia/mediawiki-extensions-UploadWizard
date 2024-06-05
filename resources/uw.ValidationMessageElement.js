@@ -50,13 +50,13 @@
 		return $.when(
 			( this.validatedWidget.getErrors ? this.validatedWidget.getErrors( thorough ) : [] ),
 			( this.validatedWidget.getWarnings ? this.validatedWidget.getWarnings( thorough ) : [] )
-		).then( function ( errors, warnings ) {
+		).then( ( errors, warnings ) => {
 			// this.errors & this.warnings are arrays of mw.Messages and not strings in this subclass
 			element.setErrors( errors );
 			element.setWarnings( warnings );
 
 			return $.Deferred().resolve( errors, warnings ).promise();
-		} ).always( function () {
+		} ).always( () => {
 			if ( element.validatedWidget.popPending ) {
 				element.validatedWidget.popPending();
 			}

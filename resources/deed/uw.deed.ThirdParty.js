@@ -146,9 +146,7 @@
 			classes: [ 'mwe-upwiz-deed-compliance' ]
 		} );
 		this.complianceCheck.getErrors = function ( thorough ) {
-			var allSelected = deed.complianceCheck.getItems().reduce( function ( result, item ) {
-				return result && item.isSelected();
-			}, true );
+			var allSelected = deed.complianceCheck.getItems().reduce( ( result, item ) => result && item.isSelected(), true );
 
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
@@ -241,7 +239,7 @@
 				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-checkbox' )
 					.append( this.templateOptions.aiGenerated.field.$element )
 			);
-			this.templateOptions.aiGenerated.input.$element.on( 'change', function () {
+			this.templateOptions.aiGenerated.input.$element.on( 'change', () => {
 				self.updateAuthorFieldForAI();
 			} );
 
@@ -270,7 +268,7 @@
 				);
 			}
 
-			this.templateOptions.authorUnknown.input.$element.on( 'change', function () {
+			this.templateOptions.authorUnknown.input.$element.on( 'change', () => {
 				if ( self.templateOptions.authorUnknown.input.isSelected() ) {
 					self.authorInput.setDisabled( true );
 					self.authorInput.setValue( '' );
@@ -360,9 +358,7 @@
 			source: this.sourceInput.getValue(),
 			author: this.authorInput.getValue(),
 			license: this.licenseInput.getSerialized(),
-			compliance: this.complianceCheck.findSelectedItems().map( function ( item ) {
-				return item.getData();
-			} )
+			compliance: this.complianceCheck.findSelectedItems().map( ( item ) => item.getData() )
 		} );
 	};
 

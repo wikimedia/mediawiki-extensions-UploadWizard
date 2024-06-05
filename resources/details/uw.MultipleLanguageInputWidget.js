@@ -134,7 +134,7 @@
 		var allLanguages = this.config.languages,
 			items = this.getItems();
 
-		return items.reduce( function ( obj, item ) {
+		return items.reduce( ( obj, item ) => {
 			var languageCode = item.getLanguage();
 			obj[ languageCode ] = allLanguages[ languageCode ];
 			return obj;
@@ -151,7 +151,7 @@
 		var allLanguages = this.config.languages,
 			usedLanguageCodes = Object.keys( this.getUsedLanguages() );
 
-		return Object.keys( allLanguages ).reduce( function ( remaining, language ) {
+		return Object.keys( allLanguages ).reduce( ( remaining, language ) => {
 			if ( usedLanguageCodes.indexOf( language ) < 0 ) {
 				remaining[ language ] = allLanguages[ language ];
 			}
@@ -208,9 +208,7 @@
 	uw.MultipleLanguageInputWidget.prototype.getErrors = function () {
 		var self = this,
 			// Gather errors from each item
-			errorPromises = this.getItems().map( function ( item ) {
-				return item.getErrors();
-			} );
+			errorPromises = this.getItems().map( ( item ) => item.getErrors() );
 
 		return $.when.apply( $, errorPromises ).then( function () {
 			var errors = [];
@@ -257,11 +255,7 @@
 	uw.MultipleLanguageInputWidget.prototype.getWikiText = function () {
 		// Some code here and in mw.UploadWizardDetails relies on this function returning an empty
 		// string when there are some inputs, but all are empty.
-		return this.getItems().map( function ( widget ) {
-			return widget.getWikiText();
-		} ).filter( function ( wikiText ) {
-			return !!wikiText;
-		} ).join( '\n' );
+		return this.getItems().map( ( widget ) => widget.getWikiText() ).filter( ( wikiText ) => !!wikiText ).join( '\n' );
 	};
 
 	/**
@@ -269,9 +263,7 @@
 	 * @return {Object} See #setSerialized
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getSerialized = function () {
-		var inputs = this.getItems().map( function ( widget ) {
-			return widget.getSerialized();
-		} );
+		var inputs = this.getItems().map( ( widget ) => widget.getSerialized() );
 		return {
 			inputs: inputs
 		};

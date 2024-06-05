@@ -72,7 +72,7 @@
 	uw.controller.Metadata.prototype.generateBookletPages = function ( uploads ) {
 		var self = this;
 
-		return uploads.map( function ( upload ) {
+		return uploads.map( ( upload ) => {
 			var content = new uw.MetadataContent( upload, {
 				allowCopy: uploads.length > 1
 			} );
@@ -111,7 +111,7 @@
 		var uploads = Object.keys( this.booklet.pages ),
 			self = this;
 
-		uploads.forEach( function ( upload ) {
+		uploads.forEach( ( upload ) => {
 			if ( upload !== file ) {
 				self.booklet.pages[ upload ].applyCopiedStatements( statements );
 			}
@@ -132,14 +132,14 @@
 		this.ui.hidePublishError();
 
 		// Collect each statement from each page into a single array
-		uploads.forEach( function ( upload ) {
+		uploads.forEach( ( upload ) => {
 			var page = self.booklet.pages[ upload ],
 				statementWidgets = page.getStatements();
 
 			// Clear out error class.
 			page.outlineItem.$element.removeClass( 'mwe-upwiz-metadata-page--error' );
 
-			Object.keys( statementWidgets ).forEach( function ( propertyId ) {
+			Object.keys( statementWidgets ).forEach( ( propertyId ) => {
 				var statementWidget = statementWidgets[ propertyId ];
 				queue = queue.then( statementWidget.submit.bind( statementWidget, undefined ) );
 			} );
@@ -187,11 +187,11 @@
 			self = this;
 
 		// Add a class to the booklet page tab where the error exists.
-		uploads.forEach( function ( upload ) {
+		uploads.forEach( ( upload ) => {
 			var page = self.booklet.pages[ upload ],
 				statementWidgets = page.getStatements();
 
-			Object.keys( statementWidgets ).forEach( function ( propertyId ) {
+			Object.keys( statementWidgets ).forEach( ( propertyId ) => {
 				var statementWidget = statementWidgets[ propertyId ],
 					errors = statementWidget.getErrors();
 

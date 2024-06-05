@@ -116,7 +116,7 @@
 				classes: [ 'mwe-upwiz-description-same-as-caption-checkbox' ],
 				items: [ this.descriptionSameAsCaptionCheckbox ]
 			} );
-			this.descriptionSameAsCaptionCheckbox.on( 'change', function () {
+			this.descriptionSameAsCaptionCheckbox.on( 'change', () => {
 				details.descriptionsDetails.$element.toggle(
 					!details.descriptionSameAsCaptionCheckbox.isSelected()
 				);
@@ -232,7 +232,7 @@
 				$customTogglers: this.otherDetailsField.$element.find( '.oo-ui-fieldLayout-header' )
 			} );
 			// Expand collapsed sections if the fields within were changed (e.g. by metadata copier)
-			this.otherDetails.on( 'change', function () {
+			this.otherDetails.on( 'change', () => {
 				details.otherDetails.$element.data( 'mw-collapsible' ).expand();
 			} );
 
@@ -262,7 +262,7 @@
 				this.additionalInfoFieldset.$element
 			);
 
-			this.$form.on( 'submit', function ( e ) {
+			this.$form.on( 'submit', ( e ) => {
 				// Prevent actual form submission
 				e.preventDefault();
 			} );
@@ -271,7 +271,7 @@
 			// Campaigns
 			//
 			this.campaignDetailsFields = [];
-			config.fields.forEach( function ( field ) {
+			config.fields.forEach( ( field ) => {
 				var customDetails, customDetailsField;
 
 				if ( field.wikitext ) {
@@ -300,10 +300,10 @@
 				flags: 'destructive',
 				icon: 'trash',
 				framed: false
-			} ).on( 'click', function () {
+			} ).on( 'click', () => {
 				OO.ui.confirm( mw.message( 'mwe-upwiz-license-confirm-remove' ).text(), {
 					title: mw.message( 'mwe-upwiz-license-confirm-remove-title' ).text()
-				} ).done( function ( confirmed ) {
+				} ).done( ( confirmed ) => {
 					if ( confirmed ) {
 						details.upload.emit( 'remove-upload' );
 					}
@@ -462,7 +462,7 @@
 		 *   empty arrays.
 		 */
 		getErrors: function () {
-			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
+			return $.when.apply( $, this.getAllFields().map( ( fieldLayout ) => {
 				// return errors if field has them, empty array (no errors) otherwise
 				if ( fieldLayout.fieldWidget.getErrors ) {
 					return fieldLayout.fieldWidget.getErrors();
@@ -477,7 +477,7 @@
 		 * @return {jQuery.Promise} Same as #getErrors
 		 */
 		getWarnings: function () {
-			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
+			return $.when.apply( $, this.getAllFields().map( ( fieldLayout ) => {
 				// return warnings if field has them, empty array (no warnings) otherwise
 				if ( fieldLayout.fieldWidget.getWarnings ) {
 					return fieldLayout.fieldWidget.getWarnings();
@@ -495,10 +495,10 @@
 		checkValidity: function ( thorough ) {
 			var fields = this.getAllFields();
 
-			return $.when.apply( $, fields.map( function ( fieldLayout ) {
+			return $.when.apply( $, fields.map( ( fieldLayout ) =>
 				// Update any error/warning/notice messages
-				return fieldLayout.checkValidity( thorough );
-			} ) );
+				 fieldLayout.checkValidity( thorough )
+			 ) );
 		},
 
 		/**
@@ -527,7 +527,7 @@
 		populate: function () {
 			var $thumbnailDiv = this.$thumbnailDiv;
 			// This must match the CSS dimensions of .mwe-upwiz-thumbnail
-			this.upload.getThumbnail( 230 ).done( function ( thumb ) {
+			this.upload.getThumbnail( 230 ).done( ( thumb ) => {
 				mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 			} );
 			this.prefillDate();
@@ -565,7 +565,7 @@
 
 			if ( this.upload.imageinfo.metadata ) {
 				metadata = this.upload.imageinfo.metadata;
-				[ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ].some( function ( propName ) {
+				[ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ].some( ( propName ) => {
 					var matches, timeMatches,
 						dateInfo = metadata[ propName ];
 					if ( dateInfo ) {
@@ -760,9 +760,7 @@
 				categories: this.categoriesDetails.getSerialized(),
 				location: this.locationInput.getSerialized(),
 				other: this.otherDetails.getSerialized(),
-				campaigns: this.campaignDetailsFields.map( function ( field ) {
-					return field.fieldWidget.getSerialized();
-				} )
+				campaigns: this.campaignDetailsFields.map( ( field ) => field.fieldWidget.getSerialized() )
 			};
 		},
 
@@ -862,7 +860,7 @@
 				information.description = this.descriptionsDetails.getWikiText();
 			}
 
-			this.campaignDetailsFields.forEach( function ( layout ) {
+			this.campaignDetailsFields.forEach( ( layout ) => {
 				information.description += layout.fieldWidget.getWikiText();
 			} );
 
@@ -948,7 +946,7 @@
 				Object.keys( captions ).length > 0
 			) {
 				promise = promise
-					.then( function () {
+					.then( () => {
 						// just work out the mediainfo entity id from the page id
 						// @todo FIXME clean this up
 						var status = mw.message( 'mwe-upwiz-submitting-captions', Object.keys( captions ).length );
@@ -959,7 +957,7 @@
 					.then( this.submitCaptions.bind( this, captions ) );
 			}
 
-			return promise.then( function () {
+			return promise.then( () => {
 				if ( Object.keys( details.captionSubmissionErrors ).length > 0 ) {
 					languageCodes = Object.keys( captions );
 					allLanguages = mw.UploadWizard.config.uwLanguages;
@@ -969,10 +967,10 @@
 						languageCodes.length
 					).parse() + '</strong>';
 
-					Object.keys( details.captionSubmissionErrors ).forEach( function ( langCode ) {
+					Object.keys( details.captionSubmissionErrors ).forEach( ( langCode ) => {
 						var msgs = [],
 							error = details.captionSubmissionErrors[ langCode ];
-						error.result.errors.forEach( function ( errorObject ) {
+						error.result.errors.forEach( ( errorObject ) => {
 							var newMsg = '<p>' + errorObject.html + '</p>';
 							if ( msgs.indexOf( newMsg ) === -1 ) {
 								msgs.push( newMsg );
@@ -1025,7 +1023,7 @@
 				action: 'query',
 				prop: 'info',
 				titles: this.getTitle().getPrefixedDb()
-			} ).then( function ( result ) {
+			} ).then( ( result ) => {
 				var message;
 
 				if ( result.query.pages[ 0 ].missing ) {
@@ -1157,7 +1155,7 @@
 			return this.upload.api.postWithEditToken(
 				params, ajaxOptions
 			)
-				.catch( function ( code, result ) {
+				.catch( ( code, result ) => {
 					self.captionSubmissionErrors[ language ] = {
 						code: code,
 						result: result
@@ -1183,7 +1181,7 @@
 				.then( this.validateWikiTextSubmitResult.bind( this, params ) )
 				// making it here means the upload is a success, or it would've been
 				// rejected by now (either by HTTP status code, or in validateWikiTextSubmitResult)
-				.then( function ( result ) {
+				.then( ( result ) => {
 					details.title = mw.Title.makeTitle( 6, result.upload.filename );
 					details.upload.extractImageInfo( result.upload.imageinfo );
 					details.upload.thisProgress = 1.0;
@@ -1191,7 +1189,7 @@
 					return result;
 				} )
 				// uh-oh - something went wrong!
-				.catch( function ( code, result ) {
+				.catch( ( code, result ) => {
 					details.upload.state = 'error';
 					details.processError( code, result );
 					return $.Deferred().reject( code, result );
@@ -1234,7 +1232,7 @@
 						// * mwe-upwiz-publish
 						// * mwe-upwiz-assembling
 						this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
-						setTimeout( function () {
+						setTimeout( () => {
 							if ( details.upload.state !== 'aborted' ) {
 								details.submitWikiTextInternal( {
 									action: 'upload',

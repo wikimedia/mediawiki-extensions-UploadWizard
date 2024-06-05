@@ -1,7 +1,7 @@
-QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', function ( hooks ) {
+QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 	'use strict';
 
-	hooks.beforeEach( function () {
+	hooks.beforeEach( () => {
 		mw.FlickrChecker.fileNames = {};
 	} );
 
@@ -12,7 +12,7 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', function ( hooks ) {
 		return new mw.FlickrChecker( wizard, upload );
 	}
 
-	QUnit.test( 'getFilenameFromItem() simple case', function ( assert ) {
+	QUnit.test( 'getFilenameFromItem() simple case', ( assert ) => {
 		var flickrChecker = getInstance();
 		assert.strictEqual(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
@@ -20,7 +20,7 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', function ( hooks ) {
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() with empty title', function ( assert ) {
+	QUnit.test( 'getFilenameFromItem() with empty title', ( assert ) => {
 		var flickrChecker = getInstance();
 		assert.strictEqual(
 			flickrChecker.getFilenameFromItem( '', 123, 'johndoe' ),
@@ -28,7 +28,7 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', function ( hooks ) {
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict within instance', function ( assert ) {
+	QUnit.test( 'getFilenameFromItem() name conflict within instance', ( assert ) => {
 		var flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		assert.strictEqual(
@@ -42,7 +42,7 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', function ( hooks ) {
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict between different instances', function ( assert ) {
+	QUnit.test( 'getFilenameFromItem() name conflict between different instances', ( assert ) => {
 		var flickrChecker = getInstance();
 		var fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		assert.strictEqual(

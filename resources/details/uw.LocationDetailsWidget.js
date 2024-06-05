@@ -61,10 +61,10 @@
 		this.connect( this, { change: 'onChange' } );
 
 		this.mapButton.toggle( false );
-		mw.loader.using( [ 'ext.kartographer.box', 'ext.kartographer.editing' ] ).done( function () {
+		mw.loader.using( [ 'ext.kartographer.box', 'ext.kartographer.editing' ] ).done( () => {
 			// Kartographer is installed and we'll be able to show the map. Display the button.
 			this.mapButton.toggle( true );
-		}.bind( this ) );
+		} );
 	};
 
 	OO.inheritClass( uw.LocationDetailsWidget, uw.DetailsWidget );
@@ -74,7 +74,7 @@
 	 */
 	uw.LocationDetailsWidget.prototype.onChange = function () {
 		var widget = this;
-		this.getErrors().done( function ( errors ) {
+		this.getErrors().done( ( errors ) => {
 			widget.mapButton.setDisabled( !( errors.length === 0 && widget.getWikiText() !== '' ) );
 		} );
 	};

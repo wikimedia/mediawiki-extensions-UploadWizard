@@ -51,11 +51,11 @@
 		}
 
 		// when selecting an item that has a custom input, we'll immediately focus it
-		this.on( 'change', function ( group, item ) {
+		this.on( 'change', ( group, item ) => {
 			if ( item && item.isSelected && item.isSelected() ) {
 				// wrapped inside setTimeout to ensure it goes at the end of the call stack,
 				// just in case something steals focus in the meantime...
-				setTimeout( function () {
+				setTimeout( () => {
 					var name = item.getData();
 					if ( self.customInputs[ name ] ) {
 						self.customInputs[ name ].focus();
@@ -114,7 +114,7 @@
 		var self = this,
 			options = [];
 
-		this.config.licenses.forEach( function ( licenseName ) {
+		this.config.licenses.forEach( ( licenseName ) => {
 			var option;
 
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
@@ -129,7 +129,7 @@
 
 			// when custom text area receives focus, we should make sure this element is selected
 			if ( self.customInputs[ licenseName ] ) {
-				self.customInputs[ licenseName ].on( 'focus', function () {
+				self.customInputs[ licenseName ].on( 'focus', () => {
 					option.setSelected( true );
 				} );
 			}
@@ -148,7 +148,7 @@
 		var self = this,
 			options = [];
 
-		this.config.licenses.forEach( function ( licenseName ) {
+		this.config.licenses.forEach( ( licenseName ) => {
 			var option;
 
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
@@ -164,7 +164,7 @@
 			// when custom input fields changes, we should make sure this element is selected when
 			// there is content, or deselected when empty
 			if ( self.customInputs[ licenseName ] ) {
-				self.customInputs[ licenseName ].on( 'focus', function () {
+				self.customInputs[ licenseName ].on( 'focus', () => {
 					option.setSelected( true );
 				} );
 			}
@@ -183,7 +183,7 @@
 			self = this,
 			values = this.getValue();
 
-		wikiTexts = Object.keys( values ).map( function ( name ) {
+		wikiTexts = Object.keys( values ).map( ( name ) => {
 			var wikiText = self.getLicenceWikiText( name ),
 				value = values[ name ];
 			if ( typeof value === 'string' ) {
@@ -229,7 +229,7 @@
 			}
 		} else if ( this.type === 'checkbox' ) {
 			selected = this.group.findSelectedItems();
-			selected.forEach( function ( item ) {
+			selected.forEach( ( item ) => {
 				name = item.getData();
 				result[ name ] = !self.customInputs[ name ] || self.customInputs[ name ].getValue();
 			} );
@@ -245,7 +245,7 @@
 		var self = this,
 			selectArray = [];
 
-		Object.keys( values ).forEach( function ( name ) {
+		Object.keys( values ).forEach( ( name ) => {
 			var value = values[ name ];
 			if ( typeof value === 'string' && self.customInputs[ name ] ) {
 				self.customInputs[ name ].setValue( value );
@@ -306,7 +306,7 @@
 			wikiTexts;
 
 		if ( this.config.prependTemplates !== undefined ) {
-			this.config.prependTemplates.forEach( function ( template ) {
+			this.config.prependTemplates.forEach( ( template ) => {
 				templates.unshift( template );
 			} );
 		}
@@ -316,9 +316,7 @@
 			templates = [ templates.join( '|' ) ];
 		}
 
-		wikiTexts = templates.map( function ( t ) {
-			return '{{' + t + '}}';
-		} );
+		wikiTexts = templates.map( ( t ) => '{{' + t + '}}' );
 		return wikiTexts.join( '' );
 	};
 
@@ -358,7 +356,7 @@
 		}
 		$licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
 		if ( licenseInfo.props.icons !== undefined ) {
-			licenseInfo.props.icons.forEach( function ( icon ) {
+			licenseInfo.props.icons.forEach( ( icon ) => {
 				$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 			} );
 		}
@@ -407,7 +405,7 @@
 		button = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
 			flags: [ 'progressive' ]
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			self.showPreview( self.customInputs[ name ].getValue() );
 		} );
 

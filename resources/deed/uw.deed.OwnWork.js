@@ -140,7 +140,7 @@
 			],
 			classes: [ 'mwe-upwiz-deed-origin' ]
 		} );
-		this.originRadio.on( 'select', function ( selectedOption ) {
+		this.originRadio.on( 'select', ( selectedOption ) => {
 			revealOptionContent( self.originRadio.$element, selectedOption.$element );
 
 			// this radio option implementation doesn't match the existing generic
@@ -224,7 +224,7 @@
 			]
 		} );
 		this.originRadio.$element.find( '.mwe-upwiz-deed-origin-others-container' ).append( this.originOthersRadio.$element );
-		this.originOthersRadio.on( 'select', function ( selectedOption ) {
+		this.originOthersRadio.on( 'select', ( selectedOption ) => {
 			revealOptionContent( self.originOthersRadio.$element, selectedOption.$element );
 
 			// let's also emit a 'change' event on the parent radio to satisfy the listener
@@ -243,10 +243,10 @@
 			// but it appears that some node is preventing clicks from propagating,
 			// and it's making it impossible to access this input by mouse;
 			// this is just a workaround to resolve that
-			$( this ).focus();
+			$( this ).trigger( 'focus' );
 		} );
 		this.originRadio.$element.find( '.mwe-upwiz-deed-origin-ai-container' ).append( this.aiTextInput.$element );
-		this.aiTextInput.on( 'change', function ( value ) {
+		this.aiTextInput.on( 'change', ( value ) => {
 			self.setAuthorInputValue( value );
 			// let's also emit a 'change' event on the parent radio to satisfy the listener
 			// that checks and shows/hides an error message
@@ -321,7 +321,7 @@
 			],
 			classes: [ 'mwe-upwiz-deed-purpose' ]
 		} );
-		this.purposeRadio.on( 'select', function ( selectedOption ) {
+		this.purposeRadio.on( 'select', ( selectedOption ) => {
 			revealOptionContent( self.purposeRadio.$element, selectedOption.$element );
 
 			// let's also emit a 'change' event to satisfy the listener that checks

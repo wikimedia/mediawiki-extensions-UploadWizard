@@ -47,7 +47,7 @@
 		this.nextButtonDespiteFailures = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
 			flags: [ 'progressive' ]
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			details.emit( 'finalize-details-after-removal' );
 		} );
 
@@ -114,7 +114,7 @@
 	uw.ui.Details.prototype.addNextButton = function () {
 		var ui = this;
 
-		this.nextButtonPromise.done( function () {
+		this.nextButtonPromise.done( () => {
 			ui.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )

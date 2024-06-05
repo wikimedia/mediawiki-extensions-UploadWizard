@@ -94,11 +94,11 @@
 			classes: [ 'mwe-upwiz-button-next' ],
 			label: mw.message( 'mwe-upwiz-next' ).text(),
 			flags: [ 'progressive', 'primary' ]
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			ui.emit( 'next-step' );
 		} );
 
-		this.nextButtonPromise.done( function () {
+		this.nextButtonPromise.done( () => {
 			ui.$buttons.append( ui.nextButton.$element );
 		} );
 	};
@@ -112,11 +112,11 @@
 		this.previousButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-previous' ],
 			label: mw.message( 'mwe-upwiz-previous' ).text()
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			ui.emit( 'previous-step' );
 		} );
 
-		this.previousButtonPromise.done( function () {
+		this.previousButtonPromise.done( () => {
 			ui.$buttons.append( ui.previousButton.$element );
 		} );
 	};

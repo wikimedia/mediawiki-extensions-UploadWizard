@@ -50,7 +50,7 @@
 			this.$deedsContainer.addClass( 'ui-helper-clearfix' )
 		);
 
-		this.nextButtonPromise.done( function () {
+		this.nextButtonPromise.done( () => {
 			// hide "next" button, controller will only show it once license has
 			// been selected
 			self.nextButton.$element.hide();
@@ -80,13 +80,13 @@
 		this.$deedsContainer.append( deedChooser.$element );
 		deedChooser.onLayoutReady();
 
-		deedChooser.uploads.forEach( function ( upload ) {
+		deedChooser.uploads.forEach( ( upload ) => {
 			var $element = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
 			// Add previews and details to the DOM
 			if ( !upload.file.fromURL ) {
 				// This must match the CSS dimensions of .mwe-upwiz-thumbnail
-				upload.getThumbnail( 120, 120 ).done( function ( thumb ) {
+				upload.getThumbnail( 120, 120 ).done( ( thumb ) => {
 					mw.UploadWizard.placeThumbnail( $element, thumb );
 				} );
 
@@ -103,14 +103,14 @@
 
 		this.clearForm();
 
-		deedChoosers.forEach( function ( deedChooser ) {
-			deedChooser.uploads.forEach( function ( upload ) {
+		deedChoosers.forEach( ( deedChooser ) => {
+			deedChooser.uploads.forEach( ( upload ) => {
 				var $thumbContainer = $( '<div>' ).addClass( 'mwe-upwiz-deeds-individual-thumbnail' ),
 					$element = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
 				// Add previews and details to the DOM
 				if ( !upload.file.fromURL ) {
-					upload.getThumbnail( 150, 150 ).done( function ( thumb ) {
+					upload.getThumbnail( 150, 150 ).done( ( thumb ) => {
 						mw.UploadWizard.placeThumbnail( $element, thumb );
 					} );
 

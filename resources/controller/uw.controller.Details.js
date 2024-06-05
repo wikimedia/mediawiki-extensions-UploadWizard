@@ -58,7 +58,7 @@
 		// make sure queue is empty before starting this step
 		this.queue.abortExecuting();
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			var serialized;
 
 			// get existing details
@@ -104,7 +104,7 @@
 		// rest failed because of abusefilter (or another recoverable error), in
 		// which case we'll want the "copy" feature to appear below the 2nd
 		// upload (or the first not-yet-completed not flat-out-failed upload)
-		this.uploads.some( function ( upload ) {
+		this.uploads.some( ( upload ) => {
 			if ( upload && invalidStates.indexOf( upload.state ) === -1 ) {
 				first = upload;
 				return true; // Break Array.some loop
@@ -147,7 +147,7 @@
 	uw.controller.Details.prototype.startDetails = function () {
 		var details = this;
 
-		this.valid().done( function ( valid ) {
+		this.valid().done( ( valid ) => {
 			if ( valid ) {
 				details.ui.hideEndButtons();
 				details.submit();
@@ -172,14 +172,14 @@
 		var validityPromises = [ $.Deferred().resolve( [], [] ).promise() ],
 			titles = [];
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			// Update any error/warning messages about all DetailsWidgets
 			var promise = upload.details.checkValidity( true ).then( function () {
 				var errors = [],
 					warnings = [],
 					title;
 
-				Array.prototype.forEach.call( arguments, function ( result ) {
+				Array.prototype.forEach.call( arguments, ( result ) => {
 					errors = errors.concat( result[ 0 ] );
 					warnings = warnings.concat( result[ 1 ] );
 				} );
@@ -210,7 +210,7 @@
 			var errors = [],
 				warnings = [];
 
-			Array.prototype.forEach.call( arguments, function ( result ) {
+			Array.prototype.forEach.call( arguments, ( result ) => {
 				errors = errors.concat( result[ 0 ] );
 				warnings = warnings.concat( result[ 1 ] );
 			} );
@@ -250,7 +250,7 @@
 			deferred = $.Deferred(),
 			details = this;
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			if ( details.canTransition( upload ) ) {
 				details.queue.addItem( upload );
 			}
@@ -270,7 +270,7 @@
 	uw.controller.Details.prototype.submit = function () {
 		var details = this;
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			// Clear error state
 			if ( upload.state === 'error' || upload.state === 'recoverable-error' ) {
 				upload.state = details.stepName;
@@ -284,7 +284,7 @@
 		this.ui.disableEdits();
 		this.removeCopyMetadataFeature();
 
-		return this.transitionAll().then( function () {
+		return this.transitionAll().then( () => {
 			details.showErrors();
 
 			if ( details.showNext() ) {

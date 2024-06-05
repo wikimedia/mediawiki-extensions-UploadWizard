@@ -13,12 +13,10 @@
 		uw.MetadataPage.super.call( this, upload.getFilename(), config );
 
 		this.upload = upload;
-		this.metadataContent = config.content.filter( function ( content ) {
-			return content instanceof uw.MetadataContent;
-		} ).shift();
+		this.metadataContent = config.content.filter( ( content ) => content instanceof uw.MetadataContent ).shift();
 		this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-metadata-page-thumbnail' );
 
-		this.upload.getThumbnail( 30, 30 ).done( function ( thumb ) {
+		this.upload.getThumbnail( 30, 30 ).done( ( thumb ) => {
 			mw.UploadWizard.placeThumbnail( self.$thumbnailDiv, thumb );
 		} );
 	};

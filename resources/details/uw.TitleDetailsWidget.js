@@ -131,26 +131,22 @@
 		}
 
 		return mw.DestinationChecker.checkTitle( title.getPrefixedText() )
-			.then( function ( result ) {
+			.then( ( result ) => {
 				var moreErrors = processDestinationCheck( result );
 				if ( result.blacklist.unavailable ) {
 					// We don't have a title blacklist, so just check for some likely undesirable patterns.
 					moreErrors = moreErrors.concat(
-						mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( function ( errorCode ) {
+						mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( ( errorCode ) =>
 							// Messages:
 							// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
 							// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
-							return mw.message( 'mwe-upwiz-error-title-' + errorCode );
-						} )
+							 mw.message( 'mwe-upwiz-error-title-' + errorCode )
+						 )
 					);
 				}
 				return moreErrors;
 			} )
-			.then( function ( moreErrors ) {
-				return [].concat( errors, moreErrors );
-			}, function () {
-				return $.Deferred().resolve( errors );
-			} );
+			.then( ( moreErrors ) => [].concat( errors, moreErrors ), () => $.Deferred().resolve( errors ) );
 	};
 
 	/**
@@ -214,7 +210,7 @@
 			// feedback request for titleblacklist
 			if ( mw.UploadWizard.config.blacklistIssuesPage !== undefined && mw.UploadWizard.config.blacklistIssuesPage !== '' ) {
 				messageParams[ 0 ] = 'mwe-upwiz-blacklisted-details-feedback';
-				messageParams.push( function () {
+				messageParams.push( () => {
 					var feedback = new mw.Feedback( {
 						title: new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
 						dialogTitleMessageKey: 'mwe-upwiz-feedback-title'

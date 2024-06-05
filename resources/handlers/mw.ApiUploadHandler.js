@@ -150,10 +150,10 @@
 		}
 
 		if ( code === 'abusefilter-warning' ) {
-			$extra = this.makeOverrideButton().on( 'click', function () {
+			$extra = this.makeOverrideButton().on( 'click', () => {
 				// No need to ignore the error, AbuseFilter will only return it once
 				this.start();
-			}.bind( this ) ).$element;
+			} ).$element;
 		}
 
 		this.setError( code, result.errors[ 0 ].html, $extra );
@@ -173,14 +173,14 @@
 			unknownAmount = duplicates.length - Object.keys( files ).length;
 
 		return this.getDuplicateSource( Object.keys( files ) ).then(
-			function ( data ) {
+			( data ) => {
 				this.setDuplicateError( code, result, data.local, data.foreign, unknownAmount );
-			}.bind( this ),
-			function () {
+			},
+			() => {
 				// if anything goes wrong trying to figure out the source of
 				// duplicates, just move on with local duplicate handling
 				this.setDuplicateError( code, result, files, {}, unknownAmount );
-			}.bind( this )
+			}
 		);
 	};
 
@@ -189,7 +189,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadHandler.prototype.getDuplicateSource = function ( duplicates ) {
-		return this.getImageInfo( duplicates, 'url' ).then( function ( result ) {
+		return this.getImageInfo( duplicates, 'url' ).then( ( result ) => {
 			var local = [],
 				foreign = [],
 				normalized = [];
@@ -200,12 +200,12 @@
 
 			// map of normalized titles, so we can find original title
 			if ( result.query.normalized ) {
-				result.query.normalized.forEach( function ( data ) {
+				result.query.normalized.forEach( ( data ) => {
 					normalized[ data.to ] = data.from;
 				} );
 			}
 
-			Object.keys( result.query.pages ).forEach( function ( pageId ) {
+			Object.keys( result.query.pages ).forEach( ( pageId ) => {
 				var page = result.query.pages[ pageId ],
 					title = normalized[ page.title ] || page.title;
 				if ( page.imagerepository === 'local' ) {
@@ -238,7 +238,7 @@
 
 		unknownAmount = unknownAmount || 0;
 
-		Object.keys( allDuplicates ).forEach( function ( filename ) {
+		Object.keys( allDuplicates ).forEach( ( filename ) => {
 			var href = allDuplicates[ filename ];
 			$a = $( '<a>' ).text( filename );
 			$a.attr( { href: href, target: '_blank' } );
@@ -257,11 +257,11 @@
 		// allow upload to continue if it's only a duplicate of files in a
 		// foreign repo, not when it's a local dupe
 		if ( Object.keys( localDuplicates ).length === 0 ) {
-			override = this.makeOverrideButton().on( 'click', function () {
+			override = this.makeOverrideButton().on( 'click', () => {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicate' );
 				this.setTransported( result );
-			}.bind( this ) );
+			} );
 
 			override.$element.appendTo( $extra );
 		}
@@ -277,11 +277,11 @@
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateOldError = function ( code, result, duplicate, count ) {
 		var filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
-			uploadDuplicate = this.makeOverrideButton().on( 'click', function () {
+			uploadDuplicate = this.makeOverrideButton().on( 'click', () => {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicateversions' );
 				this.setTransported( result );
-			}.bind( this ) );
+			} );
 
 		this.setError( code, mw.message( 'fileexists-duplicate-version', filename, count ).parse(), uploadDuplicate.$element );
 	};
@@ -293,11 +293,11 @@
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateArchiveError = function ( code, result, duplicate ) {
 		var filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
-			uploadDuplicate = this.makeOverrideButton().on( 'click', function () {
+			uploadDuplicate = this.makeOverrideButton().on( 'click', () => {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicate-archive' );
 				this.setTransported( result );
-			}.bind( this ) );
+			} );
 
 		this.setError( code, mw.message( 'file-deleted-duplicate', filename ).parse(), uploadDuplicate.$element );
 	};
@@ -325,7 +325,7 @@
 	mw.ApiUploadHandler.prototype.getFileLinks = function ( filenames ) {
 		var files = {};
 
-		filenames.forEach( function ( filename ) {
+		filenames.forEach( ( filename ) => {
 			var title;
 			try {
 				title = mw.Title.makeTitle( NS_FILE, filename );

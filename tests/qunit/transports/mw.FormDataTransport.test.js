@@ -33,7 +33,7 @@
 		return new mw.FormDataTransport( api, {}, config );
 	}
 
-	QUnit.test( 'Constructor sanity test', function ( assert ) {
+	QUnit.test( 'Constructor sanity test', ( assert ) => {
 		var transport = createTransport();
 
 		assert.true( !!transport );
@@ -53,7 +53,7 @@
 		assert.true( transport.aborted );
 	} );
 
-	QUnit.test( 'createParams', function ( assert ) {
+	QUnit.test( 'createParams', ( assert ) => {
 		var transport = createTransport( 10 ),
 			params = transport.createParams( 'foobar.jpg', 0 );
 
@@ -146,7 +146,7 @@
 		postd.resolve( { upload: { result: 'Poll' } } );
 
 		// call tstub upon checkStatus failure, and verify it got called correctly
-		transport.checkStatus().fail( tstub, function () {
+		transport.checkStatus().fail( tstub, () => {
 			assert.true( tstub.calledWith( 'server-error', { errors: [ {
 				code: 'server-error',
 				html: mw.message( 'api-clientside-error-invalidresponse' ).parse()
@@ -179,7 +179,7 @@
 
 		// confirm that, once second API call was successful, status resolves,
 		// 2 API calls have gone out & the failed call updates stage accordingly
-		return transport.checkStatus().done( function () {
+		return transport.checkStatus().done( () => {
 			assert.true( poststub.calledTwice );
 			assert.true( usstub.firstCall.calledWith( 'queued' ) );
 		} );
@@ -198,7 +198,7 @@
 		poststub.returns( postd.promise() );
 		postd.resolve( 'testing' );
 
-		return transport.checkStatus().done( tstub, function () {
+		return transport.checkStatus().done( tstub, () => {
 			assert.true( tstub.calledWith( 'testing' ) );
 			assert.false( usstub.called );
 		} );
@@ -218,7 +218,7 @@
 		poststub.returns( postd.promise() );
 		postd.reject( 'testing', { error: 'testing' } );
 
-		transport.checkStatus().fail( tstub, function () {
+		transport.checkStatus().fail( tstub, () => {
 			assert.true( tstub.calledWith( 'testing', { error: 'testing' } ) );
 			assert.false( usstub.called );
 			done();

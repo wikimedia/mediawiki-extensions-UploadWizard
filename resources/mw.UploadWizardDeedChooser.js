@@ -31,7 +31,7 @@
 			$radioContainer, $formContainer
 		);
 
-		Object.keys( this.deeds ).forEach( function ( name ) {
+		Object.keys( this.deeds ).forEach( ( name ) => {
 			var deed = chooser.deeds[ name ],
 				radio = new OO.ui.RadioSelectWidget( { classes: [ 'mwe-upwiz-deed-radio-' + name ] } ),
 				option = new OO.ui.RadioOptionWidget(),
@@ -82,14 +82,14 @@
 				if ( config.licensing.defaultType === deed.name ) {
 					chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
 				}
-				radio.on( 'choose', function () {
+				radio.on( 'choose', () => {
 					chooser.selectDeed( deed );
 				} );
 			}
 		} );
 
 		// Deselect all deeds
-		Object.keys( this.deeds ).forEach( function ( name ) {
+		Object.keys( this.deeds ).forEach( ( name ) => {
 			chooser.deselectDeedInterface( name );
 		} );
 	};
@@ -153,7 +153,7 @@
 			$deedForm = this.$element.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
 
 		// deselect all other deeds
-		Object.keys( this.deeds ).forEach( function ( name ) {
+		Object.keys( this.deeds ).forEach( ( name ) => {
 			if ( name === deedName ) {
 				return;
 			}
@@ -172,7 +172,7 @@
 	mw.UploadWizardDeedChooser.prototype.remove = function () {
 		var self = this;
 
-		Object.keys( this.deeds ).forEach( function ( name ) {
+		Object.keys( this.deeds ).forEach( ( name ) => {
 			self.deeds[ name ].unload();
 		} );
 

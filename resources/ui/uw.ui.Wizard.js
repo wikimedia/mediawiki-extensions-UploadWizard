@@ -132,11 +132,9 @@
 				.attr( 'id', 'mwe-upwiz-steps' )
 				.addClass( 'ui-helper-clearfix' )
 				.insertBefore( '#mwe-upwiz-content' ),
-			sortedSteps = this.sortSteps( Object.keys( steps ).map( function ( key ) {
-				return steps[ key ];
-			} ) );
+			sortedSteps = this.sortSteps( Object.keys( steps ).map( ( key ) => steps[ key ] ) );
 
-		sortedSteps.forEach( function ( step ) {
+		sortedSteps.forEach( ( step ) => {
 			var $arrow = $( '<li>' )
 				.attr( 'id', 'mwe-upwiz-step-' + step.stepName )
 				.append(
@@ -147,14 +145,14 @@
 			}
 
 			// once a (new) step loads, highlight it
-			step.on( 'load', function ( $arrow ) {
+			step.on( 'load', ( ( $arrow ) => {
 				if ( step.showInBreadcrumb ) {
 					$steps.arrowStepsHighlight( $arrow );
 				}
 				$steps.show();
-			}.bind( step, $arrow ) );
+			} ).bind( step, $arrow ) );
 
-			step.on( 'finished', function () {
+			step.on( 'finished', () => {
 				$steps.hide();
 			} );
 		} );

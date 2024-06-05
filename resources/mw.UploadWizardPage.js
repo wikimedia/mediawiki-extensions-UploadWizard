@@ -50,7 +50,7 @@
 		uploadWizard.createInterface( '#upload-wizard' );
 	};
 
-	$( function () {
+	$( () => {
 		// show page.
 		mw.UploadWizardPage();
 	} );

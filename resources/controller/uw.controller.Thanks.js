@@ -48,7 +48,7 @@
 			return;
 		}
 
-		uploads.forEach( function ( upload ) {
+		uploads.forEach( ( upload ) => {
 			thanks.ui.addUpload( upload );
 		} );
 

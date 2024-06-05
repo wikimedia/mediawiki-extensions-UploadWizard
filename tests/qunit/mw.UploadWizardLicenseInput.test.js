@@ -14,7 +14,7 @@ QUnit.module( 'ext.uploadWizardLicenseInput', QUnit.newMwEnvironment( {
 	}
 } ) );
 
-QUnit.test( 'Smoke test', function ( assert ) {
+QUnit.test( 'Smoke test', ( assert ) => {
 	var config = { type: 'or', licenses: [] };
 	var $fixture = $( '<div>' );
 	var uwLicenseInput = new mw.UploadWizardLicenseInput( config );
@@ -22,7 +22,7 @@ QUnit.test( 'Smoke test', function ( assert ) {
 	assert.true( !!uwLicenseInput, 'LicenseInput object created !' );
 } );
 
-QUnit.test( 'createInputs()', function ( assert ) {
+QUnit.test( 'createInputs()', ( assert ) => {
 	var config = { type: 'or', licenses: [ 'cc-by-sa-3.0' ] };
 	var $fixture = $( '<div>' );
 
@@ -38,7 +38,7 @@ QUnit.test( 'createInputs()', function ( assert ) {
 	assert.strictEqual( $label.length, 1, 'Label created.' );
 } );
 
-QUnit.test( 'createGroupedInputs()', function ( assert ) {
+QUnit.test( 'createGroupedInputs()', ( assert ) => {
 	var config = {
 		type: 'or',
 		defaults: [ 'cc-by-sa-3.0' ],

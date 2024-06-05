@@ -77,7 +77,7 @@
 			label: mw.message( 'mwe-upwiz-skip-tutorial-future' ).text()
 		} );
 
-		this.skipCheckbox.on( 'change', function () {
+		this.skipCheckbox.on( 'change', () => {
 			ui.emit( 'skip-tutorial-click', ui.skipCheckbox.isSelected() );
 		} );
 
@@ -87,7 +87,7 @@
 
 		// Helpdesk link click
 		// eslint-disable-next-line no-jquery/no-global-selector
-		$( '#mwe-upwiz-tutorial-helpdesk' ).on( 'click', function () {
+		$( '#mwe-upwiz-tutorial-helpdesk' ).on( 'click', () => {
 			ui.emit( 'helpdesk-click' );
 		} );
 
@@ -123,11 +123,11 @@
 			classes: [ 'mwe-upwiz-button-next' ],
 			label: mw.message( 'mwe-upwiz-next' ).text(),
 			flags: [ 'progressive', 'primary' ]
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			ui.emit( 'next-step' );
 		} );
 
-		this.nextButtonPromise.done( function () {
+		this.nextButtonPromise.done( () => {
 			ui.$buttons.append(
 				new OO.ui.HorizontalLayout( {
 					items: [ ui.skipCheckbox, ui.skipCheckboxLabel, ui.nextButton ]

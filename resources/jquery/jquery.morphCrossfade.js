@@ -105,7 +105,7 @@
 					$oldPanel.css( { position: 'absolute' } );
 					// fade WITHOUT hiding when opacity = 0
 					// eslint-disable-next-line no-jquery/no-animate
-					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', function () {
+					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', () => {
 						$oldPanel.css( { visibility: 'hidden' } );
 					} );
 				}
@@ -113,7 +113,7 @@
 
 				$newPanel.css( { visibility: 'visible' } );
 				// eslint-disable-next-line no-jquery/no-animate
-				$container.stop().animate( { height: $newPanel.outerHeight() }, speed, 'linear', function () {
+				$container.stop().animate( { height: $newPanel.outerHeight() }, speed, 'linear', () => {
 					// we place it back into the flow, in case its size changes.
 					$newPanel.css( { position: 'relative' } );
 					// and allow the container to grow with it.

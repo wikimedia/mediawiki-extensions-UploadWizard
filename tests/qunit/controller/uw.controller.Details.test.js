@@ -42,7 +42,7 @@
 		};
 	}
 
-	QUnit.test( 'Constructor sanity test', function ( assert ) {
+	QUnit.test( 'Constructor sanity test', ( assert ) => {
 		var step = new uw.controller.Details( new mw.Api(), {
 			maxSimultaneousConnections: 1
 		} );
@@ -85,7 +85,7 @@
 		assert.true( stepUiStub.called );
 	} );
 
-	QUnit.test( 'canTransition', function ( assert ) {
+	QUnit.test( 'canTransition', ( assert ) => {
 		var upload = {},
 			step = new uw.controller.Details( new mw.Api(), {
 				maxSimultaneousConnections: 1
@@ -126,7 +126,7 @@
 		];
 
 		step.transitionAll().done( donestub );
-		setTimeout( function () {
+		setTimeout( () => {
 			calls = [ tostub.getCall( 0 ), tostub.getCall( 1 ), tostub.getCall( 2 ) ];
 
 			assert.strictEqual( calls[ 0 ].args[ 0 ].id, 15 );
@@ -134,11 +134,11 @@
 
 			ds[ 0 ].resolve();
 			ds[ 1 ].resolve();
-			setTimeout( function () {
+			setTimeout( () => {
 				assert.strictEqual( donestub.called, false );
 
 				ds[ 2 ].resolve();
-				setTimeout( function () {
+				setTimeout( () => {
 					assert.true( donestub.called );
 
 					done();

@@ -164,7 +164,7 @@
 			copyingOther = false;
 
 		// Filter serialized data to only the types we want to copy
-		metadataTypes.forEach( function ( type ) {
+		metadataTypes.forEach( ( type ) => {
 			sourceValue[ type ] = serialized[ type ];
 			copyingTitle = copyingTitle || type === 'title';
 			copyingOther = copyingOther || type === 'other';
@@ -193,7 +193,7 @@
 				// numbers.
 				sourceValue.title.title = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
 					// eslint-disable-next-line no-loop-func
-					function ( str, m1, m2, m3 ) {
+					( str, m1, m2, m3 ) => {
 						var newstr = String( +m2 + i );
 						return m1 + new Array( m2.length + 1 - newstr.length )
 							.join( '0' ) + newstr + m3;

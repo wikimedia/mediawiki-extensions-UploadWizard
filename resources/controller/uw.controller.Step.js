@@ -66,11 +66,11 @@
 			'remove-upload': this.removeUpload
 		};
 
-		this.ui.on( 'next-step', function () {
+		this.ui.on( 'next-step', () => {
 			step.moveNext();
 		} );
 
-		this.ui.on( 'previous-step', function () {
+		this.ui.on( 'previous-step', () => {
 			step.movePrevious();
 		} );
 
@@ -128,7 +128,7 @@
 			test: step.hasData.bind( this )
 		} );
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			upload.state = step.stepName;
 
 			step.bindUploadHandlers( upload );
@@ -143,7 +143,7 @@
 	uw.controller.Step.prototype.unload = function () {
 		var step = this;
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			step.unbindUploadHandlers( upload );
 		} );
 
@@ -183,7 +183,7 @@
 	uw.controller.Step.prototype.bindUploadHandlers = function ( upload ) {
 		var controller = this;
 
-		Object.keys( this.uploadHandlers ).forEach( function ( event ) {
+		Object.keys( this.uploadHandlers ).forEach( ( event ) => {
 			var callback = controller.uploadHandlers[ event ];
 			upload.on( event, callback, [ upload ], controller );
 		} );
@@ -197,7 +197,7 @@
 	uw.controller.Step.prototype.unbindUploadHandlers = function ( upload ) {
 		var controller = this;
 
-		Object.keys( this.uploadHandlers ).forEach( function ( event ) {
+		Object.keys( this.uploadHandlers ).forEach( ( event ) => {
 			var callback = controller.uploadHandlers[ event ];
 			upload.off( event, callback, controller );
 		} );
@@ -265,7 +265,7 @@
 		// normalize to array of states, even though input can be 1 string
 		states = Array.isArray( states ) ? states : [ states ];
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			if ( states.indexOf( upload.state ) > -1 ) {
 				count++;
 			}
@@ -339,7 +339,7 @@
 		// We must not remove items from an array while iterating over it with $.each (it causes the
 		// next item to be skipped). Find and queue them first, then remove them.
 		var toRemove = [];
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			if ( upload.state === 'error' || upload.state === 'recoverable-error' ) {
 				toRemove.push( upload );
 			}

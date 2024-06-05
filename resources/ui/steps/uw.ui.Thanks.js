@@ -95,7 +95,7 @@
 		// TODO: make the step order configurable by campaign definitions instead of using these hacks
 		beginButtonTarget = this.getButtonConfig( 'beginButton', 'target' );
 		if ( !beginButtonTarget || ( beginButtonTarget === 'dropObjref' && !this.isObjectReferenceGiven() ) ) {
-			this.beginButton.on( 'click', function () {
+			this.beginButton.on( 'click', () => {
 				thanks.emit( 'next-step' );
 			} );
 		} else {
@@ -104,7 +104,7 @@
 			}
 			this.beginButton.setHref( beginButtonTarget );
 		}
-		this.beginButton.on( 'click', function () {
+		this.beginButton.on( 'click', () => {
 			mw.DestinationChecker.clearCache();
 		} );
 
@@ -155,7 +155,7 @@
 			);
 
 		// This must match the CSS dimensions of .mwe-upwiz-thumbnail
-		upload.getThumbnail( 200, 200 ).done( function ( thumb ) {
+		upload.getThumbnail( 200, 200 ).done( ( thumb ) => {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 		} );
 

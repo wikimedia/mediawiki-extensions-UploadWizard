@@ -5,6 +5,7 @@
 	/**
 	 * A categories field in UploadWizard's "Details" step form.
 	 *
+	 * @param config
 	 * @extends uw.DetailsWidget
 	 */
 	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget( config ) {
@@ -27,10 +28,10 @@
 			return widget;
 		};
 
-		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( function ( cat ) {
+		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( ( cat ) =>
 			// Keep only valid titles
-			return !!mw.Title.makeTitle( NS_CATEGORY, cat );
-		} );
+			 !!mw.Title.makeTitle( NS_CATEGORY, cat )
+		 );
 		this.categoriesWidget.setValue( categories );
 
 		this.$element.addClass( 'mwe-upwiz-categoriesDetailsWidget' );
@@ -53,9 +54,7 @@
 	 */
 	uw.CategoriesDetailsWidget.prototype.getWarnings = function () {
 		var warnings = [],
-			missing = this.categoriesWidget.getItems().filter( function ( item ) {
-				return item.missing;
-			} );
+			missing = this.categoriesWidget.getItems().filter( ( item ) => item.missing );
 
 		if ( missing.length > 0 ) {
 			warnings.push( mw.message( 'mwe-upwiz-categories-missing', missing.length ) );
@@ -82,10 +81,10 @@
 				hiddenCats.push( mw.UploadWizard.config.trackingCategory.campaign );
 			}
 		}
-		hiddenCats = hiddenCats.filter( function ( cat ) {
+		hiddenCats = hiddenCats.filter( ( cat ) =>
 			// Keep only valid titles
-			return !!mw.Title.makeTitle( NS_CATEGORY, cat );
-		} );
+			 !!mw.Title.makeTitle( NS_CATEGORY, cat )
+		 );
 
 		missingCatsWikiText = null;
 		if (
@@ -95,15 +94,11 @@
 			missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
 		}
 
-		categories = this.categoriesWidget.getItems().map( function ( item ) {
-			return item.data;
-		} );
+		categories = this.categoriesWidget.getItems().map( ( item ) => item.data );
 
 		// add all categories
 		wikiText = categories.concat( hiddenCats )
-			.map( function ( cat ) {
-				return '[[' + mw.Title.makeTitle( NS_CATEGORY, cat ).getPrefixedText() + ']]';
-			} )
+			.map( ( cat ) => '[[' + mw.Title.makeTitle( NS_CATEGORY, cat ).getPrefixedText() + ']]' )
 			.join( '\n' );
 
 		// if so configured, and there are no user-visible categories, add warning
@@ -120,9 +115,7 @@
 	 */
 	uw.CategoriesDetailsWidget.prototype.getSerialized = function () {
 		return {
-			value: this.categoriesWidget.getItems().map( function ( item ) {
-				return item.data;
-			} )
+			value: this.categoriesWidget.getItems().map( ( item ) => item.data )
 		};
 	};
 

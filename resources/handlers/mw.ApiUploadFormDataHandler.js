@@ -19,7 +19,7 @@
 		this.transport = new mw.FormDataTransport(
 			this.api,
 			this.formData
-		).on( 'update-stage', function ( stage ) {
+		).on( 'update-stage', ( stage ) => {
 			upload.ui.setStatus( 'mwe-upwiz-' + stage );
 		} );
 	};
@@ -36,13 +36,13 @@
 	mw.ApiUploadFormDataHandler.prototype.submit = function () {
 		var handler = this;
 
-		return this.configureEditToken().then( function () {
+		return this.configureEditToken().then( () => {
 			handler.beginTime = Date.now();
 			handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 			handler.upload.ui.showTransportProgress();
 
 			return handler.transport.upload( handler.upload.file, handler.upload.title.getMainText() )
-				.progress( function ( fraction ) {
+				.progress( ( fraction ) => {
 					if ( handler.upload.state === 'aborted' ) {
 						handler.abort();
 						return;
@@ -64,7 +64,7 @@
 	mw.ApiUploadFormDataHandler.prototype.configureEditToken = function () {
 		var handler = this;
 
-		return this.api.getEditToken().then( function ( token ) {
+		return this.api.getEditToken().then( ( token ) => {
 			handler.formData.token = token;
 		} );
 	};

@@ -48,7 +48,7 @@
 			flags: 'destructive',
 			icon: 'trash',
 			framed: false
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			ui.emit( 'upload-removed' );
 		} );
 
@@ -73,7 +73,7 @@
 		// this.progressBar = ( no progress bar for individual uploads yet )
 		// we bind to the ui div since .off() doesn't work for non-DOM objects
 		// TODO Convert this to an OO.EventEmitter, and use OOjs events
-		this.$div.on( 'transportProgressEvent', function () {
+		this.$div.on( 'transportProgressEvent', () => {
 			ui.showTransportProgress();
 		} );
 	};
@@ -214,7 +214,7 @@
 		var $preview = this.$div.find( '.mwe-upwiz-file-preview' ),
 			deferred = $.Deferred();
 		// This must match the CSS dimensions of .mwe-upwiz-file-preview
-		this.upload.getThumbnail( 120, 120 ).done( function ( thumb ) {
+		this.upload.getThumbnail( 120, 120 ).done( ( thumb ) => {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
 			deferred.resolve();
 		} );

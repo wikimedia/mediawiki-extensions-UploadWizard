@@ -74,9 +74,9 @@
 	 */
 	mw.QuickTitleChecker.checkTitle = function ( title ) {
 		var errors = [];
-		Object.keys( mw.QuickTitleChecker.regexSets ).forEach( function ( setName ) {
+		Object.keys( mw.QuickTitleChecker.regexSets ).forEach( ( setName ) => {
 			var regexes = mw.QuickTitleChecker.regexSets[ setName ];
-			regexes.forEach( function ( regex ) {
+			regexes.forEach( ( regex ) => {
 				if ( title.match( regex ) ) {
 					errors.push( setName );
 				}

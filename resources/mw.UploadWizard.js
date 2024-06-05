@@ -6,6 +6,7 @@
 ( function ( uw ) {
 
 	/**
+	 * @param config
 	 * @class
 	 */
 	mw.UploadWizard = function ( config ) {
@@ -47,7 +48,7 @@
 		createInterface: function ( selector ) {
 			this.ui = new uw.ui.Wizard( selector );
 
-			this.initialiseSteps().then( function ( steps ) {
+			this.initialiseSteps().then( ( steps ) => {
 				// "select" the first step - highlight, make it visible, hide all others
 				steps.tutorial.load( [] );
 			} );
@@ -86,7 +87,7 @@
 			steps.thanks.setNextStep( steps.file );
 
 			return $.Deferred().resolve( steps ).promise()
-				.then( function ( steps ) {
+				.then( ( steps ) => {
 					if (
 						self.config.wikibase.enabled &&
 						// .depicts is for backward compatibility - this config
@@ -98,7 +99,7 @@
 						// let's just attempt to load it - if it's not available, we just won't
 						// have that extra step then...
 						return mw.loader.using( [ 'wikibase', 'wikibase.mediainfo.statements' ] ).then(
-							function () {
+							() => {
 								// interject metadata step in between details & thanks
 								steps.metadata = new uw.controller.Metadata( self.api, self.config );
 
@@ -109,14 +110,13 @@
 
 								return steps;
 							},
-							function () {
-								return steps; /* just move on without metadata... */
-							}
+							() => steps /* just move on without metadata... */
+
 						);
 					}
 					return steps;
 				} )
-				.always( function ( steps ) {
+				.always( ( steps ) => {
 					self.steps = steps;
 					self.ui.initialiseSteps( steps );
 				} );
@@ -155,7 +155,7 @@
 				// output is always, reliably, in the same format
 				override = original.then(
 					null, // done handler - doesn't need overriding
-					function ( code, result ) { // fail handler
+					( code, result ) => { // fail handler
 						var response = { errors: [ {
 							code: code,
 							html: result.textStatus || mw.message( 'api-clientside-error-invalidresponse' ).parse()

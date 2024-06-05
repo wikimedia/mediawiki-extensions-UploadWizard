@@ -27,9 +27,7 @@
 		} else if ( config.type === 'select' ) {
 			this.input = new OO.ui.DropdownInputWidget( {
 				classes: [ 'mwe-idfield', 'mwe-upwiz-campaignDetailsWidget-input' ],
-				options: Object.keys( config.options ).map( function ( key ) {
-					return { data: key, label: config.options[ key ] };
-				} )
+				options: Object.keys( config.options ).map( ( key ) => ( { data: key, label: config.options[ key ] } ) )
 			} );
 		} else {
 			throw new Error( 'Unknown campaign field type: ' + config.type );

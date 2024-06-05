@@ -33,14 +33,14 @@
 		this.nextButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-publish-metadata' ).text(),
 			flags: [ 'progressive', 'primary' ]
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			self.emit( 'submit' );
 		} );
 
 		this.skipButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-skip-metadata' ).text(),
 			framed: false
-		} ).on( 'click', function () {
+		} ).on( 'click', () => {
 			self.emit( 'next-step' );
 		} );
 
@@ -109,7 +109,7 @@
 	uw.ui.Metadata.prototype.addNextButton = function () {
 		var self = this;
 
-		this.nextButtonPromise.done( function () {
+		this.nextButtonPromise.done( () => {
 			self.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-metadata-endchoice' )

@@ -135,7 +135,7 @@
 		if ( serialized.name ) {
 			this.name = serialized.name;
 		}
-		serialized.selectedTemplateOptions.forEach( function ( name ) {
+		serialized.selectedTemplateOptions.forEach( ( name ) => {
 			self.templateOptions[ name ].input.setSelected( true );
 		} );
 	};
@@ -201,10 +201,10 @@
 			windowManager.addWindows( [ dialog ] );
 			windowManager.openWindow( dialog );
 
-			dialog.on( 'disagree', function () {
+			dialog.on( 'disagree', () => {
 				deferred.resolve( [ mw.message( 'mwe-upwiz-error-patent-disagree' ) ] );
 			} );
-			dialog.on( 'agree', function () {
+			dialog.on( 'agree', () => {
 				deed.patentAgreed = true;
 				deferred.resolve( [] );
 			} );

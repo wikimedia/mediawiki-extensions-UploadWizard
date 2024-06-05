@@ -23,7 +23,10 @@
 		"no-shadow": "warn",
 		"no-var": "off",
 		"es-x/no-symbol-prototype-description": "warn",
-		"es-x/no-typed-arrays": "warn"
+		"es-x/no-typed-arrays": "warn",
+		"no-mixed-spaces-and-tabs": "warn",
+		"implicit-arrow-linebreak": "warn",
+		"no-jquery/no-extend": "warn"
 	},
 	"settings": {
 		"jsdoc": {

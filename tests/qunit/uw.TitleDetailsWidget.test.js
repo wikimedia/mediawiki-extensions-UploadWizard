@@ -90,10 +90,10 @@
 		}
 	} ) );
 
-	QUnit.test( '.static.makeTitleInFileNS()', function ( assert ) {
+	QUnit.test( '.static.makeTitleInFileNS()', ( assert ) => {
 		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
 
-		makeTitleInFileNSCases.forEach( function ( test ) {
+		makeTitleInFileNSCases.forEach( ( test ) => {
 			var title = makeTitleInFileNS( test.filename );
 			assert.strictEqual(
 				title ? title.getPrefixedText() : title,

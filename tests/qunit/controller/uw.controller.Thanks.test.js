@@ -18,7 +18,7 @@
 ( function ( uw ) {
 	QUnit.module( 'mw.uploadWizard.controller.Thanks', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Constructor sanity test', function ( assert ) {
+	QUnit.test( 'Constructor sanity test', ( assert ) => {
 		var step = new uw.controller.Thanks( new mw.Api(), { display: { thanksLabel: 'Thanks!' } } );
 		assert.true( step instanceof uw.controller.Step );
 		assert.true( !!step.ui );
@@ -38,7 +38,7 @@
 		assert.strictEqual( auStub.callCount, 3 );
 	} );
 
-	QUnit.test( 'Custom button configuration', function ( assert ) {
+	QUnit.test( 'Custom button configuration', ( assert ) => {
 		var config = {
 				display: {
 					homeButton: {
@@ -101,7 +101,7 @@
 
 	} );
 
-	QUnit.test( 'Method drops the given parameter', function ( assert ) {
+	QUnit.test( 'Method drops the given parameter', ( assert ) => {
 		var uiThanks = new uw.ui.Thanks( {} ),
 			locationHref = 'https://commons.wikimedia.org/wiki/Special:UploadWizard?campaign=somecampaign&objref=testRef|MyPage|342&updateList=1&somevar=someval';
 

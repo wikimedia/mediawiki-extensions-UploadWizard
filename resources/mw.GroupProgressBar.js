@@ -67,11 +67,11 @@
 					errorStateCount = 0,
 					hasData = false;
 
-				bar.uploads.forEach( function ( upload ) {
+				bar.uploads.forEach( ( upload ) => {
 					totalWeight += upload[ bar.weightProperty ];
 				} );
 
-				bar.uploads.forEach( function ( upload ) {
+				bar.uploads.forEach( ( upload ) => {
 					if ( upload.state === 'aborted' ) {
 						return;
 					}
@@ -105,7 +105,7 @@
 				} else {
 					bar.showProgress( 1.0 );
 					bar.finished = true;
-					setTimeout( function () {
+					setTimeout( () => {
 						bar.hideBar();
 					}, 500 );
 				}
@@ -194,7 +194,7 @@
 
 		countRemoved: function () {
 			var count = 0;
-			this.uploads.forEach( function ( upload ) {
+			this.uploads.forEach( ( upload ) => {
 				if ( !upload || upload.state === 'aborted' ) {
 					count += 1;
 				}

@@ -323,7 +323,7 @@
 					this.imageinfo.metadata = {};
 				}
 				if ( imageinfo.metadata && imageinfo.metadata.length ) {
-					imageinfo.metadata.forEach( function ( pair ) {
+					imageinfo.metadata.forEach( ( pair ) => {
 						if ( pair !== undefined ) {
 							upload.imageinfo.metadata[ pair.name.toLowerCase() ] = pair.value;
 						}
@@ -403,7 +403,7 @@
 
 			if ( data && data.query && data.query.pages ) {
 				found = false;
-				Object.keys( data.query.pages ).forEach( function ( pageId ) {
+				Object.keys( data.query.pages ).forEach( ( pageId ) => {
 					var page = data.query.pages[ pageId ];
 					if ( page.title && page.title === requestedTitle && page.imageinfo ) {
 						found = true;
@@ -493,7 +493,7 @@
 				// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
 				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
 				// the event with a null.
-				thumbnails.forEach( function ( thumb ) {
+				thumbnails.forEach( ( thumb ) => {
 					var timeoutMs, image;
 
 					if ( thumb.thumberror || ( !( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
@@ -516,14 +516,14 @@
 					image.width = thumb.thumbwidth;
 					image.height = thumb.thumbheight;
 					$( image )
-						.on( 'load', function () {
+						.on( 'load', () => {
 							// publish the image to anyone who wanted it
 							deferred.resolve( image );
 						} )
-						.on( 'error', function () {
+						.on( 'error', () => {
 							// retry with exponential backoff
 							if ( timeoutMs < 8000 ) {
-								setTimeout( function () {
+								setTimeout( () => {
 									timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) );
 									setSrc();
 								}, timeoutMs );
@@ -589,7 +589,7 @@
 	 */
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		var scaling = 1;
-		Object.keys( constraints ).forEach( function ( dim ) {
+		Object.keys( constraints ).forEach( ( dim ) => {
 			var s,
 				constraint = constraints[ dim ];
 			if ( constraint && image[ dim ] > constraint ) {
@@ -777,14 +777,14 @@
 		this.extractMetadataFromJpegMeta()
 			.then( upload.makePreview.bind( upload, width ) )
 			.done( imageCallback )
-			.fail( function () {
+			.fail( () => {
 				// Can't generate the thumbnail locally, get the thumbnail via API after
 				// the file is uploaded. Queries are cached, so if this thumbnail was
 				// already fetched for some reason, we'll get it immediately.
 				if ( upload.state !== 'new' && upload.state !== 'transporting' && upload.state !== 'error' ) {
 					upload.getApiThumbnail( width, height ).done( imageCallback );
 				} else {
-					upload.once( 'success', function () {
+					upload.once( 'success', () => {
 						upload.getApiThumbnail( width, height ).done( imageCallback );
 					} );
 				}
@@ -819,12 +819,12 @@
 				first = true;
 				video = document.createElement( 'video' );
 
-				video.addEventListener( 'loadedmetadata', function () {
+				video.addEventListener( 'loadedmetadata', () => {
 					// seek 2 seconds into video or to half if shorter
 					video.currentTime = Math.min( 2, video.duration / 2 );
 					video.volume = 0;
 				} );
-				video.addEventListener( 'seeked', function () {
+				video.addEventListener( 'seeked', () => {
 					// Firefox 16 sometimes does not work on first seek, seek again
 					if ( first ) {
 						first = false;
@@ -833,7 +833,7 @@
 					} else {
 						// Chrome sometimes shows black frames if grabbing right away.
 						// wait 500ms before grabbing frame
-						setTimeout( function () {
+						setTimeout( () => {
 							var context,
 								canvas = document.createElement( 'canvas' );
 							canvas.width = width;
@@ -854,7 +854,7 @@
 				video.src = url;
 				// If we can't get a frame within 10 seconds, something is probably seriously wrong.
 				// This can happen for broken files where we can't actually seek to the time we wanted.
-				setTimeout( function () {
+				setTimeout( () => {
 					deferred.reject();
 					upload.URL().revokeObjectURL( video.url );
 				}, 10000 );

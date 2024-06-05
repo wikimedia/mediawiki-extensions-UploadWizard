@@ -67,7 +67,7 @@
 			 */
 			xhr: function () {
 				var xhr = $.ajaxSettings.xhr();
-				xhr.upload.addEventListener( 'progress', function ( evt ) {
+				xhr.upload.addEventListener( 'progress', ( evt ) => {
 					var fraction = null;
 					if ( evt.lengthComputable ) {
 						fraction = parseFloat( evt.loaded / evt.total );
@@ -166,11 +166,11 @@
 					newPromise = $.Deferred(),
 					isLastChunk = offset + chunkSize >= fileSize,
 					thisChunkSize = isLastChunk ? ( fileSize % chunkSize ) : chunkSize;
-				prevPromise.done( function () {
+				prevPromise.done( () => {
 					transport.uploadChunk( file, offset )
 						.done( isLastChunk ? deferred.resolve : newPromise.resolve )
 						.fail( deferred.reject )
-						.progress( function ( fraction ) {
+						.progress( ( fraction ) => {
 							// The progress notifications give us per-chunk progress.
 							// Calculate progress for the whole file.
 							deferred.notify( ( offset + fraction * thisChunkSize ) / fileSize );
@@ -229,7 +229,7 @@
 		params.filesize = bytesAvailable;
 		params.chunk = chunk;
 
-		return this.post( params ).then( function ( response ) {
+		return this.post( params ).then( ( response ) => {
 			if ( response.upload && response.upload.filekey ) {
 				transport.filekey = response.upload.filekey;
 			}
@@ -256,7 +256,7 @@
 					file, offset
 				);
 			}
-		}, function ( code, result ) {
+		}, ( code, result ) => {
 			// Ain't this some great machine readable output eh
 			if (
 				result.errors &&
@@ -366,7 +366,7 @@
 		this.request = this.api.post( params );
 
 		return this.request.then(
-			function ( response ) {
+			( response ) => {
 				if ( response.upload && response.upload.result === 'Poll' ) {
 					// If concatenation takes longer than 10 minutes give up
 					if ( ( Date.now() - transport.firstPoll ) > 10 * 60 * 1000 ) {
@@ -394,9 +394,7 @@
 
 				return response;
 			},
-			function ( code, result ) {
-				return $.Deferred().reject( code, result );
-			}
+			( code, result ) => $.Deferred().reject( code, result )
 		);
 	};
 }() );

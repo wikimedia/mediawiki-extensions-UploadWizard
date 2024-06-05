@@ -57,7 +57,7 @@
 
 		uw.PatentDialog.super.prototype.initialize.apply( this, arguments );
 
-		this.uploads.forEach( function ( upload ) {
+		this.uploads.forEach( ( upload ) => {
 			filenames.push(
 				// use given title (if available already) or fall back to filename
 				upload.details ? upload.details.getTitle().getMainText() : upload.title.getMainText()
@@ -176,7 +176,7 @@
 		if ( action === '' ) {
 			this.emit( 'disagree' );
 		} else if ( action === 'confirm' ) {
-			return new OO.ui.Process( function () {
+			return new OO.ui.Process( () => {
 				dialog.emit( 'agree' );
 				dialog.close( { action: action } );
 			} );

@@ -49,12 +49,12 @@
 		}
 
 		if ( this.valid() ) {
-			allValidityPromises = deedChoosers.reduce( function ( carry, deedChooser ) {
+			allValidityPromises = deedChoosers.reduce( ( carry, deedChooser ) => {
 				var fields = deedChooser.deed.getFields(),
-					deedValidityPromises = fields.map( function ( fieldLayout ) {
+					deedValidityPromises = fields.map( ( fieldLayout ) =>
 						// Update any error/warning messages
-						return fieldLayout.checkValidity( true );
-					} );
+						 fieldLayout.checkValidity( true )
+					 );
 
 				return carry.concat( deedValidityPromises );
 			}, [] );
@@ -87,7 +87,7 @@
 	uw.controller.Deed.prototype.unload = function () {
 		uw.controller.Step.prototype.unload.call( this );
 
-		this.getUniqueDeedChoosers( this.uploads ).forEach( function ( deedChooser ) {
+		this.getUniqueDeedChoosers( this.uploads ).forEach( ( deedChooser ) => {
 			deedChooser.remove();
 		} );
 	};
@@ -101,7 +101,7 @@
 		var self = this,
 			// select "provide same information for all files" by default
 			defaultDeedInterface = 'common',
-			localUploads = uploads.filter( function ( upload ) {
+			localUploads = uploads.filter( ( upload ) => {
 				var deed;
 				if ( upload.file.fromURL ) {
 					// external uploads should get a custom deed...
@@ -121,7 +121,7 @@
 			// we can restore the same (common/individual) interface
 			uniqueExistingDeedChoosers = this.getUniqueDeedChoosers( localUploads ),
 			// grab a serialized copy of previous deeds' details (if any)
-			serializedDeeds = localUploads.reduce( function ( map, upload ) {
+			serializedDeeds = localUploads.reduce( ( map, upload ) => {
 				if ( upload.deedChooser ) {
 					map[ upload.getFilename() ] = upload.deedChooser.getSerialized();
 				}
@@ -182,7 +182,7 @@
 		}
 
 		// wire up handler to toggle common/individual deed selection forms
-		multiDeedRadio.on( 'select', function ( selectedOption ) {
+		multiDeedRadio.on( 'select', ( selectedOption ) => {
 			if ( selectedOption.getData() === 'common' ) {
 				self.loadCommon( localUploads );
 			} else if ( selectedOption.getData() === 'individual' ) {
@@ -193,7 +193,7 @@
 		multiDeedRadio.selectItemByData( defaultDeedInterface );
 
 		// restore serialized data (if any)
-		uploads.forEach( function ( upload ) {
+		uploads.forEach( ( upload ) => {
 			if ( serializedDeeds[ upload.getFilename() ] ) {
 				upload.deedChooser.setSerialized( serializedDeeds[ upload.getFilename() ] );
 			}
@@ -214,7 +214,7 @@
 				uploads
 			);
 
-		uploads.forEach( function ( upload ) {
+		uploads.forEach( ( upload ) => {
 			upload.deedChooser = deedChooser;
 		} );
 
@@ -233,7 +233,7 @@
 	uw.controller.Deed.prototype.loadIndividual = function ( uploads ) {
 		var self = this;
 
-		uploads.forEach( function ( upload ) {
+		uploads.forEach( ( upload ) => {
 			var deeds = self.getLicensingDeeds( uploads ),
 				deedChooser = new mw.UploadWizardDeedChooser(
 					self.config,
@@ -309,7 +309,7 @@
 	 * @return {mw.UploadWizardDeedChooser[]}
 	 */
 	uw.controller.Deed.prototype.getUniqueDeedChoosers = function ( uploads ) {
-		return uploads.reduce( function ( uniques, upload ) {
+		return uploads.reduce( ( uniques, upload ) => {
 			if ( upload.deedChooser && uniques.indexOf( upload.deedChooser ) < 0 ) {
 				uniques.push( upload.deedChooser );
 			}
@@ -323,9 +323,7 @@
 	 * @return {boolean}
 	 */
 	uw.controller.Deed.prototype.valid = function () {
-		return this.getUniqueDeedChoosers( this.uploads ).reduce( function ( carry, deedChooser ) {
-			return carry && deedChooser.valid();
-		}, true );
+		return this.getUniqueDeedChoosers( this.uploads ).reduce( ( carry, deedChooser ) => carry && deedChooser.valid(), true );
 	};
 
 	/**

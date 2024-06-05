@@ -57,7 +57,7 @@
 		this.copyAllStatementsButton.connect( this, { click: 'copyStatementsToAllFiles' } );
 
 		// Load thumbnail and append elements to page once ready
-		upload.getThumbnail( 630, 360 ).then( function ( thumb ) {
+		upload.getThumbnail( 630, 360 ).then( ( thumb ) => {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 			self.$element.prepend(
 				$titleDiv,
@@ -71,7 +71,7 @@
 		mw.loader.using( [
 			'wikibase.mediainfo.statements',
 			'wikibase.datamodel'
-		] ).then( function ( require ) {
+		] ).then( ( require ) => {
 			AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget;
 			StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget;
 			wikibaseDatamodel = require( 'wikibase.datamodel' );
@@ -80,11 +80,11 @@
 			propertyTypes = mw.config.get( 'wbmiPropertyTypes' ) || {};
 			propertyDataValuesTypes = [];
 
-			Object.keys( propertyTypes ).forEach( function ( propertyId ) {
+			Object.keys( propertyTypes ).forEach( ( propertyId ) => {
 				propertyDataValuesTypes[ propertyId ] = dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType;
 			} );
 
-			( mw.UploadWizard.config.defaults.statements || [] ).forEach( function ( data ) {
+			( mw.UploadWizard.config.defaults.statements || [] ).forEach( ( data ) => {
 				if ( defaultProperties.indexOf( data.propertyId ) < 0 ) {
 					defaultProperties.push( data.propertyId );
 				}
@@ -92,8 +92,8 @@
 			} );
 
 			Object.freeze( defaultProperties );
-		} ).then( self.setup() ).then( function () {
-			Object.keys( self.statementWidgets ).forEach( function ( propertyId ) {
+		} ).then( self.setup() ).then( () => {
+			Object.keys( self.statementWidgets ).forEach( ( propertyId ) => {
 				var statementWidget = self.statementWidgets[ propertyId ];
 				self.$statementsDiv.append( statementWidget.$element );
 			} );
@@ -120,11 +120,11 @@
 	uw.MetadataContent.prototype.setup = function () {
 		var self = this;
 
-		return this.upload.details.getMediaInfoEntityId().then( function ( entityId ) {
+		return this.upload.details.getMediaInfoEntityId().then( ( entityId ) => {
 			self.entityId = entityId;
 
 			// Create a statement widget for each default property and set its datatype
-			defaultProperties.forEach( function ( propertyId ) {
+			defaultProperties.forEach( ( propertyId ) => {
 				var defaultData = self.getDefaultDataForProperty( propertyId ),
 					widget = self.createStatementWidget(
 						propertyId,
@@ -155,27 +155,23 @@
 			return new wikibaseDatamodel.StatementList();
 		}
 
-		defaultData = defaultStatements.filter( function ( statement ) {
-			return statement.propertyId === propertyId && statement.values;
-		} )[ 0 ];
+		defaultData = defaultStatements.filter( ( statement ) => statement.propertyId === propertyId && statement.values )[ 0 ];
 
 		if ( !defaultData || !defaultData.values ) {
 			return new wikibaseDatamodel.StatementList();
 		}
 
 		return new wikibaseDatamodel.StatementList(
-			defaultData.values.map( function ( itemId ) {
-				return new wikibaseDatamodel.Statement(
-					new wikibaseDatamodel.Claim(
-						new wikibaseDatamodel.PropertyValueSnak(
-							propertyId,
-							new wikibaseDatamodel.EntityId( itemId )
-						),
-						null,
-						null
-					)
-				);
-			} )
+			defaultData.values.map( ( itemId ) => new wikibaseDatamodel.Statement(
+				new wikibaseDatamodel.Claim(
+					new wikibaseDatamodel.PropertyValueSnak(
+						propertyId,
+						new wikibaseDatamodel.EntityId( itemId )
+					),
+					null,
+					null
+				)
+			) )
 		);
 	};
 
@@ -222,7 +218,7 @@
 
 		// don't start subscribing to events until statementwidget has been
 		// pre-populated with initial data
-		widget.setData( data ).then( function () {
+		widget.setData( data ).then( () => {
 			widget.connect( self, { widgetRemoved: 'onStatementWidgetRemoved' } );
 			widget.connect( self, { change: 'enableCopyAllButton' } );
 			widget.connect( self, { change: [ 'emit', 'change' ] } );
@@ -239,13 +235,13 @@
 		var self = this;
 
 		// 1. remove all existing statementWidgets
-		Object.keys( this.statementWidgets ).forEach( function ( propId ) {
+		Object.keys( this.statementWidgets ).forEach( ( propId ) => {
 			self.onStatementWidgetRemoved( propId );
 		} );
 
 		// 2. re-create statement widgets for each PID in the statementWidgets array
 		// NOTE: this currently loses "default-ness"
-		Object.keys( statementWidgets ).forEach( function ( propertyId ) {
+		Object.keys( statementWidgets ).forEach( ( propertyId ) => {
 			var statementWidget = statementWidgets[ propertyId ],
 				sourceData = statementWidget.getData(),
 				targetData,
@@ -259,17 +255,15 @@
 			// construct a new StatementList which is a copy of the existing list,
 			// just a new instance (like, different GUID)
 			targetData = new wikibaseDatamodel.StatementList(
-				sourceData.toArray().map( function ( statement ) {
-					return new wikibaseDatamodel.Statement(
-						new wikibaseDatamodel.Claim(
-							statement.getClaim().getMainSnak(),
-							statement.getClaim().getQualifiers(),
-							null
-						),
-						statement.getReferences(),
-						statement.getRank()
-					);
-				} )
+				sourceData.toArray().map( ( statement ) => new wikibaseDatamodel.Statement(
+					new wikibaseDatamodel.Claim(
+						statement.getClaim().getMainSnak(),
+						statement.getClaim().getQualifiers(),
+						null
+					),
+					statement.getReferences(),
+					statement.getRank()
+				) )
 			);
 
 			valueType = sourceData.toArray()[ 0 ].getClaim().getMainSnak().getValue().getType();
@@ -278,7 +272,7 @@
 		} );
 
 		// 3. Append newly-copied statementWidgets to the page
-		Object.keys( this.statementWidgets ).forEach( function ( propertyId ) {
+		Object.keys( this.statementWidgets ).forEach( ( propertyId ) => {
 			var statementWidget = self.statementWidgets[ propertyId ];
 			self.$statementsDiv.append( statementWidget.$element );
 		} );
@@ -339,7 +333,7 @@
 					}
 				]
 			}
-		).then( function ( confirmed ) {
+		).then( ( confirmed ) => {
 			var statements = self.getStatements();
 			if ( confirmed ) {
 				self.emit( 'copyToAll', statements, self.upload.file.name );
