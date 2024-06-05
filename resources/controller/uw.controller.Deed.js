@@ -51,10 +51,8 @@
 		if ( this.valid() ) {
 			allValidityPromises = deedChoosers.reduce( ( carry, deedChooser ) => {
 				var fields = deedChooser.deed.getFields(),
-					deedValidityPromises = fields.map( ( fieldLayout ) =>
-						// Update any error/warning messages
-						fieldLayout.checkValidity( true )
-					);
+					// Update any error/warning messages
+					deedValidityPromises = fields.map( ( fieldLayout ) => fieldLayout.checkValidity( true ) );
 
 				return carry.concat( deedValidityPromises );
 			}, [] );
