@@ -77,8 +77,8 @@
 
 			return mw.loader.using( 'mediawiki.api.titleblacklist' ).then( () => checker.api.isBlacklisted( title ).then( blacklistResultProcessor ), () =>
 				// it's not blacklisted, because the API isn't even available
-				 $.Deferred().resolve( { notBlacklisted: true, unavailable: true } )
-			 );
+				$.Deferred().resolve( { notBlacklisted: true, unavailable: true } )
+			);
 		},
 
 		/**

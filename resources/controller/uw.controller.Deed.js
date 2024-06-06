@@ -53,8 +53,8 @@
 				var fields = deedChooser.deed.getFields(),
 					deedValidityPromises = fields.map( ( fieldLayout ) =>
 						// Update any error/warning messages
-						 fieldLayout.checkValidity( true )
-					 );
+						fieldLayout.checkValidity( true )
+					);
 
 				return carry.concat( deedValidityPromises );
 			}, [] );
