@@ -28,10 +28,8 @@
 			return widget;
 		};
 
-		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( ( cat ) =>
-			// Keep only valid titles
-			!!mw.Title.makeTitle( NS_CATEGORY, cat )
-		);
+		// Keep only valid titles
+		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( ( cat ) => !!mw.Title.makeTitle( NS_CATEGORY, cat ) );
 		this.categoriesWidget.setValue( categories );
 
 		this.$element.addClass( 'mwe-upwiz-categoriesDetailsWidget' );
@@ -81,10 +79,8 @@
 				hiddenCats.push( mw.UploadWizard.config.trackingCategory.campaign );
 			}
 		}
-		hiddenCats = hiddenCats.filter( ( cat ) =>
-			// Keep only valid titles
-			!!mw.Title.makeTitle( NS_CATEGORY, cat )
-		);
+		// Keep only valid titles
+		hiddenCats = hiddenCats.filter( ( cat ) => !!mw.Title.makeTitle( NS_CATEGORY, cat ) );
 
 		missingCatsWikiText = null;
 		if (

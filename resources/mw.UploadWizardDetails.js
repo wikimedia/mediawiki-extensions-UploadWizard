@@ -495,10 +495,8 @@
 		checkValidity: function ( thorough ) {
 			var fields = this.getAllFields();
 
-			return $.when.apply( $, fields.map( ( fieldLayout ) =>
-				// Update any error/warning/notice messages
-				fieldLayout.checkValidity( thorough )
-			) );
+			// Update any error/warning/notice messages
+			return $.when.apply( $, fields.map( ( fieldLayout ) => fieldLayout.checkValidity( thorough ) ) );
 		},
 
 		/**

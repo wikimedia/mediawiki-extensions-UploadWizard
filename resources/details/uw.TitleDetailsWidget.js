@@ -136,12 +136,10 @@
 				if ( result.blacklist.unavailable ) {
 					// We don't have a title blacklist, so just check for some likely undesirable patterns.
 					moreErrors = moreErrors.concat(
-						mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( ( errorCode ) =>
-							// Messages:
-							// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
-							// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
-							mw.message( 'mwe-upwiz-error-title-' + errorCode )
-						)
+						// Messages:
+						// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
+						// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
+						mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( ( errorCode ) => mw.message( 'mwe-upwiz-error-title-' + errorCode ) )
 					);
 				}
 				return moreErrors;

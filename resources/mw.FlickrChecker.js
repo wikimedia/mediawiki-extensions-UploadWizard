@@ -606,10 +606,8 @@ mw.FlickrChecker.prototype = {
 	 */
 	isBlacklisted: function ( nsid, path_alias ) {
 		path_alias = String( path_alias );
-		return this.getBlacklist().then( ( blacklist ) =>
-			// the blacklist should never contain the empty string, but better safe then sorry
-			( nsid in blacklist || path_alias && path_alias in blacklist )
-		);
+		// the blacklist should never contain the empty string, but better safe then sorry
+		return this.getBlacklist().then( ( blacklist ) => ( nsid in blacklist || path_alias && path_alias in blacklist ) );
 	},
 
 	/**

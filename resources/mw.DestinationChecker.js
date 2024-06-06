@@ -75,10 +75,8 @@
 				return $.Deferred().resolve( this.cachedBlacklist[ title ] );
 			}
 
-			return mw.loader.using( 'mediawiki.api.titleblacklist' ).then( () => checker.api.isBlacklisted( title ).then( blacklistResultProcessor ), () =>
-				// it's not blacklisted, because the API isn't even available
-				$.Deferred().resolve( { notBlacklisted: true, unavailable: true } )
-			);
+			// it's not blacklisted, because the API isn't even available
+			return mw.loader.using( 'mediawiki.api.titleblacklist' ).then( () => checker.api.isBlacklisted( title ).then( blacklistResultProcessor ), () => $.Deferred().resolve( { notBlacklisted: true, unavailable: true } ) );
 		},
 
 		/**
