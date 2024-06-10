@@ -11,9 +11,7 @@
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
 		var metadataType, defaultStatus, copyMetadataMsg,
-			checkboxes = [],
-			$copyMetadataWrapperDiv = $( '<div>' ),
-			$copyMetadataDiv = $( '<div>' );
+			checkboxes = [];
 
 		uw.CopyMetadataWidget.super.call( this );
 
@@ -25,14 +23,14 @@
 			if ( Object.prototype.hasOwnProperty.call( uw.CopyMetadataWidget.static.copyMetadataTypes, metadataType ) ) {
 				defaultStatus = uw.CopyMetadataWidget.static.copyMetadataTypes[ metadataType ];
 				// The following messages are used here:
-				// * mwe-upwiz-copy-title
-				// * mwe-upwiz-copy-caption
-				// * mwe-upwiz-copy-description
-				// * mwe-upwiz-copy-date
-				// * mwe-upwiz-copy-categories
-				// * mwe-upwiz-copy-location
-				// * mwe-upwiz-copy-other
-				copyMetadataMsg = mw.message( 'mwe-upwiz-copy-' + metadataType ).text();
+				// * mwe-upwiz-copy-title-label
+				// * mwe-upwiz-copy-caption-label
+				// * mwe-upwiz-copy-description-label
+				// * mwe-upwiz-copy-date-label
+				// * mwe-upwiz-copy-categories-label
+				// * mwe-upwiz-copy-location-label
+				// * mwe-upwiz-copy-other-label
+				copyMetadataMsg = mw.message( 'mwe-upwiz-copy-' + metadataType + '-label' ).text();
 
 				checkboxes.push( new OO.ui.CheckboxMultioptionWidget( {
 					data: metadataType,
@@ -42,12 +40,16 @@
 			}
 		}
 
-		this.$success = $( '<span>' );
+		this.$success = $( '<span>' ).addClass( 'mwe-upwiz-copy-metadata-success' );
 		this.checkboxesWidget = new OO.ui.CheckboxMultiselectWidget( {
 			items: checkboxes
 		} );
 		this.copyButton = new OO.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-copy-metadata-button' ).text(),
+			label: $( '<label>' ).append(
+				new OO.ui.IconWidget( { icon: 'copy' } ).$element,
+				' ',
+				mw.message( 'mwe-upwiz-copy-metadata-button-text' ).text()
+			),
 			flags: [ 'progressive' ]
 		} );
 		this.undoButton = new OO.ui.ButtonWidget( {
@@ -65,28 +67,15 @@
 		} );
 
 		this.undoButton.toggle( false );
-		$copyMetadataDiv.append(
+		this.$element.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-copy-metadata-subtitle' )
+				.text( mw.message( 'mwe-upwiz-copy-metadata-subtitle' ).text() ),
 			this.checkboxesWidget.$element,
 			this.copyButton.$element,
 			this.undoButton.$element,
 			this.$success
 		);
-
-		$copyMetadataWrapperDiv
-			.append(
-				$( '<a>' ).text( mw.msg( 'mwe-upwiz-copy-metadata' ) )
-					.addClass( 'mwe-upwiz-details-copy-metadata mw-collapsible-toggle mw-collapsible-arrow' ),
-				$copyMetadataDiv.addClass( 'mw-collapsible-content' )
-			)
-			.addClass( 'mwe-upwiz-data' )
-			.makeCollapsible( { collapsed: true } );
-
-		this.$element
-			.addClass( 'mwe-upwiz-info-file filled mwe-upwiz-copyMetadataWidget' )
-			.append(
-				$( '<div>' ).addClass( 'mwe-upwiz-thumbnail' ),
-				$copyMetadataWrapperDiv
-			);
 	};
 	OO.inheritClass( uw.CopyMetadataWidget, OO.ui.Widget );
 

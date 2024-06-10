@@ -122,13 +122,28 @@
 			// Include the "source" upload in the targets too
 			copyTo: this.uploads
 		} );
+		this.copyMetadataField = new uw.FieldLayout( this.copyMetadataWidget, {
+			label: $( '<label>' ).append(
+				new OO.ui.IconWidget( { icon: 'expand' } ).$element,
+				new OO.ui.IconWidget( { icon: 'collapse' } ).$element,
+				' ',
+				mw.msg( 'mwe-upwiz-copy-metadata-text' )
+			),
+			classes: [ 'mwe-upwiz-fieldLayout-additional-info', 'mwe-upwiz-copyMetadataWidget' ]
+		} );
+		this.copyMetadataWidget.$element.makeCollapsible( {
+			collapsed: true,
+			$customTogglers: this.copyMetadataField.$element.find( '.oo-ui-fieldLayout-header' )
+		} );
+		// the field isn't actually required, but we want to hide the "optional" text
+		this.copyMetadataField.setRequired( true );
 
-		first.details.$div.after( this.copyMetadataWidget.$element );
+		first.details.$form.append( this.copyMetadataField.$element );
 	};
 
 	uw.controller.Details.prototype.removeCopyMetadataFeature = function () {
-		if ( this.copyMetadataWidget ) {
-			this.copyMetadataWidget.$element.remove();
+		if ( this.copyMetadataField ) {
+			this.copyMetadataField.$element.remove();
 		}
 	};
 
