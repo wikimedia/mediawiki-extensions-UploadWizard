@@ -32,7 +32,8 @@
 			"Wwycheuk",
 			"Xiplus",
 			"列维劳德",
-			"捍粵者"
+			"捍粵者",
+			"沈澄心"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -177,7 +178,7 @@
 	"mwe-upwiz-license-metadata-title": "用於說明貢獻的授權條款（此適用於說明文字；而非檔案）",
 	"mwe-upwiz-license-metadata-statements-title": "用於所有結構化詮釋資料的授權條款（不是檔案）",
 	"mwe-upwiz-license-metadata-content": "透過點擊「發布」，代表您同意[[wmf:Terms_of_Use|使用條款]]，並且不反悔基於[https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW 創用CC0授權條款]來釋出您的貢獻。",
-	"mwe-upwiz-more-information-toggle": "增加更多資訊…",
+	"mwe-upwiz-more-information-toggle": "增加更多資訊……",
 	"mwe-upwiz-copy-statements-dialog": "此批量裡其它檔案上的詮釋資料，將會被此檔案的詮釋資料給取代掉，您確定要嗎？",
 	"mwe-upwiz-copy-statements-dialog-accept": "是的，複製",
 	"mwe-upwiz-copy-statements-button": "複製陳述內容到所有檔案…",

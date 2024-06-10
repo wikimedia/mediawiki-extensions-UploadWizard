@@ -138,6 +138,7 @@
 	"mwe-upwiz-deeds-require-selection": "Dewiswch drwydded.",
 	"mwe-upwiz-license-show-all": "Defnyddiwch drwydded arall",
 	"mwe-upwiz-license-show-recommended": "Defnyddiwch y drwydded a argymhellir",
+	"mwe-upwiz-label-optional": "(dewisol)",
 	"mwe-upwiz-error-signature-blank": "Mae'n rhaid ichi lofnodi'r maes isod gyda'ch enw defnyddiwr neu'ch enw go iawn.",
 	"mwe-upwiz-error-latitude": "Mae'n rhaid i'r lledred fod rhwng -90 a 90.",
 	"mwe-upwiz-error-longitude": "Mae'n rhaid i'r hydred fod rhwng -180 a 180.",
