@@ -13,8 +13,8 @@ namespace MediaWiki\Extension\UploadWizard;
 
 use FormatJson;
 use JsonContent;
-use JsonSchemaException;
 use MediaWiki\Extension\EventLogging\EventLogging;
+use MediaWiki\Extension\EventLogging\Libs\JsonSchemaValidation\JsonSchemaException;
 
 /**
  * Represents the configuration of an Upload Campaign

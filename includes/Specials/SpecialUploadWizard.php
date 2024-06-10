@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\UploadWizard\Specials;
 
 use BitmapHandler;
 use ChangeTags;
-use DerivativeContext;
 use LogicException;
+use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Extension\UploadWizard\Campaign;
 use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;

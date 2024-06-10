@@ -11,12 +11,12 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use IContextSource;
 use ImageGalleryBase;
+use MediaWiki\Context\IContextSource;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use OOUI\ButtonWidget;
-use RequestContext;
 use Skin;
 
 /**

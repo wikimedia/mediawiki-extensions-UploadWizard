@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\UploadWizard\Tests;
 
-use ApiTestCase;
 use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\FlickrBlacklist;
+use MediaWiki\Tests\Api\ApiTestCase;
 use MockHttpTrait;
 use ReflectionClass;
 
