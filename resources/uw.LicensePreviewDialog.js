@@ -1,7 +1,8 @@
 ( function ( uw ) {
 	/**
 	 * @class
-	 * @param {Object} [config]
+	 * @extends OO.ui.Dialog
+	 * @inheritdoc
 	 */
 	uw.LicensePreviewDialog = function UWLicensePreviewDialog( config ) {
 		uw.LicensePreviewDialog.super.call( this, config );

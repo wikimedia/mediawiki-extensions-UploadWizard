@@ -137,6 +137,7 @@
 			options.push( option );
 		} );
 
+		// eslint-disable-next-line mediawiki/class-doc
 		return new OO.ui.RadioSelectWidget( { items: options, classes: classes } );
 	};
 
@@ -172,6 +173,7 @@
 			options.push( option );
 		} );
 
+		// eslint-disable-next-line mediawiki/class-doc
 		return new OO.ui.CheckboxMultiselectWidget( { items: options, classes: classes } );
 	};
 
@@ -357,6 +359,11 @@
 		$licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
 		if ( licenseInfo.props.icons !== undefined ) {
 			licenseInfo.props.icons.forEach( ( icon ) => {
+				// The following classes are used here:
+				// * mwe-upwiz-cc-public-domain-icon
+				// * mwe-upwiz-cc-zero-icon
+				// * mwe-upwiz-cc-sa-icon
+				// * mwe-upwiz-cc-by-icon
 				$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 			} );
 		}
