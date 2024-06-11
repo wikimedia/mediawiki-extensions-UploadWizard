@@ -12,88 +12,94 @@
 		uw.DateDetailsWidget.super.call( this );
 
 		this.upload = config.upload;
-		this.dateInputWidgetMode = null; // or: 'calendar', 'arbitrary'
-		this.dateInputWidgetToggler = new OO.ui.ButtonSelectWidget( {
-			classes: [ 'mwe-upwiz-dateDetailsWidget-toggler' ],
-			items: [
-				new OO.ui.ButtonOptionWidget( {
-					data: 'calendar',
-					icon: 'calendar',
-					title: mw.msg( 'mwe-upwiz-calendar-date' )
-				} ),
-				new OO.ui.ButtonOptionWidget( {
-					data: 'arbitrary',
-					icon: 'edit',
-					title: mw.msg( 'mwe-upwiz-custom-date' )
-				} )
-			]
-		} )
-			.selectItemByData( 'calendar' )
-			.on( 'choose', ( selectedItem ) => {
-				this.setupDateInput( selectedItem.getData() );
-				this.dateInputWidget.focus();
-			} );
+		this.prefilled = false;
+		this.calendarButtonWidget = new OO.ui.ButtonWidget( {
+			icon: 'calendar',
+			flags: [ 'progressive' ],
+			title: mw.msg( 'mwe-upwiz-calendar-date' )
+		} );
 
-		this.$element.addClass( 'mwe-upwiz-dateDetailsWidget' );
-		this.$element.append(
-			this.dateInputWidgetToggler.$element
-			// this.dateInputWidget.$element goes here after setupDateInput() runs
-		);
-		this.setupDateInput();
+		this.dateInputWidget = new OO.ui.TextInputWidget( {
+			classes: [ 'mwe-date' ],
+			placeholder: mw.msg( 'mwe-upwiz-select-date' )
+		} );
+
+		this.calendar = new mw.widgets.CalendarWidget( {
+			lazyInitOnToggle: true
+		} );
+		this.calendar.toggle( false );
+		// clicking the calendar icon toggles the calendar on/off,
+		// clicking the input field always closes it
+		this.calendarButtonWidget.on( 'click', () => this.calendar.toggle( !this.calendar.visible ) );
+		this.dateInputWidget.on( 'click', () => this.calendar.toggle( false ) );
+		// selecting a date from the calendar writes that date into the input field;
+		// when anything changes in the input (either manual input or calendar selection),
+		// the calendar closes & change event is emitted
+		this.calendar.on( 'change', ( value ) => {
+			this.dateInputWidget.setValue( value );
+		} );
+		this.dateInputWidget.on( 'change', ( value ) => {
+			this.calendar.toggle( false );
+			this.emit( 'change', value );
+		} );
+
+		this.$element
+			.addClass( 'mwe-upwiz-dateDetailsWidget' )
+			.append(
+				this.calendarButtonWidget.$element,
+				$( '<div>' )
+					.addClass( 'mw-widget-dateInputWidget' )
+					.addClass( 'mwe-upwiz-dateDetailsWidget-date' )
+					.append(
+						this.dateInputWidget.$element,
+						this.calendar.$element
+							.addClass( 'mw-widget-dateInputWidget-calendar' )
+					)
+			);
 	};
 	OO.inheritClass( uw.DateDetailsWidget, uw.DetailsWidget );
 
 	/**
-	 * Set up the date input field, or switch between 'calendar' and 'arbitrary' mode.
+	 * Tell whether the date input field was prefilled
+	 * with a value extracted from the upload's metadata.
 	 *
-	 * @param {string} [mode] Mode to switch to, 'calendar' or 'arbitrary'
-	 * @private
+	 * @param {boolean} prefilled Whether the date is prefilled
 	 */
-	uw.DateDetailsWidget.prototype.setupDateInput = function ( mode ) {
-		var
-			oldDateInputWidget = this.dateInputWidget;
+	uw.DateDetailsWidget.prototype.setPrefilled = function ( prefilled ) {
+		this.prefilled = prefilled;
+	};
 
-		if ( mode === undefined ) {
-			mode = this.dateInputWidgetMode === 'calendar' ? 'arbitrary' : 'calendar';
-		}
-		this.dateInputWidgetMode = mode;
-		this.dateInputWidgetToggler.selectItemByData( mode );
+	/**
+	 * Parse user input into a Wikibase date
+	 * via the `wbparsevalue` API endpoint.
+	 * See https://www.wikidata.org/w/api.php?action=help&modules=wbparsevalue
+	 * and https://www.wikidata.org/wiki/Help:Dates.
+	 *
+	 * @return {jQuery.Promise} Promise with the API response
+	 */
+	uw.DateDetailsWidget.prototype.parseDate = function () {
+		var userInput = this.dateInputWidget.getValue(),
+			// Handle input that includes time:
+			// it typically comes from the upload's EXIF metadata,
+			// but might also be inserted by the user.
+			// The Wikibase value parser won't accept it,
+			// since dates with precision higher than day aren't supported.
+			// See https://phabricator.wikimedia.org/T57755.
+			// The API would return an opaque
+			// 'wikibase-validator-malformed-value' error code:
+			// avoid this by stripping time (in standard format)
+			userInputWithoutTime = userInput.replace( /\D\d\d:\d\d:\d\d/, '' ),
+			params = {
+				action: 'wbparsevalue',
+				datatype: 'time',
+				validate: true,
+				options: JSON.stringify(
+					{ lang: mw.config.get( 'wgUserLanguage' ) }
+				),
+				values: userInputWithoutTime
+			};
 
-		if ( mode === 'arbitrary' ) {
-			this.dateInputWidget = new OO.ui.TextInputWidget( {
-				classes: [ 'mwe-date', 'mwe-upwiz-dateDetailsWidget-date' ],
-				placeholder: mw.msg( 'mwe-upwiz-select-date' )
-			} );
-		} else {
-			this.dateInputWidget = new mw.widgets.DateInputWidget( {
-				classes: [ 'mwe-date', 'mwe-upwiz-dateDetailsWidget-date' ],
-				placeholderLabel: mw.msg( 'mwe-upwiz-select-date' )
-			} );
-			// If the user types '{{', assume that they are trying to input template wikitext and switch
-			// to 'arbitrary' mode. This might help confused power-users (T110026#1567714).
-			this.dateInputWidget.textInput.on( 'change', ( value ) => {
-				if ( value === '{{' ) {
-					this.setupDateInput( 'arbitrary' );
-					this.dateInputWidget.setValue( '{{' );
-					this.dateInputWidget.moveCursorToEnd();
-				}
-			} );
-		}
-
-		if ( oldDateInputWidget ) {
-			this.dateInputWidget.setValue( oldDateInputWidget.getValue() );
-			oldDateInputWidget.$element.replaceWith( this.dateInputWidget.$element );
-		} else {
-			this.dateInputWidgetToggler.$element.after( this.dateInputWidget.$element );
-		}
-
-		// Aggregate 'change' event
-		this.dateInputWidget.connect( this, { change: [ 'emit', 'change' ] } );
-
-		// Also emit if the value was changed to fit the new widget
-		if ( oldDateInputWidget && oldDateInputWidget.getValue() !== this.dateInputWidget.getValue() ) {
-			this.emit( 'change' );
-		}
+		return this.upload.api.get( params );
 	};
 
 	/**
@@ -121,37 +127,62 @@
 			license,
 			licenseMsg,
 			warnings = [],
-			dateVal = Date.parse( this.dateInputWidget.getValue().trim() ),
-			licenses = this.getLicenses(),
-			// licenses that likely mean the image date is some time in the past
-			warnLicenses = [ 'pd-usgov', 'pd-usgov-nasa', 'pd-art' ],
+			date = new Date( this.dateInputWidget.getValue() ),
 			now = new Date(),
-			date = new Date( this.dateInputWidget.getValue() );
+			// Public-domain licenses that likely mean
+			// the image date is some time in the past.
+			warnLicenses = [ 'pd-usgov', 'pd-usgov-nasa', 'pd-art' ],
+			licenses = this.getLicenses();
 
-		// We don't really know what timezone this datetime is in. It could be the user's timezone, or
-		// it could be the camera's timezone for data imported from EXIF, and we don't know what
-		// timezone that is. UTC+14 is the highest timezone that currently exists, so assume that to
-		// avoid giving false warnings.
-		if ( this.dateInputWidgetMode === 'calendar' &&
-			dateVal > now.getTime() + 14 * 60 * 60 * 1000 ) {
-			warnings.push( mw.message( 'mwe-upwiz-warning-postdate' ) );
+		if ( this.prefilled ) {
+			warnings.push( mw.message( 'mwe-upwiz-warning-date-prefilled' ) );
 		}
 
-		// doublecheck that we've actually selected a valid date
-		if ( !isNaN( date.getTime() ) ) {
-			// it's unlikely for public domain images to have been published today
+		// Unlikely license.
+		// The `Date` constructor returns `NaN` if it couldn't parse the date.
+		if ( !isNaN( date.valueOf() ) ) {
+			// It's unlikely for public-domain images to have been published today
 			if ( now.toISOString().slice( 0, 10 ) === date.toISOString().slice( 0, 10 ) ) {
-				for ( i in warnLicenses ) {
+				for ( i = 0; i < warnLicenses.length; i++ ) {
 					if ( warnLicenses[ i ] in licenses ) {
 						license = licenses[ warnLicenses[ i ] ];
-						licenseMsg = mw.message( license.msg, 0, license.url ? license.url : '#missing license URL' );
-						warnings.push( mw.message( 'mwe-upwiz-error-date-license-unlikely', licenseMsg.parseDom() ) );
+						licenseMsg = mw.message(
+							license.msg,
+							0,
+							license.url ? license.url : '#missing license URL'
+						);
+						warnings.push(
+							mw.message(
+								'mwe-upwiz-error-date-license-unlikely',
+								licenseMsg.parseDom()
+							)
+						);
 					}
 				}
 			}
 		}
 
-		return $.Deferred().resolve( warnings ).promise();
+		if ( this.parseDateValidation ) {
+			this.parseDateValidation.abort();
+		}
+		this.parseDateValidation = this.parseDate();
+		return this.parseDateValidation.then(
+			( data ) => {
+				var dayPrecision = 11;
+				if ( data.results[ 0 ].value.precision < dayPrecision ) {
+					warnings.push( mw.message( 'mwe-upwiz-warning-date-imprecise' ) );
+				}
+				return warnings;
+			},
+			( code ) => {
+				// warn on failures, except when the failure is http (request aborted
+				// or network issues)
+				if ( code !== 'http' ) {
+					warnings.push( mw.message( 'mwe-upwiz-warning-date-imprecise' ) );
+				}
+				return warnings;
+			}
+		);
 	};
 
 	/**
@@ -159,24 +190,64 @@
 	 */
 	uw.DateDetailsWidget.prototype.getErrors = function () {
 		var errors = [],
+			trimmedInput = this.dateInputWidget.getValue().trim(),
 			licenses = this.getLicenses(),
+			// Timestamps: milliseconds
+			timestamp = Date.parse( trimmedInput ),
+			nowTimestamp = Date.now(),
+			utc14 = 14 * 60 * 60 * 1000, // 14 hours in milliseconds
+			// Dates: years, months, days
+			date = new Date( trimmedInput ),
 			now = new Date(),
-			old = new Date( now.getFullYear() - 70, now.getMonth(), now.getDate() ),
-			old100 = new Date( now.getFullYear() - 100, now.getMonth(), now.getDate() ),
-			date = new Date( this.dateInputWidget.getValue() );
+			nowYear = now.getFullYear(),
+			nowMonth = now.getMonth(),
+			nowDay = now.getDate(),
+			old95 = new Date( nowYear - 95 ), // Only the year is relevant
+			old70 = new Date( nowYear - 70, nowMonth, nowDay ),
+			old100 = new Date( nowYear - 100, nowMonth, nowDay );
 
-		if ( this.dateInputWidget.getValue().trim() === '' ) {
-			errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
-		} else if ( 'pd-us' in licenses && date.getFullYear() >= new Date().getFullYear() - 95 ) {
-			// if the license stated the work is public domain, it must've been
-			// created a really long time ago
-			errors.push( mw.message( 'mwe-upwiz-error-date-license-mismatch', mw.message( licenses[ 'pd-us' ].msg ).parseDom() ) );
-		} else if ( 'pd-old' in licenses && date > old ) {
-			// if the author died 70 years ago, the timestamp should reflect that
-			errors.push( mw.message( 'mwe-upwiz-error-date-license-mismatch', mw.message( licenses[ 'pd-old' ].msg ).parseDom() ) );
+		// Blank
+		if ( trimmedInput === '' ) {
+			errors.push( mw.message( 'mwe-upwiz-error-date-blank' ) );
+		// Date in the future.
+		// We don't really know what timezone this datetime is in. It could be the user's timezone, or
+		// it could be the camera's timezone for data imported from EXIF, and we don't know what
+		// timezone that is. UTC+14 is the highest timezone that currently exists, so assume that to
+		// avoid giving false errors.
+		} else if ( timestamp > nowTimestamp + utc14 ) {
+			errors.push( mw.message( 'mwe-upwiz-error-postdate' ) );
+		// License mismatch.
+		// Public domain work in the U.S.: it must've been created at least 95 years ago.
+		} else if ( 'pd-us' in licenses && date.getFullYear() >= old95 ) {
+			errors.push(
+				mw.message(
+					'mwe-upwiz-error-date-license-mismatch',
+					mw.message( licenses[ 'pd-us' ].msg ).parseDom()
+				)
+			);
+		} else if ( 'pd-us-generic' in licenses && date.getFullYear() >= old95 ) {
+			errors.push(
+				mw.message(
+					'mwe-upwiz-error-date-license-mismatch',
+					mw.message( licenses[ 'pd-us-generic' ].msg ).parseDom()
+				)
+			);
+		// The author died 70 years ago: the date should reflect that
+		} else if ( 'pd-old-70' in licenses && date > old70 ) {
+			errors.push(
+				mw.message(
+					'mwe-upwiz-error-date-license-mismatch',
+					mw.message( licenses[ 'pd-old-70' ].msg ).parseDom()
+				)
+			);
+		// The author died 100 years ago: the date should reflect that
 		} else if ( 'pd-old-100' in licenses && date > old100 ) {
-			// if the author died 100 years ago, the timestamp should reflect that
-			errors.push( mw.message( 'mwe-upwiz-error-date-license-mismatch', mw.message( licenses[ 'pd-old-100' ].msg ).parseDom() ) );
+			errors.push(
+				mw.message(
+					'mwe-upwiz-error-date-license-mismatch',
+					mw.message( licenses[ 'pd-old-100' ].msg ).parseDom()
+				)
+			);
 		}
 
 		return $.Deferred().resolve( errors ).promise();
@@ -195,7 +266,7 @@
 	 */
 	uw.DateDetailsWidget.prototype.getSerialized = function () {
 		return {
-			mode: this.dateInputWidgetMode,
+			prefilled: this.prefilled,
 			value: this.dateInputWidget.getValue()
 		};
 	};
@@ -203,12 +274,13 @@
 	/**
 	 * @inheritdoc
 	 * @param {Object} serialized
-	 * @param {string} serialized.mode Date input mode ('calendar' or 'arbitrary')
-	 * @param {string} serialized.value Date value for given mode
+	 * @param {boolean} serialized.prefilled Whether the date is prefilled
+	 * @param {string} serialized.value Date value for the given mode
 	 */
 	uw.DateDetailsWidget.prototype.setSerialized = function ( serialized ) {
-		this.setupDateInput( serialized.mode );
+		this.prefilled = serialized.prefilled;
 		this.dateInputWidget.setValue( serialized.value );
+		this.calendar.setDate( serialized.value );
 	};
 
 }( mw.uploadWizard ) );

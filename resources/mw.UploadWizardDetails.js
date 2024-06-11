@@ -45,6 +45,7 @@
 				mw.config.get( 'wbmiPropertyTitles' ) || {},
 				mw.config.get( 'upwizPropertyTitles' ) || {}
 			);
+			this.dateProperty = config.wikibase.dateProperty || '';
 
 			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
@@ -179,7 +180,7 @@
 			this.mainFields.push( this.descriptionsDetailsField );
 
 			//
-			// TODO improve date: https://phabricator.wikimedia.org/T362328
+			// Date
 			//
 			this.dateDetails = new uw.DateDetailsWidget( { upload: this.upload } );
 			this.dateDetailsField = new uw.FieldLayout( this.dateDetails, {
@@ -187,6 +188,8 @@
 				help: mw.message( 'mwe-upwiz-tooltip-date' ).text(),
 				required: true
 			} );
+			// The date isn't prefilled anymore if the user changed its value
+			this.dateDetails.on( 'change', () => details.dateDetails.setPrefilled( false ) );
 			this.mainFields.push( this.dateDetailsField );
 
 			//
@@ -250,8 +253,11 @@
 			this.mainFields.push( this.locationInputField );
 			this.mainFields.push( this.otherDetailsField );
 
+			//
+			// Structured data - Main subjects AKA depicts
+			//
 			this.statementWidgets = {};
-			if ( config.wikibase && config.wikibase.statements ) {
+			if ( config.wikibase.enabled && config.wikibase.statements ) {
 				Object.keys( propertyTypes ).forEach( ( propertyId ) => {
 					propertyDataValuesTypes[ propertyId ] = dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType;
 				} );
@@ -625,7 +631,6 @@
 		 */
 		prefillDate: function () {
 			var dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
-				dateMode = 'calendar',
 				yyyyMmDdRegex = /^(\d\d\d\d)[:/-](\d\d)[:/-](\d\d)\D.*/,
 				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 
@@ -642,6 +647,11 @@
 				str += pad( date.getSeconds() );
 
 				return str;
+			}
+
+			// If not own work, don't prefill
+			if ( this.upload.deedChooser.deed.name === 'thirdparty' ) {
+				return;
 			}
 
 			if ( this.upload.imageinfo.metadata ) {
@@ -678,7 +688,7 @@
 				matches = this.upload.file.date.match( dateTimeRegex );
 				if ( matches ) {
 					this.dateDetails.setSerialized( {
-						mode: dateMode,
+						prefilled: true,
 						value: this.upload.file.date
 					} );
 					return;
@@ -702,14 +712,11 @@
 			saneTime = getSaneTime( dateObj );
 			if ( saneTime !== '00:00:00' ) {
 				dateStr += ' ' + saneTime;
-
-				// Switch to freeform date field. DateInputWidget (with calendar) handles dates only, not times.
-				dateMode = 'arbitrary';
 			}
 
 			// ok by now we should definitely have a dateObj and a date string
 			this.dateDetails.setSerialized( {
-				mode: dateMode,
+				prefilled: true,
 				value: dateStr
 			} );
 		},
@@ -1040,13 +1047,7 @@
 			wikitext = this.getWikiText();
 			promise = this.submitWikiText( wikitext );
 
-			if (
-				mw.UploadWizard.config.wikibase.enabled &&
-				(
-					mw.UploadWizard.config.wikibase.captions ||
-					mw.UploadWizard.config.wikibase.statements
-				)
-			) {
+			if ( mw.UploadWizard.config.wikibase.enabled ) {
 				promise = promise
 					.then( () => {
 						// just work out the mediainfo entity id from the page id
@@ -1186,30 +1187,74 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitStructuredData: function ( entityId ) {
-			var labels, statements, data = {},
+			var labels,
+				statements,
+				date,
+				dateStatement,
 				config = mw.UploadWizard.config,
-				promise = $.Deferred().resolve().promise();
+				promise = $.Deferred().resolve().promise(),
+				data = {},
+				self = this,
+				wbDataModel = mw.loader.require( 'wikibase.datamodel' ),
+				wbSerialization = mw.loader.require( 'wikibase.serialization' ),
+				wbSerializer = new wbSerialization.StatementSerializer();
 
 			labels = this.prepareLabelsData();
 			statements = this.prepareStatementsData();
-			if ( !config.wikibase.enabled ||
-				(
-					Object.keys( labels ).length === 0 && statements.length === 0
-				)
-			) {
+
+			if ( !config.wikibase.enabled ) {
 				return promise;
 			}
 
-			if ( Object.keys( labels ).length !== 0 ) {
+			if ( config.wikibase.captions && Object.keys( labels ).length !== 0 ) {
 				data.labels = labels;
 			}
 
-			if ( statements.length !== 0 ) {
+			if ( config.wikibase.statements && statements.length !== 0 ) {
 				data.claims = statements;
 			}
 
-			promise = promise.then( this.postStructuredData( entityId, JSON.stringify( data ) ) );
-			return promise;
+			// eslint-disable-next-line no-undef
+			if ( this.dateProperty !== '' && dataValues ) {
+				promise = promise
+					.then( () => this.dateDetails.parseDate() )
+					.then(
+						( response ) => {
+							date = response.results[ 0 ].value;
+							dateStatement = wbSerializer.serialize(
+								new wbDataModel.Statement(
+									new wbDataModel.Claim(
+										new wbDataModel.PropertyValueSnak(
+											self.dateProperty,
+											// eslint-disable-next-line no-undef
+											dataValues.TimeValue.newFromJSON( date )
+										)
+									)
+								)
+							);
+							data.claims = data.claims ? data.claims.push( dateStatement ) : [ dateStatement ];
+						},
+						( errorCode ) => {
+							mw.log.warn(
+								'uw.DateDetailsWidget::parseDate> ' +
+								'Parsing into a Wikibase date failed. Reason: ' +
+								errorCode
+							);
+							// Parsing failed: don't add the date statement,
+							// but convert back to a resolved promise to keep
+							// the chain going
+							return $.Deferred().resolve().promise();
+						}
+					);
+			}
+
+			return promise.then(
+				() => {
+					if ( Object.keys( data ).length > 0 ) {
+						return this.postStructuredData( entityId, JSON.stringify( data ) );
+					}
+				}
+			);
 		},
 
 		prepareLabelsData: function () {

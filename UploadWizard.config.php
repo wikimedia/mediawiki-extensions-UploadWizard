@@ -737,6 +737,8 @@ return [
 		'statements' => true,
 		// url to wikibase repo API
 		'api' => $wgScriptPath . '/api.php',
+		// property ID for the date statement
+		'dateProperty' => '',
 	],
 
 	// extra templates that get written into the wikitext by checking a checkbox
