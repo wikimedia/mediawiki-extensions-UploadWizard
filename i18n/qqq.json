@@ -197,6 +197,7 @@
 	"mwe-upwiz-copy-categories-label": "Label for checkbox to copy categories from the first upload to other uploads.",
 	"mwe-upwiz-copy-location-label": "Label for checkbox to copy location from the first upload to other uploads.",
 	"mwe-upwiz-copy-other-label": "Label for checkbox to copy other information from the first upload to other uploads.",
+	"mwe-upwiz-copy-statements-depicts": "Label for checkbox to copy depicts statements from the first upload to other uploads.",
 	"mwe-upwiz-caption": "This is followed by a language name in a drop-down language selector.\n{{Identical|Caption}}",
 	"mwe-upwiz-caption-add": "The button for adding a caption to an image.\n\nParameters:\n* $1 - the number of captions for PLURAL",
 	"mwe-upwiz-desc": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n\nThis is followed by a language name in a drop-down language selector.\n{{Identical|Description}}",
