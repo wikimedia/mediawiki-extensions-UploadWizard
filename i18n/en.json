@@ -270,7 +270,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Failed to retrieve page properties: page does not (yet) exist.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Failed to retrieve page properties: property does not (yet) exist.",
 	"mwe-upwiz-error-submit-structured-data": "The image was uploaded successfully, but something went wrong submitting some of the supplementary data.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "To fix this: visit [[$1]] to update the data there.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "To fix this, visit [[$1]] to update the data there.",
 	"mwe-upwiz-error-postdate": "The date that you selected is in the future. Please select the correct date.",
 	"mwe-upwiz-warning-date-prefilled": "The above date is taken from your photo details.",
 	"mwe-upwiz-notice-date-imprecise": "We recommend providing a full date if it is known.",
