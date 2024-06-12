@@ -201,11 +201,6 @@
 			} );
 
 			//
-			// TODO add main subjects: https://phabricator.wikimedia.org/T361053.
-			//      Use `classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]`
-			//
-
-			//
 			// TODO improve location: https://phabricator.wikimedia.org/T361052
 			//
 			this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );

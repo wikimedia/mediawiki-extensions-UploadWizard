@@ -89,19 +89,12 @@
 	/**
 	 * @inheritDoc
 	 */
-	uw.StatementWidget.prototype.getNotices = function () {
-		var notices = [], maxDepicts = 3;
-		if ( this.getItems().length > maxDepicts ) {
-			notices.push( mw.message( 'mwe-upwiz-statements-too-many-depicts', maxDepicts ) );
-		}
-		return $.Deferred().resolve( notices ).promise();
-	};
-
-	/**
-	 * @inheritDoc
-	 */
 	uw.StatementWidget.prototype.getWarnings = function () {
-		return $.Deferred().resolve( [] ).promise();
+		var warnings = [], maxDepicts = 3;
+		if ( this.getItems().length > maxDepicts ) {
+			warnings.push( mw.message( 'mwe-upwiz-statements-too-many-items', maxDepicts ) );
+		}
+		return $.Deferred().resolve( warnings ).promise();
 	};
 
 	/**
