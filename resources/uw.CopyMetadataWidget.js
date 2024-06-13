@@ -69,12 +69,11 @@
 		} );
 
 		this.copyButton = new OO.ui.ButtonWidget( {
-			label: $( '<label>' ).append(
+			label: $( '<span>' ).append(
 				new OO.ui.IconWidget( { icon: 'copy' } ).$element,
 				' ',
 				mw.message( 'mwe-upwiz-copy-metadata-button-text' ).text()
-			),
-			flags: [ 'progressive' ]
+			)
 		} );
 		this.undoButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-copy-metadata-button-undo' ).text()
