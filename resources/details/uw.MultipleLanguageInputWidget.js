@@ -32,7 +32,6 @@
 			classes: [ 'mwe-upwiz-multipleLanguageInputWidget-addItem' ],
 			framed: true,
 			icon: 'add',
-			flags: [ 'progressive' ],
 			label: this.getLabelText()
 		} );
 
