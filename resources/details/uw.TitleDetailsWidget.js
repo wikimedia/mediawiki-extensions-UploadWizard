@@ -165,7 +165,7 @@
 	 * @return {mw.Message[]} Error messages
 	 */
 	uw.TitleDetailsWidget.prototype.processDestinationCheck = function ( result ) {
-		var messageParams, errors, titleString;
+		var messageKey, messageParams, errors, titleString;
 
 		if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
 			return [];
@@ -193,15 +193,22 @@
 		} else if ( result.unique.isProtected ) {
 			errors.push( mw.message( 'mwe-upwiz-error-title-protected' ) );
 		} else {
-			mw.messages.set( result.blacklist.blacklistMessage, result.blacklist.blacklistReason );
+			// check whether we have a custom error message for this blacklist reason
+			messageKey = 'mwe-upwiz-blacklisted-details-' + result.blacklist.blacklistMessage;
+			if ( !mw.message( messageKey ).exists() ) {
+				messageKey = 'mwe-upwiz-blacklisted-details';
+			}
+
 			messageParams = [
-				'mwe-upwiz-blacklisted-details',
+				messageKey,
 				titleString,
 				function () {
-					mw.errorDialog(
-						$( '<div>' ).msg( result.blacklist.blacklistMessage ),
-						mw.message( 'mwe-upwiz-blacklisted-errordialog-title' ).text()
-					);
+					var titleMessage = mw.message( messageKey + '-title' ),
+						title = titleMessage.exists() ? titleMessage.text() : '',
+						textMessage = mw.message( messageKey + '-text' ),
+						text = textMessage.exists() ? textMessage.text() : result.blacklist.blacklistReason;
+
+					mw.errorDialog( text, title );
 				}
 			];
 
