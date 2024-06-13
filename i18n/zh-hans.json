@@ -55,7 +55,8 @@
 			"铁桶",
 			"阿pp",
 			"飞舞回堂前",
-			"LittlePaw365"
+			"LittlePaw365",
+			"Lakejason0"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -235,6 +236,7 @@
 	"mwe-upwiz-objref-pick-image": "添加对象参考文献至此图片。",
 	"mwe-upwiz-objref-notice-existing-image": "已存在一张图片用于参考对象。",
 	"mwe-upwiz-objref-notice-update-delay": "更新参考页面可能需要一些时间。",
+	"mwe-upwiz-author-text": "输入{{PLURAL:$1|此|这些}}作品的原作者名称。",
 	"mwe-upwiz-author-unknown": "我不知道作者是谁",
 	"mwe-upwiz-author-not-known": "我没有这些信息",
 	"mwe-upwiz-autoconverted": "该文件已被自动转换为$1格式",
