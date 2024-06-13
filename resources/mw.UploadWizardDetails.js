@@ -226,7 +226,7 @@
 			//
 			this.otherDetails = new uw.OtherDetailsWidget();
 			this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
-				label: $( '<label>' ).append(
+				label: $( '<span>' ).append(
 					new OO.ui.IconWidget( { icon: 'expand' } ).$element,
 					new OO.ui.IconWidget( { icon: 'collapse' } ).$element,
 					' ',

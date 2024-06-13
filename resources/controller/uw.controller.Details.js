@@ -123,7 +123,7 @@
 			copyTo: this.uploads
 		} );
 		this.copyMetadataField = new uw.FieldLayout( this.copyMetadataWidget, {
-			label: $( '<label>' ).append(
+			label: $( '<span>' ).append(
 				new OO.ui.IconWidget( { icon: 'expand' } ).$element,
 				new OO.ui.IconWidget( { icon: 'collapse' } ).$element,
 				' ',
