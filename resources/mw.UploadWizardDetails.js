@@ -567,19 +567,6 @@
 		},
 
 		/**
-		 * Check all the fields for errors and warnings and display them in the UI.
-		 *
-		 * @param {boolean} thorough True to perform a thorough validity check. Defaults to false for a fast on-change check.
-		 * @return {jQuery.Promise} Combined promise of all fields' validation results.
-		 */
-		checkValidity: function ( thorough ) {
-			var fields = this.getAllFields();
-
-			// Update any error/warning/notice messages
-			return $.when.apply( $, fields.map( ( fieldLayout ) => fieldLayout.checkValidity( thorough ) ) );
-		},
-
-		/**
 		 * Get a thumbnail caption for this upload (basically, the first caption).
 		 *
 		 * @return {string}

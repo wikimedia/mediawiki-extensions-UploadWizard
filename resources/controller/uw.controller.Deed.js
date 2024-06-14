@@ -38,48 +38,20 @@
 	OO.inheritClass( uw.controller.Deed, uw.controller.Step );
 
 	uw.controller.Deed.prototype.moveNext = function () {
-		var
-			self = this,
-			deedChoosers = this.getUniqueDeedChoosers( this.uploads ),
-			allValidityPromises;
+		var deedChoosers = this.getUniqueDeedChoosers( this.uploads );
 
 		if ( deedChoosers.length === 0 ) {
 			uw.controller.Step.prototype.moveNext.call( this );
 			return;
 		}
 
-		if ( this.valid() ) {
-			allValidityPromises = deedChoosers.reduce( ( carry, deedChooser ) => {
-				var fields = deedChooser.deed.getFields(),
-					// Update any error/warning messages
-					deedValidityPromises = fields.map( ( fieldLayout ) => fieldLayout.checkValidity( true ) );
-
-				return carry.concat( deedValidityPromises );
-			}, [] );
-
-			if ( allValidityPromises.length === 1 ) {
-				// allValidityPromises will hold all promises for all uploads;
-				// adding a bogus promise (no warnings & errors) to
-				// ensure $.when always resolves with an array of multiple
-				// results (if there's just 1, it would otherwise have just
-				// that one's arguments, instead of a multi-dimensional array
-				// of upload warnings & failures)
-				allValidityPromises.push( $.Deferred().resolve( [], [], [] ).promise() );
-			}
-
-			$.when.apply( $, allValidityPromises ).then( function () {
-				// `arguments` will be an array of all fields, with their errors & warnings
-				// e.g. `[[something], []], [[], [something]]` for 2 fields,
-				// where the first one has an error and the last one a warning
-
-				if ( [ ...arguments ].some( ( arg ) => arg[ 0 ].length ) ) {
-					// One of the fields has errors; refuse to proceed!
-					return;
-				}
-
-				uw.controller.Step.prototype.moveNext.call( self );
+		this.valid( true )
+			.always( ( errors, warnings ) => {
+				this.ui.showErrors( errors, warnings );
+			} )
+			.done( () => {
+				uw.controller.Step.prototype.moveNext.call( this );
 			} );
-		}
 	};
 
 	uw.controller.Deed.prototype.unload = function () {
@@ -316,19 +288,50 @@
 	};
 
 	/**
-	 * Return true when deed(s) for all files have been chosen; false otherwise.
+	 * Checks deeds for validity.
 	 *
-	 * @return {boolean}
+	 * @param {boolean} thorough
+	 * @return {jQuery.Promise}
 	 */
-	uw.controller.Deed.prototype.valid = function () {
-		return this.getUniqueDeedChoosers( this.uploads ).reduce( ( carry, deedChooser ) => carry && deedChooser.valid(), true );
+	uw.controller.Deed.prototype.valid = function ( thorough ) {
+		var deedChoosers = this.getUniqueDeedChoosers( this.uploads ),
+			deedsChosen = this.getUniqueDeedChoosers( this.uploads ).every( ( deedChooser ) => deedChooser.valid() ),
+			validityPromises = [
+				deedsChosen ?
+					$.Deferred().resolve( [], [] ).promise() :
+					$.Deferred().reject( [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ], [] ).promise()
+			];
+
+		thorough = thorough || false;
+
+		if ( deedsChosen && thorough ) {
+			deedChoosers.forEach( ( deedChooser ) => {
+				deedChooser.deed.getFields().forEach( ( fieldLayout ) => {
+					validityPromises.push( fieldLayout.checkValidity( true ) );
+				} );
+			} );
+		}
+
+		return this.combineValidityPromises( validityPromises );
 	};
 
 	/**
 	 * Enable/disable the next button based on whether all deeds have been chosen.
 	 */
 	uw.controller.Deed.prototype.enableNextIfAllDeedsChosen = function () {
-		this.ui.toggleNext( this.valid() );
+		// Note: wrapping this inside setTimeout to ensure this is added
+		// at the end of the call stack; otherwise, due to how this is all
+		// set up, timing can be unpredictable: when re-loading the form
+		// after coming back from a later step, this ends being called more
+		// than once - both uninitialized (where it should not be visible),
+		// and initialized (after resetting the serialized state), where
+		// the event handlers end up invoking this.
+		// Stuffing this inside a setTimeout helps ensure that things
+		// actually execute in the order they're supposed to; i.e. the order
+		// they've been called in.
+		setTimeout( () => {
+			this.valid( false ).always( ( errors ) => this.ui.toggleNext( errors.length === 0 ) );
+		} );
 	};
 
 }( mw.uploadWizard ) );

@@ -42,6 +42,10 @@
 		// set in the controller, otherwise there's nowhere to go...
 		this.nextButtonPromise = $.Deferred();
 		this.previousButtonPromise = $.Deferred();
+
+		this.$errorCount = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-details-error-count' );
+		this.$buttons.append( this.$errorCount );
 	};
 
 	OO.mixinClass( uw.ui.Step, OO.EventEmitter );
@@ -120,4 +124,50 @@
 			ui.$buttons.append( ui.previousButton.$element );
 		} );
 	};
+
+	/**
+	 * Show errors/warnings in the form.
+	 * Some pages can be vertically long, so sometimes it is not obvious there are errors above.
+	 * This counts them and puts the count right next to the submit button,
+	 * so it should be obvious to the user they need to fix things.
+	 * This is a bit of a hack. We should already know how many errors there are, and where.
+	 * This method also opens up collapsed elements if the form has errors.
+	 *
+	 * @param {mw.message[]} errors
+	 * @param {mw.message[]} warnings
+	 */
+	uw.ui.Step.prototype.showErrors = function ( errors, warnings ) {
+		var show = ( kind, count ) => {
+			var $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind );
+
+			// Open collapsed elements that contain errors
+			$elements.each( function () {
+				var $collapsibleWrapper = $( this ).closest( '.mw-collapsible' );
+				if ( $collapsibleWrapper.length ) {
+					$collapsibleWrapper.data( 'mw-collapsible' ).expand();
+				}
+			} );
+
+			this.$errorCount.append(
+				new OO.ui.MessageWidget( {
+					type: kind,
+					inline: true,
+					label: mw.message( 'mwe-upwiz-details-' + kind + '-count', count, this.uploads.length ).text()
+				} ).$element
+			);
+
+			// Immediately stop existing animations, then scroll to first error
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$( 'html, body' ).stop().animate( { scrollTop: $( $elements[ 0 ] ).offset().top - 50 }, 'slow' );
+		};
+
+		// Default to showing errors; warnings are shown only if there are no errors
+		this.$errorCount.empty();
+		if ( errors.length > 0 ) {
+			show( 'error', errors.length );
+		} else if ( warnings.length > 0 ) {
+			show( 'warning', warnings.length );
+		}
+	};
+
 }( mw.uploadWizard ) );

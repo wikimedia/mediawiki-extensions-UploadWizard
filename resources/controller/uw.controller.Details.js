@@ -162,80 +162,50 @@
 	uw.controller.Details.prototype.startDetails = function () {
 		var details = this;
 
-		this.valid().done( ( valid ) => {
-			if ( valid ) {
+		this.valid( true )
+			.always( ( errors, warnings ) => {
+				details.showErrors( errors, warnings );
+			} )
+			.done( () => {
 				details.ui.hideEndButtons();
 				details.submit();
-			} else {
-				details.showErrors();
-			}
-		} );
+			} );
 	};
 
 	/**
 	 * Check details for validity.
 	 *
+	 * @param {boolean} thorough
 	 * @return {jQuery.Promise}
 	 */
-	uw.controller.Details.prototype.valid = function () {
-		// validityPromises will hold all promises for all uploads;
-		// prefilling with a bogus promise (no warnings & errors) to
-		// ensure $.when always resolves with an array of multiple
-		// results (if there's just 1, it would otherwise have just
-		// that one's arguments, instead of a multi-dimensional array
-		// of upload warnings & failures)
-		var validityPromises = [ $.Deferred().resolve( [], [] ).promise() ],
-			titles = [];
+	uw.controller.Details.prototype.valid = function ( thorough ) {
+		var titles = [],
+			validityPromises = [];
+
+		thorough = thorough || false;
 
 		this.uploads.forEach( ( upload ) => {
-			// Update any error/warning messages about all DetailsWidgets
-			var promise = upload.details.checkValidity( true ).then( function () {
-				var errors = [],
-					warnings = [],
-					title;
-
-				Array.prototype.forEach.call( arguments, ( result ) => {
-					errors = errors.concat( result[ 0 ] );
-					warnings = warnings.concat( result[ 1 ] );
-				} );
-
-				// Seen this title before?
-				title = upload.details.getTitle();
-				if ( title ) {
-					title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
-					if ( titles[ title ] ) {
-						// Don't submit. Instead, set an error in details step.
-						upload.details.setDuplicateTitleError();
-						errors.push( mw.message( 'mwe-upwiz-error-title-duplicate' ) );
-					} else {
-						titles[ title ] = true;
-					}
+			// Seen this title before?
+			var title = upload.details.getTitle();
+			if ( title ) {
+				title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
+				if ( titles[ title ] ) {
+					// Don't submit. Instead, set an error in details step.
+					upload.details.setDuplicateTitleError();
+					validityPromises.push(
+						$.Deferred().reject( [ mw.message( 'mwe-upwiz-error-title-duplicate' ) ], [] ).promise()
+					);
+				} else {
+					titles[ title ] = true;
 				}
-
-				return $.Deferred().resolve( errors, warnings ).promise();
-			} );
-
-			// Will hold an array of validation promises, one for each upload
-			validityPromises.push( promise );
-		} );
-
-		// validityPromises is an array of promises that each resolve with [warnings, errors]
-		// for each upload - now iterate them all to figure out if we can proceed
-		return $.when.apply( $, validityPromises ).then( function () {
-			var errors = [],
-				warnings = [];
-
-			Array.prototype.forEach.call( arguments, ( result ) => {
-				errors = errors.concat( result[ 0 ] );
-				warnings = warnings.concat( result[ 1 ] );
-			} );
-
-			if ( errors.length > 0 ) {
-				return $.Deferred().resolve( false );
 			}
 
-			return $.Deferred().resolve( true );
+			upload.details.getAllFields().forEach( ( fieldLayout ) => {
+				validityPromises.push( fieldLayout.checkValidity( thorough ) );
+			} );
 		} );
+
+		return this.combineValidityPromises( validityPromises );
 	};
 
 	uw.controller.Details.prototype.canTransition = function ( upload ) {
@@ -300,8 +270,6 @@
 		this.removeCopyMetadataFeature();
 
 		return this.transitionAll().then( () => {
-			details.showErrors();
-
 			if ( details.showNext() ) {
 				details.moveNext();
 			}
@@ -311,15 +279,17 @@
 	/**
 	 * Show warnings and errors in the form.
 	 * See UI class for more.
+	 *
+	 * @param {mw.message[]} errors
+	 * @param {mw.message[]} warnings
 	 */
-	uw.controller.Details.prototype.showErrors = function () {
+	uw.controller.Details.prototype.showErrors = function ( errors, warnings ) {
 		this.ui.enableEdits();
 
 		this.removeCopyMetadataFeature();
 		this.addCopyMetadataFeature();
 
-		this.ui.showWarnings(); // Scroll to the warning first so that any errors will have precedence
-		this.ui.showErrors();
+		this.ui.showErrors( errors, warnings );
 	};
 
 	/**
