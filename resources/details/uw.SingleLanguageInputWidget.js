@@ -14,7 +14,7 @@
 	 * @param {number} [config.maxLength=99999] Maximum input length
 	 */
 	uw.SingleLanguageInputWidget = function UWSingleLanguageInputWidget( config ) {
-		this.config = $.extend( {
+		this.config = Object.assign( {
 			inputWidgetConstructor: OO.ui.MultilineTextInputWidget.bind( null, {
 				classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ],
 				autosize: true

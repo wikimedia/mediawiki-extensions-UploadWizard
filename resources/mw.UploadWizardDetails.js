@@ -40,7 +40,7 @@
 				propertyDataValuesTypes = [],
 				statementFields = {};
 
-			this.propertyTitles = $.extend(
+			this.propertyTitles = Object.assign(
 				{},
 				mw.config.get( 'wbmiPropertyTitles' ) || {},
 				mw.config.get( 'upwizPropertyTitles' ) || {}

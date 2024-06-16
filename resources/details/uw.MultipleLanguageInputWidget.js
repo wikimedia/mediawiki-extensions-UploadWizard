@@ -18,7 +18,7 @@
 	 * @param {Object} [config.languages] { langcode: text } map of languages
 	 */
 	uw.MultipleLanguageInputWidget = function UWMultipleLanguageInputWidget( config ) {
-		this.config = $.extend( {
+		this.config = Object.assign( {
 			required: true,
 			label: mw.message( '' ),
 			errorBlank: mw.message( 'mwe-upwiz-error-blank' ),
@@ -55,9 +55,9 @@
 		);
 
 		// Add empty input (non-removable if this field is required)
-		this.addLanguageInput( $.extend( {}, this.config, { removable: !this.required } ) );
+		this.addLanguageInput( Object.assign( {}, this.config, { removable: !this.required } ) );
 		// Clicking the button will add new, removable, language inputs
-		this.addButton.connect( this, { click: [ 'addLanguageInput', $.extend( {}, this.config, { removable: true } ) ] } );
+		this.addButton.connect( this, { click: [ 'addLanguageInput', Object.assign( {}, this.config, { removable: true } ) ] } );
 	};
 	OO.inheritClass( uw.MultipleLanguageInputWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.MultipleLanguageInputWidget, OO.ui.mixin.GroupElement );
@@ -80,12 +80,12 @@
 		// languages that have already been selected to show up in the next dropdown...
 		if ( config.defaultLanguage ) {
 			languages[ config.defaultLanguage ] = allLanguages[ config.defaultLanguage ];
-			languages = $.extend( {}, languages, unusedLanguages );
+			languages = Object.assign( {}, languages, unusedLanguages );
 		} else {
 			languages = unusedLanguages;
 		}
 
-		config = $.extend( {}, config, { languages: languages } );
+		config = Object.assign( {}, config, { languages: languages } );
 		item = new uw.SingleLanguageInputWidget( config );
 		item.setText( text || '' );
 
@@ -118,7 +118,7 @@
 			// languages that have already been selected to show up in the next dropdown...
 			languages = {};
 			languages[ item.getLanguage() ] = allLanguages[ item.getLanguage() ];
-			languages = $.extend( {}, languages, unusedLanguages );
+			languages = Object.assign( {}, languages, unusedLanguages );
 			item.updateLanguages( languages );
 		}
 	};
@@ -282,7 +282,7 @@
 		this.removeItems( this.getItems() );
 
 		for ( i = 0; i < serialized.inputs.length; i++ ) {
-			config = $.extend( {}, config, {
+			config = Object.assign( {}, config, {
 				defaultLanguage: serialized.inputs[ i ].language,
 				removable: serialized.inputs[ i ].removable
 			} );

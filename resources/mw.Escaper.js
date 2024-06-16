@@ -34,7 +34,7 @@
 			extractedTemplates = this.extractTemplates( wikitext );
 			extractedLinks = this.extractLinks( extractedTemplates[ 0 ] );
 			wikitext = extractedLinks[ 0 ].replace( /\|/g, '{{!}}' );
-			return this.restoreExtracts( wikitext, $.extend( extractedTemplates[ 1 ], extractedLinks[ 1 ] ) );
+			return this.restoreExtracts( wikitext, Object.assign( extractedTemplates[ 1 ], extractedLinks[ 1 ] ) );
 		},
 
 		/**

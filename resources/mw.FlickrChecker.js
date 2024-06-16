@@ -159,7 +159,7 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise} a promise with the response data
 	 */
 	flickrRequest: function ( params ) {
-		params = $.extend( {
+		params = Object.assign( {
 			api_key: this.apiKey,
 			format: 'json',
 			nojsoncallback: 1
@@ -350,7 +350,7 @@ mw.FlickrChecker.prototype = {
 		this.selectButton.setLabel( mw.message( 'mwe-upwiz-select-flickr' ).text() );
 		this.selectButton.setDisabled( true );
 
-		var req = $.extend( {}, options, {
+		var req = Object.assign( {}, options, {
 			extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias',
 			per_page: '500'
 		} );

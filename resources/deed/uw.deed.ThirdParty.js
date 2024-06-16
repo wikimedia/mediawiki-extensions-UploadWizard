@@ -354,7 +354,7 @@
 	 * @return {Object}
 	 */
 	uw.deed.ThirdParty.prototype.getSerialized = function () {
-		return $.extend( uw.deed.Abstract.prototype.getSerialized.call( this ), {
+		return Object.assign( uw.deed.Abstract.prototype.getSerialized.call( this ), {
 			source: this.sourceInput.getValue(),
 			author: this.authorInput.getValue(),
 			license: this.licenseInput.getSerialized(),

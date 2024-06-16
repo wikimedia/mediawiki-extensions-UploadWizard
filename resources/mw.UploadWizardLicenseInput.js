@@ -75,7 +75,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 			input.widget.addItems( [ option ] );
 
 			group = new mw.uploadWizard.LicenseGroup(
-				$.extend( {}, groupConfig, { option: option } ),
+				Object.assign( {}, groupConfig, { option: option } ),
 				// group config can override overall type; e.g. a single group can be "and", while
 				// the rest of the config can be "or"
 				( groupConfig.type || config.type ) === 'or' ? 'radio' : 'checkbox',
@@ -135,7 +135,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 OO.inheritClass( mw.UploadWizardLicenseInput, OO.ui.Widget );
 OO.mixinClass( mw.UploadWizardLicenseInput, OO.ui.mixin.GroupElement );
 
-$.extend( mw.UploadWizardLicenseInput.prototype, {
+Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	unload: function () {
 		this.getItems().forEach( ( group ) => {
 			group.unload();
@@ -376,7 +376,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 
 			if ( Object.keys( value ).length > 0 ) {
 				// $.extend just in case there are multiple groups with the same name...
-				values[ groupName ] = $.extend( {}, values[ groupName ] || {}, value );
+				values[ groupName ] = Object.assign( {}, values[ groupName ] || {}, value );
 			}
 		} );
 

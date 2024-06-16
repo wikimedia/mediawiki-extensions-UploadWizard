@@ -229,7 +229,7 @@
 	 * @param {number} unknownAmount Amount of unknown filenames (e.g. revdeleted)
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateError = function ( code, result, localDuplicates, foreignDuplicates, unknownAmount ) {
-		var allDuplicates = $.extend( {}, localDuplicates, foreignDuplicates ),
+		var allDuplicates = Object.assign( {}, localDuplicates, foreignDuplicates ),
 			$extra = $( '<div>' ),
 			$ul = $( '<ul>' ).appendTo( $extra ),
 			$a,

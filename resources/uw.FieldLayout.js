@@ -17,7 +17,7 @@
 		// about the input. We'll want to display that by default, so we're getting
 		// rid of the "help" property here & will later append that after the header
 		var help = config && config.help ? config.help : '';
-		config = $.extend( { align: 'top', required: false }, config, { help: '' } );
+		config = Object.assign( { align: 'top', required: false }, config, { help: '' } );
 
 		uw.FieldLayout.super.call( this, fieldWidget, config );
 		uw.ValidationMessageElement.call( this, { validatedWidget: fieldWidget } );
