@@ -46,35 +46,9 @@
 		 * @param {string} selector
 		 */
 		createInterface: function ( selector ) {
-			var promise, self = this;
 			this.ui = new uw.ui.Wizard( selector );
 
-			promise = this.initialiseSteps();
-
-			if (
-				this.config.wikibase.enabled &&
-				// .depicts is for backward compatibility
-				( this.config.wikibase.statements || this.config.wikibase.depicts )
-			) {
-				// mediainfo has a couple of widgets that we'll be using, but they're not
-				// necessarily a hard dependency for UploadWizard
-				// let's just attempt to load them - if not available we'll just do without
-				promise.then( () => {
-					// disable wikibase until its components are loaded - this is just a safeguard
-					// against the 'details' page being loaded with captions/depicts before
-					// the wikibase components have loaded
-					self.config.wikibase.enabled = false;
-					return mw.loader.using( [
-						'wikibase.mediainfo.statements',
-						'wikibase.datamodel',
-						'wikibase.mediainfo.base'
-					] ).then( () => {
-						self.config.wikibase.enabled = true;
-					} );
-				} );
-			}
-
-			promise.then( ( steps ) => {
+			this.initialiseSteps().then( ( steps ) => {
 				// "select" the first step - highlight, make it visible, hide all others
 				steps.tutorial.load( [] );
 			} );
@@ -113,6 +87,35 @@
 			steps.thanks.setNextStep( steps.file );
 
 			return $.Deferred().resolve( steps ).promise()
+				.then( ( steps ) => {
+					if (
+						self.config.wikibase.enabled &&
+						// .depicts is for backward compatibility - this config
+						// var used to be called differently...
+						( self.config.wikibase.statements || self.config.wikibase.depicts )
+					) {
+						// mediainfo has a couple of widgets that we'll be using, but they're not
+						// necessarily a hard dependency for UploadWizard
+						// let's just attempt to load it - if it's not available, we just won't
+						// have that extra step then...
+						return mw.loader.using( [ 'wikibase', 'wikibase.mediainfo.statements' ] ).then(
+							() => {
+								// interject metadata step in between details & thanks
+								steps.metadata = new uw.controller.Metadata( self.api, self.config );
+
+								steps.details.setNextStep( steps.metadata );
+								// metadata has no "previous" step - the file
+								// has already been uploaded at this point
+								steps.metadata.setNextStep( steps.thanks );
+
+								return steps;
+							},
+							() => steps /* just move on without metadata... */
+
+						);
+					}
+					return steps;
+				} )
 				.always( ( steps ) => {
 					self.steps = steps;
 					self.ui.initialiseSteps( steps );

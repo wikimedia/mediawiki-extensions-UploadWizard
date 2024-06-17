@@ -2,15 +2,12 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use ExtensionRegistry;
 use MediaWiki\ChangeTags\Hook\ChangeTagsAllowedAddHook;
 use MediaWiki\ChangeTags\Hook\ChangeTagsListActiveHook;
 use MediaWiki\ChangeTags\Hook\ListDefinedTagsHook;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\IsUploadAllowedFromUrlHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
-use MediaWiki\MediaWikiServices;
-use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\User\User;
 
@@ -215,49 +212,5 @@ class Hooks implements
 	 */
 	public function onChangeTagsAllowedAdd( &$allowedTags, $addTags, $user ) {
 		$this->addListDefinedTags( $allowedTags );
-	}
-
-	/**
-	 * Add UW-specific titles for default SD properties
-	 *
-	 * @param OutputPage $out
-	 * @param \Skin $skin
-	 */
-	public function onBeforePageDisplay( $out, $skin ): void {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'WikibaseMediaInfo' ) ) {
-			$properties = $config->get( 'MediaInfoProperties' );
-			if ( $properties ) {
-				$propertyTitles = [];
-				$propertyPlaceholders = [];
-				$propertyCopyLabels = [];
-				foreach ( $properties as $name => $property ) {
-					// some properties/statements may have custom titles, in addition to their property
-					// label, to help clarify what data is expected there
-					// possible messages include:
-					// mwe-upwiz-statements-title-depicts
-					$message = wfMessage( 'mwe-upwiz-statements-title-' . ( $name ?: '' ) );
-					if ( $message->exists() ) {
-						$propertyTitles[$property] = $message->text();
-					}
-					// same with placeholders
-					$message = wfMessage( 'mwe-upwiz-statements-placeholder-' . ( $name ?: '' ) );
-					if ( $message->exists() ) {
-						$propertyPlaceholders[$property] = $message->text();
-					}
-					// same with "copy" label
-					$message = wfMessage( 'mwe-upwiz-copy-statements-' . ( $name ?: '' ) );
-					if ( $message->exists() ) {
-						$propertyCopyLabels[$property] = $message->text();
-					}
-				}
-				$out->addJsConfigVars( [
-					'upwizPropertyTitles' => $propertyTitles,
-					'upwizPropertyPlaceholders' => $propertyPlaceholders,
-					'upwizPropertyCopyLabels' => $propertyCopyLabels,
-				] );
-			}
-		}
 	}
 }

@@ -10,12 +10,8 @@
 	 * @param {mw.UploadWizardUpload[]} config.copyTo Uploads to copy the details to
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
-		var self = this,
-			metadataTypes = uw.CopyMetadataWidget.static.copyMetadataTypes,
-			metadataType, defaultStatus, copyMetadataMsg,
-			checkboxes = [],
-			propertyCopyLabels = mw.config.get( 'upwizPropertyCopyLabels' ) || {},
-			statementCheckboxes = {};
+		var metadataType, defaultStatus, copyMetadataMsg,
+			checkboxes = [];
 
 		uw.CopyMetadataWidget.super.call( this );
 
@@ -23,11 +19,9 @@
 		this.copyTo = config.copyTo;
 		this.savedSerializedData = [];
 
-		metadataTypes.statements.properties = this.copyFrom.details.getStatementProperties();
-
-		for ( metadataType in metadataTypes ) {
-			if ( metadataType !== 'statements' ) {
-				defaultStatus = metadataTypes[ metadataType ];
+		for ( metadataType in uw.CopyMetadataWidget.static.copyMetadataTypes ) {
+			if ( Object.prototype.hasOwnProperty.call( uw.CopyMetadataWidget.static.copyMetadataTypes, metadataType ) ) {
+				defaultStatus = uw.CopyMetadataWidget.static.copyMetadataTypes[ metadataType ];
 				// The following messages are used here:
 				// * mwe-upwiz-copy-title-label
 				// * mwe-upwiz-copy-caption-label
@@ -43,23 +37,6 @@
 					label: copyMetadataMsg,
 					selected: defaultStatus
 				} ) );
-			} else {
-				metadataTypes.statements.properties.forEach( ( property ) => {
-					statementCheckboxes[ property.id ] = new OO.ui.CheckboxMultioptionWidget( {
-						data: 'statements.' + property.id,
-						label: propertyCopyLabels[ property.id ] || property.id,
-						selected: metadataTypes.statements.checked
-					} );
-					checkboxes.push( statementCheckboxes[ property.id ] );
-
-					if ( !( property.id in propertyCopyLabels ) ) {
-						// for statement inputs added by a campaign we probably don't have a defined label, so grab
-						// the label from wikibase and add the checkbox once we have it
-						self.copyFrom.details.getPropertyLabel( property.id ).then( ( label ) => {
-							statementCheckboxes[ property.id ].setLabel( label );
-						} );
-					}
-				} );
 			}
 		}
 
@@ -67,7 +44,6 @@
 		this.checkboxesWidget = new OO.ui.CheckboxMultiselectWidget( {
 			items: checkboxes
 		} );
-
 		this.copyButton = new OO.ui.ButtonWidget( {
 			label: $( '<span>' ).append(
 				new OO.ui.IconWidget( { icon: 'copy' } ).$element,
@@ -115,7 +91,6 @@
 		caption: true,
 		description: true,
 		date: false,
-		statements: { checked: true },
 		categories: true,
 		location: false,
 		other: true
@@ -179,23 +154,11 @@
 			sourceValue = {},
 			// Checks for extra behaviors
 			copyingTitle = false,
-			copyingOther = false,
-			typeParts;
+			copyingOther = false;
 
 		// Filter serialized data to only the types we want to copy
 		metadataTypes.forEach( ( type ) => {
-			typeParts = type.split( '.' );
-			if ( typeParts.length === 2 ) {
-				if ( serialized[ typeParts[ 0 ] ][ typeParts[ 1 ] ] ) {
-					if ( !sourceValue[ typeParts[ 0 ] ] ) {
-						sourceValue[ typeParts[ 0 ] ] = {};
-					}
-					sourceValue[ typeParts[ 0 ] ][ typeParts[ 1 ] ] =
-						serialized[ typeParts[ 0 ] ][ typeParts[ 1 ] ];
-				}
-			} else {
-				sourceValue[ type ] = serialized[ type ];
-			}
+			sourceValue[ type ] = serialized[ type ];
 			copyingTitle = copyingTitle || type === 'title';
 			copyingOther = copyingOther || type === 'other';
 		} );

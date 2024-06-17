@@ -17,7 +17,7 @@
 
 		this.mainFields = [];
 
-		this.structuredDataSubmissionErrors = false;
+		this.captionSubmissionErrors = {};
 
 		this.$div = $( '<div>' ).addClass( 'mwe-upwiz-info-file filled' );
 	};
@@ -32,19 +32,7 @@
 			var descriptionRequired, uri,
 				details = this,
 				config = mw.UploadWizard.config,
-				captionsAvailable = config.wikibase.enabled && config.wikibase.captions,
-				// the following only end up getting used if statements are enabled
-				dataTypesMap = mw.config.get( 'wbDataTypes' ) || {},
-				defaultProperties = mw.config.get( 'wbmiDefaultProperties' ) || [],
-				propertyTypes = mw.config.get( 'wbmiPropertyTypes' ) || {},
-				propertyDataValuesTypes = [],
-				statementFields = {};
-
-			this.propertyTitles = Object.assign(
-				{},
-				mw.config.get( 'wbmiPropertyTitles' ) || {},
-				mw.config.get( 'upwizPropertyTitles' ) || {}
-			);
+				captionsAvailable = config.wikibase.enabled && config.wikibase.captions;
 
 			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
@@ -201,6 +189,11 @@
 			} );
 
 			//
+			// TODO add main subjects: https://phabricator.wikimedia.org/T361053.
+			//      Use `classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]`
+			//
+
+			//
 			// TODO improve location: https://phabricator.wikimedia.org/T361052
 			//
 			this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );
@@ -243,54 +236,9 @@
 				details.otherDetails.$element.data( 'mw-collapsible' ).expand();
 			} );
 
-			this.mainFields.push( this.categoriesDetailsField );
-			this.mainFields.push( this.locationInputField );
-			this.mainFields.push( this.otherDetailsField );
-
-			this.statementWidgets = {};
-			if ( config.wikibase && config.wikibase.statements ) {
-				Object.keys( propertyTypes ).forEach( ( propertyId ) => {
-					propertyDataValuesTypes[ propertyId ] = dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType;
-				} );
-
-				( config.defaults.statements || [] ).forEach( ( data ) => {
-					if ( defaultProperties.indexOf( data.propertyId ) < 0 ) {
-						defaultProperties.push( data.propertyId );
-					}
-					propertyDataValuesTypes[ data.propertyId ] = data.dataType;
-				} );
-
-				defaultProperties.forEach( ( propertyId ) => {
-					var widget;
-
-					// only wikibase-entityid types are supported
-					if ( propertyDataValuesTypes[ propertyId ] !== 'wikibase-entityid' ) {
-						return;
-					}
-
-					widget = details.createStatementWidget( propertyId );
-					statementFields[ propertyId ] = new uw.FieldLayout( widget, {
-						// unknown labels will get filled in later on
-						label: details.propertyTitles[ propertyId ] || propertyId,
-						classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
-					} );
-
-					details.additionalInfoFieldset.addItems( [ statementFields[ propertyId ] ] );
-					details.statementWidgets[ propertyId ] = widget;
-					details.mainFields.push( statementFields[ propertyId ] );
-
-					// properties without a specified title default to their property id,
-					// but we'll grab the property label from Wikibase and update the
-					// field's label once we have it
-					if ( !( propertyId in details.propertyTitles ) ) {
-						details.getPropertyLabel( propertyId ).then( ( text ) => {
-							statementFields[ propertyId ].setLabel( text );
-						} );
-					}
-				} );
-			}
-
+			// Add fields to the field set
 			this.additionalInfoFieldset.addItems(
+				// TODO add main subjects field here
 				[
 					this.categoriesDetailsField,
 					this.locationInputField,
@@ -298,6 +246,13 @@
 				]
 			);
 
+			this.mainFields.push( this.categoriesDetailsField );
+			this.mainFields.push( this.locationInputField );
+			this.mainFields.push( this.otherDetailsField );
+
+			//
+			// Final form
+			//
 			this.$form = $( '<form id="mwe-upwiz-detailsform' + this.upload.index + '"></form>' ).addClass( 'detailsForm' );
 			this.$form.append(
 				this.titleDetailsField.$element,
@@ -424,41 +379,6 @@
 				this.setSerialized( this.savedSerialData );
 				this.savedSerialData = undefined;
 			}
-		},
-
-		createStatementWidget: function ( propertyId, dataType, data ) {
-			var propertyPlaceholders = mw.config.get( 'upwizPropertyPlaceholders' ) || {};
-
-			return new uw.StatementWidget( {
-				propertyId: propertyId,
-				type: dataType,
-				classes: [ 'wbmi-statement-input' ],
-				data: data,
-				placeholder: propertyId in propertyPlaceholders ? propertyPlaceholders[ propertyId ] : ''
-			} );
-		},
-
-		getStatementProperties: function () {
-			var propertyId, properties = [];
-			for ( propertyId in this.statementWidgets ) {
-				properties.push( {
-					id: propertyId,
-					label: this.propertyTitles[ propertyId ]
-				} );
-			}
-			return properties;
-		},
-
-		getPropertyLabel: function ( propertyId ) {
-			var FormatValueElement = mw.loader.require( 'wikibase.mediainfo.base' ).FormatValueElement,
-				formatValueElement = new FormatValueElement(),
-				datamodel = require( 'wikibase.datamodel' );
-
-			// Format the label & capitalize
-			return formatValueElement.formatValue(
-				new datamodel.EntityId( propertyId ),
-				'text/plain'
-			).then( ( text ) => text.charAt( 0 ).toUpperCase() + text.slice( 1 ) );
 		},
 
 		/*
@@ -836,27 +756,10 @@
 				description: this.descriptionSameAsCaptionCheckbox.isSelected() ? undefined : this.descriptionsDetails.getSerialized(),
 				date: this.dateDetails.getSerialized(),
 				categories: this.categoriesDetails.getSerialized(),
-				statements: this.serializeStatements(),
 				location: this.locationInput.getSerialized(),
 				other: this.otherDetails.getSerialized(),
 				campaigns: this.campaignDetailsFields.map( ( field ) => field.fieldWidget.getSerialized() )
 			};
-		},
-
-		serializeStatements: function () {
-			var serialized = {},
-				propertyId;
-			for ( propertyId in this.statementWidgets ) {
-				serialized[ propertyId ] = this.statementWidgets[ propertyId ].getStatementList();
-			}
-			return serialized;
-		},
-
-		setStatementsFromSerialized: function ( serialized ) {
-			var propertyId;
-			for ( propertyId in serialized ) {
-				this.statementWidgets[ propertyId ].resetData( serialized[ propertyId ] );
-			}
 		},
 
 		/**
@@ -906,9 +809,6 @@
 			}
 			if ( serialized.categories ) {
 				this.categoriesDetails.setSerialized( serialized.categories );
-			}
-			if ( serialized.statements ) {
-				this.setStatementsFromSerialized( serialized.statements );
 			}
 			if ( serialized.location ) {
 				this.locationInput.setSerialized( serialized.location );
@@ -1025,7 +925,7 @@
 		 */
 		submit: function () {
 			var details = this,
-				wikitext, promise, errorString;
+				wikitext, captions, promise, languageCodes, allLanguages, errorString;
 
 			this.$containerDiv.find( 'form' ).trigger( 'submit' );
 
@@ -1037,44 +937,61 @@
 			wikitext = this.getWikiText();
 			promise = this.submitWikiText( wikitext );
 
+			captions = this.captionsDetails.getValues();
 			if (
 				mw.UploadWizard.config.wikibase.enabled &&
-				(
-					mw.UploadWizard.config.wikibase.captions ||
-					mw.UploadWizard.config.wikibase.statements
-				)
+				mw.UploadWizard.config.wikibase.captions &&
+				Object.keys( captions ).length > 0
 			) {
 				promise = promise
 					.then( () => {
 						// just work out the mediainfo entity id from the page id
-						var status = mw.message( 'mwe-upwiz-submitting-structured-data' );
+						// @todo FIXME clean this up
+						var status = mw.message( 'mwe-upwiz-submitting-captions', Object.keys( captions ).length );
 						details.setStatus( status.text() );
 						return details.getMediaInfoEntityId(); // (T208545)
 					} )
-					// submit structured data to wikibase
-					.then( this.submitStructuredData.bind( this ) );
+					// submit captions to wikibase
+					.then( this.submitCaptions.bind( this, captions ) );
 			}
 
 			return promise.then( () => {
-				// FIXME - structuredDataSubmissionErrors gets set to true in the catch block of
-				// postStructuredData which executes AFTER this, and so the error never gets
-				// displayed
-				if ( details.structuredDataSubmissionErrors ) {
+				if ( Object.keys( details.captionSubmissionErrors ).length > 0 ) {
+					languageCodes = Object.keys( captions );
+					allLanguages = mw.UploadWizard.config.uwLanguages;
+
 					errorString = '<strong>' + mw.message(
-						'mwe-upwiz-error-submit-structured-data'
+						'mwe-upwiz-error-submit-captions',
+						languageCodes.length
 					).parse() + '</strong>';
 
+					Object.keys( details.captionSubmissionErrors ).forEach( ( langCode ) => {
+						var msgs = [],
+							error = details.captionSubmissionErrors[ langCode ];
+						error.result.errors.forEach( ( errorObject ) => {
+							var newMsg = '<p>' + errorObject.html + '</p>';
+							if ( msgs.indexOf( newMsg ) === -1 ) {
+								msgs.push( newMsg );
+								errorString += newMsg;
+							}
+						} );
+						errorString += '<dl>' +
+							'<dt>' + allLanguages[ langCode ] + '</dt>' +
+							'<dd>' + captions[ langCode ] + '</dd>' +
+							'</dl>';
+					} );
+
 					errorString += '<strong>' + mw.message(
-						'mwe-upwiz-error-submit-structured-data-remedy',
+						'mwe-upwiz-error-submit-captions-remedy',
 						details.upload.imageinfo.canonicaltitle
 					).parse() + '</strong>';
 
 					details.upload.state = 'sdc-api-error';
 					details.showError(
-						'sd-fail',
+						'caption-fail',
 						errorString
 					);
-					// If there is a structured data error, then details for how to deal with it are
+					// If there is a captions error, then details for how to deal with it are
 					// in the errorString above, no need to show anything else
 					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '#mwe-upwiz-details-warning-count' ).hide();
@@ -1179,88 +1096,69 @@
 		},
 
 		/**
+		 * @param {Object} captions {<languagecode>: <caption text>} map
 		 * @param {string} entityId
 		 * @return {jQuery.Promise}
 		 */
-		submitStructuredData: function ( entityId ) {
-			var labels, statements, data = {},
-				config = mw.UploadWizard.config,
-				promise = $.Deferred().resolve().promise();
-
-			labels = this.prepareLabelsData();
-			statements = this.prepareStatementsData();
-			if ( !config.wikibase.enabled ||
-				(
-					Object.keys( labels ).length === 0 && statements.length === 0
-				)
-			) {
-				return promise;
-			}
-
-			if ( Object.keys( labels ).length !== 0 ) {
-				data.labels = labels;
-			}
-
-			if ( statements.length !== 0 ) {
-				data.claims = statements;
-			}
-
-			promise = promise.then( this.postStructuredData( entityId, JSON.stringify( data ) ) );
-			return promise;
-		},
-
-		prepareLabelsData: function () {
-			var captions = this.captionsDetails.getValues(),
+		submitCaptions: function ( captions, entityId ) {
+			var self = this,
 				languages = Object.keys( captions ),
-				i, labels = {};
-			for ( i = 0; i < languages.length; i++ ) {
-				labels[ languages[ i ] ] = {
-					language: languages[ i ],
-					value: captions[ languages[ i ] ]
-				};
-			}
-			return labels;
-		},
+				promise = $.Deferred().resolve().promise(),
+				callable = function ( language, result ) {
+					var text = captions[ language ],
+						baseRevId = result && result.entity && result.entity.lastrevid || null;
+					return self.submitCaption( entityId, baseRevId, language, text );
+				},
+				i;
 
-		prepareStatementsData: function () {
-			var claims = [],
-				wikibaseSerialization = mw.loader.require( 'wikibase.serialization' ),
-				statementListSerializer = new wikibaseSerialization.StatementListSerializer(),
-				propertyId;
-			for ( propertyId in this.statementWidgets ) {
-				claims = claims.concat(
-					statementListSerializer.serialize(
-						this.statementWidgets[ propertyId ].getStatementList()
-					)
-				);
+			for ( i = 0; i < languages.length; i++ ) {
+				promise = promise.then( callable.bind( promise, languages[ i ] ) );
 			}
-			return claims;
+
+			return promise;
 		},
 
 		/**
 		 * @param {string} id
-		 * @param {string} data
+		 * @param {number|null} baseRevId
+		 * @param {string} language
+		 * @param {string} value
 		 * @return {jQuery.Promise}
 		 */
-		postStructuredData: function ( id, data ) {
+		submitCaption: function ( id, baseRevId, language, value ) {
 			var self = this,
 				config = mw.UploadWizard.config,
 				params = {
-					action: 'wbeditentity',
+					action: 'wbsetlabel',
 					id: id,
-					data: data,
-					// baserevid is intentionally left blank: SD can be submitted
-					// without baserevid just fine - baserevid is to prevent edit conflicts,
-					// and this is a new upload so there should be none
+					language: language,
+					value: value,
+					// baserevid is intentionally left blank: captions can be submitted
+					// without baserevid just fine, it just won't prevent all edit conflicts
+					// (though it still somewhat prevent against it)
+					// if we were to set the correct baserevid, we might fail to submit
+					// some captions because of bots making edits immediately after upload
+					// (e.g. https://phabricator.wikimedia.org/T219677)
+					// this is a brand new upload, this is *supposed* to be the very
+					// first content, entered at time of upload; the only edit conflict
+					// that could happen would be caused by bots...
 					baserevid: undefined
 				},
 				ajaxOptions = { url: config.wikibase.api };
 
+			if ( !config.wikibase.enabled && config.wikibase.captions ) {
+				return $.Deferred().reject().promise();
+			}
+
 			return this.upload.api.postWithEditToken(
 				params, ajaxOptions
-			).catch( () => {
-				self.structuredDataSubmissionErrors = true;
-			} );
+			)
+				.catch( ( code, result ) => {
+					self.captionSubmissionErrors[ language ] = {
+						code: code,
+						result: result
+					};
+				} );
 		},
 
 		/**
