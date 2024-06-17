@@ -34,7 +34,7 @@
 		/**
 		 * @property {Object} config
 		 */
-		this.config = $.extend(
+		this.config = Object.assign(
 			{
 				showInBreadcrumb: true
 			},

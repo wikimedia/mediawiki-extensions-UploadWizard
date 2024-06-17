@@ -93,7 +93,7 @@
 			steps.file = new uw.controller.Upload( this.api, this.config );
 			steps.deeds = new uw.controller.Deed( this.api, this.config );
 			steps.details = new uw.controller.Details( this.api, this.config );
-			steps.thanks = new uw.controller.Thanks( this.api, $.extend(
+			steps.thanks = new uw.controller.Thanks( this.api, Object.assign(
 				{ showInBreadcrumb: false },
 				this.config
 			) );
@@ -139,7 +139,7 @@
 			api.ajax = function ( parameters, ajaxOptions ) {
 				var original, override;
 
-				$.extend( parameters, {
+				Object.assign( parameters, {
 					errorformat: 'html',
 					errorlang: mw.config.get( 'wgUserLanguage' ),
 					errorsuselocal: 1,

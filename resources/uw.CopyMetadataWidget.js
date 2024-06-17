@@ -208,7 +208,7 @@
 		if ( copyingTitle ) {
 			titleZero = sourceValue.title.title;
 			// Add number suffix to first title if no numbering present
-			// eslint-disable-next-line security/detect-unsafe-regex
+
 			matches = titleZero.match( /(\D+)(\d{1,3})(\.\D*)?$/ );
 			if ( matches === null ) {
 				titleZero = titleZero.trim() + ' 01';

@@ -94,7 +94,7 @@
 	mw.FormDataTransport.prototype.createParams = function ( filename, offset ) {
 		var params = OO.cloneObject( this.formData );
 
-		$.extend( params, {
+		Object.assign( params, {
 			filename: filename,
 
 			// ignorewarnings is turned on, since warnings are presented in a

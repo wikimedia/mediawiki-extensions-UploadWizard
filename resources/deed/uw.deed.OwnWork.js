@@ -474,7 +474,7 @@
 	 * @return {Object}
 	 */
 	uw.deed.OwnWork.prototype.getSerialized = function () {
-		var serialized = $.extend(
+		var serialized = Object.assign(
 			uw.deed.Abstract.prototype.getSerialized.call( this ),
 			{ author: this.getAuthorInputValue() }
 		);

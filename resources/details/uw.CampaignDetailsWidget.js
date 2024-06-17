@@ -13,7 +13,7 @@
 	 * @param {Object} [config.options] Map of select dropdown options to use when `type` is 'text'
 	 */
 	uw.CampaignDetailsWidget = function UWCampaignDetailsWidget( config ) {
-		config = $.extend( { type: 'text' }, config );
+		config = Object.assign( { type: 'text' }, config );
 		uw.CampaignDetailsWidget.super.call( this );
 
 		this.required = !!config.required;
