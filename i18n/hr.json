@@ -206,7 +206,7 @@
 	"mwe-upwiz-error-title-too-long": "Ovaj naslov je predug.\nVodite računa da ne bude dulji od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-title-too-short": "Ovaj naslov je prekratak.\nVodite računa da sadrži najmanje $1 {{PLURAL:$1|znak|znaka|znakova}}.",
 	"mwe-upwiz-error-bad-captions": "Postoje problemi s nekim od naslova.",
-	"mwe-upwiz-error-bad-descriptions": "Postoje problem s nekim od opisa.",
+	"mwe-upwiz-error-bad-descriptions": "Postoje problemi s nekim od opisa.",
 	"mwe-upwiz-error-title-blacklisted": "Ovaj naslov sadrži neželjeni tekst. Molimo popravite ga.",
 	"mwe-upwiz-error-license-wikitext-missing": "Označili ste mogućnost koja zahtijeva unos wikiteksta.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Wikitekst je prekratak za licenciju",
