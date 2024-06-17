@@ -184,7 +184,7 @@
 	"mwe-upwiz-fileexists-replace-on-page": "Soubor s tímto názvem již existuje. Pokud ho chcete nahradit, jděte na stránku [$2 $1] a nahraďte ho tam.",
 	"mwe-upwiz-fileexists-replace-no-link": "Zvolte prosím jiný název, protože tento název je již používán jiným souborem.",
 	"mwe-upwiz-blacklisted-details": "Napište prosím informativnější název ([$2 viz příklady]).",
-	"mwe-upwiz-blacklisted-details-feedback": "Napište prosím informativnější název ([$2 viz příklady]). • [$3 Poslat zpětnou vazbu]",
+	"mwe-upwiz-blacklisted-details-feedback": "Vyberte prosím jiný, popisný název ([$2 další informace]). • [$3 Poslat zpětnou vazbu]",
 	"mwe-upwiz-next": "Další",
 	"mwe-upwiz-next-file": "Pokračovat",
 	"mwe-upwiz-next-deeds": "Další",

@@ -197,7 +197,7 @@
 	"mwe-upwiz-ok": "확인",
 	"mwe-upwiz-fileexists-replace-on-page": "이 이름으로 된 파일이 이미 있습니다. 파일을 덮어쓰려면 [$2 $1](으)로 가서 덮어쓰세요.",
 	"mwe-upwiz-fileexists-replace-no-link": "이 제목은 이미 다른 파일에서 사용하고 있으므로 다른 제목을 선택하세요.",
-	"mwe-upwiz-blacklisted-errordialog-title": "제목 예시",
+	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "제목 예시",
 	"mwe-upwiz-next": "다음",
 	"mwe-upwiz-next-file": "계속",
 	"mwe-upwiz-next-deeds": "다음",
