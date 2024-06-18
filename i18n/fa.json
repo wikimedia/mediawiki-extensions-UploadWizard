@@ -91,6 +91,7 @@
 	"mwe-upwiz-stashed-upload": "بارگذاری شد",
 	"mwe-upwiz-getting-metadata": "در حال دریافت اطلاعات پرونده و پیش‌نمایش‌ها...",
 	"mwe-upwiz-submitting-details": "در حال ثبت جزئیات...",
+	"mwe-upwiz-submitting-captions": "فرستادن {{PLURAL:$1|برنگاشت|برنگاشت‌ها}}…",
 	"mwe-upwiz-published": "منتشر شد!",
 	"mwe-upwiz-failed": "ناموفق بود.",
 	"mwe-upwiz-remove": "حذف",

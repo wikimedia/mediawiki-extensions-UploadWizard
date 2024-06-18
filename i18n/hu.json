@@ -75,6 +75,7 @@
 	"mwe-upwiz-stashed-upload": "Feltöltve",
 	"mwe-upwiz-getting-metadata": "Fájladatok és előnézeti kép beolvasása...",
 	"mwe-upwiz-submitting-details": "Részletek elküldése…",
+	"mwe-upwiz-submitting-captions": "{{PLURAL:$1|Képaláírás|Képaláírások}} beküldése…",
 	"mwe-upwiz-published": "Közzétéve!",
 	"mwe-upwiz-failed": "Sikertelen.",
 	"mwe-upwiz-remove": "Eltávolítás",

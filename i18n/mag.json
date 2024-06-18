@@ -43,6 +43,7 @@
 	"mwe-upwiz-stashed-upload": "उपारोपित होएल",
 	"mwe-upwiz-getting-metadata": "सञ्चिका जानकारी आउ पूर्बावलोकन प्राप्त कैल जाइत…",
 	"mwe-upwiz-submitting-details": "बिस्तार प्रस्तुत कैल जाइत…",
+	"mwe-upwiz-submitting-captions": "केप्शन् प्रस्तुत {{PLURAL:$1|कैल जाइत}}…",
 	"mwe-upwiz-published": "प्रकाशित!",
 	"mwe-upwiz-failed": "बिफल ।",
 	"mwe-upwiz-remove": "हटावी",
