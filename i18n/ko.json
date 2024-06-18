@@ -237,6 +237,7 @@
 	"mwe-upwiz-error-latitude": "위도 값은 -90에서 90 사이의 숫자여야 합니다.",
 	"mwe-upwiz-error-longitude": "경도는 -180에서 180 사이의 숫자여야 합니다.",
 	"mwe-upwiz-error-altitude": "고도는 숫자여야 합니다.",
+	"mwe-upwiz-error-heading": "각도 값은 0에서 360 사이의 숫자여야 합니다.",
 	"mwe-upwiz-error-signature-too-long": "서명이 너무 깁니다.\n$1 {{PLURAL:$1|글자}}보다 짧게 하세요.",
 	"mwe-upwiz-error-signature-too-short": "서명이 너무 짧습니다.\n$1 {{PLURAL:$1|글자}}보다 길게 하세요.",
 	"mwe-upwiz-error-date-license-mismatch": "선택된 날짜가 라이선스($1)와 일치하지 않습니다.",
