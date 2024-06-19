@@ -192,6 +192,7 @@
 	"mwe-upwiz-thanks-intro": "Grazie per il caricamento!",
 	"mwe-upwiz-thanks-explain": "È ora possibile usare {{PLURAL:$1|questo|questi}} file su wiki, o {{PLURAL:$1|collegarlo|collegarli}} da altrove sul web.",
 	"mwe-upwiz-thanks-wikitext": "Per usare il file in un wiki, copia questo testo in una pagina:",
+	"mwe-upwiz-thanks-update-delay": "L'inserimento dell'immagine nella pagina della lista potrebbe richiedere fino a cinque minuti.",
 	"mwe-upwiz-thanks-url": "Per creare un collegamento in HTML, copia questo URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Questo wiki non accetta nomi di file con estensione \".$1\".",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Questa wiki richiede che i file abbiano un'estensione – ad esempio \".JPG\" – alla fine del nome.",
