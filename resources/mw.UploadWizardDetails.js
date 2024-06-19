@@ -232,7 +232,10 @@
 					' ',
 					mw.message( 'mwe-upwiz-other-v2', mw.user ).text()
 				),
-				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
+				classes: [
+					'mwe-upwiz-fieldLayout-additional-info',
+					'mwe-upwiz-fieldLayout-additional-info-clickable'
+				]
 			} );
 			this.otherDetails.$element.makeCollapsible( {
 				collapsed: true,
