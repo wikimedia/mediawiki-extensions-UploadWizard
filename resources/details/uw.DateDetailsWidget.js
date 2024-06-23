@@ -133,7 +133,7 @@
 		// timezone that is. UTC+14 is the highest timezone that currently exists, so assume that to
 		// avoid giving false warnings.
 		if ( this.dateInputWidgetMode === 'calendar' &&
-			dateVal > now.getTime() + 14 * 60 * 60 ) {
+			dateVal > now.getTime() + 14 * 60 * 60 * 1000 ) {
 			warnings.push( mw.message( 'mwe-upwiz-warning-postdate' ) );
 		}
 
