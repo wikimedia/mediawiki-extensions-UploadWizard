@@ -419,7 +419,11 @@
 		return $( '<div>' ).addClass( 'mwe-upwiz-license-custom' ).append(
 			this.customInputs[ name ].$element,
 			button.$element
-		);
+		).on( 'mousedown ', ( event ) => {
+			// T294389 "Another reason not mentioned above" license input textarea: Text is unclickable.
+			// No not propagate event to RadioSelectWidget.
+			event.stopPropagation();
+		} );
 	};
 
 	/**
