@@ -171,10 +171,26 @@
 	 * @param {string[]} metadataTypes Types to copy, as defined in the copyMetadataTypes property
 	 */
 	uw.CopyMetadataWidget.prototype.copyMetadata = function ( metadataTypes ) {
+		uw.CopyMetadataWidget.copyMetadataSerialized(
+			metadataTypes,
+			this.copyFrom.details.getSerialized(),
+			this.copyTo.length,
+			( i, sourceValue ) => {
+				this.savedSerializedData[ i ] = this.copyTo[ i ].details.getSerialized();
+				this.copyTo[ i ].details.setSerialized( sourceValue );
+			} );
+	};
+
+	/**
+	 * Copy metadata from the first upload to other uploads.
+	 *
+	 * @param {string[]} metadataTypes Types to copy, as defined in the copyMetadataTypes property
+	 * @param {Object} serialized copyFrom.details.getSerialized
+	 * @param {number} length copyTo.length
+	 * @param {Function} callback callback(i, sourceValue)
+	 */
+	uw.CopyMetadataWidget.copyMetadataSerialized = function ( metadataTypes, serialized, length, callback ) {
 		var titleZero, matches, i,
-			uploads = this.copyTo,
-			sourceUpload = this.copyFrom,
-			serialized = sourceUpload.details.getSerialized(),
 			// Values to copy
 			sourceValue = {},
 			// Checks for extra behaviors
@@ -206,17 +222,17 @@
 		}
 
 		if ( copyingTitle ) {
-			titleZero = sourceValue.title.title;
+			titleZero = sourceValue.title.title.trim();
 			// Add number suffix to first title if no numbering present
 
-			matches = titleZero.match( /(\D+)(\d{1,3})(\.\D*)?$/ );
+			matches = titleZero.match( /(\D+)(\d{1,3})([.)]\D*)?$/ );
 			if ( matches === null ) {
-				titleZero = titleZero.trim() + ' 01';
+				titleZero = titleZero + ' 01';
 			}
 		}
 
 		// And apply
-		for ( i = 0; i < uploads.length; i++ ) {
+		for ( i = 0; i < length; i++ ) {
 			if ( copyingTitle ) {
 				// Overwrite remaining title inputs with first title + increment of rightmost
 				// number in the title. Note: We ignore numbers with more than three digits, because these
@@ -232,8 +248,7 @@
 				);
 			}
 
-			this.savedSerializedData[ i ] = uploads[ i ].details.getSerialized();
-			uploads[ i ].details.setSerialized( sourceValue );
+			callback( i, sourceValue );
 		}
 	};
 
