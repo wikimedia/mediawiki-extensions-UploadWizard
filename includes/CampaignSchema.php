@@ -54,6 +54,9 @@ return [
 						"maxLength" => [
 							"type" => "integer"
 						],
+						"pattern" => [
+							"type" => "string"
+						],
 						"initialValue" => [
 							"type" => "string"
 						],
