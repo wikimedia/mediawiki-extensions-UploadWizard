@@ -232,7 +232,7 @@
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Bitte verfasse einen aussagekräftigeren Titel ([$2 siehe Beispiele]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Titelbeispiele",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>Beispiele für gute Dateinamen:</b></p><ul><li>Skyline von Nodnol vom Rathaus von Nodnol aus – August 2022</li><li>1875 Siedlertreffen in Falconer Bay, New Nodland</li><li>Pseudoeder ohne von der Mitte aus sichtbaren Scheitelpunkt</li></ul><br><p> <b>Beispiele für ungültige Dateinamen:</b></p><ul><li>Bild01</li><li> Joe</li><li>DSC00001</li><li>Bild: Foo</li><li>30996951316264l</li><li>PSEUDOEDRON OHNE VOM ZENTRUM AUS SICHTBAREN SCHEIN</li></ul><p><a href='https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename' target='_blank'>Weitere Informationen</a></p>",
-	"mwe-upwiz-blacklisted-details": "Dieser Dateiname enthält ungültige Zeichen oder ein ungültiges Format. ([$2 Hier klicken]), um Anleitungen zum Beheben dieses Problems zu erhalten.",
+	"mwe-upwiz-blacklisted-details": "Dieser Dateiname enthält ungültige Zeichen oder ein ungültiges Format. ([$2 Hier klicken], um Anleitungen zum Beheben dieses Problems zu erhalten.)",
 	"mwe-upwiz-blacklisted-details-feedback": "Bitte einen anderen, aussagekräftigen Titel auswählen ([$2 weitere Informationen]) • [$3 Feedback senden]",
 	"mwe-upwiz-next": "Weiter",
 	"mwe-upwiz-next-file": "Fortfahren",
