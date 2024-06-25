@@ -111,8 +111,6 @@
 	"mwe-upwiz-patent-dialog-title-warranty": "Záruka na patenty",
 	"mwe-upwiz-patent-dialog-link-warranty": "Viac informácií",
 	"mwe-upwiz-patent-dialog-link-license": "Ďalšie informácie",
-	"mwe-upwiz-license-metadata-title": "Licencie len pre vkladanie popisov (toto sa týka iba textu popisu, NIE súboru)",
-	"mwe-upwiz-license-metadata-statements-title": "Licencia pre všetky štruktúrované metadáta",
 	"mwe-upwiz-license-metadata-content": "Kliknutím na „Zverejniť“ súhlasíte s [[wmf:Terms_of_Use|podmienkami použitia]] a neodvolateľne svoj príspevok uvoľňujete pod licenciou [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-copy-metadata-button-undo": "Späť",
 	"mwe-upwiz-copied-metadata": "Úspešne skopírované",

@@ -90,8 +90,6 @@
 	"mwe-upwiz-patent-dialog-link-license": "Saznajte više",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Slažem se s ovim uvjetima",
 	"mwe-upwiz-patent-weapon-policy-link": "Pročitajte pojedino za pravila",
-	"mwe-upwiz-license-metadata-title": "Licencija samo za opise (se odnosi samo za tekst opisa, a NE za datoteku)",
-	"mwe-upwiz-license-metadata-statements-title": "Licencija za sve strukturirane metapodatke (NE za datoteku)",
 	"mwe-upwiz-license-metadata-content": "Klikom na \"objavi\" slažete se s [[wmf:Terms_of_Use|uvjetima uporabe]] i neopozivo pristajete na objavu doprinosa pod licencijom [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-copy-metadata-button-undo": "Povrati",
 	"mwe-upwiz-copied-metadata": "Iskopirano!",

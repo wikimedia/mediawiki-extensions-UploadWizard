@@ -160,8 +160,6 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Jeg samtykker i disse betingelsene",
 	"mwe-upwiz-patent-weapon-policy": "Brukere bør unngå å laste opp 3D-modeller som kan anses som våpen eller «forsvarsartikler».\nBrukerfellesskapet på Commons kan fjerne slike elementer når de blir moderert.",
 	"mwe-upwiz-patent-weapon-policy-link": "Les detaljene i policyen",
-	"mwe-upwiz-license-metadata-title": "Lisens kun for bidrag av bildetekster (dette gjelder bildeteksten, IKKE fila)",
-	"mwe-upwiz-license-metadata-statements-title": "Lisens for alle strukturerte metadata (IKKE fila)",
 	"mwe-upwiz-license-metadata-content": "Ved å klikke på «publiser» samtykker du i [[wmf:Terms_of_Use|bruksvilkårene]], og samtykker ugjenkallelig i å utgi bidraget ditt under lisensen [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-more-information-toggle": "Legg til mer informasjon …",
 	"mwe-upwiz-copy-metadata-button-undo": "Angre",

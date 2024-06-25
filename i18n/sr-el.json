@@ -107,8 +107,6 @@
 	"mwe-upwiz-patent-dialog-title-license": "Licenca patenta",
 	"mwe-upwiz-patent-dialog-link-license": "Detaljnije",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Slažem se sa ovim uslovima",
-	"mwe-upwiz-license-metadata-title": "Licenca samo za doprinose opisa (ovo se primenjuje za tekst opisa, NE datoteku)",
-	"mwe-upwiz-license-metadata-statements-title": "Licenca za sve strukturirane metapodatke (NE za datoteku)",
 	"mwe-upwiz-license-metadata-content": "Klikom na „Objavi podatke”, pristajete na [[wmf:Terms_of_Use|uslove korišćenja]] i neopozivo se slažete da svoj doprinos predate pod [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 licencom].",
 	"mwe-upwiz-copy-metadata-button-undo": "Opozovi",
 	"mwe-upwiz-copied-metadata": "Uspešno kopirano",

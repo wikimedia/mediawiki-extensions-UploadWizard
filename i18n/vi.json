@@ -126,8 +126,6 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Tôi đồng ý với các điều khoản này",
 	"mwe-upwiz-patent-weapon-policy": "Mọi người dùng nên tránh việc tải lên mô hình 3D nào có thể được coi là vũ khí hoặc “đồ tự vệ”.\nCộng đồng Commons có thể xóa các đồ này khi xem lại các tập tin.",
 	"mwe-upwiz-patent-weapon-policy-link": "Đọc chi tiết quy định",
-	"mwe-upwiz-license-metadata-title": "Giấy phép cho chỉ phần đóng góp phụ đề (áp dụng cho văn bản phụ đề, KHÔNG PHẢI tập tin)",
-	"mwe-upwiz-license-metadata-statements-title": "Giấy phép dành cho toàn bộ phần siêu dữ liệu có cấu trúc (KHÔNG PHẢI tập tin)",
 	"mwe-upwiz-license-metadata-content": "Với việc bấm nút “Đăng thay đổi”, bạn chấp nhận [[wmf:Terms_of_Use|các điều khoản sử dụng]], và bạn đồng ý phát hành, một cách không thể hủy bỏ, đóng góp của mình theo [https://creativecommons.org/publicdomain/zero/1.0/deed.vi Giấy phép Creative Commons CC0].",
 	"mwe-upwiz-copy-metadata-button-undo": "Hoàn tác",
 	"mwe-upwiz-copied-metadata": "Đã sao chép",

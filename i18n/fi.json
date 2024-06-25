@@ -127,8 +127,6 @@
 	"mwe-upwiz-patent-dialog-link-warranty": "Lisätietoja",
 	"mwe-upwiz-patent-dialog-link-license": "Lisätietoja",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Hyväksyn nämä ehdot",
-	"mwe-upwiz-license-metadata-title": "Kuvatekstien lisenssi (EI tiedoston)",
-	"mwe-upwiz-license-metadata-statements-title": "Kuvailutietojen lisenssi (EI tiedoston)",
 	"mwe-upwiz-license-metadata-content": "Napsauttamalla Julkaise hyväksyt [[wmf:Terms_of_Use|käyttöehdot]] ja suostut peruuttamattomasti julkaisemaan tuottamasi sisällön [https://creativecommons.org/publicdomain/zero/1.0/deed.fi Creative Commons CC0 -lisenssillä].",
 	"mwe-upwiz-copy-metadata-button-undo": "Kumoa",
 	"mwe-upwiz-copied-metadata": "Kopioitu onnistuneesti",

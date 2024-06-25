@@ -128,8 +128,6 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Я згодны з гэтымі ўмовамі",
 	"mwe-upwiz-patent-weapon-policy": "Удзельнікам варта пазбягаць загрузкі любых трохвымерных мадэляў, якія можна разглядаць як зброю або «артыкул абароны».\nСупольнасць Вікісховішча можа выдаліць такія элементы пры мадэрацыі.",
 	"mwe-upwiz-patent-weapon-policy-link": "Прачытаць падрабязнасці палітыкі",
-	"mwe-upwiz-license-metadata-title": "Ліцэнзія толькі на ўклад подпісаў (гэта тычыцца тэксту подпісаў, а НЕ файла)",
-	"mwe-upwiz-license-metadata-statements-title": "Ліцэнзія для ўсіх структураваных метададзеных (НЕ для файлу)",
 	"mwe-upwiz-license-metadata-content": "Націскаючы «Апублікаваць», вы пагаджаецеся з [[wmf:Terms_of_Use|умовамі выкарыстання]] і незваротна згаджаецеся размясціць свой унёсак на ўмовах [https://creativecommons.org/publicdomain/zero/1.0/ ліцэнзіі Creative Commons CC0].",
 	"mwe-upwiz-copy-metadata-button-undo": "Скасаваць",
 	"mwe-upwiz-copied-metadata": "Скапіявана!",

@@ -142,8 +142,6 @@
 	"mwe-upwiz-patent-dialog-link-license": "Saznajte više",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Slažem se s ovim uvjetima",
 	"mwe-upwiz-patent-weapon-policy-link": "Pročitajte detalje pravila",
-	"mwe-upwiz-license-metadata-title": "Licencija za naslove (ovo se odnosi samo na tekst naslova, NE i na datoteku)",
-	"mwe-upwiz-license-metadata-statements-title": "Licencija za sve strukturirane metapodatke (ne za datoteku)",
 	"mwe-upwiz-license-metadata-content": "Klikom na \"Objavi\", slažete se s [[wmf:Terms_of_Use|Uvjetima uporabe]] i neopozivo pristajete na objavu doprinosa pod licencijom [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-copy-metadata-button-undo": "Vrati",
 	"mwe-upwiz-copied-metadata": "Uspješno kopirano",

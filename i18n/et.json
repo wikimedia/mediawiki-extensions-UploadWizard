@@ -137,8 +137,6 @@
 	"mwe-upwiz-patent-dialog-text-license": "Olen {{PLURAL:$1|failis|failides}} kujutatud 3D-{{PLURAL:$1|objekti disainilahenduse|objektide disainilahenduste}} autor.",
 	"mwe-upwiz-patent-dialog-link-license": "Lisateave",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Nõustun nende tingimustega",
-	"mwe-upwiz-license-metadata-title": "Pealdiste litsents (käib ainult pealdiste teksti, mitte faili kohta)",
-	"mwe-upwiz-license-metadata-statements-title": "Struktureeritud metaandmete (mitte faili) litsents",
 	"mwe-upwiz-license-metadata-content": "Kui klõpsad \"avalda\", nõustud [[wmf:Terms_of_Use|kasutustingimustega]] ja kaastöö pöördumatu avaldamisega Creative Commonsi litsentsi [https://creativecommons.org/publicdomain/zero/1.0/deed.et CC0] all.",
 	"mwe-upwiz-more-information-toggle": "Lisa veel andmeid…",
 	"mwe-upwiz-copy-metadata-text": "Kopeeri teave teiste üleslaaditud failide juurde",

@@ -172,8 +172,6 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Bu şartları kabul ediyorum",
 	"mwe-upwiz-patent-weapon-policy": "Kullanıcılar, bir silah veya \"savunma maddesi\" olarak görüntülenebilecek herhangi bir 3D modeli yüklemekten kaçınmalıdır.\nCommons topluluğu bu gibi ögeleri denetimden kaldırabilir.",
 	"mwe-upwiz-patent-weapon-policy-link": "Politika detaylarını okuyun",
-	"mwe-upwiz-license-metadata-title": "Yalnızca altyazı katkıları için lisans (bu, altyazı metni için geçerlidir; dosya için DEĞİLDİR)",
-	"mwe-upwiz-license-metadata-statements-title": "Tüm yapılandırılmış meta veriler lisansı (dosya DEĞİL)",
 	"mwe-upwiz-license-metadata-content": "\"Yayımla\"'ya tıklayarak [[wmf:Terms_of_Use|kullanım şartlarını]] ve katkınızı, geri dönülmez bir şekilde [https://creativecommons.org/publicdomain/zero/1.0/deed.tr Creative Commons CC0 Lisans] kapsamında yayımlamayı kabul edersiniz.",
 	"mwe-upwiz-more-information-toggle": "Daha fazla bilgi ekleyin …",
 	"mwe-upwiz-copy-metadata-text": "Bilgileri diğer yüklemelere kopyala",

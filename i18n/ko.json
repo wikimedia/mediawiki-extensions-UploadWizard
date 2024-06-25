@@ -152,8 +152,6 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "이 조건에 동의합니다",
 	"mwe-upwiz-patent-weapon-policy": "사용자들은 무기나 \"방위 문서\"로 보일 수 있는 3차원 모형을 업로드하지 않는 것이 좋습니다. 공용 공동체는 관리 요청이 오면 이러한 항목들을 제거할 수 있습니다.",
 	"mwe-upwiz-patent-weapon-policy-link": "정책 상세 정보 읽기",
-	"mwe-upwiz-license-metadata-title": "캡션 기여의 라이선스 확인 (파일이 아닌 캡션 정보에 적용)",
-	"mwe-upwiz-license-metadata-statements-title": "구조화된 모든 메타데이터(파일 아님)의 라이선스",
 	"mwe-upwiz-license-metadata-content": "\"파일 게시\"를 클릭하면 [[wmf:Terms_of_Use|이용약관]]을 숙지하고 [https://creativecommons.org/publicdomain/zero/1.0/ 크리에이티브 커먼즈 CC0 라이선스]로 배포하는 것에 동의하는 것으로 이는 되돌릴 수 없습니다.",
 	"mwe-upwiz-more-information-toggle": "자세한 정보 추가 …",
 	"mwe-upwiz-copy-metadata-button-undo": "실행 취소",

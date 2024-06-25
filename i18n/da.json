@@ -113,7 +113,6 @@
 	"mwe-upwiz-patent-dialog-link-license": "Lær mere",
 	"mwe-upwiz-patent-dialog-text-license-grant": "Jeg giver en permanent patentlicens til alle brugere af {{PLURAL:$1|filen|filerne}} og relaterede 3D-objekter.",
 	"mwe-upwiz-patent-dialog-link-license-grant": "Juridisk kode",
-	"mwe-upwiz-license-metadata-title": "Licens kun for bidrag af billedtekster (dette gælder billedteksten, IKKE filen)",
 	"mwe-upwiz-copy-metadata-button-undo": "Fortryd",
 	"mwe-upwiz-copied-metadata": "Kopieret",
 	"mwe-upwiz-caption": "Billedtekst",

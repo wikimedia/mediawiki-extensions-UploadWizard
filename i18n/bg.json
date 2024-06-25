@@ -126,8 +126,6 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Съгласен съм с тези условия",
 	"mwe-upwiz-patent-weapon-policy": "Потребителите трябва да избягват да качват триизмерни модели, които могат да се разглеждат като оръжие или „отбранителен обект“.\nОбщността на Общомедия може да премахне тези обекти при модерирането.",
 	"mwe-upwiz-patent-weapon-policy-link": "Прочетете подробностите за политиките",
-	"mwe-upwiz-license-metadata-title": "Лиценз само за описания (отнася се за текста на описанието, НЕ за файла)",
-	"mwe-upwiz-license-metadata-statements-title": "Лиценз за всички структурирани метаданни (НЕ за файла)",
 	"mwe-upwiz-license-metadata-content": "С натискане на „публикуване“ се съгласявате с [[wmf:Terms_of_Use|условията за ползване]] и се съгласявате безвъзвратно да обявявате своите приноси под лиценза [https://creativecommons.org/publicdomain/zero/1.0/ Криейтив Комънс CC0].",
 	"mwe-upwiz-copy-metadata-button-undo": "Отмяна",
 	"mwe-upwiz-copied-metadata": "Копирано!",

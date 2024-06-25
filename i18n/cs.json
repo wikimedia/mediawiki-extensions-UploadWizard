@@ -144,8 +144,6 @@
 	"mwe-upwiz-patent-dialog-link-license-grant": "Právní ujednání",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Souhlasím s těmito podmínkami",
 	"mwe-upwiz-patent-weapon-policy-link": "Přečtete si podrobnosti o pravidlech.",
-	"mwe-upwiz-license-metadata-title": "Licence jen pro vkládání popisků (toto se týká pouze textu popisku, NIKOLIV souboru)",
-	"mwe-upwiz-license-metadata-statements-title": "Licence pro všechna strukturovaná metadata (NIKOLI soubor)",
 	"mwe-upwiz-license-metadata-content": "Kliknutím na „Zveřejnit“ souhlasíte s [[wmf:Terms_of_Use|podmínkami užití]] a neodvolatelně svůj příspěvek uvolňujete pod licencí [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-copy-metadata-button-undo": "Zpět",
 	"mwe-upwiz-copied-metadata": "Úspěšně zkopírováno",

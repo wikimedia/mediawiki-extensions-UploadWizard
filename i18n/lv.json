@@ -100,8 +100,6 @@
 	"mwe-upwiz-patent-dialog-title-license": "Patenta licence",
 	"mwe-upwiz-patent-dialog-link-license": "Uzzināt vairāk",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Es piekrītu šiem noteikumiem",
-	"mwe-upwiz-license-metadata-title": "Licence aprakstiem (attiecas tikai uz apraksta tekstu, NEVIS pašu failu)",
-	"mwe-upwiz-license-metadata-statements-title": "Licence visiem strukturētajiem metadatiem (NEVIS failam)",
 	"mwe-upwiz-license-metadata-content": "Klikšķinot uz \"publicēt\", tu piekrīti [[wmf:Terms_of_Use|lietošanas noteikumiem]] un neatsaucami piekrīti licencēt savu ieguldījumu ar [https://creativecommons.org/publicdomain/zero/1.0/deed.lv Creative Commons CC0 licenci].",
 	"mwe-upwiz-copy-metadata-button-undo": "Atsaukt",
 	"mwe-upwiz-copied-metadata": "Nokopēts",

@@ -176,8 +176,6 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "これらの規約に同意します",
 	"mwe-upwiz-patent-weapon-policy": "利用者は、武器または「防衛物品」と見なされる可能性のある 3D モデルのアップロードを避ける必要があります。\nコモンズコミュニティは、モデレーション時にそのようなアイテムを削除する場合があります。",
 	"mwe-upwiz-patent-weapon-policy-link": "詳細は方針をご覧ください",
-	"mwe-upwiz-license-metadata-title": "キャプション編集のライセンス（これは、ファイルには適用されず、キャプション本文にのみ適用されます）",
-	"mwe-upwiz-license-metadata-statements-title": "すべての構造化メタデータのライセンス（ファイルのライセンスではありません）",
 	"mwe-upwiz-license-metadata-content": "「公開する」をクリックすることで、あなたは[[wmf:Terms_of_Use|利用規約]]に同意し、あなたの投稿を[https://creativecommons.org/publicdomain/zero/1.0/ クリエイティブコモンズ CC0 ライセンス]の下で公表することについて、取消し不能な形で同意します。",
 	"mwe-upwiz-copy-metadata-button-undo": "取り消す",
 	"mwe-upwiz-copied-metadata": "コピーしました",
