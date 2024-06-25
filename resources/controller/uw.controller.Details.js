@@ -129,7 +129,10 @@
 				' ',
 				mw.msg( 'mwe-upwiz-copy-metadata-text' )
 			),
-			classes: [ 'mwe-upwiz-fieldLayout-additional-info', 'mwe-upwiz-copyMetadataWidget' ]
+			classes: [
+				'mwe-upwiz-fieldLayout-additional-info', 'mwe-upwiz-copyMetadataWidget',
+				'mwe-upwiz-fieldLayout-additional-info-clickable'
+			]
 		} );
 		this.copyMetadataWidget.$element.makeCollapsible( {
 			collapsed: true,
