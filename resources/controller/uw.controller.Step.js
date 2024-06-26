@@ -348,4 +348,52 @@
 		this.removeUploads( toRemove );
 	};
 
+	/**
+	 * Check details for validity.
+	 *
+	 * @param {jQuery.Promise[]} validityPromises
+	 * @return {jQuery.Promise}
+	 */
+	uw.controller.Step.prototype.combineValidityPromises = function ( validityPromises ) {
+		// $.when will be applied on all promises, but we need to ensure
+		// that they will all actually resolve. If any of them rejects,
+		// it will immediately cause the master promise to reject, leaving
+		// us with incomplete error/warning arrays.
+		// To avoid this, we'll catch rejected promises and convert them
+		// into a new one that resolves
+		var resolveablePromises = validityPromises.map(
+			( promise ) => promise.then(
+				null,
+				( errors, warnings ) => $.Deferred().resolve( errors, warnings ).promise()
+			)
+		);
+
+		while ( resolveablePromises.length < 2 ) {
+			// adding bogus promises (no warnings & errors) to
+			// ensure $.when always resolves with an array of multiple
+			// results (if there's just 1, it would otherwise have just
+			// that one's arguments, instead of a multi-dimensional array
+			// of upload warnings & failures)
+			resolveablePromises.push( $.Deferred().resolve( [], [] ).promise() );
+		}
+
+		// validityPromises is an array of promises that each resolve with [warnings, errors]
+		// for each upload - now iterate them all to figure out if we can proceed
+		return $.when.apply( $, resolveablePromises ).then( function () {
+			var errors = [],
+				warnings = [];
+
+			Array.prototype.forEach.call( arguments, ( result ) => {
+				errors = errors.concat( result[ 0 ] || [] );
+				warnings = warnings.concat( result[ 1 ] || [] );
+			} );
+
+			if ( errors.length > 0 ) {
+				return $.Deferred().reject( errors, warnings ).promise();
+			}
+
+			return $.Deferred().resolve( errors, warnings ).promise();
+		} );
+	};
+
 }( mw.uploadWizard ) );

@@ -17,7 +17,8 @@
 
 		this.errors = [];
 		this.warnings = [];
-		this.successMessages = [];
+		this.successMessages = []; // unused, but OO.ui.FieldLayout.prototype.updateMessages assumes this exists
+		this.notices = []; // unused, but OO.ui.FieldLayout.prototype.updateMessages assumes this exists
 
 		this.validatedWidget.connect( this, {
 			change: 'checkValidity'
@@ -55,6 +56,10 @@
 			element.setErrors( errors );
 			element.setWarnings( warnings );
 
+			if ( errors.length > 0 ) {
+				return $.Deferred().reject( errors, warnings ).promise();
+			}
+
 			return $.Deferred().resolve( errors, warnings ).promise();
 		} ).always( () => {
 			if ( element.validatedWidget.popPending ) {
@@ -65,7 +70,7 @@
 
 	/**
 	 * @protected
-	 * @param {string} kind 'error', 'warning', or 'notice'
+	 * @param {string} kind 'error' or 'warning'
 	 * @param {mw.Message|Object} error Message, or an object in { key: ..., html: ... } format
 	 * @return {jQuery}
 	 */
@@ -83,6 +88,7 @@
 		}
 
 		return OO.ui.FieldLayout.prototype.makeMessage.call( this, kind, $content )
+			.addClass( 'mwe-upwiz-fieldLayout-' + kind )
 			.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
 	};
 
