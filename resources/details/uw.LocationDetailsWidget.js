@@ -6,7 +6,10 @@
 	 * @extends uw.DetailsWidget
 	 * @class
 	 * @param {Object} [config] Configuration options
-	 * @param {boolean} [config.showHeading=true] Whether to show the 'heading' field
+	 * @param {string} [config.latitudeKey]
+	 * @param {string} [config.longitudeKey]
+	 * @param {string} [config.headingKey]
+	 * @param {string} [config.templateName]
 	 */
 	uw.LocationDetailsWidget = function UWLocationDetailsWidget( config ) {
 		this.config = config || {};
@@ -40,7 +43,7 @@
 			} ).$element
 		);
 
-		if ( this.config.showHeading ) {
+		if ( this.config.headingKey ) {
 			this.$element.append(
 				new OO.ui.FieldLayout( this.headingInput, {
 					align: 'top',
@@ -172,7 +175,8 @@
 		// coordinates that were derived from the input are 0, without a 0 even
 		// being present in the input
 		if ( latNum !== 0 || latInput.indexOf( '0' ) >= 0 || lonNum !== 0 || lonInput.indexOf( '0' ) >= 0 ) {
-			locationParts = [ '{{Location', latNum, lonNum ];
+			// {{Location}} or {{Object location}}
+			locationParts = [ '{{' + this.config.templateName, latNum, lonNum ];
 
 			if ( !isNaN( headNum ) ) {
 				locationParts.push( 'heading:' + headNum );
@@ -190,9 +194,9 @@
 	 */
 	uw.LocationDetailsWidget.prototype.getSerialized = function () {
 		return {
-			latitude: this.latitudeInput.getValue(),
-			longitude: this.longitudeInput.getValue(),
-			heading: this.headingInput.getValue()
+			[ this.config.latitudeKey ]: this.latitudeInput.getValue(),
+			[ this.config.longitudeKey ]: this.longitudeInput.getValue(),
+			[ this.config.headingKey ]: this.headingInput.getValue()
 		};
 	};
 
@@ -204,7 +208,11 @@
 	 * @param {string} serialized.heading Heading value
 	 */
 	uw.LocationDetailsWidget.prototype.setSerialized = function ( serialized ) {
-		this.setupInputs( serialized.latitude, serialized.longitude, serialized.heading );
+		this.setupInputs(
+			serialized[ this.config.latitudeKey ],
+			serialized[ this.config.longitudeKey ],
+			serialized[ this.config.headingKey ]
+		);
 	};
 
 	/**

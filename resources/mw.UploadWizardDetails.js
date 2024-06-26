@@ -206,9 +206,24 @@
 			//
 			// TODO improve location: https://phabricator.wikimedia.org/T361052
 			//
-			this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );
+			this.locationInput = new uw.LocationDetailsWidget( {
+				templateName: 'Location', // {{Location}}
+				latitudeKey: 'latitude',
+				longitudeKey: 'longitude',
+				headingKey: 'heading'
+			} );
 			this.locationInputField = new uw.FieldLayout( this.locationInput, {
 				label: mw.message( 'mwe-upwiz-location' ).text(),
+				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
+			} );
+			this.objectLocationInput = new uw.LocationDetailsWidget( {
+				templateName: 'Object location', // {{Object location}}
+				latitudeKey: 'objectLatitude',
+				longitudeKey: 'objectLongitude',
+				headingKey: ''
+			} );
+			this.objectLocationInputField = new uw.FieldLayout( this.objectLocationInput, {
+				label: mw.message( 'mwe-upwiz-location-object' ).text(),
 				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
 			} );
 
@@ -251,6 +266,7 @@
 
 			this.mainFields.push( this.categoriesDetailsField );
 			this.mainFields.push( this.locationInputField );
+			this.mainFields.push( this.objectLocationInputField );
 			this.mainFields.push( this.otherDetailsField );
 
 			//
@@ -303,6 +319,7 @@
 				[
 					this.categoriesDetailsField,
 					this.locationInputField,
+					this.objectLocationInputField,
 					this.otherDetailsField
 				]
 			);
@@ -807,9 +824,23 @@
 					values.latitude = this.upload.file.location.latitude;
 					values.longitude = this.upload.file.location.longitude;
 				}
+				if ( Number( m.gpsdestlatitude ) && Number( m.gpsdestlongitude ) ) {
+					values.objectLatitude = m.gpsdestlatitude;
+					values.objectLongitude = m.gpsdestlongitude;
+				} else if (
+					this.upload.file &&
+					this.upload.file.objectLocation &&
+					this.upload.file.objectLocation.objectLatitude &&
+					this.upload.file.objectLocation.objectLongitude
+				) {
+					values.objectLatitude = this.upload.file.objectLocation.objectLatitude;
+					values.objectLongitude = this.upload.file.objectLocation.objectLongitude;
+				}
 			}
 
 			this.locationInput.setSerialized( values );
+			this.objectLocationInput.setSerialized( values );
+			this.objectLocationInputField.$element.toggle( Boolean( values.objectLatitude && values.objectLongitude ) );
 		},
 
 		/**
@@ -836,6 +867,7 @@
 				categories: this.categoriesDetails.getSerialized(),
 				statements: this.serializeStatements(),
 				location: this.locationInput.getSerialized(),
+				objectLocation: this.objectLocationInput.getSerialized(),
 				other: this.otherDetails.getSerialized(),
 				campaigns: this.campaignDetailsFields.map( ( field ) => field.fieldWidget.getSerialized() )
 			};
@@ -911,6 +943,9 @@
 			if ( serialized.location ) {
 				this.locationInput.setSerialized( serialized.location );
 			}
+			if ( serialized.objectLocation ) {
+				this.objectLocationInput.setSerialized( serialized.objectLocation );
+			}
 			if ( serialized.other ) {
 				this.otherDetails.setSerialized( serialized.other );
 			}
@@ -981,6 +1016,7 @@
 			wikiText += '{{Information\n' + info + '}}\n';
 
 			wikiText += this.locationInput.getWikiText() + '\n';
+			wikiText += this.objectLocationInput.getWikiText() + '\n';
 
 			// add an "anything else" template if needed
 			wikiText += this.otherDetails.getWikiText() + '\n\n';
