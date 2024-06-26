@@ -39,7 +39,6 @@
 				classes: [ 'mwe-upwiz-singleLanguageInputWidget-language' ]
 			} );
 		}
-		this.languageSelector.setValue( config.defaultLanguage || this.getDefaultLanguage() );
 
 		// eslint-disable-next-line new-cap
 		this.textInput = new this.config.inputWidgetConstructor();
@@ -54,6 +53,8 @@
 			click: 'onRemoveClick'
 		} );
 
+		this.setLanguage( config.defaultLanguage || this.getDefaultLanguage() );
+		this.languageSelector.on( 'select', ( event ) => this.textInput.$input.attr( 'lang', event.data ) );
 		this.languageSelector.connect( this, { select: [ 'emit', 'select' ] } );
 		// Aggregate 'change' event
 		// (but do not flash warnings in the user's face while they're typing)
@@ -184,6 +185,8 @@
 	 */
 	uw.SingleLanguageInputWidget.prototype.setLanguage = function ( value ) {
 		this.languageSelector.setValue( value );
+		this.textInput.$input.attr( 'lang', value );
+		this.textInput.$input.attr( 'spellcheck', '' );
 	};
 
 	/**
