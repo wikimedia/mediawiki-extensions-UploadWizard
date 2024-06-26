@@ -7,11 +7,7 @@
 		"template": "node_modules/jsdoc-wmf-theme"
 	},
 	"plugins": [
-		"node_modules/jsdoc-wmf-theme/plugins/allow-dots-in-modules",
-		"plugins/markdown",
-		"node_modules/jsdoc-wmf-theme/plugins/externals",
-		"node_modules/jsdoc-wmf-theme/plugins/summarize",
-		"node_modules/jsdoc-wmf-theme/plugins/betterlinks"
+		"node_modules/jsdoc-wmf-theme/plugins/default"
 	],
 	"source": {
 		"include": [ "resources" ]
@@ -24,26 +20,12 @@
 		"wmf": {
 			"repository": "https://gerrit.wikimedia.org/g/mediawiki/extensions/UploadWizard/",
 			"prefixMap": {
-				"OO.ui.": "https://doc.wikimedia.org/oojs-ui/master/js/{type}.html",
-				"OO.": "https://doc.wikimedia.org/oojs/master/{type}.html",
-				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html"
+				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html",
+				"mw.UploadWizard": true,
+				"mw.ApiUpload": true,
+				"mw.FlickrChecker": true
 			},
-			"prefixMapIgnore": [
-				"mw.UploadWizard",
-				"mw.ApiUpload",
-				"mw.FlickrChecker"
-			],
-			"linkMap": {
-				"Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-				"File": "https://developer.mozilla.org/en-US/docs/Web/API/File",
-				"FileList": "https://developer.mozilla.org/docs/Web/API/FileList",
-				"HTMLCanvasElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement",
-				"HTMLImageElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement",
-				"jQuery.Deferred": "https://api.jquery.com/jQuery.Deferred/",
-				"jQuery.Promise": "https://api.jquery.com/Types/#Promise",
-				"jQuery": "https://api.jquery.com/Types/#jQuery",
-				"URL": "https://developer.mozilla.org/docs/Web/API/URL"
-			}
+			"linkMap": {}
 		}
 	}
 }
