@@ -104,7 +104,7 @@
 			return code;
 		}
 		if ( code.lastIndexOf( '-' ) !== -1 ) {
-			return this.getClosestAllowedLanguage( code.slice( 0, code.lastIndexOf( '-' ) ) );
+			return this.getClosestAllowedLanguage( code.slice( 0, code.lastIndexOf( '-' ) ), fallback );
 		}
 		return arguments.length > 1 ? fallback : this.getDefaultLanguage();
 	};
@@ -117,21 +117,14 @@
 	 * @return {string}
 	 */
 	uw.SingleLanguageInputWidget.prototype.getDefaultLanguage = function () {
-		var defaultLanguage;
-
 		if ( this.defaultLanguage !== undefined ) {
 			return this.defaultLanguage;
 		}
 
-		if ( this.getClosestAllowedLanguage( mw.config.get( 'wgUserLanguage' ), null ) ) {
-			defaultLanguage = this.getClosestAllowedLanguage( mw.config.get( 'wgUserLanguage' ) );
-		} else if ( this.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ), null ) ) {
-			defaultLanguage = this.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) );
-		} else if ( this.getClosestAllowedLanguage( 'en', null ) ) {
-			defaultLanguage = this.getClosestAllowedLanguage( 'en' );
-		} else {
-			defaultLanguage = Object.keys( this.config.languages )[ 0 ];
-		}
+		let defaultLanguage = this.getClosestAllowedLanguage( mw.config.get( 'wgUserLanguage' ), null ) ||
+			this.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ), null ) ||
+			this.getClosestAllowedLanguage( 'en', null ) ||
+			Object.keys( this.config.languages )[ 0 ];
 
 		// Logic copied from MediaWiki:UploadForm.js
 		// Per request from Portuguese and Brazilian users, treat Brazilian Portuguese as Portuguese.
