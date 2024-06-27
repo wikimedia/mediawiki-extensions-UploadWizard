@@ -166,6 +166,7 @@
 	"mwe-upwiz-autoconverted": "Ova datoteka je automatski pretvorena u $1 format",
 	"mwe-upwiz-source-text": "Gdje ste pronašli {{PLURAL:$1|ovo djelo|ova djela}}? Unesite mrežno mjesto, knjigu ili drugi izvor.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Ovo je djelo stvoreno|Ova su djela stvorena}} umjetnom inteligencijom",
+	"mwe-upwiz-thanks-message": "Hvala Vam na doprinosu slobodno dostupnim medijima i znanju za cijeli svijet.",
 	"mwe-upwiz-thanks-wikitext": "Da biste rabili ovu datoteku na wikiju, kopirajte ovaj tekst:",
 	"mwe-upwiz-thanks-url": "Da biste je stavili u običnu HTML stranicu, kopirajte ovu URL adresu:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ovaj wikiprojekt ne prihvaća imena datoteka s nastavkom \".$1\".",
