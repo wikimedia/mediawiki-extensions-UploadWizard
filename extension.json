@@ -79,7 +79,15 @@
 		}
 	},
 	"APIModules": {
-		"flickrblacklist": "MediaWiki\\Extension\\UploadWizard\\ApiFlickrBlacklist"
+		"flickrblacklist": "MediaWiki\\Extension\\UploadWizard\\ApiFlickrBlacklist",
+		"mediadetection": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\ApiMediaDetection",
+			"services": [
+				"DBLoadBalancerFactory",
+				"RepoGroup",
+				"HttpRequestFactory"
+			]
+		}
 	},
 	"APIListModules": {
 		"allcampaigns": "MediaWiki\\Extension\\UploadWizard\\ApiQueryAllCampaigns"
