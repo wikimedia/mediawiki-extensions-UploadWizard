@@ -18,5 +18,10 @@
 	"apihelp-query+allcampaigns-summary": "Zählt alle Kampagnen des Hochladeassistenten auf.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Listet nur Kampagnen auf, die aktiviert sind.",
 	"apihelp-query+allcampaigns-param-limit": "Anzahl der zurückzugebenden Kampagnen.",
-	"apihelp-query+allcampaigns-example-1": "Listet aktivierte Kampagnen auf"
+	"apihelp-query+allcampaigns-example-1": "Listet aktivierte Kampagnen auf",
+	"apihelp-mediadetection-summary": "Gibt die Wahrscheinlichkeit zurück, dass das gespeicherte Bild, das durch den angegebenen Dateischlüssel dargestellt wird, ein Logo ist",
+	"apihelp-mediadetection-param-filekey": "„filekey“ wurde von der API-Anforderung „stash“ zurückgegeben",
+	"apihelp-mediadetection-example": "Gibt die Wahrscheinlichkeit zurück, dass das gespeicherte Bild, das durch den angegebenen Dateischlüssel dargestellt wird, ein Logo ist",
+	"apierror-mediadetection-no-valid-thumbnail": "Für das gespeicherte Bild ist kein Miniaturbild vorhanden, daher kann es nicht an den Klassifizierer gesendet werden",
+	"apierror-mediadetection-invalid-mime-type": "Für diesen Dateityp ist kein API-Endpunkt verfügbar. Zulässige Typen sind image/jpeg, image/gif, image/png und image/bmp."
 }
