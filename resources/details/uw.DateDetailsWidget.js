@@ -278,9 +278,16 @@
 	 * @param {string} serialized.value Date value for the given mode
 	 */
 	uw.DateDetailsWidget.prototype.setSerialized = function ( serialized ) {
-		this.prefilled = serialized.prefilled;
-		this.dateInputWidget.setValue( serialized.value );
+		// select the given date in the input widget
 		this.calendar.setDate( serialized.value );
+		// update the input widget last, at the end of the call stack (i.e.
+		// after the calendar's change event has been emitted/handled), to
+		// ensure the date input widget has the actual value, which may have
+		// more precision (hours, minutes, seconds) than the calendar value
+		setTimeout( () => {
+			this.prefilled = serialized.prefilled;
+			this.dateInputWidget.setValue( serialized.value );
+		} );
 	};
 
 }( mw.uploadWizard ) );
