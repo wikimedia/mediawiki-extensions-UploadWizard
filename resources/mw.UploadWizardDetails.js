@@ -411,6 +411,7 @@
 			}
 
 			if ( config.defaults.description || uri.query.descriptionlang ) {
+				this.descriptionSameAsCaptionCheckbox.setSelected( false );
 				this.descriptionsDetails.setSerialized( {
 					inputs: [
 						{
