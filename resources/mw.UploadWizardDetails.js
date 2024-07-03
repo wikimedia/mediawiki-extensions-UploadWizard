@@ -251,7 +251,7 @@
 			this.mainFields.push( this.otherDetailsField );
 
 			this.statementWidgets = {};
-			if ( config.wikibase && config.wikibase.statements ) {
+			if ( config.wikibase.enabled && config.wikibase.statements ) {
 				Object.keys( propertyTypes ).forEach( ( propertyId ) => {
 					propertyDataValuesTypes[ propertyId ] = dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType;
 				} );
