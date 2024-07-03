@@ -270,7 +270,6 @@
 	"mwe-upwiz-error-patent-disagree": "Anda harus menyetujui persyaratannya.",
 	"mwe-upwiz-error-pageprops-missing-page": "Gagal mengambil atribut halaman: halaman tidak/belum ada.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Gagal mengambil atribut halaman: atirbut tidak/belum ada.",
-	"mwe-upwiz-warning-postdate": "Tanggal yang Anda pilih adalah masa depan.",
 	"mwe-upwiz-details-error-count": "Ada {{PLURAL:$1|kesalahan}} pada pengisian {{PLURAL:$2|formulir}} di atas. Harap perbaiki {{PLURAL:$1|kesalahan}} tersebut dan coba kirim ulang.",
 	"mwe-upwiz-details-warning-count": "Terdapat {{PLURAL:$1|satu peringatan|$1 peringatan}} dengan {{PLURAL:$2|formulir|formulir}} di atas. Kami menyarankan Anda untuk memperbaiki{{PLURAL:$2|nya|nya}} sebelum melanjutkan.",
 	"mwe-upwiz-too-many-files-text": "Anda hanya bisa mengunggah $1 {{PLURAL:$1|berkas}} sekaligus namun Anda mencoba mengunggah $2 {{PLURAL:$2|berkas}}. Silakan coba lagi dengan jumlah berkas yang lebih sedikit!",

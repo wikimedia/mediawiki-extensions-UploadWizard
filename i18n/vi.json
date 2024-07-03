@@ -221,7 +221,6 @@
 	"mwe-upwiz-error-patent-disagree": "Bạn cần phải đồng ý với các điều khoản trước tiên.",
 	"mwe-upwiz-error-pageprops-missing-page": "Thất bại khi lấy thuộc tính trang: trang chưa tồn tại.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Thất bại khi lấy thuộc tính trang: thuộc tính chưa tồn tại.",
-	"mwe-upwiz-warning-postdate": "Bạn đã chọn một ngày trong tương lai.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$2|Biểu mẫu|Các biểu mẫu}} ở trên có {{PLURAL:$1|lỗi|$1 lỗi}}. Hãy chỉnh sửa {{PLURAL:$1|lỗi đó|các lỗi}} và thử gửi lại.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$2|Biểu mẫu|Các biểu mẫu}} bên trên có {{PLURAL:$1|cảnh báo|$1 cảnh báo}}. Khuyên bạn sửa lại {{PLURAL:$1|nó|chúng}} trước khi tiếp tục.",
 	"mwe-upwiz-too-many-files-text": "Chỉ có thể tải lên $1 tập tin một lúc trong khi bạn đã cố tải lên tổng cộng $2 tập tin. Xin vui lòng tải lên ít tập tin hơn.",

@@ -186,7 +186,6 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "Vikitekst koji ste uneli je predugačak.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Vikitekst koji ste uneli ne sadrži valjanu licencu.",
 	"mwe-upwiz-error-patent-disagree": "Morate pristati na uslove.",
-	"mwe-upwiz-warning-postdate": "Datum koji ste odabrali je u budućnosti (u odnosu na UTC).",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Postoji jedna greška|Postoje $1 greške|Postoji $1 grešaka}} u {{PLURAL:$2|obrascu|obrascima}} iznad. Ispravite {{PLURAL:$1|grešku|greške}} i pokušajte ponovo.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$1|Postoji jedno upozorenje|Postoje $1 upozorenja|Postoji $1 upozorenja}} u {{PLURAL:$2|obrascu|obrascima}} iznad. Preporučujemo da {{PLURAL:$1|ga|ih}} ispravite pre nego što nastavite.",
 	"mwe-upwiz-too-many-files-text": "Možete da otpremite samo $1 {{PLURAL:$1|datoteku|datoteke|datoteka}} odjednom, a probali ste da dodate $2 {{PLURAL:$2|datoteku|datoteke|datoteka}}. Pokušajte sa manje datoteka!",

@@ -193,7 +193,6 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Denne wikitekst er kort til at være en licens",
 	"mwe-upwiz-error-license-wikitext-too-long": "Wikiteksten, du indtastede, er for lang.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Wikiteksten, du indtastede, indeholder ikke en gyldig licensskabelon.",
-	"mwe-upwiz-warning-postdate": "Datoen, du har valgt, er i fremtiden.",
 	"mwe-upwiz-details-error-count": "Der er {{PLURAL:$1|en|$1}} fejl i {{PLURAL:$2|formularen|formularerne}} ovenfor. Ret {{PLURAL:$1|fejlen|fejlene}} og prøv at sende igen.",
 	"mwe-upwiz-too-many-files-text": "Du kan kun lægge $1 {{PLURAL:$1|fil|filer}} op ad gangen, men du forsøgte at lægge i alt $2 {{PLURAL:$2|fil|filer}} op. Vær venlig at prøve igen med færre filer!",
 	"mwe-upwiz-too-many-files": "For mange filer.",

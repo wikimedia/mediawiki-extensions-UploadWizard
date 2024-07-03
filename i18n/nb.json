@@ -269,7 +269,6 @@
 	"mwe-upwiz-error-patent-disagree": "Du må samtykke i betingelsene.",
 	"mwe-upwiz-error-pageprops-missing-page": "Kunne ikke hente sideegenskaper: siden finnes ikke (ennå).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Kunne ikke hente sideegenskaper: egenskapen finnes ikke (ennå).",
-	"mwe-upwiz-warning-postdate": "Datoen du har valgt er i fremtiden",
 	"mwe-upwiz-details-error-count": "Det er {{PLURAL:$1|én|$1}} feil med {{PLURAL:$2|skjemaet|skjemaene}} ovenfor. Vennligst rett opp {{PLURAL:$1|feilen|feilene}}, og prøv å sende inn igjen.",
 	"mwe-upwiz-details-warning-count": "Det er {{PLURAL:$1|et mulig problem|$1 mulige problemer}} med {{PLURAL:$2|opplastingen|opplastingene}} ovenfor. Vi anbefaler at du ser over og eventuelt retter {{PLURAL:$1|det|dem}} før du fortsetter.",
 	"mwe-upwiz-too-many-files-text": "Du kan kun laste opp {{PLURAL:$1|én fil|$1 filer}} av gangen, men du prøvde å laste opp {{PLURAL:$2|én fil|$2 filer}} totalt. Vennligst prøv igjen med færre filer!",

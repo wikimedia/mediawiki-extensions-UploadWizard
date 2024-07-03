@@ -238,7 +238,6 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "Uvedený wikitext je příliš dlouhý.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Zadaný wikitext neobsahuje platnou licenční šablonu.",
 	"mwe-upwiz-error-patent-disagree": "Musíte souhlasit s podmínkami.",
-	"mwe-upwiz-warning-postdate": "Datum, které jste vybrali, je v budoucnosti.",
 	"mwe-upwiz-details-error-count": "Ve výše {{PLURAL:$2|zobrazeném formuláři|zobrazených formulářích}} {{PLURAL:$1|je chyba|jsou $1 chyby|je $1 chyb}}. Opravte {{PLURAL:$1|ji|je}} a zkuste formulář odeslat znovu.",
 	"mwe-upwiz-details-warning-count": "Ve {{PLURAL:$2|formuláři|formulářích}} výše {{PLURAL:$1|je jedno varování|jsou $1 varování|je $1 varování}}. Doporučujeme je před pokračováním napravit.",
 	"mwe-upwiz-too-many-files-text": "Najednou můžete načíst maximálně $1 {{PLURAL:$1|soubor|soubory|souborů}}, ale {{gender:|pokusil|pokusila|pokusili}} jste se načíst celkem $2 {{PLURAL:$2|soubor|soubory|souborů}}. Zkuste to znovu s menším množstvím!",

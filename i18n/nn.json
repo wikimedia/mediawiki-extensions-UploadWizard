@@ -145,7 +145,6 @@
 	"mwe-upwiz-error-too-short": "Feltet er for stutt.\nGjer det lengre enn $1 {{PLURAL:$1|teikn|teikn}}.",
 	"mwe-upwiz-error-title-blacklisted": "Namnet innheld uynskt tekst, du lyt brigda på dette.",
 	"mwe-upwiz-error-title-senselessimagename": "Gjer namnet meir meiningsfullt.",
-	"mwe-upwiz-warning-postdate": "Du har valt ein dato frå framtida.",
 	"mwe-upwiz-details-error-count": "Det er {{PLURAL:$1|éin|$1}} feil med {{PLURAL:$2|skjemaet|skjemaa}} over. Rett opp {{PLURAL:$1|feilen|feila}}, og freist deretter å senda inn igjen.",
 	"mwe-upwiz-too-many-files": "For mange filer.",
 	"mwe-upwiz-file-too-large": "Fila er for stor.",

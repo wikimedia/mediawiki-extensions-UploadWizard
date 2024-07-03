@@ -243,7 +243,6 @@
 	"mwe-upwiz-error-patent-disagree": "Heu d'acceptar els termes.",
 	"mwe-upwiz-error-pageprops-missing-page": "No s'han pogut recuperar les propietats de la pàgina: la pàgina (encara) no existeix.",
 	"mwe-upwiz-error-pageprops-missing-prop": "No s'han pogut recuperar les propietats de la pàgina: la propietat (encara) no existeix.",
-	"mwe-upwiz-warning-postdate": "La data que heu seleccionat és en el futur.",
 	"mwe-upwiz-details-error-count": "Hi ha {{PLURAL:$1|una errada|$1 errades}} en {{PLURAL:$2|el formulari|els formularis}} de més amunt. Corregiu-{{PLURAL:$1|la|les}} i proveu-ho de nou.",
 	"mwe-upwiz-details-warning-count": "Hi ha {{PLURAL:$1|una advertència|$1 advertències}} amb {{PLURAL:$2|el formulari anterior|els formularis anteriors}}. Us recomanem corregir{{PLURAL:$1|-lo|-los}} abans de continuar.",
 	"mwe-upwiz-too-many-files-text": "Només podeu carregar $1 {{PLURAL:$1|fitxer|fitxers}} a la vegada, però heu provat de carregar fins a $2 {{PLURAL:$1|fitxer|fitxers}} d'un sol intent. Ho haureu de provar novament amb menys arxius!",

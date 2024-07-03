@@ -153,7 +153,6 @@
 	"mwe-upwiz-error-license-wikitext-missing": "თქვენ აირჩიეთ ვარიანტი, რომელიც მოითხოვს ვიკიტექსტის შეყვანას.",
 	"mwe-upwiz-error-license-wikitext-too-short": "მოყვანილი ვიკიტექსტი ძალიან მოკლეა იმისათვის, რომ ლიცენზია იყოს",
 	"mwe-upwiz-error-license-wikitext-too-long": "აკრეფილი ვიკიტექსტი ძალიან გრძელია.",
-	"mwe-upwiz-warning-postdate": "მონიშნული თარიღი მომავალშია.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$2|ფორმას|ფორმას}} თან {{PLURAL:$1|ახლავს შეცდომა|ახლავს $1 შეცდომა}}. შეასწორეთ {{PLURAL:$1|შეცდომა|შეცდომები}} და ხელმეორედ სცადეთ ჩაწერა.",
 	"mwe-upwiz-too-many-files-text": "თქვენ შეგიძლიათ ერთდროულად ატვირთოთ მხოლოდ $1 {{PLURAL:$1|ფაილი|ფაილი}}. თქვენ შეეცადეთ აგეტვირთათ $2 {{PLURAL:$2|ფაილი|ფაილი}}. გთხოვთ თავიდან სცადოთ.",
 	"mwe-upwiz-too-many-files": "ძალიან ბევრი ფაილია.",

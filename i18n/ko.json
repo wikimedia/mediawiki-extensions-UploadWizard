@@ -258,7 +258,6 @@
 	"mwe-upwiz-error-patent-disagree": "조건에 동의해야 합니다.",
 	"mwe-upwiz-error-pageprops-missing-page": "문서 속성 가져오기를 실패했습니다: 문서가 (아직) 존재하지 않습니다.",
 	"mwe-upwiz-error-pageprops-missing-prop": "문서 속성 가져오기를 실패했습니다: 속성이 (아직) 존재하지 않습니다.",
-	"mwe-upwiz-warning-postdate": "선택한 날짜는 미래입니다.",
 	"mwe-upwiz-details-error-count": "위 {{PLURAL:$2|양식}}에 {{PLURAL:$1|오류 하나|오류 $1개}}가 있습니다. {{PLURAL:$1|오류}}를 수정한 후 다시 시도하세요.",
 	"mwe-upwiz-too-many-files-text": "한 번에 {{PLURAL:$1|파일}} $1개만 올릴 수 있지만 총 {{PLURAL:$2|파일}} $2개을 올리려 했습니다. 파일을 적게 다시 올리세요!",
 	"mwe-upwiz-too-many-files": "파일이 너무 많습니다.",

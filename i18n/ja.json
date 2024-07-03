@@ -274,7 +274,6 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "入力したウィキ文が長すぎます。",
 	"mwe-upwiz-error-license-wikitext-missing-template": "あなたが入力したウィキテキストには、有効なライセンステンプレートが含まれていません。",
 	"mwe-upwiz-error-patent-disagree": "あなたはこの規約に同意する必要があります。",
-	"mwe-upwiz-warning-postdate": "未来の日付が選択されています。",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|エラー|$1 個のエラー}}が上の{{PLURAL:$2|フォーム|複数フォーム}}にあります。{{PLURAL:$1|エラー}}を訂正してから送信を再度試してください。",
 	"mwe-upwiz-details-warning-count": "上記の{{PLURAL:$2|入力欄}}について{{PLURAL:$1|警告が$1個}}あります。処理を続行する前に、{{PLURAL:$1|これ|これら}}を修正することを推奨します。",
 	"mwe-upwiz-too-many-files-text": "一度に $1 {{PLURAL:$1|ファイル}}までアップロードできますが、合計 $2 {{PLURAL:$2|ファイル}}をアップロードしようとしました。ファイル数を減らしてからもう一度やり直してください。",

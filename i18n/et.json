@@ -266,7 +266,6 @@
 	"mwe-upwiz-error-patent-disagree": "Pead nõustuma tingimustega.",
 	"mwe-upwiz-error-submit-structured-data": "Pildi üleslaadimine õnnestus, aga täiendavate andmete edastamisel läks midagi valesti.",
 	"mwe-upwiz-error-submit-structured-data-remedy": "Saad parandada nii: mine leheküljele [[$1]] ja muuda seal andmeid.",
-	"mwe-upwiz-warning-postdate": "Kuupäev, mille valisid, on tulevikus.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$2|Ülalolevas vormis|Ülalolevates vormides}} esineb {{PLURAL:$1|üks tõrge|$1 tõrget}}. Kõrvalda {{PLURAL:$1|tõrge|tõrked}} ja proovi uuesti jätkata.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$2|Ülemisel vormil|Ülemistel vormidel}} on {{PLURAL:$1|üks hoiatus|$1 hoiatust}}. Soovitatav on enne jätkamist {{PLURAL:$1|see|need}} lahendada.",
 	"mwe-upwiz-too-many-files-text": "Korraga saab üles laadida {{PLURAL:$1|ühe faili|$1 faili}}, aga sina proovisid üles laadida kokku {{PLURAL:$2|üht faili|$2 faili}}. Palun proovi üles laadida vähemat arvu faile.",

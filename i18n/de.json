@@ -302,7 +302,6 @@
 	"mwe-upwiz-error-pageprops-missing-prop": "Die Seiteneigenschaften konnten nicht abgerufen werden: Die Eigenschaft ist (noch) nicht vorhanden.",
 	"mwe-upwiz-error-submit-structured-data": "Das Bild wurde erfolgreich hochgeladen, beim Senden einiger Zusatzdaten ist jedoch ein Fehler aufgetreten.",
 	"mwe-upwiz-error-submit-structured-data-remedy": "Um dies zu beheben: Besuche [[$1]], um dort die Daten zu aktualisieren.",
-	"mwe-upwiz-warning-postdate": "Das ausgewählte Datum liegt in der Zukunft.",
 	"mwe-upwiz-details-error-count": "Beim Ausfüllen {{PLURAL:$2|des Formulars|der Formulare}} {{PLURAL:$1|ist ein Fehler|sind $1 Fehler}} aufgetreten. Bitte {{PLURAL:$1|den Fehler|die Fehler}} berichtigen und erneut speichern.",
 	"mwe-upwiz-details-warning-count": "Es gibt {{PLURAL:$1|eine Warnung|$1 Warnungen}} mit {{PLURAL:$2|dem obigen Formular|den obigen Formularen}}. Wir empfehlen {{PLURAL:$1|den|die}} Fehler vor dem Fortfahren zu korrigieren.",
 	"mwe-upwiz-too-many-files-text": "Du kannst nur {{PLURAL:$1|eine Datei|$1 Dateien}} auf einmal hochladen. Du versuchtest {{PLURAL:$2|eine Datei|$2 Dateien}} hochzuladen. Bitte versuche es erneut mit weniger Dateien!",

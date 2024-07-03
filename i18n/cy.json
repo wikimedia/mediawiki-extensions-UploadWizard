@@ -148,7 +148,6 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Mae'r opsiwn a ddewisoch yn gofyn i chi ysgrifennu cystrawen wici.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Mae'r gystrawen wici yma'n rhy fyr i fod yn drwydded",
 	"mwe-upwiz-error-license-wikitext-too-long": "Mae'r gystrawen wici a roddwyd gennych yn rhy hir.",
-	"mwe-upwiz-warning-postdate": "Fe ddewisoch chi ddyddiad yn y dyfodol.",
 	"mwe-upwiz-details-error-count": "Mae {{PLURAL:$1||gwall|$1 wall|$1 gwall}} ar y {{PLURAL:$2||ffurflen|ffurflenni}} uchod. Cywirwch y {{PLURAL:$1||gwall|gwallau}}, ac yna ceisiwch eu llwytho eto.",
 	"mwe-upwiz-too-many-files-text": "Dim ond $1 ffeil y gallwch {{PLURAL:$1|ei|ei|eu}} huwchlwytho ar unwaith. Fe geisioch chi uwchlwytho $2 {{PLURAL:$2|ffeil}} i gyd. Ceisiwch lwytho llai o ffeiliau ar y tro.",
 	"mwe-upwiz-too-many-files": "Gormod o ffeiliau.",

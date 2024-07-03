@@ -194,7 +194,6 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "De Wikitext, deen Dir aginn hutt, ass ze laang.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Am Wikitext deen Dir aginn hutt ass keng valabel \nSchabloun vun enger Lizenz",
 	"mwe-upwiz-error-patent-disagree": "Dir musst mat de Bedingungen averstan sinn.",
-	"mwe-upwiz-warning-postdate": "Den Datum deen Dir erausgesicht hutt ass an der Zukunft.",
 	"mwe-upwiz-details-error-count": "Et {{PLURAL:$1|ass ee|si(nn) $1}} Feeler {{PLURAL:$2|am Formulaire|an de Formulairen}} hei driwwer. Verbessert {{PLURAL:$1|de Feeler|d'Feeler}} a probéiert nach emol ze schécken.",
 	"mwe-upwiz-too-many-files-text": "Dir kënnt nëmmen $1 {{PLURAL:$1|Fichier|Fichiere}} mateneen eroplueden. Dir hutt probéiert fir am Ganzen $2 {{PLURAL:$2|Fichier|Fichieren}} eropzelueden. Probéiert wgl. nach eng Kéier mat manner Fichieren.",
 	"mwe-upwiz-too-many-files": "Ze vill Fichieren.",

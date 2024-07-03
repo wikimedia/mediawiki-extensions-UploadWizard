@@ -332,7 +332,6 @@
 	"mwe-upwiz-error-pageprops-missing-prop": "无法检索页面属性：属性（尚）不存在。",
 	"mwe-upwiz-error-submit-structured-data": "图像上传成功，但提交一些补充数据时出现错误。",
 	"mwe-upwiz-error-submit-structured-data-remedy": "要修复此问题：请访问[[$1]]来更新数据。",
-	"mwe-upwiz-warning-postdate": "您选择的日期是在将来。",
 	"mwe-upwiz-details-error-count": "上面的{{PLURAL:$2|表格}}中有$1个错误。请更正错误，并尝试再次提交。",
 	"mwe-upwiz-details-warning-count": "上方{{PLURAL:$2|表单}}中有{{PLURAL:$1|一条|$1条}}警告。我们建议您先修复{{PLURAL:$1|这个|这些}}问题然后再继续。",
 	"mwe-upwiz-too-many-files-text": "您一次只能上传$1个文件，但是您尝试上传共$2个文件，请尝试上传更少的文件。",

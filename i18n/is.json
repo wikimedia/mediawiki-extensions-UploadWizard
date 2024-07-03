@@ -201,7 +201,6 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Textinn er of stuttur til þess að geta talist sem leyfi.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Textinn er of langur.",
 	"mwe-upwiz-error-patent-disagree": "Þú þarft að samþykkja eftirfarandi skilmála.",
-	"mwe-upwiz-warning-postdate": "Dagsetningin sem þú valdir er í framtíðinni.",
 	"mwe-upwiz-details-error-count": "Það {{PLURAL:$1|er $1 villa|eru $1 villur}} við {{PLURAL:$2|reitinn|reitina}} hér fyrir ofan. Leiðréttu {{PLURAL:$1|villuna|villurnar}} og reyndu að senda aftur.",
 	"mwe-upwiz-details-warning-count": "Það {{PLURAL:$1|er $1 viðvörun|eru $1 viðvaranir}} varðandi {{PLURAL:$2|innsendingu|innsendingar}} hér fyrir ofan. Við mælum með því að leysa {{PLURAL:$1|vandamálið|vandamálin}} áður en þú heldur áfram.",
 	"mwe-upwiz-too-many-files-text": "Þú mátt aðeins hlaða inn $1 {{PLURAL:$1|skrá|skrám}} í einu. Þú reyndir að bæta við $2 {{PLURAL:$2|skrá|skrám}}. Vinsamlegast reyndu aftur með færri skrám!",

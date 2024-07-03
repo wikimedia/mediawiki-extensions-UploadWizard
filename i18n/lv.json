@@ -181,7 +181,6 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Ievadītais vikiteksts ir par īsu, lai būtu licence",
 	"mwe-upwiz-error-license-wikitext-too-long": "Ievadītais vikiteksts ir pārāk garš.",
 	"mwe-upwiz-error-patent-disagree": "Tev jāpiekrīt nosacījumiem.",
-	"mwe-upwiz-warning-postdate": "Tavs izvēlētais datums ir nākotnē.",
 	"mwe-upwiz-too-many-files": "Pārāk daudz failu.",
 	"mwe-upwiz-file-too-large-text": "Tu vari augšupielādēt tikai failus izmērā līdz $1. Tu mēģināji augšupielādēt failu $2 izmērā.",
 	"mwe-upwiz-file-too-large": "Fails ir par lielu.",

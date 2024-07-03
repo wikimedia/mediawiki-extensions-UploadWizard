@@ -184,7 +184,6 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Šis vikitekstas yra per trumpas, kad būtų licencija",
 	"mwe-upwiz-error-license-wikitext-too-long": "Įvedėte per ilgą vikitekstą.",
 	"mwe-upwiz-error-patent-disagree": "Jūs turite sutikti su sąlygomis.",
-	"mwe-upwiz-warning-postdate": "Data, kurią pasirinkote, yra ateityje.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Yra viena klaida|Yra $1 klaidų}} aukščiau {{PLURAL:$2|pateiktoje formoje|pateiktose formose}}. Pataisykite {{PLURAL:$1|klaidą|klaidas}}, ir pabandykite pateikti dar kartą.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$1|Yra vienas įspėjimas|Yra $1 įspėjimai}}  {{PLURAL:$2|formoje|formose}}, esančiose aukščiau. Rekomenduojame ištaisyti {{PLURAL:$1|ją|jas}} prieš tęsiant.",
 	"mwe-upwiz-too-many-files-text": "Galite įkelti tik $1 {{PLURAL:$1|failą|failus|failų}} iš karto, bet jūs bandėte įkelti iš viso $2 {{PLURAL:$2|failą|failus|failų}}. Prašome pabandyti dar kartą su mažiau failų!",

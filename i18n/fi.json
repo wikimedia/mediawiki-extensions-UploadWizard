@@ -213,7 +213,6 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Tämä wikiteksti on liian lyhyt ollakseen lisenssi",
 	"mwe-upwiz-error-license-wikitext-too-long": "Syöttämäsi wikiteksti on liian pitkä.",
 	"mwe-upwiz-error-patent-disagree": "Sinun on hyväksyttävä ehdot.",
-	"mwe-upwiz-warning-postdate": "Valitsemasi päivämäärä on tulevaisuudessa.",
 	"mwe-upwiz-details-error-count": "Yllä {{PLURAL:$2|olevassa lomakkeessa|olevissa lomakkeissa}} on {{PLURAL:$1|virhe|$1 virhettä}}. Korjaa {{PLURAL:$1|virhe|virheet}} ja yritä uudelleen.",
 	"mwe-upwiz-details-warning-count": "Yläpuolella {{PLURAL:$2|merkittyä kenttää|merkittyjä kenttiä}} koskee {{PLURAL:$1|yksi ongelma|$1 ongelmaa}}. Suosittelemme {{PLURAL:$1|ongelman|ongelmien}} korjaamista ennen jatkamista.",
 	"mwe-upwiz-too-many-files-text": "Voit ladata vain $1 {{PLURAL:$1|tiedoston|tiedostoa}} kerralla, mutta yritit ladata yhteensä $2 {{PLURAL:$2|tiedoston|tiedostoa}}. Yritä uudelleen pienemmän tiedostomäärän kanssa!",

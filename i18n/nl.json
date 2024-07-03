@@ -301,7 +301,6 @@
 	"mwe-upwiz-error-pageprops-missing-prop": "Kan pagina-eigenschappen niet ophalen: eigenschap bestaat (nog) niet.",
 	"mwe-upwiz-error-submit-structured-data": "De afbeelding is succesvol geüpload, maar er is iets misgegaan bij het verzenden van enkele aanvullende gegevens.",
 	"mwe-upwiz-error-submit-structured-data-remedy": "Om dit te repareren: bezoek [[$1]] om daar de data bij te werken.",
-	"mwe-upwiz-warning-postdate": "De datum die u hebt geselecteerd, is in de toekomst.",
 	"mwe-upwiz-details-error-count": "Er {{PLURAL:$1|is een fout|zijn $1 fouten}} aangetroffen in {{PLURAL:$2|het bovenstaande formulier|de bovenstaande formulieren}}. Corrigeer de {{PLURAL:$1|fout|fouten}} en probeer dan opnieuw op te slaan.",
 	"mwe-upwiz-details-warning-count": "Er {{PLURAL:$1|is een waarschuwing|zijn $1 waarschuwingen}} met {{PLURAL:$2|het formulier|de formulieren}} hierboven. Het is aanbevolen deze te corrigeren voordat u doorgaat.",
 	"mwe-upwiz-too-many-files-text": "U kunt slechts {{PLURAL:$1|één bestand|$1 bestanden}} per keer uploaden, maar uw uploadpoging bevat er in totaal $2. Probeer het opnieuw met minder bestanden.",

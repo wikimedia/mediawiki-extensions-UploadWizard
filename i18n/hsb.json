@@ -207,7 +207,6 @@
 	"mwe-upwiz-error-patent-disagree": "Dyrbiš wuměnjenjam přihłosować.",
 	"mwe-upwiz-error-pageprops-missing-page": "Kajkosće strony njehodźa so wotwołać: Strona (hišće) njewobsteji.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Kajkosće strony njehodźa so wotwołać: Kajkosć (hišće) njewobsteji.",
-	"mwe-upwiz-warning-postdate": "Wubrany datum leži w přichodźe.",
 	"mwe-upwiz-details-error-count": "Při wupjelnjenju {{PLURAL:$2|formulara|formularow}} {{PLURAL:$1|je zmylk wustupił|stej $1 zmylkaj wustupiłoj|su $1 zmylki wustupili|je $1 zmylkow wustupiło}}. Prošu porjedź {{PLURAL:$1|zmylk|zmylkaj|zmylki}} a składuj  hišće raz.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$1|Je warnowanje|Stej warnowani|Su warnowanja}} nastupajo {{PLURAL:$2|formular|formularaj|formulary}} horjeka. Doporučimy, {{PLURAL:$1|zmylk|zmylkaj|zmylki}} korigować, prjedy hač pokročuješ.",
 	"mwe-upwiz-too-many-files-text": "Móžeš jenož $1 {{PLURAL:$1|dataju|dataji|dataje|datajow}} naraz nahrać, ale sy spytał $2 {{PLURAL:$2|dataju|dataji|dataje|datajow}} dohromady nahrać. Spytaj prošu hišće raz z mjenje datajemi!",

@@ -331,7 +331,6 @@
 	"mwe-upwiz-error-patent-disagree": "Vous devez accepter les termes.",
 	"mwe-upwiz-error-pageprops-missing-page": "Echec sur récupération des propriétés de page : la page n'existe pas (encore).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Echec sur récupération des propriétés de page : la propriété n'existe pas (encore).",
-	"mwe-upwiz-warning-postdate": "La date que vous avez sélectionnée est située dans le futur.",
 	"mwe-upwiz-details-error-count": "Le{{PLURAL:$2||s}} formulaire{{PLURAL:$2||s}} ci-dessus comporte{{PLURAL:$2||nt}} {{PLURAL:$1|une|$1}} erreur{{PLURAL:$1||s}}. Corrigez ce{{PLURAL:$1|tte|s}} erreur{{PLURAL:$1||s}} et essayez de soumettre à nouveau.",
 	"mwe-upwiz-details-warning-count": "Le{{PLURAL:$2||s}} formulaire{{PLURAL:$2||s}} ci-dessus donne{{PLURAL:$2||nt}} {{PLURAL:$1|un|$1}} avertissement{{PLURAL:$1||s}}. Nous vous recommandons d’y remédier avant de continuer.",
 	"mwe-upwiz-too-many-files-text": "Vous pouvez téléverser au maximum $1 fichier{{PLURAL:$1||s}} en une seule fois, mais vous avez essayé d’en téléverser $2 en tout. Veuillez réessayer avec moins de fichiers !",

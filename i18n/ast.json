@@ -206,7 +206,6 @@
 	"mwe-upwiz-error-patent-disagree": "Tienes d'aceptar los términos.",
 	"mwe-upwiz-error-pageprops-missing-page": "Nun pudieron recuperase les propiedaes de la páxina: la páxina (entá) nun esiste.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Nun pudieron recuperase les propiedaes de la páxina: la propiedá (entá) nun esiste.",
-	"mwe-upwiz-warning-postdate": "La data que seleicionasti ta nel futuru.",
 	"mwe-upwiz-details-error-count": "Hai {{PLURAL:$1|un error|$1 errores}} {{PLURAL:$2|nel formulariu|nos formularios}} d'arriba. Corrixi {{PLURAL:$1|l'error|los errores}} ya intenta unvialu otra vuelta.",
 	"mwe-upwiz-details-warning-count": "Hai {{PLURAL:$1|un avisu|$1 avisos}}  {{PLURAL:$2|nel formulariu|nos formularios}} de más arriba. Recomendamos {{PLURAL:$1|correxilu|correxilos}} antes de siguir.",
 	"mwe-upwiz-too-many-files-text": "Namái pues xubir $1 {{PLURAL:$1|ficheru|ficheros}} a la vez, pero intentasti xubir $2 {{PLURAL:$2|ficheru|ficheros}} en total. ¡Por favor, vuelvi a intentalo con menos ficheros!",

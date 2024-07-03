@@ -224,7 +224,6 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "ویکی‌متن موجود، برای مجوز بودن خیلی کوتاه است",
 	"mwe-upwiz-error-license-wikitext-too-long": "متنی که وارد کردید بییش از حد طولانی است.",
 	"mwe-upwiz-error-patent-disagree": "نیاز از است با شرایط موافقت کنید.",
-	"mwe-upwiz-warning-postdate": "تاریخی که انتخاب کردید مربوط به آینده است.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|یک خطا|$1 خطا}} برای {{PLURAL:$2|موردد}} بالا وجود دارد. {{PLURAL:$1|خطا|خطاها}} را تصحیح کنید، و دوباره سعی به ثبت آن کنید.",
 	"mwe-upwiz-too-many-files-text": "شما فقط می‌توانید   $1   {{PLURAL:$1| پرونده|پرونده‌ها}} را در یک بار بارگذاری کنید، ولی شما  برای بارگذاری $2   {{PLURAL:$2| پرونده|پرونده‌ها}}  تلاش کردید. لطفاً با پرونده‌های کمتر دوباره سعی کنید!",
 	"mwe-upwiz-too-many-files": "پرونده‌های زیاد.",

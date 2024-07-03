@@ -161,7 +161,6 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Avite scigliuto n'opzione ca vulesse nu wikitesto.",
 	"mwe-upwiz-error-license-wikitext-too-short": "'O wikitesto ccà è troppo curto e nun fosse na licienza",
 	"mwe-upwiz-error-license-wikitext-too-long": "'O wikitesto c'avite miso è troppo luongo.",
-	"mwe-upwiz-warning-postdate": "'A data c'avite scigliuta sta int'a nu tiempo futuro.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Sta n'errore|Nce stanno $1 errore}} {{PLURAL:$2|dint' 'o modulo precedente|dint' 'e module precedente}}. Curreggite {{PLURAL:$1|l'errore|l'errure}} e ripruvate",
 	"mwe-upwiz-details-warning-count": "Nce {{PLURAL:$1|sta n'avviso|stanno nu $1 avvise}} {{PLURAL:$2|c' 'a forma|ch' 'e forme}} ncoppa. Nuje ve raccumannammo 'e curreggere {{PLURAL:$1|chesta|chiste}} primm' 'e cuntinuà.",
 	"mwe-upwiz-too-many-files-text": "Putite carrecà surtanto $1 {{PLURAL:$1|file}} pe' vota; avite truvato 'e jògnere $2 {{PLURAL:$2|file}} 'n totale. Pe' piacere pruvate n'ata vota cu meno file!",

@@ -205,7 +205,6 @@
 	"mwe-upwiz-error-patent-disagree": "Lu kudu akur ama ni ketentuan.",
 	"mwe-upwiz-error-pageprops-missing-page": "Boncos mungut ciri halaman: halaman kaga' (belon) ada.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Boncos mungut ciri halaman: ciri kaga' (belon) ada.",
-	"mwe-upwiz-warning-postdate": "Tanggal lu punya pilih entu wayah dateng.",
 	"mwe-upwiz-details-error-count": "Ada {{PLURAL:$2|atu kengabluan|$1 kengabluan}} ama {{PLURAL:$2|bentuk}} di atas. Betulin {{PLURAL:$1|kengabluannya}} dulu, baru jal serahin lagi.",
 	"mwe-upwiz-details-warning-count": "Ada {{PLURAL:$1|atu wanti-wanti|$1 wanti-wanti}} ama {{PLURAL:$2|bentuk}} di atas. Kita saranin betulin dulu {{PLURAL:$1|tu|tu pada}} sebelonnya nerusin.",
 	"mwe-upwiz-too-many-files-text": "Lu cuman bisa ngangkat $1 {{PLURAL:$1|berekas}} sekaligus, tapi lu malah ngejal ngangkat $2 {{PLURAL:$2|berekas}} semuanya. Padol dah, jal lagi angkatnya lebi dikit!",

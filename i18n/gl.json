@@ -202,7 +202,6 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "O texto wiki que inseriu é longo de máis.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "O wikitexto que engadiu non contén un modelo de licenza válido.",
 	"mwe-upwiz-error-patent-disagree": "Debe aceptar lo termos.",
-	"mwe-upwiz-warning-postdate": "A data que seleccionou está no futuro.",
 	"mwe-upwiz-details-error-count": "Hai {{PLURAL:$1|un erro|$1 erros}} {{PLURAL:$2|no formulario anterior|nos formularios anteriores}}. Corrixa {{PLURAL:$1|o erro|os erros}} e intente realizar o envío de novo.",
 	"mwe-upwiz-details-warning-count": "Hai {{PLURAL:$1|un aviso|$1 avisos}}  {{PLURAL:$2|no formulario|nos formularios}} de arriba. Recomendamos {{PLURAL:$1|corrixilo|corrixilos}} antes de continuar.",
 	"mwe-upwiz-too-many-files-text": "Só pode cargar $1 {{PLURAL:$1|ficheiro|ficheiros}} de cada vez, pero vostede intentou cargar $2 {{PLURAL:$2|ficheiro|ficheiros}} en total. Inténteo de novo con menos ficheiros!",

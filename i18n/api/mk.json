@@ -13,5 +13,10 @@
 	"apihelp-query+allcampaigns-summary": "Наброј ги сите походи на Помошникот за подигање.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Испиши ги само походите кои се во тек.",
 	"apihelp-query+allcampaigns-param-limit": "Број на походи во исписот.",
-	"apihelp-query+allcampaigns-example-1": "Наброј ги тековните походи"
+	"apihelp-query+allcampaigns-example-1": "Наброј ги тековните походи",
+	"apihelp-mediadetection-summary": "Дај ја веројатноста дека складираната слика претставена од укажаниот податотечен клуч е лого",
+	"apihelp-mediadetection-param-filekey": "„filekey“ добиен од барањето „stash“ до приложникот",
+	"apihelp-mediadetection-example": "Дај ја веројатноста дека складираната слика претставена од укажаниот податотечен клуч е лого",
+	"apierror-mediadetection-no-valid-thumbnail": "Не постои минијатура за складираната слика, па затоа не можам да ја испратам во класификаторот",
+	"apierror-mediadetection-invalid-mime-type": "Крајната точка на приложникот е недостапна за овој тип на податотека. Се допуштаат: image/jpeg, image/gif, image/png, image/bmp"
 }

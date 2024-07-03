@@ -250,7 +250,6 @@
 	"mwe-upwiz-error-patent-disagree": "Vi devas konsenti tiujn kondiĉojn.",
 	"mwe-upwiz-error-pageprops-missing-page": "Malsukcesis retrovi paĝajn ecojn: paĝo ne ekzistas (nun).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Malsukcesis retrovi paĝajn ecojn: eco ne ekzistas (nuntempe).",
-	"mwe-upwiz-warning-postdate": "La dato elektita de vi ne jam okazis.",
 	"mwe-upwiz-details-error-count": "Estas {{PLURAL:$1|unu eraro|$1 eraroj}} en la supra {{PLURAL:$2|formularo|formularoj}}. Bonvolu korekti la {{PLURAL:$1|eraron| erarojn}} kaj reprovu alŝuti.",
 	"mwe-upwiz-details-warning-count": "Tie {{PLURAL:$1|estas unu averto|estas $1 avertoj}} kun la {{PLURAL:$2|formo|formoj}} supre. Ni rekomendas korekti {{PLURAL:$1|ĝin|ilin}} antaŭ daŭrigi.",
 	"mwe-upwiz-too-many-files-text": "Vi povas nur alŝuti po $1 {{PLURAL:$1|dosieron|dosierojn}} samtempe, sed vi provis alŝuti $2 {{PLURAL:$2|dosieron|dosierojn}} entute. Bonvolu reprovi kun malpli dosieroj.",

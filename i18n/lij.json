@@ -205,7 +205,6 @@
 	"mwe-upwiz-error-patent-disagree": "Ti g'hæ da acetâ i termi.",
 	"mwe-upwiz-error-pageprops-missing-page": "Imposcibbile recuperâ e propietæ da paggina: a paggina a no l'existe (ancon).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Imposcibbile recuperâ e propietæ da paggina: a propietæ a no l'existe (ancon).",
-	"mwe-upwiz-warning-postdate": "La dæta selessionâ a l'ha ancon da vegnî.",
 	"mwe-upwiz-details-error-count": "Gh'è {{PLURAL:$1|in aro|$1 ari}} {{PLURAL:$2|into formolaio|inti formolai}} de d'ato. Corezi {{PLURAL:$1|l'aro|i ari}} e proeuva a riprezentâ.",
 	"mwe-upwiz-details-warning-count": "Gh'è {{PLURAL:$1|in avizo|$1 avixi}} {{PLURAL:$2|into formolaio|inti formolai}} de d'ato. T'arecomandemmo de corezi{{PLURAL:$1|lo|li}} primma de continoâ.",
 	"mwe-upwiz-too-many-files-text": "Ti poeu caregâ soo che $1 {{PLURAL:$1|file}} pe votta, ma ti t'hæ sercou de caregâne $2 {{PLURAL:$2|}} in semme. Pe piaxei proeuvighe torna ma con meno file!",

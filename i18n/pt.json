@@ -270,7 +270,6 @@
 	"mwe-upwiz-error-patent-disagree": "Tem de concordar com as condições.",
 	"mwe-upwiz-error-pageprops-missing-page": "Não foi possível obter as propriedades da página: a página não existe (ainda).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Não foi possível obter as propriedades da página: a propriedade não existe (ainda).",
-	"mwe-upwiz-warning-postdate": "A data que selecionou está no futuro.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Existe um erro|Existem $1 erros}} {{PLURAL:$2|no formulário|nos formulários}} acima. Corrija {{PLURAL:$1|o erro|os erros}} e tente {{PLURAL:$2|enviá-lo|enviá-los}} novamente.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$1|Existe um aviso|Existem $1 avisos}} com {{PLURAL:$2|o formulário|os formulários}} acima. Recomendamos {{PLURAL:$1|corrigi-lo|corrigi-los}} antes de continuar.",
 	"mwe-upwiz-too-many-files-text": "Só pode carregar $1 {{PLURAL:$1|ficheiro|ficheiros}} ao mesmo tempo, mas tentou carregar $2 {{PLURAL:$2|ficheiro|ficheiros}} no total. Tente novamente com menos ficheiros, por favor.",

@@ -284,7 +284,6 @@
 	"mwe-upwiz-error-pageprops-missing-prop": "Səhifə detallarını əldə etmək alınmadı: detal (hələ) mövcud deyil.",
 	"mwe-upwiz-error-submit-structured-data": "Şəkil uğurla yükləndi, lakin bəzi əlavə məlumatların əlavə edilməsi zamanı xəta baş verdi.",
 	"mwe-upwiz-error-submit-structured-data-remedy": "Bunu düzəltmək üçün: məlumatları yeniləmək üçün [[$1]] səhifəsinə gedin.",
-	"mwe-upwiz-warning-postdate": "Seçdiyiniz tarix gələcəkdədir.",
 	"mwe-upwiz-details-error-count": "Yuxarıdakı {{PLURAL:$2|formada}} {{PLURAL:$1|xəta var|$1 xəta var}}. Xətaları düzəldib yenidən cəhd edin.",
 	"mwe-upwiz-details-warning-count": "Yuxarıdakı {{PLURAL:$2|formada}} {{PLURAL:$1|xəbərdarlıq var|$1 xəbərdarlıq var}}. Davam etməzdən öncə {{PLURAL:$1|onu|onları}} düzəltməyi tövsiyə edirik.",
 	"mwe-upwiz-too-many-files-text": "Siz eyni anda sadəcə $1 {{PLURAL:$1|fayl}} yükləyə bilərsiniz, ancaq siz $2 {{PLURAL:$2|fayl}} yükləməyə çalışmısınız. Daha az faylla yenidən cəhd edin!",

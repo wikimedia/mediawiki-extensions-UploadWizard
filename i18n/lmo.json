@@ -205,7 +205,6 @@
 	"mwe-upwiz-error-patent-disagree": "Te gh'hee de acetà i termin.",
 	"mwe-upwiz-error-pageprops-missing-page": "Recuper di proprietà de la pagina falladː la pagina l'esist minga (nananmò)",
 	"mwe-upwiz-error-pageprops-missing-prop": "Recuper di proprietà de la pagina falladː i proprietà i esisten minga (nananmò)",
-	"mwe-upwiz-warning-postdate": "La data che t'he catà foeura la gh'hà anmò de vegnì.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|A gh'è un eror|A gh'è $1 eror}} {{PLURAL:$2|in del modol precedent|in di modoi precedent}}. Corensg {{PLURAL:$1|l'eror|i eror}} e torna a provà.",
 	"mwe-upwiz-details-warning-count": "Gh'è {{PLURAL:$1|un avis|$1 avis}} {{PLURAL:$2|in del modol|in di modoi}} chi de sora. Te racomandom de corege{{PLURAL:$1|ll|i}} inanz de andà adree.",
 	"mwe-upwiz-too-many-files-text": "Te podet caregà domà $1 {{PLURAL:$1|fail}} per volta; t'hee provà a sgiontà $2 {{PLURAL:$2|fail}} in compless. Prova anmò con men fail!",

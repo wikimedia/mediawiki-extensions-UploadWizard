@@ -155,7 +155,6 @@
 	"mwe-upwiz-error-license-wikitext-missing": "mapiliay nu misu maydih misulit WikiText.",
 	"mwe-upwiz-error-license-wikitext-too-short": "sulitan a WikiText ma’ngadis, la’cus sapabeli tu kinli a cedang.",
 	"mwe-upwiz-error-license-wikitext-too-long": "nasulitan nisu a WikiText mangasiw tanaya’.",
-	"mwe-upwiz-warning-postdate": "mipili’ demiad nu misu i anucila.",
 	"mwe-upwiz-details-error-count": "ipabaway a {{PLURAL:$2|aazihan cudad}} {{PLURAL:$1|izaw $1}} mungangaw. pasumad mungangaw izikuz sa kinacacay aca mitanam patayzaan.",
 	"mwe-upwiz-too-many-files-text": "kinacacay a dada’ kisu patapabaw tu {{PLURAL:$1|tangan}} nika kisu mitanam patapabaw tu {{PLURAL:$2|tangan}}.\nkapisipu tu zuma a tangan mitanamen aca!",
 	"mwe-upwiz-too-many-files": "tangan mangasiw.",

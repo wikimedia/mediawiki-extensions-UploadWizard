@@ -308,7 +308,6 @@
 	"mwe-upwiz-error-pageprops-missing-prop": "Nie udało się pobrać właściwości strony: właściwość (jeszcze) nie istnieje.",
 	"mwe-upwiz-error-submit-structured-data": "Obraz został przesłany pomyślnie, ale wystąpił problem z przesyłaniem dodatkowych informacji.",
 	"mwe-upwiz-error-submit-structured-data-remedy": "Aby naprawić ten problem: przejdź do [[$1]] i zaktualizuj tam dane.",
-	"mwe-upwiz-warning-postdate": "Wybrano datę, która jest w przyszłości.",
 	"mwe-upwiz-details-error-count": "W {{PLURAL:$2|powyższym formularzu|powyższych formularzach}} znaleziono {{PLURAL:$1|jeden błąd|$1 błędy|$1 błędów}}. Popraw {{PLURAL:$1|błąd|błędy}} i spróbuj przesyłać ponownie.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$2|Powyższy formularz zwrócił|Powyższe formularze zwróciły}} {{PLURAL:$1|jedno ostrzeżenie|$1 ostrzeżenia|$1 ostrzeżeń}}. Zalecamy {{PLURAL:$1|jego|ich}} poprawienie przed przejściem dalej.",
 	"mwe-upwiz-too-many-files-text": "Jednocześnie możesz wysłać tylko $1 {{PLURAL:$1|plik|pliki|plików}}. Próbowano w sumie przesłać $2 {{PLURAL:$2|plik|pliki|plików}}. Spróbuj jeszcze raz z mniejszą liczbą plików!",

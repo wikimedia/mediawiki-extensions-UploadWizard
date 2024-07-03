@@ -204,7 +204,6 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "A beírt wikiszöveg túl hosszú.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "A beírt wikiszöveg nem tartalmaz érvényes licencsablont.",
 	"mwe-upwiz-error-patent-disagree": "El kell fogadnod a feltételeket.",
-	"mwe-upwiz-warning-postdate": "A kiválasztott dátum a jövőben van.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Egy hiba|$1 hiba}} található a fenti {{PLURAL:$2|űrlapon|űrlapokon}}. Javítsd a {{PLURAL:$1|hibát|hibákat}}, majd próbáld újra a küldést.",
 	"mwe-upwiz-details-warning-count": "$1 figyelmeztetés van a fenti {{PLURAL:$2|űrlapon|űrlapokon}}. Javasoljuk, hogy {{PLURAL:$1|javítsd|javítsd őket}} a folytatás előtt.",
 	"mwe-upwiz-too-many-files-text": "Egyszerre $1 fájlt tölthetsz fel. $2 fájlt próbáltál hozzáadni, próbáld újra kevesebb fájllal.",

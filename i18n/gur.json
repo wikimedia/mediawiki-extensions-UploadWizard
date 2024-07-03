@@ -246,7 +246,6 @@
 	"mwe-upwiz-error-patent-disagree": "Fu nari ti fu sakɛ bo yelesum la.",
 	"mwe-upwiz-error-pageprops-missing-page": "Fu ka nyaŋɛ to'e pɛgera sɛla la. pɛgera ka bɔna.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Fu ka nyaŋɛ to'e pɛgera sɛla la: lɔgerɔ (nan) ka boi.",
-	"mwe-upwiz-warning-postdate": "Dabeserɛ la ti fu loe la boi la beere puan.",
 	"mwe-upwiz-details-error-count": "Bilam {{PLURAL:$1|is one error|are $1 errors}} la {{PLURAL:$2|form|forms}} saazuo. Demese {{PLURAL:$1|error|errors}},gee tiregɛ le pa'asɛ.",
 	"mwe-upwiz-details-warning-count": "Bilam {{PLURAL:$1|is one warning|are $1 warnings}} la {{PLURAL:$2|form|forms}} saazuo.  Tumam ka'am ti tu demese mɛ {{PLURAL:$1|it|them}} gee nyaa ta'am tɔkɛ ni.",
 	"mwe-upwiz-too-many-files-text": "Fu ta'am wan \"upload\" mɛ ma'a $1 {{PLURAL:$1|file|files}} buyima amaa fu ta'am tiregɛ ti fu \"upload\" $2 {{PLURAL:$2|file|files}} ba za'a. N beleni fu mɛ le tiregɛ la faala fii!",

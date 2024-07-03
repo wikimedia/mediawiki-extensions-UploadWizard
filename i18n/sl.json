@@ -267,7 +267,6 @@
 	"mwe-upwiz-error-patent-disagree": "S temi pogoji se je potrebno strinjati.",
 	"mwe-upwiz-error-pageprops-missing-page": "Lastnosti strani ni bilo mogoče pridobiti: stran (še) ne obstaja.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Lastnosti strani ni bilo mogoče pridobiti: lastnost (še) ne obstaja.",
-	"mwe-upwiz-warning-postdate": "Izbrani datum je iz prihodnosti.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$2|Zgornji obrazec {{PLURAL:$1|ima eno napako|ima dve napaki|ima $1 napake|ima $1 napak}}|Zgornja obrazca {{PLURAL:$1|imata eno napako|imata dve napaki|imata $1 napake|imata $1 napak}}|Zgornji obrazci {{PLURAL:$1|imajo eno napako|imajo dve napaki|imajo $1 napake|imajo $1 napak}}}}. Odpravite {{PLURAL:$1|jo|ju|jih}} in poskusite znova poslati.",
 	"mwe-upwiz-details-warning-count": "Glede {{PLURAL:$2|zgornjega obrazca|zgornjih obrazcev}} {{PLURAL:$1|je bilo sporočeno eno opozorilo|sta bili sporočeni $1 opozorili|so bila sporočena $1 opozorila|je bilo sporočenih $1 opozoril}}. Pred nadaljevanjem se priporoča, da {{PLURAL:$1|ga|ju|jih}} popravite.",
 	"mwe-upwiz-too-many-files-text": "Hkrati je mogoče naložiti samo $1 {{PLURAL:$1|datoteko|datoteki|datoteke|datotek}} (poskušali ste naložiti skupno $2 {{PLURAL:$2|datoteko|datoteki|datoteke|datotek}}). Poskusite znova z manj datotekami!",

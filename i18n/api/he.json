@@ -13,5 +13,6 @@
 	"apihelp-query+allcampaigns-summary": "למנות את כל מבצעי קידום ההעלאות של אשף ההעלאות.",
 	"apihelp-query+allcampaigns-param-enabledonly": "רשימה רק של מסעות פרסום מופעלים.",
 	"apihelp-query+allcampaigns-param-limit": "מספר מסעות הפרסום שצריך להחזיר.",
-	"apihelp-query+allcampaigns-example-1": "ספירה של מסעות פרסום מופעלים"
+	"apihelp-query+allcampaigns-example-1": "ספירה של מסעות פרסום מופעלים",
+	"apihelp-mediadetection-summary": "החזרת הסבירות שהתמונה השמורה במאגר ההעלאות שמיוצגת על־ידי מפתח הקובץ שסופק היא סמל"
 }

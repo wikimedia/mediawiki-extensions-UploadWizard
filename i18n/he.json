@@ -292,7 +292,6 @@
 	"mwe-upwiz-error-pageprops-missing-prop": "אחזור מאפייני הדף נכשל: המאפיין אינו קיים (עדיין).",
 	"mwe-upwiz-error-submit-structured-data": "התמונה הועלתה בהצלחה, אבל משהו השתבש בשליחת חלק מהנתונים המשלימים.",
 	"mwe-upwiz-error-submit-structured-data-remedy": "כדי לתקן את זה, יש לבקר בדף [[$1]] כדי לעדכן את הנתונים שם.",
-	"mwe-upwiz-warning-postdate": "בחרת תאריך בעתיד.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|אירעה שגיאה אחת|אירעו $1 שגיאות}} {{PLURAL:$2|בטופס|בטפסים}} לעיל. יש לתקן את ה{{PLURAL:$1|שגיאה|שגיאות}} ולנסות לשלוח שוב.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$1|הייתה אזהרה אחת|היו $1 אזהרות}} {{PLURAL:$2|בטופס|בטפסים}} לעיל. אנחנו ממליצים להתייחס {{PLURAL:$1|אליו|אליהם}} לפני הצעדים הבאים.",
 	"mwe-upwiz-too-many-files-text": "אפשר להעלות רק {{PLURAL:$1|קובץ אחד|$1 קבצים}} בפעימה אחת, אבל ניסית להעלות {{PLURAL:$2|קובץ אחד|$2 קבצים}} בסך הכול. נא לנסות שוב עם פחות קבצים!",
