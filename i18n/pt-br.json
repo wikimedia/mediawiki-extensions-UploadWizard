@@ -3,6 +3,7 @@
 		"authors": [
 			"555",
 			"Almondega",
+			"Andrekowacs",
 			"Cainamarques",
 			"Dianakc",
 			"EPorto (WMB)",
@@ -249,6 +250,7 @@
 	"mwe-upwiz-error-heading": "O título deve ser um número entre 0 e 360.",
 	"mwe-upwiz-error-signature-too-long": "Sua assinatura é muito longa.\nUse no máximo $1 {{PLURAL:$1|caractere|caracteres}}.",
 	"mwe-upwiz-error-signature-too-short": "Sua assinatura é muito curta.\nUse no mínimo $1 {{PLURAL:$1|caractere|caracteres}}.",
+	"mwe-upwiz-error-date-blank": "A data de criação é obrigatória.",
 	"mwe-upwiz-error-date-license-mismatch": "A data selecionada não corresponde à licença ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "A data selecionada provavelmente não é correta, dada a licença ($1).",
 	"mwe-upwiz-error-blank": "É necessário responder a esta pergunta.",

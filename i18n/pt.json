@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alchimista",
+			"Andrekowacs",
 			"Athena in Wonderland",
 			"Caiofernandes",
 			"CaiusSPQR",
@@ -247,6 +248,7 @@
 	"mwe-upwiz-error-heading": "A posição deve ser um número entre 0 e 360.",
 	"mwe-upwiz-error-signature-too-long": "A assinatura é demasiado longa.\nUse no máximo $1 {{PLURAL:$1|carácter|caracteres}}.",
 	"mwe-upwiz-error-signature-too-short": "A assinatura é demasiado curta.\nUse no mínimo $1 {{PLURAL:$1|carácter|caracteres}}.",
+	"mwe-upwiz-error-date-blank": "A data de criação é obrigatória.",
 	"mwe-upwiz-error-date-license-mismatch": "A data selecionada não é compatível com a licença ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "A data selecionada está provavelmente incorreta, dada a licença ($1).",
 	"mwe-upwiz-error-blank": "É necessário responder a esta pergunta",
@@ -270,6 +272,9 @@
 	"mwe-upwiz-error-patent-disagree": "Tem de concordar com as condições.",
 	"mwe-upwiz-error-pageprops-missing-page": "Não foi possível obter as propriedades da página: a página não existe (ainda).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Não foi possível obter as propriedades da página: a propriedade não existe (ainda).",
+	"mwe-upwiz-error-postdate": "A data selecionada está no futuro. Por favor selecione a data correta.",
+	"mwe-upwiz-warning-date-prefilled": "A data acima é obtida dos detalhes da sua foto.",
+	"mwe-upwiz-warning-date-imprecise": "Recomendamos informar uma data completa, se esta for conhecida.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Existe um erro|Existem $1 erros}} {{PLURAL:$2|no formulário|nos formulários}} acima. Corrija {{PLURAL:$1|o erro|os erros}} e tente {{PLURAL:$2|enviá-lo|enviá-los}} novamente.",
 	"mwe-upwiz-details-warning-count": "{{PLURAL:$1|Existe um aviso|Existem $1 avisos}} com {{PLURAL:$2|o formulário|os formulários}} acima. Recomendamos {{PLURAL:$1|corrigi-lo|corrigi-los}} antes de continuar.",
 	"mwe-upwiz-too-many-files-text": "Só pode carregar $1 {{PLURAL:$1|ficheiro|ficheiros}} ao mesmo tempo, mas tentou carregar $2 {{PLURAL:$2|ficheiro|ficheiros}} no total. Tente novamente com menos ficheiros, por favor.",
