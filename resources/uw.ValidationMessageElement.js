@@ -20,9 +20,9 @@
 		this.successMessages = []; // unused, but OO.ui.FieldLayout.prototype.updateMessages assumes this exists
 		this.notices = []; // unused, but OO.ui.FieldLayout.prototype.updateMessages assumes this exists
 
-		this.validatedWidget.connect( this, {
-			change: 'checkValidity'
-		} );
+		this.validatedWidget.on( 'change', OO.ui.debounce( () => {
+			this.checkValidity( false );
+		}, 250 ) );
 
 		this.$messages.addClass( 'oo-ui-fieldLayout-messages' );
 		this.$element.addClass( 'mwe-upwiz-validationMessageElement' );
@@ -75,7 +75,8 @@
 	 * @return {jQuery}
 	 */
 	uw.ValidationMessageElement.prototype.makeMessage = function ( kind, error ) {
-		var code, $content;
+		var messageKind = kind === 'warning' ? 'notice' : kind,
+			code, $content;
 
 		if ( error.parseDom ) {
 			// mw.Message object
@@ -87,7 +88,7 @@
 			$content = $( $.parseHTML( error.html ) );
 		}
 
-		return OO.ui.FieldLayout.prototype.makeMessage.call( this, kind, $content )
+		return OO.ui.FieldLayout.prototype.makeMessage.call( this, messageKind, $content )
 			.addClass( 'mwe-upwiz-fieldLayout-' + kind )
 			.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
 	};

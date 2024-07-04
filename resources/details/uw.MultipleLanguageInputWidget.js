@@ -204,7 +204,7 @@
 	/**
 	 * @inheritdoc
 	 */
-	uw.MultipleLanguageInputWidget.prototype.getErrors = function () {
+	uw.MultipleLanguageInputWidget.prototype.getErrors = function ( thorough ) {
 		var self = this,
 			// Gather errors from each item
 			errorPromises = this.getItems().map( ( item ) => item.getErrors() );
@@ -218,7 +218,7 @@
 				errors.push( self.config.error );
 			}
 			// And add some more:
-			if ( this.required && this.getWikiText() === '' ) {
+			if ( thorough && this.required && this.getWikiText() === '' ) {
 				errors.push( self.config.errorBlank );
 			}
 			// TODO Check for duplicate languages
