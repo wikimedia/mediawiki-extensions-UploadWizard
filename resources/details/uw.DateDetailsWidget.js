@@ -165,11 +165,15 @@
 		if ( this.parseDateValidation ) {
 			this.parseDateValidation.abort();
 		}
+		if ( this.dateInputWidget.getValue().trim() === '' ) {
+			// skip parse API call if the input is empty
+			return $.Deferred().resolve( warnings ).promise();
+		}
 		this.parseDateValidation = this.parseDate();
 		return this.parseDateValidation.then(
 			( data ) => {
 				var dayPrecision = 11;
-				if ( data.results[ 0 ].value.precision < dayPrecision ) {
+				if ( data.results && data.results[ 0 ] && data.results[ 0 ].value.precision < dayPrecision ) {
 					warnings.push( mw.message( 'mwe-upwiz-warning-date-imprecise' ) );
 				}
 				return warnings;
