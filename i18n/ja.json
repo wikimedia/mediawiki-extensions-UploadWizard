@@ -133,7 +133,7 @@
 	"mwe-upwiz-source-ownwork-purpose-label": "{{PLURAL:$1|この作品|これらの作品}}の目的を最もよく表すオプションを選択してください。",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|この作品は|これらの作品は}}他の人に知識、指示、または情報を提供します。",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|この作品は|これらの作品は}}、私自身、私の家族や友人の写真、または自己宣伝コンテンツなど、私的使用の目的で使用されます。",
-	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>{{PLURAL:$1|このファイル|これらのファイル}}をアップロードしないでください！</b>ウィキメディア・コモンズでは、個人的またはプライベートなメディアのホスティングは許可されていません。[[Commons:What_Commons_is_not|この簡単なガイド]]を確認してください。</p><p>疑問がある場合は、[[COM:L|ライセンスについてもっと学ぶ]]か、アップロードする前に経験豊富な寄稿者にアドバイスを求めてください。[[Commons:Village_pump/Copyright|ウィキメディア・コモンズの井戸端]]で喜んでお手伝いいたします。ありがとうございます。</p>",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>{{PLURAL:$1|このファイル|これらのファイル}}をアップロードしないでください！</b>ウィキメディア・コモンズでは、個人的またはプライベートなメディアのホスティングは許可されていません。[[Special:MyLanguage/Commons:What_Commons_is_not|この簡単なガイド]]を確認してください。</p><p>疑問がある場合は、[[COM:L|ライセンスについてもっと学ぶ]]か、アップロードする前に経験豊富な寄稿者にアドバイスを求めてください。[[Commons:Village_pump/Copyright|ウィキメディア・コモンズの井戸端]]で喜んでお手伝いいたします。ありがとうございます。</p>",
 	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|これ|これら}}は完全に{{GENDER:$2|あなた}}自身の{{PLURAL:$1|作品}}ですか?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|これは|これらは}}完全に{{GENDER:$2|私の}}独自の{{PLURAL:$1|作品}} です",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|この作品には|これらの作品には}}他の利用者の作品が含まれています",

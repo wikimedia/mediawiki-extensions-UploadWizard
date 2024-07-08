@@ -118,7 +118,7 @@
 	"mwe-upwiz-source-ownwork-purpose-label": "נא לבחור את האפשרות שמתארת בצורה הטובה ביותר את המטרה של {{PLURAL:$1|היצירה הזאת|היצירות האלו}}.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|היצירה הזאת מספקת|היצירות האלו מספקות}} ידע, הוראות או מידע לאחרים.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|היצירה הזאת היא|היצירות האלו הן}} לשימוש אישי שלי, למשל תמונות שלי, של משפחה או חברים שלי, או תוכן קידום עצמי.",
-	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>אין להעלות את {{PLURAL:$1|הקובץ הזה|הקבצים האלה}}!</b> ויקישיתוף אינו מתיר אירוח מדיה אישית או פרטית. נא לעיין ב[[Commons:What_Commons_is_not||מדריך הפשוט הזה]].</p><p>אם יש לך ספק כלשהו, נא [[COM:L|לקרוא עוד על רישוי]], או לשאול כמה תורמים מנוסים לשם ייעוץ לפני ההעלאה. אנשים ישמחו לסייע לך ב[[Commons:Village_pump/Copyright|מזנון של ויקישיתוף]]. תודה.</p>",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>אין להעלות את {{PLURAL:$1|הקובץ הזה|הקבצים האלה}}!</b> ויקישיתוף אינו מתיר אירוח מדיה אישית או פרטית. נא לעיין ב[[Special:MyLanguage/Commons:What_Commons_is_not||מדריך הפשוט הזה]].</p><p>אם יש לך ספק כלשהו, נא [[COM:L|לקרוא עוד על רישוי]], או לשאול כמה תורמים מנוסים לשם ייעוץ לפני ההעלאה. אנשים ישמחו לסייע לך ב[[Commons:Village_pump/Copyright|מזנון של ויקישיתוף]]. תודה.</p>",
 	"mwe-upwiz-source-ownwork-origin-label": "האם {{PLURAL:$1|היצירה הזאת {{GENDER:$2|שלך}}|היצירות האלה {{GENDER:$2|שלך}}}} לגמרי?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|היצירה הזאת {{GENDER:$2|שלך}}|היצירות האלה {{GENDER:$2|שלי}}}} לגמרי",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|היצירה הזאת מכילה|היצירות האלה מכילות}} עבודה של אחרים",

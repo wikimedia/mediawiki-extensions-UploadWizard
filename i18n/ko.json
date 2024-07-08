@@ -116,7 +116,7 @@
 	"mwe-upwiz-source-ownwork-purpose-label": "이 파일의 활용 목적이 무엇인지를 선택해 주세요.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "다른 사람에게 지식과 설명, 정보를 전달하기 위한 파일입니다.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "개인적인 용도로 사용하기 위한 파일입니다 (나와 내 가족의 사진, 지인의 사진, 나를 소개하기 위한 자료)",
-	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>그렇다면 업로드할 수 없어요!</b> 위키미디어 공용은 개인적이거나 사적인 저작물을 허가하지 않고 있습니다. 이에 관해서는 [[Commons:What_Commons_is_not|심플 가이드]]를 참고해 주세요.</p><p>판단이 잘 서지 않는다면 [[COM:L|라이선스에 대해 자세히 알아보시거나]], 조금 더 숙련된 기여자분께 조언을 구해보세요. [[Commons:Village_pump/Copyright|위키미디어 공용 사랑방]]에 요청글을 올리면 도움을 받을 수도 있습니다. 감사합니다.</p>",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>그렇다면 업로드할 수 없어요!</b> 위키미디어 공용은 개인적이거나 사적인 저작물을 허가하지 않고 있습니다. 이에 관해서는 [[Special:MyLanguage/Commons:What_Commons_is_not|심플 가이드]]를 참고해 주세요.</p><p>판단이 잘 서지 않는다면 [[COM:L|라이선스에 대해 자세히 알아보시거나]], 조금 더 숙련된 기여자분께 조언을 구해보세요. [[Commons:Village_pump/Copyright|위키미디어 공용 사랑방]]에 요청글을 올리면 도움을 받을 수도 있습니다. 감사합니다.</p>",
 	"mwe-upwiz-source-ownwork-origin-label": "이 {{PLURAL:$1|파일|파일들}}은 정말로 {{GENDER:$2|본인}}이 제작하였나요?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{GENDER:$2|제}}가 직접 제작하였습니다",
 	"mwe-upwiz-source-ownwork-origin-option-others": "다른 사람의 저작물이 들어가 있습니다",
