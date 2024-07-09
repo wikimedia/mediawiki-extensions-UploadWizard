@@ -166,8 +166,8 @@
 		var details = this;
 
 		this.valid( true )
-			.always( ( errors, warnings ) => {
-				details.showErrors( errors, warnings );
+			.always( ( errors, warnings, notices ) => {
+				details.showErrors( errors, warnings, notices );
 			} )
 			.done( () => {
 				details.ui.hideEndButtons();
@@ -196,7 +196,7 @@
 					// Don't submit. Instead, set an error in details step.
 					upload.details.setDuplicateTitleError();
 					validityPromises.push(
-						$.Deferred().reject( [ mw.message( 'mwe-upwiz-error-title-duplicate' ) ], [] ).promise()
+						$.Deferred().reject( [ mw.message( 'mwe-upwiz-error-title-duplicate' ) ], [], [] ).promise()
 					);
 				} else {
 					titles[ title ] = true;
@@ -280,19 +280,20 @@
 	};
 
 	/**
-	 * Show warnings and errors in the form.
+	 * Show errors, warnings & notices in the form.
 	 * See UI class for more.
 	 *
 	 * @param {mw.message[]} errors
 	 * @param {mw.message[]} warnings
+	 * @param {mw.message[]} notices
 	 */
-	uw.controller.Details.prototype.showErrors = function ( errors, warnings ) {
+	uw.controller.Details.prototype.showErrors = function ( errors, warnings, notices ) {
 		this.ui.enableEdits();
 
 		this.removeCopyMetadataFeature();
 		this.addCopyMetadataFeature();
 
-		this.ui.showErrors( errors, warnings );
+		this.ui.showErrors( errors, warnings, notices );
 	};
 
 	/**

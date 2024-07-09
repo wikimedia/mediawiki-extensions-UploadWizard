@@ -34,14 +34,16 @@
 		this.dateInputWidget.on( 'click', () => this.calendar.toggle( false ) );
 		// selecting a date from the calendar writes that date into the input field;
 		// when anything changes in the input (either manual input or calendar selection),
-		// the calendar closes & change event is emitted
+		// the calendar closes & change event is emitted (but only once every 500ms)
 		this.calendar.on( 'change', ( value ) => {
 			this.dateInputWidget.setValue( value );
 		} );
-		this.dateInputWidget.on( 'change', ( value ) => {
+		this.dateInputWidget.on( 'change', () => {
 			this.calendar.toggle( false );
-			this.emit( 'change', value );
 		} );
+		this.dateInputWidget.on( 'change', OO.ui.debounce( ( value ) => {
+			this.emit( 'change', value );
+		}, 500 ) );
 
 		this.$element
 			.addClass( 'mwe-upwiz-dateDetailsWidget' )
@@ -122,6 +124,37 @@
 	/**
 	 * @inheritdoc
 	 */
+	uw.DateDetailsWidget.prototype.getNotices = function () {
+		if ( this.parseDateValidation ) {
+			this.parseDateValidation.abort();
+		}
+		if ( this.dateInputWidget.getValue().trim() === '' ) {
+			// skip parse API call if the input is empty
+			return $.Deferred().resolve( [] ).promise();
+		}
+		this.parseDateValidation = this.parseDate();
+		return this.parseDateValidation.then(
+			( data ) => {
+				var dayPrecision = 11;
+				if ( data.results && data.results[ 0 ] && data.results[ 0 ].value.precision < dayPrecision ) {
+					return [ mw.message( 'mwe-upwiz-notice-date-imprecise' ) ];
+				}
+				return [];
+			},
+			( code ) => {
+				// warn on failures, except when the failure is http (request aborted
+				// or network issues)
+				if ( code !== 'http' ) {
+					return [ mw.message( 'mwe-upwiz-notice-date-imprecise' ) ];
+				}
+				return [];
+			}
+		);
+	};
+
+	/**
+	 * @inheritdoc
+	 */
 	uw.DateDetailsWidget.prototype.getWarnings = function () {
 		var i,
 			license,
@@ -162,31 +195,7 @@
 			}
 		}
 
-		if ( this.parseDateValidation ) {
-			this.parseDateValidation.abort();
-		}
-		if ( this.dateInputWidget.getValue().trim() === '' ) {
-			// skip parse API call if the input is empty
-			return $.Deferred().resolve( warnings ).promise();
-		}
-		this.parseDateValidation = this.parseDate();
-		return this.parseDateValidation.then(
-			( data ) => {
-				var dayPrecision = 11;
-				if ( data.results && data.results[ 0 ] && data.results[ 0 ].value.precision < dayPrecision ) {
-					warnings.push( mw.message( 'mwe-upwiz-warning-date-imprecise' ) );
-				}
-				return warnings;
-			},
-			( code ) => {
-				// warn on failures, except when the failure is http (request aborted
-				// or network issues)
-				if ( code !== 'http' ) {
-					warnings.push( mw.message( 'mwe-upwiz-warning-date-imprecise' ) );
-				}
-				return warnings;
-			}
-		);
+		return $.Deferred().resolve( warnings ).promise();
 	};
 
 	/**
