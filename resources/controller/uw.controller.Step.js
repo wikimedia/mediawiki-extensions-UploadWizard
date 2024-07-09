@@ -358,41 +358,43 @@
 		// $.when will be applied on all promises, but we need to ensure
 		// that they will all actually resolve. If any of them rejects,
 		// it will immediately cause the master promise to reject, leaving
-		// us with incomplete error/warning arrays.
+		// us with incomplete error/warning/notice arrays.
 		// To avoid this, we'll catch rejected promises and convert them
 		// into a new one that resolves
 		var resolveablePromises = validityPromises.map(
 			( promise ) => promise.then(
 				null,
-				( errors, warnings ) => $.Deferred().resolve( errors, warnings ).promise()
+				( errors, warnings, notices ) => $.Deferred().resolve( errors, warnings, notices ).promise()
 			)
 		);
 
 		while ( resolveablePromises.length < 2 ) {
-			// adding bogus promises (no warnings & errors) to
+			// adding bogus promises (no errors, warnings & notices) to
 			// ensure $.when always resolves with an array of multiple
 			// results (if there's just 1, it would otherwise have just
 			// that one's arguments, instead of a multi-dimensional array
-			// of upload warnings & failures)
-			resolveablePromises.push( $.Deferred().resolve( [], [] ).promise() );
+			// of upload errors, warnings & notices)
+			resolveablePromises.push( $.Deferred().resolve( [], [], [] ).promise() );
 		}
 
-		// validityPromises is an array of promises that each resolve with [warnings, errors]
+		// validityPromises is an array of promises that each resolve with [errors, warnings, notices]
 		// for each upload - now iterate them all to figure out if we can proceed
 		return $.when.apply( $, resolveablePromises ).then( function () {
 			var errors = [],
-				warnings = [];
+				warnings = [],
+				notices = [];
 
 			Array.prototype.forEach.call( arguments, ( result ) => {
 				errors = errors.concat( result[ 0 ] || [] );
 				warnings = warnings.concat( result[ 1 ] || [] );
+				notices = notices.concat( result[ 2 ] || [] );
 			} );
 
 			if ( errors.length > 0 ) {
-				return $.Deferred().reject( errors, warnings ).promise();
+				return $.Deferred().reject( errors, warnings, notices ).promise();
 			}
 
-			return $.Deferred().resolve( errors, warnings ).promise();
+			return $.Deferred().resolve( errors, warnings, notices ).promise();
 		} );
 	};
 
