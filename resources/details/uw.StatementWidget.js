@@ -89,12 +89,19 @@
 	/**
 	 * @inheritDoc
 	 */
-	uw.StatementWidget.prototype.getWarnings = function () {
+	uw.StatementWidget.prototype.getNotices = function () {
 		var warnings = [], maxDepicts = 3;
 		if ( this.getItems().length > maxDepicts ) {
 			warnings.push( mw.message( 'mwe-upwiz-statements-too-many-items', maxDepicts ) );
 		}
 		return $.Deferred().resolve( warnings ).promise();
+	};
+
+	/**
+	 * @inheritDoc
+	 */
+	uw.StatementWidget.prototype.getWarnings = function () {
+		return $.Deferred().resolve( [] ).promise();
 	};
 
 	/**

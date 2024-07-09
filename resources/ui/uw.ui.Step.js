@@ -126,7 +126,7 @@
 	};
 
 	/**
-	 * Show errors/warnings in the form.
+	 * Show errors/warnings/notices in the form.
 	 * Some pages can be vertically long, so sometimes it is not obvious there are errors above.
 	 * This counts them and puts the count right next to the submit button,
 	 * so it should be obvious to the user they need to fix things.
@@ -135,8 +135,9 @@
 	 *
 	 * @param {mw.message[]} errors
 	 * @param {mw.message[]} warnings
+	 * @param {mw.message[]} notices
 	 */
-	uw.ui.Step.prototype.showErrors = function ( errors, warnings ) {
+	uw.ui.Step.prototype.showErrors = function ( errors, warnings, notices ) {
 		var show = ( kind, count ) => {
 			var $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind );
 
@@ -167,6 +168,8 @@
 			show( 'error', errors.length );
 		} else if ( warnings.length > 0 ) {
 			show( 'warning', warnings.length );
+		} else if ( notices.length > 0 ) {
+			// don't bother with notices; no need to inform user about those merely showing them near the input
 		}
 	};
 

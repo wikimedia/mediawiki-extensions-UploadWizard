@@ -314,7 +314,7 @@
 	"mwe-upwiz-error-submit-structured-data-remedy": "What to do about a failed structured data submission.\nParameters:\n* $1 - The image page name",
 	"mwe-upwiz-error-postdate": "Error message displayed when the user selects a file creation date that is in the future.",
 	"mwe-upwiz-warning-date-prefilled": "Warning message displayed when the file creation date is pre-filled from the upload's metadata",
-	"mwe-upwiz-warning-date-imprecise": "Warning message displayed when the user types free text to insert the file creation date.",
+	"mwe-upwiz-notice-date-imprecise": "Notice message displayed when the user types free text to insert the file creation date.",
 	"mwe-upwiz-details-error-count": "Used as error message. Parameters:\n* $1 - number of errors\n* $2 - number of forms. i.e. number of uploads",
 	"mwe-upwiz-details-warning-count": "Used as warning message. Parameters:\n* $1 - number of warnings\n* $2 - number of forms. i.e. number of uploads",
 	"mwe-upwiz-too-many-files-text": "Error message informing the user there are too many uploads in a dialog. Each param is a file count.\n\nParameters:\n* $1 - limit number of files\n* $2 - number of files you tried to upload",

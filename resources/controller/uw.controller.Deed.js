@@ -46,8 +46,8 @@
 		}
 
 		this.valid( true )
-			.always( ( errors, warnings ) => {
-				this.ui.showErrors( errors, warnings );
+			.always( ( errors, warnings, notices ) => {
+				this.ui.showErrors( errors, warnings, notices );
 			} )
 			.done( () => {
 				uw.controller.Step.prototype.moveNext.call( this );
@@ -306,8 +306,8 @@
 			deedsChosen = this.getUniqueDeedChoosers( this.uploads ).every( ( deedChooser ) => deedChooser.valid() ),
 			validityPromises = [
 				deedsChosen ?
-					$.Deferred().resolve( [], [] ).promise() :
-					$.Deferred().reject( [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ], [] ).promise()
+					$.Deferred().resolve( [], [], [] ).promise() :
+					$.Deferred().reject( [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ], [], [] ).promise()
 			];
 
 		thorough = thorough || false;

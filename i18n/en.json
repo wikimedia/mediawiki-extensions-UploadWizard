@@ -280,7 +280,7 @@
 	"mwe-upwiz-error-submit-structured-data-remedy": "To fix this: visit [[$1]] to update the data there.",
 	"mwe-upwiz-error-postdate": "The date that you selected is in the future. Please select the correct date.",
 	"mwe-upwiz-warning-date-prefilled": "The above date is taken from your photo details.",
-	"mwe-upwiz-warning-date-imprecise": "We recommend providing a full date if it is known.",
+	"mwe-upwiz-notice-date-imprecise": "We recommend providing a full date if it is known.",
 	"mwe-upwiz-details-error-count": "There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the {{PLURAL:$1|error|errors}}, and try submitting again.",
 	"mwe-upwiz-details-warning-count": "There {{PLURAL:$1|is one warning|are $1 warnings}} with the {{PLURAL:$2|form|forms}} above. We recommend correcting {{PLURAL:$1|it|them}} before continuing.",
 	"mwe-upwiz-too-many-files-text": "You can only upload $1 {{PLURAL:$1|file|files}} at once but you tried to upload $2 {{PLURAL:$2|file|files}} in total. Please try again with fewer files!",
