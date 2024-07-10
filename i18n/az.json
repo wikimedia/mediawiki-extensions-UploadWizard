@@ -287,7 +287,7 @@
 	"mwe-upwiz-error-submit-structured-data-remedy": "Bunu düzəltmək üçün: məlumatları yeniləmək üçün [[$1]] səhifəsinə gedin.",
 	"mwe-upwiz-error-postdate": "Seçdiyiniz tarix gələcək zamandadır. Zəhmət olmasa düzgün tarix seçin.",
 	"mwe-upwiz-warning-date-prefilled": "Yuxarıdakı tarix sizin foto məlumatlarınızdan götürülüb.",
-	"mwe-upwiz-warning-date-imprecise": "Bilirsinizsə tam tarixi əlavə etməyi tövsiyə edirik.",
+	"mwe-upwiz-notice-date-imprecise": "Bilirsinizsə tam tarixi əlavə etməyi tövsiyə edirik.",
 	"mwe-upwiz-details-error-count": "Yuxarıdakı {{PLURAL:$2|formada}} {{PLURAL:$1|xəta var|$1 xəta var}}. Xətaları düzəldib yenidən cəhd edin.",
 	"mwe-upwiz-details-warning-count": "Yuxarıdakı {{PLURAL:$2|formada}} {{PLURAL:$1|xəbərdarlıq var|$1 xəbərdarlıq var}}. Davam etməzdən öncə {{PLURAL:$1|onu|onları}} düzəltməyi tövsiyə edirik.",
 	"mwe-upwiz-too-many-files-text": "Siz eyni anda sadəcə $1 {{PLURAL:$1|fayl}} yükləyə bilərsiniz, ancaq siz $2 {{PLURAL:$2|fayl}} yükləməyə çalışmısınız. Daha az faylla yenidən cəhd edin!",

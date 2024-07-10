@@ -281,7 +281,7 @@
 	"mwe-upwiz-error-submit-structured-data-remedy": "Pro corriger isto: visita [[$1]] pro actualisar le datos ibi.",
 	"mwe-upwiz-error-postdate": "Le data seligite es in le futuro. Per favor selige le data correcte.",
 	"mwe-upwiz-warning-date-prefilled": "Le data supra es obtenite del detalios de tu photo.",
-	"mwe-upwiz-warning-date-imprecise": "Nos recommenda fornir un data complete si es cognoscite.",
+	"mwe-upwiz-notice-date-imprecise": "Nos recommenda fornir un data complete si es cognoscite.",
 	"mwe-upwiz-details-error-count": "Il ha {{PLURAL:$1|un error|$1 errores}} con le {{PLURAL:$2|formulario|formularios}} hic supra. Corrige le {{PLURAL:$1|error|errores}}, e tenta resubmitter.",
 	"mwe-upwiz-details-warning-count": "Il ha {{PLURAL:$1|un advertimento|$1 advertimentos}} concernente le formulario{{PLURAL:$2||s}} hic supra. Nos recommenda corriger lo{{PLURAL:$1||s}} ante de continuar.",
 	"mwe-upwiz-too-many-files-text": "Tu pote solmente incargar $1 {{PLURAL:$1|file|files}} al vice, ma tu tentava incargar $2 {{PLURAL:$2|file|files}} in total. Per favor reproba con minus files.",

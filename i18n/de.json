@@ -305,7 +305,7 @@
 	"mwe-upwiz-error-submit-structured-data-remedy": "Um dies zu beheben: Besuche [[$1]], um dort die Daten zu aktualisieren.",
 	"mwe-upwiz-error-postdate": "Das ausgewählte Datum liegt in der Zukunft. Bitte das korrekte Datum auswählen.",
 	"mwe-upwiz-warning-date-prefilled": "Die oben genannten Daten werden den Fotodetails entnommen.",
-	"mwe-upwiz-warning-date-imprecise": "Wir empfehlen, das vollständige Datum anzugeben, sofern es bekannt ist.",
+	"mwe-upwiz-notice-date-imprecise": "Wir empfehlen, das vollständige Datum anzugeben, sofern es bekannt ist.",
 	"mwe-upwiz-details-error-count": "Beim Ausfüllen {{PLURAL:$2|des Formulars|der Formulare}} {{PLURAL:$1|ist ein Fehler|sind $1 Fehler}} aufgetreten. Bitte {{PLURAL:$1|den Fehler|die Fehler}} berichtigen und erneut speichern.",
 	"mwe-upwiz-details-warning-count": "Es gibt {{PLURAL:$1|eine Warnung|$1 Warnungen}} mit {{PLURAL:$2|dem obigen Formular|den obigen Formularen}}. Wir empfehlen {{PLURAL:$1|den|die}} Fehler vor dem Fortfahren zu korrigieren.",
 	"mwe-upwiz-too-many-files-text": "Du kannst nur {{PLURAL:$1|eine Datei|$1 Dateien}} auf einmal hochladen. Du versuchtest {{PLURAL:$2|eine Datei|$2 Dateien}} hochzuladen. Bitte versuche es erneut mit weniger Dateien!",

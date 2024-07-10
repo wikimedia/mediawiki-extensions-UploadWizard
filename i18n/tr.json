@@ -306,7 +306,7 @@
 	"mwe-upwiz-error-submit-structured-data-remedy": "Bunu düzeltmek için: [[$1]] sayfasına giderek veriyi güncelleyin.",
 	"mwe-upwiz-error-postdate": "Seçtiğiniz tarih gelecekte. Lütfen doğru tarihi seçin.",
 	"mwe-upwiz-warning-date-prefilled": "Yukarıdaki tarih fotoğraf ayrıntılarınızdan alınmıştır.",
-	"mwe-upwiz-warning-date-imprecise": "Biliniyorsa tam tarih vermenizi öneririz.",
+	"mwe-upwiz-notice-date-imprecise": "Biliniyorsa tam tarih vermenizi öneririz.",
 	"mwe-upwiz-details-error-count": "Yukarıdaki formda {{PLURAL:$1|bir hata|$1 hata}} var. Hatayı düzeltin ve tekrar {{PLURAL:$2|göndermeyi}} deneyin.",
 	"mwe-upwiz-details-warning-count": "Yukarıdaki {{PLURAL:$2|formla}} ilgili {{PLURAL:$1|bir uyarı|$1 uyarı}} var. Devam etmeden önce düzeltmenizi öneririz.",
 	"mwe-upwiz-too-many-files-text": "Aynı anda yalnızca $1 dosya yükleyebilirsiniz, ancak toplamda $2 dosya yüklemeye çalıştınız. Lütfen daha az dosyayla tekrar deneyin!",
