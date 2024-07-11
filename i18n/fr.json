@@ -59,7 +59,8 @@
 			"Wouterhagens",
 			"Wyz",
 			"Y-M D",
-			"SleaY"
+			"SleaY",
+			"Nicolas NALLET"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -140,7 +141,7 @@
 	"mwe-upwiz-finished": "Terminé !",
 	"mwe-upwiz-deeds-macro-prompt-text": "Nous demandons ces informations pour nous assurer que tout le monde est autorisé à utiliser librement les fichiers téléchargés sur Wikimedia Commons.",
 	"mwe-upwiz-source-ownwork-label": "Il s'agit de mon propre travail et tout le monde est libre de {{PLURAL:$1|l'|les }}utiliser.",
-	"mwe-upwiz-source-ownwork-description": "Exemples : {{PLURAL:$1|photo|photos}} de nature, d'événements publiques, d'œuvres créées par vous, etc.",
+	"mwe-upwiz-source-ownwork-description": "Exemples : {{PLURAL:$1|photo|photos}} de nature, d'événements publics, d'œuvres créées par vous, etc.",
 	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(N’importe qui peut utiliser, partager ou reprendre {{PLURAL:$1|cette œuvre|ces œuvres}}, du moment qu’il m’en accorde le crédit et partage toute œuvre qui en est dérivée sous cette licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
@@ -308,7 +309,7 @@
 	"mwe-upwiz-error-signature-too-short": "Votre signature est trop courte.\nVeuillez faire en sorte qu’elle comporte au moins $1 caractère{{PLURAL:$1||s}}.",
 	"mwe-upwiz-error-date-license-mismatch": "La date sélectionnée ne correspond pas à la licence ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "La date sélectionnée ne semble pas correcte, étant donné la licence ($1).",
-	"mwe-upwiz-error-blank": "Ce champ est obligatoire.",
+	"mwe-upwiz-error-blank": "Répondre à cette question est obligatoire.",
 	"mwe-upwiz-error-question-blank": "La réponse à cette question est requise",
 	"mwe-upwiz-error-too-long": "Cette entrée est trop longue.\nVeuillez faire en sorte qu’elle ne dépasse pas $1 caractère{{PLURAL:$1||s}}.",
 	"mwe-upwiz-error-too-short": "Cette entrée est trop courte.\nVeuillez faire en sorte qu’elle contienne au moins $1 {{PLURAL:$1|caractère|caractères}}.",

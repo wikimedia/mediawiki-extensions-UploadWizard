@@ -27,7 +27,8 @@
 			"علاء",
 			"فلورانس",
 			"محمد أحمد عبد الفتاح",
-			"مشعل الحربي"
+			"مشعل الحربي",
+			"FiberAhmed"
 		]
 	},
 	"uploadwizard": "مُعالِج الرَّفع",
@@ -367,7 +368,7 @@
 	"mwe-upwiz-license-confirm-remove-title": "أَكّد الإِزالة",
 	"mwe-upwiz-license-external": "هذا الملف يَخضع للرُخصة التَّالية على موقع المَصدر \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "هذا الملف يخضع للرخصة التالية على موقع المصدر \"$1\": $2. للأسف، لا تسمح هذه الويكي بهذه الرخصة.",
-	"mwe-upwiz-license-external-invalid-title": "لا يمكن استعمال هذ الملف",
+	"mwe-upwiz-license-external-invalid-title": "لا يمكن استعمال هذا الملف",
 	"mwe-upwiz-license-photoset-invalid": "للأسف: لا يوجد صورة في تلك المجموعة لديها رخصة يمكنها استخدامها على هذا الموقع",
 	"mwe-upwiz-license-photoset-invalid-title": "لا يمكن استعمال هذه الملفات",
 	"mwe-upwiz-license-pd-old-70-1923": "نُشر لأوّل مرة قبل سنة 1929 وتوفي المؤلف قبل أكثر من 70 سنة",
