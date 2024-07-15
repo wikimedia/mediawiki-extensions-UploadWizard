@@ -259,6 +259,7 @@
 	"mwe-upwiz-error-title-blank": "Title is required",
 	"mwe-upwiz-error-title-too-long": "This title is too long.\nPlease make sure this title is at most $1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-title-too-short": "This title is too short.\nPlease make sure this title is at least $1 {{PLURAL:$1|byte|bytes}}.",
+	"mwe-upwiz-error-title-too-few-characters": "This title is too short.\nPlease make sure this title is at least $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-caption-blank": "Caption is required",
 	"mwe-upwiz-error-description-blank": "Description is required",
 	"mwe-upwiz-error-bad-captions": "There are problems with some of the captions.",
