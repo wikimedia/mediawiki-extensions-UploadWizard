@@ -26,7 +26,7 @@
 	}
 
 	.oo-ui-fieldLayout-body {
-		margin-bottom: 1em;
+		margin-bottom: 12px;
 	}
 
 	// override default OOUI warning message style
@@ -42,6 +42,23 @@
 			}
 		}
 	}
+
+	.mwe-upwiz-fieldsetLayout {
+		.oo-ui-inline-help {
+			font-size: inherit;
+			margin-bottom: 24px;
+			color: @color-subtle;
+		}
+
+		&.oo-ui-fieldsetLayout > .oo-ui-fieldsetLayout-header > .oo-ui-labelElement-label {
+			font-size: 1em;
+			margin-bottom: 0;
+		}
+	}
+
+	.mwe-upwiz-fieldLayout.oo-ui-fieldLayout.oo-ui-labelElement > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-header {
+		padding-bottom: 0;
+	}
 }
 
 .mwe-title {
@@ -56,7 +73,7 @@
 }
 
 .mwe-upwiz-details-fieldname-input {
-	margin-bottom: 1em;
+	margin-bottom: 24px;
 }
 
 .mwe-upwiz-details-more-options,
@@ -115,24 +132,11 @@
 }
 
 .mwe-upwiz-description-same-as-caption-checkbox {
-	padding-bottom: 0.5em;
+	padding-bottom: 0;
 }
 
 .mwe-upwiz-details-help {
 	color: @color-subtle;
-}
-
-.mwe-upwiz-fieldsetLayout {
-	.oo-ui-fieldsetLayout-header {
-		margin-bottom: 0;
-		padding-bottom: 4px;
-	}
-
-	.oo-ui-inline-help {
-		font-size: inherit;
-		margin-bottom: 1em;
-		color: @color-subtle;
-	}
 }
 
 .mwe-upwiz-fieldLayout-additional-info {
