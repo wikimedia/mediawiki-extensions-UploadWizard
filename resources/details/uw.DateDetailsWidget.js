@@ -125,6 +125,12 @@
 	 * @inheritdoc
 	 */
 	uw.DateDetailsWidget.prototype.getNotices = function () {
+		var notices = [];
+
+		if ( this.prefilled ) {
+			notices.push( mw.message( 'mwe-upwiz-warning-date-prefilled' ) );
+		}
+
 		if ( this.parseDateValidation ) {
 			this.parseDateValidation.abort();
 		}
@@ -132,22 +138,23 @@
 			// skip parse API call if the input is empty
 			return $.Deferred().resolve( [] ).promise();
 		}
+
 		this.parseDateValidation = this.parseDate();
 		return this.parseDateValidation.then(
 			( data ) => {
 				var dayPrecision = 11;
 				if ( data.results && data.results[ 0 ] && data.results[ 0 ].value.precision < dayPrecision ) {
-					return [ mw.message( 'mwe-upwiz-notice-date-imprecise' ) ];
+					notices.push( mw.message( 'mwe-upwiz-notice-date-imprecise' ) );
 				}
-				return [];
+				return notices;
 			},
 			( code ) => {
 				// warn on failures, except when the failure is http (request aborted
 				// or network issues)
 				if ( code !== 'http' ) {
-					return [ mw.message( 'mwe-upwiz-notice-date-imprecise' ) ];
+					notices.push( mw.message( 'mwe-upwiz-notice-date-imprecise' ) );
 				}
-				return [];
+				return notices;
 			}
 		);
 	};
@@ -166,10 +173,6 @@
 			// the image date is some time in the past.
 			warnLicenses = [ 'pd-usgov', 'pd-usgov-nasa', 'pd-art' ],
 			licenses = this.getLicenses();
-
-		if ( this.prefilled ) {
-			warnings.push( mw.message( 'mwe-upwiz-warning-date-prefilled' ) );
-		}
 
 		// Unlikely license.
 		// The `Date` constructor returns `NaN` if it couldn't parse the date.
