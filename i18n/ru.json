@@ -48,7 +48,10 @@
 			"Александр Сигачёв",
 			"Дмитрий",
 			"Краснорядцева Елена",
-			"Ядерный Трамвай"
+			"Ядерный Трамвай",
+			"Fenixs-ru",
+			"Mitte27",
+			"Умар"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -185,7 +188,7 @@
 	"mwe-upwiz-patent-dialog-text-warranty": "Я гарантирую, что любое использование {{PLURAL:$1|этого файла|этих файлов}} и любые объекты, изображённые в {{PLURAL:$1|этом файле|этих файлах}} не будет сознательно или по неосторожности нарушать какие-либо патенты.",
 	"mwe-upwiz-patent-dialog-link-warranty": "Узнать больше",
 	"mwe-upwiz-patent-dialog-title-license": "Патентная лицензия",
-	"mwe-upwiz-patent-dialog-text-license": "Я создал базовый {{PLURAL:$1|дизайн}} {{PLURAL:$1|  изображённого 3D-объекта|изображённых 3D-объектов}}.",
+	"mwe-upwiz-patent-dialog-text-license": "Я создал базовый {{PLURAL:$1|дизайн}} {{PLURAL:$1|изображённого 3D-объекта|изображённых 3D-объектов}}.",
 	"mwe-upwiz-patent-dialog-link-license": "Узнать больше",
 	"mwe-upwiz-patent-dialog-text-license-grant": "Я предоставляю постоянную патентную лицензию всем пользователям {{PLURAL:$1|файла и связанных с ним|файлов и связанных с ними}} 3D-объектов.",
 	"mwe-upwiz-patent-dialog-link-license-grant": "Юридический текст",

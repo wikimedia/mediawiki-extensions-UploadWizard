@@ -276,6 +276,7 @@
 	"mwe-upwiz-dialog-yes": "Da",
 	"mwe-upwiz-dialog-no": "Ne",
 	"mwe-upwiz-dialog-title": "Upozorenje",
+	"mwe-upwiz-campaign-create-account-button": "Stvorite račun i postavljate!",
 	"mwe-upwiz-campaign-upload-button": "Postavi!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|postavljena datoteka|postavljene datoteke|postavljenih datoteka}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|sudionik|sudionika}}",
