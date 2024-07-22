@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"The Discoverer"
+			"The Discoverer",
+			"Amire80"
 		]
 	},
 	"tag-uploadwizard-description": "Upload Wizarda vorvim kelole upload",
-	"tag-uploadwizard-flickr-description": "Upload Wizarda vorvim Flickr savn kelole upload"
+	"tag-uploadwizard-flickr-description": "Upload Wizarda vorvim Flickr savn kelole upload",
+	"mwe-upwiz-transport-started": "Survat zata..."
 }
