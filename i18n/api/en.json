@@ -13,8 +13,10 @@
 	"apihelp-query+allcampaigns-param-limit": "Number of campaigns to return.",
 	"apihelp-query+allcampaigns-example-1": "Enumerate enabled campaigns",
 	"apihelp-mediadetection-summary": "Return the likelihood that the stashed image represented by the supplied filekey is a logo",
+	"apihelp-mediadetection-param-filename": "Name of the file page",
 	"apihelp-mediadetection-param-filekey": "<var>filekey</var> returned from the <kbd>stash</kbd> API request",
-	"apihelp-mediadetection-example": "Return the likelihood that the stashed image represented by the supplied filekey is a logo",
-	"apierror-mediadetection-no-valid-thumbnail": "No thumbnail exists for the stashed image, so cannot send it to the classifier",
+	"apihelp-mediadetection-example-filename": "Return the likelihood that the image represented by the supplied filename is a logo",
+	"apihelp-mediadetection-example-filekey": "Return the likelihood that the stashed image represented by the supplied filekey is a logo",
+	"apierror-mediadetection-no-valid-thumbnail": "No thumbnail exists for the image, so cannot send it to the classifier",
 	"apierror-mediadetection-invalid-mime-type": "Api endpoint not available for this type of file - allowed types are image/jpeg, image/gif, image/png, image/bmp"
 }
