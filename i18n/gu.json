@@ -9,7 +9,8 @@
 			"Matma Rex",
 			"NehalDaveND",
 			"Rangilo Gujarati",
-			"Sushant savla"
+			"Sushant savla",
+			"CptViraj"
 		]
 	},
 	"uploadwizard": "અપલોડ વિઝાર્ડ",
@@ -77,7 +78,7 @@
 	"mwe-upwiz-title": "શીર્ષક",
 	"mwe-upwiz-date-created": "તારીખ બનાવાઇ",
 	"mwe-upwiz-location": "સ્થળ",
-	"mwe-upwiz-location-lat": "અક્ષાંસ",
+	"mwe-upwiz-location-lat": "અક્ષાંશ",
 	"mwe-upwiz-location-lon": "રેખાંશ",
 	"mwe-upwiz-location-alt": "ઊંચાઈ",
 	"mwe-upwiz-autoconverted": "આ ફાઇલને આપોઆપ $1 ફોર્મેટ માં પરિવર્તિત કરાઈ",

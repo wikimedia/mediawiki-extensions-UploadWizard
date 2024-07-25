@@ -76,7 +76,7 @@
 	"mwe-upwiz-file-retry": "Йуха гӀорта чуйаха",
 	"mwe-upwiz-next-file-despite-failures": "Такха а кхин дӀа",
 	"mwe-upwiz-skip-tutorial-future": "Хӏара гӏулч тӏейогӏучу ханна йита",
-	"mwe-upwiz-file-all-failed": "Цхьаа чуйаккха цаелира",
+	"mwe-upwiz-file-all-failed": "Цхьаа чуйаккха цайелира",
 	"mwe-upwiz-upload-count": "$2 {{PLURAL:$2|Файлах}} {{PLURAL:$1|чуйаьккхина $1 файл}}",
 	"mwe-upwiz-progressbar-uploading": "сервесан чуйахар",
 	"mwe-upwiz-almost-finished": "Файлаш кечйеш йу...",
