@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\UploadWizard;
 
 use ApiBase;
 use ApiMain;
+use File;
 use LocalRepo;
 use MediaWiki\Http\HttpRequestFactory;
 use MWHttpRequest;
@@ -19,12 +20,21 @@ use Wikimedia\Rdbms\IReadableDatabase;
  * @ingroup API
  *
  * @license GPL-2.0-or-later
+ *
+ * @experimental
+ * @deprecated This is a proof of concept and may be dropped, altered, moved or replaced at any time
  */
 class ApiMediaDetection extends ApiBase {
 	private const MIN_IMAGE_DIMENSIONS = 224;
 	private const MEDIA_DETECTION_URL =
 		'https://inference-staging.svc.codfw.wmnet:30443/v1/models/logo-detection:predict';
 	private const MEDIA_DETECTION_HOST_HEADER = 'logo-detection.experimental.wikimedia.org';
+	// See https://commons.wikimedia.org/wiki/Special:MediaStatistics
+	private const VALID_MIME_TYPES = [
+		'image/jpeg', 'image/png', 'image/svg+xml',
+		'image/tiff', 'image/gif', 'image/webp',
+		'image/x-xcf', 'image/vnd.djvu', 'image/bmp',
+	];
 	private IReadableDatabase $dbr;
 	private LocalRepo $localRepo;
 	private HttpRequestFactory $httpRequestFactory;
@@ -50,12 +60,27 @@ class ApiMediaDetection extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		$stashFile = $this->getUploadStashFile( $params['filekey'] );
-		$thumbRequest = $this->requestThumbnail(
-			$stashFile
-		);
+		$this->requireOnlyOneParameter( $params, 'filename', 'filekey' );
+
+		if ( $params['filename'] ) {
+			$file = $this->localRepo->newFile( $params['filename'] );
+		} else {
+			$file = $this->getUploadStashFile( $params['filekey'] );
+		}
+
+		if ( !$file instanceof File ) {
+			$this->dieWithError( 'apierror-mediadetection-no-valid-thumbnail' );
+		}
+
+		if ( !in_array( $file->getMimeType(), self::VALID_MIME_TYPES ) ) {
+			$this->dieWithError(
+				'apierror-mediadetection-invalid-mime-type',
+			);
+		}
+
+		$thumbRequest = $this->requestThumbnail( $file );
 		$predictionsRequest = $this->requestPredictions(
-			$params['filekey'],
+			$params['filename'] ?? $params['filekey'],
 			base64_encode( $thumbRequest->getContent() )
 		);
 		$predictions = json_decode( $predictionsRequest->getContent(), true );
@@ -90,21 +115,11 @@ class ApiMediaDetection extends ApiBase {
 		) {
 			$this->dieWithError( 'apierror-mediadetection-no-valid-thumbnail' );
 		}
-		// @todo are there other mime types we should allow?
-		if (
-			!in_array(
-				$stashFile->getMimeType(), [ 'image/gif', 'image/jpeg', 'image/png', 'image/bmp' ]
-			)
-		) {
-			$this->dieWithError(
-				'apierror-mediadetection-invalid-mime-type',
-			);
-		}
 
 		return $stashFile;
 	}
 
-	private function requestThumbnail( UploadStashFile $file ): MWHttpRequest {
+	private function requestThumbnail( File $file ): MWHttpRequest {
 		// we want a thumbnail that has a minimum size in both dimensions,
 		// but thumbs are only generated based on width, so we'll calculate
 		// the required width to make sure our height also matches the minimum
@@ -115,9 +130,16 @@ class ApiMediaDetection extends ApiBase {
 				self::MIN_IMAGE_DIMENSIONS / $aspectRatio;
 
 		// build url to thumbnail
-		$thumbProxyUrl = $file->getRepo()->getThumbProxyUrl();
-		$scalerThumbName = $file->generateThumbName( $file->getName(), [ 'width' => $width ] );
-		$scalerThumbUrl = $thumbProxyUrl . 'temp/' . $file->getUrlRel() . '/' . rawurlencode( $scalerThumbName );
+		$scalerThumbName = $file->generateThumbName( $file->getName(), [ 'width' => ceil( $width ) ] );
+
+		if ( !$file instanceof UploadStashFile ) {
+			$scalerThumbUrl = $file->getThumbUrl( $scalerThumbName );
+		} else {
+			// for UploadStashFile files, getThumbUrl returns a relative link to Special:UploadStash
+			// rather than the actual thumb, so we need to build that url manually
+			$thumbProxyUrl = $file->getRepo()->getThumbProxyUrl();
+			$scalerThumbUrl = $thumbProxyUrl . 'temp/' . $file->getUrlRel() . '/' . rawurlencode( $scalerThumbName );
+		}
 
 		// request thumbnail from scaler
 		$request = $this->httpRequestFactory->create(
@@ -163,6 +185,9 @@ class ApiMediaDetection extends ApiBase {
 
 	public function getAllowedParams(): array {
 		return [
+			'filename' => [
+				ParamValidator::PARAM_TYPE => 'string',
+			],
 			'filekey' => [
 				ParamValidator::PARAM_TYPE => 'string',
 			],
@@ -171,7 +196,8 @@ class ApiMediaDetection extends ApiBase {
 
 	protected function getExamplesMessages(): array {
 		return [
-			'action=mediadetection&filekey=1ax8vy7ctc3k.op1rqo.3.jpg' => 'apihelp-mediadetection-example',
+			'action=mediadetection&filename=My_image.jpg' => 'apihelp-mediadetection-example-filename',
+			'action=mediadetection&filekey=1ax8vy7ctc3k.op1rqo.3.jpg' => 'apihelp-mediadetection-example-filekey',
 		];
 	}
 }

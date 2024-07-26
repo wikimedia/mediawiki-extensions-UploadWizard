@@ -13,8 +13,10 @@
 	"apihelp-query+allcampaigns-param-limit": "{{doc-apihelp-param|query+allcampaigns|limit}}",
 	"apihelp-query+allcampaigns-example-1": "{{doc-apihelp-example|query+allcampaigns}}",
 	"apihelp-mediadetection-summary": "{{doc-apihelp-summary|mediadetection}}",
+	"apihelp-mediadetection-param-filename": "{{doc-apihelp-param|mediadetection|filename}}",
 	"apihelp-mediadetection-param-filekey": "{{doc-apihelp-param|mediadetection|filekey}}",
-	"apihelp-mediadetection-example": "{{doc-apihelp-example|mediadetection}}",
+	"apihelp-mediadetection-example-filename": "{{doc-apihelp-example-filename|mediadetection}}",
+	"apihelp-mediadetection-example-filekey": "{{doc-apihelp-example-filekey|mediadetection}}",
 	"apierror-mediadetection-no-valid-thumbnail": "Error msg for when detection fails because the image has no valid thumbnail",
 	"apierror-mediadetection-invalid-mime-type": "Error msg for when detection fails because the upload file is the wrong mime type - allowed types are image/jpeg, image/gif, image/png, image/bmp"
 }
