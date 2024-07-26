@@ -27,8 +27,8 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 		// insert a interwiki prefixes for testing inter-language links.
 		// This is based on ParserTestRunner::appendInterwikiSetup, which does
 		// exactly the same (but with more prefixes) for parser tests.
-		$this->setMwGlobals( [
-			'wgInterwikiCache' => ClassicInterwikiLookup::buildCdbHash( [
+		$this->overrideConfigValues( [
+			'InterwikiCache' => ClassicInterwikiLookup::buildCdbHash( [
 				[
 					'iw_prefix' => 'es',
 					'iw_url' => 'http://es.wikipedia.org/wiki/$1',
@@ -73,8 +73,8 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 	) {
 		global $wgUploadWizardConfig;
 
-		$this->setMwGlobals( [
-			'wgUploadWizardConfig' => array_merge( $wgUploadWizardConfig, [
+		$this->overrideConfigValues( [
+			'UploadWizardConfig' => array_merge( $wgUploadWizardConfig, [
 				'defaults' => [ 'objref' => $objRef ],
 			] ),
 		] );

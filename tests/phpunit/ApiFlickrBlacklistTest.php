@@ -187,8 +187,8 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 	 */
 	protected function setFlickrBlacklistPage( $page ) {
 		global $wgUploadWizardConfig;
-		$this->setMwGlobals( [
-			'wgUploadWizardConfig' => array_merge( $wgUploadWizardConfig, [
+		$this->overrideConfigValues( [
+			'UploadWizardConfig' => array_merge( $wgUploadWizardConfig, [
 				'flickrBlacklistPage' => $page,
 			] ),
 		] );
