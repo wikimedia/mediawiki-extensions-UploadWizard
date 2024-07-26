@@ -293,6 +293,7 @@
 	"mwe-upwiz-error-title-blank": "Error message when the user hasn't entered any title.",
 	"mwe-upwiz-error-title-too-long": "Used as error message. Parameters:\n* $1 - maximum number of bytes\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-short}}",
 	"mwe-upwiz-error-title-too-short": "Used as error message. Parameters:\n* $1 - minimum number of bytes\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-long}}",
+	"mwe-upwiz-error-title-too-few-characters": "Used as error message. Parameters:\n* $1 - minimum number of characters",
 	"mwe-upwiz-error-caption-blank": "Error message when the user hasn't entered any caption.",
 	"mwe-upwiz-error-description-blank": "Error message when the user hasn't entered any description.",
 	"mwe-upwiz-error-bad-captions": "Used as error message when something is wrong with one (or more) of the captions.",

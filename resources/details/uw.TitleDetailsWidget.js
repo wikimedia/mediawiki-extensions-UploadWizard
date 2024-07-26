@@ -107,16 +107,19 @@
 			errors = [],
 			processDestinationCheck = this.processDestinationCheck,
 			title = this.buildTitleFromInput( value ),
-			// title length is dependent on DB column size and is bytes rather than characters
-			length = byteLength( value );
+			// max title length is dependent on DB column size and is bytes rather than characters
+			length = byteLength( value ),
+			// ... however MIN title length is easier for users to understand expressed in
+			// characters rather than bytes
+			charLength = value.length;
 
 		if ( value === '' ) {
 			errors.push( mw.message( 'mwe-upwiz-error-title-blank' ) );
 			return $.Deferred().resolve( errors ).promise();
 		}
 
-		if ( this.config.minLength && length < this.config.minLength ) {
-			errors.push( mw.message( 'mwe-upwiz-error-title-too-short', this.config.minLength ) );
+		if ( this.config.minLength && charLength < this.config.minLength ) {
+			errors.push( mw.message( 'mwe-upwiz-error-title-too-few-characters', this.config.minLength ) );
 			return $.Deferred().resolve( errors ).promise();
 		}
 

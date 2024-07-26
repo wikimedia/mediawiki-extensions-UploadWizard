@@ -612,10 +612,10 @@ return [
 	// Min source string length
 	'minSourceLength' => 5,
 
-	// Max file title string length
+	// Max file title string length (in bytes)
 	'maxTitleLength' => 240,
 
-	// Min file title string length
+	// Min file title string length (in characters)
 	'minTitleLength' => 5,
 
 	// Max file caption length
