@@ -15,8 +15,10 @@
 	"apihelp-query+allcampaigns-param-limit": "מספר מסעות הפרסום שצריך להחזיר.",
 	"apihelp-query+allcampaigns-example-1": "ספירה של מסעות פרסום מופעלים",
 	"apihelp-mediadetection-summary": "החזרת הסבירות שהתמונה השמורה במאגר ההעלאות שמיוצגת על־ידי מפתח הקובץ שסופק היא סמל",
+	"apihelp-mediadetection-param-filename": "שם דף הקובץ",
 	"apihelp-mediadetection-param-filekey": "ערך ה־<var>filekey</var> שהוחזר מבקשת <kbd>stash</kbd> של ה־API",
-	"apihelp-mediadetection-example": "החזרת הסבירות שהתמונה השמורה במאגר ההעלאות שמיוצגת על־ידי מפתח הקובץ שסופק היא סמל",
-	"apierror-mediadetection-no-valid-thumbnail": "לא קיימת תמונה ממוזערת עבור התמונה במאגר ההעלאות, ולכן לא ניתן לשלוח אותה למסווג",
+	"apihelp-mediadetection-example-filename": "החזרת הסבירות שהתמונה שמיוצגת על־ידי הקובץ שסופק היא סמל",
+	"apihelp-mediadetection-example-filekey": "החזרת הסבירות שהתמונה השמורה במאגר ההעלאות שמיוצגת על־ידי מפתח הקובץ שסופק היא סמל",
+	"apierror-mediadetection-no-valid-thumbnail": "לא קיימת תמונה ממוזערת עבור התמונה, ולכן לא ניתן לשלוח אותה למסווג",
 	"apierror-mediadetection-invalid-mime-type": "נקודת קצה של API אינה זמינה עבור סוג הקובץ הזה - הסוגים המותרים הם image\n/jpeg‏, image/gif‏, image/png‏, image/bmp"
 }

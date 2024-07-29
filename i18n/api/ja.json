@@ -14,5 +14,5 @@
 	"apihelp-query+allcampaigns-param-enabledonly": "有効になっているキャンペーンのみを列挙します。",
 	"apihelp-query+allcampaigns-param-limit": "キャンペーンの件数を返します。",
 	"apihelp-query+allcampaigns-example-1": "有効になっているキャンペーンを列挙する",
-	"apihelp-mediadetection-example": "Return the likelihood that the stashed image represented by the supplied filekey is a logo\n指定のファイルキーが示す保存済みの画像がロゴである確立を返す"
+	"apihelp-mediadetection-example-filekey": "Return the likelihood that the stashed image represented by the supplied filekey is a logo\n指定のファイルキーが示す保存済みの画像がロゴである確立を返す"
 }

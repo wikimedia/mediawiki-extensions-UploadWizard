@@ -16,5 +16,5 @@
 	"apihelp-query+allcampaigns-param-limit": "Število prikazanih kampanj.",
 	"apihelp-query+allcampaigns-example-1": "Naštetje omogočenih kampanj",
 	"apihelp-mediadetection-param-filekey": "<var>filekey</var>, vrnjen iz API-zahtevka <kbd>stash</kbd>",
-	"apihelp-mediadetection-example": "Vrnitev verjetnosti, da je shranjena slika, ki jo predstavlja podani datotečni ključ, logotip"
+	"apihelp-mediadetection-example-filekey": "Vrnitev verjetnosti, da je shranjena slika, ki jo predstavlja podani datotečni ključ, logotip"
 }
