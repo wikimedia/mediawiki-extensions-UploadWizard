@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajiniyaz Nurniyazov"
+			"Ajiniyaz Nurniyazov",
+			"Inabat Allanova"
 		]
 	},
 	"uploadwizard": "Júklew ustası",
@@ -28,6 +29,8 @@
 	"mwe-upwiz-finished": "Juwmaqlandı!",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Bul fayl|Bul fayllar}} meniń óz dóretiwshilik jumısım.",
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Bul fayl|Bul fayllar}} meniń óz dóretiwshilik jumısım emes.",
+	"mwe-upwiz-source-thirdparty-accept": "OK",
+	"mwe-upwiz-patent-dialog-button-next": "Keyingi",
 	"mwe-upwiz-desc": "Sıpatlaması",
 	"mwe-upwiz-title": "Súwret teması",
 	"mwe-upwiz-date-created": "Dóretilgen sáne",
