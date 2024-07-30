@@ -4,5 +4,6 @@
 			"Chulsu463"
 		]
 	},
-	"mwe-upwiz-patent-dialog-link-license-grant": "fafungga temge"
+	"mwe-upwiz-patent-dialog-link-license-grant": "fafungga temge",
+	"mwe-upwiz-error-title-too-few-characters": "ere colo umesi foholon. ere colo {{PLURAL:$1|character|chacters}} ocina."
 }

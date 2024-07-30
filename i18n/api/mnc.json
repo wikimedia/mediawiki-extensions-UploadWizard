@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chulsu463"
+		]
+	},
+	"apihelp-mediadetection-param-filename": "file justan i gebu.",
+	"apierror-mediadetection-no-valid-thumbnail": "ere nirugan i thumbnail akū jakade, classifier de unggirengge muterakū."
+}
