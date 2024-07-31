@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dirruw'o",
 			"Kaganer",
 			"Okras"
 		]
@@ -11,5 +12,6 @@
 	"apihelp-flickrblacklist-example-2": "Вернуть запись чёрного списка",
 	"apihelp-query+allcampaigns-param-enabledonly": "Список только тех кампаний, которые сейчас активны.",
 	"apihelp-query+allcampaigns-param-limit": "Возвращаемое число кампаний.",
-	"apihelp-query+allcampaigns-example-1": "Перечислить включённые кампании"
+	"apihelp-query+allcampaigns-example-1": "Перечислить включённые кампании",
+	"apihelp-mediadetection-param-filename": "Название файловой страницы"
 }
