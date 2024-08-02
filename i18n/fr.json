@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alien333",
 			"BlueCamille",
 			"Choodyam",
 			"Cquoi",
@@ -285,12 +286,12 @@
 	"mwe-upwiz-tooltip-source": "L’endroit d’où provient le fichier numérique, peut être une URL, un livre ou une publication.",
 	"mwe-upwiz-tooltip-sign": "Vous pouvez utiliser votre nom d’utilisateur du wiki ou votre vrai nom.\nDans les deux cas, ce sera lié à votre page utilisateur sur le wiki.",
 	"mwe-upwiz-tooltip-title": "Créez un titre descriptif unique en utilisant un langage clair avec des espaces. Omettez l’extension du fichier dans le cas où il y en aurait une.",
-	"mwe-upwiz-tooltip-caption": "Ajouter une légende sur une ligne, décrivant ce que ce fichier représente, et incluant les informations les plus importantes.",
+	"mwe-upwiz-tooltip-caption": "Légende en une ligne.",
 	"mwe-upwiz-tooltip-description": "Nous recommandons, si vous le pouvez, de fournir des informations détaillées sur ce travail.",
 	"mwe-upwiz-description-same-as-caption": "Identique à la légende",
 	"mwe-upwiz-tooltip-additional-info": "Ajoutez les éléments suivants pour rendre votre travail plus visible. Soyez aussi précis que possible.",
 	"mwe-upwiz-tooltip-date": "Choisissez la date de création ou de première publication de cette œuvre.",
-	"mwe-upwiz-tooltip-categories-v2": "Rechercher une catégorie existante dans laquelle mettre votre travail",
+	"mwe-upwiz-tooltip-categories-v2": "Rechercher une catégorie existante dans laquelle mettre votre travail.",
 	"mwe-upwiz-tooltip-location": "[$1 Géocoder votre fichier] pour identifier où le média a été enregistré (il n’est pas toujours utile de saisir un lieu approprié pour chaque sorte de média).",
 	"mwe-upwiz-tooltip-more-info": "En savoir plus.",
 	"mwe-upwiz-file-need-file": "Veuillez ajouter d’abord un fichier à importer.",
