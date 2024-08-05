@@ -3,6 +3,7 @@
 		"authors": [
 			"Framafan",
 			"Gomoko",
+			"Méthodes Bulebe Hangi",
 			"Verdy p",
 			"Wladek92"
 		]
@@ -16,5 +17,8 @@
 	"apihelp-query+allcampaigns-summary": "Énumère toutes les campagnes de l’assistant de téléversement (UploadWizard).",
 	"apihelp-query+allcampaigns-param-enabledonly": "Lister seulement les campagnes qui sont activées.",
 	"apihelp-query+allcampaigns-param-limit": "Nombre de campagnes à renvoyer.",
-	"apihelp-query+allcampaigns-example-1": "Énumérer les campagnes activées"
+	"apihelp-query+allcampaigns-example-1": "Énumérer les campagnes activées",
+	"apihelp-mediadetection-param-filename": "Nom de la page de fichier",
+	"apihelp-mediadetection-example-filename": "Retournez la probabilité que l'image représentée par le nom de fichier fourni soit un logo",
+	"apierror-mediadetection-no-valid-thumbnail": "Il n'existe pas de thumbnail pour l'image, donc ne peut pas l'envoyer au classifiateur"
 }
