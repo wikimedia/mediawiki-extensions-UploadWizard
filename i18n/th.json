@@ -8,7 +8,8 @@
 			"Patsagorn Y.",
 			"RidJasper",
 			"Sasakubo",
-			"Taweetham"
+			"Taweetham",
+			"Ekminarin"
 		]
 	},
 	"uploadwizard": "ตัวช่วยการอัปโหลด",
@@ -134,7 +135,7 @@
 	"mwe-upwiz-copy-categories": "คัดลอกหมวดหมู่",
 	"mwe-upwiz-copy-location": "คัดลอกตำแหน่ง",
 	"mwe-upwiz-copy-other": "คัดลอกข้อมูลอื่น ๆ",
-	"mwe-upwiz-caption": "คำบรรยาย",
+	"mwe-upwiz-caption": "คำอธิบาย",
 	"mwe-upwiz-desc": "คำอธิบาย",
 	"mwe-upwiz-title": "ชื่อภาพ",
 	"mwe-upwiz-date-created": "วันที่",
