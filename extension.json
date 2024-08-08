@@ -636,6 +636,7 @@
 			"details/uw.LocationDetailsWidget.test.js",
 			"transports/mw.FormDataTransport.test.js",
 			"uw.ConcurrentQueue.test.js",
+			"uw.CopyMetadataWidget.test.js",
 			"mw.UploadWizardUpload.test.js",
 			"mw.UploadWizardLicenseInput.test.js",
 			"mw.FlickrChecker.test.js",
