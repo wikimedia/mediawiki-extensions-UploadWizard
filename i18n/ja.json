@@ -32,6 +32,7 @@
 			"W.CC",
 			"Waki285",
 			"Whym",
+			"Yushu-kasai",
 			"Yusuke1109",
 			"青子守歌"
 		]
@@ -240,6 +241,7 @@
 	"mwe-upwiz-tooltip-title": "平易な言葉を使い、ファイル固有の説明的な表題を作成します。空白を入れることができます。拡張子は除去してください。",
 	"mwe-upwiz-tooltip-caption": "一行説明",
 	"mwe-upwiz-tooltip-description": "可能であれば、この作品に関する詳細な情報を提供することをお勧めします",
+	"mwe-upwiz-description-same-as-caption": "キャプションと同じ",
 	"mwe-upwiz-tooltip-date": "この作品が作成された日付、または最初に公開された日付を指定します。",
 	"mwe-upwiz-tooltip-location": "メディアが作成された場所を特定するために、[$1 このファイルを地域別分類]してください (メディアの種類ごとに場所を必ずしも入力する必要はありません)。",
 	"mwe-upwiz-tooltip-more-info": "詳細。",
