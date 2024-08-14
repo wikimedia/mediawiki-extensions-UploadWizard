@@ -27,8 +27,8 @@ use Wikimedia\Rdbms\IReadableDatabase;
 class ApiMediaDetection extends ApiBase {
 	private const MIN_IMAGE_DIMENSIONS = 224;
 	private const MEDIA_DETECTION_URL =
-		'https://inference-staging.svc.codfw.wmnet:30443/v1/models/logo-detection:predict';
-	private const MEDIA_DETECTION_HOST_HEADER = 'logo-detection.experimental.wikimedia.org';
+		'http://localhost:6031/v1/models/logo-detection:predict';
+	private const MEDIA_DETECTION_HOST_HEADER = 'logo-detection.logo-detection.wikimedia.org';
 	// See https://commons.wikimedia.org/wiki/Special:MediaStatistics
 	private const VALID_MIME_TYPES = [
 		'image/jpeg', 'image/png', 'image/svg+xml',
