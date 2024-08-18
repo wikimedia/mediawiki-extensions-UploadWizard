@@ -184,12 +184,14 @@
 		 * @param {number} completed The number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
 		 */
 		showCount: function ( completed ) {
+			var formattedCompleted = mw.language.convertNumber( completed );
 			var total = this.uploads.length - this.countRemoved();
+			var formattedTotal = mw.language.convertNumber( total );
 			this.$selector
 				.find( '.mwe-upwiz-count' )
 				// Hide if there are no uploads, show otherwise
 				.toggle( total !== 0 )
-				.text( mw.msg( 'mwe-upwiz-upload-count', completed, total ) );
+				.text( mw.msg( 'mwe-upwiz-upload-count', formattedCompleted, formattedTotal ) );
 		},
 
 		countRemoved: function () {
