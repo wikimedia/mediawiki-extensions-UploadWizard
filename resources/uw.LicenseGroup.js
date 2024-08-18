@@ -364,7 +364,7 @@
 				// * mwe-upwiz-cc-zero-icon
 				// * mwe-upwiz-cc-sa-icon
 				// * mwe-upwiz-cc-by-icon
-				$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
+				$icons.append( $( '<span>' ).addClass( 'skin-invert mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 			} );
 		}
 
