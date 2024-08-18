@@ -1,12 +1,14 @@
+@import 'mediawiki.skin.variables.less';
+
 .mwe-upwiz-statementWidget {
-	border: 1px solid #a2a9b1;
+	border: @border-base;
 	border-radius: 2px;
 	padding: 0 4px;
 
 	&.mwe-upwiz-statementWidget-active {
-		border-color: #36c;
+		border-color: @border-color-progressive;
 		outline: 1px solid transparent;
-		box-shadow: 0 0 0 1px #36c;
+		box-shadow: 0 0 0 1px @box-shadow-color-progressive--active;
 	}
 
 	.mwe-upwiz-statement-input {
