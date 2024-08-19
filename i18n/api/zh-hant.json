@@ -14,5 +14,12 @@
 	"apihelp-query+allcampaigns-summary": "列舉所有上傳精靈行動。",
 	"apihelp-query+allcampaigns-param-enabledonly": "僅列出已啟用的行動",
 	"apihelp-query+allcampaigns-param-limit": "要回傳的行動數量。",
-	"apihelp-query+allcampaigns-example-1": "列舉已啟用的行動。"
+	"apihelp-query+allcampaigns-example-1": "列舉已啟用的行動。",
+	"apihelp-mediadetection-summary": "傳回由所提供檔案鍵表示出貯藏圖片為標誌的可能性",
+	"apihelp-mediadetection-param-filename": "檔案頁面名稱",
+	"apihelp-mediadetection-param-filekey": "從 <kbd>stash</kbd> API 請求回傳的 <var>filekey</var>",
+	"apihelp-mediadetection-example-filename": "傳回由所提供檔案名稱表示出圖片為標誌的可能性",
+	"apihelp-mediadetection-example-filekey": "傳回由所提供檔案鍵表示出貯藏圖片為標誌的可能性",
+	"apierror-mediadetection-no-valid-thumbnail": "圖片不存在縮圖，因此無法發送給分類器",
+	"apierror-mediadetection-invalid-mime-type": "API 端點不適用於此類檔案 - 允許的類型為 image/jpeg、image/gif、image/png、image/bmp"
 }

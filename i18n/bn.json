@@ -189,7 +189,7 @@
 	"mwe-upwiz-objref-pick-image": "এই চিত্রটির বস্তুর উল্লেখ যোগ করুন।",
 	"mwe-upwiz-objref-notice-existing-image": "উল্লেখিত বস্তুর জন্য একটি চিত্র ইতিমধ্যে বিদ্যমান।",
 	"mwe-upwiz-objref-notice-update-delay": "উল্লেখ পাতা হালনাগাদ করতে কিছু সময় লাগতে পারে।",
-	"mwe-upwiz-author-text": "এই {{PLURAL:$1|এই কর্মের|এই কর্মগুলির}} মূল লেখকের নাম লিখুন:",
+	"mwe-upwiz-author-text": "এই {{PLURAL:$1|কর্মের|কর্মগুলির}} মূল লেখকের নাম লিখুন।",
 	"mwe-upwiz-author-unknown": "আমি জানি না এর লেখক কে",
 	"mwe-upwiz-author-not-known": "আমার কাছে এই তথ্য নেই",
 	"mwe-upwiz-author-text-ai": "ব্যবহৃত কৃত্রিম বুদ্ধিমত্তা (এআই) ইঞ্জিনের নাম লিখুন, তারপর যিনি প্রম্পট তৈরি করেছেন তার নাম লিখুন:",
