@@ -357,5 +357,7 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de cargas simultáneas",
 	"campaigns": "Campañas do asistente de cargas",
 	"mwe-upload-campaigns-pagination-next": "Páxina seguinte",
-	"mwe-upload-campaigns-list-title": "Lista de campañas de cargas"
+	"mwe-upload-campaigns-list-title": "Lista de campañas de cargas",
+	"mwe-upwiz-mv-cta-dismiss": "Descartar",
+	"mwe-upwiz-metadata-notice-header": "Datos persoais"
 }
