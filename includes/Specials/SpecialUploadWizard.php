@@ -160,11 +160,11 @@ class SpecialUploadWizard extends SpecialPage {
 			$campaign = Campaign::newFromName( $campaignName );
 
 			if ( $campaign === false ) {
-				$this->displayError( $this->msg( 'mwe-upwiz-error-nosuchcampaign', $campaignName )->text() );
+				$this->displayError( $this->msg( 'mwe-upwiz-error-nosuchcampaign', $campaignName )->parse() );
 			} elseif ( $campaign->getIsEnabled() ) {
 				$this->campaign = $campaignName;
 			} else {
-				$this->displayError( $this->msg( 'mwe-upwiz-error-campaigndisabled', $campaignName )->text() );
+				$this->displayError( $this->msg( 'mwe-upwiz-error-campaigndisabled', $campaignName )->parse() );
 			}
 		}
 	}

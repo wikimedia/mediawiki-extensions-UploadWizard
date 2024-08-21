@@ -85,7 +85,7 @@ class Tutorial {
 					->getLanguageName( $langCode, $wgLang->getCode() ) );
 			}
 			$errorHtml = Html::errorBox(
-				$errorMsg->text()
+				$errorMsg->parse()
 			);
 		}
 
