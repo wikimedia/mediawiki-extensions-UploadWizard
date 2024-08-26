@@ -26,6 +26,7 @@ use Wikimedia\Rdbms\IReadableDatabase;
  */
 class ApiMediaDetection extends ApiBase {
 	private const MIN_IMAGE_DIMENSIONS = 224;
+	private const THUMB_ORIGIN = 'http://localhost:6101';
 	private const MEDIA_DETECTION_URL =
 		'http://localhost:6031/v1/models/logo-detection:predict';
 	private const MEDIA_DETECTION_HOST_HEADER = 'logo-detection.logo-detection.wikimedia.org';
@@ -140,6 +141,14 @@ class ApiMediaDetection extends ApiBase {
 			$thumbProxyUrl = $file->getRepo()->getThumbProxyUrl();
 			$scalerThumbUrl = $thumbProxyUrl . 'temp/' . $file->getUrlRel() . '/' . rawurlencode( $scalerThumbName );
 		}
+
+		// the generated thumb uri may not be accessible from the pod this may be running on,
+		// so let's update the origin
+		$parsedUrl = parse_url( $scalerThumbUrl );
+		$scalerThumbUrl = self::THUMB_ORIGIN .
+						  ( $parsedUrl['path'] ?? '' ) .
+						  ( isset( $parsedUrl['query'] ) ? '?' . $parsedUrl['query'] : '' ) .
+						  ( isset( $parsedUrl['fragment'] ) ? '#' . $parsedUrl['fragment'] : '' );
 
 		// request thumbnail from scaler
 		$request = $this->httpRequestFactory->create(
