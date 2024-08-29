@@ -368,7 +368,7 @@
 	"mwe-upwiz-license-pd-old-70-1923": "Julkaistu ensimmäisen kerran ennen vuotta 1929 ja tekijä kuoli yli 70 vuotta sitten",
 	"mwe-upwiz-license-pd-old-70": "Tekijä on kuollut yli 70 vuotta",
 	"mwe-upwiz-url-invalid": "Annettu verkko-osoite on virheellinen tai rajoitettu $1-kuvan tai -kuvasarjan osoite, eikä sitä voida käyttää.",
-	"mwe-upwiz-user-blacklisted": "Valitettavasti sivuston $1 käyttäjätileiltä ei voi tallentaa tiedostoja tälle sivustolle.",
+	"mwe-upwiz-user-blacklisted": "Valitettavasti tältä {{GRAMMAR:genitive|$1}} käyttäjätililtä ei voi tallentaa tiedostoja tälle sivustolle.",
 	"mwe-upwiz-categories": "Luokat",
 	"mwe-upwiz-categories-missing": "Valitulta luokalta puuttuu kuvaussivu. Onko sen nimi kirjoitettu varmasti oikein?",
 	"mwe-upwiz-thumbnail-failed": "Tallennus onnistui, mutta palvelin ei voinut hakea pienoiskuvaa esikatseluun.",
