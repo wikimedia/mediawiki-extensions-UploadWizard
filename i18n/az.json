@@ -302,7 +302,7 @@
 	"mwe-upwiz-dialog-title": "Xəbərdarlıq",
 	"mwe-upwiz-campaign-create-account-button": "Hesab yarat və yüklə!",
 	"mwe-upwiz-campaign-upload-button": "Yüklə!",
-	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Yükləmə|Yükləmələr}}",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Yükləmə}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Töhfəçi|Töhfəçilər}}",
 	"mwe-upwiz-campaign-view-all-media": "Bütün yüklənmiş mediaya baxın",
 	"mwe-upwiz-campaign-no-uploads-yet": "Hələ yükləmə yoxdur!",
