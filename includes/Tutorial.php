@@ -117,9 +117,10 @@ class Tutorial {
 	 */
 	public static function getImageHtml( MediaTransformOutput $thumb, $tutorial ) {
 		$helpDeskUrl = wfMessage( 'mwe-upwiz-help-desk-url' )->text();
+		$urlUtils = MediaWikiServices::getInstance()->getUrlUtils();
 
 		// Per convention, we may be either using an absolute URL or a wiki page title in this UI message
-		if ( preg_match( '/^(?:' . wfUrlProtocols() . ')/', $helpDeskUrl ) ) {
+		if ( preg_match( '/^(?:' . $urlUtils->validProtocols() . ')/', $helpDeskUrl ) ) {
 			$helpDeskHref = $helpDeskUrl;
 		} else {
 			$helpDeskTitle = Title::newFromText( $helpDeskUrl );
