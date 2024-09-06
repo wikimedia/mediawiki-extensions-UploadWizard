@@ -53,13 +53,6 @@ class CampaignPageFormatter {
 		$campaignDescription = $config['description'] ?? '';
 		$campaignViewMoreLink = $this->campaign->getTrackingCategory()->getFullURL();
 
-		$gallery = ImageGalleryBase::factory( 'packed-hover' );
-		$gallery->setContext( $this->context );
-		$gallery->setParser( MediaWikiServices::getInstance()->getParserFactory()->create() );
-		$gallery->setWidths( '180' );
-		$gallery->setHeights( '180' );
-		$gallery->setShowBytes( false );
-
 		$this->context->getOutput()->setCdnMaxage(
 			Config::getSetting( 'campaignSquidMaxAge' )
 		);
@@ -100,6 +93,9 @@ class CampaignPageFormatter {
 				wfMessage( 'mwe-upwiz-campaign-no-uploads-yet' )->plain()
 			);
 		} else {
+			$gallery = ImageGalleryBase::factory( 'packed-hover', $this->context );
+			$gallery->setShowBytes( false );
+
 			foreach ( $images as $image ) {
 				$gallery->add( $image );
 			}
