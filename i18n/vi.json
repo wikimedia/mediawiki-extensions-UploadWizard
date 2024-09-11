@@ -13,7 +13,9 @@
 			"Nguyên Lê",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
-			"Yue Ling"
+			"Yue Ling",
+			"Doraemonluonbentoi",
+			"SongNgu.xyz"
 		]
 	},
 	"uploadwizard": "Trình hướng dẫn tải lên",
@@ -368,6 +370,7 @@
 	"mwe-upwiz-calendar-date": "Chọn ngày tháng dùng lịch",
 	"mwe-upwiz-custom-date": "Định dạng ngày tháng tùy biến",
 	"prefs-uploads": "Tải lên",
+	"prefs-description-uploads": "Đặt tên tác giả của bạn và giấy phép mặc định.",
 	"prefs-upwiz-licensing": "Giấy phép",
 	"prefs-upwiz-experimental": "Tính năng thử nghiệm",
 	"prefs-upwiz-interface": "Giao diện",
