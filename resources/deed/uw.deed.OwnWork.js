@@ -372,30 +372,37 @@
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
 	uw.deed.OwnWork.prototype.getFields = function () {
-		var fields = [ this.originRadioField, this.licenseInputField, this.purposeField ];
+		var fields = [ this.originRadioField, this.licenseInputField ];
+
+		// don't validate purpose field in campaigns (it is not shown)
+		if ( !new mw.Uri().query.campaign ) {
+			fields.push( this.purposeField );
+		}
+
 		if ( this.threeDCount > 0 ) {
 			fields.push( this.patentAgreementField );
 		}
+
 		return fields;
 	};
 
 	uw.deed.OwnWork.prototype.setFormFields = function ( $selector ) {
 		var $formFields;
 
-		this.$selector = $selector;
+		$formFields = $( '<ol>' ).append(
+			$( '<div>' ).addClass( 'mwe-upwiz-ownwork-origin' )
+				.append( this.originRadioField.$element ),
+			$( '<div>' ).addClass( 'mwe-upwiz-ownwork-license' )
+				.append( this.licenseInputField.$element )
+		);
 
-		this.$form = $( '<form>' );
-
-		$formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ).append(
-			$( '<ol>' ).append(
-				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-origin' )
-					.append( this.originRadioField.$element ),
-				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-license' )
-					.append( this.licenseInputField.$element ),
+		// don't show purpose field in campaigns
+		if ( !new mw.Uri().query.campaign ) {
+			$formFields.append(
 				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-purpose' )
 					.append( this.purposeField.$element )
-			)
-		);
+			);
+		}
 
 		// hidden inputs
 		$formFields.append( this.authorInput.$element );
@@ -403,7 +410,10 @@
 			$formFields.append( this.patentAgreementField.$element );
 		}
 
-		this.$form.append( $formFields ).appendTo( $selector );
+		$selector.append(
+			$( '<form>' )
+				.append( $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ).append( $formFields ) )
+		);
 
 		this.setDefaultLicense();
 	};
