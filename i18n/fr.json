@@ -338,6 +338,7 @@
 	"mwe-upwiz-error-patent-disagree": "Vous devez accepter les termes.",
 	"mwe-upwiz-error-pageprops-missing-page": "Echec sur récupération des propriétés de page : la page n'existe pas (encore).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Echec sur récupération des propriétés de page : la propriété n'existe pas (encore).",
+	"mwe-upwiz-error-postdate": "La date que vous avez sélectionnée est dans le futur. Veuillez sélectionner la date correcte.",
 	"mwe-upwiz-warning-date-prefilled": "La date ci-dessus est tirée des détails de votre photo.",
 	"mwe-upwiz-notice-date-imprecise": "Nous recommandons de fournir une date complète si elle est connue.",
 	"mwe-upwiz-details-error-count": "Le{{PLURAL:$2||s}} formulaire{{PLURAL:$2||s}} ci-dessus comporte{{PLURAL:$2||nt}} {{PLURAL:$1|une|$1}} erreur{{PLURAL:$1||s}}. Corrigez ce{{PLURAL:$1|tte|s}} erreur{{PLURAL:$1||s}} et essayez de soumettre à nouveau.",
