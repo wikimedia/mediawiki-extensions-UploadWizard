@@ -10,9 +10,7 @@
 	 * @param {mw.UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
 	 */
 	mw.UploadWizardDeedChooser = function ( config, deeds, uploads ) {
-		let chooser = this,
-			$radioContainer,
-			$formContainer;
+		const chooser = this;
 
 		OO.EventEmitter.call( this );
 
@@ -25,8 +23,8 @@
 
 		this.onLayoutReady = function () {};
 
-		$radioContainer = $( '<div>' ).addClass( 'mwe-upwiz-deed-radios' );
-		$formContainer = $( '<div>' ).addClass( 'mwe-upwiz-deed-forms' );
+		const $radioContainer = $( '<div>' ).addClass( 'mwe-upwiz-deed-radios' );
+		const $formContainer = $( '<div>' ).addClass( 'mwe-upwiz-deed-forms' );
 		this.$element = $( '<div>' ).addClass( 'mwe-upwiz-deeds-container' ).append(
 			$radioContainer, $formContainer
 		);

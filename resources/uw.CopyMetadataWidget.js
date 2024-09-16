@@ -11,9 +11,8 @@
 	 * @param {mw.UploadWizardUpload} config.captionsAvailable True if captions are available
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
-		let self = this,
+		const self = this,
 			metadataTypes = uw.CopyMetadataWidget.static.copyMetadataTypes,
-			metadataType, defaultStatus, copyMetadataMsg,
 			checkboxes = [],
 			propertyCopyLabels = mw.config.get( 'upwizPropertyCopyLabels' ) || {},
 			statementCheckboxes = {};
@@ -26,9 +25,9 @@
 
 		metadataTypes.statements.properties = this.copyFrom.details.getStatementProperties();
 
-		for ( metadataType in metadataTypes ) {
+		for ( const metadataType in metadataTypes ) {
 			if ( metadataType !== 'statements' ) {
-				defaultStatus = metadataTypes[ metadataType ];
+				const defaultStatus = metadataTypes[ metadataType ];
 				// The following messages are used here:
 				// * mwe-upwiz-copy-title-label
 				// * mwe-upwiz-copy-caption-label
@@ -37,7 +36,7 @@
 				// * mwe-upwiz-copy-categories-label
 				// * mwe-upwiz-copy-location-label
 				// * mwe-upwiz-copy-other-label
-				copyMetadataMsg = mw.message( 'mwe-upwiz-copy-' + metadataType + '-label' ).text();
+				const copyMetadataMsg = mw.message( 'mwe-upwiz-copy-' + metadataType + '-label' ).text();
 
 				if ( metadataType === 'caption' && !config.captionsAvailable ) {
 					// do nothing - we don't want an option to copy captions if captions turned off
@@ -195,17 +194,16 @@
 	 * @param {Function} callback callback(i, sourceValue)
 	 */
 	uw.CopyMetadataWidget.copyMetadataSerialized = function ( metadataTypes, serialized, length, callback ) {
-		let titleZero, matches, i,
-			// Values to copy
-			sourceValue = {},
-			// Checks for extra behaviors
-			copyingTitle = false,
-			copyingOther = false,
-			typeParts;
+		// Values to copy
+		const sourceValue = {};
+		// Checks for extra behaviors
+		let copyingTitle = false,
+			copyingOther = false;
 
+		let titleZero;
 		// Filter serialized data to only the types we want to copy
 		metadataTypes.forEach( ( type ) => {
-			typeParts = type.split( '.' );
+			const typeParts = type.split( '.' );
 			if ( typeParts.length === 2 ) {
 				if ( serialized[ typeParts[ 0 ] ][ typeParts[ 1 ] ] ) {
 					if ( !sourceValue[ typeParts[ 0 ] ] ) {
@@ -230,21 +228,20 @@
 			titleZero = sourceValue.title.title.trim();
 			// Add number suffix to first title if no numbering present
 
-			matches = titleZero.match( /(\D+)(\d{1,3})([.)]\D*)?$/ );
+			const matches = titleZero.match( /(\D+)(\d{1,3})([.)]\D*)?$/ );
 			if ( matches === null ) {
 				titleZero = titleZero + ' 01';
 			}
 		}
 
 		// And apply
-		for ( i = 0; i < length; i++ ) {
+		for ( let i = 0; i < length; i++ ) {
 			if ( copyingTitle ) {
 				// Overwrite remaining title inputs with first title + increment of rightmost
 				// number in the title. Note: We ignore numbers with more than three digits, because these
 				// are more likely to be years ("Wikimania 2011 Celebration") or other non-sequence
 				// numbers.
 				sourceValue.title.title = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
-					// eslint-disable-next-line no-loop-func
 					( str, m1, m2, m3 ) => {
 						const newstr = String( +m2 + i );
 						return m1 + new Array( m2.length + 1 - newstr.length )
@@ -261,10 +258,9 @@
 	 * Restore previously saved metadata that we backed up when copying.
 	 */
 	uw.CopyMetadataWidget.prototype.restoreMetadata = function () {
-		let i,
-			uploads = this.copyTo;
+		const uploads = this.copyTo;
 
-		for ( i = 0; i < uploads.length; i++ ) {
+		for ( let i = 0; i < uploads.length; i++ ) {
 			uploads[ i ].details.setSerialized( this.savedSerializedData[ i ] );
 		}
 	};

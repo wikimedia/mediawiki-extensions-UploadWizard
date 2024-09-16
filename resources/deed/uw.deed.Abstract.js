@@ -115,8 +115,8 @@
 	 * @return {Object}
 	 */
 	uw.deed.Abstract.prototype.getSerialized = function () {
-		let name, selectedTemplateOptions = [];
-		for ( name in this.templateOptions ) {
+		const selectedTemplateOptions = [];
+		for ( const name in this.templateOptions ) {
 			if ( this.templateOptions[ name ].input.isSelected() ) {
 				selectedTemplateOptions.push( name );
 			}
@@ -184,8 +184,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.deed.Abstract.prototype.getPatentAgreementErrors = function ( input, uploads, thorough ) {
-		let deed = this,
-			windowManager, dialog, deferred;
+		const deed = this;
 
 		// We only want to test this on submit
 		if ( !thorough ) {
@@ -193,9 +192,9 @@
 		}
 
 		if ( this.patentAgreed !== true ) {
-			deferred = $.Deferred();
-			windowManager = new OO.ui.WindowManager();
-			dialog = this.getPatentDialog( uploads );
+			const deferred = $.Deferred();
+			const windowManager = new OO.ui.WindowManager();
+			const dialog = this.getPatentDialog( uploads );
 
 			$( document.body ).append( windowManager.$element );
 			windowManager.addWindows( [ dialog ] );

@@ -73,15 +73,13 @@ mw.FlickrChecker.prototype = {
 	 * @param {string} flickrInputUrl The source URL to check
 	 */
 	checkFlickr: function ( flickrInputUrl ) {
-		let photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
-
-		photoIdMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/[^/]+\/([0-9]+)/ );
-		albumIdMatches = flickrInputUrl.match( /flickr\.com\/photos\/[^/]+\/(sets|albums)\/([0-9]+)/ );
-		userCollectionMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/[^/]+\/collections\/?([0-9]+)?/ );
-		userPhotostreamMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/([^/]+)/ );
-		groupPoolMatches = flickrInputUrl.match( /flickr\.com\/groups\/[^/]+(?:\/pool\/([^/]+))?/ );
-		userGalleryMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/[^/]+\/galleries\/([0-9]+)/ );
-		userFavoritesMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/([^/]+)\/favorites/ );
+		let photoIdMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/[^/]+\/([0-9]+)/ );
+		const albumIdMatches = flickrInputUrl.match( /flickr\.com\/photos\/[^/]+\/(sets|albums)\/([0-9]+)/ );
+		const userCollectionMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/[^/]+\/collections\/?([0-9]+)?/ );
+		const userPhotostreamMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/([^/]+)/ );
+		const groupPoolMatches = flickrInputUrl.match( /flickr\.com\/groups\/[^/]+(?:\/pool\/([^/]+))?/ );
+		const userGalleryMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/[^/]+\/galleries\/([0-9]+)/ );
+		const userFavoritesMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/([^/]+)\/favorites/ );
 
 		this.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
 		// eslint-disable-next-line no-jquery/no-global-selector

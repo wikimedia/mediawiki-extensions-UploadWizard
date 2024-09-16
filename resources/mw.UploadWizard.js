@@ -10,8 +10,6 @@
 	 * @class
 	 */
 	mw.UploadWizard = function ( config ) {
-		let maxSimPref;
-
 		this.api = this.getApi( { ajax: { timeout: 0 } } );
 
 		// making a sort of global for now, should be done by passing in config or fragments of config
@@ -22,7 +20,7 @@
 
 		this.steps = {};
 
-		maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
+		const maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
 
 		if ( maxSimPref !== 'default' ) {
 			config.maxSimultaneousConnections = Math.max( 1, maxSimPref );
@@ -46,10 +44,10 @@
 		 * @param {string} selector
 		 */
 		createInterface: function ( selector ) {
-			let promise, self = this;
+			const self = this;
 			this.ui = new uw.ui.Wizard( selector );
 
-			promise = this.initialiseSteps();
+			const promise = this.initialiseSteps();
 
 			if (
 				this.config.wikibase.enabled &&
@@ -137,8 +135,6 @@
 			const api = new mw.Api( options );
 
 			api.ajax = function ( parameters, ajaxOptions ) {
-				let original, override;
-
 				Object.assign( parameters, {
 					errorformat: 'html',
 					errorlang: mw.config.get( 'wgUserLanguage' ),
@@ -146,11 +142,11 @@
 					formatversion: 2
 				} );
 
-				original = mw.Api.prototype.ajax.apply( this, [ parameters, ajaxOptions ] );
+				const original = mw.Api.prototype.ajax.apply( this, [ parameters, ajaxOptions ] );
 
 				// we'll attach a default error handler that makes sure error
 				// output is always, reliably, in the same format
-				override = original.then(
+				const override = original.then(
 					null, // done handler - doesn't need overriding
 					( code, result ) => { // fail handler
 						let response = { errors: [ {

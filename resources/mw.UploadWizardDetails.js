@@ -29,8 +29,7 @@
 
 		// Build the interface and attach all elements - do this on demand
 		buildInterface: function () {
-			let descriptionRequired, uri,
-				details = this,
+			const details = this,
 				config = mw.UploadWizard.config,
 				captionsAvailable = config.wikibase.enabled && config.wikibase.captions,
 				// the following only end up getting used if statements are enabled
@@ -96,7 +95,7 @@
 			//
 			// Description is not required if a campaign provides alternative wikitext fields,
 			// which are assumed to function like a description
-			descriptionRequired = !(
+			const descriptionRequired = !(
 				config.fields &&
 				config.fields.length &&
 				config.fields[ 0 ].wikitext
@@ -286,14 +285,12 @@
 				} );
 
 				defaultProperties.forEach( ( propertyId ) => {
-					let widget;
-
 					// only wikibase-entityid types are supported
 					if ( propertyDataValuesTypes[ propertyId ] !== 'wikibase-entityid' ) {
 						return;
 					}
 
-					widget = details.createStatementWidget( propertyId );
+					const widget = details.createStatementWidget( propertyId );
 					statementFields[ propertyId ] = new uw.FieldLayout( widget, {
 						// unknown labels will get filled in later on
 						label: details.propertyTitles[ propertyId ] || propertyId,
@@ -411,7 +408,7 @@
 				this.$dataDiv
 			);
 
-			uri = new mw.Uri( location.href, { overrideKeys: true } );
+			const uri = new mw.Uri( location.href, { overrideKeys: true } );
 			if ( config.defaults.caption || uri.query.captionlang ) {
 				this.captionsDetails.setSerialized( {
 					inputs: [
@@ -466,8 +463,8 @@
 		},
 
 		getStatementProperties: function () {
-			let propertyId, properties = [];
-			for ( propertyId in this.statementWidgets ) {
+			const properties = [];
+			for ( const propertyId in this.statementWidgets ) {
 				properties.push( {
 					id: propertyId,
 					label: this.propertyTitles[ propertyId ]
@@ -635,8 +632,7 @@
 		 * (which we should actually be using, such as time and timezone)
 		 */
 		prefillDate: function () {
-			let dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
-				yyyyMmDdRegex = /^(\d\d\d\d)[:/-](\d\d)[:/-](\d\d)\D.*/,
+			const yyyyMmDdRegex = /^(\d\d\d\d)[:/-](\d\d)[:/-](\d\d)\D.*/,
 				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 
 			// XXX surely we have this function somewhere already
@@ -659,15 +655,15 @@
 				return;
 			}
 
+			let dateObj;
 			if ( this.upload.imageinfo.metadata ) {
-				metadata = this.upload.imageinfo.metadata;
+				const metadata = this.upload.imageinfo.metadata;
 				[ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ].some( ( propName ) => {
-					let matches, timeMatches,
-						dateInfo = metadata[ propName ];
+					const dateInfo = metadata[ propName ];
 					if ( dateInfo ) {
-						matches = dateInfo.trim().match( yyyyMmDdRegex );
+						const matches = dateInfo.trim().match( yyyyMmDdRegex );
 						if ( matches ) {
-							timeMatches = dateInfo.trim().match( timeRegex );
+							const timeMatches = dateInfo.trim().match( timeRegex );
 							if ( timeMatches ) {
 								dateObj = new Date( parseInt( matches[ 1 ], 10 ),
 									parseInt( matches[ 2 ], 10 ) - 1,
@@ -689,8 +685,8 @@
 
 			// If we don't have EXIF lets try other sources - Flickr
 			if ( dateObj === undefined && this.upload.file !== undefined && this.upload.file.date !== undefined ) {
-				dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
-				matches = this.upload.file.date.match( dateTimeRegex );
+				const dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
+				const matches = this.upload.file.date.match( dateTimeRegex );
 				if ( matches ) {
 					this.dateDetails.setSerialized( {
 						prefilled: true,
@@ -707,14 +703,14 @@
 				return;
 			}
 
-			dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
+			let dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
 
 			// Add the time
 			// If the date but not the time is set in EXIF data, we'll get a bogus
 			// time value of '00:00:00'.
 			// FIXME: Check for missing time value earlier rather than blacklisting
 			// a potentially legitimate time value.
-			saneTime = getSaneTime( dateObj );
+			const saneTime = getSaneTime( dateObj );
 			if ( saneTime !== '00:00:00' ) {
 				dateStr += ' ' + saneTime;
 			}
@@ -744,14 +740,12 @@
 		 * or from the metadata.
 		 */
 		prefillDescription: function () {
-			let m, descText;
-
 			if (
 				this.descriptionsDetails.getWikiText() === '' &&
 				this.upload.file !== undefined
 			) {
-				m = this.upload.imageinfo.metadata;
-				descText = this.upload.file.description ||
+				const m = this.upload.imageinfo.metadata;
+				let descText = this.upload.file.description ||
 					( m && m.imagedescription && m.imagedescription[ 0 ] && m.imagedescription[ 0 ].value );
 
 				if ( descText ) {
@@ -783,8 +777,7 @@
 		 * to decimal format.  Let's just use that.
 		 */
 		prefillLocation: function () {
-			let dir,
-				m = this.upload.imageinfo.metadata,
+			const m = this.upload.imageinfo.metadata,
 				values = {};
 
 			if ( mw.UploadWizard.config.defaults.lat ) {
@@ -798,7 +791,7 @@
 			}
 
 			if ( m ) {
-				dir = m.gpsimgdirection || m.gpsdestbearing;
+				let dir = m.gpsimgdirection || m.gpsdestbearing;
 
 				if ( dir ) {
 					if ( /^\d+\/\d+$/.test( dir ) ) {
@@ -874,17 +867,15 @@
 		},
 
 		serializeStatements: function () {
-			let serialized = {},
-				propertyId;
-			for ( propertyId in this.statementWidgets ) {
+			const serialized = {};
+			for ( const propertyId in this.statementWidgets ) {
 				serialized[ propertyId ] = this.statementWidgets[ propertyId ].getStatementList();
 			}
 			return serialized;
 		},
 
 		setStatementsFromSerialized: function ( serialized ) {
-			let propertyId;
-			for ( propertyId in serialized ) {
+			for ( const propertyId in serialized ) {
 				this.statementWidgets[ propertyId ].resetData( serialized[ propertyId ] );
 			}
 		},
@@ -964,12 +955,11 @@
 		 * @return {string} wikitext representing all details
 		 */
 		getWikiText: function () {
-			let deed, info, key, information,
-				wikiText = '';
+			let wikiText = '';
 
 			// https://commons.wikimedia.org/wiki/Template:Information
 			// can we be more slick and do this with maps, applys, joins?
-			information = {
+			const information = {
 				// {{lang|description in lang}}* (required)
 				description: '',
 				// holds {{Prompt}} template ... gets unset if it has no value
@@ -992,7 +982,7 @@
 				information.description = this.descriptionsDetails.getWikiText();
 			}
 
-			deed = this.upload.deedChooser.deed;
+			const deed = this.upload.deedChooser.deed;
 			if ( deed.getAiPromptWikitext() ) {
 				information[ 'Other fields 1' ] = deed.getAiPromptWikitext();
 			} else {
@@ -1009,9 +999,9 @@
 
 			information.author = deed.getAuthorWikiText( this.upload );
 
-			info = '';
+			let info = '';
 
-			for ( key in information ) {
+			for ( const key in information ) {
 				if ( Object.prototype.hasOwnProperty.call( information, key ) ) {
 					info += '|' + key.replace( /:/g, '_' );
 					info += '=' + mw.Escaper.escapeForTemplate( information[ key ] ) + '\n';
@@ -1064,8 +1054,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			let details = this,
-				wikitext, promise, errorString;
+			const details = this;
 
 			this.$containerDiv.find( 'form' ).trigger( 'submit' );
 
@@ -1074,8 +1063,8 @@
 			this.setStatus( mw.message( 'mwe-upwiz-submitting-details' ).text() );
 			this.showIndicator( 'progress' );
 
-			wikitext = this.getWikiText();
-			promise = this.submitWikiText( wikitext );
+			const wikitext = this.getWikiText();
+			let promise = this.submitWikiText( wikitext );
 
 			if ( mw.UploadWizard.config.wikibase.enabled ) {
 				promise = promise
@@ -1094,7 +1083,7 @@
 				// postStructuredData which executes AFTER this, and so the error never gets
 				// displayed
 				if ( details.structuredDataSubmissionErrors ) {
-					errorString = '<strong>' + mw.message(
+					let errorString = '<strong>' + mw.message(
 						'mwe-upwiz-error-submit-structured-data'
 					).parse() + '</strong>';
 
@@ -1163,11 +1152,10 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitWikiText: function ( wikiText ) {
-			let params,
-				tags = [ 'uploadwizard' ],
+			const tags = [ 'uploadwizard' ],
 				deed = this.upload.deedChooser.deed,
-				comment = '',
 				config = mw.UploadWizard.config;
+			let comment = '';
 
 			this.firstPoll = Date.now();
 
@@ -1190,7 +1178,7 @@
 				).plain();
 			}
 
-			params = {
+			const params = {
 				action: 'upload',
 				filekey: this.upload.fileKey,
 				filename: this.getTitle().getMain(),
@@ -1217,20 +1205,16 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitStructuredData: function ( entityId ) {
-			let labels,
-				statements,
-				date,
-				dateStatement,
-				config = mw.UploadWizard.config,
-				promise = $.Deferred().resolve().promise(),
+			let promise = $.Deferred().resolve().promise();
+			const config = mw.UploadWizard.config,
 				data = {},
 				self = this,
 				wbDataModel = mw.loader.require( 'wikibase.datamodel' ),
 				wbSerialization = mw.loader.require( 'wikibase.serialization' ),
 				wbSerializer = new wbSerialization.StatementSerializer();
 
-			labels = this.prepareLabelsData();
-			statements = this.prepareStatementsData();
+			const labels = this.prepareLabelsData();
+			const statements = this.prepareStatementsData();
 
 			if ( !config.wikibase.enabled ) {
 				return promise;
@@ -1250,8 +1234,8 @@
 					.then( () => this.dateDetails.parseDate() )
 					.then(
 						( response ) => {
-							date = response.results[ 0 ].value;
-							dateStatement = wbSerializer.serialize(
+							const date = response.results[ 0 ].value;
+							const dateStatement = wbSerializer.serialize(
 								new wbDataModel.Statement(
 									new wbDataModel.Claim(
 										new wbDataModel.PropertyValueSnak(
@@ -1288,10 +1272,10 @@
 		},
 
 		prepareLabelsData: function () {
-			let captions = this.captionsDetails.getValues(),
+			const captions = this.captionsDetails.getValues(),
 				languages = Object.keys( captions ),
-				i, labels = {};
-			for ( i = 0; i < languages.length; i++ ) {
+				labels = {};
+			for ( let i = 0; i < languages.length; i++ ) {
 				labels[ languages[ i ] ] = {
 					language: languages[ i ],
 					value: captions[ languages[ i ] ]
@@ -1301,19 +1285,18 @@
 		},
 
 		prepareStatementsData: function () {
-			let claims = [],
-				wikibaseSerialization = mw.loader.require( 'wikibase.serialization' ),
+			let claims = [];
+			const wikibaseSerialization = mw.loader.require( 'wikibase.serialization' ),
 				statementListSerializer = new wikibaseSerialization.StatementListSerializer(),
-				deed = this.upload.deedChooser.deed,
-				propertyId, sourceSD;
-			for ( propertyId in this.statementWidgets ) {
+				deed = this.upload.deedChooser.deed;
+			for ( const propertyId in this.statementWidgets ) {
 				claims = claims.concat(
 					statementListSerializer.serialize(
 						this.statementWidgets[ propertyId ].getStatementList()
 					)
 				);
 			}
-			sourceSD = deed.getStructuredDataFromSource();
+			const sourceSD = deed.getStructuredDataFromSource();
 			if ( sourceSD ) {
 				claims = claims.concat( sourceSD );
 			}
@@ -1390,10 +1373,9 @@
 		 * @return {jQuery.Promise}
 		 */
 		validateWikiTextSubmitResult: function ( params, result ) {
-			let wx, warningsKeys, existingFile, existingFileUrl, existingFileExt, ourFileExt, code, message,
-				details = this,
-				warnings = null,
-				ignoreTheseWarnings = false,
+			let warnings = null;
+			let ignoreTheseWarnings = false;
+			const details = this,
 				deferred = $.Deferred();
 
 			if ( result && result.upload && result.upload.result === 'Poll' ) {
@@ -1434,12 +1416,13 @@
 			if ( result && result.upload && result.upload.warnings ) {
 				warnings = result.upload.warnings;
 			}
+			let existingFile;
 			if ( warnings && warnings.exists ) {
 				existingFile = warnings.exists;
 			} else if ( warnings && warnings[ 'exists-normalized' ] ) {
 				existingFile = warnings[ 'exists-normalized' ];
-				existingFileExt = mw.Title.normalizeExtension( existingFile.split( '.' ).pop() );
-				ourFileExt = mw.Title.normalizeExtension( this.getTitle().getExtension() );
+				const existingFileExt = mw.Title.normalizeExtension( existingFile.split( '.' ).pop() );
+				const ourFileExt = mw.Title.normalizeExtension( this.getTitle().getExtension() );
 
 				if ( existingFileExt !== ourFileExt ) {
 					delete warnings[ 'exists-normalized' ];
@@ -1450,7 +1433,7 @@
 				delete warnings[ 'was-deleted' ];
 				ignoreTheseWarnings = true;
 			}
-			for ( wx in warnings ) {
+			for ( const wx in warnings ) {
 				if ( Object.prototype.hasOwnProperty.call( warnings, wx ) ) {
 					// if there are other warnings, deal with those first
 					ignoreTheseWarnings = false;
@@ -1462,6 +1445,7 @@
 				params.ignorewarnings = 1;
 				return this.submitWikiTextInternal( params );
 			} else if ( result && result.upload && result.upload.warnings ) {
+				let code, message;
 				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
 					code = 'error-title-thumbnail';
 					message = mw.message( 'mwe-upwiz-error-title-thumbnail' ).parse();
@@ -1472,7 +1456,7 @@
 					code = 'title-senselessimagename';
 					message = mw.message( 'mwe-upwiz-error-title-senselessimagename' ).parse();
 				} else if ( existingFile ) {
-					existingFileUrl = mw.config.get( 'wgServer' ) + mw.Title.makeTitle( NS_FILE, existingFile ).getUrl();
+					const existingFileUrl = mw.config.get( 'wgServer' ) + mw.Title.makeTitle( NS_FILE, existingFile ).getUrl();
 					code = 'api-warning-exists';
 					message = mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse();
 				} else if ( warnings.duplicate ) {
@@ -1491,7 +1475,7 @@
 						message = mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).parse();
 					}
 				} else {
-					warningsKeys = Object.keys( warnings );
+					const warningsKeys = Object.keys( warnings );
 					code = 'unknown-warning';
 					message = mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).parse();
 				}

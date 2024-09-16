@@ -229,15 +229,13 @@
 	 * @param {number} unknownAmount Amount of unknown filenames (e.g. revdeleted)
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateError = function ( code, result, localDuplicates, foreignDuplicates, unknownAmount ) {
-		let allDuplicates = Object.assign( {}, localDuplicates, foreignDuplicates ),
+		const allDuplicates = Object.assign( {}, localDuplicates, foreignDuplicates ),
 			$extra = $( '<div>' ),
-			$ul = $( '<ul>' ).appendTo( $extra ),
-			$a,
-			override,
-			i;
+			$ul = $( '<ul>' ).appendTo( $extra );
 
 		unknownAmount = unknownAmount || 0;
 
+		let $a;
 		Object.keys( allDuplicates ).forEach( ( filename ) => {
 			const href = allDuplicates[ filename ];
 			$a = $( '<a>' ).text( filename );
@@ -245,7 +243,7 @@
 			$ul.append( $( '<li>' ).append( $a ) );
 		} );
 
-		for ( i = 0; i < unknownAmount; i++ ) {
+		for ( let i = 0; i < unknownAmount; i++ ) {
 			$a = $( '<em>' ).text( mw.msg( 'mwe-upwiz-deleted-duplicate-unknown-filename' ) );
 			$ul.append( $( '<li>' ).append( $a ) );
 		}
@@ -257,7 +255,7 @@
 		// allow upload to continue if it's only a duplicate of files in a
 		// foreign repo, not when it's a local dupe
 		if ( Object.keys( localDuplicates ).length === 0 ) {
-			override = this.makeOverrideButton().on( 'click', () => {
+			const override = this.makeOverrideButton().on( 'click', () => {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicate' );
 				this.setTransported( result );

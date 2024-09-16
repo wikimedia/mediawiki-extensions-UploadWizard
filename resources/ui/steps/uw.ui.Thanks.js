@@ -24,12 +24,7 @@
 	 * @param {Object} config
 	 */
 	uw.ui.Thanks = function UWUIThanks( config ) {
-		let homeButtonTarget,
-			homeButtonHref,
-			homeButtonUrl,
-			thanksMessage,
-			beginButtonTarget,
-			thanks = this;
+		const thanks = this;
 
 		this.config = config;
 
@@ -46,7 +41,7 @@
 			this.getDelayNotice().prependTo( this.$div );
 		}
 
-		thanksMessage = new OO.ui.MessageWidget( {
+		const thanksMessage = new OO.ui.MessageWidget( {
 			type: 'success',
 			label: ( this.config.display && this.config.display.thanksLabel ) ?
 				new OO.ui.HtmlSnippet( this.config.display.thanksLabel ) :
@@ -55,14 +50,15 @@
 		} );
 		thanksMessage.$element.prependTo( this.$div );
 
-		homeButtonTarget = this.getButtonConfig( 'homeButton', 'target' );
+		const homeButtonTarget = this.getButtonConfig( 'homeButton', 'target' );
+		let homeButtonHref;
 		if ( !homeButtonTarget ) {
 			homeButtonHref = mw.config.get( 'wgArticlePath' ).replace( '$1', '' );
 		} else if ( homeButtonTarget === 'useObjref' ) {
 			homeButtonHref = homeButtonTarget;
 		} else {
 			try {
-				homeButtonUrl = new URL( homeButtonTarget );
+				const homeButtonUrl = new URL( homeButtonTarget );
 				// URL parsing went fine: check the protocol.
 				// If `homeButtonTarget` is a wiki page in a non-main namespace,
 				// it will still be parsed into a URL with protocol == namespace.
@@ -93,7 +89,7 @@
 		} );
 
 		// TODO: make the step order configurable by campaign definitions instead of using these hacks
-		beginButtonTarget = this.getButtonConfig( 'beginButton', 'target' );
+		let beginButtonTarget = this.getButtonConfig( 'beginButton', 'target' );
 		if ( !beginButtonTarget || ( beginButtonTarget === 'dropObjref' && !this.isObjectReferenceGiven() ) ) {
 			this.beginButton.on( 'click', () => {
 				thanks.emit( 'next-step' );
@@ -123,26 +119,24 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.ui.Thanks.prototype.addUpload = function ( upload ) {
-		let thumbWikiText, $thanksDiv, $thumbnailWrapDiv, $thumbnailDiv, $thumbnailCaption, $thumbnailLink;
-
-		thumbWikiText = '[[' + [
+		const thumbWikiText = '[[' + [
 			upload.details.getTitle().getPrefixedText(),
 			'thumb',
 			upload.details.getThumbnailCaption()
 		].join( '|' ) + ']]';
 
-		$thanksDiv = $( '<div>' )
+		const $thanksDiv = $( '<div>' )
 			.addClass( 'mwe-upwiz-thanks ui-helper-clearfix' );
-		$thumbnailWrapDiv = $( '<div>' )
+		const $thumbnailWrapDiv = $( '<div>' )
 			.addClass( 'mwe-upwiz-thumbnail-side' )
 			.appendTo( $thanksDiv );
-		$thumbnailDiv = $( '<div>' )
+		const $thumbnailDiv = $( '<div>' )
 			.addClass( 'mwe-upwiz-thumbnail' )
 			.appendTo( $thumbnailWrapDiv );
-		$thumbnailCaption = $( '<div>' )
+		const $thumbnailCaption = $( '<div>' )
 			.css( { 'text-align': 'left', 'font-size': 'small' } )
 			.appendTo( $thumbnailWrapDiv );
-		$thumbnailLink = $( '<a>' )
+		const $thumbnailLink = $( '<a>' )
 			.text( upload.details.getTitle().getMainText() )
 			.appendTo( $thumbnailCaption );
 

@@ -19,13 +19,13 @@
 	QUnit.module( 'mw.uploadWizard.controller.Deed', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', ( assert ) => {
-		var step = new uw.controller.Deed();
+		const step = new uw.controller.Deed();
 		assert.true( step instanceof uw.controller.Step );
 		assert.true( !!step.ui );
 	} );
 
 	QUnit.test( 'load', function ( assert ) {
-		var step = new uw.controller.Deed(
+		const step = new uw.controller.Deed(
 				new mw.Api(),
 				{ licensing: { thirdParty: { type: 'test', licenses: [] } } }
 			),

@@ -22,9 +22,7 @@
 	 * @class
 	 */
 	mw.UploadWizardPage = function () {
-
-		let uploadWizard,
-			config = mw.config.get( 'UploadWizardConfig' );
+		const config = mw.config.get( 'UploadWizardConfig' );
 
 		// Default configuration value that cannot be removed
 		config.maxUploads = config.maxUploads || 10;
@@ -46,7 +44,7 @@
 			return;
 		}
 
-		uploadWizard = new mw.UploadWizard( config );
+		const uploadWizard = new mw.UploadWizard( config );
 		uploadWizard.createInterface( '#upload-wizard' );
 	};
 

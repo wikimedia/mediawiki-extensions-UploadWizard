@@ -163,8 +163,7 @@
 	 * @inheritdoc
 	 */
 	uw.LocationDetailsWidget.prototype.getWikiText = function () {
-		let locationParts,
-			latInput = this.latitudeInput.getValue(),
+		const latInput = this.latitudeInput.getValue(),
 			lonInput = this.longitudeInput.getValue(),
 			headInput = this.headingInput.getValue(),
 			latNum = this.normalizeCoordinate( latInput ),
@@ -176,7 +175,7 @@
 		// being present in the input
 		if ( latNum !== 0 || latInput.indexOf( '0' ) >= 0 || lonNum !== 0 || lonInput.indexOf( '0' ) >= 0 ) {
 			// {{Location}} or {{Object location}}
-			locationParts = [ '{{' + this.config.templateName, latNum, lonNum ];
+			const locationParts = [ '{{' + this.config.templateName, latNum, lonNum ];
 
 			if ( !isNaN( headNum ) ) {
 				locationParts.push( 'heading:' + headNum );

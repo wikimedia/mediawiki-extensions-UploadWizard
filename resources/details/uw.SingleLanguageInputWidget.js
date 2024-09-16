@@ -200,9 +200,8 @@
 	 * @inheritdoc
 	 */
 	uw.SingleLanguageInputWidget.prototype.getWikiText = function () {
-		let
-			language = this.getLanguage(),
-			text = this.getText();
+		let language = this.getLanguage();
+		const text = this.getText();
 
 		if ( !text ) {
 			return '';

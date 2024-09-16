@@ -67,15 +67,14 @@
 	 * @param {string} [text]
 	 */
 	uw.MultipleLanguageInputWidget.prototype.addLanguageInput = function ( config, text ) {
-		let allLanguages = this.config.languages,
-			unusedLanguages = this.getUnusedLanguages(),
-			languages = {},
-			item;
+		const allLanguages = this.config.languages,
+			unusedLanguages = this.getUnusedLanguages();
 
 		if ( unusedLanguages.length === 0 ) {
 			return;
 		}
 
+		let languages = {};
 		// only add given language + unused/remaining languages - we don't want
 		// languages that have already been selected to show up in the next dropdown...
 		if ( config.defaultLanguage ) {
@@ -86,7 +85,7 @@
 		}
 
 		config = Object.assign( {}, config, { languages: languages } );
-		item = new uw.SingleLanguageInputWidget( config );
+		const item = new uw.SingleLanguageInputWidget( config );
 		item.setText( text || '' );
 
 		// if a language is changed, we'll need to update other language dropdowns
@@ -104,19 +103,16 @@
 	 * with the updated language selections.
 	 */
 	uw.MultipleLanguageInputWidget.prototype.onChangeLanguages = function () {
-		let allLanguages = this.config.languages,
+		const allLanguages = this.config.languages,
 			unusedLanguages = this.getUnusedLanguages(),
-			items = this.getItems(),
-			languages,
-			item,
-			i;
+			items = this.getItems();
 
-		for ( i = 0; i < items.length; i++ ) {
-			item = items[ i ];
+		for ( let i = 0; i < items.length; i++ ) {
+			const item = items[ i ];
 
 			// only add existing language + unused/remaining languages - we don't want
 			// languages that have already been selected to show up in the next dropdown...
-			languages = {};
+			let languages = {};
 			languages[ item.getLanguage() ] = allLanguages[ item.getLanguage() ];
 			languages = Object.assign( {}, languages, unusedLanguages );
 			item.updateLanguages( languages );
@@ -190,10 +186,8 @@
 	 * @return {Object}
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getLanguageOptions = function () {
-		let languages, code;
-
-		languages = {};
-		for ( code in mw.UploadWizard.config.uwLanguages ) {
+		const languages = {};
+		for ( const code in mw.UploadWizard.config.uwLanguages ) {
 			if ( Object.prototype.hasOwnProperty.call( mw.UploadWizard.config.uwLanguages, code ) ) {
 				languages[ code ] = mw.UploadWizard.config.uwLanguages[ code ];
 			}
@@ -230,15 +224,12 @@
 	 * @return {Object} an object of `{ language code: text }` pairs
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getValues = function () {
-		let values = {},
-			widgets = this.getItems(),
-			language,
-			text,
-			i;
+		const values = {},
+			widgets = this.getItems();
 
-		for ( i = 0; i < widgets.length; i++ ) {
-			language = widgets[ i ].getLanguage();
-			text = widgets[ i ].getText();
+		for ( let i = 0; i < widgets.length; i++ ) {
+			const language = widgets[ i ].getLanguage();
+			const text = widgets[ i ].getText();
 
 			if ( text !== '' ) {
 				values[ language ] = text;

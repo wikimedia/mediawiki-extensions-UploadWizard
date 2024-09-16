@@ -9,7 +9,7 @@
 	 * @extends uw.DetailsWidget
 	 */
 	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget( config ) {
-		let categories, catDetails = this;
+		const catDetails = this;
 
 		uw.CategoriesDetailsWidget.super.call( this );
 
@@ -29,7 +29,7 @@
 		};
 
 		// Keep only valid titles
-		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( ( cat ) => !!mw.Title.makeTitle( NS_CATEGORY, cat ) );
+		const categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( ( cat ) => !!mw.Title.makeTitle( NS_CATEGORY, cat ) );
 		this.categoriesWidget.setValue( categories );
 
 		this.$element.addClass( 'mwe-upwiz-categoriesDetailsWidget' );
@@ -65,9 +65,7 @@
 	 * @inheritdoc
 	 */
 	uw.CategoriesDetailsWidget.prototype.getWikiText = function () {
-		let hiddenCats, missingCatsWikiText, categories, wikiText;
-
-		hiddenCats = [];
+		let hiddenCats = [];
 		if ( mw.UploadWizard.config.autoAdd.categories ) {
 			hiddenCats = hiddenCats.concat( mw.UploadWizard.config.autoAdd.categories );
 		}
@@ -82,7 +80,7 @@
 		// Keep only valid titles
 		hiddenCats = hiddenCats.filter( ( cat ) => !!mw.Title.makeTitle( NS_CATEGORY, cat ) );
 
-		missingCatsWikiText = null;
+		let missingCatsWikiText = null;
 		if (
 			typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string' &&
 			mw.UploadWizard.config.missingCategoriesWikiText.length > 0
@@ -90,10 +88,10 @@
 			missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
 		}
 
-		categories = this.categoriesWidget.getItems().map( ( item ) => item.data );
+		const categories = this.categoriesWidget.getItems().map( ( item ) => item.data );
 
 		// add all categories
-		wikiText = categories.concat( hiddenCats )
+		let wikiText = categories.concat( hiddenCats )
 			.map( ( cat ) => '[[' + mw.Title.makeTitle( NS_CATEGORY, cat ).getPrefixedText() + ']]' )
 			.join( '\n' );
 

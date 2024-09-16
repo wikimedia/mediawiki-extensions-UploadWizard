@@ -45,10 +45,10 @@
 	 * @param {Object} config
 	 */
 	uw.ui.Wizard.prototype.initHeader = function ( config ) {
-		let feedbackLink,
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$contentSub = $( '#contentSub' );
+		// eslint-disable-next-line no-jquery/no-global-selector
+		const $contentSub = $( '#contentSub' );
 
+		let feedbackLink;
 		if ( config.feedbackLink ) {
 			// Preferred. Send user to bug tracker (defaults to UW's own
 			// Phabricator project)
@@ -145,9 +145,9 @@
 			}
 
 			// once a (new) step loads, highlight it
-			step.on( 'load', ( ( $arrow ) => {
+			step.on( 'load', ( ( $arr ) => {
 				if ( step.showInBreadcrumb ) {
-					$steps.arrowStepsHighlight( $arrow );
+					$steps.arrowStepsHighlight( $arr );
 				}
 				$steps.show();
 			} ).bind( step, $arrow ) );
@@ -167,9 +167,7 @@
 	 * @return {uw.controller.Step[]}
 	 */
 	uw.ui.Wizard.prototype.sortSteps = function ( steps ) {
-		let first = steps[ 0 ],
-			sorted,
-			i;
+		let first = steps[ 0 ];
 
 		// find the very first step (element at position [0] is not guaranteed
 		// to be first (it was just added first)
@@ -179,8 +177,8 @@
 			first = first.previousStep;
 		}
 
-		sorted = [ first ];
-		for ( i = 1; i < steps.length; i++ ) {
+		const sorted = [ first ];
+		for ( let i = 1; i < steps.length; i++ ) {
 			sorted.push( sorted[ i - 1 ].nextStep );
 		}
 

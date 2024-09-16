@@ -5,7 +5,6 @@
 		"wikimedia/mediawiki/qunit"
 	],
 	"rules": {
-		"qunit/no-loose-assertions": "warn",
-		"no-var": "off"
+		"qunit/no-loose-assertions": "warn"
 	}
 }

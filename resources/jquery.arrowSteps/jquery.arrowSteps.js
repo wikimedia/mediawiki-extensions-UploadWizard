@@ -35,13 +35,12 @@
 	 * @chainable
 	 */
 	$.fn.arrowSteps = function () {
-		let $steps, width,
-			$el = this;
+		const $el = this;
 
 		$el.addClass( 'arrowSteps' );
-		$steps = $el.find( 'li' );
+		const $steps = $el.find( 'li' );
 
-		width = Math.floor( 100 / $steps.length * 100 ) / 100;
+		const width = Math.floor( 100 / $steps.length * 100 ) / 100;
 		$steps.css( 'width', width + '%' );
 
 		// Every step except the last one has an arrow pointing forward:
@@ -67,8 +66,8 @@
 	 * @param {string} selector
 	 */
 	$.fn.arrowStepsHighlight = function ( selector ) {
-		let $previous,
-			$steps = this.data( 'arrowSteps' );
+		let $previous;
+		const $steps = this.data( 'arrowSteps' );
 		$steps.each( function () {
 			const $step = $( this );
 			if ( $step.is( selector ) ) {

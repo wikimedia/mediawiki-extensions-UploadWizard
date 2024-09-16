@@ -59,10 +59,8 @@
 		this.queue.abortExecuting();
 
 		this.uploads.forEach( ( upload ) => {
-			let serialized;
-
 			// get existing details
-			serialized = upload.details ? upload.details.getSerialized() : null;
+			const serialized = upload.details ? upload.details.getSerialized() : null;
 
 			controller.createDetails( upload );
 			upload.details.attach();
@@ -87,10 +85,9 @@
 	};
 
 	uw.controller.Details.prototype.addCopyMetadataFeature = function () {
-		let first,
-			// uploads can only be edited when they're in a certain state:
-			// a flat out upload failure or a completed upload can not be edited
-			invalidStates = [ 'aborted', 'error', 'complete' ],
+		// uploads can only be edited when they're in a certain state:
+		// a flat out upload failure or a completed upload can not be edited
+		const invalidStates = [ 'aborted', 'error', 'complete' ],
 			invalids = this.getUploadStatesCount( invalidStates ),
 			valids = this.uploads.length - invalids;
 
@@ -99,6 +96,7 @@
 			return;
 		}
 
+		let first;
 		// The first upload is not necessarily the one we want to copy from
 		// E.g. the first upload could've gone through successfully, but the
 		// rest failed because of abusefilter (or another recoverable error), in

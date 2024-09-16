@@ -150,16 +150,14 @@
 	 *   promise from #upload
 	 */
 	mw.FormDataTransport.prototype.chunkedUpload = function ( file ) {
-		let
-			offset,
-			prevPromise = $.Deferred().resolve(),
-			deferred = $.Deferred(),
+		let prevPromise = $.Deferred().resolve();
+		const deferred = $.Deferred(),
 			fileSize = file.size,
 			chunkSize = this.chunkSize,
 			transport = this;
 
-		for ( offset = 0; offset < fileSize; offset += chunkSize ) {
-			// Capture offset in a closure
+		for ( let off = 0; off < fileSize; off += chunkSize ) {
+			// Capture offset inoff a closure
 			// eslint-disable-next-line no-loop-func
 			( function ( offset ) {
 				const
@@ -177,7 +175,7 @@
 						} );
 				} );
 				prevPromise = newPromise;
-			}( offset ) );
+			}( off ) );
 		}
 
 		return deferred.promise();
@@ -191,10 +189,9 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.uploadChunk = function ( file, offset ) {
-		let params = this.createParams( this.tempname, offset ),
+		const params = this.createParams( this.tempname, offset ),
 			transport = this,
-			bytesAvailable = file.size,
-			chunk;
+			bytesAvailable = file.size;
 
 		if ( this.aborted ) {
 			return $.Deferred().reject( 'aborted', {
@@ -207,6 +204,7 @@
 
 		// Slice API was changed and has vendor prefix for now
 		// new version now require start/end and not start/length
+		let chunk;
 		if ( file.mozSlice ) {
 			chunk = file.mozSlice( offset, offset + this.chunkSize, file.type );
 		} else if ( file.webkitSlice ) {
