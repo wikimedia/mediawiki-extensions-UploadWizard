@@ -57,7 +57,7 @@
 	 */
 	uw.ui.Step.prototype.load = function ( uploads ) {
 		// eslint-disable-next-line no-jquery/no-global-selector
-		var offset = $( 'h1' ).first().offset();
+		const offset = $( 'h1' ).first().offset();
 
 		this.movedFrom = false;
 
@@ -92,7 +92,7 @@
 	 * Add a 'next' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addNextButton = function () {
-		var ui = this;
+		const ui = this;
 
 		this.nextButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-next' ],
@@ -111,7 +111,7 @@
 	 * Add a 'previous' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addPreviousButton = function () {
-		var ui = this;
+		const ui = this;
 
 		this.previousButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-previous' ],
@@ -138,12 +138,12 @@
 	 * @param {mw.message[]} notices
 	 */
 	uw.ui.Step.prototype.showErrors = function ( errors, warnings, notices ) {
-		var show = ( kind, count ) => {
-			var $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind );
+		const show = ( kind, count ) => {
+			const $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind );
 
 			// Open collapsed elements that contain errors
 			$elements.each( function () {
-				var $collapsibleWrapper = $( this ).closest( '.mw-collapsible' );
+				const $collapsibleWrapper = $( this ).closest( '.mw-collapsible' );
 				if ( $collapsibleWrapper.length ) {
 					$collapsibleWrapper.data( 'mw-collapsible' ).expand();
 				}

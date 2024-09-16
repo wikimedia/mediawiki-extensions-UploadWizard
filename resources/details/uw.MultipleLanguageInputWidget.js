@@ -67,7 +67,7 @@
 	 * @param {string} [text]
 	 */
 	uw.MultipleLanguageInputWidget.prototype.addLanguageInput = function ( config, text ) {
-		var allLanguages = this.config.languages,
+		let allLanguages = this.config.languages,
 			unusedLanguages = this.getUnusedLanguages(),
 			languages = {},
 			item;
@@ -104,7 +104,7 @@
 	 * with the updated language selections.
 	 */
 	uw.MultipleLanguageInputWidget.prototype.onChangeLanguages = function () {
-		var allLanguages = this.config.languages,
+		let allLanguages = this.config.languages,
 			unusedLanguages = this.getUnusedLanguages(),
 			items = this.getItems(),
 			languages,
@@ -130,11 +130,11 @@
 	 * @return {Object}
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getUsedLanguages = function () {
-		var allLanguages = this.config.languages,
+		const allLanguages = this.config.languages,
 			items = this.getItems();
 
 		return items.reduce( ( obj, item ) => {
-			var languageCode = item.getLanguage();
+			const languageCode = item.getLanguage();
 			obj[ languageCode ] = allLanguages[ languageCode ];
 			return obj;
 		}, {} );
@@ -147,7 +147,7 @@
 	 * @return {Object}
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getUnusedLanguages = function () {
-		var allLanguages = this.config.languages,
+		const allLanguages = this.config.languages,
 			usedLanguageCodes = Object.keys( this.getUsedLanguages() );
 
 		return Object.keys( allLanguages ).reduce( ( remaining, language ) => {
@@ -162,7 +162,7 @@
 	 * Update the button label after adding or removing inputs.
 	 */
 	uw.MultipleLanguageInputWidget.prototype.recount = function () {
-		var text = this.getLabelText(),
+		const text = this.getLabelText(),
 			unusedLanguages = this.getUnusedLanguages();
 
 		this.addButton.setLabel( text );
@@ -174,7 +174,7 @@
 	 * @return {string}
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getLabelText = function () {
-		var text = '', msg;
+		let text = '', msg;
 		if ( this.config.label.exists() ) {
 			// clone the original object: `.params` doesn't replace existing
 			// params so follow-up calls here would otherwise just keep adding
@@ -190,7 +190,7 @@
 	 * @return {Object}
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getLanguageOptions = function () {
-		var languages, code;
+		let languages, code;
 
 		languages = {};
 		for ( code in mw.UploadWizard.config.uwLanguages ) {
@@ -205,12 +205,12 @@
 	 * @inheritdoc
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getErrors = function ( thorough ) {
-		var self = this,
+		const self = this,
 			// Gather errors from each item
 			errorPromises = this.getItems().map( ( item ) => item.getErrors() );
 
 		return $.when.apply( $, errorPromises ).then( function () {
-			var errors = [];
+			const errors = [];
 			// Fold all errors into a single one (they are displayed in the UI for each item, but we still
 			// need to return an error here to prevent form submission).
 			if ( [ ...arguments ].some( ( arg ) => arg.length ) ) {
@@ -230,7 +230,7 @@
 	 * @return {Object} an object of `{ language code: text }` pairs
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getValues = function () {
-		var values = {},
+		let values = {},
 			widgets = this.getItems(),
 			language,
 			text,
@@ -262,7 +262,7 @@
 	 * @return {Object} See #setSerialized
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getSerialized = function () {
-		var inputs = this.getItems().map( ( widget ) => widget.getSerialized() );
+		const inputs = this.getItems().map( ( widget ) => widget.getSerialized() );
 		return {
 			inputs: inputs
 		};
@@ -275,7 +275,7 @@
 	 *   see uw.SingleLanguageInputWidget#setSerialized
 	 */
 	uw.MultipleLanguageInputWidget.prototype.setSerialized = function ( serialized ) {
-		var config = this.config,
+		let config = this.config,
 			i;
 
 		// remove all existing

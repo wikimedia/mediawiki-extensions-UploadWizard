@@ -12,7 +12,7 @@
 	uw.LicensePreviewDialog.static.name = 'licensePreviewDialog';
 
 	uw.LicensePreviewDialog.prototype.initialize = function () {
-		var dialog = this;
+		const dialog = this;
 
 		uw.LicensePreviewDialog.super.prototype.initialize.call( this );
 
@@ -29,7 +29,7 @@
 	};
 
 	uw.LicensePreviewDialog.prototype.addCloseButton = function () {
-		var dialog = this,
+		const dialog = this,
 			closeButton = new OO.ui.ButtonWidget( {
 				label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
 			} );

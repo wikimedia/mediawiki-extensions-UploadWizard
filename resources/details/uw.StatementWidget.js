@@ -6,7 +6,7 @@
 	 * @param {string} config.propertyId Property ID (e.g. P180 id of `depicts` property)
 	 */
 	uw.StatementWidget = function UWStatementWidget( config ) {
-		var EntityInputWidget =
+		const EntityInputWidget =
 			mw.loader.require( 'wikibase.mediainfo.statements' ).inputs.EntityInputWidget,
 			FormatValueElement =
 				mw.loader.require( 'wikibase.mediainfo.base' ).FormatValueElement;
@@ -68,7 +68,7 @@
 	 * @param {dataValues.DataValue} dataValue
 	 */
 	uw.StatementWidget.prototype.addTag = function ( dataValue ) {
-		var self = this,
+		let self = this,
 			tag,
 			data = this.createStatement( dataValue );
 
@@ -90,7 +90,7 @@
 	 * @inheritDoc
 	 */
 	uw.StatementWidget.prototype.getNotices = function () {
-		var warnings = [], maxDepicts = 3;
+		const warnings = [], maxDepicts = 3;
 		if ( this.getItems().length > maxDepicts ) {
 			warnings.push( mw.message( 'mwe-upwiz-statements-too-many-items', maxDepicts ) );
 		}
@@ -115,7 +115,7 @@
 	 * @param {datamodel.StatementList} data
 	 */
 	uw.StatementWidget.prototype.setData = function ( data ) {
-		var self = this,
+		let self = this,
 			statements = data.toArray(),
 			dataValue;
 
@@ -134,7 +134,7 @@
 	};
 
 	uw.StatementWidget.prototype.onTagRemove = function ( tag ) {
-		var item = this.findItemFromData( tag.getData() );
+		const item = this.findItemFromData( tag.getData() );
 		this.removeItems( [ item ] );
 		this.updateInputSize();
 	};
@@ -144,7 +144,7 @@
 	 * @return {datamodel.Statement}
 	 */
 	uw.StatementWidget.prototype.createStatement = function ( dataValue ) {
-		var snak;
+		let snak;
 
 		snak = new this.datamodel.PropertyValueSnak( this.propertyId, dataValue, null );
 
@@ -175,7 +175,7 @@
 	 * @private
 	 */
 	uw.StatementWidget.prototype.updateInputSize = function () {
-		var containerWidth = this.$element.width(),
+		let containerWidth = this.$element.width(),
 			tagsWidth = 0,
 			newWidth;
 

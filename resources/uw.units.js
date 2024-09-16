@@ -1,6 +1,6 @@
 ( function ( uw ) {
 
-	var scaleMsgKeys = [ 'size-bytes', 'size-kilobytes', 'size-megabytes', 'size-gigabytes' ];
+	const scaleMsgKeys = [ 'size-bytes', 'size-kilobytes', 'size-megabytes', 'size-gigabytes' ];
 
 	uw.units = {
 		/**
@@ -13,7 +13,7 @@
 		 * @return {string} formatted size
 		 */
 		bytes: function ( size ) {
-			var i = 0;
+			let i = 0;
 			while ( size >= 1024 && i < scaleMsgKeys.length - 1 ) {
 				size /= 1024.0;
 				i++;

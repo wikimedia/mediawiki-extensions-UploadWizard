@@ -25,7 +25,7 @@
 	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads that this deed refers to
 	 */
 	uw.deed.Abstract = function UWDeedInterface( name, config, uploads ) {
-		var tcName, details, field, input;
+		let tcName, details, field, input;
 		this.name = name;
 		this.config = config;
 		uw.deed.Abstract.prototype.instanceCount++;
@@ -115,7 +115,7 @@
 	 * @return {Object}
 	 */
 	uw.deed.Abstract.prototype.getSerialized = function () {
-		var name, selectedTemplateOptions = [];
+		let name, selectedTemplateOptions = [];
 		for ( name in this.templateOptions ) {
 			if ( this.templateOptions[ name ].input.isSelected() ) {
 				selectedTemplateOptions.push( name );
@@ -131,7 +131,7 @@
 	 * @param {Object} serialized
 	 */
 	uw.deed.Abstract.prototype.setSerialized = function ( serialized ) {
-		var self = this;
+		const self = this;
 		if ( serialized.name ) {
 			this.name = serialized.name;
 		}
@@ -145,7 +145,7 @@
 	 * @return {boolean}
 	 */
 	uw.deed.Abstract.prototype.needsPatentAgreement = function ( upload ) {
-		var extensions = this.config.patents ? this.config.patents.extensions : [];
+		const extensions = this.config.patents ? this.config.patents.extensions : [];
 
 		return extensions.indexOf( upload.title.getExtension().toLowerCase() ) !== -1;
 	};
@@ -155,7 +155,7 @@
 	 * @return {uw.FieldLayout}
 	 */
 	uw.deed.Abstract.prototype.getPatentAgreementField = function ( uploads ) {
-		var field = new OO.ui.HiddenInputWidget();
+		const field = new OO.ui.HiddenInputWidget();
 		field.getErrors = this.getPatentAgreementErrors.bind( this, field, uploads );
 		field.getWarnings = $.Deferred().resolve( [] ).promise.bind();
 
@@ -167,7 +167,7 @@
 	 * @return {uw.PatentDialog}
 	 */
 	uw.deed.Abstract.prototype.getPatentDialog = function ( uploads ) {
-		var config = { panels: [ 'warranty' ] };
+		const config = { panels: [ 'warranty' ] };
 
 		// Only show filename list when in "details" step & we're showing the dialog for individual files
 		if ( uploads[ 0 ] && uploads[ 0 ].state === 'details' ) {
@@ -184,7 +184,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.deed.Abstract.prototype.getPatentAgreementErrors = function ( input, uploads, thorough ) {
-		var deed = this,
+		let deed = this,
 			windowManager, dialog, deferred;
 
 		// We only want to test this on submit
@@ -219,7 +219,7 @@
 	 * @return {string}
 	 */
 	uw.deed.Abstract.prototype.getTemplateOptionsWikiText = function () {
-		var name, option, wikitext = '';
+		let name, option, wikitext = '';
 		for ( name in this.templateOptions ) {
 			option = this.templateOptions[ name ].input;
 			if ( option.isSelected() ) {

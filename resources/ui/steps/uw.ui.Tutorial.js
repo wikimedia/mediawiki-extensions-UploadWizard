@@ -50,7 +50,7 @@
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Tutorial = function UWUITutorial() {
-		var ui = this;
+		const ui = this;
 
 		uw.ui.Step.call(
 			this,
@@ -117,7 +117,7 @@
 	};
 
 	uw.ui.Tutorial.prototype.addNextButton = function () {
-		var ui = this;
+		const ui = this;
 
 		this.nextButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-next' ],

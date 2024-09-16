@@ -79,7 +79,7 @@
 	 * @private
 	 */
 	uw.SingleLanguageInputWidget.prototype.onRemoveClick = function () {
-		var element = this.getElementGroup();
+		const element = this.getElementGroup();
 
 		if ( element && typeof element.removeItems === 'function' ) {
 			element.removeItems( [ this ] );
@@ -144,7 +144,7 @@
 	 * @inheritdoc
 	 */
 	uw.SingleLanguageInputWidget.prototype.getErrors = function () {
-		var
+		const
 			errors = [],
 			text = this.textInput.getValue().trim();
 
@@ -200,7 +200,7 @@
 	 * @inheritdoc
 	 */
 	uw.SingleLanguageInputWidget.prototype.getWikiText = function () {
-		var
+		let
 			language = this.getLanguage(),
 			text = this.getText();
 

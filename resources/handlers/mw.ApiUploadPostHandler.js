@@ -23,7 +23,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadPostHandler.prototype.submit = function () {
-		var tempname = this.upload.getFilename(),
+		let tempname = this.upload.getFilename(),
 			ext = tempname.split( '.' ).pop();
 
 		// Limit filename length to 240 bytes (limit hardcoded in UploadBase.php).

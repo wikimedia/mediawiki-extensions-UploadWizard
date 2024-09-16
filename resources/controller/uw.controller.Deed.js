@@ -38,7 +38,7 @@
 	OO.inheritClass( uw.controller.Deed, uw.controller.Step );
 
 	uw.controller.Deed.prototype.moveNext = function () {
-		var deedChoosers = this.getUniqueDeedChoosers( this.uploads );
+		const deedChoosers = this.getUniqueDeedChoosers( this.uploads );
 
 		if ( deedChoosers.length === 0 ) {
 			uw.controller.Step.prototype.moveNext.call( this );
@@ -55,7 +55,7 @@
 	};
 
 	uw.controller.Deed.prototype.unload = function () {
-		var deedChoosers = this.getUniqueDeedChoosers( this.uploads );
+		const deedChoosers = this.getUniqueDeedChoosers( this.uploads );
 		uw.controller.Step.prototype.unload.call( this );
 
 		// serialize the first deed so we can use it to pre-populate the choices if someone is
@@ -74,11 +74,11 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.load = function ( uploads ) {
-		var self = this,
+		let self = this,
 			// select "provide same information for all files" by default
 			defaultDeedInterface = 'common',
 			localUploads = uploads.filter( ( upload ) => {
-				var deed;
+				let deed;
 				if ( upload.file.fromURL ) {
 					// external uploads should get a custom deed...
 					deed = new uw.deed.Custom( self.config, upload );
@@ -185,7 +185,7 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.loadCommon = function ( uploads ) {
-		var deeds = this.getLicensingDeeds( uploads ),
+		const deeds = this.getLicensingDeeds( uploads ),
 			deedChooser = new mw.UploadWizardDeedChooser(
 				this.config,
 				deeds,
@@ -209,10 +209,10 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.loadIndividual = function ( uploads ) {
-		var self = this;
+		const self = this;
 
 		uploads.forEach( ( upload ) => {
-			var deeds = self.getLicensingDeeds( uploads ),
+			const deeds = self.getLicensingDeeds( uploads ),
 				deedChooser = new mw.UploadWizardDeedChooser(
 					self.config,
 					deeds,
@@ -239,7 +239,7 @@
 	 * @return {boolean}
 	 */
 	uw.controller.Deed.prototype.shouldShowIndividualDeed = function ( config ) {
-		var ownWork;
+		let ownWork;
 		if ( config.licensing.ownWorkDefault === 'choice' ) {
 			return true;
 		} else if ( config.licensing.ownWorkDefault === 'own' ) {
@@ -257,7 +257,7 @@
 	 * @return {mw.deed.Abstract[]}
 	 */
 	uw.controller.Deed.prototype.getLicensingDeeds = function ( uploads ) {
-		var deed,
+		let deed,
 			deeds = {},
 			doOwnWork = false,
 			doThirdParty = false;
@@ -302,7 +302,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Deed.prototype.valid = function ( thorough ) {
-		var deedChoosers = this.getUniqueDeedChoosers( this.uploads ),
+		const deedChoosers = this.getUniqueDeedChoosers( this.uploads ),
 			deedsChosen = this.getUniqueDeedChoosers( this.uploads ).every( ( deedChooser ) => deedChooser.valid() ),
 			validityPromises = [
 				deedsChosen ?

@@ -1,5 +1,5 @@
 ( function () {
-	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
+	const NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
 	 * @class
@@ -52,7 +52,7 @@
 	 * @param {Object} result
 	 */
 	mw.ApiUploadHandler.prototype.setTransported = function ( result ) {
-		var code;
+		let code;
 		if ( result.upload && result.upload.warnings ) {
 			for ( code in result.upload.warnings ) {
 				if ( !this.isIgnoredWarning( code ) ) {
@@ -82,7 +82,7 @@
 	 * @param {Object} result The API result in parsed JSON form
 	 */
 	mw.ApiUploadHandler.prototype.setTransportWarning = function ( code, result ) {
-		var param, duplicates, links;
+		let param, duplicates, links;
 
 		switch ( code ) {
 			case 'duplicate':
@@ -137,7 +137,7 @@
 	 * @param {Object} result The API result in parsed JSON form
 	 */
 	mw.ApiUploadHandler.prototype.setTransportError = function ( code, result ) {
-		var $extra;
+		let $extra;
 
 		if ( code === 'badtoken' ) {
 			this.api.badToken( 'csrf' );
@@ -169,7 +169,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadHandler.prototype.processDuplicateError = function ( code, result, duplicates ) {
-		var files = this.getFileLinks( duplicates ),
+		const files = this.getFileLinks( duplicates ),
 			unknownAmount = duplicates.length - Object.keys( files ).length;
 
 		return this.getDuplicateSource( Object.keys( files ) ).then(
@@ -190,7 +190,7 @@
 	 */
 	mw.ApiUploadHandler.prototype.getDuplicateSource = function ( duplicates ) {
 		return this.getImageInfo( duplicates, 'url' ).then( ( result ) => {
-			var local = [],
+			const local = [],
 				foreign = [],
 				normalized = [];
 
@@ -206,7 +206,7 @@
 			}
 
 			Object.keys( result.query.pages ).forEach( ( pageId ) => {
-				var page = result.query.pages[ pageId ],
+				const page = result.query.pages[ pageId ],
 					title = normalized[ page.title ] || page.title;
 				if ( page.imagerepository === 'local' ) {
 					local[ title ] = page.imageinfo[ 0 ].descriptionurl;
@@ -229,7 +229,7 @@
 	 * @param {number} unknownAmount Amount of unknown filenames (e.g. revdeleted)
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateError = function ( code, result, localDuplicates, foreignDuplicates, unknownAmount ) {
-		var allDuplicates = Object.assign( {}, localDuplicates, foreignDuplicates ),
+		let allDuplicates = Object.assign( {}, localDuplicates, foreignDuplicates ),
 			$extra = $( '<div>' ),
 			$ul = $( '<ul>' ).appendTo( $extra ),
 			$a,
@@ -239,7 +239,7 @@
 		unknownAmount = unknownAmount || 0;
 
 		Object.keys( allDuplicates ).forEach( ( filename ) => {
-			var href = allDuplicates[ filename ];
+			const href = allDuplicates[ filename ];
 			$a = $( '<a>' ).text( filename );
 			$a.attr( { href: href, target: '_blank' } );
 			$ul.append( $( '<li>' ).append( $a ) );
@@ -276,7 +276,7 @@
 	 * @param {number} count Number of duplicate versions
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateOldError = function ( code, result, duplicate, count ) {
-		var filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
+		const filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
 			uploadDuplicate = this.makeOverrideButton().on( 'click', () => {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicateversions' );
@@ -292,7 +292,7 @@
 	 * @param {string} duplicate Duplicate filename
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateArchiveError = function ( code, result, duplicate ) {
-		var filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
+		const filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
 			uploadDuplicate = this.makeOverrideButton().on( 'click', () => {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicate-archive' );
@@ -323,10 +323,10 @@
 	 * @return {Object} Map of [prefixed filename => url]
 	 */
 	mw.ApiUploadHandler.prototype.getFileLinks = function ( filenames ) {
-		var files = {};
+		const files = {};
 
 		filenames.forEach( ( filename ) => {
-			var title;
+			let title;
 			try {
 				title = mw.Title.makeTitle( NS_FILE, filename );
 				files[ title.getPrefixedText() ] = title.getUrl( {} );

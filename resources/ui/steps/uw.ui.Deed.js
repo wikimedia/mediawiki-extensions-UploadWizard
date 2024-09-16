@@ -35,7 +35,7 @@
 	OO.inheritClass( uw.ui.Deed, uw.ui.Step );
 
 	uw.ui.Deed.prototype.load = function ( uploads ) {
-		var self = this;
+		const self = this;
 
 		uw.ui.Step.prototype.load.call( this, uploads );
 
@@ -73,7 +73,7 @@
 	 * @param {mw.UploadWizardDeedChooser} deedChooser
 	 */
 	uw.ui.Deed.prototype.showCommonForm = function ( deedChooser ) {
-		var self = this;
+		const self = this;
 
 		this.clearForm();
 
@@ -81,7 +81,7 @@
 		deedChooser.onLayoutReady();
 
 		deedChooser.uploads.forEach( ( upload ) => {
-			var $element = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
+			const $element = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
 			// Add previews and details to the DOM
 			if ( !upload.file.fromURL ) {
@@ -99,13 +99,13 @@
 	 * @param {mw.UploadWizardDeedChooser[]} deedChoosers
 	 */
 	uw.ui.Deed.prototype.showIndividualForm = function ( deedChoosers ) {
-		var self = this;
+		const self = this;
 
 		this.clearForm();
 
 		deedChoosers.forEach( ( deedChooser ) => {
 			deedChooser.uploads.forEach( ( upload ) => {
-				var $thumbContainer = $( '<div>' ).addClass( 'mwe-upwiz-deeds-individual-thumbnail' ),
+				const $thumbContainer = $( '<div>' ).addClass( 'mwe-upwiz-deeds-individual-thumbnail' ),
 					$element = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
 				// Add previews and details to the DOM

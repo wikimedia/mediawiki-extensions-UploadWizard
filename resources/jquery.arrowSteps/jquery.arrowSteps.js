@@ -35,7 +35,7 @@
 	 * @chainable
 	 */
 	$.fn.arrowSteps = function () {
-		var $steps, width,
+		let $steps, width,
 			$el = this;
 
 		$el.addClass( 'arrowSteps' );
@@ -67,10 +67,10 @@
 	 * @param {string} selector
 	 */
 	$.fn.arrowStepsHighlight = function ( selector ) {
-		var $previous,
+		let $previous,
 			$steps = this.data( 'arrowSteps' );
 		$steps.each( function () {
-			var $step = $( this );
+			const $step = $( this );
 			if ( $step.is( selector ) ) {
 				if ( $previous ) {
 					$previous.addClass( 'tail' );

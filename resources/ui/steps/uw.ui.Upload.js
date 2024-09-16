@@ -24,7 +24,7 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.ui.Upload = function UWUIUpload( config ) {
-		var upload = this;
+		const upload = this;
 
 		this.config = config;
 
@@ -112,7 +112,7 @@
 			this.$flickrForm = $( '<form>' ).attr( 'id', 'mwe-upwiz-flickr-url-form' )
 				.appendTo( this.$flickrContainer )
 				.on( 'submit', () => {
-					var checker = new mw.FlickrChecker( upload, upload.flickrSelectButton );
+					const checker = new mw.FlickrChecker( upload, upload.flickrSelectButton );
 					upload.flickrButton.setDisabled( true );
 					upload.flickrChecker( checker );
 					// TODO Any particular reason to stopPropagation ?
@@ -252,7 +252,7 @@
 	 * @param {boolean} more
 	 */
 	uw.ui.Upload.prototype.setAddButtonText = function ( more ) {
-		var msg = 'mwe-upwiz-add-file-',
+		let msg = 'mwe-upwiz-add-file-',
 			fmsg = 'mwe-upwiz-add-file-flickr';
 
 		if ( more ) {
@@ -280,7 +280,7 @@
 			this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
 		}
 
-		var $noticeMessage = $( '<span>' )
+		const $noticeMessage = $( '<span>' )
 			.append(
 				$( '<strong>' ).text( mw.message( 'mwe-upwiz-metadata-notice-header' ).text() ),
 				$( '<br>' ),
@@ -309,7 +309,7 @@
 	};
 
 	uw.ui.Upload.prototype.displayUploads = function ( uploads ) {
-		var thumbPromise,
+		let thumbPromise,
 			$uploadInterfaceDivs = $( [] );
 
 		uploads.forEach( ( upload ) => {
@@ -326,7 +326,7 @@
 		thumbPromise = $.Deferred().resolve();
 		uploads.forEach( ( upload ) => {
 			thumbPromise = thumbPromise.then( () => {
-				var deferred = $.Deferred();
+				const deferred = $.Deferred();
 				setTimeout( function () {
 					if ( this.movedFrom ) {
 						// We're no longer displaying any of these thumbnails, stop
@@ -342,7 +342,7 @@
 	};
 
 	uw.ui.Upload.prototype.addNextButton = function () {
-		var ui = this;
+		const ui = this;
 
 		this.nextButtonPromise.done( () => {
 			ui.$buttons.append(
@@ -451,12 +451,12 @@
 	 * @param {string} extension
 	 */
 	uw.ui.Upload.prototype.showBadExtensionError = function ( filename, extension ) {
-		var $errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );
+		const $errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );
 		this.showFilenameError( $errorMessage );
 	};
 
 	uw.ui.Upload.prototype.showMissingExtensionError = function () {
-		var $errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' );
+		const $errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' );
 		this.showFilenameError(
 			$( '<div>' ).append(
 				$errorMessage,
@@ -526,7 +526,7 @@
 	 * @param {mw.FlickrChecker} checker
 	 */
 	uw.ui.Upload.prototype.flickrChecker = function ( checker ) {
-		var flickrInputUrl = this.flickrInput.getValue();
+		const flickrInputUrl = this.flickrInput.getValue();
 
 		checker.getLicenses().done( () => {
 			checker.checkFlickr( flickrInputUrl );

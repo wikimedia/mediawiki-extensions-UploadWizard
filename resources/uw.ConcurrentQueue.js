@@ -72,7 +72,7 @@
 	 * @return {boolean} Whether the item was removed
 	 */
 	uw.ConcurrentQueue.prototype.removeItem = function ( item ) {
-		var index, found;
+		let index, found;
 
 		found = false;
 
@@ -115,7 +115,7 @@
 	 * @param {Object} item
 	 */
 	uw.ConcurrentQueue.prototype.promiseComplete = function ( item ) {
-		var index;
+		let index;
 		index = this.running.indexOf( item );
 		// Check that this item wasn't removed while it was being executed
 		if ( index !== -1 ) {
@@ -134,7 +134,7 @@
 	 * @private
 	 */
 	uw.ConcurrentQueue.prototype.executeNext = function () {
-		var item, promise;
+		let item, promise;
 		if ( this.running.length >= this.count || !this.executing ) {
 			return;
 		}
@@ -155,7 +155,7 @@
 	 * When the queue finishes executing, a 'complete' event will be emitted.
 	 */
 	uw.ConcurrentQueue.prototype.startExecuting = function () {
-		var i;
+		let i;
 		if ( this.executing ) {
 			return;
 		}

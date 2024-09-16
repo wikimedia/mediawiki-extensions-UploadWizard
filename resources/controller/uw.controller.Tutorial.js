@@ -26,7 +26,7 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.controller.Tutorial = function UWControllerTutorial( api, config ) {
-		var controller = this;
+		const controller = this;
 
 		this.skipPreference = Boolean( mw.user.options.get( 'upwiz_skiptutorial' ) );
 		this.newSkipPreference = this.skipPreference;
@@ -57,7 +57,7 @@
 	 * @param {boolean} skip
 	 */
 	uw.controller.Tutorial.prototype.setSkipPreference = function ( skip ) {
-		var controller = this,
+		const controller = this,
 			allowCloseWindow = mw.confirmCloseWindow();
 
 		this.api.postWithToken( 'options', {
@@ -73,7 +73,7 @@
 
 	uw.controller.Tutorial.prototype.load = function ( uploads ) {
 		// tutorial can be skipped via preference, or config (e.g. campaign config)
-		var shouldSkipTutorial = this.skipPreference || ( this.config.tutorial && this.config.tutorial.skip );
+		const shouldSkipTutorial = this.skipPreference || ( this.config.tutorial && this.config.tutorial.skip );
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 

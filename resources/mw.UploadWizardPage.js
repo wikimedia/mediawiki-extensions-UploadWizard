@@ -23,7 +23,7 @@
 	 */
 	mw.UploadWizardPage = function () {
 
-		var uploadWizard,
+		let uploadWizard,
 			config = mw.config.get( 'UploadWizardConfig' );
 
 		// Default configuration value that cannot be removed

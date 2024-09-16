@@ -15,7 +15,7 @@
 		 * @return {boolean}
 		 */
 		isPreviewableFile: function ( file ) {
-			var known = [ 'image/png', 'image/gif', 'image/jpeg' ],
+			const known = [ 'image/png', 'image/gif', 'image/jpeg' ],
 				tooHuge = 10 * 1024 * 1024;
 			return this.isPreviewableVideo( file ) || ( known.indexOf( file.type ) !== -1 ) && file.size > 0 && file.size < tooHuge;
 		},
@@ -27,7 +27,7 @@
 		 * @return {boolean}
 		 */
 		isPreviewableVideo: function ( file ) {
-			var video = document.createElement( 'video' );
+			const video = document.createElement( 'video' );
 			return video.canPlayType && video.canPlayType( file.type ).replace( 'no', '' ) !== '';
 		}
 

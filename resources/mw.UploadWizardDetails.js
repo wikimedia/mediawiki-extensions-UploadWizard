@@ -1,6 +1,6 @@
 ( function ( uw ) {
 
-	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
+	const NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
 	 * Object that represents the Details (step 2) portion of the UploadWizard
@@ -29,7 +29,7 @@
 
 		// Build the interface and attach all elements - do this on demand
 		buildInterface: function () {
-			var descriptionRequired, uri,
+			let descriptionRequired, uri,
 				details = this,
 				config = mw.UploadWizard.config,
 				captionsAvailable = config.wikibase.enabled && config.wikibase.captions,
@@ -286,7 +286,7 @@
 				} );
 
 				defaultProperties.forEach( ( propertyId ) => {
-					var widget;
+					let widget;
 
 					// only wikibase-entityid types are supported
 					if ( propertyDataValuesTypes[ propertyId ] !== 'wikibase-entityid' ) {
@@ -343,7 +343,7 @@
 			//
 			this.campaignDetailsFields = [];
 			config.fields.forEach( ( field ) => {
-				var customDetails, customDetailsField;
+				let customDetails, customDetailsField;
 
 				if ( field.wikitext ) {
 					customDetails = new uw.CampaignDetailsWidget( field );
@@ -454,7 +454,7 @@
 		},
 
 		createStatementWidget: function ( propertyId, dataType, data ) {
-			var propertyPlaceholders = mw.config.get( 'upwizPropertyPlaceholders' ) || {};
+			const propertyPlaceholders = mw.config.get( 'upwizPropertyPlaceholders' ) || {};
 
 			return new uw.StatementWidget( {
 				propertyId: propertyId,
@@ -466,7 +466,7 @@
 		},
 
 		getStatementProperties: function () {
-			var propertyId, properties = [];
+			let propertyId, properties = [];
 			for ( propertyId in this.statementWidgets ) {
 				properties.push( {
 					id: propertyId,
@@ -477,7 +477,7 @@
 		},
 
 		getPropertyLabel: function ( propertyId ) {
-			var FormatValueElement = mw.loader.require( 'wikibase.mediainfo.base' ).FormatValueElement,
+			const FormatValueElement = mw.loader.require( 'wikibase.mediainfo.base' ).FormatValueElement,
 				formatValueElement = new FormatValueElement(),
 				datamodel = require( 'wikibase.datamodel' );
 
@@ -496,7 +496,7 @@
 		 * Will only append once.
 		 */
 		attach: function () {
-			var $window = $( window ),
+			const $window = $( window ),
 				details = this;
 
 			function maybeBuild() {
@@ -599,7 +599,7 @@
 		 * @return {string}
 		 */
 		getThumbnailCaption: function () {
-			var captions = [];
+			let captions = [];
 			if ( mw.UploadWizard.config.wikibase.enabled && mw.UploadWizard.config.wikibase.captions ) {
 				captions = this.captionsDetails.getSerialized().inputs;
 			} else {
@@ -617,7 +617,7 @@
 		 * Pull some info into the form ( for instance, extracted from EXIF, desired filename )
 		 */
 		populate: function () {
-			var $thumbnailDiv = this.$thumbnailDiv;
+			const $thumbnailDiv = this.$thumbnailDiv;
 			// This must match the CSS dimensions of .mwe-upwiz-thumbnail
 			this.upload.getThumbnail( 230 ).done( ( thumb ) => {
 				mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
@@ -635,7 +635,7 @@
 		 * (which we should actually be using, such as time and timezone)
 		 */
 		prefillDate: function () {
-			var dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
+			let dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
 				yyyyMmDdRegex = /^(\d\d\d\d)[:/-](\d\d)[:/-](\d\d)\D.*/,
 				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 
@@ -645,7 +645,7 @@
 			}
 
 			function getSaneTime( date ) {
-				var str = '';
+				let str = '';
 
 				str += pad( date.getHours() ) + ':';
 				str += pad( date.getMinutes() ) + ':';
@@ -662,7 +662,7 @@
 			if ( this.upload.imageinfo.metadata ) {
 				metadata = this.upload.imageinfo.metadata;
 				[ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ].some( ( propName ) => {
-					var matches, timeMatches,
+					let matches, timeMatches,
 						dateInfo = metadata[ propName ];
 					if ( dateInfo ) {
 						matches = dateInfo.trim().match( yyyyMmDdRegex );
@@ -744,7 +744,7 @@
 		 * or from the metadata.
 		 */
 		prefillDescription: function () {
-			var m, descText;
+			let m, descText;
 
 			if (
 				this.descriptionsDetails.getWikiText() === '' &&
@@ -783,7 +783,7 @@
 		 * to decimal format.  Let's just use that.
 		 */
 		prefillLocation: function () {
-			var dir,
+			let dir,
 				m = this.upload.imageinfo.metadata,
 				values = {};
 
@@ -874,7 +874,7 @@
 		},
 
 		serializeStatements: function () {
-			var serialized = {},
+			let serialized = {},
 				propertyId;
 			for ( propertyId in this.statementWidgets ) {
 				serialized[ propertyId ] = this.statementWidgets[ propertyId ].getStatementList();
@@ -883,7 +883,7 @@
 		},
 
 		setStatementsFromSerialized: function ( serialized ) {
-			var propertyId;
+			let propertyId;
 			for ( propertyId in serialized ) {
 				this.statementWidgets[ propertyId ].resetData( serialized[ propertyId ] );
 			}
@@ -898,7 +898,7 @@
 		 * @param {Object.<string,Object>} [serialized]
 		 */
 		setSerialized: function ( serialized ) {
-			var i;
+			let i;
 
 			if ( !this.interfaceBuilt ) {
 				// There's no interface yet! Don't load the data, just keep it
@@ -964,7 +964,7 @@
 		 * @return {string} wikitext representing all details
 		 */
 		getWikiText: function () {
-			var deed, info, key, information,
+			let deed, info, key, information,
 				wikiText = '';
 
 			// https://commons.wikimedia.org/wiki/Template:Information
@@ -1064,7 +1064,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			var details = this,
+			let details = this,
 				wikitext, promise, errorString;
 
 			this.$containerDiv.find( 'form' ).trigger( 'submit' );
@@ -1081,7 +1081,7 @@
 				promise = promise
 					.then( () => {
 						// just work out the mediainfo entity id from the page id
-						var status = mw.message( 'mwe-upwiz-submitting-structured-data' );
+						const status = mw.message( 'mwe-upwiz-submitting-structured-data' );
 						details.setStatus( status.text() );
 						return details.getMediaInfoEntityId(); // (T208545)
 					} )
@@ -1128,7 +1128,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		getMediaInfoEntityId: function () {
-			var self = this;
+			const self = this;
 
 			if ( this.mediaInfoEntityId !== undefined ) {
 				return $.Deferred().resolve( this.mediaInfoEntityId ).promise();
@@ -1139,7 +1139,7 @@
 				prop: 'info',
 				titles: this.getTitle().getPrefixedDb()
 			} ).then( ( result ) => {
-				var message;
+				let message;
 
 				if ( result.query.pages[ 0 ].missing ) {
 					// page doesn't exist (yet)
@@ -1163,7 +1163,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitWikiText: function ( wikiText ) {
-			var params,
+			let params,
 				tags = [ 'uploadwizard' ],
 				deed = this.upload.deedChooser.deed,
 				comment = '',
@@ -1217,7 +1217,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitStructuredData: function ( entityId ) {
-			var labels,
+			let labels,
 				statements,
 				date,
 				dateStatement,
@@ -1288,7 +1288,7 @@
 		},
 
 		prepareLabelsData: function () {
-			var captions = this.captionsDetails.getValues(),
+			let captions = this.captionsDetails.getValues(),
 				languages = Object.keys( captions ),
 				i, labels = {};
 			for ( i = 0; i < languages.length; i++ ) {
@@ -1301,7 +1301,7 @@
 		},
 
 		prepareStatementsData: function () {
-			var claims = [],
+			let claims = [],
 				wikibaseSerialization = mw.loader.require( 'wikibase.serialization' ),
 				statementListSerializer = new wikibaseSerialization.StatementListSerializer(),
 				deed = this.upload.deedChooser.deed,
@@ -1326,7 +1326,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		postStructuredData: function ( id, data ) {
-			var self = this,
+			const self = this,
 				config = mw.UploadWizard.config,
 				params = {
 					action: 'wbeditentity',
@@ -1354,7 +1354,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitWikiTextInternal: function ( params ) {
-			var details = this,
+			const details = this,
 				apiPromise = this.upload.api.postWithEditToken( params );
 
 			return apiPromise
@@ -1390,7 +1390,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		validateWikiTextSubmitResult: function ( params, result ) {
-			var wx, warningsKeys, existingFile, existingFileUrl, existingFileExt, ourFileExt, code, message,
+			let wx, warningsKeys, existingFile, existingFileUrl, existingFileExt, ourFileExt, code, message,
 				details = this,
 				warnings = null,
 				ignoreTheseWarnings = false,
@@ -1532,7 +1532,7 @@
 		 * @param {Object} result Result from ajax call
 		 */
 		processError: function ( code, result ) {
-			var recoverable = [
+			const recoverable = [
 				'abusefilter-disallowed',
 				'abusefilter-warning',
 				'spamblacklist',
@@ -1583,7 +1583,7 @@
 
 		// TODO: De-duplicate with code form mw.UploadWizardUploadInterface.js
 		showIndicator: function ( status ) {
-			var progress = status === 'progress';
+			const progress = status === 'progress';
 			this.$spinner.toggle( progress );
 			this.statusMessage.toggle( status && !progress ).setType( status );
 			this.$indicator.toggleClass( 'mwe-upwiz-file-indicator-visible', !!status );

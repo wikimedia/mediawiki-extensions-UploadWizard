@@ -55,13 +55,13 @@
 		 * loop around the uploads, summing certain properties for a weighted total fraction
 		 */
 		start: function () {
-			var bar = this,
+			let bar = this,
 				shown = false;
 
 			this.setBeginTime();
 
 			function displayer() {
-				var totalWeight = 0.0,
+				let totalWeight = 0.0,
 					fraction = 0.0,
 					successStateCount = 0,
 					errorStateCount = 0,
@@ -141,7 +141,7 @@
 		 * @param {number} fraction The amount of whatever it is that's done whatever it's done
 		 */
 		showProgress: function ( fraction ) {
-			var t, timeString,
+			let t, timeString,
 				remainingTime = this.getRemainingTime( fraction );
 
 			this.progressBarWidget.setProgress( parseInt( fraction * 100, 10 ) );
@@ -167,7 +167,7 @@
 		 * @return {number} Estimated time remaining (in milliseconds)
 		 */
 		getRemainingTime: function ( fraction ) {
-			var elapsedTime, rate;
+			let elapsedTime, rate;
 			if ( this.beginTime ) {
 				elapsedTime = Date.now() - this.beginTime;
 				if ( fraction > 0.0 && elapsedTime > 0 ) { // or some other minimums for good data
@@ -184,9 +184,9 @@
 		 * @param {number} completed The number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
 		 */
 		showCount: function ( completed ) {
-			var formattedCompleted = mw.language.convertNumber( completed );
-			var total = this.uploads.length - this.countRemoved();
-			var formattedTotal = mw.language.convertNumber( total );
+			const formattedCompleted = mw.language.convertNumber( completed );
+			const total = this.uploads.length - this.countRemoved();
+			const formattedTotal = mw.language.convertNumber( total );
 			this.$selector
 				.find( '.mwe-upwiz-count' )
 				// Hide if there are no uploads, show otherwise
@@ -195,7 +195,7 @@
 		},
 
 		countRemoved: function () {
-			var count = 0;
+			let count = 0;
 			this.uploads.forEach( ( upload ) => {
 				if ( !upload || upload.state === 'aborted' ) {
 					count += 1;

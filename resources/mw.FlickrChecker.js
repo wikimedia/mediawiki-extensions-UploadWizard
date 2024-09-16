@@ -73,7 +73,7 @@ mw.FlickrChecker.prototype = {
 	 * @param {string} flickrInputUrl The source URL to check
 	 */
 	checkFlickr: function ( flickrInputUrl ) {
-		var photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
+		let photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
 
 		photoIdMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/[^/]+\/([0-9]+)/ );
 		albumIdMatches = flickrInputUrl.match( /flickr\.com\/photos\/[^/]+\/(sets|albums)\/([0-9]+)/ );
@@ -130,7 +130,7 @@ mw.FlickrChecker.prototype = {
 	 * @return {string}
 	 */
 	getFilenameFromItem: function ( title, id, ownername ) {
-		var fileName;
+		let fileName;
 
 		if ( title === '' ) {
 			fileName = ownername + ' - ' + id + '.jpg';
@@ -176,12 +176,12 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getPhotostream: function ( mode, url ) {
-		var checker = this;
+		const checker = this;
 		return this.flickrRequest( {
 			method: 'flickr.urls.lookupUser',
 			url: url
 		} ).then( ( data ) => {
-			var method;
+			let method;
 			if ( mode === 'stream' ) {
 				method = 'flickr.people.getPublicPhotos';
 			} else if ( mode === 'favorites' ) {
@@ -203,13 +203,13 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getGroupPool: function ( groupPoolMatches, url ) {
-		var checker = this;
+		const checker = this;
 
 		return this.flickrRequest( {
 			method: 'flickr.urls.lookupGroup',
 			url: url
 		} ).then( ( data ) => {
-			var gid = data.group.id;
+			const gid = data.group.id;
 
 			if ( groupPoolMatches[ 1 ] ) { // URL contains a user ID
 				return checker.flickrRequest( {
@@ -239,21 +239,21 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery}
 	 */
 	buildCollectionLinks: function ( appendId, data ) {
-		var $elem = $( '<ul>' );
+		const $elem = $( '<ul>' );
 		if ( appendId ) {
 			$elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
 		}
-		var checker = this;
+		const checker = this;
 		data.collection.forEach( ( value ) => {
-			var $li = $( '<li>' );
+			const $li = $( '<li>' );
 			$li.append( value.title );
 			if ( value.collection !== undefined ) {
 				$li.append( checker.buildCollectionLinks( false, value ) );
 			}
 			if ( value.set !== undefined ) {
-				var $ul = $( '<ul>' );
+				const $ul = $( '<ul>' );
 				value.set.forEach( ( value2 ) => {
-					var $link = $( '<a>' ).attr( { href: '#', role: 'button', 'data-id': value2.id } );
+					const $link = $( '<a>' ).attr( { href: '#', role: 'button', 'data-id': value2.id } );
 					$link.append( value2.title );
 					$link.on( 'click', () => {
 						// eslint-disable-next-line no-jquery/no-global-selector
@@ -280,13 +280,13 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getCollection: function ( userCollectionMatches, url ) {
-		var checker = this;
+		const checker = this;
 
 		return checker.flickrRequest( {
 			method: 'flickr.urls.lookupUser',
 			url: url
 		} ).then( ( data ) => {
-			var req = {
+			const req = {
 				method: 'flickr.collections.getTree',
 				extras: 'license, url_sq, owner_name, original_format, date_taken, geo',
 				user_id: data.user.id
@@ -311,7 +311,7 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getGallery: function ( url ) {
-		var checker = this;
+		const checker = this;
 
 		return this.flickrRequest( {
 			method: 'flickr.urls.lookupGallery',
@@ -350,13 +350,13 @@ mw.FlickrChecker.prototype = {
 		this.selectButton.setLabel( mw.message( 'mwe-upwiz-select-flickr' ).text() );
 		this.selectButton.setDisabled( true );
 
-		var req = Object.assign( {}, options, {
+		const req = Object.assign( {}, options, {
 			extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias',
 			per_page: '500'
 		} );
 
-		var flickrPromise = this.flickrRequest( req ).then( ( data ) => {
-			var photoset;
+		const flickrPromise = this.flickrRequest( req ).then( ( data ) => {
+			let photoset;
 			if ( mode === 'photoset' ) {
 				photoset = data.photoset;
 			} else if ( mode === 'photos' ) {
@@ -367,25 +367,25 @@ mw.FlickrChecker.prototype = {
 			}
 			return photoset;
 		} );
-		var checker = this;
+		const checker = this;
 
 		// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
 		return $.when( flickrPromise, this.getBlacklist() ).then( ( photoset, blacklist ) => {
-			var sourceURL;
-			var checkboxes = [];
-			var checkboxesWidget = new OO.ui.CheckboxMultiselectWidget();
-			var x = 0;
+			let sourceURL;
+			const checkboxes = [];
+			const checkboxesWidget = new OO.ui.CheckboxMultiselectWidget();
+			let x = 0;
 
 			checker.$spinner.remove();
 
 			photoset.photo.forEach( ( item, i ) => {
-				var license = checker.checkLicense( item.license );
-				var licenseValue = license.licenseValue;
+				const license = checker.checkLicense( item.license );
+				const licenseValue = license.licenseValue;
 				if ( licenseValue === 'invalid' ) {
 					return;
 				}
 
-				var ownerId;
+				let ownerId;
 				if ( mode === 'photoset' ) {
 					ownerId = photoset.owner;
 					sourceURL = 'https://www.flickr.com/photos/' + photoset.owner + '/' + item.id + '/';
@@ -404,9 +404,9 @@ mw.FlickrChecker.prototype = {
 					return false;
 				}
 
-				var fileName = checker.getFilenameFromItem( item.title, item.id, item.ownername );
+				const fileName = checker.getFilenameFromItem( item.title, item.id, item.ownername );
 
-				var flickrUpload = {
+				const flickrUpload = {
 					name: fileName,
 					url: '',
 					type: 'JPEG',
@@ -443,7 +443,7 @@ mw.FlickrChecker.prototype = {
 			$( '#mwe-upwiz-flickr-select-list' ).append( checkboxesWidget.$element );
 			// Set up checkboxes
 			checkboxesWidget.on( 'select', () => {
-				var selectedCount = checkboxesWidget.findSelectedItems().length;
+				const selectedCount = checkboxesWidget.findSelectedItems().length;
 				// If at least one item is selected, activate the upload button
 				checker.selectButton.setDisabled( selectedCount === 0 );
 				// Limit the number of selectable images
@@ -455,7 +455,7 @@ mw.FlickrChecker.prototype = {
 			} );
 			// Set up action for 'Upload selected images' button
 			checker.selectButton.on( 'click', () => {
-				var uploads = [];
+				const uploads = [];
 				checker.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-flickr-select-list-container' ).hide();
@@ -512,8 +512,8 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getPhoto: function ( photoIdMatches ) {
-		var checker = this;
-		var photoId = photoIdMatches[ 1 ];
+		const checker = this;
+		const photoId = photoIdMatches[ 1 ];
 
 		return this.flickrRequest( {
 			method: 'flickr.photos.getInfo',
@@ -524,7 +524,7 @@ mw.FlickrChecker.prototype = {
 			}
 			return data.photo;
 		} ).then( ( photo ) => {
-			var isBlacklistedPromise = checker.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
+			const isBlacklistedPromise = checker.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
 			return isBlacklistedPromise.then( ( isBlacklisted ) => {
 				if ( isBlacklisted ) {
 					return $.Deferred().reject( mw.message( 'mwe-upwiz-user-blacklisted', 'Flickr' ).escaped() );
@@ -533,23 +533,23 @@ mw.FlickrChecker.prototype = {
 				}
 			} );
 		} ).then( ( photo ) => {
-			var license = checker.checkLicense( photo.license );
+			const license = checker.checkLicense( photo.license );
 			if ( license.licenseValue === 'invalid' ) {
 				return $.Deferred().reject( license.licenseMessage );
 			}
 
-			var fileName = checker.getFilenameFromItem( photo.title._content, photo.id,
+			const fileName = checker.getFilenameFromItem( photo.title._content, photo.id,
 				photo.owner.username );
 
 			// if owner doesn't have a real name, use username
-			var photoAuthor;
+			let photoAuthor;
 			if ( photo.owner.realname !== '' ) {
 				photoAuthor = photo.owner.realname;
 			} else {
 				photoAuthor = photo.owner.username;
 			}
 			// get the URL of the photo page
-			var sourceURL;
+			let sourceURL;
 			photo.urls.url.forEach( ( url ) => {
 				if ( url.type === 'photopage' ) {
 					sourceURL = url._content;
@@ -557,7 +557,7 @@ mw.FlickrChecker.prototype = {
 					return false;
 				}
 			} );
-			var flickrUpload = {
+			const flickrUpload = {
 				name: fileName,
 				url: '',
 				type: 'JPEG',
@@ -620,14 +620,14 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getBlacklist: function () {
-		var api = new mw.Api();
+		const api = new mw.Api();
 		if ( !mw.FlickrChecker.blacklist ) {
 			mw.FlickrChecker.blacklist = api.get( {
 				action: 'flickrblacklist',
 				list: 1,
 				format: 'json'
 			} ).then( ( data ) => {
-				var blacklist = {};
+				const blacklist = {};
 				if ( data.flickrblacklist && data.flickrblacklist.list ) {
 					data.flickrblacklist.list.forEach( ( username ) => {
 						blacklist[ username ] = true;
@@ -686,8 +686,8 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	setImageDescription: function ( upload ) {
-		var checker = this;
-		var photoId = upload.photoId;
+		const checker = this;
+		const photoId = upload.photoId;
 
 		return this.flickrRequest( {
 			method: 'flickr.photos.getInfo',
@@ -705,15 +705,15 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	setImageURL: function ( index ) {
-		var upload = this.imageUploads[ index ];
-		var photoId = upload.photoId;
-		var checker = this;
+		const upload = this.imageUploads[ index ];
+		const photoId = upload.photoId;
+		const checker = this;
 
 		return this.flickrRequest( {
 			method: 'flickr.photos.getSizes',
 			photo_id: photoId
 		} ).then( ( data ) => {
-			var nameParts;
+			let nameParts;
 
 			if (
 				typeof data.sizes !== 'undefined' &&
@@ -722,7 +722,7 @@ mw.FlickrChecker.prototype = {
 			) {
 				// Flickr always returns the largest version as the final size.
 				// TODO: Make this less fragile by actually comparing sizes.
-				var largestSize = data.sizes.size.pop();
+				const largestSize = data.sizes.size.pop();
 				// Flickr provides the original format for images coming from pro users, hence we need to change the default JPEG to this format
 				if ( largestSize.label === 'Original' ) {
 					upload.type = upload.originalFormat;
@@ -745,12 +745,12 @@ mw.FlickrChecker.prototype = {
 
 	checkLicense: function ( licenseId ) {
 		// The returned data.photo.license is just an ID that we use to look up the license name
-		var licenseName = mw.FlickrChecker.licenseList[ licenseId ];
+		const licenseName = mw.FlickrChecker.licenseList[ licenseId ];
 		// Use the license name to retrieve the template values
-		var licenseValue = mw.FlickrChecker.licenseMaps[ licenseName ];
+		const licenseValue = mw.FlickrChecker.licenseMaps[ licenseName ];
 
 		// Set the license message to show the user.
-		var licenseMessage;
+		let licenseMessage;
 		if ( licenseValue === 'invalid' ) {
 			licenseMessage = mw.msg( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
 		} else {

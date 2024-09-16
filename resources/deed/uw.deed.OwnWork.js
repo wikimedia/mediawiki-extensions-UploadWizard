@@ -24,7 +24,7 @@
 	 * @param {mw.Api} api API object - useful for doing previews
 	 */
 	uw.deed.OwnWork = function UWDeedOwnWork( config, uploads, api ) {
-		var self = this,
+		let self = this,
 			prefAuthName = mw.user.options.get( 'upwiz_licensename' ),
 			revealOptionContent = function ( $parent, $child ) {
 				// hide sub-content for all options
@@ -85,7 +85,7 @@
 			self.originRadio.emit( 'change' );
 		} );
 		this.aiTextInput.getErrors = function ( thorough ) {
-			var aiInputValue, errors = [];
+			let aiInputValue, errors = [];
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
@@ -131,7 +131,7 @@
 			$( this ).trigger( 'focus' );
 		} );
 		this.aiPromptTextInput.getErrors = function ( thorough ) {
-			var errors = [];
+			const errors = [];
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
@@ -423,7 +423,7 @@
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
 	uw.deed.OwnWork.prototype.getFields = function () {
-		var fields = [ this.originRadioField, this.licenseInputField ];
+		const fields = [ this.originRadioField, this.licenseInputField ];
 
 		// don't validate purpose field in campaigns (it is not shown)
 		if ( !new mw.Uri().query.campaign ) {
@@ -443,7 +443,7 @@
 	};
 
 	uw.deed.OwnWork.prototype.setFormFields = function ( $selector ) {
-		var $formFields;
+		let $formFields;
 
 		$formFields = $( '<ol>' ).append(
 			$( '<div>' ).addClass( 'mwe-upwiz-ownwork-origin' )
@@ -479,7 +479,7 @@
 	 * LicenseInput supports multiple default values, but this one does not.
 	 */
 	uw.deed.OwnWork.prototype.setDefaultLicense = function () {
-		var defaultLicenseKey, defaultLicense = {};
+		let defaultLicenseKey, defaultLicense = {};
 		defaultLicenseKey = this.getDefaultLicense();
 		if ( defaultLicenseKey ) {
 			defaultLicense[ defaultLicenseKey ] = true;
@@ -498,7 +498,7 @@
 	 * @inheritdoc
 	 */
 	uw.deed.OwnWork.prototype.getAuthorWikiText = function () {
-		var author = this.getAuthorInputValue();
+		const author = this.getAuthorInputValue();
 
 		if ( author ) {
 			return author;
@@ -511,7 +511,7 @@
 	 * @inheritdoc
 	 */
 	uw.deed.OwnWork.prototype.getLicenseWikiText = function ( upload ) {
-		var wikitext = '';
+		let wikitext = '';
 
 		wikitext += this.licenseInput.getWikiText();
 
@@ -528,10 +528,10 @@
 
 	/**
 	 * @param upload
-	 * @returns {string}
+	 * @return {string}
 	 */
 	uw.deed.OwnWork.prototype.getAiPromptWikitext = function () {
-		var prompt, wikitext = '';
+		let prompt, wikitext = '';
 
 		if ( this.originRadio.findSelectedItem().getData() === 'ai' ) {
 			prompt = this.aiPromptTextInput.getValue().trim();
@@ -561,7 +561,7 @@
 	 * @return {Object}
 	 */
 	uw.deed.OwnWork.prototype.getSerialized = function () {
-		var serialized = Object.assign(
+		const serialized = Object.assign(
 			uw.deed.Abstract.prototype.getSerialized.call( this ),
 			{ author: this.getAuthorInputValue() }
 		);
@@ -604,7 +604,7 @@
 	};
 
 	uw.deed.OwnWork.prototype.getDefaultLicense = function () {
-		var license;
+		let license;
 		if (
 			this.config.licensing.defaultType === 'ownwork' ||
 			this.config.licensing.defaultType === 'choice'
@@ -625,7 +625,7 @@
 	uw.deed.OwnWork.prototype.getOwnWorkErrors = function (
 		originRadio, originOthersRadio, thorough
 	) {
-		var errors = [];
+		const errors = [];
 
 		if ( thorough !== true ) {
 			// `thorough` is the strict checks executed on submit, but we don't want errors
@@ -657,7 +657,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.deed.OwnWork.prototype.getAuthorErrors = function ( input ) {
-		var
+		const
 			errors = [],
 			minLength = this.config.minAuthorLength,
 			maxLength = this.config.maxAuthorLength,
@@ -686,7 +686,7 @@
 	 * @return {uw.PatentDialog}
 	 */
 	uw.deed.OwnWork.prototype.getPatentDialog = function ( uploads ) {
-		var config = { panels: [ 'warranty', 'license-ownership', 'license-grant' ] };
+		const config = { panels: [ 'warranty', 'license-ownership', 'license-grant' ] };
 
 		// Only show filename list when in "details" step & we're showing the dialog for individual files
 		if ( uploads[ 0 ] && uploads[ 0 ].state === 'details' ) {

@@ -26,7 +26,7 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.controller.Upload = function UWControllerUpload( api, config ) {
-		var step = this;
+		const step = this;
 
 		uw.controller.Step.call(
 			this,
@@ -48,7 +48,7 @@
 		this.queue.on( 'complete', this.showNext.bind( this ) );
 
 		this.ui.on( 'files-added', ( files ) => {
-			var totalFiles = files.length + step.uploads.length,
+			const totalFiles = files.length + step.uploads.length,
 				tooManyFiles = totalFiles > step.config.maxUploads;
 
 			if ( tooManyFiles ) {
@@ -65,7 +65,7 @@
 	 * Updates the upload step data when a file is added or removed.
 	 */
 	uw.controller.Upload.prototype.updateFileCounts = function () {
-		var fewerThanMax, haveUploads,
+		let fewerThanMax, haveUploads,
 			max = this.config.maxUploads;
 
 		haveUploads = this.uploads.length > 0;
@@ -76,7 +76,7 @@
 	};
 
 	uw.controller.Upload.prototype.load = function ( uploads ) {
-		var controller = this;
+		const controller = this;
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 		this.updateFileCounts();
@@ -167,7 +167,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Upload.prototype.transitionOne = function ( upload ) {
-		var promise = upload.start();
+		const promise = upload.start();
 		this.maybeStartProgressBar();
 		return promise;
 	};
@@ -191,7 +191,7 @@
 	};
 
 	uw.controller.Upload.prototype.retry = function () {
-		var controller = this;
+		const controller = this;
 
 		this.uploads.forEach( ( upload ) => {
 			if ( upload.state === 'error' ) {
@@ -214,7 +214,7 @@
 	 * @return {mw.UploadWizardUpload|boolean} The new upload, or false if it can't be added
 	 */
 	uw.controller.Upload.prototype.addFile = function ( file ) {
-		var upload;
+		let upload;
 
 		if ( this.uploads.length >= this.config.maxUploads ) {
 			return false;
@@ -244,7 +244,7 @@
 	 * @param {FileList} files
 	 */
 	uw.controller.Upload.prototype.addFiles = function ( files ) {
-		var
+		let
 			uploadObj,
 			i,
 			file,
@@ -302,7 +302,7 @@
 	 * @return {boolean} Error in [code, info] format, or empty [] for no errors
 	 */
 	uw.controller.Upload.prototype.validateFile = function ( upload ) {
-		var extension,
+		let extension,
 			i,
 			actualMaxSize = mw.UploadWizard.config.maxMwUploadSize,
 

@@ -21,7 +21,7 @@
 			}
 		],
 		"no-shadow": "warn",
-		"no-var": "off",
+		"prefer-const": "warn",
 		"es-x/no-symbol-prototype-description": "warn",
 		"es-x/no-typed-arrays": "warn",
 		"no-jquery/no-extend": "warn"
