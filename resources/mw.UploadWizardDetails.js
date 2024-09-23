@@ -927,9 +927,9 @@
 			if ( serialized.caption ) {
 				this.captionsDetails.setSerialized( serialized.caption );
 			}
-			this.descriptionSameAsCaptionCheckbox.setSelected( serialized.description === undefined );
 			if ( serialized.description ) {
 				this.descriptionsDetails.setSerialized( serialized.description );
+				this.descriptionSameAsCaptionCheckbox.setSelected( false );
 			}
 			if ( serialized.date ) {
 				this.dateDetails.setSerialized( serialized.date );

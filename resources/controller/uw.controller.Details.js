@@ -120,7 +120,8 @@
 		this.copyMetadataWidget = new uw.CopyMetadataWidget( {
 			copyFrom: first,
 			// Include the "source" upload in the targets too
-			copyTo: this.uploads
+			copyTo: this.uploads,
+			captionsAvailable: this.config.wikibase.enabled && this.config.wikibase.captions
 		} );
 		this.copyMetadataField = new uw.FieldLayout( this.copyMetadataWidget, {
 			label: $( '<span>' ).append(

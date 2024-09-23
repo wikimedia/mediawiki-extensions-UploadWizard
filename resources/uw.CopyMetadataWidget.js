@@ -8,6 +8,7 @@
 	 * @param {Object} [config] Configuration options
 	 * @param {mw.UploadWizardUpload} config.copyFrom Upload to copy the details from
 	 * @param {mw.UploadWizardUpload[]} config.copyTo Uploads to copy the details to
+	 * @param {mw.UploadWizardUpload} config.captionsAvailable True if captions are available
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
 		var self = this,
@@ -38,11 +39,15 @@
 				// * mwe-upwiz-copy-other-label
 				copyMetadataMsg = mw.message( 'mwe-upwiz-copy-' + metadataType + '-label' ).text();
 
-				checkboxes.push( new OO.ui.CheckboxMultioptionWidget( {
-					data: metadataType,
-					label: copyMetadataMsg,
-					selected: defaultStatus
-				} ) );
+				if ( metadataType === 'caption' && !config.captionsAvailable ) {
+					// do nothing - we don't want an option to copy captions if captions turned off
+				} else {
+					checkboxes.push( new OO.ui.CheckboxMultioptionWidget( {
+						data: metadataType,
+						label: copyMetadataMsg,
+						selected: defaultStatus
+					} ) );
+				}
 			} else {
 				metadataTypes.statements.properties.forEach( ( property ) => {
 					statementCheckboxes[ property.id ] = new OO.ui.CheckboxMultioptionWidget( {
