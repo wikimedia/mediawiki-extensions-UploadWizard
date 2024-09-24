@@ -20,6 +20,7 @@
 			"Mpitt",
 			"Nemo bis",
 			"Ontsed",
+			"Patafisik",
 			"Raoli",
 			"Rippitippi",
 			"S4b1nuz E.656",
@@ -424,5 +425,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Caricato la propria opera con UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "Caricato un lavoro di $1 da $2 con UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Dati personali",
-	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in questo file potrebbero contenere la posizione e altri dati personali aggiunti automaticamente dalla tua fotocamera. [https://commons.wikimedia.org/wiki/Commons:Exif Scropri di più] su come modificare o rimuovere i metadati EXIF."
+	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in questo file potrebbero contenere la posizione e altri dati personali aggiunti automaticamente dalla tua fotocamera. [https://commons.wikimedia.org/wiki/Commons:Exif Scopri di più] su come modificare o rimuovere i metadati EXIF."
 }
