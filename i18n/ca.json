@@ -19,7 +19,8 @@
 			"Ssola",
 			"Toniher",
 			"Vriullop",
-			"Xavier Dengra"
+			"Xavier Dengra",
+			"Lluis Cat"
 		]
 	},
 	"uploadwizard": "Auxiliar de càrregues",
@@ -244,8 +245,8 @@
 	"mwe-upwiz-error-signature-too-short": "La vostra signatura és massa curta.\nFeu-la de més {{PLURAL:$1|d'$1 caràcter|de $1 caràcters}}.",
 	"mwe-upwiz-error-date-license-mismatch": "La data seleccionada no és compatible amb la llicència ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "És probable que la data seleccionada no sigui correcta, atesa la llicència ($1).",
-	"mwe-upwiz-error-blank": "Aquest camp és necessari.",
-	"mwe-upwiz-error-question-blank": "És indispensable que respongueu aquesta pregunta.",
+	"mwe-upwiz-error-blank": "Cal que respongueu a aquesta pregunta",
+	"mwe-upwiz-error-question-blank": "Cal que respongueu a aquesta pregunta",
 	"mwe-upwiz-error-too-long": "Aquest camp és massa llarg.\nFeu-lo més curt de $1 {{PLURAL:$1|caràcter|caràcters}}.",
 	"mwe-upwiz-error-too-short": "Aquest camp és massa curt.\nFeu-lo més llarg de $1 {{PLURAL:$1|caràcter|caràcters}}.",
 	"mwe-upwiz-error-title-too-long": "Aquest títol és massa llarg.\nSi us plau, assegureu-vos que aquest títol tingui com a màxim l'$1 {{PLURAL:$1|byte|bytes}}.",
