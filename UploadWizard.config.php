@@ -743,12 +743,6 @@ return [
 
 	// extra templates that get written into the wikitext by checking a checkbox
 	'templateOptions' => [
-		'ownwork' => [
-			'aiGenerated' => [
-				'template' => '{{PD-algorithm}}',
-				'label' => 'mwe-upwiz-source-ownwork-origin-option-ai'
-			],
-		],
 		'thirdparty' => [
 			'aiGenerated' => [
 				'template' => '{{PD-algorithm}}',

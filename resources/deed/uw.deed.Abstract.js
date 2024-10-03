@@ -229,4 +229,9 @@
 		return wikitext;
 	};
 
+	/**
+	 * Only implemented for OwnWork
+	 */
+	uw.deed.Abstract.prototype.getAiPromptWikitext = function () {};
+
 }( mw.uploadWizard ) );

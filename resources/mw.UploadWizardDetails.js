@@ -964,8 +964,7 @@
 		 * @return {string} wikitext representing all details
 		 */
 		getWikiText: function () {
-			var deed, info, key,
-				information,
+			var deed, info, key, information,
 				wikiText = '';
 
 			// https://commons.wikimedia.org/wiki/Template:Information
@@ -973,6 +972,8 @@
 			information = {
 				// {{lang|description in lang}}* (required)
 				description: '',
+				// holds {{Prompt}} template ... gets unset if it has no value
+				'Other fields 1': '',
 				// YYYY, YYYY-MM, or YYYY-MM-DD (required) use jquery but allow editing, then double check for sane date.
 				date: '',
 				// {{own}} or wikitext (optional)
@@ -991,13 +992,18 @@
 				information.description = this.descriptionsDetails.getWikiText();
 			}
 
+			deed = this.upload.deedChooser.deed;
+			if ( deed.getAiPromptWikitext() ) {
+				information[ 'Other fields 1' ] = deed.getAiPromptWikitext();
+			} else {
+				delete information[ 'Other fields 1' ];
+			}
+
 			this.campaignDetailsFields.forEach( ( layout ) => {
 				information.description += layout.fieldWidget.getWikiText();
 			} );
 
 			information.date = this.dateDetails.getWikiText();
-
-			deed = this.upload.deedChooser.deed;
 
 			information.source = deed.getSourceWikiText( this.upload );
 
