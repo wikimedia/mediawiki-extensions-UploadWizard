@@ -18,6 +18,7 @@
 	"apihelp-mediadetection-summary": "Restituer le probabilitate que le imagine in reserva que le clave de file fornite representa es un logotypo",
 	"apihelp-mediadetection-param-filename": "Nomine del pagina de file",
 	"apihelp-mediadetection-param-filekey": "Le clave de file (<var>filekey</var>) restituite del requesta API <kbd>stash</kbd>",
+	"apihelp-mediadetection-example-filename": "Restituer le probabilitate que le imagine representate per le nomine de file fornite es un logotypo",
 	"apihelp-mediadetection-example-filekey": "Restituer le probabilitate que le imagine in reserva que le clave de file fornite representa es un logotypo",
 	"apierror-mediadetection-no-valid-thumbnail": "Nulle miniatura existe pro le imagine, dunque non es possibile inviar lo al classificator",
 	"apierror-mediadetection-invalid-mime-type": "Necun puncto final API es disponibile pro iste typo de file. Le typos permittite es image/jpeg, image/gif, image/png, image/bmp"
