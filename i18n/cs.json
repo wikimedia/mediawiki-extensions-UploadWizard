@@ -144,7 +144,7 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Pokud mají všechny soubory stejný zdroj, autora i stav autorských práv, můžete je zde nastavit najednou.",
 	"mwe-upwiz-source-thirdparty-explain": "Cizí dílo můžete nahrávat, pokud bylo zveřejněno pod svobodnou licencí nebo již vypršela doba ochrany jeho autorských práv.",
 	"mwe-upwiz-source-thirdparty-cases": "Vysvětlete, proč jste si jisti, že máte právo zveřejnit {{PLURAL:$1|toto dílo|tato díla}}:",
-	"mwe-upwiz-source-thirdparty-cases-text": "Víte, pod kterou [https\n://creativecommons.org/share-your-work/cclicenses/ licencí Creative Commons] {{PLURAL:$1|bylo toto dílo zveřejněno|byla tato díla zveřejněna}}?",
+	"mwe-upwiz-source-thirdparty-cases-text": "Víte, pod kterou [https://creativecommons.org/share-your-work/cclicenses/ licencí Creative Commons] {{PLURAL:$1|bylo toto dílo zveřejněno|byla tato díla zveřejněna}}?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Prosím, potvrďte tato prohlášení předtím, než budete pokračovat.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Potvrzuji, že {{PLURAL:$1|toto dílo neobsahuje|tato díla neobsahují}} materiál omezený autorským právem, například loga, plakáty, přebaly knih atp.",
