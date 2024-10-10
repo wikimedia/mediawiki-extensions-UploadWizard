@@ -391,4 +391,67 @@
 			}
 		}
 	};
+
+	uw.deed.ThirdParty.prototype.getStructuredDataFromSource = function () {
+		var source = this.getSourceWikiText(),
+			config = mw.UploadWizard.config,
+			urlRegex = /^https?:\/\/\S*\.\S*$/,
+			sourceRegex = new RegExp(
+				'(' +
+				Object.keys( config.sourceStringToWikidataIdMapping ).join( '|' ) +
+				')'
+			),
+			sourceStringMatch = sourceRegex.exec( source ) ? sourceRegex.exec( source )[ 0 ] : false,
+			sourceClaim, sourceQualifiers, wbDataModel, wbSerialization, wbSerializer;
+
+		if ( !config.wikibase.enabled ) {
+			return false;
+		}
+
+		if ( !sourceStringMatch && !urlRegex.test( source ) ) {
+			return false;
+		}
+
+		wbDataModel = mw.loader.require( 'wikibase.datamodel' );
+
+		sourceClaim = new wbDataModel.Claim(
+			new wbDataModel.PropertyValueSnak(
+				config.wikibase.properties.source,
+				// eslint-disable-next-line no-undef
+				dataValues.newDataValue( 'wikibase-entityid', {
+					id: config.wikibase.items.file_available_on_the_internet
+				} )
+			)
+		);
+
+		sourceQualifiers = new wbDataModel.SnakList();
+		if ( ( config.wikibase.properties.operator !== undefined ) && sourceStringMatch ) {
+			sourceQualifiers.addItem(
+				new wbDataModel.PropertyValueSnak(
+					config.wikibase.properties.operator,
+					// eslint-disable-next-line no-undef
+					dataValues.newDataValue( 'wikibase-entityid', {
+						id: config.sourceStringToWikidataIdMapping[ sourceStringMatch ]
+					} )
+				)
+			);
+		}
+		if ( urlRegex.test( source ) ) {
+			sourceQualifiers.addItem(
+				new wbDataModel.PropertyValueSnak(
+					config.wikibase.properties.described_at_url,
+					// eslint-disable-next-line no-undef
+					dataValues.newDataValue( 'string', source )
+				)
+			);
+		}
+		sourceClaim.setQualifiers( sourceQualifiers );
+
+		wbSerialization = mw.loader.require( 'wikibase.serialization' );
+		wbSerializer = new wbSerialization.StatementSerializer();
+		return wbSerializer.serialize(
+			new wbDataModel.Statement( sourceClaim )
+		);
+	};
+
 }( mw.uploadWizard ) );
