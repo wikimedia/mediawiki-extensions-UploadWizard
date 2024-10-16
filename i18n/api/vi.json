@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"SongNgu.xyz"
+		]
+	},
+	"apihelp-flickrblacklist-summary": "Xác thực URL Flickr bằng cách sử dụng ID người dùng (NSID) để đưa vào danh sách đen."
+}
