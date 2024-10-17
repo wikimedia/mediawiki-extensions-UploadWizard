@@ -120,6 +120,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Io}} ha generate iste obra{{PLURAL:$1||s}} con un instrumento de intelligentia artificial ([[COM:AI-generated_media|leger le directivas]])",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Insere le nomine del motor de intelligentia artificial usate. Si le obra de alcuno altere ha essite usate pro generar iste obra{{PLURAL:$1||s}}, indica isto tamben.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Exemplo:</b> Autor: Midjourney AI; Photographia de Ansel Adams; colorisate con Colorme AI, etc.",
+	"mwe-upwiz-source-ownwork-origin-option-ai-prompt": "Insere le instruction (''prompt'') que ha essite usate pro generar iste material",
 	"mwe-upwiz-source-permission": "Lor autor te dava permission explicite de incargar los",
 	"mwe-upwiz-source-thirdparty-label": "Iste{{PLURAL:$1||s}} es le obra{{PLURAL:$1||s}} de un altere persona e illo{{PLURAL:$1||s}} es libere de condivider.",
 	"mwe-upwiz-source-thirdparty-description": "Exemplos: {{PLURAL:$1|un photo o un captura|photos o capturas}} de schermo que tu ha trovate in linea o alterubi, {{PLURAL:$1|un obra|obras}} create per un altere personas, etc.",

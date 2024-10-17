@@ -306,6 +306,8 @@
 	"mwe-upwiz-user-blacklisted": "Sentímolo, non se pode cargar ningunha imaxe desde a conta de $1 neste sitio.",
 	"mwe-upwiz-categories": "Categoría",
 	"mwe-upwiz-categories-missing": "Unha das categorías carece dunha páxina de descrición. Está seguro de ter escrito o nome correctamente?",
+	"mwe-upwiz-categories-placeholder": "por exemplo, mamíferos do parque nacional Etosha",
+	"mwe-upwiz-statements-placeholder-depicts": "por exemplo, xirafa angoleña",
 	"mwe-upwiz-thumbnail-failed": "A carga realizouse correctamente, pero o servidor non puido obter ningunha vista previa para a miniatura",
 	"mwe-upwiz-unparseable-filename": "Non se entendeu o nome do ficheiro \"$1\"",
 	"mwe-upwiz-error-title-invalid": "O título non é válido. Asegúrese de retirar calquera corchete, dous puntos, operador de comparación, barra vertical e chave.",
