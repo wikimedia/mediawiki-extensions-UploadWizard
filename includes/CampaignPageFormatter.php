@@ -16,8 +16,8 @@ use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skin\SkinComponentUtils;
 use OOUI\ButtonWidget;
-use Skin;
 
 /**
  * Helper class to produce formatted HTML output for Campaigns
@@ -69,14 +69,14 @@ class CampaignPageFormatter {
 				$campaignTemplate = Config::getSetting( 'campaignCTACampaignTemplate' );
 				$urlParams['campaign'] = str_replace( '$1', $this->campaign->getName(), $campaignTemplate );
 			}
-			$createAccountUrl = Skin::makeSpecialUrlSubpage( 'Userlogin', 'signup', $urlParams );
+			$createAccountUrl = SkinComponentUtils::makeSpecialUrlSubpage( 'Userlogin', 'signup', $urlParams );
 			$uploadLink = new ButtonWidget( [
 				'label' => wfMessage( 'mwe-upwiz-campaign-create-account-button' )->text(),
 				'flags' => [ 'progressive', 'primary' ],
 				'href' => $createAccountUrl
 			] );
 		} else {
-			$uploadUrl = Skin::makeSpecialUrl(
+			$uploadUrl = SkinComponentUtils::makeSpecialUrl(
 				'UploadWizard', [ 'campaign' => $this->campaign->getName() ]
 			);
 			$uploadLink = new ButtonWidget( [
