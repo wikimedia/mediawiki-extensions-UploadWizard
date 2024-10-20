@@ -6,6 +6,7 @@
  */
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Language\LanguageCode;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;

@@ -22,8 +22,8 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use ApiBase;
-use ApiQueryBase;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQueryBase;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 

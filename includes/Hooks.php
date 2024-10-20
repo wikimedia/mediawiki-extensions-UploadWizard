@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use ExtensionRegistry;
 use MediaWiki\ChangeTags\Hook\ChangeTagsAllowedAddHook;
 use MediaWiki\ChangeTags\Hook\ChangeTagsListActiveHook;
 use MediaWiki\ChangeTags\Hook\ListDefinedTagsHook;
@@ -12,6 +11,7 @@ use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\User\User;
 
 class Hooks implements

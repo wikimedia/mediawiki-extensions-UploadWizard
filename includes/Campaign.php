@@ -3,15 +3,15 @@
 namespace MediaWiki\Extension\UploadWizard;
 
 use InvalidArgumentException;
-use Language;
 use MediaWiki\Category\Category;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Language\Language;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
-use ParserOptions;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 

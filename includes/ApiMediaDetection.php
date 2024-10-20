@@ -2,10 +2,11 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use ApiBase;
-use ApiMain;
 use File;
 use LocalRepo;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Http\HttpRequestFactory;
 use MWHttpRequest;
 use RepoGroup;
@@ -56,7 +57,7 @@ class ApiMediaDetection extends ApiBase {
 
 	/**
 	 * @return void
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -94,7 +95,7 @@ class ApiMediaDetection extends ApiBase {
 	/**
 	 * @param string $fileKey
 	 * @return UploadStashFile
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	private function getUploadStashFile( string $fileKey ): UploadStashFile {
 		$filePath = $this->dbr->selectField(

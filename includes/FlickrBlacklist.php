@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
+use MediaWiki\Content\TextContent;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
-use TextContent;
 
 /**
  * Checks Flickr images against a blacklist of users

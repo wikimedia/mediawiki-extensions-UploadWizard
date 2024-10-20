@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use Content;
 use ManualLogEntry;
+use MediaWiki\Content\Content;
 use MediaWiki\Content\Hook\ContentModelCanBeUsedOnHook;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;

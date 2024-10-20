@@ -33,6 +33,7 @@ if ( $IP === false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\UploadWizard\CampaignContent;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Title\Title;
 
 /**

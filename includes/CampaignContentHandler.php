@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use Content;
-use JsonContentHandler;
+use MediaWiki\Content\Content;
+use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
