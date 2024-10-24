@@ -97,7 +97,7 @@
 	"mwe-upwiz-almost-finished": "파일 처리 중...",
 	"mwe-upwiz-finished": "완료!",
 	"mwe-upwiz-deeds-macro-prompt-text": "저희는 모든 사람이 위키미디어 커먼즈에 업로드된 파일을 자유롭게 사용할 수 있도록 아래의 정보를 확인하고 있습니다.",
-	"mwe-upwiz-source-ownwork-label": "제가 직접 제작한 것이며 누구나 자유롭게 사용할 수 있습니다.",
+	"mwe-upwiz-source-ownwork-label": "{{PLURAL:$1|이것은}} 귀하의 저작물이며 누구나 자유롭게 사용할 수 있습니다.",
 	"mwe-upwiz-source-ownwork-description": "예: 자연 풍경을 담은 사진, 공개적인 행사, 본인이 직접 만든 작품 등",
 	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(이 저작물을 이용 시 적절한 출처 표시와 동일 라이선스 배포가 필요합니다.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(누구나 제가 저작자라는 것을 표시하고 이 라이선스로 2차적 저작물을 만들어 공유하는 조건에 따라 {{PLURAL:$1|이 저작물}}을 이용, 공유, 개작할 수 있습니다.)",
