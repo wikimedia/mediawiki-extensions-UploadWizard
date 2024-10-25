@@ -23,6 +23,7 @@
 namespace MediaWiki\Extension\UploadWizard;
 
 use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
@@ -33,7 +34,7 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * @ingroup API
  */
 class ApiQueryAllCampaigns extends ApiQueryBase {
-	public function __construct( $query, $moduleName ) {
+	public function __construct( ApiQuery $query, string $moduleName ) {
 		parent::__construct( $query, $moduleName, 'uwc' );
 	}
 
