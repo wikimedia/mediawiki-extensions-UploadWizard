@@ -78,7 +78,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Ipak nastavi",
 	"mwe-upwiz-skip-tutorial-future": "Ubuduće preskoči ovaj korak",
 	"mwe-upwiz-file-all-failed": "Nijedno postavljanje nije bilo uspješno.",
-	"mwe-upwiz-upload-count": "{{PLURAL:$1|Postavljena je $1 datoteka|Postavljene su $1 datoteke|Postavljeno je $1 datoteka}} od $2 {{PLURAL:$1|datoteku|datoteke|datoteka}}",
+	"mwe-upwiz-upload-count": "{{PLURAL:$1|Postavljena je $1 datoteka|Postavljene su $1 datoteke|Postavljeno je $1 datoteka}} od $2 {{PLURAL:$1|datoteke|datoteke|datoteka}}",
 	"mwe-upwiz-progressbar-uploading": "šaljem datoteku",
 	"mwe-upwiz-almost-finished": "Obrađujem datoteke...",
 	"mwe-upwiz-finished": "Završeno!",
