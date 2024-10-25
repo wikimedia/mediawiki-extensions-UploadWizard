@@ -45,7 +45,7 @@
 				mw.config.get( 'wbmiPropertyTitles' ) || {},
 				mw.config.get( 'upwizPropertyTitles' ) || {}
 			);
-			this.dateProperty = config.wikibase.properties.date || '';
+			this.dateProperty = config.wikibase.dateProperty || '';
 
 			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
@@ -1262,7 +1262,7 @@
 									)
 								)
 							);
-							data.claims = data.claims ? data.claims.concat( dateStatement ) : [ dateStatement ];
+							data.claims = data.claims ? data.claims.push( dateStatement ) : [ dateStatement ];
 						},
 						( errorCode ) => {
 							mw.log.warn(
@@ -1304,18 +1304,13 @@
 			var claims = [],
 				wikibaseSerialization = mw.loader.require( 'wikibase.serialization' ),
 				statementListSerializer = new wikibaseSerialization.StatementListSerializer(),
-				deed = this.upload.deedChooser.deed,
-				propertyId, sourceSD;
+				propertyId;
 			for ( propertyId in this.statementWidgets ) {
 				claims = claims.concat(
 					statementListSerializer.serialize(
 						this.statementWidgets[ propertyId ].getStatementList()
 					)
 				);
-			}
-			sourceSD = deed.getStructuredDataFromSource();
-			if ( sourceSD ) {
-				claims = claims.concat( sourceSD );
 			}
 			return claims;
 		},
