@@ -69,25 +69,28 @@ class Config {
 	protected static $urlConfig = [];
 
 	/**
+	 * @internal For use in ConfigTest by PHPUnit
+	 * @var bool
+	 */
+	protected static $mergedConfig = false;
+
+	/**
 	 * Returns the globally configuration, optionally combined with campaign specific
 	 * configuration.
 	 *
 	 * @since 1.2
-	 *
 	 * @param string|null $campaignName
-	 *
 	 * @return array
 	 */
 	public static function getConfig( $campaignName = null ) {
 		global $wgUploadWizardConfig;
-		static $mergedConfig = false;
 
-		if ( !$mergedConfig ) {
+		if ( !self::$mergedConfig ) {
 			$wgUploadWizardConfig = self::arrayReplaceSanely(
 				self::getDefaultConfig(),
 				$wgUploadWizardConfig
 			);
-			$mergedConfig = true;
+			self::$mergedConfig = true;
 		}
 
 		if ( $campaignName !== null ) {

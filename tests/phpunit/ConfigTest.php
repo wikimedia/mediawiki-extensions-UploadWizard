@@ -7,6 +7,7 @@ use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Interwiki\ClassicInterwikiLookup;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * Test the Upload Wizard Configuration
@@ -38,6 +39,19 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 				],
 			] ),
 		] );
+	}
+
+	protected function tearDown(): void {
+		parent::tearDown();
+
+		// T378299: Undo effect of Config::setUrlSetting() in setUp().
+		// $wgUploadWizardConfig defaults to empty array, which MediaWiki/PHPUnit
+		// automatically restore. This is not enough, because UploadWizard\Config
+		// applies another layer of defaults from UploadWizard.config.php, which it
+		// remembers via internal static $mergedConfig. This works in prod by doing
+		// it once and then storing the result in-place in the global variable.
+		// This does not work for more than 1 test in a row.
+		TestingAccessWrapper::newFromClass( Config::class )->mergedConfig = false;
 	}
 
 	public static function objRefProvider() {
