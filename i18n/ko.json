@@ -313,6 +313,7 @@
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:저작권 태그",
 	"mwe-upwiz-license-custom-explain": "유효한 [$2 저작권 태그]가 들어가야 합니다",
 	"mwe-upwiz-license-fal": "프리 아트 라이선스",
+	"mwe-upwiz-license-own-pd-text": "크리에이티브 커먼즈 CC0에 따라 모든 권리 포기 (퍼블릭 도메인과 유사) $3",
 	"mwe-upwiz-license-pd-old-100": "저작자 사후 100년 이상 지났음",
 	"mwe-upwiz-license-pd-old": "저작자 사후 70년 이상 지났음",
 	"mwe-upwiz-license-pd-us-generic": "인터넷 어딘가에서 본 저작물이 미국 기준으로 퍼블릭 도메인임을 확인했습니다",
@@ -375,6 +376,7 @@
 	"mwe-upwiz-calendar-date": "달력에서 날짜를 선택하십시오",
 	"mwe-upwiz-custom-date": "사용자 지정 날짜 형식을 사용합니다",
 	"prefs-uploads": "파일 올리기",
+	"prefs-description-uploads": "저자 이름과 기본 라이선스를 설정합니다.",
 	"prefs-upwiz-licensing": "라이선스",
 	"prefs-upwiz-experimental": "실험 중인 기능",
 	"prefs-upwiz-interface": "사용자 인터페이스",
@@ -394,5 +396,6 @@
 	"mwe-upwiz-mv-cta-dismiss": "숨기기",
 	"mwe-upwiz-mv-cta-user-preference-set": "알겠습니다! 본 설정은 [[c:Special:Preferences#mw-prefsection-echo|환경설정]]에서 언제든 변경이 가능합니다.",
 	"mwe-upwiz-mv-cta-user-preference-unset": "업로드 태그 알림을 더 이상 받지 않게 됩니다.",
+	"mwe-upwiz-upload-comment-own-work": "UploadWizard를 사용하여 귀하의 저작물을 업로드했습니다.",
 	"mwe-upwiz-metadata-notice-header": "개인 데이터"
 }
