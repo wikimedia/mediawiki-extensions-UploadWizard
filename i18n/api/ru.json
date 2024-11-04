@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kaganer",
-			"Okras"
+			"Okras",
+			"Dirruw'o"
 		]
 	},
 	"apihelp-flickrblacklist-param-url": "URL-адрес на Flickr, который должен быть проверен.",
