@@ -739,7 +739,15 @@ return [
 		// url to wikibase repo API
 		'api' => $wgScriptPath . '/api.php',
 		// property ID for the date statement
-		'dateProperty' => '',
+		'properties' => [
+			'date' => 'P571',
+			'source' => 'P7482',
+			'operator' => 'P137',
+			'described_at_url' => 'P973',
+		],
+		'items' => [
+			'file_available_on_the_internet' => 'Q74228490',
+		],
 	],
 
 	// extra templates that get written into the wikitext by checking a checkbox
@@ -754,5 +762,24 @@ return [
 				'label' => 'mwe-upwiz-author-unknown'
 			]
 		]
-	]
+	],
+
+	// config for mapping source strings to wikidata items
+	'sourceStringToWikidataIdMapping' => [
+		'facebook' => 'Q355',
+		'fbcdn' => 'Q355',
+		'google' => 'Q95',
+		'instagram' => 'Q209330',
+		'cdninstagram' => 'Q209330',
+		'pinterest' => 'Q255381',
+		'youtube' => 'Q866',
+		'gettyimages' => 'Q1520122',
+		'reddit' => 'Q1136',
+		'shutterstock' => 'Q3482689',
+		'alamy' => 'Q263465',
+		'istockphoto' => 'Q225613',
+		'tiktok' => 'Q48938223',
+		'amazon' => 'Q3884',
+		'media-amazon' => 'Q3884',
+	],
 ];
