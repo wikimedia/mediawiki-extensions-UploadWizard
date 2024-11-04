@@ -234,4 +234,9 @@
 	 */
 	uw.deed.Abstract.prototype.getAiPromptWikitext = function () {};
 
+	/**
+	 * Only implemented for ThirdParty
+	 */
+	uw.deed.Abstract.prototype.getStructuredDataFromSource = function () {};
+
 }( mw.uploadWizard ) );
