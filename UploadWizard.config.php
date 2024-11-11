@@ -781,5 +781,7 @@ return [
 		'tiktok' => 'Q48938223',
 		'amazon' => 'Q3884',
 		'media-amazon' => 'Q3884',
+		'fandom' => 'Q17459',
+		'wikia' => 'Q17459',
 	],
 ];
