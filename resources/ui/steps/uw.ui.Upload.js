@@ -24,8 +24,6 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.ui.Upload = function UWUIUpload( config ) {
-		const upload = this;
-
 		this.config = config;
 
 		uw.ui.Step.call(
@@ -52,8 +50,8 @@
 			}
 		} );
 		this.addFile.on( 'change', ( files ) => {
-			upload.emit( 'files-added', files );
-			upload.addFile.setValue( null );
+			this.emit( 'files-added', files );
+			this.addFile.setValue( null );
 		} );
 
 		this.$addFileContainer.append( this.addFile.$element );
@@ -71,7 +69,7 @@
 				label: mw.message( 'mwe-upwiz-add-file-flickr' ).text(),
 				flags: 'progressive'
 			} ).on( 'click', () => {
-				upload.flickrInterfaceInit();
+				this.flickrInterfaceInit();
 			} );
 
 			this.$flickrAddFileContainer.append(
@@ -112,9 +110,9 @@
 			this.$flickrForm = $( '<form>' ).attr( 'id', 'mwe-upwiz-flickr-url-form' )
 				.appendTo( this.$flickrContainer )
 				.on( 'submit', () => {
-					const checker = new mw.FlickrChecker( upload, upload.flickrSelectButton );
-					upload.flickrButton.setDisabled( true );
-					upload.flickrChecker( checker );
+					const checker = new mw.FlickrChecker( this, this.flickrSelectButton );
+					this.flickrButton.setDisabled( true );
+					this.flickrChecker( checker );
 					// TODO Any particular reason to stopPropagation ?
 					return false;
 				} );
@@ -152,30 +150,30 @@
 			label: mw.message( 'mwe-upwiz-next-file' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', () => {
-			upload.emit( 'next-step' );
+			this.emit( 'next-step' );
 		} );
 
 		this.retryButtonSomeFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', () => {
-			upload.hideEndButtons();
-			upload.emit( 'retry' );
+			this.hideEndButtons();
+			this.emit( 'retry' );
 		} );
 
 		this.nextStepButtonSomeFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', () => {
-			upload.emit( 'next-step' );
+			this.emit( 'next-step' );
 		} );
 
 		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', () => {
-			upload.hideEndButtons();
-			upload.emit( 'retry' );
+			this.hideEndButtons();
+			this.emit( 'retry' );
 		} );
 
 		this.$fileList = $( '<div>' )
@@ -342,10 +340,8 @@
 	};
 
 	uw.ui.Upload.prototype.addNextButton = function () {
-		const ui = this;
-
 		this.nextButtonPromise.done( () => {
-			ui.$buttons.append(
+			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
 					.append(
@@ -354,13 +350,13 @@
 								new OO.ui.LabelWidget( {
 									label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
 								} ),
-								ui.nextStepButtonAllOk
+								this.nextStepButtonAllOk
 							]
 						} ).$element
 					)
 			);
 
-			ui.$buttons.append(
+			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
 					.append(
@@ -369,14 +365,14 @@
 								new OO.ui.LabelWidget( {
 									label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
 								} ),
-								ui.retryButtonSomeFailed,
-								ui.nextStepButtonSomeFailed
+								this.retryButtonSomeFailed,
+								this.nextStepButtonSomeFailed
 							]
 						} ).$element
 					)
 			);
 
-			ui.$buttons.append(
+			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
 					.append(
@@ -385,13 +381,13 @@
 								new OO.ui.LabelWidget( {
 									label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
 								} ),
-								ui.retryButtonAllFailed
+								this.retryButtonAllFailed
 							]
 						} ).$element
 					)
 			);
 
-			ui.$buttons.append( ui.$progress );
+			this.$buttons.append( this.$progress );
 		} );
 	};
 

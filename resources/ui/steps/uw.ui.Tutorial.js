@@ -50,8 +50,6 @@
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Tutorial = function UWUITutorial() {
-		const ui = this;
-
 		uw.ui.Step.call(
 			this,
 			'tutorial'
@@ -78,7 +76,7 @@
 		} );
 
 		this.skipCheckbox.on( 'change', () => {
-			ui.emit( 'skip-tutorial-click', ui.skipCheckbox.isSelected() );
+			this.emit( 'skip-tutorial-click', this.skipCheckbox.isSelected() );
 		} );
 
 		// grab the tutorial HTML that was injected into this document
@@ -88,7 +86,7 @@
 		// Helpdesk link click
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mwe-upwiz-tutorial-helpdesk' ).on( 'click', () => {
-			ui.emit( 'helpdesk-click' );
+			this.emit( 'helpdesk-click' );
 		} );
 
 		this.addPreviousButton();
@@ -117,20 +115,18 @@
 	};
 
 	uw.ui.Tutorial.prototype.addNextButton = function () {
-		const ui = this;
-
 		this.nextButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-next' ],
 			label: mw.message( 'mwe-upwiz-next' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', () => {
-			ui.emit( 'next-step' );
+			this.emit( 'next-step' );
 		} );
 
 		this.nextButtonPromise.done( () => {
-			ui.$buttons.append(
+			this.$buttons.append(
 				new OO.ui.HorizontalLayout( {
-					items: [ ui.skipCheckbox, ui.skipCheckboxLabel, ui.nextButton ]
+					items: [ this.skipCheckbox, this.skipCheckboxLabel, this.nextButton ]
 				} ).$element
 			);
 		} );

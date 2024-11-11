@@ -153,19 +153,18 @@
 		let prevPromise = $.Deferred().resolve();
 		const deferred = $.Deferred(),
 			fileSize = file.size,
-			chunkSize = this.chunkSize,
-			transport = this;
+			chunkSize = this.chunkSize;
 
 		for ( let off = 0; off < fileSize; off += chunkSize ) {
-			// Capture offset inoff a closure
+			// Capture offset in a closure
 			// eslint-disable-next-line no-loop-func
-			( function ( offset ) {
+			( ( offset ) => {
 				const
 					newPromise = $.Deferred(),
 					isLastChunk = offset + chunkSize >= fileSize,
 					thisChunkSize = isLastChunk ? ( fileSize % chunkSize ) : chunkSize;
 				prevPromise.done( () => {
-					transport.uploadChunk( file, offset )
+					this.uploadChunk( file, offset )
 						.done( isLastChunk ? deferred.resolve : newPromise.resolve )
 						.fail( deferred.reject )
 						.progress( ( fraction ) => {
@@ -175,7 +174,7 @@
 						} );
 				} );
 				prevPromise = newPromise;
-			}( off ) );
+			} )( off );
 		}
 
 		return deferred.promise();
@@ -190,7 +189,6 @@
 	 */
 	mw.FormDataTransport.prototype.uploadChunk = function ( file, offset ) {
 		const params = this.createParams( this.tempname, offset ),
-			transport = this,
 			bytesAvailable = file.size;
 
 		if ( this.aborted ) {
@@ -229,24 +227,24 @@
 
 		return this.post( params ).then( ( response ) => {
 			if ( response.upload && response.upload.filekey ) {
-				transport.filekey = response.upload.filekey;
+				this.filekey = response.upload.filekey;
 			}
 
 			if ( response.upload && response.upload.result ) {
 				switch ( response.upload.result ) {
 					case 'Continue':
 						// Reset retry counter
-						transport.retries = 0;
+						this.retries = 0;
 						/* falls through */
 					case 'Success':
 						// Just pass the response through.
 						return response;
 					case 'Poll':
 						// Need to retry with checkStatus.
-						return transport.retryWithMethod( 'checkStatus' );
+						return this.retryWithMethod( 'checkStatus' );
 				}
 			} else {
-				return transport.maybeRetry(
+				return this.maybeRetry(
 					'on unknown response',
 					response.error ? response.error.code : 'unknown-error',
 					response,
@@ -261,14 +259,14 @@
 				result.errors[ 0 ].code === 'stashfailed' &&
 				result.errors[ 0 ].html === mw.message( 'apierror-stashfailed-complete' ).parse()
 			) {
-				return transport.retryWithMethod( 'checkStatus' );
+				return this.retryWithMethod( 'checkStatus' );
 			}
 
 			// Failed to upload, try again in 3 seconds
 			// This is really dumb, we should only do this for cases where retrying has a chance to work
 			// (so basically, network failures). If your upload was blocked by AbuseFilter you're
 			// shafted anyway. But some server-side errors really are temporary...
-			return transport.maybeRetry(
+			return this.maybeRetry(
 				'on error event',
 				code,
 				result,
@@ -322,10 +320,9 @@
 	 */
 	mw.FormDataTransport.prototype.retryWithMethod = function ( methodName, file, offset ) {
 		const
-			transport = this,
 			retryDeferred = $.Deferred(),
-			retry = function () {
-				transport[ methodName ]( file, offset ).then( retryDeferred.resolve, retryDeferred.reject );
+			retry = () => {
+				this[ methodName ]( file, offset ).then( retryDeferred.resolve, retryDeferred.reject );
 			};
 
 		if ( this.config.useRetryTimeout !== false ) {
@@ -343,8 +340,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.checkStatus = function () {
-		const transport = this,
-			params = OO.cloneObject( this.formData );
+		const params = OO.cloneObject( this.formData );
 
 		if ( this.aborted ) {
 			return $.Deferred().reject( 'aborted', {
@@ -367,7 +363,7 @@
 			( response ) => {
 				if ( response.upload && response.upload.result === 'Poll' ) {
 					// If concatenation takes longer than 10 minutes give up
-					if ( ( Date.now() - transport.firstPoll ) > 10 * 60 * 1000 ) {
+					if ( ( Date.now() - this.firstPoll ) > 10 * 60 * 1000 ) {
 						return $.Deferred().reject( 'server-error', { errors: [ {
 							code: 'server-error',
 							html: mw.message( 'api-clientside-error-timeout' ).parse()
@@ -384,8 +380,8 @@
 							// * queued
 							// * publish
 							// * assembling
-							transport.emit( 'update-stage', response.upload.stage );
-							return transport.retryWithMethod( 'checkStatus' );
+							this.emit( 'update-stage', response.upload.stage );
+							return this.retryWithMethod( 'checkStatus' );
 						}
 					}
 				}

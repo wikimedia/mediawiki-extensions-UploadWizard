@@ -199,9 +199,8 @@
 	 * @inheritdoc
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getErrors = function ( thorough ) {
-		const self = this,
-			// Gather errors from each item
-			errorPromises = this.getItems().map( ( item ) => item.getErrors() );
+		// Gather errors from each item
+		const errorPromises = this.getItems().map( ( item ) => item.getErrors() );
 
 		return $.when.apply( $, errorPromises ).then( function () {
 			const errors = [];
@@ -209,11 +208,11 @@
 			// need to return an error here to prevent form submission).
 			if ( [ ...arguments ].some( ( arg ) => arg.length ) ) {
 				// One of the items has errors
-				errors.push( self.config.error );
+				errors.push( this.config.error );
 			}
 			// And add some more:
 			if ( thorough && this.required && this.getWikiText() === '' ) {
-				errors.push( self.config.errorBlank );
+				errors.push( this.config.errorBlank );
 			}
 			// TODO Check for duplicate languages
 			return errors;

@@ -204,14 +204,13 @@
 	 * @return {jQuery.Promise} A promise, resolved when we're done
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function () {
-		const deferred = $.Deferred(),
-			upload = this;
+		const deferred = $.Deferred();
 		if ( this.file && this.file.type === 'image/jpeg' ) {
 			const binReader = new FileReader();
-			binReader.onerror = function () {
+			binReader.onerror = () => {
 				deferred.resolve();
 			};
-			binReader.onload = function () {
+			binReader.onload = () => {
 				let binStr, arr, i, meta;
 				if ( binReader.result === null ) {
 					// Contrary to documentation, this sometimes fires for unsuccessful loads (T136235)
@@ -230,19 +229,19 @@
 				}
 				try {
 					const jpegmeta = require( 'mediawiki.libs.jpegmeta' );
-					meta = jpegmeta( binStr, upload.file.fileName );
+					meta = jpegmeta( binStr, this.file.fileName );
 					// eslint-disable-next-line camelcase, no-underscore-dangle
 					meta._binary_data = null;
 				} catch ( e ) {
 					meta = null;
 				}
-				upload.extractMetadataFromJpegMetaCallback( meta );
+				this.extractMetadataFromJpegMetaCallback( meta );
 				deferred.resolve();
 			};
 			if ( 'readAsBinaryString' in binReader ) {
-				binReader.readAsBinaryString( upload.file );
+				binReader.readAsBinaryString( this.file );
 			} else if ( 'readAsArrayBuffer' in binReader ) {
-				binReader.readAsArrayBuffer( upload.file );
+				binReader.readAsArrayBuffer( this.file );
 			}
 		} else {
 			deferred.resolve();
@@ -312,8 +311,6 @@
 	 * @param {Object} imageinfo JSON object obtained from API result.
 	 */
 	mw.UploadWizardUpload.prototype.extractImageInfo = function ( imageinfo ) {
-		const upload = this;
-
 		for ( const key in imageinfo ) {
 			// we get metadata as list of key-val pairs; convert to object for easier lookup. Assuming that EXIF fields are unique.
 			if ( key === 'metadata' ) {
@@ -323,7 +320,7 @@
 				if ( imageinfo.metadata && imageinfo.metadata.length ) {
 					imageinfo.metadata.forEach( ( pair ) => {
 						if ( pair !== undefined ) {
-							upload.imageinfo.metadata[ pair.name.toLowerCase() ] = pair.value;
+							this.imageinfo.metadata[ pair.name.toLowerCase() ] = pair.value;
 						}
 					} );
 				}
@@ -745,8 +742,7 @@
 	 *   containing a thumbnail, or resolved with `null` when one can't be produced
 	 */
 	mw.UploadWizardUpload.prototype.getThumbnail = function ( width, height ) {
-		const upload = this,
-			deferred = $.Deferred();
+		const deferred = $.Deferred();
 
 		if ( this.thumbnailPromise[ width + 'x' + height ] ) {
 			return this.thumbnailPromise[ width + 'x' + height ];
@@ -756,29 +752,29 @@
 		/**
 		 * @param {HTMLImageElement|null} image
 		 */
-		function imageCallback( image ) {
+		const imageCallback = ( image ) => {
 			if ( image === null ) {
-				upload.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
+				this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
 				deferred.resolve( image );
 				return;
 			}
 
-			image = upload.getScaledImageElement( image, width, height );
+			image = this.getScaledImageElement( image, width, height );
 			deferred.resolve( image );
-		}
+		};
 
 		this.extractMetadataFromJpegMeta()
-			.then( upload.makePreview.bind( upload, width ) )
+			.then( this.makePreview.bind( this, width ) )
 			.done( imageCallback )
 			.fail( () => {
 				// Can't generate the thumbnail locally, get the thumbnail via API after
 				// the file is uploaded. Queries are cached, so if this thumbnail was
 				// already fetched for some reason, we'll get it immediately.
-				if ( upload.state !== 'new' && upload.state !== 'transporting' && upload.state !== 'error' ) {
-					upload.getApiThumbnail( width, height ).done( imageCallback );
+				if ( this.state !== 'new' && this.state !== 'transporting' && this.state !== 'error' ) {
+					this.getApiThumbnail( width, height ).done( imageCallback );
 				} else {
-					upload.once( 'success', () => {
-						upload.getApiThumbnail( width, height ).done( imageCallback );
+					this.once( 'success', () => {
+						this.getApiThumbnail( width, height ).done( imageCallback );
 					} );
 				}
 			} );
@@ -801,8 +797,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.makePreview = function ( width ) {
-		const deferred = $.Deferred(),
-			upload = this;
+		const deferred = $.Deferred();
 
 		// do preview if we can
 		if ( this.isPreviewable() ) {
@@ -836,8 +831,8 @@
 							} catch ( err ) {
 								deferred.reject();
 							}
-							upload.loadImage( canvas.toDataURL(), deferred );
-							upload.URL().revokeObjectURL( video.url );
+							this.loadImage( canvas.toDataURL(), deferred );
+							this.URL().revokeObjectURL( video.url );
 						}, 500 );
 					}
 				} );
@@ -847,14 +842,14 @@
 				// This can happen for broken files where we can't actually seek to the time we wanted.
 				setTimeout( () => {
 					deferred.reject();
-					upload.URL().revokeObjectURL( video.url );
+					this.URL().revokeObjectURL( video.url );
 				}, 10000 );
 			} else {
 				const dataUrlReader = new FileReader();
-				dataUrlReader.onload = function () {
+				dataUrlReader.onload = () => {
 					// this step (inserting image-as-dataurl into image object) is slow for large images, which
 					// is why this is optional and has a control attached to it to load the preview.
-					upload.loadImage( dataUrlReader.result, deferred );
+					this.loadImage( dataUrlReader.result, deferred );
 				};
 				dataUrlReader.readAsDataURL( this.file );
 			}

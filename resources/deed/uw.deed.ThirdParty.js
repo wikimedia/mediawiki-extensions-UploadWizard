@@ -25,8 +25,6 @@
 	 * @param {mw.Api} api API object - useful for doing previews
 	 */
 	uw.deed.ThirdParty = function UWDeedThirdParty( config, uploads, api ) {
-		const deed = this;
-
 		uw.deed.Abstract.call( this, 'thirdparty', config, uploads );
 
 		this.uploadCount = uploads.length;
@@ -39,11 +37,11 @@
 		} );
 		this.sourceInput.$input.attr( 'id', 'mwe-source-' + this.getInstanceCount() );
 		// See uw.DetailsWidget
-		this.sourceInput.getErrors = function ( thorough ) {
+		this.sourceInput.getErrors = ( thorough ) => {
 			const
 				errors = [],
-				minLength = deed.config.minSourceLength,
-				maxLength = deed.config.maxSourceLength,
+				minLength = this.config.minSourceLength,
+				maxLength = this.config.maxSourceLength,
 				text = this.getValue().trim();
 
 			if ( thorough !== true ) {
@@ -79,11 +77,11 @@
 			name: 'author'
 		} );
 		this.authorInput.$input.attr( 'id', 'mwe-author-' + this.getInstanceCount() );
-		this.authorInput.getErrors = function ( thorough ) {
+		this.authorInput.getErrors = ( thorough ) => {
 			const
 				errors = [],
-				minLength = deed.config.minAuthorLength,
-				maxLength = deed.config.maxAuthorLength,
+				minLength = this.config.minAuthorLength,
+				maxLength = this.config.maxAuthorLength,
 				text = this.getValue().trim();
 
 			if ( thorough !== true ) {
@@ -145,8 +143,8 @@
 			],
 			classes: [ 'mwe-upwiz-deed-compliance' ]
 		} );
-		this.complianceCheck.getErrors = function ( thorough ) {
-			const allSelected = deed.complianceCheck.getItems().reduce( ( result, item ) => result && item.isSelected(), true );
+		this.complianceCheck.getErrors = ( thorough ) => {
+			const allSelected = this.complianceCheck.getItems().reduce( ( result, item ) => result && item.isSelected(), true );
 
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
@@ -201,7 +199,7 @@
 	};
 
 	uw.deed.ThirdParty.prototype.setFormFields = function ( $selector ) {
-		const $formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ), self = this;
+		const $formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' );
 
 		this.$form = $( '<form>' );
 
@@ -240,7 +238,7 @@
 					.append( this.templateOptions.aiGenerated.field.$element )
 			);
 			this.templateOptions.aiGenerated.input.$element.on( 'change', () => {
-				self.updateAuthorFieldForAI();
+				this.updateAuthorFieldForAI();
 			} );
 
 			// Set up ai-relevant help text for the author input field that can be shown
@@ -269,12 +267,12 @@
 			}
 
 			this.templateOptions.authorUnknown.input.$element.on( 'change', () => {
-				if ( self.templateOptions.authorUnknown.input.isSelected() ) {
-					self.authorInput.setDisabled( true );
-					self.authorInput.setValue( '' );
-					self.authorInputField.checkValidity( false );
+				if ( this.templateOptions.authorUnknown.input.isSelected() ) {
+					this.authorInput.setDisabled( true );
+					this.authorInput.setValue( '' );
+					this.authorInputField.checkValidity( false );
 				} else {
-					self.authorInput.setDisabled( false );
+					this.authorInput.setDisabled( false );
 				}
 			} );
 		}

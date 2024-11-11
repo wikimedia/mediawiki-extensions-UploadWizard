@@ -24,8 +24,6 @@
 	 * @param {Object} config
 	 */
 	uw.ui.Thanks = function UWUIThanks( config ) {
-		const thanks = this;
-
 		this.config = config;
 
 		uw.ui.Step.call(
@@ -92,7 +90,7 @@
 		let beginButtonTarget = this.getButtonConfig( 'beginButton', 'target' );
 		if ( !beginButtonTarget || ( beginButtonTarget === 'dropObjref' && !this.isObjectReferenceGiven() ) ) {
 			this.beginButton.on( 'click', () => {
-				thanks.emit( 'next-step' );
+				this.emit( 'next-step' );
 			} );
 		} else {
 			if ( beginButtonTarget === 'dropObjref' ) {

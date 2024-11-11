@@ -23,11 +23,9 @@
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Details = function UWUIDetails() {
-		const details = this;
-
-		function startDetails() {
-			details.emit( 'start-details' );
-		}
+		const startDetails = () => {
+			this.emit( 'start-details' );
+		};
 
 		uw.ui.Step.call(
 			this,
@@ -43,7 +41,7 @@
 			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', () => {
-			details.emit( 'finalize-details-after-removal' );
+			this.emit( 'finalize-details-after-removal' );
 		} );
 
 		this.retryButtonSomeFailed = new OO.ui.ButtonWidget( {
@@ -107,16 +105,14 @@
 	};
 
 	uw.ui.Details.prototype.addNextButton = function () {
-		const ui = this;
-
 		this.nextButtonPromise.done( () => {
-			ui.$buttons.append(
+			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
-					.append( ui.nextButton.$element )
+					.append( this.nextButton.$element )
 			);
 
-			ui.$buttons.append(
+			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
 					.append(
@@ -125,14 +121,14 @@
 								new OO.ui.LabelWidget( {
 									label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
 								} ),
-								ui.nextButtonDespiteFailures,
-								ui.retryButtonSomeFailed
+								this.nextButtonDespiteFailures,
+								this.retryButtonSomeFailed
 							]
 						} ).$element
 					)
 			);
 
-			ui.$buttons.append(
+			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
 					.append(
@@ -141,7 +137,7 @@
 								new OO.ui.LabelWidget( {
 									label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
 								} ),
-								ui.retryButtonAllFailed
+								this.retryButtonAllFailed
 							]
 						} ).$element
 					)

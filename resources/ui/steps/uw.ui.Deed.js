@@ -35,8 +35,6 @@
 	OO.inheritClass( uw.ui.Deed, uw.ui.Step );
 
 	uw.ui.Deed.prototype.load = function ( uploads ) {
-		const self = this;
-
 		uw.ui.Step.prototype.load.call( this, uploads );
 
 		this.$deedsContainer = $( '<div>' ).attr( 'id', 'mwe-upwiz-deeds' );
@@ -53,7 +51,7 @@
 		this.nextButtonPromise.done( () => {
 			// hide "next" button, controller will only show it once license has
 			// been selected
-			self.nextButton.$element.hide();
+			this.nextButton.$element.hide();
 		} );
 	};
 
@@ -73,7 +71,6 @@
 	 * @param {mw.UploadWizardDeedChooser} deedChooser
 	 */
 	uw.ui.Deed.prototype.showCommonForm = function ( deedChooser ) {
-		const self = this;
 
 		this.clearForm();
 
@@ -90,7 +87,7 @@
 					mw.UploadWizard.placeThumbnail( $element, thumb );
 				} );
 
-				self.$thumbsContainer.append( $element );
+				this.$thumbsContainer.append( $element );
 			}
 		} );
 	};
@@ -99,8 +96,6 @@
 	 * @param {mw.UploadWizardDeedChooser[]} deedChoosers
 	 */
 	uw.ui.Deed.prototype.showIndividualForm = function ( deedChoosers ) {
-		const self = this;
-
 		this.clearForm();
 
 		deedChoosers.forEach( ( deedChooser ) => {
@@ -117,7 +112,7 @@
 					$thumbContainer.append( $element );
 				}
 
-				self.$deedsContainer.append(
+				this.$deedsContainer.append(
 					$( '<div>' )
 						.addClass( 'mwe-upwiz-deeds-individual' )
 						.append(

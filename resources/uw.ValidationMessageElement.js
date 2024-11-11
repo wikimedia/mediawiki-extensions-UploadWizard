@@ -40,7 +40,6 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.ValidationMessageElement.prototype.checkValidity = function ( thorough ) {
-		const element = this;
 		thorough = thorough || false;
 
 		if ( this.validatedWidget.pushPending ) {
@@ -53,9 +52,9 @@
 			( this.validatedWidget.getNotices ? this.validatedWidget.getNotices( thorough ) : [] )
 		).then( ( errors, warnings, notices ) => {
 			// this.errors, this.warnings & this.notices are arrays of mw.Messages and not strings in this subclass
-			element.setErrors( errors );
-			element.setWarnings( warnings );
-			element.setNotices( notices );
+			this.setErrors( errors );
+			this.setWarnings( warnings );
+			this.setNotices( notices );
 
 			if ( errors.length > 0 ) {
 				return $.Deferred().reject( errors, warnings, notices ).promise();
@@ -63,8 +62,8 @@
 
 			return $.Deferred().resolve( errors, warnings, notices ).promise();
 		} ).always( () => {
-			if ( element.validatedWidget.popPending ) {
-				element.validatedWidget.popPending();
+			if ( this.validatedWidget.popPending ) {
+				this.validatedWidget.popPending();
 			}
 		} );
 	};

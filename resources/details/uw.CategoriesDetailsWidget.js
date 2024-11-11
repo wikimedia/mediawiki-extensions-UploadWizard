@@ -9,13 +9,11 @@
 	 * @extends uw.DetailsWidget
 	 */
 	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget( config ) {
-		const catDetails = this;
-
 		uw.CategoriesDetailsWidget.super.call( this );
 
 		this.categoriesWidget = new mw.widgets.CategoryMultiselectWidget( config );
 
-		this.categoriesWidget.createTagItemWidget = function ( data ) {
+		this.categoriesWidget.createTagItemWidget = ( data ) => {
 			const widget = this.constructor.prototype.createTagItemWidget.call( this, data );
 			if ( !widget ) {
 				return null;
@@ -23,7 +21,7 @@
 			widget.setMissing = function ( missing ) {
 				this.constructor.prototype.setMissing.call( this, missing );
 				// Aggregate 'change' event
-				catDetails.emit( 'change' );
+				this.emit( 'change' );
 			};
 			return widget;
 		};

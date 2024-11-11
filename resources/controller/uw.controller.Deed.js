@@ -76,14 +76,13 @@
 	uw.controller.Deed.prototype.load = function ( uploads ) {
 		// select "provide same information for all files" by default
 		let defaultDeedInterface = 'common';
-		const self = this,
-			localUploads = uploads.filter( ( upload ) => {
+		const localUploads = uploads.filter( ( upload ) => {
 				let deed;
 				if ( upload.file.fromURL ) {
 					// external uploads should get a custom deed...
-					deed = new uw.deed.Custom( self.config, upload );
+					deed = new uw.deed.Custom( this.config, upload );
 					upload.deedChooser = new mw.UploadWizardDeedChooser(
-						self.config,
+						this.config,
 						{ [ deed.name ]: deed },
 						[ upload ]
 					);
@@ -159,9 +158,9 @@
 		// wire up handler to toggle common/individual deed selection forms
 		multiDeedRadio.on( 'select', ( selectedOption ) => {
 			if ( selectedOption.getData() === 'common' ) {
-				self.loadCommon( localUploads );
+				this.loadCommon( localUploads );
 			} else if ( selectedOption.getData() === 'individual' ) {
-				self.loadIndividual( localUploads );
+				this.loadIndividual( localUploads );
 			}
 		} );
 
@@ -171,8 +170,8 @@
 		uploads.forEach( ( upload ) => {
 			if ( serializedDeeds[ upload.getFilename() ] ) {
 				upload.deedChooser.setSerialized( serializedDeeds[ upload.getFilename() ] );
-			} else if ( self.uploadedDeedSerialization ) {
-				upload.deedChooser.setSerialized( self.uploadedDeedSerialization );
+			} else if ( this.uploadedDeedSerialization ) {
+				upload.deedChooser.setSerialized( this.uploadedDeedSerialization );
 			}
 		} );
 	};
@@ -208,12 +207,10 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.loadIndividual = function ( uploads ) {
-		const self = this;
-
 		uploads.forEach( ( upload ) => {
-			const deeds = self.getLicensingDeeds( uploads ),
+			const deeds = this.getLicensingDeeds( uploads ),
 				deedChooser = new mw.UploadWizardDeedChooser(
-					self.config,
+					this.config,
 					deeds,
 					[ upload ]
 				);
@@ -221,7 +218,7 @@
 			upload.deedChooser = deedChooser;
 
 			// reveal next button when deeds for all files have been chosen
-			deedChooser.on( 'choose', self.enableNextIfAllDeedsChosen.bind( self ) );
+			deedChooser.on( 'choose', this.enableNextIfAllDeedsChosen.bind( this ) );
 		} );
 
 		this.ui.showIndividualForm( this.getUniqueDeedChoosers( uploads ) );

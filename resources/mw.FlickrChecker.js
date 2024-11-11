@@ -174,7 +174,6 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getPhotostream: function ( mode, url ) {
-		const checker = this;
 		return this.flickrRequest( {
 			method: 'flickr.urls.lookupUser',
 			url: url
@@ -185,7 +184,7 @@ mw.FlickrChecker.prototype = {
 			} else if ( mode === 'favorites' ) {
 				method = 'flickr.favorites.getPublicList';
 			}
-			return checker.getPhotos( 'photos', {
+			return this.getPhotos( 'photos', {
 				method: method,
 				user_id: data.user.id
 			} );
@@ -201,8 +200,6 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getGroupPool: function ( groupPoolMatches, url ) {
-		const checker = this;
-
 		return this.flickrRequest( {
 			method: 'flickr.urls.lookupGroup',
 			url: url
@@ -210,17 +207,17 @@ mw.FlickrChecker.prototype = {
 			const gid = data.group.id;
 
 			if ( groupPoolMatches[ 1 ] ) { // URL contains a user ID
-				return checker.flickrRequest( {
+				return this.flickrRequest( {
 					method: 'flickr.urls.lookupUser',
 					url: 'http://www.flickr.com/photos/' + groupPoolMatches[ 1 ]
-				} ).then( ( data ) => checker.getPhotos( 'photos', {
+				} ).then( ( data ) => this.getPhotos( 'photos', {
 					method: 'flickr.groups.pools.getPhotos',
 					group_id: gid,
 					user_id: data.user.id
 				} ) );
 			}
 
-			return checker.getPhotos( 'photos', {
+			return this.getPhotos( 'photos', {
 				method: 'flickr.groups.pools.getPhotos',
 				group_id: gid
 			} );
@@ -241,12 +238,11 @@ mw.FlickrChecker.prototype = {
 		if ( appendId ) {
 			$elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
 		}
-		const checker = this;
 		data.collection.forEach( ( value ) => {
 			const $li = $( '<li>' );
 			$li.append( value.title );
 			if ( value.collection !== undefined ) {
-				$li.append( checker.buildCollectionLinks( false, value ) );
+				$li.append( this.buildCollectionLinks( false, value ) );
 			}
 			if ( value.set !== undefined ) {
 				const $ul = $( '<ul>' );
@@ -256,7 +252,7 @@ mw.FlickrChecker.prototype = {
 					$link.on( 'click', () => {
 						// eslint-disable-next-line no-jquery/no-global-selector
 						$( '#mwe-upwiz-files-collection-chooser' ).remove();
-						checker.getPhotos( 'photoset', {
+						this.getPhotos( 'photoset', {
 							method: 'flickr.photosets.getPhotos',
 							photoset_id: $link.data( 'id' )
 						} );
@@ -278,9 +274,7 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getCollection: function ( userCollectionMatches, url ) {
-		const checker = this;
-
-		return checker.flickrRequest( {
+		return this.flickrRequest( {
 			method: 'flickr.urls.lookupUser',
 			url: url
 		} ).then( ( data ) => {
@@ -294,9 +288,9 @@ mw.FlickrChecker.prototype = {
 				req.collection_id = userCollectionMatches[ 1 ];
 			}
 
-			return checker.flickrRequest( req ).then( ( data ) => {
+			return this.flickrRequest( req ).then( ( data ) => {
 				// eslint-disable-next-line no-jquery/no-global-selector
-				$( '#mwe-upwiz-files' ).append( checker.buildCollectionLinks( true, data.collections ) );
+				$( '#mwe-upwiz-files' ).append( this.buildCollectionLinks( true, data.collections ) );
 			} );
 		} );
 	},
@@ -309,12 +303,10 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getGallery: function ( url ) {
-		const checker = this;
-
 		return this.flickrRequest( {
 			method: 'flickr.urls.lookupGallery',
 			url: url
-		} ).then( ( data ) => checker.getPhotos( 'photos', {
+		} ).then( ( data ) => this.getPhotos( 'photos', {
 			method: 'flickr.galleries.getPhotos',
 			gallery_id: data.gallery.id
 		} ) );
@@ -365,7 +357,6 @@ mw.FlickrChecker.prototype = {
 			}
 			return photoset;
 		} );
-		const checker = this;
 
 		// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
 		return $.when( flickrPromise, this.getBlacklist() ).then( ( photoset, blacklist ) => {
@@ -374,10 +365,10 @@ mw.FlickrChecker.prototype = {
 			const checkboxesWidget = new OO.ui.CheckboxMultiselectWidget();
 			let x = 0;
 
-			checker.$spinner.remove();
+			this.$spinner.remove();
 
 			photoset.photo.forEach( ( item, i ) => {
-				const license = checker.checkLicense( item.license );
+				const license = this.checkLicense( item.license );
 				const licenseValue = license.licenseValue;
 				if ( licenseValue === 'invalid' ) {
 					return;
@@ -402,7 +393,7 @@ mw.FlickrChecker.prototype = {
 					return false;
 				}
 
-				const fileName = checker.getFilenameFromItem( item.title, item.id, item.ownername );
+				const fileName = this.getFilenameFromItem( item.title, item.id, item.ownername );
 
 				const flickrUpload = {
 					name: fileName,
@@ -425,8 +416,8 @@ mw.FlickrChecker.prototype = {
 					index: i
 				};
 				// Adding all the Photoset files which have a valid license with the required info to an array so that they can be referenced later
-				checker.imageUploads[ i ] = flickrUpload;
-				checker.reserveFileName( fileName );
+				this.imageUploads[ i ] = flickrUpload;
+				this.reserveFileName( fileName );
 
 				// setting up the thumbnail previews in the Selection list
 				if ( item.url_sq ) {
@@ -443,7 +434,7 @@ mw.FlickrChecker.prototype = {
 			checkboxesWidget.on( 'select', () => {
 				const selectedCount = checkboxesWidget.findSelectedItems().length;
 				// If at least one item is selected, activate the upload button
-				checker.selectButton.setDisabled( selectedCount === 0 );
+				this.selectButton.setDisabled( selectedCount === 0 );
 				// Limit the number of selectable images
 				checkboxesWidget.getItems().forEach( ( checkbox ) => {
 					if ( !checkbox.isSelected() ) {
@@ -452,34 +443,34 @@ mw.FlickrChecker.prototype = {
 				} );
 			} );
 			// Set up action for 'Upload selected images' button
-			checker.selectButton.on( 'click', () => {
+			this.selectButton.on( 'click', () => {
 				const uploads = [];
-				checker.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
+				this.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-upload-ctrls' ).show();
 				// eslint-disable-next-line no-jquery/no-global-selector
-				$( '#mwe-upwiz-flickr-select-list-container' ).after( checker.$spinner );
+				$( '#mwe-upwiz-flickr-select-list-container' ).after( this.$spinner );
 				$.when.apply( $, checkboxesWidget.findSelectedItemsData().map( ( image ) => {
-					uploads.push( checker.imageUploads[ image ] );
+					uploads.push( this.imageUploads[ image ] );
 					// For each image, load the description and URL to upload from
 					return $.when(
-						checker.setUploadDescription( checker.imageUploads[ image ] ),
-						checker.setImageURL( image )
+						this.setUploadDescription( this.imageUploads[ image ] ),
+						this.setImageURL( image )
 					);
 				} ) ).done( () => {
-					checker.ui.emit( 'files-added', uploads );
+					this.ui.emit( 'files-added', uploads );
 				} ).always( () => {
 					// We'll only bind this once, since that selectButton could be
 					// reused later, with a different flickr set (it is not destroyed)
-					checker.selectButton.off( 'click' );
-					checker.$spinner.remove();
-					checker.ui.flickrInterfaceDestroy();
+					this.selectButton.off( 'click' );
+					this.$spinner.remove();
+					this.ui.flickrInterfaceDestroy();
 				} );
 			} );
 
-			if ( checker.imageUploads.length === 0 ) {
+			if ( this.imageUploads.length === 0 ) {
 				return $.Deferred().reject( mw.message( 'mwe-upwiz-license-photoset-invalid' ).escaped() );
 			} else {
 				// eslint-disable-next-line no-jquery/no-global-selector
@@ -497,8 +488,8 @@ mw.FlickrChecker.prototype = {
 			}
 		} ).fail( ( message ) => {
 			mw.errorDialog( message, mw.msg( 'mwe-upwiz-license-photoset-invalid-title' ) );
-			checker.$spinner.remove();
-			checker.ui.flickrInterfaceReset();
+			this.$spinner.remove();
+			this.ui.flickrInterfaceReset();
 		} );
 	},
 
@@ -510,7 +501,6 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	getPhoto: function ( photoIdMatches ) {
-		const checker = this;
 		const photoId = photoIdMatches[ 1 ];
 
 		return this.flickrRequest( {
@@ -522,7 +512,7 @@ mw.FlickrChecker.prototype = {
 			}
 			return data.photo;
 		} ).then( ( photo ) => {
-			const isBlacklistedPromise = checker.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
+			const isBlacklistedPromise = this.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
 			return isBlacklistedPromise.then( ( isBlacklisted ) => {
 				if ( isBlacklisted ) {
 					return $.Deferred().reject( mw.message( 'mwe-upwiz-user-blacklisted', 'Flickr' ).escaped() );
@@ -531,12 +521,12 @@ mw.FlickrChecker.prototype = {
 				}
 			} );
 		} ).then( ( photo ) => {
-			const license = checker.checkLicense( photo.license );
+			const license = this.checkLicense( photo.license );
 			if ( license.licenseValue === 'invalid' ) {
 				return $.Deferred().reject( license.licenseMessage );
 			}
 
-			const fileName = checker.getFilenameFromItem( photo.title._content, photo.id,
+			const fileName = this.getFilenameFromItem( photo.title._content, photo.id,
 				photo.owner.username );
 
 			// if owner doesn't have a real name, use username
@@ -572,22 +562,22 @@ mw.FlickrChecker.prototype = {
 				sourceURL: sourceURL
 			};
 
-			checker.imageUploads.push( flickrUpload );
-			checker.reserveFileName( fileName );
+			this.imageUploads.push( flickrUpload );
+			this.reserveFileName( fileName );
 
 			$.when(
-				checker.setUploadDescription( flickrUpload, photo.description._content ),
-				checker.setImageURL( 0 )
+				this.setUploadDescription( flickrUpload, photo.description._content ),
+				this.setImageURL( 0 )
 			).done( () => {
-				checker.ui.emit( 'files-added', [ flickrUpload ] );
+				this.ui.emit( 'files-added', [ flickrUpload ] );
 			} ).always( () => {
-				checker.$spinner.remove();
-				checker.ui.flickrInterfaceDestroy();
+				this.$spinner.remove();
+				this.ui.flickrInterfaceDestroy();
 			} );
 		} ).fail( ( message ) => {
 			mw.errorDialog( message, mw.msg( 'mwe-upwiz-license-external-invalid-title' ) );
-			checker.$spinner.remove();
-			checker.ui.flickrInterfaceReset();
+			this.$spinner.remove();
+			this.ui.flickrInterfaceReset();
 		} );
 	},
 
@@ -684,14 +674,13 @@ mw.FlickrChecker.prototype = {
 	 * @return {jQuery.Promise}
 	 */
 	setImageDescription: function ( upload ) {
-		const checker = this;
 		const photoId = upload.photoId;
 
 		return this.flickrRequest( {
 			method: 'flickr.photos.getInfo',
 			photo_id: photoId
 		} ).then( ( data ) => {
-			checker.setUploadDescription( upload, data.photo.description._content );
+			this.setUploadDescription( upload, data.photo.description._content );
 		} );
 	},
 
@@ -705,7 +694,6 @@ mw.FlickrChecker.prototype = {
 	setImageURL: function ( index ) {
 		const upload = this.imageUploads[ index ];
 		const photoId = upload.photoId;
-		const checker = this;
 
 		return this.flickrRequest( {
 			method: 'flickr.photos.getSizes',
@@ -734,8 +722,8 @@ mw.FlickrChecker.prototype = {
 				upload.url = largestSize.source;
 			} else {
 				mw.errorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
-				checker.$spinner.remove();
-				checker.ui.flickrInterfaceReset();
+				this.$spinner.remove();
+				this.ui.flickrInterfaceReset();
 				return $.Deferred().reject();
 			}
 		} );
