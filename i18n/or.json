@@ -7,7 +7,8 @@
 			"Kaganer",
 			"Odisha1",
 			"Psubhashish",
-			"Shisir 1945"
+			"Shisir 1945",
+			"Chinmayee Mishra"
 		]
 	},
 	"uploadwizard": "ଅପଲୋଡ଼ ଉଇଜାର୍ଡ଼",
@@ -132,7 +133,7 @@
 	"mwe-upwiz-error-altitude": "ଉଚ୍ଚତାଟି ଏକ ଅଙ୍କ ହେବା ଲୋଡ଼ା ।",
 	"mwe-upwiz-error-signature-too-long": "ଆପଣଙ୍କ ସନ୍ତକଟି ଖୁବ ଲମ୍ବା ।\nଏହାକୁ $1 {{PLURAL:$1|ଗୋଟି ଅକ୍ଷର|ଗୋଟି ଅକ୍ଷର}}ରୁ ଛୋଟ କରିବେ ।",
 	"mwe-upwiz-error-signature-too-short": "ଆପଣଙ୍କ ସନ୍ତକଟି ଖୁବ ଛୋଟ।\nଏହାକୁ $1 {{PLURAL:$1|ଗୋଟି ଅକ୍ଷର|ଗୋଟି ଅକ୍ଷର}}ରୁ ଲମ୍ବା କରିବେ ।",
-	"mwe-upwiz-error-blank": "ଏ ପ୍ରଶ୍ନର ଉତ୍ତର ଦରକାର",
+	"mwe-upwiz-error-blank": "ଏ ପ୍ରଶ୍ନର ଉତ୍ତର ଦରକାରୀ",
 	"mwe-upwiz-error-too-long": "ଏହି ସ୍ଥାନଟି ଖୁବ ଲମ୍ବା ।\nଏହି ନିବେଶଟି $1 {{PLURAL:$1|ଗୋଟି ଅକ୍ଷର|ଗୋଟି ଅକ୍ଷର}}ରୁ ଛୋଟ କରିବେ ।",
 	"mwe-upwiz-error-too-short": "ଏହି ସ୍ଥାନଟି ଖୁବ ଛୋଟ ।\nଏହି ନିବେଶଟି $1 {{PLURAL:$1|ଗୋଟି ଅକ୍ଷର|ଗୋଟି ଅକ୍ଷର}}ରୁ ଲମ୍ବା କରିବେ ।",
 	"mwe-upwiz-error-title-blacklisted": "ଏହି ନାମଟିରେ କିଛି ଅଦରକାରୀ ଲେଖା ଅଛି । ଦୟାକରି ସଂଶୋଧନ କରିବେ ।",

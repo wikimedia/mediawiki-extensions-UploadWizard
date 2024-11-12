@@ -5,7 +5,8 @@
 			"Gomoko",
 			"Méthodes Bulebe Hangi",
 			"Verdy p",
-			"Wladek92"
+			"Wladek92",
+			"Mahabarata"
 		]
 	},
 	"apihelp-flickrblacklist-summary": "Valide une URL Flickr en utilisant l’identifiant de l’utilisateur (NSID) d’après la liste des interdits.",
@@ -18,7 +19,11 @@
 	"apihelp-query+allcampaigns-param-enabledonly": "Lister seulement les campagnes qui sont activées.",
 	"apihelp-query+allcampaigns-param-limit": "Nombre de campagnes à renvoyer.",
 	"apihelp-query+allcampaigns-example-1": "Énumérer les campagnes activées",
+	"apihelp-mediadetection-summary": "Renvoie la probabilité que l'image stockée représentée par la clé de fichier fournie soit un logo",
 	"apihelp-mediadetection-param-filename": "Nom de la page de fichier",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var> renvoyé par la requête API <kbd>stash</kbd>",
 	"apihelp-mediadetection-example-filename": "Retournez la probabilité que l'image représentée par le nom de fichier fourni soit un logo",
-	"apierror-mediadetection-no-valid-thumbnail": "Il n'existe pas de thumbnail pour l'image, donc ne peut pas l'envoyer au classifiateur"
+	"apihelp-mediadetection-example-filekey": "Renvoie la probabilité que l'image stockée représentée par la clé de fichier fournie soit un logo",
+	"apierror-mediadetection-no-valid-thumbnail": "Il n'existe pas de thumbnail pour l'image, donc ne peut pas l'envoyer au classifiateur",
+	"apierror-mediadetection-invalid-mime-type": "Le point de terminaison d'API n'est pas disponible pour ce type de fichier - les types autorisés sont image/jpeg, image/gif, image/png, image/bmp"
 }

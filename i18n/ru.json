@@ -51,7 +51,8 @@
 			"Дмитрий",
 			"Краснорядцева Елена",
 			"Умар",
-			"Ядерный Трамвай"
+			"Ядерный Трамвай",
+			"Null the Great"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -346,7 +347,7 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "Автор{{PLURAL:$1||ы}}",
 	"mwe-upwiz-campaign-view-all-media": "Посмотреть все загруженные материалы",
 	"mwe-upwiz-campaign-no-uploads-yet": "Ещё нет загруженных файлов!",
-	"mwe-upwiz-license-cc-by-sa-4.0-text": "Creative Commons Attribution ShareAlike 4.0 $3 [$2 (подробнее)]",
+	"mwe-upwiz-license-cc-by-sa-4.0-text": "Creative Commons «С указанием авторства — С сохранением условий» версии 4.0 $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-sa-3.0-text": "Creative Commons Attribution ShareAlike 3.0 $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-sa-3.0-at-text": "Creative Commons Attribution ShareAlike 3.0 Austria $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-sa-3.0-de-text": "Creative Commons Attribution ShareAlike 3.0 Germany $3 [$2 (подробнее)]",
@@ -358,7 +359,7 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-no-text": "Creative Commons Attribution ShareAlike 3.0 Norway $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-sa-3.0-pl-text": "Creative Commons Attribution ShareAlike 3.0 Poland $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-sa-3.0-ro-text": "Creative Commons Attribution ShareAlike 3.0 Romania $3 [$2 (подробнее)]",
-	"mwe-upwiz-license-cc-by-4.0-text": "Creative Commons Attribution 4.0 $3 [$2 (подробнее)]",
+	"mwe-upwiz-license-cc-by-4.0-text": "Creative Commons «С указанием авторства» версии 4.0 $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-3.0-text": "Creative Commons Attribution 3.0 $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-sa-2.5-text": "Creative Commons Attribution ShareAlike 2.5 $3 [$2 (подробнее)]",
 	"mwe-upwiz-license-cc-by-2.5-text": "Creative Commons Attribution 2.5 $3 [$2 (подробнее)]",
