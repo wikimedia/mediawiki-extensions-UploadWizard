@@ -14,5 +14,12 @@
 	"apihelp-query+allcampaigns-summary": "Alle UploadWizard-campagnes inventariseren.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Alleen campagnes weergeven die zijn ingeschakeld.",
 	"apihelp-query+allcampaigns-param-limit": "Aantal te retourneren campagnes.",
-	"apihelp-query+allcampaigns-example-1": "Ingeschakelde campagnes inventariseren"
+	"apihelp-query+allcampaigns-example-1": "Ingeschakelde campagnes inventariseren",
+	"apihelp-mediadetection-summary": "Geeft de waarschijnlijkheid terug dat de opgeborgen afbeelding waarnaar de opgegeven bestandssleutel verwijst een logo is",
+	"apihelp-mediadetection-param-filename": "Naam van de bestandspagina",
+	"apihelp-mediadetection-param-filekey": "De vanuit de API-aanvraag <kbd>stash</kbd> teruggegeven <var>filekey</var>",
+	"apihelp-mediadetection-example-filename": "Geeft de waarschijnlijkheid terug dat de opgeborgen afbeelding waarnaar de opgegeven bestandsnaam verwijst een logo is",
+	"apihelp-mediadetection-example-filekey": "Geeft de waarschijnlijkheid terug dat de opgeborgen afbeelding waarnaar de opgegeven bestandssleutel verwijst een logo is",
+	"apierror-mediadetection-no-valid-thumbnail": "Er is geen miniatuur voor de afbeelding. Daarom kan deze niet naar de classificeerder worden verzonden.",
+	"apierror-mediadetection-invalid-mime-type": "Er is geen API-eindpunt beschikbaar voor dit type bestand. De toegestane typen zijn image/jpeg, image/gif, image/png, image/bmp."
 }
