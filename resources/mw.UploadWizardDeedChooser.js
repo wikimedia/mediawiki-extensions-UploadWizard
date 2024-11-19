@@ -31,22 +31,6 @@
 			const deed = this.deeds[ name ],
 				radio = new OO.ui.RadioSelectWidget( { classes: [ 'mwe-upwiz-deed-radio-' + name ] } ),
 				option = new OO.ui.RadioOptionWidget(),
-				$label = $( '<span>' ).append(
-					// label text
-					mw.message(
-						'mwe-upwiz-source-' + deed.name + '-label',
-						this.uploads.length
-					).text(),
-					// label description
-					$( '<span>' )
-						.addClass( 'mwe-upwiz-label-extra mwe-upwiz-label-explainer' )
-						.text(
-							mw.message(
-								'mwe-upwiz-source-' + deed.name + '-description',
-								this.uploads.length
-							).text()
-						)
-				).contents(),
 				// Separate the radio option from its form
 				$deedRadio = $( '<div>' ).addClass( 'mwe-upwiz-deed-option-title' ).append(
 					$( '<span>' ).addClass( 'mwe-upwiz-deed-header' ).append(
@@ -57,7 +41,10 @@
 					$( '<div>' ).addClass( 'mwe-upwiz-deed-form' )
 				).hide();
 
-			option.setLabel( $label );
+			option.setLabel( mw.message(
+				'mwe-upwiz-source-' + deed.name + '-label',
+				this.uploads.length
+			).text() );
 
 			radio.addItems( [ option ] );
 

@@ -49,17 +49,25 @@
 		}
 
 		// when selecting an item that has a custom input, we'll immediately focus it
-		this.on( 'change', ( group, item ) => {
-			if ( item && item.isSelected && item.isSelected() ) {
-				// wrapped inside setTimeout to ensure it goes at the end of the call stack,
-				// just in case something steals focus in the meantime...
-				setTimeout( () => {
+		// this would be easier to implement by listening to the "change" event that this object
+		// emits, but those are also triggered for keyboard navigation, and we don't want to focus
+		// the input field in that case as it steals focus away from the radios/checkboxes (which,
+		// in this case of nested radios/checkboxes, can't easily be restored - it'll also focus
+		// the parent radio, which would mess up navigation)
+		this.group.$element.on( 'click', ( event ) => {
+			// wrapped inside setTimeout to ensure it doesn't execute until OOUI has done its thing
+			setTimeout( () => {
+				// first find selected thing(s), then figure out if the one we just clicked is among
+				// them; if so and if that option has an input field, immediately focus it
+				let selectedItems = this.group.findSelectedItems();
+				selectedItems = selectedItems instanceof Array ? selectedItems : [ this.group.findSelectedItem() ];
+				selectedItems.forEach( ( item ) => {
 					const name = item.getData();
-					if ( this.customInputs[ name ] ) {
+					if ( item.$element.has( event.target ) && this.customInputs[ name ] ) {
 						this.customInputs[ name ].focus();
 					}
 				} );
-			}
+			} );
 		} );
 
 		this.fieldset = this.createFieldset( this.group );
@@ -88,6 +96,15 @@
 			const $subhead = $( '<div>' )
 				.addClass( 'mwe-upwiz-deed-license-group-subhead mwe-upwiz-deed-title' )
 				.append( mw.message.apply( mw.message, labelParams ).parseDom() );
+
+			if ( this.config[ 'subhead-extra' ] ) {
+				const labelExtraParams = [ this.config[ 'subhead-extra' ], this.count ].concat( this.config.url );
+				$subhead.append(
+					$( '<span>' )
+						.addClass( 'mwe-upwiz-label-extra' )
+						.append( mw.message.apply( mw.message, labelExtraParams ).parse() )
+				);
+			}
 
 			fieldset.addItems(
 				[
@@ -118,13 +135,14 @@
 
 			const option = new OO.ui.RadioOptionWidget( {
 				label: this.createLabel( licenseName ),
-				data: licenseName
+				data: licenseName,
+				classes: [ 'mwe-upwiz-license-option-' + licenseName ]
 			} );
 
-			// when custom text area receives focus, we should make sure this element is selected
+			// when custom text field receives input, we should make sure this option is selected
 			if ( this.customInputs[ licenseName ] ) {
-				this.customInputs[ licenseName ].on( 'focus', () => {
-					option.setSelected( true );
+				this.customInputs[ licenseName ].$input.on( 'input', () => {
+					option.setSelected( this.customInputs[ licenseName ].getValue() !== '' );
 				} );
 			}
 
@@ -150,14 +168,14 @@
 
 			const option = new OO.ui.CheckboxMultioptionWidget( {
 				label: this.createLabel( licenseName ),
-				data: licenseName
+				data: licenseName,
+				classes: [ 'mwe-upwiz-license-option-' + licenseName ]
 			} );
 
-			// when custom input fields changes, we should make sure this element is selected when
-			// there is content, or deselected when empty
+			// when custom text field receives input, we should make sure this option is selected
 			if ( this.customInputs[ licenseName ] ) {
-				this.customInputs[ licenseName ].on( 'focus', () => {
-					option.setSelected( true );
+				this.customInputs[ licenseName ].$input.on( 'input', () => {
+					option.setSelected( this.customInputs[ licenseName ].getValue() !== '' );
 				} );
 			}
 
@@ -350,17 +368,21 @@
 			} );
 		}
 
-		const $label = $( '<label>' )
-			.msg( messageKey, this.count || 0, $licenseLink, $icons )
-			.addClass( 'mwe-upwiz-copyright-info' );
+		const $label = $( '<label>' ).msg( messageKey, this.count || 0, $licenseLink, $icons );
 
-		if ( this.config.special === 'custom' ) {
-			$label.append( this.createCustom( name, licenseInfo.props.defaultText ) );
-			$label.append(
-				$( '<span>' )
-					.msg( 'mwe-upwiz-license-custom-explain', this.count || 0, $licenseLink )
-					.addClass( 'mwe-upwiz-label-extra' )
-			);
+		if (
+			this.config.special === 'custom' ||
+			licenseInfo.props.special === 'input'
+		) {
+			$label.append( this.createInput( name, licenseInfo.props.defaultText ) );
+
+			if ( licenseInfo.props.msgSpecial !== undefined ) {
+				$label.append(
+					$( '<span>' )
+						.html( mw.message( licenseInfo.props.msgSpecial, this.count || 0, $licenseLink ).parse() )
+						.addClass( 'mwe-upwiz-label-extra mwe-upwiz-label-input' )
+				);
+			}
 		}
 
 		if ( licenseInfo.props.msgExplain !== undefined ) {
@@ -368,6 +390,14 @@
 				$( '<span>' )
 					.msg( licenseInfo.props.msgExplain, this.count || 0, $licenseLink )
 					.addClass( 'mwe-upwiz-label-extra mwe-upwiz-label-explainer' )
+			);
+		}
+
+		if ( licenseInfo.props.msgWarning !== undefined ) {
+			$label.append(
+				$( '<span>' )
+					.msg( licenseInfo.props.msgWarning, this.count || 0, $licenseLink )
+					.addClass( 'mwe-upwiz-label-extra mwe-upwiz-label-warning' )
 			);
 		}
 
@@ -380,29 +410,61 @@
 	 * @param {string} [defaultText] Default custom license text
 	 * @return {jQuery} Wrapped textarea
 	 */
-	uw.LicenseGroup.prototype.createCustom = function ( name, defaultText ) {
+	uw.LicenseGroup.prototype.createInput = function ( name, defaultText ) {
 		this.customInputs[ name ] = new OO.ui.TextInputWidget( {
 			value: defaultText
 		} );
 
-		// Update displayed errors as the user is typing
-		this.customInputs[ name ].on( 'change', OO.ui.debounce( this.emit.bind( this, 'change', this ), 500 ) );
-
 		const button = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
 			flags: [ 'progressive' ]
-		} ).on( 'click', () => {
+		} );
+
+		this.customInputs[ name ].on( 'change', () => {
+			// Update displayed errors as the user is typing
+			OO.ui.debounce( this.emit.bind( this, 'change', this ), 500 );
+		} );
+		this.customInputs[ name ].$element.on( 'mousedown', ( event ) => {
+			// T294389 "Another reason not mentioned above" license input textarea: Text is unclickable.
+			// When used inside other widgets (e.g. RadioSelectWidget or CheckboxMultioptionWidget),
+			// those may have event handlers to respond to clicks (e.g. selecting the radio/checkbox)
+			// that would steal focus from the input. We do not want that to happen, as it may
+			// interfere with operations within the input field (e.g. selecting text), so we'll
+			// avoid that by not propagating the event (to RadioSelectWidget/CheckboxMultioptionWidget),
+			// but that'll then require those parent widgets to handle such relevant events themselves.
+			event.stopPropagation();
+		} );
+		this.customInputs[ name ].$element.on( 'keydown', ( event ) => {
+			switch ( event.which ) {
+				case OO.ui.Keys.UP:
+				case OO.ui.Keys.LEFT:
+				case OO.ui.Keys.DOWN:
+				case OO.ui.Keys.RIGHT:
+					// Similar to the mouse events issue described above; parent widgets may also
+					// handle some keyboard events (e.g. RadioSelectWidget or CheckboxMultioptionWidget
+					// capture up/left and down/right to navigate to previous/next item)
+					// Once again, this is undesirable, as these keys are likely used for operations
+					// within the input field (moving the cursor), so once again we're preventing
+					// propagation of these events to the parent nodes.
+					event.stopPropagation();
+					break;
+				case OO.ui.Keys.ENTER:
+					// Hitting enter should not trigger the default button action (submitting a form),
+					// but open the preview dialog instead.
+					event.preventDefault();
+					button.emit( 'click' );
+					break;
+			}
+		} );
+
+		button.on( 'click', () => {
 			this.showPreview( this.customInputs[ name ].getValue() );
 		} );
 
-		return $( '<div>' ).addClass( 'mwe-upwiz-license-custom' ).append(
+		return $( '<div>' ).addClass( 'mwe-upwiz-license-custom mwe-upwiz-label-input' ).append(
 			this.customInputs[ name ].$element,
 			button.$element
-		).on( 'mousedown ', ( event ) => {
-			// T294389 "Another reason not mentioned above" license input textarea: Text is unclickable.
-			// No not propagate event to RadioSelectWidget.
-			event.stopPropagation();
-		} );
+		);
 	};
 
 	/**

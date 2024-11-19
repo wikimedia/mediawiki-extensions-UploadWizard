@@ -123,14 +123,9 @@
 		this.licenseInput.$element.addClass( 'mwe-upwiz-deed-license-groups' );
 		this.licenseInput.setDefaultValues();
 		this.licenseInputField = new uw.FieldLayout( this.licenseInput, {
-			label: $( '<div>' ).append(
-				$( '<li>' )
-					.addClass( 'mwe-upwiz-label-title' )
-					.append( mw.message( 'mwe-upwiz-source-thirdparty-cases-text', this.uploadCount, mw.user ).parseDom() ),
-				$( '<span>' )
-					.addClass( 'mwe-upwiz-label-extra' )
-					.text( mw.message( 'mwe-upwiz-tooltip-thirdparty-license', this.uploadCount, mw.user ).text() )
-			),
+			label: $( '<li>' )
+				.addClass( 'mwe-upwiz-label-title' )
+				.append( mw.message( 'mwe-upwiz-source-thirdparty-cases-title', this.uploadCount, mw.user ).parseDom() ),
 			required: true
 		} );
 

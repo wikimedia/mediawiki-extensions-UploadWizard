@@ -499,10 +499,28 @@ return [
 			'msg' => 'mwe-upwiz-license-none',
 			'templates' => [ 'subst:uwl' ]
 		],
+		'unknown' => [
+			'msg' => 'mwe-upwiz-license-unknown',
+			'msgWarning' => 'mwe-upwiz-license-unknown-warning',
+			'templates' => [ 'subst:uwl' ]
+		],
+		'unsure' => [
+			'msg' => 'mwe-upwiz-license-unsure',
+			'templates' => [ 'subst:uwl' ]
+		],
 		'custom' => [
-			'msg' => 'mwe-upwiz-license-custom-text',
+			'msg' => 'mwe-upwiz-license-custom',
 			'templates' => [ 'subst:Custom license marker added by UW' ],
-			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse()
+			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse(),
+			'special' => 'input',
+			'msgSpecial' => 'mwe-upwiz-license-custom-explain'
+		],
+		'custom-pd' => [
+			'msg' => 'mwe-upwiz-license-custom-pd',
+			'templates' => [ 'subst:Custom license marker added by UW' ],
+			'url' => wfMessage( 'mwe-upwiz-license-custom-pd-url' )->parse(),
+			'special' => 'input',
+			'msgSpecial' => 'mwe-upwiz-license-custom-pd-explain'
 		],
 		'generic' => [
 			'msg' => 'mwe-upwiz-license-generic',
@@ -536,8 +554,8 @@ return [
 			'type' => 'or',
 			'licenseGroups' => [
 				[
-					'head' => 'mwe-upwiz-license-yes-head',
-					'subhead' => 'mwe-upwiz-license-yes-subhead',
+					'head' => 'mwe-upwiz-license-free-head',
+					'subhead' => 'mwe-upwiz-license-free-subhead',
 					'licenses' => [
 						'cc-zero',
 						'cc-by-4.0',
@@ -546,23 +564,15 @@ return [
 						'cc-by-sa-4.0',
 						'cc-by-sa-3.0',
 						'cc-by-sa-2.5',
+						'custom',
+						'unknown',
 					]
 				],
 				[
-					'head' => 'mwe-upwiz-license-no-head',
-					'subhead' => 'mwe-upwiz-license-no-subhead',
-					'url' => [
-						'//commons.wikimedia.org/wiki/Commons:Licensing#Acceptable_licenses',
-						'//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
-						'//commons.wikimedia.org/wiki/Commons:Licensing',
-						'//commons.wikimedia.org/wiki/Commons:Village_pump/Copyright',
-					],
-					'defaults' => [ 'none' ],
-					'licenses' => [ 'none' ],
-				],
-				[
 					'head' => 'mwe-upwiz-license-cc0-head',
-					'subhead' => 'mwe-upwiz-license-cc0-subhead',
+					'head-extra' => 'mwe-upwiz-license-cc0-head-extra',
+					'subhead' => 'mwe-upwiz-license-cc0-subhead-2',
+					'subhead-extra' => 'mwe-upwiz-license-cc0-subhead-extra',
 					'icons' => [ 'cc-public-domain' ],
 					'url' => '//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
 					'type' => 'and',
@@ -571,14 +581,21 @@ return [
 						'pd-old-70',
 						'pd-usgov',
 						'pd-usgov-nasa',
-						'pd-us-generic',
+						'unsure',
+						'custom-pd',
 					]
 				],
 				[
-					'head' => 'mwe-upwiz-license-other-head',
-					'special' => 'custom',
-					'defaults' => [ 'custom' ],
-					'licenses' => [ 'custom' ],
+					'head' => 'mwe-upwiz-license-unknown-head',
+					'subhead' => 'mwe-upwiz-license-unknown-subhead',
+					'url' => [
+						'//commons.wikimedia.org/wiki/Commons:Licensing#Acceptable_licenses',
+						'//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
+						'//commons.wikimedia.org/wiki/Commons:Licensing',
+						'//commons.wikimedia.org/wiki/Commons:Village_pump/Copyright',
+					],
+					'defaults' => [ 'none' ],
+					'licenses' => [ 'none' ],
 				],
 			]
 		]

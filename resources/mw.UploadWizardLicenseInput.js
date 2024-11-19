@@ -58,16 +58,26 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 			// hence this convoluted variable-length parameters assembly...
 			const labelParams = [ groupConfig.head, this.count ].concat( groupConfig.url ).concat( $icons );
 			const label = groupConfig.head && mw.message.apply( mw.message, labelParams ).parse() || '';
+			const labelExtraParams = [ groupConfig[ 'head-extra' ], this.count ].concat( groupConfig.url ).concat( $icons );
+			const labelExtra = groupConfig[ 'head-extra' ] && mw.message.apply( mw.message, labelExtraParams ).parse() || '';
 
 			let option;
 			if ( this.type === 'radio' ) {
 				option = new OO.ui.RadioOptionWidget( {
-					label: new OO.ui.HtmlSnippet( label ),
+					label: $( '<span>' )
+						.append( label )
+						.append( $( '<span>' ).addClass( 'mwe-upwiz-label-extra' ).append( labelExtra ) )
+						.contents(),
+					// label: new OO.ui.HtmlSnippet( label ),
 					classes: classes
 				} );
 			} else if ( this.type === 'checkbox' ) {
 				option = new OO.ui.CheckboxMultioptionWidget( {
-					label: new OO.ui.HtmlSnippet( label ),
+					label: $( '<span>' )
+						.append( label )
+						.append( $( '<span>' ).addClass( 'mwe-upwiz-label-extra' ).append( labelExtra ) )
+						.contents(),
+					// label: new OO.ui.HtmlSnippet( label ),
 					classes: classes
 				} );
 			}
@@ -290,7 +300,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @memberof mw.UploadWizardLicenseInput
 	 * @return {jQuery.Promise}
 	 */
-	getErrors: function () {
+	getErrors: function ( thorough ) {
 		let errors = $.Deferred().resolve( [] ).promise();
 		const addError = function ( message ) {
 			errors = errors.then( ( errors ) => {
@@ -299,6 +309,13 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 			} );
 		};
 		const selectedInputs = this.getSerialized();
+
+		thorough = thorough || false;
+		if ( thorough !== true ) {
+			// `thorough` is the strict checks executed on submit, but we don't want errors
+			// to change/display every change event
+			return errors;
+		}
 
 		if ( Object.keys( selectedInputs ).length === 0 ) {
 			addError( 'mwe-upwiz-deeds-require-selection' );

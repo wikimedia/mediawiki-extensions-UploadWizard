@@ -37,11 +37,20 @@
 .mwe-upwiz-label-extra {
 	display: block;
 	color: @color-subtle;
+	font-weight: normal;
 }
 
 // don't show additional license explainer text for third party license selection
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-license-group .mwe-upwiz-label-explainer {
 	display: none;
+}
+
+// don't show warnings/inputs until selected
+.mwe-upwiz-deed-forms .mwe-upwiz-deed-license-group label:not( :has( *:checked ) ):not( :focus-within ) {
+	.mwe-upwiz-label-warning,
+	.mwe-upwiz-label-input {
+		display: none;
+	}
 }
 
 .mwe-upwiz-deed-form-internal {
@@ -125,10 +134,6 @@
 	label:not( :first-of-type ) {
 		margin-top: 1em;
 	}
-
-	.mwe-upwiz-copyright-info > a {
-		font-size: 12px;
-	}
 }
 
 .mwe-upwiz-deed-subgroup {
@@ -181,8 +186,7 @@
 		}
 
 		// get rid of unnecessary padding between (now hidden) radio button and rest of the contents
-		.oo-ui-labelElement-label,
-		.mwe-upwiz-copyright-info {
+		.oo-ui-labelElement-label {
 			padding-left: 0;
 		}
 	}
@@ -191,6 +195,7 @@
 		// side by side input field & button
 		display: flex;
 		max-width: 48em;
+		margin-top: 0.5em;
 		margin-bottom: 0.5em;
 
 		.oo-ui-inputWidget-input {
@@ -209,11 +214,7 @@
 
 	label:has( .mwe-upwiz-license-custom ),
 	.oo-ui-radioOptionWidget.oo-ui-labelElement > .oo-ui-labelElement-label:has( .mwe-upwiz-license-custom ) {
-		display: block;
-	}
-
-	fieldset.mwe-upwiz-deed-subgroup:has( .mwe-upwiz-license-custom ) {
-		padding-right: 0;
+		width: 100%;
 	}
 }
 
@@ -236,19 +237,21 @@
 
 /*
  * license selection is rather generic to allow customization for campaigns, which makes
- * it rather hard to add a specific "warning" class to the "no license known" license group,
- * so we will target that one directly and mimic OO.ui.MessageWidget( { type: 'warning' } )
+ * it rather hard to add a specific "warning" class to the "no license known" license group/option,
+ * so we will target these directly and mimic OO.ui.MessageWidget( { type: 'warning' } )
  */
-.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head + .mwe-upwiz-deed-license-group,
+.mwe-upwiz-label-warning {
 	// show warning style instead of default grey background
-	background: ~'@background-color-warning-subtle url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 24px 16px / 20px';
+	background: @background-color-warning-subtle ~'url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 24px 16px / 20px';
 	padding: 16px 24px 16px 56px;
 	border: @border-width-base @border-style-base @border-color-warning;
+	color: @color-notice;
 
 	// get rid of bold text & margin from the default license selection styles
 	.mwe-upwiz-deed-license-group-subhead {
 		font-weight: inherit;
-		color: @color-notice;
+		color: inherit;
 		margin-bottom: 0;
 	}
 
@@ -262,7 +265,8 @@
 /*
  * also apply custom warning message styles to warning in license selection
  */
-.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head + .mwe-upwiz-deed-license-group,
+.mwe-upwiz-label-warning {
 	p {
 		/*
 		 * multi-paragraph messages will be wrapped in <p>, which add an unwanted
@@ -274,6 +278,37 @@
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+	}
+}
+
+/*
+ * another highly customized option: manually inputting a PD tag
+ * we want this one to fit with the default license config, but it needs
+ * a very different style (no checkbox, always visible, etc.)
+ */
+.mwe-upwiz-deed-license-group-mwe-upwiz-license-cc0-head + .mwe-upwiz-deed-license-group .mwe-upwiz-license-option-custom-pd {
+	margin-top: 2em;
+
+	.oo-ui-checkboxInputWidget {
+		display: none;
+	}
+
+	.oo-ui-labelElement-label {
+		padding-left: 0;
+		font-weight: @font-weight-bold;
+
+		.mwe-upwiz-label-input {
+			font-weight: normal;
+		}
+
+		// override default collapsed behaviour for this particular input
+		&:not( :has( *:checked ) ) .mwe-upwiz-label-input {
+			display: block;
+
+			&.mwe-upwiz-license-custom {
+				display: flex;
+			}
 		}
 	}
 }

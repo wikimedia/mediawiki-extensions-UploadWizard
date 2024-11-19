@@ -168,13 +168,6 @@
 							mw.user
 						)
 						.append(
-							$( '<span>' )
-								.addClass( 'mwe-upwiz-label-extra' )
-								.msg(
-									'mwe-upwiz-source-ownwork-origin-option-others-explain',
-									this.uploadCount,
-									mw.user
-								),
 							$( '<div>' )
 								.addClass( 'mwe-upwiz-deed-origin-others-container' )
 								.addClass( 'mwe-upwiz-deed-radio-reveal' )
@@ -198,7 +191,7 @@
 				new OO.ui.RadioOptionWidget( {
 					label: $( '<div>' )
 						.append(
-							mw.message( 'mwe-upwiz-source-ownwork-origin-option-ai' ).parse()
+							mw.message( 'mwe-upwiz-source-ownwork-origin-option-ai', this.uploadCount, mw.user ).parse()
 						).append(
 							$( '<div>' )
 								.addClass( 'mwe-upwiz-deed-radio-reveal' )
@@ -255,7 +248,7 @@
 								type: 'warning',
 								label: new OO.ui.HtmlSnippet(
 									mw.message(
-										'mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning',
+										'mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning-text',
 										this.uploadCount,
 										mw.user
 									).parse()
@@ -278,7 +271,7 @@
 								type: 'warning',
 								label: new OO.ui.HtmlSnippet(
 									mw.message(
-										'mwe-upwiz-source-ownwork-origin-option-others-unknown-warning',
+										'mwe-upwiz-source-ownwork-origin-option-others-unknown-warning-text',
 										this.uploadCount,
 										mw.user
 									).parse()
@@ -356,7 +349,7 @@
 									mw.message(
 										'mwe-upwiz-source-ownwork-purpose-option-personal-warning',
 										this.uploadCount
-									).parse()
+									).parseDom()
 								),
 								classes: [ 'mwe-upwiz-deed-warning', 'mwe-upwiz-deed-radio-reveal' ]
 							} ).$element.hide()
