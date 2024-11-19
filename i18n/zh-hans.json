@@ -57,7 +57,8 @@
 			"神樂坂秀吉",
 			"铁桶",
 			"阿pp",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"WiiUf"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -310,8 +311,8 @@
 	"mwe-upwiz-error-date-blank": "创建日期为必填",
 	"mwe-upwiz-error-date-license-mismatch": "选择的日期不匹配许可协议（$1）。",
 	"mwe-upwiz-error-date-license-unlikely": "考虑到许可协议（$1），选择的日期似乎不正确。",
-	"mwe-upwiz-error-blank": "必须回答这个问题。",
-	"mwe-upwiz-error-question-blank": "必须回答这个问题。",
+	"mwe-upwiz-error-blank": "您必须回答这个问题。",
+	"mwe-upwiz-error-question-blank": "您必须回答这个问题。",
 	"mwe-upwiz-error-too-long": "此项过长。请确保该项最多$1个{{PLURAL:$1|字符}}。",
 	"mwe-upwiz-error-too-short": "此项过短。请确保该项最少$1个{{PLURAL:$1|字符}}。",
 	"mwe-upwiz-error-title-blank": "必须提供标题",
