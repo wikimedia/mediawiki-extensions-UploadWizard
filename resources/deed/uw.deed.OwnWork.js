@@ -452,8 +452,11 @@
 				.append( this.licenseInputField.$element )
 		);
 
-		// don't show purpose field in campaigns
-		if ( !new mw.Uri().query.campaign ) {
+		// show the purpose field if we aren't in a campaign and the user isn't autoconfirmed
+		if (
+			!new mw.Uri().query.campaign &&
+			mw.config.get( 'wgUserGroups' ).indexOf( 'autoconfirmed' ) === -1
+		) {
 			$formFields.append(
 				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-purpose' )
 					.append( this.purposeField.$element )
