@@ -171,7 +171,7 @@
 	 * @return {string} basename
 	 */
 	mw.UploadWizardUpload.prototype.getBasename = function () {
-		var path = this.getFilename();
+		const path = this.getFilename();
 
 		if ( path === undefined || path === null ) {
 			return '';
@@ -204,7 +204,7 @@
 	 * @return {jQuery.Promise} A promise, resolved when we're done
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function () {
-		var binReader, jpegmeta,
+		let binReader, jpegmeta,
 			deferred = $.Deferred(),
 			upload = this;
 		if ( this.file && this.file.type === 'image/jpeg' ) {
@@ -213,7 +213,7 @@
 				deferred.resolve();
 			};
 			binReader.onload = function () {
-				var binStr, arr, i, meta;
+				let binStr, arr, i, meta;
 				if ( binReader.result === null ) {
 					// Contrary to documentation, this sometimes fires for unsuccessful loads (T136235)
 					deferred.resolve();
@@ -257,7 +257,7 @@
 	 * @param {Object} meta As returned by jpegmeta
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMetaCallback = function ( meta ) {
-		var pixelHeightDim, pixelWidthDim, degrees;
+		let pixelHeightDim, pixelWidthDim, degrees;
 
 		if ( meta !== undefined && meta !== null && typeof meta === 'object' ) {
 			if ( this.imageinfo.metadata === undefined ) {
@@ -313,7 +313,7 @@
 	 * @param {Object} imageinfo JSON object obtained from API result.
 	 */
 	mw.UploadWizardUpload.prototype.extractImageInfo = function ( imageinfo ) {
-		var key,
+		let key,
 			upload = this;
 
 		for ( key in imageinfo ) {
@@ -346,7 +346,7 @@
 	 * @param {number} [height] Height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getStashImageInfo = function ( callback, props, width, height ) {
-		var params = {
+		const params = {
 			prop: 'stashimageinfo',
 			siifilekey: this.fileKey,
 			siiprop: props.join( '|' )
@@ -396,15 +396,15 @@
 	 * @param {number} [height] Height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getImageInfo = function ( callback, props, width, height ) {
-		var requestedTitle, params;
+		let requestedTitle, params;
 
 		function ok( data ) {
-			var found;
+			let found;
 
 			if ( data && data.query && data.query.pages ) {
 				found = false;
 				Object.keys( data.query.pages ).forEach( ( pageId ) => {
-					var page = data.query.pages[ pageId ];
+					const page = data.query.pages[ pageId ];
 					if ( page.title && page.title === requestedTitle && page.imageinfo ) {
 						found = true;
 						callback( page.imageinfo );
@@ -457,7 +457,7 @@
 	 * @return {mw.ApiUploadFormDataHandler|mw.ApiUploadPostHandler} upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
-		var constructor; // must be the name of a function in 'mw' namespace
+		let constructor; // must be the name of a function in 'mw' namespace
 
 		if ( !this.uploadHandler ) {
 			constructor = 'ApiUploadFormDataHandler';
@@ -482,7 +482,7 @@
 	 *     couldn't be generated
 	 */
 	mw.UploadWizardUpload.prototype.getApiThumbnail = function ( width, height ) {
-		var deferred = $.Deferred();
+		const deferred = $.Deferred();
 
 		function thumbnailPublisher( thumbnails ) {
 			if ( thumbnails === null ) {
@@ -494,7 +494,7 @@
 				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
 				// the event with a null.
 				thumbnails.forEach( ( thumb ) => {
-					var timeoutMs, image;
+					let timeoutMs, image;
 
 					if ( thumb.thumberror || ( !( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 						mw.log.warn( 'mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information' );
@@ -554,7 +554,7 @@
 	 * @return {number} orientation in degrees: 0, 90, 180 or 270
 	 */
 	mw.UploadWizardUpload.prototype.getOrientationDegrees = function () {
-		var orientation = 0;
+		let orientation = 0;
 		if ( this.imageinfo && this.imageinfo.metadata && this.imageinfo.metadata.orientation ) {
 			switch ( this.imageinfo.metadata.orientation ) {
 				case 8:
@@ -588,9 +588,9 @@
 	 * @return {number}
 	 */
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
-		var scaling = 1;
+		let scaling = 1;
 		Object.keys( constraints ).forEach( ( dim ) => {
-			var s,
+			let s,
 				constraint = constraints[ dim ];
 			if ( constraint && image[ dim ] > constraint ) {
 				s = constraint / image[ dim ];
@@ -613,7 +613,7 @@
 	 * @return {HTMLCanvasElement|null}
 	 */
 	mw.UploadWizardUpload.prototype.getTransformedCanvasElement = function ( image, constraints ) {
-		var angle, scaling, width, height,
+		let angle, scaling, width, height,
 			dimensions, dx, dy, x, y, $canvas, ctx,
 			scaleConstraints = constraints,
 			rotation = 0;
@@ -703,7 +703,7 @@
 	 * @return {HTMLImageElement} with same src, but different attrs
 	 */
 	mw.UploadWizardUpload.prototype.getBrowserScaledImageElement = function ( image, constraints ) {
-		var scaling = this.getScalingFromConstraints( image, constraints );
+		const scaling = this.getScalingFromConstraints( image, constraints );
 		return $( '<img>' )
 			.attr( {
 				width: parseInt( image.width * scaling, 10 ),
@@ -722,7 +722,7 @@
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
 	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
-		var constraints = {},
+		let constraints = {},
 			transform;
 
 		if ( width ) {
@@ -752,7 +752,7 @@
 	 *   containing a thumbnail, or resolved with `null` when one can't be produced
 	 */
 	mw.UploadWizardUpload.prototype.getThumbnail = function ( width, height ) {
-		var upload = this,
+		const upload = this,
 			deferred = $.Deferred();
 
 		if ( this.thumbnailPromise[ width + 'x' + height ] ) {
@@ -808,7 +808,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.makePreview = function ( width ) {
-		var first, video, url, dataUrlReader,
+		let first, video, url, dataUrlReader,
 			deferred = $.Deferred(),
 			upload = this;
 
@@ -834,7 +834,7 @@
 						// Chrome sometimes shows black frames if grabbing right away.
 						// wait 500ms before grabbing frame
 						setTimeout( () => {
-							var context,
+							let context,
 								canvas = document.createElement( 'canvas' );
 							canvas.width = width;
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
@@ -881,7 +881,7 @@
 	 * @param {jQuery.Deferred} deferred
 	 */
 	mw.UploadWizardUpload.prototype.loadImage = function ( url, deferred ) {
-		var image = document.createElement( 'img' );
+		const image = document.createElement( 'img' );
 		image.onload = function () {
 			deferred.resolve( image );
 		};

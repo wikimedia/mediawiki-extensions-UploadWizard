@@ -10,7 +10,7 @@
 	 * @param {mw.UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
 	 */
 	mw.UploadWizardDeedChooser = function ( config, deeds, uploads ) {
-		var chooser = this,
+		let chooser = this,
 			$radioContainer,
 			$formContainer;
 
@@ -32,7 +32,7 @@
 		);
 
 		Object.keys( this.deeds ).forEach( ( name ) => {
-			var deed = chooser.deeds[ name ],
+			const deed = chooser.deeds[ name ],
 				radio = new OO.ui.RadioSelectWidget( { classes: [ 'mwe-upwiz-deed-radio-' + name ] } ),
 				option = new OO.ui.RadioOptionWidget(),
 				$label = $( '<span>' ).append(
@@ -130,7 +130,7 @@
 	 * @param {string} deedName
 	 */
 	mw.UploadWizardDeedChooser.prototype.deselectDeedInterface = function ( deedName ) {
-		var $deedRadio = this.$element.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
+		const $deedRadio = this.$element.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
 			$deedForm = this.$element.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
 
 		$deedRadio.prop( 'checked', false );
@@ -148,7 +148,7 @@
 	 * @param {string} deedName
 	 */
 	mw.UploadWizardDeedChooser.prototype.selectDeedInterface = function ( deedName ) {
-		var self = this,
+		const self = this,
 			$deedRadio = this.$element.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
 			$deedForm = this.$element.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
 
@@ -170,7 +170,7 @@
 	};
 
 	mw.UploadWizardDeedChooser.prototype.remove = function () {
-		var self = this;
+		const self = this;
 
 		Object.keys( this.deeds ).forEach( ( name ) => {
 			self.deeds[ name ].unload();
@@ -190,7 +190,7 @@
 	 * @param {Object} serialized
 	 */
 	mw.UploadWizardDeedChooser.prototype.setSerialized = function ( serialized ) {
-		var deed;
+		let deed;
 
 		if ( serialized.name && serialized.name in this.deeds ) {
 			deed = this.deeds[ serialized.name ];

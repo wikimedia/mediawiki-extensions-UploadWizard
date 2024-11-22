@@ -1,6 +1,6 @@
 ( function ( uw ) {
 
-	var NS_CATEGORY = mw.config.get( 'wgNamespaceIds' ).category;
+	const NS_CATEGORY = mw.config.get( 'wgNamespaceIds' ).category;
 
 	/**
 	 * A categories field in UploadWizard's "Details" step form.
@@ -9,14 +9,14 @@
 	 * @extends uw.DetailsWidget
 	 */
 	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget( config ) {
-		var categories, catDetails = this;
+		let categories, catDetails = this;
 
 		uw.CategoriesDetailsWidget.super.call( this );
 
 		this.categoriesWidget = new mw.widgets.CategoryMultiselectWidget( config );
 
 		this.categoriesWidget.createTagItemWidget = function ( data ) {
-			var widget = this.constructor.prototype.createTagItemWidget.call( this, data );
+			const widget = this.constructor.prototype.createTagItemWidget.call( this, data );
 			if ( !widget ) {
 				return null;
 			}
@@ -51,7 +51,7 @@
 	 * @inheritdoc
 	 */
 	uw.CategoriesDetailsWidget.prototype.getWarnings = function () {
-		var warnings = [],
+		const warnings = [],
 			missing = this.categoriesWidget.getItems().filter( ( item ) => item.missing );
 
 		if ( missing.length > 0 ) {
@@ -65,7 +65,7 @@
 	 * @inheritdoc
 	 */
 	uw.CategoriesDetailsWidget.prototype.getWikiText = function () {
-		var hiddenCats, missingCatsWikiText, categories, wikiText;
+		let hiddenCats, missingCatsWikiText, categories, wikiText;
 
 		hiddenCats = [];
 		if ( mw.UploadWizard.config.autoAdd.categories ) {

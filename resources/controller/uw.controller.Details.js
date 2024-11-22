@@ -51,7 +51,7 @@
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Details.prototype.load = function ( uploads ) {
-		var controller = this;
+		const controller = this;
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 
@@ -59,7 +59,7 @@
 		this.queue.abortExecuting();
 
 		this.uploads.forEach( ( upload ) => {
-			var serialized;
+			let serialized;
 
 			// get existing details
 			serialized = upload.details ? upload.details.getSerialized() : null;
@@ -87,7 +87,7 @@
 	};
 
 	uw.controller.Details.prototype.addCopyMetadataFeature = function () {
-		var first,
+		let first,
 			// uploads can only be edited when they're in a certain state:
 			// a flat out upload failure or a completed upload can not be edited
 			invalidStates = [ 'aborted', 'error', 'complete' ],
@@ -164,7 +164,7 @@
 	 * TODO move the rest of the logic here from mw.UploadWizard
 	 */
 	uw.controller.Details.prototype.startDetails = function () {
-		var details = this;
+		const details = this;
 
 		this.valid( true )
 			.always( ( errors, warnings, notices ) => {
@@ -183,14 +183,14 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.valid = function ( thorough ) {
-		var titles = [],
+		const titles = [],
 			validityPromises = [];
 
 		thorough = thorough || false;
 
 		this.uploads.forEach( ( upload ) => {
 			// Seen this title before?
-			var title = upload.details.getTitle();
+			let title = upload.details.getTitle();
 			if ( title ) {
 				title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
 				if ( titles[ title ] ) {
@@ -235,7 +235,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.transitionAll = function () {
-		var
+		const
 			deferred = $.Deferred(),
 			details = this;
 
@@ -257,7 +257,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.submit = function () {
-		var details = this;
+		const details = this;
 
 		this.uploads.forEach( ( upload ) => {
 			// Clear error state

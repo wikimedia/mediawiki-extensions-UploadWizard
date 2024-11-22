@@ -7,7 +7,7 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload ) {
-		var ui = this;
+		const ui = this;
 
 		OO.EventEmitter.call( this );
 
@@ -87,7 +87,7 @@
 	 *  Omit to hide the indicator
 	 */
 	mw.UploadWizardUploadInterface.prototype.showIndicator = function ( status ) {
-		var progress = status === 'progress';
+		const progress = status === 'progress';
 		this.$spinner.toggle( progress );
 		this.statusMessage.toggle( status && !progress ).setType( status );
 		this.$indicator.toggleClass( 'mwe-upwiz-file-indicator-visible', !!status );
@@ -108,7 +108,7 @@
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatus = function ( msgKey, args ) {
 		// get the status line for our upload
-		var $status = this.$div.find( '.mwe-upwiz-file-status' );
+		const $status = this.$div.find( '.mwe-upwiz-file-status' );
 		$status.msg( msgKey, args || [] ).show();
 	};
 
@@ -187,7 +187,7 @@
 	 * @param {File} file
 	 */
 	mw.UploadWizardUploadInterface.prototype.fileChangedOk = function ( imageinfo, file ) {
-		var statusItems = [];
+		const statusItems = [];
 
 		this.updateFilename();
 
@@ -211,7 +211,7 @@
 	 *     fails
 	 */
 	mw.UploadWizardUploadInterface.prototype.showThumbnail = function () {
-		var $preview = this.$div.find( '.mwe-upwiz-file-preview' ),
+		const $preview = this.$div.find( '.mwe-upwiz-file-preview' ),
 			deferred = $.Deferred();
 		// This must match the CSS dimensions of .mwe-upwiz-file-preview
 		this.upload.getThumbnail( 120, 120 ).done( ( thumb ) => {
@@ -230,7 +230,7 @@
 	 *       TODO silently fix to have unique filename? unnecessary at this point...
 	 */
 	mw.UploadWizardUploadInterface.prototype.updateFilename = function () {
-		var path = this.upload.getFilename();
+		const path = this.upload.getFilename();
 
 		// visible filename
 		this.$form.find( '.mwe-upwiz-visible-file-filename-text' )
@@ -250,7 +250,7 @@
 	 * @return {jQuery} A `div` containing a checkbox, label, and optional notice
 	 */
 	mw.UploadWizardUploadInterface.prototype.createImagePickerField = function ( index, setDisabled ) {
-		var $fieldContainer = $( '<div>' ).addClass( 'mwe-upwiz-objref-pick-image' ),
+		const $fieldContainer = $( '<div>' ).addClass( 'mwe-upwiz-objref-pick-image' ),
 			attributes = {
 				type: 'checkbox',
 				class: 'imgPicker',

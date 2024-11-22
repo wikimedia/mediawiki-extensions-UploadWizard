@@ -34,7 +34,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadFormDataHandler.prototype.submit = function () {
-		var handler = this;
+		const handler = this;
 
 		return this.configureEditToken().then( () => {
 			handler.beginTime = Date.now();
@@ -62,7 +62,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadFormDataHandler.prototype.configureEditToken = function () {
-		var handler = this;
+		const handler = this;
 
 		return this.api.getEditToken().then( ( token ) => {
 			handler.formData.token = token;

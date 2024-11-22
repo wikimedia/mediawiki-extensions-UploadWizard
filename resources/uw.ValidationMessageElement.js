@@ -40,7 +40,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.ValidationMessageElement.prototype.checkValidity = function ( thorough ) {
-		var element = this;
+		const element = this;
 		thorough = thorough || false;
 
 		if ( this.validatedWidget.pushPending ) {
@@ -76,7 +76,7 @@
 	 * @return {jQuery}
 	 */
 	uw.ValidationMessageElement.prototype.makeMessage = function ( kind, error ) {
-		var code, $content;
+		let code, $content;
 
 		if ( error.parseDom ) {
 			// mw.Message object

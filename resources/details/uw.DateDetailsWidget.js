@@ -80,7 +80,7 @@
 	 * @return {jQuery.Promise} Promise with the API response
 	 */
 	uw.DateDetailsWidget.prototype.parseDate = function () {
-		var userInput = this.dateInputWidget.getValue(),
+		const userInput = this.dateInputWidget.getValue(),
 			// Handle input that includes time:
 			// it typically comes from the upload's EXIF metadata,
 			// but might also be inserted by the user.
@@ -125,7 +125,7 @@
 	 * @inheritdoc
 	 */
 	uw.DateDetailsWidget.prototype.getNotices = function () {
-		var notices = [];
+		const notices = [];
 
 		if ( this.prefilled ) {
 			notices.push( mw.message( 'mwe-upwiz-warning-date-prefilled' ) );
@@ -142,7 +142,7 @@
 		this.parseDateValidation = this.parseDate();
 		return this.parseDateValidation.then(
 			( data ) => {
-				var dayPrecision = 11;
+				const dayPrecision = 11;
 				if ( data.results && data.results[ 0 ] && data.results[ 0 ].value.precision < dayPrecision ) {
 					notices.push( mw.message( 'mwe-upwiz-notice-date-imprecise' ) );
 				}
@@ -163,7 +163,7 @@
 	 * @inheritdoc
 	 */
 	uw.DateDetailsWidget.prototype.getWarnings = function () {
-		var i,
+		let i,
 			license,
 			licenseMsg,
 			warnings = [],
@@ -205,7 +205,7 @@
 	 * @inheritdoc
 	 */
 	uw.DateDetailsWidget.prototype.getErrors = function () {
-		var errors = [],
+		const errors = [],
 			trimmedInput = this.dateInputWidget.getValue().trim(),
 			licenses = this.getLicenses(),
 			// Timestamps: milliseconds

@@ -24,7 +24,7 @@
 	 * @param {Object} languages
 	 */
 	uw.LanguageDropdownWidget.prototype.updateLanguages = function ( languages ) {
-		var menu = this.languageDropdown.getMenu(),
+		const menu = this.languageDropdown.getMenu(),
 			currentMenuItems = menu.getItems(),
 			currentValue = this.getValue();
 

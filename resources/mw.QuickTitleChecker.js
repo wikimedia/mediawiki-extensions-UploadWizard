@@ -73,9 +73,9 @@
 	 *   Possible error codes are 'invalid', 'senselessimagename', 'thumbnail', 'extension'.
 	 */
 	mw.QuickTitleChecker.checkTitle = function ( title ) {
-		var errors = [];
+		const errors = [];
 		Object.keys( mw.QuickTitleChecker.regexSets ).forEach( ( setName ) => {
-			var regexes = mw.QuickTitleChecker.regexSets[ setName ];
+			const regexes = mw.QuickTitleChecker.regexSets[ setName ];
 			regexes.forEach( ( regex ) => {
 				if ( title.match( regex ) ) {
 					errors.push( setName );

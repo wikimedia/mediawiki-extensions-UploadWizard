@@ -48,7 +48,7 @@
 	 * @inheritdoc
 	 */
 	uw.CampaignDetailsWidget.prototype.getErrors = function () {
-		var errors = [];
+		const errors = [];
 		if ( this.required && this.input.getValue().trim() === '' ) {
 			errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
 		}
@@ -59,7 +59,7 @@
 	 * @inheritdoc
 	 */
 	uw.CampaignDetailsWidget.prototype.getWikiText = function () {
-		var value = this.input.getValue().trim();
+		let value = this.input.getValue().trim();
 		if ( value ) {
 			value = this.wikitext.replace( '$1', value );
 		}

@@ -24,7 +24,7 @@
 	 * @param {Object} config
 	 */
 	uw.ui.Thanks = function UWUIThanks( config ) {
-		var homeButtonTarget,
+		let homeButtonTarget,
 			homeButtonHref,
 			homeButtonUrl,
 			thanksMessage,
@@ -123,7 +123,7 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.ui.Thanks.prototype.addUpload = function ( upload ) {
-		var thumbWikiText, $thanksDiv, $thumbnailWrapDiv, $thumbnailDiv, $thumbnailCaption, $thumbnailLink;
+		let thumbWikiText, $thanksDiv, $thumbnailWrapDiv, $thumbnailDiv, $thumbnailCaption, $thumbnailLink;
 
 		thumbWikiText = '[[' + [
 			upload.details.getTitle().getPrefixedText(),
@@ -178,7 +178,7 @@
 	 * @return {jQuery}
 	 */
 	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( value, label, useEditFont ) {
-		var copyText = new mw.widgets.CopyTextLayout( {
+		const copyText = new mw.widgets.CopyTextLayout( {
 			align: 'top',
 			label: label,
 			copyText: value
@@ -215,7 +215,7 @@
 	 * @private
 	 */
 	uw.ui.Thanks.prototype.dropParameterFromURL = function ( url, paramName ) {
-		var newUrl = new mw.Uri( url );
+		const newUrl = new mw.Uri( url );
 		if ( newUrl.query ) {
 			delete newUrl.query[ paramName ];
 			delete newUrl.query[ paramName + '[]' ];
@@ -224,7 +224,7 @@
 	};
 
 	uw.ui.Thanks.prototype.getDelayNotice = function () {
-		var $delayNotice = $( '<p>' )
+		const $delayNotice = $( '<p>' )
 			.addClass( 'mwe-upwiz-thanks-update-delay' )
 			.msg( 'mwe-upwiz-objref-notice-update-delay' );
 

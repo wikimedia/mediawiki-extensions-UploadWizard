@@ -1,6 +1,6 @@
 ( function ( uw ) {
 
-	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file,
+	const NS_FILE = mw.config.get( 'wgNamespaceIds' ).file,
 		byteLength = require( 'mediawiki.String' ).byteLength;
 
 	/**
@@ -43,7 +43,7 @@
 	 * @return {mw.Title|null}
 	 */
 	uw.TitleDetailsWidget.static.makeTitleInFileNS = function ( filename ) {
-		var
+		let
 			mwTitle = mw.Title.newFromText( filename, NS_FILE ),
 			illegalFileChars = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '' ) + ']' );
 		if ( mwTitle && mwTitle.getNamespaceId() !== NS_FILE ) {
@@ -87,7 +87,7 @@
 	 * @return {mw.Title}
 	 */
 	uw.TitleDetailsWidget.prototype.buildTitleFromInput = function ( value ) {
-		var extRegex, cleaned, title;
+		let extRegex, cleaned, title;
 		value = value.trim();
 		if ( !value ) {
 			return null;
@@ -103,7 +103,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.TitleDetailsWidget.prototype.validateTitleInput = function ( value ) {
-		var
+		const
 			errors = [],
 			processDestinationCheck = this.processDestinationCheck,
 			title = this.buildTitleFromInput( value ),
@@ -135,7 +135,7 @@
 
 		return mw.DestinationChecker.checkTitle( title.getPrefixedText() )
 			.then( ( result ) => {
-				var moreErrors = processDestinationCheck( result );
+				let moreErrors = processDestinationCheck( result );
 				if ( result.blacklist.unavailable ) {
 					// We don't have a title blacklist, so just check for some likely undesirable patterns.
 					moreErrors = moreErrors.concat(
@@ -154,7 +154,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.TitleDetailsWidget.prototype.getErrors = function () {
-		var value = this.titleInput.getValue().trim();
+		const value = this.titleInput.getValue().trim();
 
 		return this.validateTitleInput( value );
 	};
@@ -168,7 +168,7 @@
 	 * @return {mw.Message[]} Error messages
 	 */
 	uw.TitleDetailsWidget.prototype.processDestinationCheck = function ( result ) {
-		var messageKey, messageParams, errors, titleString;
+		let messageKey, messageParams, errors, titleString;
 
 		if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
 			return [];
@@ -206,7 +206,7 @@
 				messageKey,
 				titleString,
 				function () {
-					var titleMessage = mw.message( messageKey + '-title' ),
+					const titleMessage = mw.message( messageKey + '-title' ),
 						title = titleMessage.exists() ? titleMessage.text() : '',
 						textMessage = mw.message( messageKey + '-text' ),
 						text = textMessage.exists() ? textMessage.text() : result.blacklist.blacklistReason;
@@ -219,7 +219,7 @@
 			if ( mw.UploadWizard.config.blacklistIssuesPage !== undefined && mw.UploadWizard.config.blacklistIssuesPage !== '' ) {
 				messageParams[ 0 ] = 'mwe-upwiz-blacklisted-details-feedback';
 				messageParams.push( () => {
-					var feedback = new mw.Feedback( {
+					const feedback = new mw.Feedback( {
 						title: new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
 						dialogTitleMessageKey: 'mwe-upwiz-feedback-title'
 					} );
@@ -260,7 +260,7 @@
 	 * @param {string} serialized.title Title text
 	 */
 	uw.TitleDetailsWidget.prototype.setSerialized = function ( serialized ) {
-		var titleInput = this.titleInput,
+		const titleInput = this.titleInput,
 			title = serialized.title;
 
 		titleInput.setValue( title );

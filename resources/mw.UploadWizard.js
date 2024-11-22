@@ -10,7 +10,7 @@
 	 * @class
 	 */
 	mw.UploadWizard = function ( config ) {
-		var maxSimPref;
+		let maxSimPref;
 
 		this.api = this.getApi( { ajax: { timeout: 0 } } );
 
@@ -46,7 +46,7 @@
 		 * @param {string} selector
 		 */
 		createInterface: function ( selector ) {
-			var promise, self = this;
+			let promise, self = this;
 			this.ui = new uw.ui.Wizard( selector );
 
 			promise = this.initialiseSteps();
@@ -86,7 +86,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		initialiseSteps: function () {
-			var self = this,
+			const self = this,
 				steps = {};
 
 			steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
@@ -134,10 +134,10 @@
 		 * @return {mw.Api}
 		 */
 		getApi: function ( options ) {
-			var api = new mw.Api( options );
+			const api = new mw.Api( options );
 
 			api.ajax = function ( parameters, ajaxOptions ) {
-				var original, override;
+				let original, override;
 
 				Object.assign( parameters, {
 					errorformat: 'html',
@@ -153,7 +153,7 @@
 				override = original.then(
 					null, // done handler - doesn't need overriding
 					( code, result ) => { // fail handler
-						var response = { errors: [ {
+						let response = { errors: [ {
 							code: code,
 							html: result.textStatus || mw.message( 'api-clientside-error-invalidresponse' ).parse()
 						} ] };

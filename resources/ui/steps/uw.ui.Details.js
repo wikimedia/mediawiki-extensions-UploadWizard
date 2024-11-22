@@ -23,7 +23,7 @@
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Details = function UWUIDetails() {
-		var details = this;
+		const details = this;
 
 		function startDetails() {
 			details.emit( 'start-details' );
@@ -107,7 +107,7 @@
 	};
 
 	uw.ui.Details.prototype.addNextButton = function () {
-		var ui = this;
+		const ui = this;
 
 		this.nextButtonPromise.done( () => {
 			ui.$buttons.append(
@@ -184,7 +184,7 @@
 	 * @return {boolean}
 	 */
 	uw.ui.Details.prototype.needsPatentAgreement = function ( upload ) {
-		var extensions = mw.UploadWizard.config.patents.extensions;
+		const extensions = mw.UploadWizard.config.patents.extensions;
 
 		return extensions.indexOf( upload.title.getExtension().toLowerCase() ) !== -1;
 	};

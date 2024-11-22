@@ -48,7 +48,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.post = function ( params ) {
-		var deferred = $.Deferred();
+		const deferred = $.Deferred();
 
 		this.request = this.api.post( params, {
 			/*
@@ -66,9 +66,9 @@
 			 * out how much of the upload has already gone out, so let's add it!
 			 */
 			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
+				const xhr = $.ajaxSettings.xhr();
 				xhr.upload.addEventListener( 'progress', ( evt ) => {
-					var fraction = null;
+					let fraction = null;
 					if ( evt.lengthComputable ) {
 						fraction = parseFloat( evt.loaded / evt.total );
 					}
@@ -92,7 +92,7 @@
 	 * @return {Object}
 	 */
 	mw.FormDataTransport.prototype.createParams = function ( filename, offset ) {
-		var params = OO.cloneObject( this.formData );
+		const params = OO.cloneObject( this.formData );
 
 		Object.assign( params, {
 			filename: filename,
@@ -118,7 +118,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.upload = function ( file, tempFileName ) {
-		var params, ext;
+		let params, ext;
 
 		this.tempname = tempFileName;
 		// Limit length to 240 bytes (limit hardcoded in UploadBase.php).
@@ -150,7 +150,7 @@
 	 *   promise from #upload
 	 */
 	mw.FormDataTransport.prototype.chunkedUpload = function ( file ) {
-		var
+		let
 			offset,
 			prevPromise = $.Deferred().resolve(),
 			deferred = $.Deferred(),
@@ -162,7 +162,7 @@
 			// Capture offset in a closure
 			// eslint-disable-next-line no-loop-func
 			( function ( offset ) {
-				var
+				const
 					newPromise = $.Deferred(),
 					isLastChunk = offset + chunkSize >= fileSize,
 					thisChunkSize = isLastChunk ? ( fileSize % chunkSize ) : chunkSize;
@@ -191,7 +191,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.uploadChunk = function ( file, offset ) {
-		var params = this.createParams( this.tempname, offset ),
+		let params = this.createParams( this.tempname, offset ),
 			transport = this,
 			bytesAvailable = file.size,
 			chunk;
@@ -323,7 +323,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.retryWithMethod = function ( methodName, file, offset ) {
-		var
+		const
 			transport = this,
 			retryDeferred = $.Deferred(),
 			retry = function () {
@@ -345,7 +345,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.checkStatus = function () {
-		var transport = this,
+		const transport = this,
 			params = OO.cloneObject( this.formData );
 
 		if ( this.aborted ) {

@@ -45,7 +45,7 @@
 	 * @param {Object} config
 	 */
 	uw.ui.Wizard.prototype.initHeader = function ( config ) {
-		var feedbackLink,
+		let feedbackLink,
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$contentSub = $( '#contentSub' );
 
@@ -92,7 +92,7 @@
 	 * @param {Object|string} configAltUploadForm A link or map of languages to links, pointing at an alternate form.
 	 */
 	uw.ui.Wizard.prototype.initAltUploadForm = function ( configAltUploadForm ) {
-		var altUploadForm, userLanguage, title;
+		let altUploadForm, userLanguage, title;
 
 		if ( typeof configAltUploadForm === 'object' ) {
 			userLanguage = mw.config.get( 'wgUserLanguage' );
@@ -128,14 +128,14 @@
 	 * @param {Object.<uw.controller.Step>} steps
 	 */
 	uw.ui.Wizard.prototype.initialiseSteps = function ( steps ) {
-		var $steps = $( '<ul>' )
+		const $steps = $( '<ul>' )
 				.attr( 'id', 'mwe-upwiz-steps' )
 				.addClass( 'ui-helper-clearfix' )
 				.insertBefore( '#mwe-upwiz-content' ),
 			sortedSteps = this.sortSteps( Object.keys( steps ).map( ( key ) => steps[ key ] ) );
 
 		sortedSteps.forEach( ( step ) => {
-			var $arrow = $( '<li>' )
+			const $arrow = $( '<li>' )
 				.attr( 'id', 'mwe-upwiz-step-' + step.stepName )
 				.append(
 					$( '<div>' ).text( mw.message( 'mwe-upwiz-step-' + step.stepName ).text() )
@@ -167,7 +167,7 @@
 	 * @return {uw.controller.Step[]}
 	 */
 	uw.ui.Wizard.prototype.sortSteps = function ( steps ) {
-		var first = steps[ 0 ],
+		let first = steps[ 0 ],
 			sorted,
 			i;
 

@@ -76,7 +76,7 @@
 	 * @private
 	 */
 	uw.LocationDetailsWidget.prototype.onChange = function () {
-		var widget = this;
+		const widget = this;
 		this.getErrors().done( ( errors ) => {
 			widget.mapButton.setDisabled( !( errors.length === 0 && widget.getWikiText() !== '' ) );
 		} );
@@ -86,7 +86,7 @@
 	 * @private
 	 */
 	uw.LocationDetailsWidget.prototype.onMapButtonClick = function () {
-		var latitude = this.normalizeCoordinate( this.latitudeInput.getValue() ),
+		const latitude = this.normalizeCoordinate( this.latitudeInput.getValue() ),
 			longitude = this.normalizeCoordinate( this.longitudeInput.getValue() );
 
 		// Disable clipping because it doesn't play nicely with the map
@@ -109,7 +109,7 @@
 	 * @inheritdoc
 	 */
 	uw.LocationDetailsWidget.prototype.getErrors = function () {
-		var errors = [],
+		const errors = [],
 			latInput = this.latitudeInput.getValue(),
 			lonInput = this.longitudeInput.getValue(),
 			headInput = this.headingInput.getValue(),
@@ -163,7 +163,7 @@
 	 * @inheritdoc
 	 */
 	uw.LocationDetailsWidget.prototype.getWikiText = function () {
-		var locationParts,
+		let locationParts,
 			latInput = this.latitudeInput.getValue(),
 			lonInput = this.longitudeInput.getValue(),
 			headInput = this.headingInput.getValue(),
@@ -232,10 +232,10 @@
 	 * @return {number|NaN} NaN when normalization was not possible
 	 */
 	uw.LocationDetailsWidget.prototype.normalizeCoordinate = function ( input ) {
-		var sign = input.match( /[sw]/i ) ? -1 : 1;
+		const sign = input.match( /[sw]/i ) ? -1 : 1;
 
 		// fix commonly used character alternatives
-		var value = input.trim()
+		let value = input.trim()
 			.replace( /−/g, '-' )
 			.replace( /\s*[,.]\s*/g, '.' );
 
@@ -243,7 +243,7 @@
 		// decimal degrees
 		// there can be a lot of variation in the notation, so let's only
 		// focus on "groups of digits" (and not whether e.g. ″ or " is used)
-		var parts = value.match( /^\D*(-?\d{1,3}\b[\d.]*)[^\d.]+(\d{1,2}\b[\d.]*)(?:[^\d.]+(\d{1,2}\b[\d.]*))?\D*$/ );
+		const parts = value.match( /^\D*(-?\d{1,3}\b[\d.]*)[^\d.]+(\d{1,2}\b[\d.]*)(?:[^\d.]+(\d{1,2}\b[\d.]*))?\D*$/ );
 		if ( parts ) {
 			value = parts[ 1 ] * 1 + parts[ 2 ] / 60 + ( parts[ 3 ] || 0 ) / 3600;
 		} else {

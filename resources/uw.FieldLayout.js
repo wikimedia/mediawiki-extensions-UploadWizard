@@ -16,7 +16,7 @@
 		// FieldLayout will add an icon which, when clicked, reveals more information
 		// about the input. We'll want to display that by default, so we're getting
 		// rid of the "help" property here & will later append that after the header
-		var help = config && config.help ? config.help : '';
+		const help = config && config.help ? config.help : '';
 		config = Object.assign( { align: 'top', required: false }, config, { help: '' } );
 
 		uw.FieldLayout.super.call( this, fieldWidget, config );

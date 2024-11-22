@@ -50,7 +50,7 @@
 	 * @chainable
 	 */
 	$.fn.morphCrossfader = function () {
-		var $this = $( this );
+		const $this = $( this );
 		// the elements that are immediate children are the crossfadables
 		// they must all be "on top" of each other, so position them relative
 		$this.css( {
@@ -67,7 +67,7 @@
 		// should achieve the same result as crossfade( this.children().first() ) but without
 		// animation etc.
 		$this.each( function () {
-			var $container = $( this );
+			const $container = $( this );
 			$container.morphCrossfade( $container.children().first(), 0 );
 		} );
 
@@ -83,14 +83,14 @@
 	 * @chainable
 	 */
 	$.fn.morphCrossfade = function ( newPanelSelector, speed ) {
-		var $this = $( this );
+		const $this = $( this );
 
 		if ( typeof speed === 'undefined' ) {
 			speed = 400;
 		}
 
 		$this.each( function () {
-			var $container = $( this ),
+			const $container = $( this ),
 				$oldPanel = $( $container.data( 'crossfadeDisplay' ) ),
 				$newPanel = ( typeof newPanelSelector === 'string' ) ?
 					$container.find( newPanelSelector ) : $( newPanelSelector );

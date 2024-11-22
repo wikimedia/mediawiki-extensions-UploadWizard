@@ -34,13 +34,13 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 	}
 
 	// create inputs and licenses from config
-	var groups = [];
+	const groups = [];
 	if ( config.licenseGroups === undefined ) {
-		var group = new mw.uploadWizard.LicenseGroup( config, this.type, this.api, this.count );
+		const group = new mw.uploadWizard.LicenseGroup( config, this.type, this.api, this.count );
 		groups.push( group );
 		this.$element.append( this.$group );
 	} else {
-		var input = this,
+		const input = this,
 			$container = $( '<div>' ).addClass( 'mwe-upwiz-deed-license-group-container' );
 
 		this.widget = this.type === 'radio' ? new OO.ui.RadioSelectWidget() : new OO.ui.CheckboxMultiselectWidget();
@@ -48,7 +48,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 		this.$element.append( $container );
 
 		config.licenseGroups.forEach( ( groupConfig ) => {
-			var classes = [ 'mwe-upwiz-deed-license-group-head', 'mwe-upwiz-deed-license-group-' + groupConfig.head ],
+			let classes = [ 'mwe-upwiz-deed-license-group-head', 'mwe-upwiz-deed-license-group-' + groupConfig.head ],
 				$icons, label, labelParams, option, group;
 
 			$icons = $( '<span>' );
@@ -95,7 +95,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 			// (as a results of a new one being selected), so we'll iterate
 			// all groups to remove no-longer-active ones
 			groups.forEach( ( group ) => {
-				var option = group.config.option,
+				const option = group.config.option,
 					defaultLicenses = ( group.config.defaults || [] ).reduce( ( defaults, license ) => {
 						defaults[ license ] = true;
 						return defaults;
@@ -151,9 +151,9 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @param {string} [groupName] Name of group, when values are only relevant to this group
 	 */
 	setValues: function ( values, groupName ) {
-		var selectedGroups = [];
+		const selectedGroups = [];
 
-		var input = this;
+		const input = this;
 		this.getItems().forEach( ( group ) => {
 			if ( groupName === undefined || group.getGroup() === groupName ) {
 				group.setValue( values );
@@ -186,7 +186,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 		// we need to make sure the parent option and expanded state match the state of the
 		// group - when the group has things that are selected, it must be active
 		this.getItems().forEach( ( group ) => {
-			var option = group.config.option,
+			const option = group.config.option,
 				selected = Object.keys( group.getValue() ).length > 0;
 
 			if ( !option ) {
@@ -213,7 +213,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @memberof mw.UploadWizardLicenseInput
 	 */
 	setDefaultValues: function () {
-		var values = {};
+		const values = {};
 		this.defaults.forEach( ( license ) => {
 			values[ license ] = true;
 		} );
@@ -228,10 +228,10 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @return {Object}
 	 */
 	getLicenses: function () {
-		var licenses = {};
+		const licenses = {};
 
 		this.getItems().forEach( ( group ) => {
-			var licenseNames = Object.keys( group.getValue() );
+			const licenseNames = Object.keys( group.getValue() );
 			licenseNames.forEach( ( name ) => {
 				licenses[ name ] = mw.UploadWizard.config.licenses[ name ] || {};
 			} );
@@ -262,7 +262,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 			return $.Deferred().resolve( this.templateCache[ wikitext ] ).promise();
 		}
 
-		var input = this;
+		const input = this;
 		return this.api.get( {
 			action: 'parse',
 			pst: true,
@@ -270,12 +270,12 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 			title: 'File:UploadWizard license verification.png',
 			text: wikitext
 		} ).then( ( result ) => {
-			var templates = [];
-			for ( var i = 0; i < result.parse.templates.length; i++ ) {
-				var template = result.parse.templates[ i ];
+			const templates = [];
+			for ( let i = 0; i < result.parse.templates.length; i++ ) {
+				const template = result.parse.templates[ i ];
 
 				// normalize templates to mw.Title.getPrefixedDb() format
-				var title = new mw.Title( template.title, template.ns );
+				const title = new mw.Title( template.title, template.ns );
 				templates.push( title.getPrefixedDb() );
 			}
 
@@ -294,32 +294,32 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @return {jQuery.Promise}
 	 */
 	getErrors: function () {
-		var errors = $.Deferred().resolve( [] ).promise();
-		var addError = function ( message ) {
+		let errors = $.Deferred().resolve( [] ).promise();
+		const addError = function ( message ) {
 			errors = errors.then( ( errors ) => {
 				errors.push( mw.message( message ) );
 				return errors;
 			} );
 		};
-		var selectedInputs = this.getSerialized();
+		const selectedInputs = this.getSerialized();
 
 		if ( Object.keys( selectedInputs ).length === 0 ) {
 			addError( 'mwe-upwiz-deeds-require-selection' );
 		} else {
-			var input = this;
+			const input = this;
 			// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
 			// But also check that associated text inputs are filled for if the input is selected, and that
 			// they are the appropriate size.
 			Object.keys( selectedInputs ).forEach( ( name ) => {
-				var licenseMap = selectedInputs[ name ];
+				const licenseMap = selectedInputs[ name ];
 
 				Object.keys( licenseMap ).forEach( ( license ) => {
-					var licenseValue = licenseMap[ license ];
+					const licenseValue = licenseMap[ license ];
 					if ( typeof licenseValue !== 'string' ) {
 						return;
 					}
 
-					var wikitext = licenseValue.trim();
+					const wikitext = licenseValue.trim();
 
 					if ( wikitext === '' ) {
 						addError( 'mwe-upwiz-error-license-wikitext-missing' );
@@ -368,11 +368,11 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @return {Object}
 	 */
 	getSerialized: function () {
-		var values = {};
+		const values = {};
 
 		this.getItems().forEach( ( group ) => {
-			var groupName = group.getGroup();
-			var value = group.getValue();
+			const groupName = group.getGroup();
+			const value = group.getValue();
 
 			if ( Object.keys( value ).length > 0 ) {
 				// $.extend just in case there are multiple groups with the same name...
@@ -388,7 +388,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @param {Object} serialized
 	 */
 	setSerialized: function ( serialized ) {
-		var input = this;
+		const input = this;
 
 		Object.keys( serialized ).forEach( ( groupName ) => {
 			input.setValues( serialized[ groupName ], groupName );

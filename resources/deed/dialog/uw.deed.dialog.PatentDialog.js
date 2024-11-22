@@ -51,7 +51,7 @@
 	];
 
 	uw.PatentDialog.prototype.initialize = function () {
-		var filenames = [],
+		const filenames = [],
 			label = new OO.ui.LabelWidget(),
 			panels = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 
@@ -99,7 +99,7 @@
 	 * @return {OO.ui.PanelLayout}
 	 */
 	uw.PatentDialog.prototype.getWarrantyLayout = function () {
-		var layout = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+		const layout = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 
 		layout.$element.append(
 			$( '<strong>' ).text( mw.msg( 'mwe-upwiz-patent-dialog-title-warranty' ) ),
@@ -118,7 +118,7 @@
 	 * @return {OO.ui.PanelLayout}
 	 */
 	uw.PatentDialog.prototype.getLicenseLayout = function ( ownership, grant ) {
-		var layout = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+		const layout = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 
 		if ( ownership ) {
 			layout.$element.append(
@@ -146,7 +146,7 @@
 	 * @return {OO.ui.PanelLayout}
 	 */
 	uw.PatentDialog.prototype.getCheckboxLayout = function () {
-		var checkbox = new OO.ui.FieldLayout( this.checkbox, {
+		const checkbox = new OO.ui.FieldLayout( this.checkbox, {
 			label: mw.msg( 'mwe-upwiz-patent-dialog-checkbox-label' ),
 			align: 'inline'
 		} );
@@ -162,7 +162,7 @@
 	 * @param {boolean} checked
 	 */
 	uw.PatentDialog.prototype.onCheckboxChange = function ( checked ) {
-		var button = this.actions.get( { flags: 'primary' } )[ 0 ];
+		const button = this.actions.get( { flags: 'primary' } )[ 0 ];
 		button.setDisabled( !checked );
 	};
 
@@ -171,7 +171,7 @@
 	 * @return {OO.ui.Process} Action process
 	 */
 	uw.PatentDialog.prototype.getActionProcess = function ( action ) {
-		var dialog = this;
+		const dialog = this;
 
 		if ( action === '' ) {
 			this.emit( 'disagree' );

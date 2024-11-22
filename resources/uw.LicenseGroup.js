@@ -20,7 +20,7 @@
 	 * @param {number} count Number of the things we are licensing (it matters to some texts)
 	 */
 	uw.LicenseGroup = function UWLicenseGroup( config, type, api, count ) {
-		var self = this;
+		const self = this;
 
 		uw.LicenseGroup.super.call( this, {} );
 
@@ -56,7 +56,7 @@
 				// wrapped inside setTimeout to ensure it goes at the end of the call stack,
 				// just in case something steals focus in the meantime...
 				setTimeout( () => {
-					var name = item.getData();
+					const name = item.getData();
 					if ( self.customInputs[ name ] ) {
 						self.customInputs[ name ].focus();
 					}
@@ -78,7 +78,7 @@
 	 * @return {OO.ui.FieldsetLayout}
 	 */
 	uw.LicenseGroup.prototype.createFieldset = function ( group ) {
-		var fieldset = new OO.ui.FieldsetLayout( {
+		let fieldset = new OO.ui.FieldsetLayout( {
 				items: [ group ],
 				classes: [ 'mwe-upwiz-deed-license-group' ]
 			} ),
@@ -111,11 +111,11 @@
 	 * @return {OO.ui.RadioSelectWidget}
 	 */
 	uw.LicenseGroup.prototype.createRadioGroup = function ( classes ) {
-		var self = this,
+		const self = this,
 			options = [];
 
 		this.config.licenses.forEach( ( licenseName ) => {
-			var option;
+			let option;
 
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
 				// unknown license
@@ -146,11 +146,11 @@
 	 * @return {OO.ui.CheckboxMultiselectInputWidget}
 	 */
 	uw.LicenseGroup.prototype.createCheckboxGroup = function ( classes ) {
-		var self = this,
+		const self = this,
 			options = [];
 
 		this.config.licenses.forEach( ( licenseName ) => {
-			var option;
+			let option;
 
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
 				// unknown license
@@ -181,12 +181,12 @@
 	 * @return {string}
 	 */
 	uw.LicenseGroup.prototype.getWikiText = function () {
-		var wikiTexts,
+		let wikiTexts,
 			self = this,
 			values = this.getValue();
 
 		wikiTexts = Object.keys( values ).map( ( name ) => {
-			var wikiText = self.getLicenceWikiText( name ),
+			let wikiText = self.getLicenceWikiText( name ),
 				value = values[ name ];
 			if ( typeof value === 'string' ) {
 				// `value` is custom input
@@ -218,7 +218,7 @@
 	 * @return {Object} Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.getValue = function () {
-		var self = this,
+		let self = this,
 			result = {},
 			selected,
 			name;
@@ -244,11 +244,11 @@
 	 * @param {Object} values Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.setValue = function ( values ) {
-		var self = this,
+		const self = this,
 			selectArray = [];
 
 		Object.keys( values ).forEach( ( name ) => {
-			var value = values[ name ];
+			const value = values[ name ];
 			if ( typeof value === 'string' && self.customInputs[ name ] ) {
 				self.customInputs[ name ].setValue( value );
 				// add to list of items to select
@@ -288,7 +288,7 @@
 	 * @return {string[]}
 	 */
 	uw.LicenseGroup.prototype.getTemplates = function ( name ) {
-		var licenseInfo = this.getLicenseInfo( name );
+		const licenseInfo = this.getLicenseInfo( name );
 		return licenseInfo.props.templates === undefined ?
 			[ licenseInfo.name ] :
 			licenseInfo.props.templates.slice( 0 );
@@ -304,7 +304,7 @@
 	 * @return {string} of wikitext
 	 */
 	uw.LicenseGroup.prototype.getLicenceWikiText = function ( name ) {
-		var templates = this.getTemplates( name ),
+		let templates = this.getTemplates( name ),
 			wikiTexts;
 
 		if ( this.config.prependTemplates !== undefined ) {
@@ -330,7 +330,7 @@
 	 * @return {jQuery}
 	 */
 	uw.LicenseGroup.prototype.createLabel = function ( name ) {
-		var licenseInfo = this.getLicenseInfo( name ),
+		let licenseInfo = this.getLicenseInfo( name ),
 			messageKey = licenseInfo.props.msg === undefined ?
 				'[missing msg for ' + licenseInfo.name + ']' :
 				licenseInfo.props.msg,
@@ -345,7 +345,7 @@
 			licenseInfo.props.languageCodePrefix !== undefined &&
 			licenseInfo.props.availableLanguages !== undefined
 		) {
-			var i,
+			let i,
 				targetLanguageCode = 'en', // final fallback
 				fallbackChain = mw.language.getFallbackLanguageChain();
 			for ( i = 0; i < fallbackChain.length; i++ ) {
@@ -399,7 +399,7 @@
 	 * @return {jQuery} Wrapped textarea
 	 */
 	uw.LicenseGroup.prototype.createCustom = function ( name, defaultText ) {
-		var self = this,
+		let self = this,
 			button;
 
 		this.customInputs[ name ] = new OO.ui.TextInputWidget( {
@@ -433,7 +433,7 @@
 	 * @param {string} wikiText
 	 */
 	uw.LicenseGroup.prototype.showPreview = function ( wikiText ) {
-		var input;
+		let input;
 
 		this.previewDialog.setLoading( true );
 		this.windowManager.openWindow( this.previewDialog );
@@ -446,7 +446,7 @@
 		}
 
 		function error( code, result ) {
-			var message = result.errors[ 0 ].html;
+			const message = result.errors[ 0 ].html;
 
 			show( $( '<div>' ).append(
 				$( '<h3>' ).append( code ),

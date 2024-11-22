@@ -11,7 +11,7 @@
 	 * @param {mw.UploadWizardUpload} config.captionsAvailable True if captions are available
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
-		var self = this,
+		let self = this,
 			metadataTypes = uw.CopyMetadataWidget.static.copyMetadataTypes,
 			metadataType, defaultStatus, copyMetadataMsg,
 			checkboxes = [],
@@ -141,7 +141,7 @@
 	 * @private
 	 */
 	uw.CopyMetadataWidget.prototype.onCopyClick = function () {
-		var metadataTypes = this.checkboxesWidget.findSelectedItemsData();
+		const metadataTypes = this.checkboxesWidget.findSelectedItemsData();
 		this.copyMetadata( metadataTypes );
 
 		this.undoButton.toggle( true );
@@ -195,7 +195,7 @@
 	 * @param {Function} callback callback(i, sourceValue)
 	 */
 	uw.CopyMetadataWidget.copyMetadataSerialized = function ( metadataTypes, serialized, length, callback ) {
-		var titleZero, matches, i,
+		let titleZero, matches, i,
 			// Values to copy
 			sourceValue = {},
 			// Checks for extra behaviors
@@ -246,7 +246,7 @@
 				sourceValue.title.title = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
 					// eslint-disable-next-line no-loop-func
 					( str, m1, m2, m3 ) => {
-						var newstr = String( +m2 + i );
+						const newstr = String( +m2 + i );
 						return m1 + new Array( m2.length + 1 - newstr.length )
 							.join( '0' ) + newstr + m3;
 					}
@@ -261,7 +261,7 @@
 	 * Restore previously saved metadata that we backed up when copying.
 	 */
 	uw.CopyMetadataWidget.prototype.restoreMetadata = function () {
-		var i,
+		let i,
 			uploads = this.copyTo;
 
 		for ( i = 0; i < uploads.length; i++ ) {

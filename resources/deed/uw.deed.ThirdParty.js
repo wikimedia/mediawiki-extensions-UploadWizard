@@ -25,7 +25,7 @@
 	 * @param {mw.Api} api API object - useful for doing previews
 	 */
 	uw.deed.ThirdParty = function UWDeedThirdParty( config, uploads, api ) {
-		var deed = this;
+		const deed = this;
 
 		uw.deed.Abstract.call( this, 'thirdparty', config, uploads );
 
@@ -40,7 +40,7 @@
 		this.sourceInput.$input.attr( 'id', 'mwe-source-' + this.getInstanceCount() );
 		// See uw.DetailsWidget
 		this.sourceInput.getErrors = function ( thorough ) {
-			var
+			const
 				errors = [],
 				minLength = deed.config.minSourceLength,
 				maxLength = deed.config.maxSourceLength,
@@ -80,7 +80,7 @@
 		} );
 		this.authorInput.$input.attr( 'id', 'mwe-author-' + this.getInstanceCount() );
 		this.authorInput.getErrors = function ( thorough ) {
-			var
+			const
 				errors = [],
 				minLength = deed.config.minAuthorLength,
 				maxLength = deed.config.maxAuthorLength,
@@ -146,7 +146,7 @@
 			classes: [ 'mwe-upwiz-deed-compliance' ]
 		} );
 		this.complianceCheck.getErrors = function ( thorough ) {
-			var allSelected = deed.complianceCheck.getItems().reduce( ( result, item ) => result && item.isSelected(), true );
+			const allSelected = deed.complianceCheck.getItems().reduce( ( result, item ) => result && item.isSelected(), true );
 
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
@@ -188,7 +188,7 @@
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
 	uw.deed.ThirdParty.prototype.getFields = function () {
-		var fields = [
+		const fields = [
 			this.authorInputField,
 			this.sourceInputField,
 			this.licenseInputField,
@@ -201,7 +201,7 @@
 	};
 
 	uw.deed.ThirdParty.prototype.setFormFields = function ( $selector ) {
-		var $formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ), self = this;
+		const $formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ), self = this;
 
 		this.$form = $( '<form>' );
 
@@ -341,7 +341,7 @@
 	 * @inheritdoc
 	 */
 	uw.deed.Abstract.prototype.getLicenseWikiText = function ( upload ) {
-		var wikitext = this.licenseInput.getWikiText();
+		let wikitext = this.licenseInput.getWikiText();
 
 		if ( this.needsPatentAgreement( upload ) ) {
 			wikitext += '\n{{' + this.config.patents.template + '}}';
@@ -393,7 +393,7 @@
 	};
 
 	uw.deed.ThirdParty.prototype.getStructuredDataFromSource = function () {
-		var source = this.getSourceWikiText(),
+		let source = this.getSourceWikiText(),
 			config = mw.UploadWizard.config,
 			urlRegex = /^https?:\/\/\S*\.\S*$/,
 			sourceRegex = new RegExp(

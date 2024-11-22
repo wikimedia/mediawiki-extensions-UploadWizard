@@ -44,7 +44,7 @@
 		 * @return {string} [return.done.blacklistLine] See mw.Api#isBlacklisted
 		 */
 		checkBlacklist: function ( title ) {
-			var checker = this;
+			const checker = this;
 
 			/**
 			 * Process result of a TitleBlacklist API call.
@@ -54,7 +54,7 @@
 			 * @return {Object}
 			 */
 			function blacklistResultProcessor( blacklistResult ) {
-				var result;
+				let result;
 
 				if ( blacklistResult === false ) {
 					result = { notBlacklisted: true };
@@ -92,7 +92,7 @@
 		 * @return {string} [return.done.href] URL to file description page
 		 */
 		checkUnique: function ( title ) {
-			var checker = this,
+			let checker = this,
 				NS_FILE = mw.config.get( 'wgNamespaceIds' ).file,
 				titleObj, prefix, ext;
 
@@ -109,7 +109,7 @@
 			 * @return {Object}
 			 */
 			function checkUniqueProcessor( data ) {
-				var result, protection, pageId, ntitle, ntitleObj, img;
+				let result, protection, pageId, ntitle, ntitleObj, img;
 
 				result = { isUnique: true };
 
@@ -209,7 +209,7 @@
 					iiurlwidth: 150
 				} ).then( checkUniqueProcessor )
 			).then( ( exact, fuzzy ) => {
-				var result;
+				let result;
 				if ( !exact.isUnique || exact.isProtected ) {
 					result = exact;
 				} else if ( !fuzzy.isUnique || fuzzy.isProtected ) {
