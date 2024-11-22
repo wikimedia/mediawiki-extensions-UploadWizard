@@ -44,8 +44,6 @@
 		 * @return {string} [return.done.blacklistLine] See mw.Api#isBlacklisted
 		 */
 		checkBlacklist: function ( title ) {
-			const checker = this;
-
 			/**
 			 * Process result of a TitleBlacklist API call.
 			 *
@@ -53,7 +51,7 @@
 			 * @param {Object|boolean} blacklistResult `false` if not blacklisted, object if blacklisted
 			 * @return {Object}
 			 */
-			function blacklistResultProcessor( blacklistResult ) {
+			const blacklistResultProcessor = ( blacklistResult ) => {
 				let result;
 
 				if ( blacklistResult === false ) {
@@ -67,16 +65,16 @@
 					};
 				}
 
-				checker.cachedBlacklist[ title ] = result;
+				this.cachedBlacklist[ title ] = result;
 				return result;
-			}
+			};
 
 			if ( this.cachedBlacklist[ title ] !== undefined ) {
 				return $.Deferred().resolve( this.cachedBlacklist[ title ] );
 			}
 
 			// it's not blacklisted, because the API isn't even available
-			return mw.loader.using( 'mediawiki.api.titleblacklist' ).then( () => checker.api.isBlacklisted( title ).then( blacklistResultProcessor ), () => $.Deferred().resolve( { notBlacklisted: true, unavailable: true } ) );
+			return mw.loader.using( 'mediawiki.api.titleblacklist' ).then( () => this.api.isBlacklisted( title ).then( blacklistResultProcessor ), () => $.Deferred().resolve( { notBlacklisted: true, unavailable: true } ) );
 		},
 
 		/**
@@ -92,8 +90,7 @@
 		 * @return {string} [return.done.href] URL to file description page
 		 */
 		checkUnique: function ( title ) {
-			const checker = this,
-				NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
+			const NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 			const titleObj = mw.Title.newFromText( title );
 			const ext = mw.Title.normalizeExtension( titleObj.getExtension() || '' );
@@ -107,7 +104,7 @@
 			 * @param {Object} data API result
 			 * @return {Object}
 			 */
-			function checkUniqueProcessor( data ) {
+			const checkUniqueProcessor = ( data ) => {
 				let result, protection, pageId, ntitle, ntitleObj, img;
 
 				result = { isUnique: true };
@@ -178,7 +175,7 @@
 				}
 
 				return result;
-			}
+			};
 
 			if ( this.cachedResult[ title ] !== undefined ) {
 				return $.Deferred().resolve( this.cachedResult[ title ] );
@@ -217,7 +214,7 @@
 					result = { isUnique: true };
 				}
 
-				checker.cachedResult[ title ] = result;
+				this.cachedResult[ title ] = result;
 				return result;
 			} );
 		},

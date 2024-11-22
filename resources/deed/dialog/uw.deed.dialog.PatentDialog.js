@@ -171,14 +171,12 @@
 	 * @return {OO.ui.Process} Action process
 	 */
 	uw.PatentDialog.prototype.getActionProcess = function ( action ) {
-		const dialog = this;
-
 		if ( action === '' ) {
 			this.emit( 'disagree' );
 		} else if ( action === 'confirm' ) {
 			return new OO.ui.Process( () => {
-				dialog.emit( 'agree' );
-				dialog.close( { action: action } );
+				this.emit( 'agree' );
+				this.close( { action: action } );
 			} );
 		}
 

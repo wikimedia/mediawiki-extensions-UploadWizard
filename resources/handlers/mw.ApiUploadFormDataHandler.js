@@ -34,22 +34,20 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadFormDataHandler.prototype.submit = function () {
-		const handler = this;
-
 		return this.configureEditToken().then( () => {
-			handler.beginTime = Date.now();
-			handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
-			handler.upload.ui.showTransportProgress();
+			this.beginTime = Date.now();
+			this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
+			this.upload.ui.showTransportProgress();
 
-			return handler.transport.upload( handler.upload.file, handler.upload.title.getMainText() )
+			return this.transport.upload( this.upload.file, this.upload.title.getMainText() )
 				.progress( ( fraction ) => {
-					if ( handler.upload.state === 'aborted' ) {
-						handler.abort();
+					if ( this.upload.state === 'aborted' ) {
+						this.abort();
 						return;
 					}
 
 					if ( fraction !== null ) {
-						handler.upload.setTransportProgress( fraction );
+						this.upload.setTransportProgress( fraction );
 					}
 				} );
 		} );
@@ -62,10 +60,8 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadFormDataHandler.prototype.configureEditToken = function () {
-		const handler = this;
-
 		return this.api.getEditToken().then( ( token ) => {
-			handler.formData.token = token;
+			this.formData.token = token;
 		} );
 	};
 }() );

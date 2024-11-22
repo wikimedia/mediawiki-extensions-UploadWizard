@@ -40,8 +40,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 		groups.push( group );
 		this.$element.append( this.$group );
 	} else {
-		const input = this,
-			$container = $( '<div>' ).addClass( 'mwe-upwiz-deed-license-group-container' );
+		const $container = $( '<div>' ).addClass( 'mwe-upwiz-deed-license-group-container' );
 
 		this.widget = this.type === 'radio' ? new OO.ui.RadioSelectWidget() : new OO.ui.CheckboxMultiselectWidget();
 
@@ -57,35 +56,35 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 
 			// 'url' can be either a single (string) url, or an array of (string) urls;
 			// hence this convoluted variable-length parameters assembly...
-			const labelParams = [ groupConfig.head, input.count ].concat( groupConfig.url ).concat( $icons );
+			const labelParams = [ groupConfig.head, this.count ].concat( groupConfig.url ).concat( $icons );
 			const label = groupConfig.head && mw.message.apply( mw.message, labelParams ).parse() || '';
 
 			let option;
-			if ( input.type === 'radio' ) {
+			if ( this.type === 'radio' ) {
 				option = new OO.ui.RadioOptionWidget( {
 					label: new OO.ui.HtmlSnippet( label ),
 					classes: classes
 				} );
-			} else if ( input.type === 'checkbox' ) {
+			} else if ( this.type === 'checkbox' ) {
 				option = new OO.ui.CheckboxMultioptionWidget( {
 					label: new OO.ui.HtmlSnippet( label ),
 					classes: classes
 				} );
 			}
-			input.widget.addItems( [ option ] );
+			this.widget.addItems( [ option ] );
 
 			const group = new mw.uploadWizard.LicenseGroup(
 				Object.assign( {}, groupConfig, { option: option } ),
 				// group config can override overall type; e.g. a single group can be "and", while
 				// the rest of the config can be "or"
 				( groupConfig.type || config.type ) === 'or' ? 'radio' : 'checkbox',
-				input.api,
-				input.count
+				this.api,
+				this.count
 			);
 			group.$element.addClass( 'mwe-upwiz-deed-subgroup' );
 			groups.push( group );
 		} );
-		$container.append( input.widget.$element );
+		$container.append( this.widget.$element );
 
 		this.widget.on( 'select', ( selectedOption, isSelected ) => {
 			// radios don't have a second 'selected' arg; they're always true
@@ -153,14 +152,13 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	setValues: function ( values, groupName ) {
 		const selectedGroups = [];
 
-		const input = this;
 		this.getItems().forEach( ( group ) => {
 			if ( groupName === undefined || group.getGroup() === groupName ) {
 				group.setValue( values );
 				if ( Object.keys( group.getValue() ).length > 0 ) {
 					selectedGroups.push( group );
 				}
-			} else if ( input.type === 'radio' ) {
+			} else if ( this.type === 'radio' ) {
 				// when we're dealing with radio buttons and there are changes in another
 				// group, then we'll need to clear out this group...
 				group.setValue( {} );
@@ -200,7 +198,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 				// is selected, but that in only triggered by manual (user) selection;
 				// we're programmatically updating values here, and need to make sure
 				// it also responds to these
-				input.widget.emit( 'select', option, true );
+				this.widget.emit( 'select', option, true );
 			} else {
 				group.$element.detach();
 			}
@@ -262,7 +260,6 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 			return $.Deferred().resolve( this.templateCache[ wikitext ] ).promise();
 		}
 
-		const input = this;
 		return this.api.get( {
 			action: 'parse',
 			pst: true,
@@ -281,7 +278,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 
 			// cache result so we won't have to fire another API request
 			// for the same content
-			input.templateCache[ wikitext ] = templates;
+			this.templateCache[ wikitext ] = templates;
 
 			return templates;
 		} );
@@ -306,7 +303,6 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 		if ( Object.keys( selectedInputs ).length === 0 ) {
 			addError( 'mwe-upwiz-deeds-require-selection' );
 		} else {
-			const input = this;
 			// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
 			// But also check that associated text inputs are filled for if the input is selected, and that
 			// they are the appropriate size.
@@ -336,7 +332,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 						// includes a license template
 						errors = $.when(
 							errors, // array of existing errors
-							input.getUsedTemplates( wikitext )
+							this.getUsedTemplates( wikitext )
 						).then( ( errors, usedTemplates ) => {
 							if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
 								// no license template found, add another error
@@ -388,10 +384,8 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @param {Object} serialized
 	 */
 	setSerialized: function ( serialized ) {
-		const input = this;
-
 		Object.keys( serialized ).forEach( ( groupName ) => {
-			input.setValues( serialized[ groupName ], groupName );
+			this.setValues( serialized[ groupName ], groupName );
 		} );
 	}
 

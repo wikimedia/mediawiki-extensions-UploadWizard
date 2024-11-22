@@ -131,12 +131,11 @@
 	 * @param {Object} serialized
 	 */
 	uw.deed.Abstract.prototype.setSerialized = function ( serialized ) {
-		const self = this;
 		if ( serialized.name ) {
 			this.name = serialized.name;
 		}
 		serialized.selectedTemplateOptions.forEach( ( name ) => {
-			self.templateOptions[ name ].input.setSelected( true );
+			this.templateOptions[ name ].input.setSelected( true );
 		} );
 	};
 
@@ -184,8 +183,6 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.deed.Abstract.prototype.getPatentAgreementErrors = function ( input, uploads, thorough ) {
-		const deed = this;
-
 		// We only want to test this on submit
 		if ( !thorough ) {
 			return $.Deferred().resolve( [] ).promise();
@@ -204,7 +201,7 @@
 				deferred.resolve( [ mw.message( 'mwe-upwiz-error-patent-disagree' ) ] );
 			} );
 			dialog.on( 'agree', () => {
-				deed.patentAgreed = true;
+				this.patentAgreed = true;
 				deferred.resolve( [] );
 			} );
 

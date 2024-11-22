@@ -44,7 +44,6 @@
 		 * @param {string} selector
 		 */
 		createInterface: function ( selector ) {
-			const self = this;
 			this.ui = new uw.ui.Wizard( selector );
 
 			const promise = this.initialiseSteps();
@@ -61,13 +60,13 @@
 					// disable wikibase until its components are loaded - this is just a safeguard
 					// against the 'details' page being loaded with captions/depicts before
 					// the wikibase components have loaded
-					self.config.wikibase.enabled = false;
+					this.config.wikibase.enabled = false;
 					return mw.loader.using( [
 						'wikibase.mediainfo.statements',
 						'wikibase.datamodel',
 						'wikibase.mediainfo.base'
 					] ).then( () => {
-						self.config.wikibase.enabled = true;
+						this.config.wikibase.enabled = true;
 					} );
 				} );
 			}
@@ -84,8 +83,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		initialiseSteps: function () {
-			const self = this,
-				steps = {};
+			const steps = {};
 
 			steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
 			steps.file = new uw.controller.Upload( this.api, this.config );
@@ -112,8 +110,8 @@
 
 			return $.Deferred().resolve( steps ).promise()
 				.always( ( steps ) => {
-					self.steps = steps;
-					self.ui.initialiseSteps( steps );
+					this.steps = steps;
+					this.ui.initialiseSteps( steps );
 				} );
 		},
 

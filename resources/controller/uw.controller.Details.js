@@ -51,8 +51,6 @@
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Details.prototype.load = function ( uploads ) {
-		const controller = this;
-
 		uw.controller.Step.prototype.load.call( this, uploads );
 
 		// make sure queue is empty before starting this step
@@ -62,7 +60,7 @@
 			// get existing details
 			const serialized = upload.details ? upload.details.getSerialized() : null;
 
-			controller.createDetails( upload );
+			this.createDetails( upload );
 			upload.details.attach();
 
 			// restore earlier details (user may have started inputting details,
@@ -162,15 +160,13 @@
 	 * TODO move the rest of the logic here from mw.UploadWizard
 	 */
 	uw.controller.Details.prototype.startDetails = function () {
-		const details = this;
-
 		this.valid( true )
 			.always( ( errors, warnings, notices ) => {
-				details.showErrors( errors, warnings, notices );
+				this.showErrors( errors, warnings, notices );
 			} )
 			.done( () => {
-				details.ui.hideEndButtons();
-				details.submit();
+				this.ui.hideEndButtons();
+				this.submit();
 			} );
 	};
 
@@ -233,13 +229,11 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.transitionAll = function () {
-		const
-			deferred = $.Deferred(),
-			details = this;
+		const deferred = $.Deferred();
 
 		this.uploads.forEach( ( upload ) => {
-			if ( details.canTransition( upload ) ) {
-				details.queue.addItem( upload );
+			if ( this.canTransition( upload ) ) {
+				this.queue.addItem( upload );
 			}
 		} );
 
@@ -255,12 +249,10 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.submit = function () {
-		const details = this;
-
 		this.uploads.forEach( ( upload ) => {
 			// Clear error state
 			if ( upload.state === 'error' || upload.state === 'recoverable-error' ) {
-				upload.state = details.stepName;
+				upload.state = this.stepName;
 			}
 
 			// Set details view to have correct title
@@ -272,8 +264,8 @@
 		this.removeCopyMetadataFeature();
 
 		return this.transitionAll().then( () => {
-			if ( details.showNext() ) {
-				details.moveNext();
+			if ( this.showNext() ) {
+				this.moveNext();
 			}
 		} );
 	};

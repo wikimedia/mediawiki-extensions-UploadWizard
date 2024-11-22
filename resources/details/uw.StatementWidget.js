@@ -68,20 +68,19 @@
 	 * @param {dataValues.DataValue} dataValue
 	 */
 	uw.StatementWidget.prototype.addTag = function ( dataValue ) {
-		const self = this,
-			data = this.createStatement( dataValue );
+		const data = this.createStatement( dataValue );
 
 		this.formatValueElement.formatValue(
 			dataValue, 'text/plain', null, this.propertyId
 		).then( ( label ) => {
-			if ( self.findItemFromData( data ) === null ) {
+			if ( this.findItemFromData( data ) === null ) {
 				const tag = new OO.ui.TagItemWidget( {
 					label: label, data: data
 				} );
-				self.addItems( [ tag ] );
-				self.updateInputSize();
+				this.addItems( [ tag ] );
+				this.updateInputSize();
 			}
-			self.input.clear();
+			this.input.clear();
 		} );
 	};
 
@@ -114,12 +113,11 @@
 	 * @param {datamodel.StatementList} data
 	 */
 	uw.StatementWidget.prototype.setData = function ( data ) {
-		const self = this,
-			statements = data.toArray();
+		const statements = data.toArray();
 
 		statements.forEach( ( statement ) => {
 			const dataValue = statement.getClaim().getMainSnak().getValue();
-			self.addTag( dataValue );
+			this.addTag( dataValue );
 		} );
 	};
 

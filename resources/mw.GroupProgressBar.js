@@ -55,35 +55,34 @@
 		 * loop around the uploads, summing certain properties for a weighted total fraction
 		 */
 		start: function () {
-			const bar = this;
 			let shown = false;
 
 			this.setBeginTime();
 
-			function displayer() {
+			const displayer = () => {
 				let totalWeight = 0.0,
 					fraction = 0.0,
 					successStateCount = 0,
 					errorStateCount = 0,
 					hasData = false;
 
-				bar.uploads.forEach( ( upload ) => {
-					totalWeight += upload[ bar.weightProperty ];
+				this.uploads.forEach( ( upload ) => {
+					totalWeight += upload[ this.weightProperty ];
 				} );
 
-				bar.uploads.forEach( ( upload ) => {
+				this.uploads.forEach( ( upload ) => {
 					if ( upload.state === 'aborted' ) {
 						return;
 					}
-					if ( bar.successStates.indexOf( upload.state ) !== -1 ) {
+					if ( this.successStates.indexOf( upload.state ) !== -1 ) {
 						successStateCount++;
 					}
-					if ( bar.errorStates.indexOf( upload.state ) !== -1 ) {
+					if ( this.errorStates.indexOf( upload.state ) !== -1 ) {
 						errorStateCount++;
 					}
-					if ( upload[ bar.progressProperty ] !== undefined ) {
-						fraction += upload[ bar.progressProperty ] * ( upload[ bar.weightProperty ] / totalWeight );
-						if ( upload[ bar.progressProperty ] > 0 ) {
+					if ( upload[ this.progressProperty ] !== undefined ) {
+						fraction += upload[ this.progressProperty ] * ( upload[ this.weightProperty ] / totalWeight );
+						if ( upload[ this.progressProperty ] > 0 ) {
 							hasData = true;
 						}
 					}
@@ -93,23 +92,23 @@
 				// if we have good data AND the fraction is less than 1.
 				if ( hasData && fraction < 1.0 ) {
 					if ( !shown ) {
-						bar.showBar();
+						this.showBar();
 						shown = true;
 					}
-					bar.showProgress( fraction );
+					this.showProgress( fraction );
 				}
-				bar.showCount( successStateCount );
+				this.showCount( successStateCount );
 
-				if ( successStateCount + errorStateCount < bar.uploads.length - bar.countRemoved() ) {
+				if ( successStateCount + errorStateCount < this.uploads.length - this.countRemoved() ) {
 					setTimeout( displayer, 200 );
 				} else {
-					bar.showProgress( 1.0 );
-					bar.finished = true;
+					this.showProgress( 1.0 );
+					this.finished = true;
 					setTimeout( () => {
-						bar.hideBar();
+						this.hideBar();
 					}, 500 );
 				}
-			}
+			};
 			displayer();
 		},
 

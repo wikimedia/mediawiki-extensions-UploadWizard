@@ -26,8 +26,6 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.controller.Tutorial = function UWControllerTutorial( api, config ) {
-		const controller = this;
-
 		this.skipPreference = Boolean( mw.user.options.get( 'upwiz_skiptutorial' ) );
 		this.newSkipPreference = this.skipPreference;
 		this.skipped = false;
@@ -38,7 +36,7 @@
 				.on( 'skip-tutorial-click', ( skipped ) => {
 					// indicate that the skip preference has changed, so we can
 					// alter the preference when we move to another step
-					controller.newSkipPreference = skipped;
+					this.newSkipPreference = skipped;
 				} ),
 			api,
 			config
@@ -57,15 +55,14 @@
 	 * @param {boolean} skip
 	 */
 	uw.controller.Tutorial.prototype.setSkipPreference = function ( skip ) {
-		const controller = this,
-			allowCloseWindow = mw.confirmCloseWindow();
+		const allowCloseWindow = mw.confirmCloseWindow();
 
 		this.api.postWithToken( 'options', {
 			action: 'options',
 			change: skip ? 'upwiz_skiptutorial=1' : 'upwiz_skiptutorial'
 		} ).done( () => {
 			allowCloseWindow.release();
-			controller.skipPreference = skip;
+			this.skipPreference = skip;
 		} ).fail( ( code, err ) => {
 			mw.notify( err.textStatus );
 		} );

@@ -92,18 +92,16 @@
 	 * Add a 'next' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addNextButton = function () {
-		const ui = this;
-
 		this.nextButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-next' ],
 			label: mw.message( 'mwe-upwiz-next' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', () => {
-			ui.emit( 'next-step' );
+			this.emit( 'next-step' );
 		} );
 
 		this.nextButtonPromise.done( () => {
-			ui.$buttons.append( ui.nextButton.$element );
+			this.$buttons.append( this.nextButton.$element );
 		} );
 	};
 
@@ -111,17 +109,15 @@
 	 * Add a 'previous' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addPreviousButton = function () {
-		const ui = this;
-
 		this.previousButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-previous' ],
 			label: mw.message( 'mwe-upwiz-previous' ).text()
 		} ).on( 'click', () => {
-			ui.emit( 'previous-step' );
+			this.emit( 'previous-step' );
 		} );
 
 		this.previousButtonPromise.done( () => {
-			ui.$buttons.append( ui.previousButton.$element );
+			this.$buttons.append( this.previousButton.$element );
 		} );
 	};
 

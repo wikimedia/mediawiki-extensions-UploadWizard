@@ -27,8 +27,6 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.controller.Step = function UWControllerStep( ui, api, config ) {
-		const step = this;
-
 		OO.EventEmitter.call( this );
 
 		/**
@@ -67,11 +65,11 @@
 		};
 
 		this.ui.on( 'next-step', () => {
-			step.moveNext();
+			this.moveNext();
 		} );
 
 		this.ui.on( 'previous-step', () => {
-			step.movePrevious();
+			this.movePrevious();
 		} );
 
 		/**
@@ -117,21 +115,19 @@
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Step.prototype.load = function ( uploads ) {
-		const step = this;
-
 		this.emit( 'load' );
 
 		this.uploads = uploads || [];
 
 		// prevent the window from being closed as long as we have data
 		this.allowCloseWindow = mw.confirmCloseWindow( {
-			test: step.hasData.bind( this )
+			test: this.hasData.bind( this )
 		} );
 
 		this.uploads.forEach( ( upload ) => {
-			upload.state = step.stepName;
+			upload.state = this.stepName;
 
-			step.bindUploadHandlers( upload );
+			this.bindUploadHandlers( upload );
 		} );
 
 		this.ui.load( uploads );
@@ -141,10 +137,8 @@
 	 * Cleanup this step.
 	 */
 	uw.controller.Step.prototype.unload = function () {
-		const step = this;
-
 		this.uploads.forEach( ( upload ) => {
-			step.unbindUploadHandlers( upload );
+			this.unbindUploadHandlers( upload );
 		} );
 
 		this.allowCloseWindow.release();
@@ -181,11 +175,9 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Step.prototype.bindUploadHandlers = function ( upload ) {
-		const controller = this;
-
 		Object.keys( this.uploadHandlers ).forEach( ( event ) => {
-			const callback = controller.uploadHandlers[ event ];
-			upload.on( event, callback, [ upload ], controller );
+			const callback = this.uploadHandlers[ event ];
+			upload.on( event, callback, [ upload ], this );
 		} );
 	};
 
@@ -195,11 +187,9 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Step.prototype.unbindUploadHandlers = function ( upload ) {
-		const controller = this;
-
 		Object.keys( this.uploadHandlers ).forEach( ( event ) => {
-			const callback = controller.uploadHandlers[ event ];
-			upload.off( event, callback, controller );
+			const callback = this.uploadHandlers[ event ];
+			upload.off( event, callback, this );
 		} );
 	};
 

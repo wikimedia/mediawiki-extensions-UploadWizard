@@ -7,8 +7,6 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload ) {
-		const ui = this;
-
 		OO.EventEmitter.call( this );
 
 		this.upload = upload;
@@ -49,7 +47,7 @@
 			icon: 'trash',
 			framed: false
 		} ).on( 'click', () => {
-			ui.emit( 'upload-removed' );
+			this.emit( 'upload-removed' );
 		} );
 
 		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {
@@ -74,7 +72,7 @@
 		// we bind to the ui div since .off() doesn't work for non-DOM objects
 		// TODO Convert this to an OO.EventEmitter, and use OOjs events
 		this.$div.on( 'transportProgressEvent', () => {
-			ui.showTransportProgress();
+			this.showTransportProgress();
 		} );
 	};
 

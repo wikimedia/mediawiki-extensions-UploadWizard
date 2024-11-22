@@ -25,26 +25,21 @@
 	 */
 	uw.deed.OwnWork = function UWDeedOwnWork( config, uploads, api ) {
 		let prefAuthName = mw.user.options.get( 'upwiz_licensename' );
-		const self = this,
-			revealOptionContent = function ( $parent, $child ) {
-				// hide sub-content for all options
-				$parent
-					.find( '.mwe-upwiz-deed-radio-reveal' )
-					.filter( function () {
-						// .mwe-upwiz-deed-radio-reveal reveals content when an option is
-						// selected, but we need it to ignore nested instances in order not
-						// to reveal content from sub-options until they've been selected
-						return $( this ).parentsUntil( $parent, '.mwe-upwiz-deed-radio-reveal' ).length === 0;
-					} )
-					.hide();
-				// and reveal only in the selected option
-				$child
-					.find( '.mwe-upwiz-deed-radio-reveal' )
-					.filter( function () {
-						return $( this ).parentsUntil( $child, '.mwe-upwiz-deed-radio-reveal' ).length === 0;
-					} )
-					.show();
-			};
+		const revealOptionContent = ( $parent, $child ) => {
+			// hide sub-content for all options
+			$parent
+				.find( '.mwe-upwiz-deed-radio-reveal' )
+				// .mwe-upwiz-deed-radio-reveal reveals content when an option is
+				// selected, but we need it to ignore nested instances in order not
+				// to reveal content from sub-options until they've been selected
+				.filter( ( i, el ) => $( el ).parentsUntil( $parent, '.mwe-upwiz-deed-radio-reveal' ).length === 0 )
+				.hide();
+			// and reveal only in the selected option
+			$child
+				.find( '.mwe-upwiz-deed-radio-reveal' )
+				.filter( ( i, el ) => $( el ).parentsUntil( $child, '.mwe-upwiz-deed-radio-reveal' ).length === 0 )
+				.show();
+		};
 
 		uw.deed.Abstract.call( this, 'ownwork', config, uploads );
 
@@ -79,29 +74,29 @@
 			$( this ).trigger( 'focus' );
 		} );
 		this.aiTextInput.on( 'change', ( value ) => {
-			self.setAuthorInputValue( value );
+			this.setAuthorInputValue( value );
 			// let's also emit a 'change' event on the parent radio to satisfy the listener
 			// that checks and shows/hides an error message
-			self.originRadio.emit( 'change' );
+			this.originRadio.emit( 'change' );
 		} );
-		this.aiTextInput.getErrors = function ( thorough ) {
+		this.aiTextInput.getErrors = ( thorough ) => {
 			const errors = [];
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
 				return errors;
 			}
-			if ( self.originRadio.findSelectedItem().getData() !== 'ai' ) {
+			if ( this.originRadio.findSelectedItem().getData() !== 'ai' ) {
 				return errors;
 			}
-			const aiInputValue = self.aiTextInput.getValue().trim();
+			const aiInputValue = this.aiTextInput.getValue().trim();
 
 			if ( aiInputValue === '' ) {
 				errors.push( mw.message( 'mwe-upwiz-error-question-blank' ) );
-			} else if ( aiInputValue.length < self.config.minAiInputLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-too-short', self.config.minAiInputLength ) );
-			} else if ( aiInputValue.length > self.config.maxAiInputLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-too-long', self.config.maxAiInputLength ) );
+			} else if ( aiInputValue.length < this.config.minAiInputLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-short', this.config.minAiInputLength ) );
+			} else if ( aiInputValue.length > this.config.maxAiInputLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-long', this.config.maxAiInputLength ) );
 			}
 			return errors;
 		};
@@ -130,18 +125,18 @@
 			// see also this.aiTextInput.$element.find( 'textarea' ).on( 'click' ) above
 			$( this ).trigger( 'focus' );
 		} );
-		this.aiPromptTextInput.getErrors = function ( thorough ) {
+		this.aiPromptTextInput.getErrors = ( thorough ) => {
 			const errors = [];
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
 				return errors;
 			}
-			if ( self.originRadio.findSelectedItem().getData() !== 'ai' ) {
+			if ( this.originRadio.findSelectedItem().getData() !== 'ai' ) {
 				return errors;
 			}
-			if ( self.aiPromptTextInput.getValue().trim().length > self.config.maxAiInputLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-too-long', self.config.maxAiInputLength ) );
+			if ( this.aiPromptTextInput.getValue().trim().length > this.config.maxAiInputLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-long', this.config.maxAiInputLength ) );
 			}
 			return errors;
 		};
@@ -220,11 +215,11 @@
 			classes: [ 'mwe-upwiz-deed-origin' ]
 		} );
 		this.originRadio.on( 'select', ( selectedOption ) => {
-			revealOptionContent( self.originRadio.$element, selectedOption.$element );
+			revealOptionContent( this.originRadio.$element, selectedOption.$element );
 
 			// let's also emit a 'change' event to satisfy the listener that checks
 			// and shows/hides an error message
-			self.originRadio.emit( 'change' );
+			this.originRadio.emit( 'change' );
 		} );
 
 		// Origin sub-radio for "work of others" option
@@ -298,11 +293,11 @@
 		} );
 		this.originRadio.$element.find( '.mwe-upwiz-deed-origin-others-container' ).append( this.originOthersRadio.$element );
 		this.originOthersRadio.on( 'select', ( selectedOption ) => {
-			revealOptionContent( self.originOthersRadio.$element, selectedOption.$element );
+			revealOptionContent( this.originOthersRadio.$element, selectedOption.$element );
 
 			// let's also emit a 'change' event on the parent radio to satisfy the listener
 			// that checks and shows/hides an error message
-			self.originRadio.emit( 'change' );
+			this.originRadio.emit( 'change' );
 		} );
 
 		this.originRadio.getErrors = this.getOwnWorkErrors.bind(
@@ -373,20 +368,20 @@
 			classes: [ 'mwe-upwiz-deed-purpose' ]
 		} );
 		this.purposeRadio.on( 'select', ( selectedOption ) => {
-			revealOptionContent( self.purposeRadio.$element, selectedOption.$element );
+			revealOptionContent( this.purposeRadio.$element, selectedOption.$element );
 
 			// let's also emit a 'change' event to satisfy the listener that checks
 			// and shows/hides an error message
-			self.purposeRadio.emit( 'change' );
+			this.purposeRadio.emit( 'change' );
 		} );
-		this.purposeRadio.getErrors = function ( thorough ) {
+		this.purposeRadio.getErrors = ( thorough ) => {
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
 				return [];
 			}
 
-			if ( !self.purposeRadio.findSelectedItems() ) {
+			if ( !this.purposeRadio.findSelectedItems() ) {
 				return [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ];
 			}
 

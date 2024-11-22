@@ -26,8 +26,6 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.controller.Upload = function UWControllerUpload( api, config ) {
-		const step = this;
-
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Upload( config )
@@ -48,13 +46,13 @@
 		this.queue.on( 'complete', this.showNext.bind( this ) );
 
 		this.ui.on( 'files-added', ( files ) => {
-			const totalFiles = files.length + step.uploads.length,
-				tooManyFiles = totalFiles > step.config.maxUploads;
+			const totalFiles = files.length + this.uploads.length,
+				tooManyFiles = totalFiles > this.config.maxUploads;
 
 			if ( tooManyFiles ) {
-				step.ui.showTooManyFilesError( totalFiles );
+				this.ui.showTooManyFilesError( totalFiles );
 			} else {
-				step.addFiles( files );
+				this.addFiles( files );
 			}
 		} );
 	};
@@ -75,8 +73,6 @@
 	};
 
 	uw.controller.Upload.prototype.load = function ( uploads ) {
-		const controller = this;
-
 		uw.controller.Step.prototype.load.call( this, uploads );
 		this.updateFileCounts();
 		this.startProgressBar();
@@ -96,7 +92,7 @@
 			 * we've just reset the state for.
 			 */
 			uploads.forEach( ( upload ) => {
-				upload.state = upload.fileKey === undefined ? 'error' : controller.finishState;
+				upload.state = upload.fileKey === undefined ? 'error' : this.finishState;
 			} );
 
 			this.showNext();
@@ -190,15 +186,13 @@
 	};
 
 	uw.controller.Upload.prototype.retry = function () {
-		const controller = this;
-
 		this.uploads.forEach( ( upload ) => {
 			if ( upload.state === 'error' ) {
 				// reset any uploads in error state back to be shiny & new
 				upload.state = 'new';
 				upload.ui.clearStatus();
 				// and queue them
-				controller.queueUpload( upload );
+				this.queueUpload( upload );
 			}
 		} );
 
@@ -241,12 +235,11 @@
 	 * @param {FileList} files
 	 */
 	uw.controller.Upload.prototype.addFiles = function ( files ) {
-		const uploadObjs = [],
-			controller = this;
+		const uploadObjs = [];
 
 		for ( let i = 0; i < files.length; i++ ) {
 			const file = files[ i ];
-			const uploadObj = controller.addFile( file );
+			const uploadObj = this.addFile( file );
 			if ( uploadObj ) {
 				uploadObjs.push( uploadObj );
 			}

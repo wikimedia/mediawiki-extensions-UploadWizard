@@ -10,8 +10,6 @@
 	 * @param {mw.UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
 	 */
 	mw.UploadWizardDeedChooser = function ( config, deeds, uploads ) {
-		const chooser = this;
-
 		OO.EventEmitter.call( this );
 
 		this.uploads = uploads;
@@ -30,14 +28,14 @@
 		);
 
 		Object.keys( this.deeds ).forEach( ( name ) => {
-			const deed = chooser.deeds[ name ],
+			const deed = this.deeds[ name ],
 				radio = new OO.ui.RadioSelectWidget( { classes: [ 'mwe-upwiz-deed-radio-' + name ] } ),
 				option = new OO.ui.RadioOptionWidget(),
 				$label = $( '<span>' ).append(
 					// label text
 					mw.message(
 						'mwe-upwiz-source-' + deed.name + '-label',
-						chooser.uploads.length
+						this.uploads.length
 					).text(),
 					// label description
 					$( '<span>' )
@@ -45,7 +43,7 @@
 						.text(
 							mw.message(
 								'mwe-upwiz-source-' + deed.name + '-description',
-								chooser.uploads.length
+								this.uploads.length
 							).text()
 						)
 				).contents(),
@@ -66,7 +64,7 @@
 			// Set the name attribute manually. We can't use RadioInputWidget which has
 			// a name config because they don't emit change events. Ideally we would use
 			// one RadioSelectWidget and not have to set this property.
-			radio.items[ 0 ].radio.$input.attr( 'name', chooser.name );
+			radio.items[ 0 ].radio.$input.attr( 'name', this.name );
 
 			// Append intermediate containers
 			$radioContainer.append( $deedRadio );
@@ -74,21 +72,21 @@
 
 			deed.setFormFields( $deedForm.find( '.mwe-upwiz-deed-form' ) );
 
-			if ( Object.keys( chooser.deeds ).length === 1 ) {
-				chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
+			if ( Object.keys( this.deeds ).length === 1 ) {
+				this.onLayoutReady = this.selectDeed.bind( this, deed );
 			} else {
 				if ( config.licensing.defaultType === deed.name ) {
-					chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
+					this.onLayoutReady = this.selectDeed.bind( this, deed );
 				}
 				radio.on( 'choose', () => {
-					chooser.selectDeed( deed );
+					this.selectDeed( deed );
 				} );
 			}
 		} );
 
 		// Deselect all deeds
 		Object.keys( this.deeds ).forEach( ( name ) => {
-			chooser.deselectDeedInterface( name );
+			this.deselectDeedInterface( name );
 		} );
 	};
 	OO.mixinClass( mw.UploadWizardDeedChooser, OO.EventEmitter );
@@ -146,8 +144,7 @@
 	 * @param {string} deedName
 	 */
 	mw.UploadWizardDeedChooser.prototype.selectDeedInterface = function ( deedName ) {
-		const self = this,
-			$deedRadio = this.$element.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
+		const $deedRadio = this.$element.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
 			$deedForm = this.$element.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
 
 		// deselect all other deeds
@@ -155,7 +152,7 @@
 			if ( name === deedName ) {
 				return;
 			}
-			self.deselectDeedInterface( name );
+			this.deselectDeedInterface( name );
 		} );
 
 		$deedRadio.prop( 'checked', true );
@@ -168,10 +165,8 @@
 	};
 
 	mw.UploadWizardDeedChooser.prototype.remove = function () {
-		const self = this;
-
 		Object.keys( this.deeds ).forEach( ( name ) => {
-			self.deeds[ name ].unload();
+			this.deeds[ name ].unload();
 		} );
 
 		this.$element.remove();

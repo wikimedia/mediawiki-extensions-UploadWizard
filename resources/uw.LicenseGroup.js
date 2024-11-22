@@ -20,8 +20,6 @@
 	 * @param {number} count Number of the things we are licensing (it matters to some texts)
 	 */
 	uw.LicenseGroup = function UWLicenseGroup( config, type, api, count ) {
-		const self = this;
-
 		uw.LicenseGroup.super.call( this, {} );
 
 		if ( typeof config.licenses !== 'object' ) {
@@ -57,8 +55,8 @@
 				// just in case something steals focus in the meantime...
 				setTimeout( () => {
 					const name = item.getData();
-					if ( self.customInputs[ name ] ) {
-						self.customInputs[ name ].focus();
+					if ( this.customInputs[ name ] ) {
+						this.customInputs[ name ].focus();
 					}
 				} );
 			}
@@ -110,8 +108,7 @@
 	 * @return {OO.ui.RadioSelectWidget}
 	 */
 	uw.LicenseGroup.prototype.createRadioGroup = function ( classes ) {
-		const self = this,
-			options = [];
+		const options = [];
 
 		this.config.licenses.forEach( ( licenseName ) => {
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
@@ -120,13 +117,13 @@
 			}
 
 			const option = new OO.ui.RadioOptionWidget( {
-				label: self.createLabel( licenseName ),
+				label: this.createLabel( licenseName ),
 				data: licenseName
 			} );
 
 			// when custom text area receives focus, we should make sure this element is selected
-			if ( self.customInputs[ licenseName ] ) {
-				self.customInputs[ licenseName ].on( 'focus', () => {
+			if ( this.customInputs[ licenseName ] ) {
+				this.customInputs[ licenseName ].on( 'focus', () => {
 					option.setSelected( true );
 				} );
 			}
@@ -143,8 +140,7 @@
 	 * @return {OO.ui.CheckboxMultiselectInputWidget}
 	 */
 	uw.LicenseGroup.prototype.createCheckboxGroup = function ( classes ) {
-		const self = this,
-			options = [];
+		const options = [];
 
 		this.config.licenses.forEach( ( licenseName ) => {
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
@@ -153,14 +149,14 @@
 			}
 
 			const option = new OO.ui.CheckboxMultioptionWidget( {
-				label: self.createLabel( licenseName ),
+				label: this.createLabel( licenseName ),
 				data: licenseName
 			} );
 
 			// when custom input fields changes, we should make sure this element is selected when
 			// there is content, or deselected when empty
-			if ( self.customInputs[ licenseName ] ) {
-				self.customInputs[ licenseName ].on( 'focus', () => {
+			if ( this.customInputs[ licenseName ] ) {
+				this.customInputs[ licenseName ].on( 'focus', () => {
 					option.setSelected( true );
 				} );
 			}
@@ -176,11 +172,10 @@
 	 * @return {string}
 	 */
 	uw.LicenseGroup.prototype.getWikiText = function () {
-		const self = this,
-			values = this.getValue();
+		const values = this.getValue();
 
 		const wikiTexts = Object.keys( values ).map( ( name ) => {
-			let wikiText = self.getLicenceWikiText( name );
+			let wikiText = this.getLicenceWikiText( name );
 			const value = values[ name ];
 			if ( typeof value === 'string' ) {
 				// `value` is custom input
@@ -212,8 +207,7 @@
 	 * @return {Object} Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.getValue = function () {
-		const self = this,
-			result = {};
+		const result = {};
 
 		let selected, name;
 		if ( this.type === 'radio' ) {
@@ -226,7 +220,7 @@
 			selected = this.group.findSelectedItems();
 			selected.forEach( ( item ) => {
 				name = item.getData();
-				result[ name ] = !self.customInputs[ name ] || self.customInputs[ name ].getValue();
+				result[ name ] = !this.customInputs[ name ] || this.customInputs[ name ].getValue();
 			} );
 		}
 
@@ -237,13 +231,12 @@
 	 * @param {Object} values Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.setValue = function ( values ) {
-		const self = this,
-			selectArray = [];
+		const selectArray = [];
 
 		Object.keys( values ).forEach( ( name ) => {
 			const value = values[ name ];
-			if ( typeof value === 'string' && self.customInputs[ name ] ) {
-				self.customInputs[ name ].setValue( value );
+			if ( typeof value === 'string' && this.customInputs[ name ] ) {
+				this.customInputs[ name ].setValue( value );
 				// add to list of items to select
 				selectArray.push( name );
 			}
@@ -388,8 +381,6 @@
 	 * @return {jQuery} Wrapped textarea
 	 */
 	uw.LicenseGroup.prototype.createCustom = function ( name, defaultText ) {
-		const self = this;
-
 		this.customInputs[ name ] = new OO.ui.TextInputWidget( {
 			value: defaultText
 		} );
@@ -401,7 +392,7 @@
 			label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', () => {
-			self.showPreview( self.customInputs[ name ].getValue() );
+			this.showPreview( this.customInputs[ name ].getValue() );
 		} );
 
 		return $( '<div>' ).addClass( 'mwe-upwiz-license-custom' ).append(
@@ -424,21 +415,19 @@
 		this.previewDialog.setLoading( true );
 		this.windowManager.openWindow( this.previewDialog );
 
-		const input = this;
+		const show = ( html ) => {
+			this.previewDialog.setPreview( html );
+			this.windowManager.openWindow( this.previewDialog );
+		};
 
-		function show( html ) {
-			input.previewDialog.setPreview( html );
-			input.windowManager.openWindow( input.previewDialog );
-		}
-
-		function error( code, result ) {
+		const error = ( code, result ) => {
 			const message = result.errors[ 0 ].html;
 
 			show( $( '<div>' ).append(
 				$( '<h3>' ).append( code ),
 				$( '<p>' ).append( message )
 			) );
-		}
+		};
 
 		this.api.parse( wikiText, { pst: true } ).done( show ).fail( error );
 	};

@@ -11,8 +11,7 @@
 	 * @param {mw.UploadWizardUpload} config.captionsAvailable True if captions are available
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
-		const self = this,
-			metadataTypes = uw.CopyMetadataWidget.static.copyMetadataTypes,
+		const metadataTypes = uw.CopyMetadataWidget.static.copyMetadataTypes,
 			checkboxes = [],
 			propertyCopyLabels = mw.config.get( 'upwizPropertyCopyLabels' ) || {},
 			statementCheckboxes = {};
@@ -59,7 +58,7 @@
 					if ( !( property.id in propertyCopyLabels ) ) {
 						// for statement inputs added by a campaign we probably don't have a defined label, so grab
 						// the label from wikibase and add the checkbox once we have it
-						self.copyFrom.details.getPropertyLabel( property.id ).then( ( label ) => {
+						this.copyFrom.details.getPropertyLabel( property.id ).then( ( label ) => {
 							statementCheckboxes[ property.id ].setLabel( label );
 						} );
 					}

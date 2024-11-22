@@ -76,9 +76,8 @@
 	 * @private
 	 */
 	uw.LocationDetailsWidget.prototype.onChange = function () {
-		const widget = this;
 		this.getErrors().done( ( errors ) => {
-			widget.mapButton.setDisabled( !( errors.length === 0 && widget.getWikiText() !== '' ) );
+			this.mapButton.setDisabled( !( errors.length === 0 && this.getWikiText() !== '' ) );
 		} );
 	};
 

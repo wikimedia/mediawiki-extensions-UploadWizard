@@ -29,8 +29,7 @@
 
 		// Build the interface and attach all elements - do this on demand
 		buildInterface: function () {
-			const details = this,
-				config = mw.UploadWizard.config,
+			const config = mw.UploadWizard.config,
 				captionsAvailable = config.wikibase.enabled && config.wikibase.captions,
 				// the following only end up getting used if statements are enabled
 				dataTypesMap = mw.config.get( 'wbDataTypes' ) || {},
@@ -129,14 +128,14 @@
 				items: [ this.descriptionSameAsCaptionCheckbox ]
 			} );
 			this.descriptionSameAsCaptionCheckbox.on( 'change', () => {
-				details.descriptionsDetails.$element.toggle(
-					!details.descriptionSameAsCaptionCheckbox.isSelected()
+				this.descriptionsDetails.$element.toggle(
+					!this.descriptionSameAsCaptionCheckbox.isSelected()
 				);
 				// if descriptions are entered separately rather than being copied
 				// from captions, they become required (unless they are not, e.g.
 				// when a campaign provides alternatives) & captions turn optional
-				details.descriptionsDetails.setRequired( descriptionRequired && !details.descriptionSameAsCaptionCheckbox.isSelected() );
-				details.captionsDetails.setRequired( details.descriptionSameAsCaptionCheckbox.isSelected() );
+				this.descriptionsDetails.setRequired( descriptionRequired && !this.descriptionSameAsCaptionCheckbox.isSelected() );
+				this.captionsDetails.setRequired( this.descriptionSameAsCaptionCheckbox.isSelected() );
 			} );
 
 			// Descriptions are fickle; they are required (unless, as described earlier,
@@ -188,7 +187,7 @@
 				required: true
 			} );
 			// The date isn't prefilled anymore if the user changed its value
-			this.dateDetails.on( 'change', () => details.dateDetails.setPrefilled( false ) );
+			this.dateDetails.on( 'change', () => this.dateDetails.setPrefilled( false ) );
 			this.mainFields.push( this.dateDetailsField );
 
 			//
@@ -260,7 +259,7 @@
 			} );
 			// Expand collapsed sections if the fields within were changed (e.g. by metadata copier)
 			this.otherDetails.on( 'change', () => {
-				details.otherDetails.$element.data( 'mw-collapsible' ).expand();
+				this.otherDetails.$element.data( 'mw-collapsible' ).expand();
 			} );
 
 			this.mainFields.push( this.categoriesDetailsField );
@@ -290,22 +289,22 @@
 						return;
 					}
 
-					const widget = details.createStatementWidget( propertyId );
+					const widget = this.createStatementWidget( propertyId );
 					statementFields[ propertyId ] = new uw.FieldLayout( widget, {
 						// unknown labels will get filled in later on
-						label: details.propertyTitles[ propertyId ] || propertyId,
+						label: this.propertyTitles[ propertyId ] || propertyId,
 						classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
 					} );
 
-					details.additionalInfoFieldset.addItems( [ statementFields[ propertyId ] ] );
-					details.statementWidgets[ propertyId ] = widget;
-					details.mainFields.push( statementFields[ propertyId ] );
+					this.additionalInfoFieldset.addItems( [ statementFields[ propertyId ] ] );
+					this.statementWidgets[ propertyId ] = widget;
+					this.mainFields.push( statementFields[ propertyId ] );
 
 					// properties without a specified title default to their property id,
 					// but we'll grab the property label from Wikibase and update the
 					// field's label once we have it
-					if ( !( propertyId in details.propertyTitles ) ) {
-						details.getPropertyLabel( propertyId ).then( ( text ) => {
+					if ( !( propertyId in this.propertyTitles ) ) {
+						this.getPropertyLabel( propertyId ).then( ( text ) => {
 							statementFields[ propertyId ].setLabel( text );
 						} );
 					}
@@ -353,8 +352,8 @@
 						customDetails.setSerialized( { value: field.initialValue } );
 					}
 
-					details.$form.append( customDetailsField.$element );
-					details.campaignDetailsFields.push( customDetailsField );
+					this.$form.append( customDetailsField.$element );
+					this.campaignDetailsFields.push( customDetailsField );
 				}
 			} );
 
@@ -373,7 +372,7 @@
 					title: mw.message( 'mwe-upwiz-license-confirm-remove-title' ).text()
 				} ).done( ( confirmed ) => {
 					if ( confirmed ) {
-						details.upload.emit( 'remove-upload' );
+						this.upload.emit( 'remove-upload' );
 					}
 				} );
 			} );
@@ -493,15 +492,14 @@
 		 * Will only append once.
 		 */
 		attach: function () {
-			const $window = $( window ),
-				details = this;
+			const $window = $( window );
 
-			function maybeBuild() {
-				if ( !this.interfaceBuilt && $window.scrollTop() + $window.height() + 1000 >= details.$div.offset().top ) {
-					details.buildInterface();
+			const maybeBuild = () => {
+				if ( !this.interfaceBuilt && $window.scrollTop() + $window.height() + 1000 >= this.$div.offset().top ) {
+					this.buildInterface();
 					$window.off( 'scroll', maybeBuild );
 				}
-			}
+			};
 
 			if ( !this.isAttached ) {
 				this.$containerDiv.append( this.$div );
@@ -1054,8 +1052,6 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			const details = this;
-
 			this.$containerDiv.find( 'form' ).trigger( 'submit' );
 
 			this.upload.title = this.getTitle();
@@ -1071,8 +1067,8 @@
 					.then( () => {
 						// just work out the mediainfo entity id from the page id
 						const status = mw.message( 'mwe-upwiz-submitting-structured-data' );
-						details.setStatus( status.text() );
-						return details.getMediaInfoEntityId(); // (T208545)
+						this.setStatus( status.text() );
+						return this.getMediaInfoEntityId(); // (T208545)
 					} )
 					// submit structured data to wikibase
 					.then( this.submitStructuredData.bind( this ) );
@@ -1082,18 +1078,18 @@
 				// FIXME - structuredDataSubmissionErrors gets set to true in the catch block of
 				// postStructuredData which executes AFTER this, and so the error never gets
 				// displayed
-				if ( details.structuredDataSubmissionErrors ) {
+				if ( this.structuredDataSubmissionErrors ) {
 					let errorString = '<strong>' + mw.message(
 						'mwe-upwiz-error-submit-structured-data'
 					).parse() + '</strong>';
 
 					errorString += '<strong>' + mw.message(
 						'mwe-upwiz-error-submit-structured-data-remedy',
-						details.upload.imageinfo.canonicaltitle
+						this.upload.imageinfo.canonicaltitle
 					).parse() + '</strong>';
 
-					details.upload.state = 'sdc-api-error';
-					details.showError(
+					this.upload.state = 'sdc-api-error';
+					this.showError(
 						'sd-fail',
 						errorString
 					);
@@ -1107,8 +1103,8 @@
 					// as it's going to get
 					$( window ).off( 'beforeunload' );
 				} else {
-					details.showIndicator( 'success' );
-					details.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
+					this.showIndicator( 'success' );
+					this.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
 				}
 			} );
 		},
@@ -1117,8 +1113,6 @@
 		 * @return {jQuery.Promise}
 		 */
 		getMediaInfoEntityId: function () {
-			const self = this;
-
 			if ( this.mediaInfoEntityId !== undefined ) {
 				return $.Deferred().resolve( this.mediaInfoEntityId ).promise();
 			}
@@ -1137,8 +1131,8 @@
 				}
 
 				// FIXME: This just fetches the pageid and then hard-codes knowing that M+pageid is what we need
-				self.mediaInfoEntityId = 'M' + result.query.pages[ 0 ].pageid;
-				return self.mediaInfoEntityId;
+				this.mediaInfoEntityId = 'M' + result.query.pages[ 0 ].pageid;
+				return this.mediaInfoEntityId;
 			} );
 		},
 
@@ -1208,7 +1202,6 @@
 			let promise = $.Deferred().resolve().promise();
 			const config = mw.UploadWizard.config,
 				data = {},
-				self = this,
 				wbDataModel = mw.loader.require( 'wikibase.datamodel' ),
 				wbSerialization = mw.loader.require( 'wikibase.serialization' ),
 				wbSerializer = new wbSerialization.StatementSerializer();
@@ -1239,7 +1232,7 @@
 								new wbDataModel.Statement(
 									new wbDataModel.Claim(
 										new wbDataModel.PropertyValueSnak(
-											self.dateProperty,
+											this.dateProperty,
 											// eslint-disable-next-line no-undef
 											dataValues.TimeValue.newFromJSON( date )
 										)
@@ -1309,8 +1302,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		postStructuredData: function ( id, data ) {
-			const self = this,
-				config = mw.UploadWizard.config,
+			const config = mw.UploadWizard.config,
 				params = {
 					action: 'wbeditentity',
 					id: id,
@@ -1325,7 +1317,7 @@
 			return this.upload.api.postWithEditToken(
 				params, ajaxOptions
 			).catch( () => {
-				self.structuredDataSubmissionErrors = true;
+				this.structuredDataSubmissionErrors = true;
 			} );
 		},
 
@@ -1337,8 +1329,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitWikiTextInternal: function ( params ) {
-			const details = this,
-				apiPromise = this.upload.api.postWithEditToken( params );
+			const apiPromise = this.upload.api.postWithEditToken( params );
 
 			return apiPromise
 				// process the successful (in terms of HTTP status...) API call first:
@@ -1348,16 +1339,16 @@
 				// making it here means the upload is a success, or it would've been
 				// rejected by now (either by HTTP status code, or in validateWikiTextSubmitResult)
 				.then( ( result ) => {
-					details.title = mw.Title.makeTitle( 6, result.upload.filename );
-					details.upload.extractImageInfo( result.upload.imageinfo );
-					details.upload.thisProgress = 1.0;
-					details.upload.state = 'complete';
+					this.title = mw.Title.makeTitle( 6, result.upload.filename );
+					this.upload.extractImageInfo( result.upload.imageinfo );
+					this.upload.thisProgress = 1.0;
+					this.upload.state = 'complete';
 					return result;
 				} )
 				// uh-oh - something went wrong!
 				.catch( ( code, result ) => {
-					details.upload.state = 'error';
-					details.processError( code, result );
+					this.upload.state = 'error';
+					this.processError( code, result );
 					return $.Deferred().reject( code, result );
 				} )
 				.promise( { abort: apiPromise.abort } );
@@ -1375,8 +1366,7 @@
 		validateWikiTextSubmitResult: function ( params, result ) {
 			let warnings = null;
 			let ignoreTheseWarnings = false;
-			const details = this,
-				deferred = $.Deferred();
+			const deferred = $.Deferred();
 
 			if ( result && result.upload && result.upload.result === 'Poll' ) {
 				// if async publishing takes longer than 10 minutes give up
@@ -1398,11 +1388,11 @@
 						// * mwe-upwiz-assembling
 						this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
 						setTimeout( () => {
-							if ( details.upload.state !== 'aborted' ) {
-								details.submitWikiTextInternal( {
+							if ( this.upload.state !== 'aborted' ) {
+								this.submitWikiTextInternal( {
 									action: 'upload',
 									checkstatus: true,
-									filekey: details.upload.fileKey
+									filekey: this.upload.fileKey
 								} ).then( deferred.resolve, deferred.reject );
 							} else {
 								deferred.resolve( 'aborted' );
