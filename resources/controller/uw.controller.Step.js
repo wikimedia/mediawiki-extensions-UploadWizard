@@ -321,13 +321,12 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Step.prototype.removeUploads = function ( uploads ) {
-		let i,
-			// clone the array of uploads, just to be sure it's not a reference
-			// to this.uploads, which will be modified (and we can't have that
-			// while we're looping it)
-			copy = uploads.slice();
+		// clone the array of uploads, just to be sure it's not a reference
+		// to this.uploads, which will be modified (and we can't have that
+		// while we're looping it)
+		const copy = uploads.slice();
 
-		for ( i = 0; i < copy.length; i++ ) {
+		for ( let i = 0; i < copy.length; i++ ) {
 			this.removeUpload( copy[ i ] );
 		}
 	};

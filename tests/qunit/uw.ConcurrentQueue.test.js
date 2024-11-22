@@ -25,7 +25,7 @@
 	// trigger the next one to execute, which would terminate immediately,
 	// instead of giving time for a second new thingy to be added)
 	function queueAction() {
-		var deferred = $.Deferred();
+		const deferred = $.Deferred();
 		setTimeout( deferred.resolve, 10 );
 		return deferred.promise();
 	}
@@ -33,17 +33,17 @@
 	// Asserts that the given stub functions were called in the given order.
 	// SinonJS's assert.callOrder doesn't allow to check individual calls.
 	function assertCalledInOrder() {
-		var calls, i, currSpyCall, nextSpyCall;
 		// Map stubs to specific calls
-		calls = Array.prototype.map.call( arguments, ( spy ) => {
+		const calls = Array.prototype.map.call( arguments, ( spy ) => {
 			if ( !spy.assertCallsInOrderLastCall ) {
 				spy.assertCallsInOrderLastCall = 0;
 			}
 			return spy.getCall( spy.assertCallsInOrderLastCall++ );
 		} );
+		let nextSpyCall;
 		// Assert stuff
-		for ( i = 0; i < calls.length - 1; i++ ) {
-			currSpyCall = calls[ i ];
+		for ( let i = 0; i < calls.length - 1; i++ ) {
+			const currSpyCall = calls[ i ];
 			nextSpyCall = calls[ i + 1 ];
 			if ( currSpyCall ) {
 				QUnit.assert.true(
@@ -61,10 +61,9 @@
 	}
 
 	QUnit.test( 'Basic behavior', ( assert ) => {
-		var done, action, queue;
-		done = assert.async();
-		action = sinon.spy( queueAction );
-		queue = new uw.ConcurrentQueue( {
+		const done = assert.async();
+		const action = sinon.spy( queueAction );
+		const queue = new uw.ConcurrentQueue( {
 			count: 3,
 			action: action
 		} );
@@ -94,12 +93,11 @@
 	} );
 
 	QUnit.test( 'Event emitting', ( assert ) => {
-		var done, changeHandler, progressHandler, completeHandler, queue;
-		done = assert.async();
-		changeHandler = sinon.stub();
-		progressHandler = sinon.stub();
-		completeHandler = sinon.stub();
-		queue = new uw.ConcurrentQueue( {
+		const done = assert.async();
+		const changeHandler = sinon.stub();
+		const progressHandler = sinon.stub();
+		const completeHandler = sinon.stub();
+		const queue = new uw.ConcurrentQueue( {
 			count: 3,
 			action: queueAction
 		} );
@@ -135,9 +133,8 @@
 	} );
 
 	QUnit.test( 'Restarting a completed queue', ( assert ) => {
-		var done, queue;
-		done = assert.async();
-		queue = new uw.ConcurrentQueue( {
+		const done = assert.async();
+		const queue = new uw.ConcurrentQueue( {
 			count: 3,
 			action: queueAction
 		} );
@@ -163,9 +160,8 @@
 	} );
 
 	QUnit.test( 'Empty queue completes', ( assert ) => {
-		var done, queue;
-		done = assert.async();
-		queue = new uw.ConcurrentQueue( {
+		const done = assert.async();
+		const queue = new uw.ConcurrentQueue( {
 			count: 3,
 			action: queueAction
 		} );
@@ -180,12 +176,11 @@
 	} );
 
 	QUnit.test( 'Adding new items while queue running', ( assert ) => {
-		var done, changeHandler, progressHandler, completeHandler, queue;
-		done = assert.async();
-		changeHandler = sinon.stub();
-		progressHandler = sinon.stub();
-		completeHandler = sinon.stub();
-		queue = new uw.ConcurrentQueue( {
+		const done = assert.async();
+		const changeHandler = sinon.stub();
+		const progressHandler = sinon.stub();
+		const completeHandler = sinon.stub();
+		const queue = new uw.ConcurrentQueue( {
 			count: 2,
 			action: queueAction
 		} );
@@ -236,12 +231,11 @@
 	} );
 
 	QUnit.test( 'Deleting items while queue running', ( assert ) => {
-		var done, changeHandler, progressHandler, completeHandler, queue;
-		done = assert.async();
-		changeHandler = sinon.stub();
-		progressHandler = sinon.stub();
-		completeHandler = sinon.stub();
-		queue = new uw.ConcurrentQueue( {
+		const done = assert.async();
+		const changeHandler = sinon.stub();
+		const progressHandler = sinon.stub();
+		const completeHandler = sinon.stub();
+		const queue = new uw.ConcurrentQueue( {
 			count: 2,
 			action: queueAction
 		} );
@@ -293,13 +287,12 @@
 	} );
 
 	QUnit.test( 'Deleting currently running item', ( assert ) => {
-		var done, action, changeHandler, progressHandler, completeHandler, queue;
-		done = assert.async();
-		action = sinon.spy( queueAction );
-		changeHandler = sinon.stub();
-		progressHandler = sinon.stub();
-		completeHandler = sinon.stub();
-		queue = new uw.ConcurrentQueue( {
+		const done = assert.async();
+		const action = sinon.spy( queueAction );
+		const changeHandler = sinon.stub();
+		const progressHandler = sinon.stub();
+		const completeHandler = sinon.stub();
+		const queue = new uw.ConcurrentQueue( {
 			count: 2,
 			action: action
 		} );
@@ -349,14 +342,13 @@
 	} );
 
 	QUnit.test( 'Adding a new item when almost done', ( assert ) => {
-		var done, action, changeHandler, progressHandler, completeHandler, queue, onProgress;
-		done = assert.async();
+		const done = assert.async();
 		// This test seems extra flaky and was occasionally failing, double the delays
-		action = sinon.spy( queueAction );
-		changeHandler = sinon.stub();
-		progressHandler = sinon.stub();
-		completeHandler = sinon.stub();
-		queue = new uw.ConcurrentQueue( {
+		const action = sinon.spy( queueAction );
+		const changeHandler = sinon.stub();
+		const progressHandler = sinon.stub();
+		const completeHandler = sinon.stub();
+		const queue = new uw.ConcurrentQueue( {
 			count: 2,
 			action: action
 		} );
@@ -399,7 +391,7 @@
 		queue.addItem( 'b' );
 		queue.addItem( 'c' );
 		queue.addItem( 'd' );
-		onProgress = function () {
+		const onProgress = function () {
 			if ( queue.done.length === 3 ) {
 				queue.addItem( 'e' );
 				queue.off( 'progress', onProgress );

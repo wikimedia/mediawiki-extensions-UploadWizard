@@ -21,8 +21,6 @@
 		 * @return {string}
 		 */
 		escapePipes: function ( wikitext ) {
-			let extractedTemplates, extractedLinks;
-
 			// Pipes (`|`) must be escaped because we'll be inserting this
 			// content into a templates & pipes would mess up the syntax.
 			// First, urlencode pipes inside links:
@@ -31,8 +29,8 @@
 			// Second, pipes can be valid inside other templates or links in
 			// wikitext, so we'll first extract those from the content, then
 			// replace the pipes, then restore the original (extracted) content:
-			extractedTemplates = this.extractTemplates( wikitext );
-			extractedLinks = this.extractLinks( extractedTemplates[ 0 ] );
+			const extractedTemplates = this.extractTemplates( wikitext );
+			const extractedLinks = this.extractLinks( extractedTemplates[ 0 ] );
 			wikitext = extractedLinks[ 0 ].replace( /\|/g, '{{!}}' );
 			return this.restoreExtracts( wikitext, Object.assign( extractedTemplates[ 1 ], extractedLinks[ 1 ] ) );
 		},
@@ -52,9 +50,9 @@
 		 * @return {Array} [{string} wikitext, {Object} replacements]
 		 */
 		extractTemplates: function ( wikitext ) {
-			let extracts = {},
-				previousExtracts = {},
-				extracted = wikitext,
+			let previousExtracts = {},
+				extracted = wikitext;
+			const extracts = {},
 				// the regex explained:
 				// * `[^\{]`: character can not be {
 				// * `\{(?!\{)`: or if it is, it can't be followed by another {

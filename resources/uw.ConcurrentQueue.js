@@ -115,8 +115,7 @@
 	 * @param {Object} item
 	 */
 	uw.ConcurrentQueue.prototype.promiseComplete = function ( item ) {
-		let index;
-		index = this.running.indexOf( item );
+		const index = this.running.indexOf( item );
 		// Check that this item wasn't removed while it was being executed
 		if ( index !== -1 ) {
 			this.running.splice( index, 1 );
@@ -134,17 +133,16 @@
 	 * @private
 	 */
 	uw.ConcurrentQueue.prototype.executeNext = function () {
-		let item, promise;
 		if ( this.running.length >= this.count || !this.executing ) {
 			return;
 		}
-		item = this.queued.shift();
+		const item = this.queued.shift();
 		if ( !item ) {
 			return;
 		}
 
 		this.running.push( item );
-		promise = this.action.call( null, item );
+		const promise = this.action.call( null, item );
 		this.runningPromises.push( promise );
 		promise.always( this.promiseComplete.bind( this, item ) );
 	};

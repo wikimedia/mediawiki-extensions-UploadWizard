@@ -6,14 +6,14 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 	} );
 
 	function getInstance() {
-		var wizard = new mw.UploadWizard( {} );
+		const wizard = new mw.UploadWizard( {} );
 		// FlickrChecker doesn't actually do much with the upload so we can omit some of its dependencies
-		var upload = new mw.UploadWizardUpload( wizard, {} );
+		const upload = new mw.UploadWizardUpload( wizard, {} );
 		return new mw.FlickrChecker( wizard, upload );
 	}
 
 	QUnit.test( 'getFilenameFromItem() simple case', ( assert ) => {
-		var flickrChecker = getInstance();
+		const flickrChecker = getInstance();
 		assert.strictEqual(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo.jpg'
@@ -21,7 +21,7 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 	} );
 
 	QUnit.test( 'getFilenameFromItem() with empty title', ( assert ) => {
-		var flickrChecker = getInstance();
+		const flickrChecker = getInstance();
 		assert.strictEqual(
 			flickrChecker.getFilenameFromItem( '', 123, 'johndoe' ),
 			'johndoe - 123.jpg'
@@ -29,7 +29,7 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 	} );
 
 	QUnit.test( 'getFilenameFromItem() name conflict within instance', ( assert ) => {
-		var flickrChecker = getInstance(),
+		const flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		assert.strictEqual(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
@@ -43,8 +43,8 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 	} );
 
 	QUnit.test( 'getFilenameFromItem() name conflict between different instances', ( assert ) => {
-		var flickrChecker = getInstance();
-		var fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
+		let flickrChecker = getInstance();
+		const fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		assert.strictEqual(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo.jpg'
@@ -59,9 +59,9 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 	} );
 
 	QUnit.test( 'setUploadDescription', function ( assert ) {
-		var flickrChecker = getInstance();
-		var upload = {};
-		var sidstub = this.sandbox.stub( flickrChecker, 'setImageDescription' );
+		const flickrChecker = getInstance();
+		let upload = {};
+		const sidstub = this.sandbox.stub( flickrChecker, 'setImageDescription' );
 
 		flickrChecker.setUploadDescription( upload );
 		assert.true( sidstub.called );

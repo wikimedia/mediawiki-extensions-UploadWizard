@@ -74,9 +74,9 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.load = function ( uploads ) {
-		let self = this,
-			// select "provide same information for all files" by default
-			defaultDeedInterface = 'common',
+		// select "provide same information for all files" by default
+		let defaultDeedInterface = 'common';
+		const self = this,
 			localUploads = uploads.filter( ( upload ) => {
 				let deed;
 				if ( upload.file.fromURL ) {
@@ -104,8 +104,7 @@
 				return map;
 			}, {} ),
 			showDeed = localUploads.length > 0,
-			fromStepName = uploads[ 0 ].state,
-			multiDeedRadio;
+			fromStepName = uploads[ 0 ].state;
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 
@@ -123,7 +122,7 @@
 			return;
 		}
 
-		multiDeedRadio = new OO.ui.RadioSelectWidget( {
+		const multiDeedRadio = new OO.ui.RadioSelectWidget( {
 			classes: [ 'mwe-upwiz-source-multiple' ],
 			items: [
 				new OO.ui.RadioOptionWidget( {
@@ -257,9 +256,8 @@
 	 * @return {mw.deed.Abstract[]}
 	 */
 	uw.controller.Deed.prototype.getLicensingDeeds = function ( uploads ) {
-		let deed,
-			deeds = {},
-			doOwnWork = false,
+		const deeds = {};
+		let doOwnWork = false,
 			doThirdParty = false;
 
 		if ( this.config.licensing.ownWorkDefault === 'choice' ) {
@@ -271,11 +269,11 @@
 		}
 
 		if ( doOwnWork ) {
-			deed = new uw.deed.OwnWork( this.config, uploads, this.api );
+			const deed = new uw.deed.OwnWork( this.config, uploads, this.api );
 			deeds[ deed.name ] = deed;
 		}
 		if ( doThirdParty ) {
-			deed = new uw.deed.ThirdParty( this.config, uploads, this.api );
+			const deed = new uw.deed.ThirdParty( this.config, uploads, this.api );
 			deeds[ deed.name ] = deed;
 		}
 

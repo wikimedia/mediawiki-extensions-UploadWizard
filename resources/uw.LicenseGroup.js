@@ -78,17 +78,16 @@
 	 * @return {OO.ui.FieldsetLayout}
 	 */
 	uw.LicenseGroup.prototype.createFieldset = function ( group ) {
-		let fieldset = new OO.ui.FieldsetLayout( {
-				items: [ group ],
-				classes: [ 'mwe-upwiz-deed-license-group' ]
-			} ),
-			labelParams, $subhead;
+		const fieldset = new OO.ui.FieldsetLayout( {
+			items: [ group ],
+			classes: [ 'mwe-upwiz-deed-license-group' ]
+		} );
 
 		if ( this.config.subhead ) {
 			// 'url' can be either a single (string) url, or an array of (string) urls;
 			// hence this convoluted variable-length parameters assembly...
-			labelParams = [ this.config.subhead, this.count ].concat( this.config.url );
-			$subhead = $( '<div>' )
+			const labelParams = [ this.config.subhead, this.count ].concat( this.config.url );
+			const $subhead = $( '<div>' )
 				.addClass( 'mwe-upwiz-deed-license-group-subhead mwe-upwiz-deed-title' )
 				.append( mw.message.apply( mw.message, labelParams ).parseDom() );
 
@@ -115,14 +114,12 @@
 			options = [];
 
 		this.config.licenses.forEach( ( licenseName ) => {
-			let option;
-
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
 				// unknown license
 				return;
 			}
 
-			option = new OO.ui.RadioOptionWidget( {
+			const option = new OO.ui.RadioOptionWidget( {
 				label: self.createLabel( licenseName ),
 				data: licenseName
 			} );
@@ -150,14 +147,12 @@
 			options = [];
 
 		this.config.licenses.forEach( ( licenseName ) => {
-			let option;
-
 			if ( mw.UploadWizard.config.licenses[ licenseName ] === undefined ) {
 				// unknown license
 				return;
 			}
 
-			option = new OO.ui.CheckboxMultioptionWidget( {
+			const option = new OO.ui.CheckboxMultioptionWidget( {
 				label: self.createLabel( licenseName ),
 				data: licenseName
 			} );
@@ -181,13 +176,12 @@
 	 * @return {string}
 	 */
 	uw.LicenseGroup.prototype.getWikiText = function () {
-		let wikiTexts,
-			self = this,
+		const self = this,
 			values = this.getValue();
 
-		wikiTexts = Object.keys( values ).map( ( name ) => {
-			let wikiText = self.getLicenceWikiText( name ),
-				value = values[ name ];
+		const wikiTexts = Object.keys( values ).map( ( name ) => {
+			let wikiText = self.getLicenceWikiText( name );
+			const value = values[ name ];
 			if ( typeof value === 'string' ) {
 				// `value` is custom input
 				wikiText += '\n' + value.trim();
@@ -218,11 +212,10 @@
 	 * @return {Object} Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.getValue = function () {
-		let self = this,
-			result = {},
-			selected,
-			name;
+		const self = this,
+			result = {};
 
+		let selected, name;
 		if ( this.type === 'radio' ) {
 			selected = this.group.findSelectedItem();
 			if ( selected ) {
@@ -304,8 +297,7 @@
 	 * @return {string} of wikitext
 	 */
 	uw.LicenseGroup.prototype.getLicenceWikiText = function ( name ) {
-		let templates = this.getTemplates( name ),
-			wikiTexts;
+		let templates = this.getTemplates( name );
 
 		if ( this.config.prependTemplates !== undefined ) {
 			this.config.prependTemplates.forEach( ( template ) => {
@@ -318,7 +310,7 @@
 			templates = [ templates.join( '|' ) ];
 		}
 
-		wikiTexts = templates.map( ( t ) => '{{' + t + '}}' );
+		const wikiTexts = templates.map( ( t ) => '{{' + t + '}}' );
 		return wikiTexts.join( '' );
 	};
 
@@ -330,25 +322,22 @@
 	 * @return {jQuery}
 	 */
 	uw.LicenseGroup.prototype.createLabel = function ( name ) {
-		let licenseInfo = this.getLicenseInfo( name ),
+		const licenseInfo = this.getLicenseInfo( name ),
 			messageKey = licenseInfo.props.msg === undefined ?
 				'[missing msg for ' + licenseInfo.name + ']' :
 				licenseInfo.props.msg,
+			$icons = $( '<span>' );
 			// The URL is optional, but if the message includes it as $2, we surface the fact
 			// that it's missing.
-			licenseURL = licenseInfo.props.url === undefined ? '#missing license URL' : licenseInfo.props.url,
-			$licenseLink,
-			$icons = $( '<span>' ),
-			$label;
+		let licenseURL = licenseInfo.props.url === undefined ? '#missing license URL' : licenseInfo.props.url;
 
 		if (
 			licenseInfo.props.languageCodePrefix !== undefined &&
 			licenseInfo.props.availableLanguages !== undefined
 		) {
-			let i,
-				targetLanguageCode = 'en', // final fallback
-				fallbackChain = mw.language.getFallbackLanguageChain();
-			for ( i = 0; i < fallbackChain.length; i++ ) {
+			let targetLanguageCode = 'en'; // final fallback
+			const fallbackChain = mw.language.getFallbackLanguageChain();
+			for ( let i = 0; i < fallbackChain.length; i++ ) {
 				if ( licenseInfo.props.availableLanguages.indexOf( fallbackChain[ i ] ) !== -1 ) {
 					targetLanguageCode = fallbackChain[ i ];
 					break;
@@ -356,7 +345,7 @@
 			}
 			licenseURL += licenseInfo.props.languageCodePrefix + targetLanguageCode;
 		}
-		$licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
+		const $licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
 		if ( licenseInfo.props.icons !== undefined ) {
 			licenseInfo.props.icons.forEach( ( icon ) => {
 				// The following classes are used here:
@@ -368,7 +357,7 @@
 			} );
 		}
 
-		$label = $( '<label>' )
+		const $label = $( '<label>' )
 			.msg( messageKey, this.count || 0, $licenseLink, $icons )
 			.addClass( 'mwe-upwiz-copyright-info' );
 
@@ -399,8 +388,7 @@
 	 * @return {jQuery} Wrapped textarea
 	 */
 	uw.LicenseGroup.prototype.createCustom = function ( name, defaultText ) {
-		let self = this,
-			button;
+		const self = this;
 
 		this.customInputs[ name ] = new OO.ui.TextInputWidget( {
 			value: defaultText
@@ -409,7 +397,7 @@
 		// Update displayed errors as the user is typing
 		this.customInputs[ name ].on( 'change', OO.ui.debounce( this.emit.bind( this, 'change', this ), 500 ) );
 
-		button = new OO.ui.ButtonWidget( {
+		const button = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', () => {
@@ -433,12 +421,10 @@
 	 * @param {string} wikiText
 	 */
 	uw.LicenseGroup.prototype.showPreview = function ( wikiText ) {
-		let input;
-
 		this.previewDialog.setLoading( true );
 		this.windowManager.openWindow( this.previewDialog );
 
-		input = this;
+		const input = this;
 
 		function show( html ) {
 			input.previewDialog.setPreview( html );

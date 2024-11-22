@@ -19,13 +19,13 @@
 	QUnit.module( 'mw.uploadWizard.controller.Thanks', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', ( assert ) => {
-		var step = new uw.controller.Thanks( new mw.Api(), { display: { thanksLabel: 'Thanks!' } } );
+		const step = new uw.controller.Thanks( new mw.Api(), { display: { thanksLabel: 'Thanks!' } } );
 		assert.true( step instanceof uw.controller.Step );
 		assert.true( !!step.ui );
 	} );
 
 	QUnit.test( 'load', function ( assert ) {
-		var step = new uw.controller.Thanks( new mw.Api(), {} ),
+		const step = new uw.controller.Thanks( new mw.Api(), {} ),
 			auStub = this.sandbox.stub( step.ui, 'addUpload' );
 
 		this.sandbox.stub( step.ui, 'load' );
@@ -39,7 +39,7 @@
 	} );
 
 	QUnit.test( 'Custom button configuration', ( assert ) => {
-		var config = {
+		const config = {
 				display: {
 					homeButton: {
 						label: 'This is a homepage URL',
@@ -51,9 +51,9 @@
 					}
 				}
 			},
-			uiThanks = new uw.ui.Thanks( config ),
 			homeButtonNonMainNamespaceTarget = 'Vacation:Home',
 			homeButtonRelativeTarget = 'Home_Sweet_Home';
+		let uiThanks = new uw.ui.Thanks( config );
 
 		assert.strictEqual(
 			uiThanks.homeButton.getLabel(),
@@ -102,7 +102,7 @@
 	} );
 
 	QUnit.test( 'Method drops the given parameter', ( assert ) => {
-		var uiThanks = new uw.ui.Thanks( {} ),
+		const uiThanks = new uw.ui.Thanks( {} ),
 			locationHref = 'https://commons.wikimedia.org/wiki/Special:UploadWizard?campaign=somecampaign&objref=testRef|MyPage|342&updateList=1&somevar=someval';
 
 		assert.strictEqual(

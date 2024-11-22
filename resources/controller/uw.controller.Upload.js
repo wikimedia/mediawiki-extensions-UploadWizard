@@ -65,11 +65,10 @@
 	 * Updates the upload step data when a file is added or removed.
 	 */
 	uw.controller.Upload.prototype.updateFileCounts = function () {
-		let fewerThanMax, haveUploads,
-			max = this.config.maxUploads;
+		const max = this.config.maxUploads;
 
-		haveUploads = this.uploads.length > 0;
-		fewerThanMax = this.uploads.length < max;
+		const haveUploads = this.uploads.length > 0;
+		const fewerThanMax = this.uploads.length < max;
 
 		this.updateProgressBarCount( this.uploads.length );
 		this.ui.updateFileCounts( haveUploads, fewerThanMax );
@@ -214,13 +213,11 @@
 	 * @return {mw.UploadWizardUpload|boolean} The new upload, or false if it can't be added
 	 */
 	uw.controller.Upload.prototype.addFile = function ( file ) {
-		let upload;
-
 		if ( this.uploads.length >= this.config.maxUploads ) {
 			return false;
 		}
 
-		upload = new mw.UploadWizardUpload( this, file );
+		const upload = new mw.UploadWizardUpload( this, file );
 
 		if ( !this.validateFile( upload ) ) {
 			return false;
@@ -244,16 +241,12 @@
 	 * @param {FileList} files
 	 */
 	uw.controller.Upload.prototype.addFiles = function ( files ) {
-		let
-			uploadObj,
-			i,
-			file,
-			uploadObjs = [],
+		const uploadObjs = [],
 			controller = this;
 
-		for ( i = 0; i < files.length; i++ ) {
-			file = files[ i ];
-			uploadObj = controller.addFile( file );
+		for ( let i = 0; i < files.length; i++ ) {
+			const file = files[ i ];
+			const uploadObj = controller.addFile( file );
 			if ( uploadObj ) {
 				uploadObjs.push( uploadObj );
 			}
@@ -302,9 +295,7 @@
 	 * @return {boolean} Error in [code, info] format, or empty [] for no errors
 	 */
 	uw.controller.Upload.prototype.validateFile = function ( upload ) {
-		let extension,
-			i,
-			actualMaxSize = mw.UploadWizard.config.maxMwUploadSize,
+		const actualMaxSize = mw.UploadWizard.config.maxMwUploadSize,
 
 			// Check if filename is acceptable
 			// TODO sanitize filename
@@ -312,7 +303,7 @@
 			basename = upload.getBasename();
 
 		// check to see if this file has already been selected for upload
-		for ( i = 0; i < this.uploads.length; i++ ) {
+		for ( let i = 0; i < this.uploads.length; i++ ) {
 			if ( upload !== this.uploads[ i ] && filename === this.uploads[ i ].getFilename() ) {
 				this.ui.showDuplicateError( filename, basename );
 				return false;
@@ -332,7 +323,7 @@
 		}
 
 		// check if extension is acceptable
-		extension = upload.title.getExtension();
+		const extension = upload.title.getExtension();
 		if ( !extension ) {
 			this.ui.showMissingExtensionError( filename );
 			return false;

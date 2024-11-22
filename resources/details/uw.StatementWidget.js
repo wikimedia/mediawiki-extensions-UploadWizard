@@ -68,15 +68,14 @@
 	 * @param {dataValues.DataValue} dataValue
 	 */
 	uw.StatementWidget.prototype.addTag = function ( dataValue ) {
-		let self = this,
-			tag,
+		const self = this,
 			data = this.createStatement( dataValue );
 
 		this.formatValueElement.formatValue(
 			dataValue, 'text/plain', null, this.propertyId
 		).then( ( label ) => {
 			if ( self.findItemFromData( data ) === null ) {
-				tag = new OO.ui.TagItemWidget( {
+				const tag = new OO.ui.TagItemWidget( {
 					label: label, data: data
 				} );
 				self.addItems( [ tag ] );
@@ -115,12 +114,11 @@
 	 * @param {datamodel.StatementList} data
 	 */
 	uw.StatementWidget.prototype.setData = function ( data ) {
-		let self = this,
-			statements = data.toArray(),
-			dataValue;
+		const self = this,
+			statements = data.toArray();
 
 		statements.forEach( ( statement ) => {
-			dataValue = statement.getClaim().getMainSnak().getValue();
+			const dataValue = statement.getClaim().getMainSnak().getValue();
 			self.addTag( dataValue );
 		} );
 	};
@@ -144,9 +142,7 @@
 	 * @return {datamodel.Statement}
 	 */
 	uw.StatementWidget.prototype.createStatement = function ( dataValue ) {
-		let snak;
-
-		snak = new this.datamodel.PropertyValueSnak( this.propertyId, dataValue, null );
+		const snak = new this.datamodel.PropertyValueSnak( this.propertyId, dataValue, null );
 
 		return new this.datamodel.Statement(
 			new this.datamodel.Claim(
@@ -175,15 +171,14 @@
 	 * @private
 	 */
 	uw.StatementWidget.prototype.updateInputSize = function () {
-		let containerWidth = this.$element.width(),
-			tagsWidth = 0,
-			newWidth;
+		const containerWidth = this.$element.width();
 
+		let tagsWidth = 0;
 		this.input.$element.detach();
 		this.getItems().forEach( ( item ) => {
 			tagsWidth += item.$element.outerWidth();
 		} );
-		newWidth = containerWidth - tagsWidth - 20;
+		let newWidth = containerWidth - tagsWidth - 20;
 
 		// if the new width is too narrow, expand to the container size instead (forces input onto
 		// a new line)

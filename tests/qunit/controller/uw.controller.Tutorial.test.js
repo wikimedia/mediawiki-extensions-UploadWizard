@@ -19,17 +19,16 @@
 	QUnit.module( 'mw.uploadWizard.controller.Tutorial', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', ( assert ) => {
-		var step = new uw.controller.Tutorial( new mw.Api() );
+		const step = new uw.controller.Tutorial( new mw.Api() );
 		assert.true( step instanceof uw.controller.Step );
 		assert.true( !!step.ui );
 		assert.true( !!step.api );
 	} );
 
 	QUnit.test( 'setSkipPreference', function ( assert ) {
-		var mnStub,
-			api = new mw.Api(),
+		const acwStub = { release: this.sandbox.stub() };
+		let api = new mw.Api(),
 			step = new uw.controller.Tutorial( api ),
-			acwStub = { release: this.sandbox.stub() },
 			pwtd = $.Deferred();
 
 		this.sandbox.stub( mw, 'confirmCloseWindow' ).returns( acwStub );
@@ -50,7 +49,7 @@
 		step = new uw.controller.Tutorial( api );
 		acwStub.release.reset();
 		pwtd = $.Deferred();
-		mnStub = this.sandbox.stub( mw, 'notify' );
+		const mnStub = this.sandbox.stub( mw, 'notify' );
 
 		this.sandbox.stub( api, 'postWithToken' ).returns( pwtd.promise() );
 

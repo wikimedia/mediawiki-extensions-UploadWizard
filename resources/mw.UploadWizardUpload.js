@@ -204,11 +204,10 @@
 	 * @return {jQuery.Promise} A promise, resolved when we're done
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function () {
-		let binReader, jpegmeta,
-			deferred = $.Deferred(),
+		const deferred = $.Deferred(),
 			upload = this;
 		if ( this.file && this.file.type === 'image/jpeg' ) {
-			binReader = new FileReader();
+			const binReader = new FileReader();
 			binReader.onerror = function () {
 				deferred.resolve();
 			};
@@ -230,7 +229,7 @@
 					}
 				}
 				try {
-					jpegmeta = require( 'mediawiki.libs.jpegmeta' );
+					const jpegmeta = require( 'mediawiki.libs.jpegmeta' );
 					meta = jpegmeta( binStr, upload.file.fileName );
 					// eslint-disable-next-line camelcase, no-underscore-dangle
 					meta._binary_data = null;
@@ -313,10 +312,9 @@
 	 * @param {Object} imageinfo JSON object obtained from API result.
 	 */
 	mw.UploadWizardUpload.prototype.extractImageInfo = function ( imageinfo ) {
-		let key,
-			upload = this;
+		const upload = this;
 
-		for ( key in imageinfo ) {
+		for ( const key in imageinfo ) {
 			// we get metadata as list of key-val pairs; convert to object for easier lookup. Assuming that EXIF fields are unique.
 			if ( key === 'metadata' ) {
 				if ( this.imageinfo.metadata === undefined ) {
@@ -396,7 +394,7 @@
 	 * @param {number} [height] Height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getImageInfo = function ( callback, props, width, height ) {
-		let requestedTitle, params;
+		const requestedTitle = this.title.getPrefixedText();
 
 		function ok( data ) {
 			let found;
@@ -429,8 +427,7 @@
 			props = [];
 		}
 
-		requestedTitle = this.title.getPrefixedText();
-		params = {
+		const params = {
 			prop: 'imageinfo',
 			titles: requestedTitle,
 			iiprop: props.join( '|' )
@@ -494,13 +491,18 @@
 				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
 				// the event with a null.
 				thumbnails.forEach( ( thumb ) => {
-					let timeoutMs, image;
-
 					if ( thumb.thumberror || ( !( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 						mw.log.warn( 'mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information' );
 						deferred.resolve( null );
 						return;
 					}
+
+					// try to load this image with exponential backoff
+					// if the delay goes past 8 seconds, it gives up and publishes the event with null
+					let timeoutMs = 100;
+					const image = document.createElement( 'img' );
+					image.width = thumb.thumbwidth;
+					image.height = thumb.thumbheight;
 
 					// executing this should cause a .load() or .error() event on the image
 					function setSrc() {
@@ -509,12 +511,6 @@
 						image.src = thumb.thumburl + '?' + Math.random();
 					}
 
-					// try to load this image with exponential backoff
-					// if the delay goes past 8 seconds, it gives up and publishes the event with null
-					timeoutMs = 100;
-					image = document.createElement( 'img' );
-					image.width = thumb.thumbwidth;
-					image.height = thumb.thumbheight;
 					$( image )
 						.on( 'load', () => {
 							// publish the image to anyone who wanted it
@@ -590,10 +586,9 @@
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		let scaling = 1;
 		Object.keys( constraints ).forEach( ( dim ) => {
-			let s,
-				constraint = constraints[ dim ];
+			const constraint = constraints[ dim ];
 			if ( constraint && image[ dim ] > constraint ) {
-				s = constraint / image[ dim ];
+				const s = constraint / image[ dim ];
 				if ( s < scaling ) {
 					scaling = s;
 				}
@@ -613,10 +608,7 @@
 	 * @return {HTMLCanvasElement|null}
 	 */
 	mw.UploadWizardUpload.prototype.getTransformedCanvasElement = function ( image, constraints ) {
-		let angle, scaling, width, height,
-			dimensions, dx, dy, x, y, $canvas, ctx,
-			scaleConstraints = constraints,
-			rotation = 0;
+		let angle, rotation = 0;
 
 		// if this wiki can rotate images to match their EXIF metadata,
 		// we should do the same in our preview if the browser does not apply it already
@@ -625,6 +617,7 @@
 			rotation = angle ? 360 - angle : 0;
 		}
 
+		let scaleConstraints;
 		// swap scaling constraints if needed by rotation...
 		if ( rotation === 90 || rotation === 270 ) {
 			scaleConstraints = {};
@@ -636,20 +629,21 @@
 			}
 		}
 
-		scaling = this.getScalingFromConstraints( image, scaleConstraints );
+		const scaling = this.getScalingFromConstraints( image, scaleConstraints );
 
-		width = image.width * scaling;
-		height = image.height * scaling;
+		const width = image.width * scaling;
+		const height = image.height * scaling;
 
-		dimensions = { width: width, height: height };
+		let dimensions = { width: width, height: height };
 		if ( rotation === 90 || rotation === 270 ) {
 			dimensions = { width: height, height: width };
 		}
 
 		// Start drawing at offset 0,0
-		dx = 0;
-		dy = 0;
+		const dx = 0;
+		const dy = 0;
 
+		let x, y;
 		switch ( rotation ) {
 			// If a rotation is applied, the direction of the axis
 			// changes as well. You can derive the values below by
@@ -673,8 +667,8 @@
 				break;
 		}
 
-		$canvas = $( '<canvas>' ).attr( dimensions );
-		ctx = $canvas[ 0 ].getContext( '2d' );
+		const $canvas = $( '<canvas>' ).attr( dimensions );
+		const ctx = $canvas[ 0 ].getContext( '2d' );
 		ctx.clearRect( dx, dy, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
 		try {
@@ -722,8 +716,7 @@
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
 	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
-		let constraints = {},
-			transform;
+		const constraints = {};
 
 		if ( width ) {
 			constraints.width = width;
@@ -733,7 +726,7 @@
 		}
 
 		if ( mw.canvas.isAvailable() && !CSS.supports( 'image-orientation', 'from-image' ) ) {
-			transform = this.getTransformedCanvasElement( image, constraints );
+			const transform = this.getTransformedCanvasElement( image, constraints );
 			if ( transform ) {
 				return transform;
 			}
@@ -808,16 +801,15 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.makePreview = function ( width ) {
-		let first, video, url, dataUrlReader,
-			deferred = $.Deferred(),
+		const deferred = $.Deferred(),
 			upload = this;
 
 		// do preview if we can
 		if ( this.isPreviewable() ) {
 			// open video and get frame via canvas
 			if ( this.isVideo() ) {
-				first = true;
-				video = document.createElement( 'video' );
+				let first = true;
+				const video = document.createElement( 'video' );
 
 				video.addEventListener( 'loadedmetadata', () => {
 					// seek 2 seconds into video or to half if shorter
@@ -834,11 +826,10 @@
 						// Chrome sometimes shows black frames if grabbing right away.
 						// wait 500ms before grabbing frame
 						setTimeout( () => {
-							let context,
-								canvas = document.createElement( 'canvas' );
+							const canvas = document.createElement( 'canvas' );
 							canvas.width = width;
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
-							context = canvas.getContext( '2d' );
+							const context = canvas.getContext( '2d' );
 							try {
 								// More ridiculous exceptions, see the comment in #getTransformedCanvasElement
 								context.drawImage( video, 0, 0, canvas.width, canvas.height );
@@ -850,7 +841,7 @@
 						}, 500 );
 					}
 				} );
-				url = this.URL().createObjectURL( this.file );
+				const url = this.URL().createObjectURL( this.file );
 				video.src = url;
 				// If we can't get a frame within 10 seconds, something is probably seriously wrong.
 				// This can happen for broken files where we can't actually seek to the time we wanted.
@@ -859,7 +850,7 @@
 					upload.URL().revokeObjectURL( video.url );
 				}, 10000 );
 			} else {
-				dataUrlReader = new FileReader();
+				const dataUrlReader = new FileReader();
 				dataUrlReader.onload = function () {
 					// this step (inserting image-as-dataurl into image object) is slow for large images, which
 					// is why this is optional and has a control attached to it to load the preview.

@@ -19,12 +19,10 @@
 	QUnit.module( 'mw.FormDataTransport', QUnit.newMwEnvironment() );
 
 	function createTransport( chunkSize, api ) {
-		var config;
-
 		chunkSize = chunkSize || 0;
 		api = api || {};
 
-		config = {
+		const config = {
 			useRetryTimeout: false,
 			chunkSize: chunkSize,
 			maxPhpUploadSize: chunkSize
@@ -34,13 +32,13 @@
 	}
 
 	QUnit.test( 'Constructor sanity test', ( assert ) => {
-		var transport = createTransport();
+		const transport = createTransport();
 
 		assert.true( !!transport );
 	} );
 
 	QUnit.test( 'abort', function ( assert ) {
-		var transport = createTransport( 0 ),
+		const transport = createTransport( 0 ),
 			request = $.Deferred().promise( { abort: this.sandbox.stub() } );
 
 		transport.request = request;
@@ -54,7 +52,7 @@
 	} );
 
 	QUnit.test( 'createParams', ( assert ) => {
-		var transport = createTransport( 10 ),
+		const transport = createTransport( 10 ),
 			params = transport.createParams( 'foobar.jpg', 0 );
 
 		assert.true( !!params );
@@ -64,7 +62,7 @@
 	} );
 
 	QUnit.test( 'post', function ( assert ) {
-		var stub = this.sandbox.stub(),
+		const stub = this.sandbox.stub(),
 			// post() works on a promise and binds .then, so we have to make
 			// sure it actually is a promise, but also that it calls our stub
 			transport = createTransport( 10, { post: function () {
@@ -83,8 +81,7 @@
 	} );
 
 	QUnit.test( 'upload', function ( assert ) {
-		var request,
-			transport = createTransport( 10, new mw.Api() ),
+		const transport = createTransport( 10, new mw.Api() ),
 			fakeFile = {
 				name: 'test file for fdt.jpg',
 				size: 5
@@ -96,7 +93,7 @@
 		transport.upload( fakeFile, 'test file for fdt.jpg' );
 
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
-		request = this.sandbox.server.requests[ 0 ];
+		const request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
 		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
 		assert.true( request.async );
@@ -105,8 +102,7 @@
 	} );
 
 	QUnit.test( 'uploadChunk', function ( assert ) {
-		var request,
-			transport = createTransport( 10, new mw.Api() ),
+		const transport = createTransport( 10, new mw.Api() ),
 			fakeFile = {
 				name: 'test file for fdt.jpg',
 				size: 20,
@@ -125,7 +121,7 @@
 		transport.uploadChunk( fakeFile, 0 );
 
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
-		request = this.sandbox.server.requests[ 0 ];
+		const request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
 		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
 		assert.true( request.async );
@@ -135,7 +131,7 @@
 
 	// test invalid server response (in missing 'stage' param)
 	QUnit.test( 'checkStatus invalid API response', function ( assert ) {
-		var done = assert.async(),
+		const done = assert.async(),
 			transport = createTransport( 10, new mw.Api() ),
 			tstub = this.sandbox.stub(),
 			poststub = this.sandbox.stub( transport.api, 'post' ),
@@ -157,7 +153,7 @@
 
 	// test retry after server responds upload is still incomplete
 	QUnit.test( 'checkStatus retry', function ( assert ) {
-		var transport = createTransport( 10, new mw.Api() ),
+		const transport = createTransport( 10, new mw.Api() ),
 			usstub = this.sandbox.stub(),
 			poststub = this.sandbox.stub( transport.api, 'post' ),
 			postd = $.Deferred(),
@@ -186,7 +182,7 @@
 	} );
 
 	QUnit.test( 'checkStatus success', function ( assert ) {
-		var transport = createTransport( 10, new mw.Api() ),
+		const transport = createTransport( 10, new mw.Api() ),
 			tstub = this.sandbox.stub(),
 			usstub = this.sandbox.stub(),
 			poststub = this.sandbox.stub( transport.api, 'post' ),
@@ -205,7 +201,7 @@
 	} );
 
 	QUnit.test( 'checkStatus error API response', function ( assert ) {
-		var done = assert.async(),
+		const done = assert.async(),
 			transport = createTransport( 10, new mw.Api() ),
 			tstub = this.sandbox.stub(),
 			usstub = this.sandbox.stub(),

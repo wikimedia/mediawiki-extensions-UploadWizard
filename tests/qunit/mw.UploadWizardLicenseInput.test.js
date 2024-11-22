@@ -15,31 +15,31 @@ QUnit.module( 'ext.uploadWizardLicenseInput', QUnit.newMwEnvironment( {
 } ) );
 
 QUnit.test( 'Smoke test', ( assert ) => {
-	var config = { type: 'or', licenses: [] };
-	var $fixture = $( '<div>' );
-	var uwLicenseInput = new mw.UploadWizardLicenseInput( config );
+	const config = { type: 'or', licenses: [] };
+	const $fixture = $( '<div>' );
+	const uwLicenseInput = new mw.UploadWizardLicenseInput( config );
 	$fixture.append( uwLicenseInput.$element );
 	assert.true( !!uwLicenseInput, 'LicenseInput object created !' );
 } );
 
 QUnit.test( 'createInputs()', ( assert ) => {
-	var config = { type: 'or', licenses: [ 'cc-by-sa-3.0' ] };
-	var $fixture = $( '<div>' );
+	const config = { type: 'or', licenses: [ 'cc-by-sa-3.0' ] };
+	const $fixture = $( '<div>' );
 
-	var uwLicenseInput = new mw.UploadWizardLicenseInput( config );
+	const uwLicenseInput = new mw.UploadWizardLicenseInput( config );
 	$fixture.append( uwLicenseInput.$element );
 
 	// Check radio button is there
-	var $input = $fixture.find( '.oo-ui-radioInputWidget .oo-ui-inputWidget-input[value="cc-by-sa-3.0"]' );
+	const $input = $fixture.find( '.oo-ui-radioInputWidget .oo-ui-inputWidget-input[value="cc-by-sa-3.0"]' );
 	assert.strictEqual( $input.length, 1, 'Radio button created.' );
 
 	// Check label is there
-	var $label = $input.closest( '.oo-ui-radioOptionWidget' ).find( '.oo-ui-labelElement-label' );
+	const $label = $input.closest( '.oo-ui-radioOptionWidget' ).find( '.oo-ui-labelElement-label' );
 	assert.strictEqual( $label.length, 1, 'Label created.' );
 } );
 
 QUnit.test( 'createGroupedInputs()', ( assert ) => {
-	var config = {
+	const config = {
 		type: 'or',
 		defaults: [ 'cc-by-sa-3.0' ],
 		licenseGroups: [
@@ -50,9 +50,9 @@ QUnit.test( 'createGroupedInputs()', ( assert ) => {
 			}
 		]
 	};
-	var $fixture = $( '<div>' );
+	const $fixture = $( '<div>' );
 
-	var uwLicenseInput = new mw.UploadWizardLicenseInput( config );
+	const uwLicenseInput = new mw.UploadWizardLicenseInput( config );
 	uwLicenseInput.setDefaultValues();
 	$fixture.append( uwLicenseInput.$element );
 

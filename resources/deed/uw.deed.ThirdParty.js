@@ -393,7 +393,7 @@
 	};
 
 	uw.deed.ThirdParty.prototype.getStructuredDataFromSource = function () {
-		let source = this.getSourceWikiText(),
+		const source = this.getSourceWikiText(),
 			config = mw.UploadWizard.config,
 			urlRegex = /^https?:\/\/\S*\.\S*$/,
 			sourceRegex = new RegExp(
@@ -401,8 +401,7 @@
 				Object.keys( config.sourceStringToWikidataIdMapping ).join( '|' ) +
 				')'
 			),
-			sourceStringMatch = sourceRegex.exec( source ) ? sourceRegex.exec( source )[ 0 ] : false,
-			sourceClaim, sourceQualifiers, wbDataModel, wbSerialization, wbSerializer;
+			sourceStringMatch = sourceRegex.exec( source ) ? sourceRegex.exec( source )[ 0 ] : false;
 
 		if ( !config.wikibase.enabled ) {
 			return false;
@@ -412,9 +411,9 @@
 			return false;
 		}
 
-		wbDataModel = mw.loader.require( 'wikibase.datamodel' );
+		const wbDataModel = mw.loader.require( 'wikibase.datamodel' );
 
-		sourceClaim = new wbDataModel.Claim(
+		const sourceClaim = new wbDataModel.Claim(
 			new wbDataModel.PropertyValueSnak(
 				config.wikibase.properties.source,
 				// eslint-disable-next-line no-undef
@@ -424,7 +423,7 @@
 			)
 		);
 
-		sourceQualifiers = new wbDataModel.SnakList();
+		const sourceQualifiers = new wbDataModel.SnakList();
 		if ( ( config.wikibase.properties.operator !== undefined ) && sourceStringMatch ) {
 			sourceQualifiers.addItem(
 				new wbDataModel.PropertyValueSnak(
@@ -447,8 +446,8 @@
 		}
 		sourceClaim.setQualifiers( sourceQualifiers );
 
-		wbSerialization = mw.loader.require( 'wikibase.serialization' );
-		wbSerializer = new wbSerialization.StatementSerializer();
+		const wbSerialization = mw.loader.require( 'wikibase.serialization' );
+		const wbSerializer = new wbSerialization.StatementSerializer();
 		return wbSerializer.serialize(
 			new wbDataModel.Statement( sourceClaim )
 		);

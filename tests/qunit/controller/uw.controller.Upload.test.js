@@ -19,7 +19,7 @@
 	QUnit.module( 'mw.uploadWizard.controller.Upload', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', ( assert ) => {
-		var step = new uw.controller.Upload( new mw.Api(), {
+		const step = new uw.controller.Upload( new mw.Api(), {
 			maxUploads: 10,
 			maxSimultaneousConnections: 3
 		} );
@@ -28,7 +28,7 @@
 	} );
 
 	QUnit.test( 'updateFileCounts', function ( assert ) {
-		var step = new uw.controller.Upload( new mw.Api(), {
+		const step = new uw.controller.Upload( new mw.Api(), {
 				maxUploads: 5,
 				maxSimultaneousConnections: 3
 			} ),
@@ -50,7 +50,7 @@
 	} );
 
 	QUnit.test( 'canTransition', ( assert ) => {
-		var upload = {},
+		const upload = {},
 			step = new uw.controller.Upload( new mw.Api(), {
 				maxSimultaneousConnections: 1
 			} );
@@ -63,7 +63,7 @@
 	} );
 
 	QUnit.test( 'transitionOne', function ( assert ) {
-		var upload = {
+		const upload = {
 				start: this.sandbox.stub()
 			},
 			step = new uw.controller.Upload( new mw.Api(), {

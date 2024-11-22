@@ -24,8 +24,8 @@
 	 * @param {mw.Api} api API object - useful for doing previews
 	 */
 	uw.deed.OwnWork = function UWDeedOwnWork( config, uploads, api ) {
-		let self = this,
-			prefAuthName = mw.user.options.get( 'upwiz_licensename' ),
+		let prefAuthName = mw.user.options.get( 'upwiz_licensename' );
+		const self = this,
 			revealOptionContent = function ( $parent, $child ) {
 				// hide sub-content for all options
 				$parent
@@ -85,7 +85,7 @@
 			self.originRadio.emit( 'change' );
 		} );
 		this.aiTextInput.getErrors = function ( thorough ) {
-			let aiInputValue, errors = [];
+			const errors = [];
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
@@ -94,7 +94,7 @@
 			if ( self.originRadio.findSelectedItem().getData() !== 'ai' ) {
 				return errors;
 			}
-			aiInputValue = self.aiTextInput.getValue().trim();
+			const aiInputValue = self.aiTextInput.getValue().trim();
 
 			if ( aiInputValue === '' ) {
 				errors.push( mw.message( 'mwe-upwiz-error-question-blank' ) );
@@ -443,9 +443,7 @@
 	};
 
 	uw.deed.OwnWork.prototype.setFormFields = function ( $selector ) {
-		let $formFields;
-
-		$formFields = $( '<ol>' ).append(
+		const $formFields = $( '<ol>' ).append(
 			$( '<div>' ).addClass( 'mwe-upwiz-ownwork-origin' )
 				.append( this.originRadioField.$element ),
 			$( '<div>' ).addClass( 'mwe-upwiz-ownwork-license' )
@@ -479,8 +477,8 @@
 	 * LicenseInput supports multiple default values, but this one does not.
 	 */
 	uw.deed.OwnWork.prototype.setDefaultLicense = function () {
-		let defaultLicenseKey, defaultLicense = {};
-		defaultLicenseKey = this.getDefaultLicense();
+		const defaultLicense = {};
+		const defaultLicenseKey = this.getDefaultLicense();
 		if ( defaultLicenseKey ) {
 			defaultLicense[ defaultLicenseKey ] = true;
 			this.licenseInput.setValues( defaultLicense );

@@ -92,14 +92,13 @@
 		 * @return {string} [return.done.href] URL to file description page
 		 */
 		checkUnique: function ( title ) {
-			let checker = this,
-				NS_FILE = mw.config.get( 'wgNamespaceIds' ).file,
-				titleObj, prefix, ext;
+			const checker = this,
+				NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
-			titleObj = mw.Title.newFromText( title );
-			ext = mw.Title.normalizeExtension( titleObj.getExtension() || '' );
+			const titleObj = mw.Title.newFromText( title );
+			const ext = mw.Title.normalizeExtension( titleObj.getExtension() || '' );
 			// Strip namespace and file extension
-			prefix = titleObj.getNameText();
+			const prefix = titleObj.getNameText();
 
 			/**
 			 * Process result of a an imageinfo API call.

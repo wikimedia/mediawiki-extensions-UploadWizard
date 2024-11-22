@@ -55,8 +55,8 @@
 		 * loop around the uploads, summing certain properties for a weighted total fraction
 		 */
 		start: function () {
-			let bar = this,
-				shown = false;
+			const bar = this;
+			let shown = false;
 
 			this.setBeginTime();
 
@@ -141,18 +141,18 @@
 		 * @param {number} fraction The amount of whatever it is that's done whatever it's done
 		 */
 		showProgress: function ( fraction ) {
-			let t, timeString,
-				remainingTime = this.getRemainingTime( fraction );
+			const remainingTime = this.getRemainingTime( fraction );
 
 			this.progressBarWidget.setProgress( parseInt( fraction * 100, 10 ) );
 
 			if ( remainingTime !== null ) {
+				let timeString;
 				if ( remainingTime === 0 ) {
 					timeString = mw.message( 'mwe-upwiz-finished' ).text();
 				} else if ( remainingTime < 1000 ) {
 					timeString = mw.message( 'mwe-upwiz-almost-finished' ).text();
 				} else {
-					t = moment.duration( remainingTime );
+					const t = moment.duration( remainingTime );
 					timeString = t.humanize();
 				}
 
@@ -167,11 +167,10 @@
 		 * @return {number} Estimated time remaining (in milliseconds)
 		 */
 		getRemainingTime: function ( fraction ) {
-			let elapsedTime, rate;
 			if ( this.beginTime ) {
-				elapsedTime = Date.now() - this.beginTime;
+				const elapsedTime = Date.now() - this.beginTime;
 				if ( fraction > 0.0 && elapsedTime > 0 ) { // or some other minimums for good data
-					rate = fraction / elapsedTime;
+					const rate = fraction / elapsedTime;
 					return ( ( 1.0 - fraction ) / rate );
 				}
 			}

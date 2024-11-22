@@ -48,19 +48,19 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 		this.$element.append( $container );
 
 		config.licenseGroups.forEach( ( groupConfig ) => {
-			let classes = [ 'mwe-upwiz-deed-license-group-head', 'mwe-upwiz-deed-license-group-' + groupConfig.head ],
-				$icons, label, labelParams, option, group;
+			const classes = [ 'mwe-upwiz-deed-license-group-head', 'mwe-upwiz-deed-license-group-' + groupConfig.head ];
 
-			$icons = $( '<span>' );
+			const $icons = $( '<span>' );
 			( groupConfig.icons || [] ).forEach( ( icon ) => {
 				$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 			} );
 
 			// 'url' can be either a single (string) url, or an array of (string) urls;
 			// hence this convoluted variable-length parameters assembly...
-			labelParams = [ groupConfig.head, input.count ].concat( groupConfig.url ).concat( $icons );
-			label = groupConfig.head && mw.message.apply( mw.message, labelParams ).parse() || '';
+			const labelParams = [ groupConfig.head, input.count ].concat( groupConfig.url ).concat( $icons );
+			const label = groupConfig.head && mw.message.apply( mw.message, labelParams ).parse() || '';
 
+			let option;
 			if ( input.type === 'radio' ) {
 				option = new OO.ui.RadioOptionWidget( {
 					label: new OO.ui.HtmlSnippet( label ),
@@ -74,7 +74,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 			}
 			input.widget.addItems( [ option ] );
 
-			group = new mw.uploadWizard.LicenseGroup(
+			const group = new mw.uploadWizard.LicenseGroup(
 				Object.assign( {}, groupConfig, { option: option } ),
 				// group config can override overall type; e.g. a single group can be "and", while
 				// the rest of the config can be "or"

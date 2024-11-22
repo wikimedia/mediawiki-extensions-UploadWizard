@@ -43,9 +43,8 @@
 	 * @return {mw.Title|null}
 	 */
 	uw.TitleDetailsWidget.static.makeTitleInFileNS = function ( filename ) {
-		let
-			mwTitle = mw.Title.newFromText( filename, NS_FILE ),
-			illegalFileChars = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '' ) + ']' );
+		let mwTitle = mw.Title.newFromText( filename, NS_FILE );
+		const illegalFileChars = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '' ) + ']' );
 		if ( mwTitle && mwTitle.getNamespaceId() !== NS_FILE ) {
 			// Force file namespace
 			mwTitle = mw.Title.makeTitle( NS_FILE, filename );
@@ -87,14 +86,13 @@
 	 * @return {mw.Title}
 	 */
 	uw.TitleDetailsWidget.prototype.buildTitleFromInput = function ( value ) {
-		let extRegex, cleaned, title;
 		value = value.trim();
 		if ( !value ) {
 			return null;
 		}
-		extRegex = new RegExp( '\\.' + this.extension + '$', 'i' );
-		cleaned = value.replace( extRegex, '' ).replace( /\.+$/g, '' ).trim();
-		title = uw.TitleDetailsWidget.static.makeTitleInFileNS( cleaned + '.' + this.extension );
+		const extRegex = new RegExp( '\\.' + this.extension + '$', 'i' );
+		const cleaned = value.replace( extRegex, '' ).replace( /\.+$/g, '' ).trim();
+		const title = uw.TitleDetailsWidget.static.makeTitleInFileNS( cleaned + '.' + this.extension );
 		return title;
 	};
 
@@ -168,15 +166,14 @@
 	 * @return {mw.Message[]} Error messages
 	 */
 	uw.TitleDetailsWidget.prototype.processDestinationCheck = function ( result ) {
-		let messageKey, messageParams, errors, titleString;
-
 		if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
 			return [];
 		}
 
 		// Something is wrong with this title.
-		errors = [];
+		const errors = [];
 
+		let titleString;
 		try {
 			titleString = result.unique.title || result.title;
 			titleString = uw.TitleDetailsWidget.static.makeTitleInFileNS( titleString ).getPrefixedText();
@@ -197,12 +194,12 @@
 			errors.push( mw.message( 'mwe-upwiz-error-title-protected' ) );
 		} else {
 			// check whether we have a custom error message for this blacklist reason
-			messageKey = 'mwe-upwiz-blacklisted-details-' + result.blacklist.blacklistMessage;
+			let messageKey = 'mwe-upwiz-blacklisted-details-' + result.blacklist.blacklistMessage;
 			if ( !mw.message( messageKey ).exists() ) {
 				messageKey = 'mwe-upwiz-blacklisted-details';
 			}
 
-			messageParams = [
+			const messageParams = [
 				messageKey,
 				titleString,
 				function () {

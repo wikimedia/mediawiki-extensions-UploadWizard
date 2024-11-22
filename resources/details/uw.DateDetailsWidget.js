@@ -163,10 +163,7 @@
 	 * @inheritdoc
 	 */
 	uw.DateDetailsWidget.prototype.getWarnings = function () {
-		let i,
-			license,
-			licenseMsg,
-			warnings = [],
+		const warnings = [],
 			date = new Date( this.dateInputWidget.getValue() ),
 			now = new Date(),
 			// Public-domain licenses that likely mean
@@ -179,10 +176,10 @@
 		if ( !isNaN( date.valueOf() ) ) {
 			// It's unlikely for public-domain images to have been published today
 			if ( now.toISOString().slice( 0, 10 ) === date.toISOString().slice( 0, 10 ) ) {
-				for ( i = 0; i < warnLicenses.length; i++ ) {
+				for ( let i = 0; i < warnLicenses.length; i++ ) {
 					if ( warnLicenses[ i ] in licenses ) {
-						license = licenses[ warnLicenses[ i ] ];
-						licenseMsg = mw.message(
+						const license = licenses[ warnLicenses[ i ] ];
+						const licenseMsg = mw.message(
 							license.msg,
 							0,
 							license.url ? license.url : '#missing license URL'

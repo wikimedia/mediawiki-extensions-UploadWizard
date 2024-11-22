@@ -1,7 +1,7 @@
 ( function ( uw ) {
 	'use strict';
 
-	var makeTitleInFileNSCases = [ {
+	const makeTitleInFileNSCases = [ {
 		filename: 'foo.png',
 		prefixedText: 'File:Foo.png',
 		desc: 'filename without namespace starting with a lower case letter'
@@ -91,10 +91,10 @@
 	} ) );
 
 	QUnit.test( '.static.makeTitleInFileNS()', ( assert ) => {
-		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
+		const makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
 
 		makeTitleInFileNSCases.forEach( ( test ) => {
-			var title = makeTitleInFileNS( test.filename );
+			const title = makeTitleInFileNS( test.filename );
 			assert.strictEqual(
 				title ? title.getPrefixedText() : title,
 				test.prefixedText,
