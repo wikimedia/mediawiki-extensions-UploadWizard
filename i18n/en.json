@@ -128,8 +128,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Now tell us why you are sure you have the right to publish {{PLURAL:$1|this work|these works}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Do you know what [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons license] {{PLURAL:$1|this work was|these works were}} published under?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Please confirm the following statement before proceeding.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "I confirm that {{PLURAL:$1|this work does|these works do}} not include material restricted by copyright, such as logos, posters, cover art, etc.",
 	"mwe-upwiz-source-multiple-label-common": "Provide same information for all files",
 	"mwe-upwiz-source-multiple-label-individual": "Provide information for each individual file",
 	"mwe-upwiz-patent-dialog-title": "Patent rights",

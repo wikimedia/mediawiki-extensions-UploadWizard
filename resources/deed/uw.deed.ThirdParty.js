@@ -134,43 +134,6 @@
 			required: true
 		} );
 
-		this.complianceCheck = new OO.ui.CheckboxMultiselectWidget( {
-			items: [
-				new OO.ui.CheckboxMultioptionWidget( {
-					label: mw.message( 'mwe-upwiz-source-thirdparty-compliance-option-copyright', this.uploadCount, mw.user ).text(),
-					data: 'copyright'
-				} )
-			],
-			classes: [ 'mwe-upwiz-deed-compliance' ]
-		} );
-		this.complianceCheck.getErrors = ( thorough ) => {
-			const allSelected = this.complianceCheck.getItems().reduce( ( result, item ) => result && item.isSelected(), true );
-
-			if ( thorough !== true ) {
-				// `thorough` is the strict checks executed on submit, but we don't want errors
-				// to change/display every change event
-				return [];
-			}
-
-			if ( !allSelected ) {
-				return [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ];
-			}
-
-			return [];
-		};
-		this.complianceCheck.getWarnings = function () {
-			// just here for completeness; there is no warning ATM
-			return [];
-		};
-		this.complianceField = new uw.FieldLayout( this.complianceCheck, {
-			label: $( '<div>' ).append(
-				$( '<li>' )
-					.addClass( 'mwe-upwiz-label-title' )
-					.append( mw.message( 'mwe-upwiz-source-thirdparty-compliance-label', this.uploadCount, mw.user ).parseDom() )
-			),
-			required: true
-		} );
-
 		if ( this.threeDCount > 0 ) {
 			this.patentAgreementField = this.getPatentAgreementField( uploads );
 		}
@@ -189,8 +152,7 @@
 		const fields = [
 			this.authorInputField,
 			this.sourceInputField,
-			this.licenseInputField,
-			this.complianceField
+			this.licenseInputField
 		];
 		if ( this.threeDCount > 0 ) {
 			fields.push( this.patentAgreementField );
@@ -224,9 +186,7 @@
 				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
 					.append( this.sourceInputField.$element ),
 				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
-					.append( this.authorInputField.$element ),
-				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
-					.append( this.complianceField.$element )
+					.append( this.authorInputField.$element )
 			)
 		);
 
@@ -355,8 +315,7 @@
 		return Object.assign( uw.deed.Abstract.prototype.getSerialized.call( this ), {
 			source: this.sourceInput.getValue(),
 			author: this.authorInput.getValue(),
-			license: this.licenseInput.getSerialized(),
-			compliance: this.complianceCheck.findSelectedItems().map( ( item ) => item.getData() )
+			license: this.licenseInput.getSerialized()
 		} );
 	};
 
@@ -374,9 +333,6 @@
 		}
 		if ( serialized.license ) {
 			this.licenseInput.setSerialized( serialized.license );
-		}
-		if ( serialized.compliance ) {
-			this.complianceCheck.selectItemsByData( serialized.compliance );
 		}
 
 		if ( this.templateOptions.authorUnknown ) {

@@ -162,8 +162,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "This message is followed by the License form. Parameters:\n* $1 - number of works. i.e. number of uploads",
 	"mwe-upwiz-source-thirdparty-cases-text": "This message is followed by the License form. Parameters:\n* $1 - number of works. i.e. number of uploads\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-thirdparty-accept": "{{Identical|OK}}",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Asks the user to acknowledge that the uploads comply with Commons guidelines. Parameters:\n* $1 - the number of files\n* $2 - username, for GENDER support",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Option to indicate that there are no copyright infringements. Parameters:\n* $1 - the number of files\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-multiple-label-common": "Label for the radio button to indicate that the user will provide the same copyright information for all files. Parameters:\n* $1 - the number of uploads for PLURAL\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-multiple-label-individual": "Label for the radio button to indicate that the user will provide copyright information for each file individually. Parameters:\n* $1 - the number of uploads for PLURAL\n* $2 - username, for GENDER support",
 	"mwe-upwiz-patent-dialog-title": "Title for the dialog to confirm agreement with patent rights.",
