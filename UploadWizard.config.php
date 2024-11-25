@@ -546,6 +546,7 @@ return [
 				'cc-zero',
 				'cc-by-4.0',
 				'cc-by-sa-4.0',
+				'custom',
 			]
 		],
 

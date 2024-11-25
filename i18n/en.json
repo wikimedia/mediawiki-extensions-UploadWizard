@@ -264,7 +264,7 @@
 	"mwe-upwiz-error-title-extension": "You do not need to add a file extension. Just make a human readable title and the application will take care of the rest.",
 	"mwe-upwiz-error-title-protected": "This title corresponds to a protected page on this wiki. Please choose a different one.",
 	"mwe-upwiz-error-title-duplicate": "This title has been specified for more than one file you're going to upload. Underscores are treated as spaces, a file extension is added automatically.",
-	"mwe-upwiz-error-license-wikitext-missing": "Input is required",
+	"mwe-upwiz-error-license-wikitext-missing": "Input is required.",
 	"mwe-upwiz-error-license-wikitext-too-short": "The wikitext here is too short to be a license",
 	"mwe-upwiz-error-license-wikitext-too-long": "The wikitext you entered is too long.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "The wikitext you entered doesn't contain a valid license template.",

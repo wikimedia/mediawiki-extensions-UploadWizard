@@ -164,6 +164,32 @@
 	}
 }
 
+.mwe-upwiz-license-custom {
+	// side by side input field & button
+	display: flex;
+	max-width: 48em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+
+	.oo-ui-inputWidget-input {
+		font-family: monospace;
+	}
+
+	.oo-ui-inputWidget-input,
+	.oo-ui-buttonElement-button .oo-ui-labelElement-label {
+		// input field & button are side by side and need to have the same height, but they're
+		// prone to influence from ooui or skins in different window widths, so let's just
+		// force them to be of the same size
+		line-height: 20px;
+		height: auto;
+	}
+}
+
+label:has( .mwe-upwiz-license-custom ),
+.oo-ui-radioOptionWidget.oo-ui-labelElement > .oo-ui-labelElement-label:has( .mwe-upwiz-license-custom ) {
+	width: 100%;
+}
+
 .mwe-upwiz-deed-license-group-container {
 	margin-top: 1em;
 
@@ -172,7 +198,7 @@
 		margin-bottom: 0.5em;
 	}
 
-	// customizations for default "custom input" license groups
+	// customizations for "custom input" license group (no longer present in default config)
 	.mwe-upwiz-deed-license-group-mwe-upwiz-license-other-head + .mwe-upwiz-deed-license-group {
 		// get rid of default grey background
 		background-color: inherit;
@@ -189,32 +215,6 @@
 		.oo-ui-labelElement-label {
 			padding-left: 0;
 		}
-	}
-
-	.mwe-upwiz-license-custom {
-		// side by side input field & button
-		display: flex;
-		max-width: 48em;
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
-
-		.oo-ui-inputWidget-input {
-			font-family: monospace;
-		}
-
-		.oo-ui-inputWidget-input,
-		.oo-ui-buttonElement-button .oo-ui-labelElement-label {
-			// input field & button are side by side and need to have the same height, but they're
-			// prone to influence from ooui or skins in different window widths, so let's just
-			// force them to be of the same size
-			line-height: 20px;
-			height: auto;
-		}
-	}
-
-	label:has( .mwe-upwiz-license-custom ),
-	.oo-ui-radioOptionWidget.oo-ui-labelElement > .oo-ui-labelElement-label:has( .mwe-upwiz-license-custom ) {
-		width: 100%;
 	}
 }
 
