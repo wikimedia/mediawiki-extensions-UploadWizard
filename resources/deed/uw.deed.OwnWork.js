@@ -381,7 +381,10 @@
 				return [];
 			}
 
-			if ( !this.purposeRadio.findSelectedItems() ) {
+			if (
+				this.purposeRadio.isElementAttached() &&
+				!this.purposeRadio.findSelectedItems()
+			) {
 				return [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ];
 			}
 
