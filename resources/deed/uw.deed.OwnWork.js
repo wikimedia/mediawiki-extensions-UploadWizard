@@ -429,7 +429,10 @@
 			fields.push( this.patentAgreementField );
 		}
 
-		if ( this.originRadio.findSelectedItem().getData() === 'ai' ) {
+		if (
+			this.originRadio.findSelectedItem() &&
+			this.originRadio.findSelectedItem().getData() === 'ai'
+		) {
 			fields.push( this.aiTextInputField );
 			fields.push( this.aiPromptTextInputField );
 		}
@@ -512,7 +515,10 @@
 			wikitext += '\n{{' + this.config.patents.template + '|ownwork}}';
 		}
 
-		if ( this.originRadio.findSelectedItem().getData() === 'ai' ) {
+		if (
+			this.originRadio.findSelectedItem() &&
+			this.originRadio.findSelectedItem().getData() === 'ai'
+		) {
 			wikitext += '\n{{PD-algorithm}}';
 		}
 
@@ -520,13 +526,15 @@
 	};
 
 	/**
-	 * @param upload
 	 * @return {string}
 	 */
 	uw.deed.OwnWork.prototype.getAiPromptWikitext = function () {
 		let prompt, wikitext = '';
 
-		if ( this.originRadio.findSelectedItem().getData() === 'ai' ) {
+		if (
+			this.originRadio.findSelectedItem() &&
+			this.originRadio.findSelectedItem().getData() === 'ai'
+		) {
 			prompt = this.aiPromptTextInput.getValue().trim();
 			if ( prompt ) {
 				wikitext = '{{Prompt|' + prompt + '}}';
