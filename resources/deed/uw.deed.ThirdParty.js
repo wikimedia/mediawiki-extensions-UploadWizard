@@ -42,7 +42,7 @@
 				errors = [],
 				minLength = this.config.minSourceLength,
 				maxLength = this.config.maxSourceLength,
-				text = this.getValue().trim();
+				text = this.sourceInput.getValue().trim();
 
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
@@ -82,7 +82,7 @@
 				errors = [],
 				minLength = this.config.minAuthorLength,
 				maxLength = this.config.maxAuthorLength,
-				text = this.getValue().trim();
+				text = this.authorInput.getValue().trim();
 
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
@@ -90,7 +90,7 @@
 				return [];
 			}
 
-			if ( this.isDisabled() ) {
+			if ( this.authorInput.isDisabled() ) {
 				return [];
 			}
 
