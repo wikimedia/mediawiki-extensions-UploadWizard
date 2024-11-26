@@ -14,12 +14,12 @@
 		this.categoriesWidget = new mw.widgets.CategoryMultiselectWidget( config );
 
 		this.categoriesWidget.createTagItemWidget = ( data ) => {
-			const widget = this.constructor.prototype.createTagItemWidget.call( this, data );
+			const widget = this.categoriesWidget.constructor.prototype.createTagItemWidget.call( this.categoriesWidget, data );
 			if ( !widget ) {
 				return null;
 			}
-			widget.setMissing = function ( missing ) {
-				this.constructor.prototype.setMissing.call( this, missing );
+			widget.setMissing = ( missing ) => {
+				widget.constructor.prototype.setMissing.call( widget, missing );
 				// Aggregate 'change' event
 				this.emit( 'change' );
 			};
