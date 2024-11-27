@@ -152,8 +152,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Agora nos diga por que você tem certeza de que tem o direito de publicar {{PLURAL:$1|esta obra|estas obras}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Sabe sob qual [https://creativecommons.org/share-your-work/cclicenses/ licença Creative Commons] {{PLURAL:$1|esta obra foi publicada|estas obras foram publicadas}}?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Por favor, confirme a seguinte declaração antes de prosseguir.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Eu confirmo que {{PLURAL:$1|esta obra não inclui|estas obras não incluem}} materiais de uso restrito por direitos autorais, tais como logotipos, cartazes, capas de álbuns etc.",
 	"mwe-upwiz-patent-dialog-title": "Direitos de exploração de patente",
 	"mwe-upwiz-patent-dialog-title-filename": "Direitos jurídicos sobre: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Voltar",

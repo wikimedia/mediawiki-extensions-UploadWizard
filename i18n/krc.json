@@ -123,8 +123,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Энди бизге {{PLURAL:$1|бу ишни}} басмалар хакъгъа ие болгъаныгъызгъа нек ишексиз болгъаныгъызны айтыгъыз:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Бу {{PLURAL:$1|ишни|ишлени}} басмалагъан [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons лицензияны] билеми эдигиз?",
 	"mwe-upwiz-source-thirdparty-accept": "ОК",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Андан ары бардыргъынчы, тилейбиз, сора келген бегитиуню къабыл этигиз.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Бу {{PLURAL:$1|ишни|ишлени}} логотпиле, постерле, суратлы тышла э. а. к. автор хакъла бла къорууланган материалланы ичинде тутмагъанына къабыл этеме.",
 	"mwe-upwiz-source-multiple-label-common": "Бютеу файлла ючюн бир информацияны бер",
 	"mwe-upwiz-source-multiple-label-individual": "Хар айры файл ючюн информация бер",
 	"mwe-upwiz-patent-dialog-title": "Патент хакъла",

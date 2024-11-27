@@ -153,8 +153,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Geef hier aan waarom u zeker weet dat u het recht hebt om {{PLURAL:$1|dit werk|deze werken}} te publiceren:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Weet u onder welke [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons-licentie] {{PLURAL:$1|dit werk is|deze werken zijn}} uitgegeven?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Bevestig de volgende verklaring voordat u doorgaat.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Ik bevestig dat {{PLURAL:$1|dit werk geen materiaal bevat|deze werken geen materiaal bevatten}} waarop auteursrecht rust, zoals logo’s, posters, covers, enz.",
 	"mwe-upwiz-source-multiple-label-common": "Geeft voor alle bestanden dezelfde informatie",
 	"mwe-upwiz-source-multiple-label-individual": "Geef informatie voor elk afzonderlijk bestand",
 	"mwe-upwiz-patent-dialog-title": "Octrooirechten",

@@ -122,8 +122,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Järgmiseks ütle meile, miks oled kindel, et tohid avaldada {{PLURAL:$1|selle teose|need teosed}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Kas tead, millise [https://creativecommons.org/share-your-work/cclicenses/ Creative Commonsi litsentsi] all on {{PLURAL:$1|see teos|need teosed}} avaldatud?",
 	"mwe-upwiz-source-thirdparty-accept": "Sobib",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Enne kui jätkad, kinnita järgmine avaldus.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Kinnitan, et {{PLURAL:$1|see teos|need teosed}} ei sisalda materjale, mille kasutamine on autoriõigusega piiratud, näiteks logosid, postreid, kaanekujundusi jne.",
 	"mwe-upwiz-source-multiple-label-common": "Lisa kõigi failide kohta sama teave",
 	"mwe-upwiz-source-multiple-label-individual": "Lisa teave iga faili kohta eraldi",
 	"mwe-upwiz-patent-dialog-title": "Patendiõigused",

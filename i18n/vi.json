@@ -141,8 +141,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Xin hỏi tại sao bạn chắc chắn rằng bạn có quyền xuất bản {{PLURAL:$1|tác phẩm|các tác phẩm}} này:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Bạn có biết [https://creativecommons.org/share-your-work/cclicenses/ Giấy phép Creative Commons] nào mà {{PLURAL:$1|tác phẩm|những tác phẩm}} này được xuất bản không?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Vui lòng xác nhận tuyên bố sau trước khi tiếp tục.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Tôi xác nhận rằng {{PLURAL:$1|tác phẩm|các tác phẩm}} này không bao gồm tài liệu bị hạn chế bởi bản quyền, chẳng hạn như logo, áp phích, bìa nghệ thuật, v.v.",
 	"mwe-upwiz-source-multiple-label-common": "Cung cấp thông tin tương tự cho tất cả các tập tin",
 	"mwe-upwiz-source-multiple-label-individual": "Cung cấp thông tin cho từng tập tin riêng lẻ",
 	"mwe-upwiz-patent-dialog-title": "Độc quyền sáng chế",

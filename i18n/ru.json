@@ -178,8 +178,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Теперь расскажите нам, почему вы уверены, что имеете право публиковать {{PLURAL:$1|1=это произведение|эти произведения}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Известно ли вам, что {{PLURAL:$1|это произведение было опубликовано|эти произведения были опубликованы}} по [https://creativecommons.org/share-your-work/cclicenses/ лицензии Creative Commons]?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Прежде чем продолжить, подтвердите следующее утверждение.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Я подтверждаю, что {{PLURAL:$1|это произведение|эти произведения}} не включают защищённые авторским правом материалы, такие как логотипы, плакаты, художественные изображения обложек, и т.д.",
 	"mwe-upwiz-source-multiple-label-common": "Предоставить одинаковую информацию для всех файлов",
 	"mwe-upwiz-source-multiple-label-individual": "Предоставьте информацию для каждого файла в отдельности",
 	"mwe-upwiz-patent-dialog-title": "Патентные права",

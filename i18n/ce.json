@@ -127,8 +127,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "ХӀинца дийца тхоьга хӀунда йу хьа {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} чуйаха бакъо:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Хьуна хаьий, {{PLURAL:$1|хӀара произведени арайаьлла|хӀара произведенеш арайаьлла}} йуй [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons лицензица]?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Кхин дӀа дӀадоладале, хӀара дӀахьедар тӀечӀагӀде.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Аса тоьшалла до {{PLURAL:$1|хӀара произведени|хӀара произведенеш}} йукъайогӀуш йац авторан бакъонашца ларйина материалаш, масала, логотипаш, плакаташ, мужалтийн исбаьхьаллин суьрташ, и.дӀ.кх.а.",
 	"mwe-upwiz-source-multiple-label-common": "Массо а файлашна цхьатерра информаци ло",
 	"mwe-upwiz-source-multiple-label-individual": "ХӀора файлан къаьстина информаци дӀало",
 	"mwe-upwiz-patent-dialog-title": "Патентан бакъонаш",

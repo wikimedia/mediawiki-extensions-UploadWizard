@@ -155,8 +155,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Adesso indicaci perché sei sicuro di avere il diritto di pubblicare {{PLURAL:$1|quest'opera|queste opere}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Conosci la [https://creativecommons.org/share-your-work/cclicenses/ licenza Creative Commons] con la quale {{PLURAL:$1|questo lavoro è stato pubblicato|questi lavori sono stati pubblicati}}?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Per favore, conferma la seguente dichiarazione prima di continuare.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Confermo che {{PLURAL:$1|quest'opera|queste opere}} non includono materiale protetto da copyright, come loghi, poster, copertine, ecc.",
 	"mwe-upwiz-source-multiple-label-common": "Fornisci le stesse informazioni per tutti i file",
 	"mwe-upwiz-source-multiple-label-individual": "Fornisci informazioni per ogni singolo file",
 	"mwe-upwiz-patent-dialog-button-back": "Indietro",

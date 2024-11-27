@@ -138,8 +138,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "{{PLURAL:$1|이 저작물}}을 배포할 권리가 있다고 확신하는 이유를 설명하세요:",
 	"mwe-upwiz-source-thirdparty-cases-text": "업로드하신 저작물의 [https://creativecommons.org/share-your-work/cclicenses/ 크리에이티브 커먼즈 라이선스]가 어떻게 되어 있는지 알고 계신가요?",
 	"mwe-upwiz-source-thirdparty-accept": "확인",
-	"mwe-upwiz-source-thirdparty-compliance-label": "계속하기 전에 아래 사항을 확인해 주세요.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "나는 이 저작물에 저작권법에 저촉되는 로고, 포스터, 커버아트 등의 요소가 들어가지 않았음을 확인합니다.",
 	"mwe-upwiz-source-multiple-label-common": "모든 파일에 동일한 정보 입력",
 	"mwe-upwiz-source-multiple-label-individual": "개별 파일에 대한 정보 입력",
 	"mwe-upwiz-patent-dialog-title": "특허권",

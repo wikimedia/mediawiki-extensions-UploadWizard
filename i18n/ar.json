@@ -153,8 +153,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "الآن أَثبت لنا سبب تَأكُّدِك من أَن لكَ الحق في نشر {{PLURAL:$1||هذا العمل|هذين العملين|هذه الأَعمال}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "هل تعرف ما هي [https://creativecommons.org/share-your-work/cclicenses/ رخصة المشاع الإبداعي] التي {{PLURAL:$1|نُشِر هذا العمل|نُشِرت هذه الأعمال}} بموجبها؟",
 	"mwe-upwiz-source-thirdparty-accept": "موافق",
-	"mwe-upwiz-source-thirdparty-compliance-label": "الرجاء تأكيد البيان التالي قبل المتابعة.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "أؤكد أن {{PLURAL:$1|هذا العمل|هذان العملان|هذه الأعمال}} لا تتضمن مواد مقيَّدة بحقوق التأليف والنشر، مثل الشعارات والملصقات وأغلفة التسجيلات الموسيقى وما إلى ذلك.",
 	"mwe-upwiz-source-multiple-label-common": "املأ المعلومات نفسها لكل الملفات",
 	"mwe-upwiz-source-multiple-label-individual": "أضف المعلومات لكل ملف على حدة",
 	"mwe-upwiz-patent-dialog-title": "حقوق براءَة الاختراع",

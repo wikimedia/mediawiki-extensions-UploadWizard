@@ -133,8 +133,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Сега кажете ни зошто сте сигурни имате право да {{PLURAL:$1|го објавите ова дело|ги објавите овие дела}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Дали знаете под која [https://creativecommons.org/share-your-work/cclicenses/ лиценца на Криејтив комонс] {{PLURAL:$1|е објавено ова дело|се објавени овие дела}}?",
 	"mwe-upwiz-source-thirdparty-accept": "ОК",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Потврдете ја следнава изјава пред да продолжите.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Потврдувам дека {{PLURAL:$1|ова дело не вклучува|овие дела не вклучуваат}} материјал ограничен со авторски права како логоа, плакати, албумски омоти итн.",
 	"mwe-upwiz-source-multiple-label-common": "Внесувам исти информации за сите податотеки",
 	"mwe-upwiz-source-multiple-label-individual": "Внесувам информации за секоја податотека одделно",
 	"mwe-upwiz-patent-dialog-title": "Патентни права",

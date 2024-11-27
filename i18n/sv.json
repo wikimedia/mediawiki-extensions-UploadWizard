@@ -146,8 +146,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Berätta varför du är säker på att du har rätt att publicera {{PLURAL:$1|detta verk|dessa verk}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Vet du vilken [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons-licens] {{PLURAL:$1|denna verk|dessa verk}} publicerades under?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Bekräfta följande uttalande innan du fortsätter.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Jag bekräftar att {{PLURAL:$1|detta verk|dessa verk}} inte innehåller material som begränsas av upphovsrätt, såsom logotyper, affischer, omslagsbilder, osv.",
 	"mwe-upwiz-source-multiple-label-common": "Ange samma information för alla filer",
 	"mwe-upwiz-source-multiple-label-individual": "Ange information för varje individuell fil",
 	"mwe-upwiz-patent-dialog-title": "Patenträttigheter",

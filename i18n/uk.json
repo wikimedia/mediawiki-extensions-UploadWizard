@@ -159,8 +159,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Тепер розкажіть нам, чому ви впевнені, що маєте право публікувати {{PLURAL:$1|1=цей твір|ці твори}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Чи знаєте ви, під якою [https://creativecommons.org/share-your-work/cclicenses/ ліцензією Creative Commons] {{PLURAL:$1|ця робота була опублікована|ці роботи були опубліковані}}?",
 	"mwe-upwiz-source-thirdparty-accept": "Гаразд",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Перш ніж продовжити, підтвердьте наступне твердження.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Я підтверджую, що {{PLURAL:$1|ця робота не містить|ці роботи не містять}} матеріалів, обмежених авторським правом, таких як логотипи, постери, обкладинки тощо.",
 	"mwe-upwiz-source-multiple-label-common": "Вказати однакову інформацію для всіх файлів",
 	"mwe-upwiz-source-multiple-label-individual": "Вказати інформацію для кожного окремого файлу",
 	"mwe-upwiz-patent-dialog-title": "Патентні права",

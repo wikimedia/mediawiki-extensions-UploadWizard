@@ -130,8 +130,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Ora explica proque tu es secur de haber le derecto de publicar {{PLURAL:$1|iste obra|iste obras}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Sape tu sub qual [https://creativecommons.org/share-your-work/cclicenses/ licentia Creative Commons] iste obra{{PLURAL:$1||s}} ha essite publicate?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Per favor confirma le sequente declaration ante de continuar.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Io confirma que iste obra{{PLURAL:$1||s}} non include alcun material restringite per derectos de autor, como logotypos, posters, illustrationes de copertura, etc.",
 	"mwe-upwiz-source-multiple-label-common": "Fornir le mesme information pro tote le files",
 	"mwe-upwiz-source-multiple-label-individual": "Fornir information pro cata file individual",
 	"mwe-upwiz-patent-dialog-title": "Derectos de patentes",

@@ -129,8 +129,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Objasnite zašto ste sigurni da imate pravo objaviti {{PLURAL:$1|ovo djelo|ova djela}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Znate li pod kojom licencijom [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons] {{PLURAL:$1|je ovo djelo objavljeno|su ova djela objavljena}}?",
 	"mwe-upwiz-source-thirdparty-accept": "U redu",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Prije nastavka molimo potvrdite izjavu ispod.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Potvrđujem da {{PLURAL:$1|ovo djelo ne uključuje|ova djela ne uključuju}} materijale zaštićene autorskim pravima poput logotipa, plakata, naslovnica, i slično.",
 	"mwe-upwiz-source-multiple-label-common": "Želim navesti iste podatke za sve datoteke",
 	"mwe-upwiz-source-multiple-label-individual": "Želim navesti podatke za svaku datoteku zasebno",
 	"mwe-upwiz-patent-dialog-title": "Patentna prava",

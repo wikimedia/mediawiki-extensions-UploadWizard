@@ -146,8 +146,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Vysvětlete, proč jste si jisti, že máte právo zveřejnit {{PLURAL:$1|toto dílo|tato díla}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Víte, pod kterou [https://creativecommons.org/share-your-work/cclicenses/ licencí Creative Commons] {{PLURAL:$1|bylo toto dílo zveřejněno|byla tato díla zveřejněna}}?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Prosím, potvrďte tato prohlášení předtím, než budete pokračovat.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Potvrzuji, že {{PLURAL:$1|toto dílo neobsahuje|tato díla neobsahují}} materiál omezený autorským právem, například loga, plakáty, přebaly knih atp.",
 	"mwe-upwiz-source-multiple-label-common": "Stejné informace poskytnout ke všem souborům",
 	"mwe-upwiz-source-multiple-label-individual": "Poskytnout informace ke každému souboru zvlášť",
 	"mwe-upwiz-patent-dialog-title": "Patentová práva",

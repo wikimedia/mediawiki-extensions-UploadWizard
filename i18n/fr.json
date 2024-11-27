@@ -194,8 +194,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Dites-nous maintenant pourquoi vous êtes certain{{GENDER:||e}} d’avoir le droit de publier ce{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}} :",
 	"mwe-upwiz-source-thirdparty-cases-text": "Savez-vous sous quelle [https://creativecommons.org/share-your-work/cclicenses/ licence Creative Commons] {{PLURAL:$1|cette œuvre a été|ces œuvres ont été}} publié ?",
 	"mwe-upwiz-source-thirdparty-accept": "Valider",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Veuillez confirmer la déclaration suivante avant de poursuivre.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Je confirme que {{PLURAL:$1|ce fichier ne comporte|ces fichiers ne comportent}} pas d'œuvres protégées par le droit d'auteur, tels que les logos, des affiches, des couvertures, etc.",
 	"mwe-upwiz-source-multiple-label-common": "Fournir les mêmes informations pour tous les fichiers",
 	"mwe-upwiz-source-multiple-label-individual": "Fournir les informations séparément pour chaque fichier",
 	"mwe-upwiz-patent-dialog-title": "Droits de brevet",

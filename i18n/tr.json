@@ -154,8 +154,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Şimdi bize {{PLURAL:$1|bu çalışmayı}} yayınlama hakkına sahip olduğunuzdan neden eminseniz:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Bu {{PLURAL:$1|çalışmanın|çalışmaların}} yayımlandığı [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons lisansını] biliyor musunuz?",
 	"mwe-upwiz-source-thirdparty-accept": "Tamam",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Devam etmeden önce lütfen aşağıdaki bildirmeyi onaylayın.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Bu {{PLURAL:$1|çalışmanın|çalışmaların}} imlek, poster, kapak görseli vb. gibi telif hakkıyla kısıtlanan gereç içermediğini onaylıyorum.",
 	"mwe-upwiz-source-multiple-label-common": "Tüm dosyalar için aynı bilgiyi sağlayın",
 	"mwe-upwiz-source-multiple-label-individual": "Her bir dosya için bilgi sağlayın",
 	"mwe-upwiz-patent-dialog-title": "Patent hakları",

@@ -77,8 +77,6 @@
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2 avII}} samar da {{PLURAL:$1 avIIA aiki a avIIA}} ta amfani da kayan aikin AI",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Shigar da sunan injin AI da aka yi amfani da shi. Idan aka yi amfani da ainihin aikin wani don samar da {{PLURAL:$1| wannan aikin|waɗannan ayyuka}}, lissafta su ma.",
 	"mwe-upwiz-source-thirdparty-accept": "ko",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Da fatan za a tabbatar da wannan sanarwa kafin a ci gaba",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Na tabbatar da cewa {{PLURAL:$1| wannan aikin yana aikata. kar a haɗa kayan da aka ƙuntata ta haƙƙin mallaka, kamar tambura, fosta, murfin kundi, da sauransu..",
 	"mwe-upwiz-patent-dialog-title": "Hakkin mallaka",
 	"mwe-upwiz-patent-dialog-title-filename": "Hakkokin shari'a don: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Baya",

@@ -185,8 +185,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "现在请告诉我们，您为什么确信您有权利发布{{PLURAL:$1|该|这些}}作品：",
 	"mwe-upwiz-source-thirdparty-cases-text": "您知道{{PLURAL:$1|此作品是|这些作品是}}是以什么[https://creativecommons.org/share-your-work/cclicenses/ Creative Commons许可协议]发布的吗？",
 	"mwe-upwiz-source-thirdparty-accept": "确定",
-	"mwe-upwiz-source-thirdparty-compliance-label": "请先确认以下声明然后再继续。",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "我确认{{PLURAL:$1|此作品|这些作品}}不含受版权限制的材料，例如徽标、海报、封面图片等。",
 	"mwe-upwiz-source-multiple-label-common": "为所有文件提供相同的信息",
 	"mwe-upwiz-source-multiple-label-individual": "为每个文件单独提供信息",
 	"mwe-upwiz-patent-dialog-title": "专利权",

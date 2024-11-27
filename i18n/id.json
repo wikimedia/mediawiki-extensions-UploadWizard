@@ -141,8 +141,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Sekarang, beritahu kami mengapa Anda yakin memiliki hak untuk melepas {{PLURAL:$1|karya ini}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Tahukah Anda apa [https://creativecommons.org/share-your-work/cclicenses/ lisensi Creative Commons] yang digunakan oleh {{PLURAL:$1|karya ini|karya-karya ini}}?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Harap konfirmasi pernyataan berikut sebelum melanjutkan.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Saya mengonfirmasi bahwa {{PLURAL:$1|karya ini|karya-karya ini}} tidak mengandung materi yang dibatasi oleh hak cipta, seperti logo, poster, seni sampul, dll.",
 	"mwe-upwiz-source-multiple-label-common": "Cantumkan informasi yang sama untuk semua berkas",
 	"mwe-upwiz-source-multiple-label-individual": "Berikan informasi untuk berkas satu per satu",
 	"mwe-upwiz-patent-dialog-title": "Hak paten",

@@ -140,8 +140,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "{{PLURAL:$1|এই কাজটি|এই কাজগুলো}} কেন আপনার প্রকাশের অধিকার রয়েছে সেটি বর্ণনা করুন:",
 	"mwe-upwiz-source-thirdparty-cases-text": "আপনি কি জানেন {{PLURAL:$1|এই কর্মটি|এই কর্মগুলি}} কোন [https://creativecommons.org/share-your-work/cclicenses/ ক্রিয়েটিভ কমন্স লাইসেন্সের] অধীনে প্রকাশিত হয়েছিল?",
 	"mwe-upwiz-source-thirdparty-accept": "ঠিক আছে",
-	"mwe-upwiz-source-thirdparty-compliance-label": "অগ্রসর হওয়ার আগে দয়া করে নিম্নলিখিত বিবৃতি নিশ্চিত করুন:",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "আমি নিশ্চিত করছি যে এই {{PLURAL:$1|কর্মটিতে|কর্মগুলিতে}} কপিরাইট দ্বারা সীমাবদ্ধ উপাদান যেমন লোগো, পোস্টার, প্রচ্ছদ শিল্প ইত্যাদি অন্তর্ভুক্ত নেই।",
 	"mwe-upwiz-source-multiple-label-common": "সকল ফাইলের জন্য একই তথ্য প্রদান করুন",
 	"mwe-upwiz-source-multiple-label-individual": "প্রতিটি পৃথক ফাইলের জন্য তথ্য প্রদান করুন",
 	"mwe-upwiz-patent-dialog-title": "পেটেন্ট অধিকার",

@@ -131,7 +131,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "اگر تمام پرونده‌ها دارای منبع، مؤلف، و وضعیت حق تکثیر یکسانی می‌باشند، شما می‌توانید فقط یک بار آن‌ها را برایشان وارد کنید.",
 	"mwe-upwiz-source-thirdparty-cases": "حال مشخص کنید که چرا مطمئن هستید که شما اجازهٔ انتشار این {{PLURAL:$1|اثر|آثار}} را دارید:",
 	"mwe-upwiz-source-thirdparty-accept": "تأیید",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "تأیید می‌کنم که {{PLURAL:$1|این اثر|این آثار}} حاوی محتوای مشمول حق تکثیر نظیر نشان‌واره‌ها، پوسترها، جلد آلبوم و غیره نیست.",
 	"mwe-upwiz-patent-dialog-title": "حقوق اختراع",
 	"mwe-upwiz-patent-dialog-title-filename": "حقوق حقوقی برای: $1",
 	"mwe-upwiz-patent-dialog-button-back": "بازگشت",

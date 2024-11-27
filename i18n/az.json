@@ -135,8 +135,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "{{PLURAL:$1|Bu əsəri|Bu əsərləri}} yayımlamaq hüququna niyə sahib olduğunuzu açıqlayın:",
 	"mwe-upwiz-source-thirdparty-cases-text": "{{PLURAL:$1|Bu əsərin|Bu əsərlərin}} hansı [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons lisenziyası] altında dərc olunduğunu bilirsiniz?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Davam etməzdən əvvəl aşağıdakı bildirişi təsdiqləyin.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Mən təsdiq edirəm ki bu {{PLURAL:$1|əsər|əsərlər}} müəllif hüququ ilə məhdudlaşdırılan material, məsələn, loqolar, afişalar və s. ehtiva etmir.",
 	"mwe-upwiz-source-multiple-label-common": "Bütün fayllar üçün eyni məlumatı əlavə edin",
 	"mwe-upwiz-source-multiple-label-individual": "Hər bir fayl üçün tək-tək əlavə edin",
 	"mwe-upwiz-patent-dialog-title": "Patent hüquqları",

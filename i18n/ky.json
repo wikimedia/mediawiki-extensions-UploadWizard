@@ -56,7 +56,6 @@
 	"mwe-upwiz-source-thirdparty-label": "Кимдир бирөөнүн эркин таратууга чектөөсү жок {{PLURAL:$1|чыгармасы|чыгармалары}}",
 	"mwe-upwiz-source-thirdparty-description": "Мисал: интернеттен же башка жерден табылган {{PLURAL:$1|фотография/скриншот|фотографиялар/скриншоттор}} сыяктуу башка бирөөнүн чыгармалары.",
 	"mwe-upwiz-source-thirdparty-accept": "Макул",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Улантуу үчүн төмөндөгүнү ырастаңыз.",
 	"mwe-upwiz-source-multiple-label-common": "Бардык файлдар боюнча бир маалымат берүү",
 	"mwe-upwiz-source-multiple-label-individual": "Ар бир файл боюнча маалыматты өзүнчө берүү",
 	"mwe-upwiz-patent-dialog-button-back": "Артка",

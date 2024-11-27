@@ -143,8 +143,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "עכשיו {{GENDER:|ספר|ספרי}} לנו למה {{GENDER:|אתה בטוח|את בטוחה}} שיש לכ זכות לפרסם את {{PLURAL:$1|היצירה הזאת|היצירות האלו}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "האם ידוע לך לפי איזה [https://creativecommons.org/share-your-work/cclicenses/ רישיון קריאייטוב קומונז] {{PLURAL:$1|היצירה הזאת פורסמה|היצירות האלו פורסמו}}?",
 	"mwe-upwiz-source-thirdparty-accept": "אישור",
-	"mwe-upwiz-source-thirdparty-compliance-label": "נא לאשר את ההצהרה הבאה לפני המשך.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "זהו אישור על כך {{PLURAL:$1|שהיצירה הזאת|היצירות האלו}} אינן כוללות חומר שמוגבל על־ידי זכויות יוצרים, כגון סמלים, כרזות, עטיפות וכו'.",
 	"mwe-upwiz-source-multiple-label-common": "לספק את אותו המידע לכל הקבצים",
 	"mwe-upwiz-source-multiple-label-individual": "לספק מידע לכל קובץ בנפרד",
 	"mwe-upwiz-patent-dialog-title": "זכויות פטנט",

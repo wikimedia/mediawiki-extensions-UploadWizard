@@ -129,8 +129,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Nun bonvolu klarigi kial vi certas ke vi rajtas publikigi {{PLURAL:$1|ĉi tiun verkon|ĉi tiujn verkojn}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Ĉu vi scias, je kio [https://creativecommons.org/share-your-work/cclicenses/ permesilo de Krea Komunaĵo] {{PLURAL:$1| ĉi tiu plurmediaĵo  estis|ĉi tiuj plurmediaĵo estis}} publikigitaj?",
 	"mwe-upwiz-source-thirdparty-accept": "Ek!",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Bonvolu konfirmi la sekvan deklaron antaŭ ol daŭrigi:",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Mi konfirmas ke {{PLURAL:$1|ĉi tiu verko|ĉi tiuj verkoj}} ne inkluzivas materialon limigitan de kopirajto, kiel emblemojn, afiŝojn, albumkovraĵojn, ktp.",
 	"mwe-upwiz-patent-dialog-title": "Rajtoj pri patentoj",
 	"mwe-upwiz-patent-dialog-title-filename": "Juraj rajtoj al: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Reen",

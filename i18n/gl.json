@@ -136,8 +136,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Agora, dinos por que sabes que tes o dereito de publicar {{PLURAL:$1|esta obra|estas obras}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Sabes baixo que [https://creativecommons.org/share-your-work/cclicenses/ licenza Creative Commons] {{PLURAL:$1|está publicada esta obra|están publicadas estas obras}}?",
 	"mwe-upwiz-source-thirdparty-accept": "Aceptar",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Confirma a seguinte declaración antes de continuar.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Confirmo que {{PLURAL:$1|esta obra non inclúe|estas obras non inclúen}} material restrinxido por dereitos de autoría, como logotipos, carteis, portadas etc.",
 	"mwe-upwiz-source-multiple-label-common": "Proporciona a mesma información para todos os ficheiros",
 	"mwe-upwiz-source-multiple-label-individual": "Proporciona a información para cada ficheiro",
 	"mwe-upwiz-patent-dialog-title": "Dereitos de patente",

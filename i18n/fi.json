@@ -152,8 +152,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Kerro, miksi olet varma, että sinulla on oikeus julkaista {{PLURAL:$1|tämä teos|nämä teokset}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Tiedätkö, millä [https://creativecommons.org/share-your-work/cclicenses/ Creative Common -lisenssillä] {{PLURAL:$1|tämä teos on|nämä teokset ovat}} julkaistu?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Vahvista seuraava lausunto ennen kuin jatkat.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Vahvistan, että {{PLURAL:$1|tämä teos|nämä teokset}} eivät sisällä tekijänoikeudella rajoitettua materiaalia, kuten logoja, julisteita, kansitaidetta tms.",
 	"mwe-upwiz-source-multiple-label-common": "Anna samat tieto kaikille tiedostoille",
 	"mwe-upwiz-source-multiple-label-individual": "Anna tieto jokaiselle yksittäiselle tiedostolle",
 	"mwe-upwiz-patent-dialog-title": "Patenttioikeudet",

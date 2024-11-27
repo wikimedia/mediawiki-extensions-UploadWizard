@@ -160,8 +160,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "では、なぜあなたに{{PLURAL:$1|この作品|これらの作品}}を公開する権利があると言えるのかをお教えください。",
 	"mwe-upwiz-source-thirdparty-cases-text": "{{PLURAL:$1|この作品は|これらの作品は}}[https://creativecommons.org/share-your-work/cclicenses/ クリエイティブ・コモンズ・ライセンス]の下で公開されたものですか?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "続行する前に、次の声明を確認してください。",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "{{PLURAL:$1|この作品には|これらの作品には}}、ロゴ、ポスター、カバーアートなどの著作権で制限されている素材が含まれていないことを確認します。",
 	"mwe-upwiz-source-multiple-label-common": "すべてのファイルに同じ情報を提供する",
 	"mwe-upwiz-source-multiple-label-individual": "個々のファイルごとに情報を提供する",
 	"mwe-upwiz-patent-dialog-title": "特許権",

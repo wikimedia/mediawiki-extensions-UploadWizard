@@ -141,8 +141,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Skriv hvorfor du er sikker på at du har rett til å utgi {{PLURAL:$1|dette verket|disse verkene}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Vet du hvilken [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons-lisens] {{PLURAL:$1|dette verket|disse verkene}} er publisert under?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Bekreft følgende uttalelse før du fortsetter.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Jeg bekrefter at {{PLURAL:$1|dette verket|disse verkene}} ikke inkluderer materiale som er begrenset av opphavsrett, som logoer, plakater, albumomslag osv.",
 	"mwe-upwiz-source-multiple-label-common": "Gi samme informasjon for alle filene",
 	"mwe-upwiz-source-multiple-label-individual": "Gi informasjon for hver enkel fil",
 	"mwe-upwiz-patent-dialog-title": "Patentrettigheter",

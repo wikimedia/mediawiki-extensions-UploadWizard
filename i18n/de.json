@@ -154,8 +154,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Bitte teile uns mit, warum du dir sicher bist, dass du das Recht zur Veröffentlichung {{PLURAL:$1|dieses Werks|dieser Werke}} hast:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Weißt du, unter welcher [https://creativecommons.org/share-your-work/cclicenses/ Creative-Commons-Lizenz] {{PLURAL:$1|dieses Werk veröffentlicht wurde|diese Werke veröffentlicht wurden}}?",
 	"mwe-upwiz-source-thirdparty-accept": "Okay",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Bitte bestätige die folgende Aussage, bevor du fortfährst.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Ich bestätige, dass {{PLURAL:$1|dieses Werk keine urheberrechtlich geschützten Materialien wie Logos, Poster, Albumcover usw. enthält|diese Werke keine urheberrechtlich geschützten Materialien wie Logos, Poster, Titelseiten usw. enthalten}}.",
 	"mwe-upwiz-source-multiple-label-common": "Für alle Dateien die gleichen Informationen angeben",
 	"mwe-upwiz-source-multiple-label-individual": "Für jede Datei individuelle Informationen angeben",
 	"mwe-upwiz-patent-dialog-title": "Patentrechte",

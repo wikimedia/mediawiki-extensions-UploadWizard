@@ -157,8 +157,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "現在請告訴我們，您為什麼確定您有權發佈{{PLURAL:$1|此|這些}}作品：",
 	"mwe-upwiz-source-thirdparty-cases-text": "你知道{{PLURAL:$1|此|這些}}作品是以哪種[https://creativecommons.org/share-your-work/cclicenses/ 創用CC 授權條款]發布嗎？",
 	"mwe-upwiz-source-thirdparty-accept": "確定",
-	"mwe-upwiz-source-thirdparty-compliance-label": "請在繼續之前確認以下聲明。",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "我確認{{PLURAL:$1|此|這些}}作品不包含受版權限制的內容，例如標誌、海報、封面藝術等。",
 	"mwe-upwiz-source-multiple-label-common": "為所有檔案提供相同的資訊",
 	"mwe-upwiz-source-multiple-label-individual": "為每個單獨檔案提供各資訊",
 	"mwe-upwiz-patent-dialog-title": "專利權",
