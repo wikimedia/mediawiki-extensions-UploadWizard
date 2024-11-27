@@ -631,8 +631,12 @@ return [
 	// Min source string length
 	'minSourceLength' => 5,
 
-	// Max file title string length (in bytes)
-	'maxTitleLength' => 240,
+	// Max file title string length (in bytes, as it depends on the DB column size).
+	// The max column size is 240, but the title doesn't include the file extension.
+	// It will be automatically added when the file is published,
+	// so we reserve 5 bytes to it, based on
+	// https://commons.wikimedia.org/wiki/Special:MediaStatistics
+	'maxTitleLength' => 235,
 
 	// Min file title string length (in characters)
 	'minTitleLength' => 5,

@@ -19,7 +19,9 @@
 		// We wouldn't want or use any of mw.widgets.TitleInputWidget functionality.
 		this.titleInput = new OO.ui.TextInputWidget( {
 			classes: [ 'mwe-title', 'mwe-upwiz-titleDetailsWidget-title' ],
-			maxLength: config.maxLength
+			// Add 1 character to the text input limit,
+			// or the user will never see the error message if they reach the max title length.
+			maxLength: config.maxLength + 1
 		} );
 
 		// Aggregate 'change' event (with delay)
