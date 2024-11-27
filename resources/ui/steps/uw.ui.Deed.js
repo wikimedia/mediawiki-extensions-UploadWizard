@@ -44,7 +44,7 @@
 			this.$thumbsContainer.addClass( 'ui-helper-clearfix' ),
 			$( '<div>' )
 				.attr( 'id', 'mwe-upwiz-deeds-intro' )
-				.msg( 'mwe-upwiz-deeds-macro-prompt-text', uploads.length, mw.user ),
+				.msg( 'mwe-upwiz-deeds-intro', uploads.length, mw.user ),
 			this.$deedsContainer.addClass( 'ui-helper-clearfix' )
 		);
 

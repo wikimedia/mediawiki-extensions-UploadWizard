@@ -227,6 +227,9 @@ return [
 										"head" => [
 											"type" => "string"
 										],
+										"head-extra" => [
+											"type" => "string"
+										],
 										"icons" => [
 											"type" => "array",
 											"items" => [
@@ -251,6 +254,9 @@ return [
 											]
 										],
 										"subhead" => [
+											"type" => "string"
+										],
+										"subhead-extra" => [
 											"type" => "string"
 										],
 										"type" => [
