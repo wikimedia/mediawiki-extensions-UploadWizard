@@ -10,7 +10,6 @@
 	"mwe-upwiz-source-permission": "De auteur van de werken heeft jou uitdrukkelijk toestemming gegeven ze te uploaden",
 	"mwe-upwiz-source-thirdparty-intro": "Voer de plaats in waar je elk bestand gevonden hebt.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Als alle bestanden dezelfde bron, auteur en auteursrechtenstatus hebben, kan je ze één keer voor allemaal invoeren.",
-	"mwe-upwiz-source-thirdparty-cases": "Geef hier aan waarom je zeker weet dat je het recht hebt om {{PLURAL:$1|dit werk|deze werken}} te publiceren:",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Je bent het bestand \"$1\" al aan het uploaden.",
 	"mwe-upwiz-fileexists-replace-on-page": "Er bestaat al een bestand met deze naam. Als je het wilt vervangen, ga dan naar de pagina voor [$2 $1] en vervang het daar.",
 	"mwe-upwiz-tooltip-skiptutorial": "Je kunt deze inleiding weer inschakelen in [$1 je voorkeuren], onder $2 → $3.",

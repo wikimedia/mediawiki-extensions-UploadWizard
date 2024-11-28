@@ -110,8 +110,6 @@
 	"mwe-upwiz-source-permission": "इनके लेखक ने आपको इन्हें अपलोड करने की स्पष्ट अनुमति दी है",
 	"mwe-upwiz-source-thirdparty-intro": "कृपया हर फ़ाइल के स्रोत का पता दर्ज करें।",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "अगर सभी फ़ाइलों का स्रोत एक ही है, आप सभी के लिए स्रोत सिर्फ एक बार ही दर्ज कर सकते हैं।",
-	"mwe-upwiz-source-thirdparty-cases": "अब हमें बताएँ कि आप निश्चित कैसे हैं कि आपके पास {{PLURAL:$1|इस कार्य|इन कार्यों}} को प्रकाशित करने का अधिकार है:",
-	"mwe-upwiz-source-thirdparty-accept": "ठीक है",
 	"mwe-upwiz-patent-dialog-title": "पेटेंट अधिकार",
 	"mwe-upwiz-patent-dialog-title-filename": "$1 के लिए कानूनी अधिकार",
 	"mwe-upwiz-patent-dialog-button-back": "पिछला",

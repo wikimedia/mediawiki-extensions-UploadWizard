@@ -58,8 +58,6 @@
 	"mwe-upwiz-source-permission": "Njegov autor je dao izričitu dozvolu da ih postavite",
 	"mwe-upwiz-source-thirdparty-intro": "Molimo unesite adrese gdje ste svaku od datoteka pronašli.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Ako sve datoteke imaju isti izvor i stanje autorskih prava, možete ih unijeti samo jednom za sve datoteke.",
-	"mwe-upwiz-source-thirdparty-cases": "Sada nam recite zašto ste sigurni da imate pravo da objavite {{PLURAL:$1|ovo djelo|ova djela}}:",
-	"mwe-upwiz-source-thirdparty-accept": "U redu",
 	"mwe-upwiz-desc": "Opis",
 	"mwe-upwiz-title": "Naslov",
 	"mwe-upwiz-date-created": "Datum pravljenja",

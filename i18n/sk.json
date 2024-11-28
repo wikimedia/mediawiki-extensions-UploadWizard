@@ -102,8 +102,6 @@
 	"mwe-upwiz-source-permission": "Ich autor vám dal výslovný súhlas nahrať ich",
 	"mwe-upwiz-source-thirdparty-intro": "Prosím, zadajte adresu, kde ste našiel každý zo súborov.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Ak všetky súbory majú rovnaký zdroj, autora a stav autorských práv, môžu ich zadať len raz pre každý z nich.",
-	"mwe-upwiz-source-thirdparty-cases": "Teraz nám povedzte, prečo ste si istí, že máte právo uverejniť {{PLURAL:$1|toto dielo|tieto diela}}:",
-	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-patent-dialog-title": "Patentové práva",
 	"mwe-upwiz-patent-dialog-title-filename": "Právne práva pre: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Späť",

@@ -41,6 +41,7 @@
 	"mwe-upwiz-error-date-license-unlikely": "The selected date likely isn't correct, given the licence ($1).",
 	"mwe-upwiz-error-license-wikitext-too-short": "The wikitext here is too short to be a licence",
 	"mwe-upwiz-error-license-wikitext-missing-template": "The wikitext you entered doesn't contain a valid licence template.",
+	"mwe-upwiz-license-custom": "The licence is described by the following wikitext (must contain a valid [$2 copyright tag]):",
 	"mwe-upwiz-license-fal": "Free Art Licence",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation Licence",
 	"mwe-upwiz-license-cc-head": "The copyright holder published {{PLURAL:$1|this work|these works}} with the right Creative Commons licence",

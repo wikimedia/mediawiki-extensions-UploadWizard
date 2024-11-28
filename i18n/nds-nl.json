@@ -68,8 +68,6 @@
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(Iederene mag {{PLURAL:$1|dit wark|disse warken}} gebruken, zonder beparkingen)",
 	"mwe-upwiz-source-thirdparty-intro": "Vul de webadressen in waor jie elk bestaand evunnen hebben.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "As alle bestaanden de zelfde bron, auteur en auteursrechtenstaotus hebben, mu'j ze allemaole tegelieke invoeren.",
-	"mwe-upwiz-source-thirdparty-cases": "Geef hier an waorumme jie der wisse van bin da'j t recht hebben um {{PLURAL:$1|dit wark|disse warken}} te publiseren:",
-	"mwe-upwiz-source-thirdparty-accept": "Okee",
 	"mwe-upwiz-patent-dialog-title": "Patentrechten",
 	"mwe-upwiz-patent-dialog-title-filename": "Rechtsanspråke vöär: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Weaderümme",
