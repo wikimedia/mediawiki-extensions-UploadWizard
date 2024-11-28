@@ -34,7 +34,8 @@
 			"Yusuke1109",
 			"青子守歌",
 			"Waki285",
-			"Yushu-kasai"
+			"Yushu-kasai",
+			"Chqaz"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -318,6 +319,18 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-de-text": "クリエイティブ・コモンズ 表示-継承 3.0 ドイツ $3 ([$2 もっと詳しく])",
 	"mwe-upwiz-license-cc-by-sa-3.0-ee-text": "クリエイティブ・コモンズ 表示-継承 3.0 エストニア $3 ([$2 もっと詳しく])",
 	"mwe-upwiz-license-cc-by-sa-3.0-es-text": "クリエイティブ・コモンズ 表示-継承 3.0 スペイン $3 ([$2 もっと詳しく])",
+	"mwe-upwiz-license-cc-by-sa-3.0-hr-text": "クリエイティブ・コモンズ 表示-継承 3.0 クロアチア $3 ([$2 もっと詳しく])",
+	"mwe-upwiz-license-cc-by-sa-3.0-lu-text": "クリエイティブ・コモンズ 表示-継承 3.0 ルクセンブルク $3 ([$2 もっと詳しく])",
+	"mwe-upwiz-license-cc-by-sa-3.0-nl-text": "クリエイティブ・コモンズ 表示-継承 3.0 オランダ $3 ([$2 もっと詳しく])",
+	"mwe-upwiz-license-cc-by-sa-3.0-no-text": "クリエイティブ・コモンズ 表示-継承 3.0 ノルウェー $3 ([$2 もっと詳しく])",
+	"mwe-upwiz-license-cc-by-sa-3.0-pl-text": "クリエイティブ・コモンズ 表示-継承 3.0 ポーランド $3 ([$2 もっと詳しく])",
+	"mwe-upwiz-license-cc-by-sa-3.0-ro-text": "クリエイティブ・コモンズ 表示-継承 3.0 ルーマニア $3 ([$2 もっと詳しく])",
+	"mwe-upwiz-license-cc-by-4.0-text": "クリエイティブ・コモンズ 表示 4.0 $3（[$2 もっと詳しく]）",
+	"mwe-upwiz-license-cc-by-3.0-text": "クリエイティブ・コモンズ 表示 3.0 $3（[$2 もっと詳しく]）",
+	"mwe-upwiz-license-cc-by-sa-2.5-text": "クリエイティブ・コモンズ 表示-継承 2.5 $3（[$2 もっと詳しく]）",
+	"mwe-upwiz-license-cc-by-2.5-text": "クリエイティブ・コモンズ 表示 2.5 $3（[$2 もっと詳しく]）",
+	"mwe-upwiz-license-cc-by-sa-2.0-text": "クリエイティブ・コモンズ 表示-継承 2.0 $3（[$2 もっと詳しく]）",
+	"mwe-upwiz-license-cc-by-2.0-text": "クリエイティブ・コモンズ 表示 2.0 $3（[$2 もっと詳しく]）",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:コピーライト・タグ",
 	"mwe-upwiz-license-fal": "フリーの作品ライセンス",
 	"mwe-upwiz-license-pd-old-100": "著者が100年以上前に死亡した",
