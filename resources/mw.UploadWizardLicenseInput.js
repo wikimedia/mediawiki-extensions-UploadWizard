@@ -117,7 +117,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 					group.setValue( {} );
 				} else {
 					// attach group license selector
-					option.$element.after( group.$element );
+					option.$label.append( group.$element ); // @todo afteR?
 
 					// check the defaults (insofar they exist) for newly selected groups;
 					// ignore groups that had already been selected to ensure existing

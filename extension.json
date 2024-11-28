@@ -218,6 +218,7 @@
 			],
 			"styles": [
 				"resources/jquery.arrowSteps/jquery.arrowSteps.less",
+				"resources/ui/uw.ui.Step.less",
 				"resources/ui/steps/uw.ui.Deed.less",
 				"resources/ui/steps/uw.ui.Details.less",
 				"resources/ui/steps/uw.ui.Thanks.less",
