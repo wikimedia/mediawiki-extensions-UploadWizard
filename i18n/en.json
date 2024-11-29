@@ -340,7 +340,7 @@
 	"mwe-upwiz-license-free-head": "The creator has released or published {{PLURAL:$1|this work|these works}} under a free license e.g. [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons license]",
 	"mwe-upwiz-license-free-subhead": "Do you know what license the creator published {{PLURAL:$1|this work|these works}} under?",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|This work is|These works are}} not protected by copyright law",
-	"mwe-upwiz-license-cc0-head-extra": "Example: old {{PLURAL:$1|work|works}} whose copyright has expired or {{PLURAL:$1|work|works}} released by govt. as public records etc. [$2 Learn more]",
+	"mwe-upwiz-license-cc0-head-extra": "Example: old {{PLURAL:$1|work|works}} whose copyright has expired or {{PLURAL:$1|work|works}} released by government as public records, etc. [$2 Learn more]",
 	"mwe-upwiz-license-cc0-subhead-2": "Which of the options below is true? Check all that apply.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} is located in the USA, so the {{PLURAL:$1|work|works}} must be out of copyright in USA as well.",
 	"mwe-upwiz-license-unknown-head": "I don't know if {{PLURAL:$1|it is|they are}} free to share",
