@@ -54,7 +54,9 @@
 		} );
 
 		this.setLanguage( config.defaultLanguage || this.getDefaultLanguage() );
-		this.languageSelector.on( 'select', ( event ) => this.textInput.$input.attr( 'lang', event.data ) );
+		this.languageSelector.on( 'select', () => {
+			this.textInput.$input.attr( 'lang', this.languageSelector.getValue() );
+		} );
 		this.languageSelector.connect( this, { select: [ 'emit', 'select' ] } );
 		// Aggregate 'change' event
 		// (but do not flash warnings in the user's face while they're typing)
