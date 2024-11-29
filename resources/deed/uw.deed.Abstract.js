@@ -42,6 +42,7 @@
 				field = new uw.FieldLayout(
 					input,
 					{
+						classes: [ 'mwe-upwiz-details-templateoption' ],
 						label: mw.message(
 							details.label,
 							uploads.length,

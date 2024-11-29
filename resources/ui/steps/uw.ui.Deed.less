@@ -21,7 +21,6 @@
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-ownwork,
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty {
 	margin-top: 1.5em;
-	margin-left: 1.5em;
 	border-top: @border-width-base @border-style-base @border-color-base;
 	padding-top: 1.5em;
 }
@@ -63,19 +62,10 @@
 	}
 
 	.mwe-upwiz-label-title {
-		font-size: 16px;
-		margin-top: 1em;
-
 		a {
 			color: @color-emphasized;
 			text-decoration: underline;
 		}
-	}
-
-	.mwe-upwiz-label-title,
-	label {
-		font-weight: @font-weight-normal;
-		padding-top: 0;
 	}
 
 	label {
@@ -92,7 +82,8 @@
 
 	ol {
 		padding: 0;
-		margin-left: 1.5em;
+		margin-left: 0;
+		list-style-position: inside;
 	}
 
 	.mwe-upwiz-thirdparty-checkbox {
@@ -142,20 +133,13 @@
 	background-color: @background-color-neutral-subtle;
 	border-radius: 3px;
 
-	.mwe-upwiz-deed-title {
-		font-weight: @font-weight-bold;
-		color: @color-notice;
-	}
-
 	.mwe-upwiz-ai-prompt {
 		margin-top: 1.5em;
 	}
 }
 
-.mwe-upwiz-deed-origin-others-container {
-	.mwe-upwiz-deed-title {
-		margin-bottom: 1em;
-	}
+.mwe-upwiz-deed-title {
+	margin-bottom: 1em;
 }
 
 @media screen and ( max-width: @min-width-breakpoint-tablet ) {
@@ -240,7 +224,7 @@ label:has( .mwe-upwiz-license-custom ),
  * it rather hard to add a specific "warning" class to the "no license known" license group/option,
  * so we will target these directly and mimic OO.ui.MessageWidget( { type: 'warning' } )
  */
-.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head + .mwe-upwiz-deed-license-group,
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head .mwe-upwiz-deed-license-group,
 .mwe-upwiz-label-warning {
 	// show warning style instead of default grey background
 	background: @background-color-warning-subtle ~'url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 24px 16px / 20px';
@@ -265,7 +249,7 @@ label:has( .mwe-upwiz-license-custom ),
 /*
  * also apply custom warning message styles to warning in license selection
  */
-.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head + .mwe-upwiz-deed-license-group,
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head .mwe-upwiz-deed-license-group,
 .mwe-upwiz-label-warning {
 	p {
 		/*
@@ -287,7 +271,7 @@ label:has( .mwe-upwiz-license-custom ),
  * we want this one to fit with the default license config, but it needs
  * a very different style (no checkbox, always visible, etc.)
  */
-.mwe-upwiz-deed-license-group-mwe-upwiz-license-cc0-head + .mwe-upwiz-deed-license-group .mwe-upwiz-license-option-custom-pd {
+.mwe-upwiz-deed-license-group-mwe-upwiz-license-cc0-head .mwe-upwiz-deed-license-group .mwe-upwiz-license-option-custom-pd {
 	margin-top: 2em;
 
 	.oo-ui-checkboxInputWidget {
@@ -420,8 +404,7 @@ label:has( .mwe-upwiz-license-custom ),
 }
 
 .mwe-upwiz-source-thirdparty-explain {
-	font-size: 1.1em;
-	font-weight: @font-weight-bold;
+	margin-bottom: 1em;
 }
 
 .mwe-upwiz-thirdparty-license {
