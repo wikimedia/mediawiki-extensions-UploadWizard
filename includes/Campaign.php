@@ -252,13 +252,13 @@ class Campaign {
 		$output = $this->parser->parse(
 			$value, $this->getTitle(), $parserOptions
 		);
-		$parsed = $output->getText( [
+		$processedOutput = $output->runOutputPipeline( $parserOptions, [
 			'enableSectionEditLinks' => false,
 		] );
 
-		$this->updateTemplates( $output );
+		$this->updateTemplates( $processedOutput );
 
-		return Parser::stripOuterParagraph( $parsed );
+		return Parser::stripOuterParagraph( $processedOutput->getContentHolderText() );
 	}
 
 	/**
