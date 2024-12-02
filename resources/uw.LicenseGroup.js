@@ -106,6 +106,9 @@
 				);
 			}
 
+			// make all links open in a new tab in order to not disrupt the upload process
+			$subhead.find( 'a' ).attr( { target: '_blank' } );
+
 			fieldset.addItems(
 				[
 					new OO.ui.FieldLayout(

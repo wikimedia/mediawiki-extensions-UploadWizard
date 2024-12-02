@@ -522,6 +522,10 @@ return [
 			'special' => 'input',
 			'msgSpecial' => 'mwe-upwiz-license-custom-pd-explain'
 		],
+		'vrt' => [
+			'msg' => 'mwe-upwiz-license-vrt',
+			'templates' => [ 'Permission_pending' ]
+		],
 		'generic' => [
 			'msg' => 'mwe-upwiz-license-generic',
 			'msgExplain' => 'mwe-upwiz-source-ownwork-generic-explain',
@@ -584,6 +588,18 @@ return [
 						'pd-usgov-nasa',
 						'unsure',
 						'custom-pd',
+					]
+				],
+				[
+					'head' => 'mwe-upwiz-license-vrt-head',
+					'subhead' => 'mwe-upwiz-license-vrt-subhead',
+					'url' => [
+						'permissions-commons@wikimedia.org',
+						'//commons.wikimedia.org/wiki/Commons:Wikimedia_VRT_release_generator',
+					],
+					'type' => 'and',
+					'licenses' => [
+						'vrt',
 					]
 				],
 				[

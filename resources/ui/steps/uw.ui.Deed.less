@@ -234,7 +234,7 @@ label:has( .mwe-upwiz-license-custom ),
 
 	// get rid of bold text & margin from the default license selection styles
 	.mwe-upwiz-deed-license-group-subhead {
-		font-weight: inherit;
+		font-weight: normal;
 		color: inherit;
 		margin-bottom: 0;
 	}
@@ -293,6 +293,28 @@ label:has( .mwe-upwiz-license-custom ),
 			&.mwe-upwiz-license-custom {
 				display: flex;
 			}
+		}
+	}
+}
+
+/*
+ * another customized option, where we need to tyle  a link to the VRT form as a button
+ */
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-vrt-head .mwe-upwiz-deed-license-group {
+	.mwe-upwiz-deed-license-group-subhead {
+		font-weight: normal;
+		color: inherit;
+
+		a:last-of-type {
+			display: block;
+			width: fit-content;
+			margin-top: 1em;
+			padding: 5px 12px;
+			font-weight: bold;
+			background-color: @background-color-base;
+			color: @color-progressive;
+			border: 1px solid @border-color-base;
+			border-radius: 2px;
 		}
 	}
 }
