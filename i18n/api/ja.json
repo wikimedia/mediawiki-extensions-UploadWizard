@@ -4,7 +4,8 @@
 			"2nd-player",
 			"Shirayuki",
 			"Yusuke1109",
-			"Omotecho"
+			"Omotecho",
+			"Chqaz"
 		]
 	},
 	"apihelp-flickrblacklist-description": "Flickr URL のユーザー ID (NSID) を使用してその URL がブラックリストに登録されているか検証します。\n\n<var>list</var> オプション付きで使用した場合は、ブラックリストに登録されている ID をすべて返します。",
