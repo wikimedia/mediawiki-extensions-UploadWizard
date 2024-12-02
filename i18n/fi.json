@@ -323,7 +323,7 @@
 	"mwe-upwiz-license-cc-zero-text": "Creative Commons CC0 $3 [$2 (lisätietoja)]",
 	"mwe-upwiz-license-custom": "Anna muu lisenssi",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Tekijänoikeusmallineet",
-	"mwe-upwiz-license-custom-explain": "Tulee sisältää kelvollisen [$2 tekijänoikeusmerkinnän] kelvollisessa mallineessa, kuten <u><nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki></u>",
+	"mwe-upwiz-license-custom-explain": "Tulee sisältää kelvollisen [$2 tekijänoikeusmerkinnän] kelvollisessa mallineessa, kuten <nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>",
 	"mwe-upwiz-license-fal": "Free Art License",
 	"mwe-upwiz-license-own-pd-text": "Kaikista oikeuksista luovuttu Creative Commons Zero -lisenssillä (kuten public domain) $3",
 	"mwe-upwiz-license-pd-old-100": "Tekijä kuoli yli 100 vuotta sitten",

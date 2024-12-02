@@ -62,6 +62,7 @@
 	"mwe-upwiz-dialog-no": "No",
 	"mwe-upwiz-campaign-upload-button": "Sendez!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Arkivo|Arkivi}} kargita",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Kontributero|Kontributeri}}",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nula arkivo sendita ankore!",
 	"mwe-upwiz-license-custom": "La permiso deskriptesas per la sequanta wikitexto (mustas kontenar valida [$2 informo pri autoroyuro]):",
 	"mwe-upwiz-license-pd-old-100": "Autoro mortis plu kam 100 yari ante nun",
