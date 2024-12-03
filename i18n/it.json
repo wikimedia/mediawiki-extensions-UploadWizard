@@ -326,7 +326,7 @@
 	"mwe-upwiz-license-cc-zero-text": "Creative Commons CC0 $3 [$2 (per saperne di più)]",
 	"mwe-upwiz-license-custom": "Inserisci una licenza diversa",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Tag di copyright",
-	"mwe-upwiz-license-custom-explain": "Deve contenere un [tag di copyright $2] valido in un template valido come <u><nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki></u>",
+	"mwe-upwiz-license-custom-explain": "Deve contenere un [tag di copyright $2] valido in un template valido come <nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>",
 	"mwe-upwiz-license-fal": "Licenza Arte Libera",
 	"mwe-upwiz-license-own-pd-text": "Rinuncia a tutti i diritti con la licenza Creative Commons Zero (come il pubblico dominio) $3",
 	"mwe-upwiz-license-pd-old-100": "L'autore è morto più di 100 anni fa",
