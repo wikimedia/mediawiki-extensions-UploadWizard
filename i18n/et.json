@@ -113,6 +113,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Ma}} genereerisin {{PLURAL:$1|selle teose|need teosed}} tehisaruvahendi abil [[COM:AI-generated_media|(vaata juhtnööre)]].",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Sisesta kasutatud tehisarumootori nimi. Kui {{PLURAL:$1|selle teose|nende teoste}} genereerimiseks kasutati kellegi teise algupärast teost, siis nimeta ka see.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Näide:</b> Autor: Midjourney AI; pildistanud Jaan Tamm; värvitud Colorme AI-ga jne.",
+	"mwe-upwiz-source-ownwork-origin-option-ai-prompt": "Sisesta selle faili genereerimiseks ette antud tekst",
 	"mwe-upwiz-source-permission": "Teoste autor andis sulle nende üleslaadimiseks selgesõnalise loa.",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|See|Need}} on kellegi teise looming ja {{PLURAL:$1|seda|neid}} tohib vabalt jagada.",
 	"mwe-upwiz-source-thirdparty-description": "Näited: {{PLURAL:$1|foto või kuvatõmmis|fotod või kuvatõmmised}}, mille leidsid veebist või mujalt, kellegi teise loodud teos jne.",

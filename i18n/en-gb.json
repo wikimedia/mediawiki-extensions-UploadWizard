@@ -15,8 +15,6 @@
 			"Samthecrazyman"
 		]
 	},
-	"mwe-upwiz-transport-started": "Starting…",
-	"mwe-upwiz-uploading": "Uploading…",
 	"mwe-upwiz-skip-tutorial-future": "Skip this step in future",
 	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(Anyone may use, share or remix {{PLURAL:$1|this work|these works}}, as long as they credit me and share any derivative work under this licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(Anyone may use, share or remix {{PLURAL:$1|this work|these works}}, as long as they credit me and share any derivative work under this licence.)",
@@ -34,7 +32,6 @@
 	"mwe-upwiz-patent-dialog-title-license": "Patent Licence",
 	"mwe-upwiz-patent-weapon-policy": "Users should avoid uploading any 3D models that could be viewed as a weapon or \"defence article\".\nThe Commons community might remove such items upon moderation.",
 	"mwe-upwiz-license-metadata-content": "By clicking \"publish\", you agree to the [[wmf:Terms_of_Use|terms of use]], and you irrevocably agree to release your contribution under the [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 Licence].",
-	"mwe-upwiz-deeds-require-selection": "Please select a licence.",
 	"mwe-upwiz-license-show-all": "Use a different licence",
 	"mwe-upwiz-license-show-recommended": "Use the site's recommended licence",
 	"mwe-upwiz-error-date-license-mismatch": "The selected date doesn't match the licence ($1).",
@@ -47,7 +44,6 @@
 	"mwe-upwiz-license-cc-subhead": "Not all Creative Commons licences are good for this site. Make sure the copyright holder used one of these licences.",
 	"mwe-upwiz-license-flickr-head": "The copyright holder published their {{PLURAL:$1|photo or video|photos or videos}} on Flickr with the right licence",
 	"mwe-upwiz-license-flickr-subhead": "Check the \"License\" header on the side of the Flickr page. Both the icons and licence name that they used have to match one of the choices here.",
-	"mwe-upwiz-license-none": "I believe {{PLURAL:$1|this work is|these works are}} freely licensed or legally in the public domain. I understand that if I do not add the necessary licensing information in a timely fashion, the {{PLURAL:$1|file|files}} may be deleted.",
 	"mwe-upwiz-license-external": "The file is under the following licence on the source site \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "The file is under the following licence on the source site \"$1\": $2. Unfortunately, this wiki does not allow that licence.",
 	"mwe-upwiz-license-photoset-invalid": "Unfortunately, no image in the photoset has a licence appropriate to be used on this site.",
