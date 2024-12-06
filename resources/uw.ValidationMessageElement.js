@@ -7,7 +7,7 @@
 	 * @class
 	 *
 	 * @param {Object} [config]
-	 * @param {OO.ui.Widget} [config.validatedWidget] Widget to validate
+	 * @param {uw.ValidatableElement} [config.validatedWidget] Widget to validate
 	 */
 	uw.ValidationMessageElement = function UWValidationMessageElement( config ) {
 		config = config || {};
@@ -20,11 +20,13 @@
 		this.notices = [];
 		this.successMessages = []; // unused, but OO.ui.FieldLayout.prototype.updateMessages assumes this exists
 
-		this.validatedWidget.on( 'change', () => this.checkValidity( false ) );
+		this.validatedWidget.on( 'change', () => this.validate( false ) );
 
 		this.$messages.addClass( 'oo-ui-fieldLayout-messages' );
 		this.$element.addClass( 'mwe-upwiz-validationMessageElement' );
 	};
+	OO.initClass( uw.ValidationMessageElement );
+	OO.mixinClass( uw.ValidationMessageElement, uw.ValidatableElement );
 
 	// Hack: Steal methods from OO.ui.FieldLayout.
 	// TODO: Upstream ValidationMessageElement to OOUI, make FieldLayout use it.
@@ -33,39 +35,39 @@
 	uw.ValidationMessageElement.prototype.setNotices = OO.ui.FieldLayout.prototype.setNotices;
 	uw.ValidationMessageElement.prototype.updateMessages = OO.ui.FieldLayout.prototype.updateMessages;
 
+	uw.ValidationMessageElement.prototype.preValidate = function () {
+		if ( this.validatedWidget.pushPending ) {
+			this.validatedWidget.pushPending();
+		}
+	};
+
 	/**
 	 * Check the field's widget for errors, warnings & notices and display them in the UI.
 	 *
 	 * @param {boolean} thorough True to perform a thorough validity check. Defaults to false for a fast on-change check.
-	 * @return {jQuery.Promise}
+	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
-	uw.ValidationMessageElement.prototype.checkValidity = function ( thorough ) {
+	uw.ValidationMessageElement.prototype.validate = function ( thorough ) {
 		thorough = thorough || false;
 
-		if ( this.validatedWidget.pushPending ) {
-			this.validatedWidget.pushPending();
+		return $.Deferred().resolve().promise()
+			.then( () => this.preValidate() )
+			.then( () => this.validatedWidget.validate( thorough ) )
+			.always( ( status ) => this.postValidate( status ) );
+	};
+
+	/**
+	 * @param {uw.ValidationStatus} status
+	 */
+	uw.ValidationMessageElement.prototype.postValidate = function ( status ) {
+		// errors, warnings & notices are arrays of mw.Messages and not strings in this subclass
+		this.setErrors( status.getErrors() );
+		this.setWarnings( status.getWarnings() );
+		this.setNotices( status.getNotices() );
+
+		if ( this.validatedWidget.popPending ) {
+			this.validatedWidget.popPending();
 		}
-
-		return $.when(
-			( this.validatedWidget.getErrors ? this.validatedWidget.getErrors( thorough ) : [] ),
-			( this.validatedWidget.getWarnings ? this.validatedWidget.getWarnings( thorough ) : [] ),
-			( this.validatedWidget.getNotices ? this.validatedWidget.getNotices( thorough ) : [] )
-		).then( ( errors, warnings, notices ) => {
-			// this.errors, this.warnings & this.notices are arrays of mw.Messages and not strings in this subclass
-			this.setErrors( errors );
-			this.setWarnings( warnings );
-			this.setNotices( notices );
-
-			if ( errors.length > 0 ) {
-				return $.Deferred().reject( errors, warnings, notices ).promise();
-			}
-
-			return $.Deferred().resolve( errors, warnings, notices ).promise();
-		} ).always( () => {
-			if ( this.validatedWidget.popPending ) {
-				this.validatedWidget.popPending();
-			}
-		} );
 	};
 
 	/**

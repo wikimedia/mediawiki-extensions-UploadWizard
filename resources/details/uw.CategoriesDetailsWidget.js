@@ -5,7 +5,7 @@
 	/**
 	 * A categories field in UploadWizard's "Details" step form.
 	 *
-	 * @param config
+	 * @param {Object} config
 	 * @extends uw.DetailsWidget
 	 */
 	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget( config ) {
@@ -37,26 +37,20 @@
 		this.categoriesWidget.connect( this, { change: [ 'emit', 'change' ] } );
 	};
 	OO.inheritClass( uw.CategoriesDetailsWidget, uw.DetailsWidget );
+	OO.mixinClass( uw.CategoriesDetailsWidget, uw.ValidatableElement );
 
 	/**
 	 * @inheritdoc
 	 */
-	uw.CategoriesDetailsWidget.prototype.getErrors = function () {
-		return $.Deferred().resolve( [] ).promise();
-	};
-
-	/**
-	 * @inheritdoc
-	 */
-	uw.CategoriesDetailsWidget.prototype.getWarnings = function () {
-		const warnings = [],
+	uw.CategoriesDetailsWidget.prototype.validate = function () {
+		const status = new uw.ValidationStatus(),
 			missing = this.categoriesWidget.getItems().filter( ( item ) => item.missing );
 
 		if ( missing.length > 0 ) {
-			warnings.push( mw.message( 'mwe-upwiz-categories-missing', missing.length ) );
+			status.addWarning( mw.message( 'mwe-upwiz-categories-missing', missing.length ) );
 		}
 
-		return $.Deferred().resolve( warnings ).promise();
+		return status.resolve();
 	};
 
 	/**

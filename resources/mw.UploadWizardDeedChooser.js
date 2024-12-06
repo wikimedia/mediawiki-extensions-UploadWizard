@@ -77,6 +77,7 @@
 		} );
 	};
 	OO.mixinClass( mw.UploadWizardDeedChooser, OO.EventEmitter );
+	OO.mixinClass( mw.UploadWizardDeedChooser, mw.uploadWizard.ValidatableElement );
 
 	/**
 	 * How many deed choosers there are (important for creating unique ids, element names)
@@ -86,10 +87,16 @@
 	/**
 	 * Check if this form is filled out correctly.
 	 *
-	 * @return {boolean} true if valid, false if not
+	 * @param {boolean} thorough
+	 * @return {jQuery.Promise<mw.uploadWizard.ValidationStatus>}
 	 */
-	mw.UploadWizardDeedChooser.prototype.valid = function () {
-		return !!this.deed;
+	// eslint-disable-next-line no-unused-vars
+	mw.UploadWizardDeedChooser.prototype.validate = function ( thorough ) {
+		const status = new mw.uploadWizard.ValidationStatus();
+		if ( !this.deed ) {
+			status.addError( mw.message( 'mwe-upwiz-deeds-require-selection' ) );
+		}
+		return status.getErrors().length === 0 ? status.resolve() : status.reject();
 	};
 
 	/**
@@ -163,7 +170,7 @@
 	 * @return {Object}
 	 */
 	mw.UploadWizardDeedChooser.prototype.getSerialized = function () {
-		return this.valid() ? this.deed.getSerialized() : {};
+		return this.deed ? this.deed.getSerialized() : {};
 	};
 
 	/**

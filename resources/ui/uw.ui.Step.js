@@ -129,13 +129,17 @@
 	 * This is a bit of a hack. We should already know how many errors there are, and where.
 	 * This method also opens up collapsed elements if the form has errors.
 	 *
-	 * @param {mw.message[]} errors
-	 * @param {mw.message[]} warnings
-	 * @param {mw.message[]} notices
+	 * @param {uw.ValidationStatus} status
 	 */
-	uw.ui.Step.prototype.showErrors = function ( errors, warnings, notices ) {
-		const show = ( kind, count ) => {
-			const $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind );
+	// eslint-disable-next-line no-unused-vars
+	uw.ui.Step.prototype.showStatus = function ( status ) {
+		const show = ( kind ) => {
+			const $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ),
+				count = $elements.length;
+
+			if ( count === 0 ) {
+				return 0;
+			}
 
 			// Open collapsed elements that contain errors
 			$elements.each( function () {
@@ -156,17 +160,17 @@
 			// Immediately stop existing animations, then scroll to first error
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$( 'html, body' ).stop().animate( { scrollTop: $( $elements[ 0 ] ).offset().top - 50 }, 'slow' );
+
+			return count;
 		};
 
 		// Default to showing errors; warnings are shown only if there are no errors
 		this.$errorCount.empty();
-		if ( errors.length > 0 ) {
-			show( 'error', errors.length );
-		} else if ( warnings.length > 0 ) {
-			show( 'warning', warnings.length );
-		} else if ( notices.length > 0 ) {
-			// don't bother with notices; no need to inform user about those merely showing them near the input
-		}
+
+		// show errors first; warnings only when there are no errors
+		// don't bother with notices; no need to inform user about those merely showing them near the input
+		// eslint-disable-next-line no-unused-expressions
+		show( 'error' ) || show( 'warning' );
 	};
 
 }( mw.uploadWizard ) );

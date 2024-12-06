@@ -43,16 +43,17 @@
 		);
 	};
 	OO.inheritClass( uw.CampaignDetailsWidget, uw.DetailsWidget );
+	OO.mixinClass( uw.CampaignDetailsWidget, uw.ValidatableElement );
 
 	/**
 	 * @inheritdoc
 	 */
-	uw.CampaignDetailsWidget.prototype.getErrors = function () {
-		const errors = [];
+	uw.CampaignDetailsWidget.prototype.validate = function () {
+		const status = new uw.ValidationStatus();
 		if ( this.required && this.input.getValue().trim() === '' ) {
-			errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
+			status.addError( mw.message( 'mwe-upwiz-error-blank' ) );
 		}
-		return $.Deferred().resolve( errors ).promise();
+		return status.getErrors().length === 0 ? status.resolve() : status.reject();
 	};
 
 	/**

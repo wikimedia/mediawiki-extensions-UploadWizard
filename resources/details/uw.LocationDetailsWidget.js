@@ -69,16 +69,17 @@
 			this.mapButton.toggle( true );
 		} );
 	};
-
 	OO.inheritClass( uw.LocationDetailsWidget, uw.DetailsWidget );
+	OO.mixinClass( uw.LocationDetailsWidget, uw.ValidatableElement );
 
 	/**
 	 * @private
 	 */
 	uw.LocationDetailsWidget.prototype.onChange = function () {
-		this.getErrors().done( ( errors ) => {
-			this.mapButton.setDisabled( !( errors.length === 0 && this.getWikiText() !== '' ) );
-		} );
+		this.validate().then(
+			() => this.mapButton.setDisabled( false ),
+			() => this.mapButton.setDisabled( true )
+		);
 	};
 
 	/**
@@ -107,8 +108,8 @@
 	/**
 	 * @inheritdoc
 	 */
-	uw.LocationDetailsWidget.prototype.getErrors = function () {
-		const errors = [],
+	uw.LocationDetailsWidget.prototype.validate = function () {
+		const status = new mw.uploadWizard.ValidationStatus(),
 			latInput = this.latitudeInput.getValue(),
 			lonInput = this.longitudeInput.getValue(),
 			headInput = this.headingInput.getValue(),
@@ -121,19 +122,19 @@
 		// being present in the input
 		if ( latInput || lonInput ) {
 			if ( latNum > 90 || latNum < -90 || ( latNum === 0 && latInput.indexOf( '0' ) < 0 ) || isNaN( latNum ) ) {
-				errors.push( mw.message( 'mwe-upwiz-error-latitude' ) );
+				status.addError( mw.message( 'mwe-upwiz-error-latitude' ) );
 			}
 
 			if ( lonNum > 180 || lonNum < -180 || ( lonNum === 0 && lonInput.indexOf( '0' ) < 0 ) || isNaN( lonNum ) ) {
-				errors.push( mw.message( 'mwe-upwiz-error-longitude' ) );
+				status.addError( mw.message( 'mwe-upwiz-error-longitude' ) );
 			}
 		}
 
 		if ( headInput !== '' && ( headInput > 360 || headInput < 0 || isNaN( headNum ) ) ) {
-			errors.push( mw.message( 'mwe-upwiz-error-heading' ) );
+			status.addError( mw.message( 'mwe-upwiz-error-heading' ) );
 		}
 
-		return $.Deferred().resolve( errors );
+		return status.getErrors().length === 0 ? status.resolve() : status.reject();
 	};
 
 	/**

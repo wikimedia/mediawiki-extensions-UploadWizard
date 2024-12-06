@@ -60,6 +60,7 @@
 			);
 	};
 	OO.inheritClass( uw.DateDetailsWidget, uw.DetailsWidget );
+	OO.mixinClass( uw.StatementWidget, uw.ValidatableElement );
 
 	/**
 	 * Tell whether the date input field was prefilled
@@ -124,138 +125,63 @@
 	/**
 	 * @inheritdoc
 	 */
-	uw.DateDetailsWidget.prototype.getNotices = function () {
-		const notices = [];
+	// eslint-disable-next-line no-unused-vars
+	uw.DateDetailsWidget.prototype.validate = function ( thorough ) {
+		const status = new uw.ValidationStatus(),
+			trimmedInput = this.dateInputWidget.getValue().trim(),
+			inputDate = new Date( trimmedInput ),
+			now = new Date(),
+			licenses = this.getLicenses(),
+			// Timestamps: milliseconds
+			utc14 = 14 * 60 * 60 * 1000, // 14 hours in milliseconds
+			// Dates: years, months, days
+			old95 = new Date( now.getFullYear() - 95 ), // Only the year is relevant
+			old70 = new Date( now.getFullYear() - 70, now.getMonth(), now.getDate() ),
+			old100 = new Date( now.getFullYear() - 100, now.getMonth(), now.getDate() );
 
-		if ( this.prefilled ) {
-			notices.push( mw.message( 'mwe-upwiz-warning-date-prefilled' ) );
-		}
+		let promise = $.Deferred().resolve().promise();
 
 		if ( this.parseDateValidation ) {
 			this.parseDateValidation.abort();
 		}
-		if ( this.dateInputWidget.getValue().trim() === '' ) {
-			// skip parse API call if the input is empty
-			return $.Deferred().resolve( [] ).promise();
-		}
-
-		this.parseDateValidation = this.parseDate();
-		return this.parseDateValidation.then(
-			( data ) => {
-				const dayPrecision = 11;
-				if ( data.results && data.results[ 0 ] && data.results[ 0 ].value.precision < dayPrecision ) {
-					notices.push( mw.message( 'mwe-upwiz-notice-date-imprecise' ) );
-				}
-				return notices;
-			},
-			( code ) => {
-				// warn on failures, except when the failure is http (request aborted
-				// or network issues)
-				if ( code !== 'http' ) {
-					notices.push( mw.message( 'mwe-upwiz-notice-date-imprecise' ) );
-				}
-				return notices;
-			}
-		);
-	};
-
-	/**
-	 * @inheritdoc
-	 */
-	uw.DateDetailsWidget.prototype.getWarnings = function () {
-		const warnings = [],
-			date = new Date( this.dateInputWidget.getValue() ),
-			now = new Date(),
-			// Public-domain licenses that likely mean
-			// the image date is some time in the past.
-			warnLicenses = [ 'pd-usgov', 'pd-usgov-nasa', 'pd-art' ],
-			licenses = this.getLicenses();
-
-		// Unlikely license.
-		// The `Date` constructor returns `NaN` if it couldn't parse the date.
-		if ( !isNaN( date.valueOf() ) ) {
-			// It's unlikely for public-domain images to have been published today
-			if ( now.toISOString().slice( 0, 10 ) === date.toISOString().slice( 0, 10 ) ) {
-				for ( let i = 0; i < warnLicenses.length; i++ ) {
-					if ( warnLicenses[ i ] in licenses ) {
-						const license = licenses[ warnLicenses[ i ] ];
-						const licenseMsg = mw.message(
-							license.msg,
-							0,
-							license.url ? license.url : '#missing license URL'
-						);
-						warnings.push(
-							mw.message(
-								'mwe-upwiz-error-date-license-unlikely',
-								licenseMsg.parseDom()
-							)
-						);
-					}
-				}
-			}
-		}
-
-		return $.Deferred().resolve( warnings ).promise();
-	};
-
-	/**
-	 * @inheritdoc
-	 */
-	uw.DateDetailsWidget.prototype.getErrors = function () {
-		const errors = [],
-			trimmedInput = this.dateInputWidget.getValue().trim(),
-			licenses = this.getLicenses(),
-			// Timestamps: milliseconds
-			timestamp = Date.parse( trimmedInput ),
-			nowTimestamp = Date.now(),
-			utc14 = 14 * 60 * 60 * 1000, // 14 hours in milliseconds
-			// Dates: years, months, days
-			date = new Date( trimmedInput ),
-			now = new Date(),
-			nowYear = now.getFullYear(),
-			nowMonth = now.getMonth(),
-			nowDay = now.getDate(),
-			old95 = new Date( nowYear - 95 ), // Only the year is relevant
-			old70 = new Date( nowYear - 70, nowMonth, nowDay ),
-			old100 = new Date( nowYear - 100, nowMonth, nowDay );
 
 		// Blank
 		if ( trimmedInput === '' ) {
-			errors.push( mw.message( 'mwe-upwiz-error-date-blank' ) );
-		// Date in the future.
-		// We don't really know what timezone this datetime is in. It could be the user's timezone, or
-		// it could be the camera's timezone for data imported from EXIF, and we don't know what
-		// timezone that is. UTC+14 is the highest timezone that currently exists, so assume that to
-		// avoid giving false errors.
-		} else if ( timestamp > nowTimestamp + utc14 ) {
-			errors.push( mw.message( 'mwe-upwiz-error-postdate' ) );
-		// License mismatch.
-		// Public domain work in the U.S.: it must've been created at least 95 years ago.
-		} else if ( 'pd-us' in licenses && date.getFullYear() >= old95 ) {
-			errors.push(
+			status.addError( mw.message( 'mwe-upwiz-error-date-blank' ) );
+			// Date in the future.
+			// We don't really know what timezone this datetime is in. It could be the user's timezone, or
+			// it could be the camera's timezone for data imported from EXIF, and we don't know what
+			// timezone that is. UTC+14 is the highest timezone that currently exists, so assume that to
+			// avoid giving false errors.
+		} else if ( inputDate.getTime() > now.getTime() + utc14 ) {
+			status.addError( mw.message( 'mwe-upwiz-error-postdate' ) );
+			// License mismatch.
+			// Public domain work in the U.S.: it must've been created at least 95 years ago.
+		} else if ( 'pd-us' in licenses && inputDate >= old95 ) {
+			status.addError(
 				mw.message(
 					'mwe-upwiz-error-date-license-mismatch',
 					mw.message( licenses[ 'pd-us' ].msg ).parseDom()
 				)
 			);
-		} else if ( 'pd-us-generic' in licenses && date.getFullYear() >= old95 ) {
-			errors.push(
+		} else if ( 'pd-us-generic' in licenses && inputDate >= old95 ) {
+			status.addError(
 				mw.message(
 					'mwe-upwiz-error-date-license-mismatch',
 					mw.message( licenses[ 'pd-us-generic' ].msg ).parseDom()
 				)
 			);
-		// The author died 70 years ago: the date should reflect that
-		} else if ( 'pd-old-70' in licenses && date > old70 ) {
-			errors.push(
+			// The author died 70 years ago: the date should reflect that
+		} else if ( 'pd-old-70' in licenses && inputDate > old70 ) {
+			status.addError(
 				mw.message(
 					'mwe-upwiz-error-date-license-mismatch',
 					mw.message( licenses[ 'pd-old-70' ].msg ).parseDom()
 				)
 			);
-		// The author died 100 years ago: the date should reflect that
-		} else if ( 'pd-old-100' in licenses && date > old100 ) {
-			errors.push(
+			// The author died 100 years ago: the date should reflect that
+		} else if ( 'pd-old-100' in licenses && inputDate > old100 ) {
+			status.addError(
 				mw.message(
 					'mwe-upwiz-error-date-license-mismatch',
 					mw.message( licenses[ 'pd-old-100' ].msg ).parseDom()
@@ -263,7 +189,57 @@
 			);
 		}
 
-		return $.Deferred().resolve( errors ).promise();
+		// Unlikely license.
+		if (
+			// The `Date` constructor returns `NaN` if it couldn't parse the date.
+			!isNaN( inputDate.valueOf() ) &&
+			// It's unlikely for public-domain images to have been published today
+			now.toISOString().slice( 0, 10 ) === inputDate.toISOString().slice( 0, 10 )
+		) {
+			// Public-domain licenses that likely mean
+			// the image date is some time in the past.
+			[ 'pd-usgov', 'pd-usgov-nasa', 'pd-art' ].forEach( ( warnLicense ) => {
+				if ( warnLicense in licenses ) {
+					const license = licenses[ warnLicense ];
+					const licenseMsg = mw.message(
+						license.msg,
+						0,
+						license.url ? license.url : '#missing license URL'
+					);
+					status.addWarning(
+						mw.message(
+							'mwe-upwiz-error-date-license-unlikely',
+							licenseMsg.parseDom()
+						)
+					);
+				}
+			} );
+		}
+
+		if ( this.prefilled ) {
+			status.addNotice( mw.message( 'mwe-upwiz-warning-date-prefilled' ) );
+		}
+
+		if ( this.dateInputWidget.getValue().trim() !== '' ) {
+			this.parseDateValidation = this.parseDate();
+			promise = this.parseDateValidation.then(
+				( data ) => {
+					const dayPrecision = 11;
+					if ( data.results && data.results[ 0 ] && data.results[ 0 ].value.precision < dayPrecision ) {
+						status.addNotice( mw.message( 'mwe-upwiz-notice-date-imprecise' ) );
+					}
+				},
+				( code ) => {
+					// warn on failures, except when the failure is http (request aborted
+					// or network issues)
+					if ( code !== 'http' ) {
+						status.addNotice( mw.message( 'mwe-upwiz-notice-date-imprecise' ) );
+					}
+				}
+			);
+		}
+
+		return promise.then( () => status.getErrors().length === 0 ? status.resolve() : status.reject() );
 	};
 
 	/**

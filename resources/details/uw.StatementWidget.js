@@ -47,6 +47,7 @@
 
 	OO.inheritClass( uw.StatementWidget, OO.ui.Widget );
 	OO.mixinClass( uw.StatementWidget, OO.ui.mixin.GroupWidget );
+	OO.mixinClass( uw.StatementWidget, uw.ValidatableElement );
 
 	uw.StatementWidget.prototype.onFocus = function () {
 		this.$element.addClass( 'mwe-upwiz-statementWidget-active' );
@@ -87,26 +88,16 @@
 	/**
 	 * @inheritDoc
 	 */
-	uw.StatementWidget.prototype.getNotices = function () {
-		const warnings = [], maxDepicts = 3;
+	// eslint-disable-next-line no-unused-vars
+	uw.StatementWidget.prototype.validate = function ( thorough ) {
+		const status = new uw.ValidationStatus(),
+			maxDepicts = 3;
+
 		if ( this.getItems().length > maxDepicts ) {
-			warnings.push( mw.message( 'mwe-upwiz-statements-too-many-items', maxDepicts ) );
+			status.addNotice( mw.message( 'mwe-upwiz-statements-too-many-items', maxDepicts ) );
 		}
-		return $.Deferred().resolve( warnings ).promise();
-	};
 
-	/**
-	 * @inheritDoc
-	 */
-	uw.StatementWidget.prototype.getWarnings = function () {
-		return $.Deferred().resolve( [] ).promise();
-	};
-
-	/**
-	 * @inheritDoc
-	 */
-	uw.StatementWidget.prototype.getErrors = function () {
-		return $.Deferred().resolve( [] ).promise();
+		return status.resolve();
 	};
 
 	/**

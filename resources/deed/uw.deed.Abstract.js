@@ -156,8 +156,8 @@
 	 */
 	uw.deed.Abstract.prototype.getPatentAgreementField = function ( uploads ) {
 		const field = new OO.ui.HiddenInputWidget();
-		field.getErrors = this.getPatentAgreementErrors.bind( this, field, uploads );
-		field.getWarnings = $.Deferred().resolve( [] ).promise.bind();
+		uw.ValidatableElement.decorate( field );
+		field.validate = this.validatePatentAgreement.bind( this, field, uploads );
 
 		return new uw.FieldLayout( field );
 	};
@@ -181,12 +181,14 @@
 	 * @param {OO.ui.InputWidget} input
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 * @param {boolean} thorough
-	 * @return {jQuery.Promise}
+	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
-	uw.deed.Abstract.prototype.getPatentAgreementErrors = function ( input, uploads, thorough ) {
+	uw.deed.Abstract.prototype.validatePatentAgreement = function ( input, uploads, thorough ) {
+		const status = new uw.ValidationStatus();
+
 		// We only want to test this on submit
 		if ( !thorough ) {
-			return $.Deferred().resolve( [] ).promise();
+			return status.resolve();
 		}
 
 		if ( this.patentAgreed !== true ) {
@@ -199,16 +201,20 @@
 			windowManager.openWindow( dialog );
 
 			dialog.on( 'disagree', () => {
-				deferred.resolve( [ mw.message( 'mwe-upwiz-error-patent-disagree' ) ] );
+				status.addError( mw.message( 'mwe-upwiz-error-patent-disagree' ) );
+				deferred.reject();
 			} );
 			dialog.on( 'agree', () => {
 				this.patentAgreed = true;
-				deferred.resolve( [] );
+				deferred.resolve();
 			} );
 
-			return deferred.promise();
+			return deferred.promise().then(
+				() => status.resolve(),
+				() => status.reject()
+			);
 		} else {
-			return $.Deferred().resolve( [] ).promise();
+			return status.resolve();
 		}
 	};
 

@@ -33,6 +33,7 @@
 		);
 	};
 	OO.inheritClass( uw.TitleDetailsWidget, uw.DetailsWidget );
+	OO.mixinClass( uw.TitleDetailsWidget, uw.ValidatableElement );
 
 	/**
 	 * Reliably turn input into a MediaWiki title that is located in the 'File:' namespace.
@@ -99,13 +100,12 @@
 	};
 
 	/**
-	 * @param {string} value
-	 * @return {jQuery.Promise}
+	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
-	uw.TitleDetailsWidget.prototype.validateTitleInput = function ( value ) {
-		const
-			errors = [],
-			processDestinationCheck = this.processDestinationCheck,
+	// eslint-disable-next-line no-unused-vars
+	uw.TitleDetailsWidget.prototype.validate = function ( thorough ) {
+		const status = new uw.ValidationStatus(),
+			value = this.titleInput.getValue().trim(),
 			title = this.buildTitleFromInput( value ),
 			// max title length is dependent on DB column size and is bytes rather than characters
 			length = byteLength( value ),
@@ -114,49 +114,41 @@
 			charLength = value.length;
 
 		if ( value === '' ) {
-			errors.push( mw.message( 'mwe-upwiz-error-title-blank' ) );
-			return $.Deferred().resolve( errors ).promise();
+			status.addError( mw.message( 'mwe-upwiz-error-title-blank' ) );
+			return status.reject();
 		}
 
 		if ( this.config.minLength && charLength < this.config.minLength ) {
-			errors.push( mw.message( 'mwe-upwiz-error-title-too-few-characters', this.config.minLength ) );
-			return $.Deferred().resolve( errors ).promise();
+			status.addError( mw.message( 'mwe-upwiz-error-title-too-few-characters', this.config.minLength ) );
+			return status.reject();
 		}
 
 		if ( this.config.maxLength && length > this.config.maxLength ) {
-			errors.push( mw.message( 'mwe-upwiz-error-title-too-long', this.config.maxLength ) );
-			return $.Deferred().resolve( errors ).promise();
+			status.addError( mw.message( 'mwe-upwiz-error-title-too-long', this.config.maxLength ) );
+			return status.reject();
 		}
 
 		if ( !title ) {
-			errors.push( mw.message( 'mwe-upwiz-error-title-invalid' ) );
-			return $.Deferred().resolve( errors ).promise();
+			status.addError( mw.message( 'mwe-upwiz-error-title-invalid' ) );
+			return status.reject();
 		}
 
 		return mw.DestinationChecker.checkTitle( title.getPrefixedText() )
 			.then( ( result ) => {
-				let moreErrors = processDestinationCheck( result );
+				this.processDestinationCheck( result ).forEach( ( error ) => status.addError( error ) );
+
 				if ( result.blacklist.unavailable ) {
 					// We don't have a title blacklist, so just check for some likely undesirable patterns.
-					moreErrors = moreErrors.concat(
-						// Messages:
-						// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
-						// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
-						mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( ( errorCode ) => mw.message( 'mwe-upwiz-error-title-' + errorCode ) )
-					);
+					// Messages:
+					// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
+					// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
+					mw.QuickTitleChecker.checkTitle( title.getNameText() )
+						.map( ( errorCode ) => mw.message( 'mwe-upwiz-error-title-' + errorCode ) )
+						.forEach( ( error ) => status.addError( error ) );
 				}
-				return moreErrors;
-			} )
-			.then( ( moreErrors ) => [].concat( errors, moreErrors ), () => $.Deferred().resolve( errors ) );
-	};
 
-	/**
-	 * @return {jQuery.Promise}
-	 */
-	uw.TitleDetailsWidget.prototype.getErrors = function () {
-		const value = this.titleInput.getValue().trim();
-
-		return this.validateTitleInput( value );
+				return status.getErrors().length === 0 ? status.resolve() : status.reject();
+			} );
 	};
 
 	/**

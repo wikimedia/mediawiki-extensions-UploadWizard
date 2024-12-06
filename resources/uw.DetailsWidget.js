@@ -14,6 +14,7 @@
 		uw.DetailsWidget.super.call( this );
 	};
 	OO.inheritClass( uw.DetailsWidget, OO.ui.Widget );
+	OO.mixinClass( uw.DetailsWidget, uw.ValidatableElement );
 
 	/**
 	 * A 'change' event is emitted when the state of this widget (and the serialized value) changes.
@@ -33,26 +34,6 @@
 	 */
 	uw.DetailsWidget.prototype.popPending = function () {
 		// Do nothing by default
-	};
-
-	/**
-	 * Get the list of errors about the current state of the widget.
-	 *
-	 * @return {jQuery.Promise} Promise resolved with an array of mw.Message objects
-	 *   representing errors. (Checking for errors might require API queries, etc.)
-	 */
-	uw.DetailsWidget.prototype.getErrors = function () {
-		return $.Deferred().resolve( [] ).promise();
-	};
-
-	/**
-	 * Get the list of warnings about the current state of the widget.
-	 *
-	 * @return {jQuery.Promise} Promise resolved with an array of mw.Message objects
-	 *   representing warnings. (Checking for warnings might require API queries, etc.)
-	 */
-	uw.DetailsWidget.prototype.getWarnings = function () {
-		return $.Deferred().resolve( [] ).promise();
 	};
 
 	/**

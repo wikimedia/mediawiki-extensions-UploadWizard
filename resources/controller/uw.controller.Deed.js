@@ -34,7 +34,6 @@
 
 		this.stepName = 'deeds';
 	};
-
 	OO.inheritClass( uw.controller.Deed, uw.controller.Step );
 
 	uw.controller.Deed.prototype.moveNext = function () {
@@ -45,13 +44,9 @@
 			return;
 		}
 
-		this.valid( true )
-			.always( ( errors, warnings, notices ) => {
-				this.ui.showErrors( errors, warnings, notices );
-			} )
-			.done( () => {
-				uw.controller.Step.prototype.moveNext.call( this );
-			} );
+		this.validate( true )
+			.always( ( status ) => this.ui.showStatus( status ) )
+			.done( () => uw.controller.Step.prototype.moveNext.call( this ) );
 	};
 
 	uw.controller.Deed.prototype.unload = function () {
@@ -294,28 +289,29 @@
 	 * Checks deeds for validity.
 	 *
 	 * @param {boolean} thorough
-	 * @return {jQuery.Promise}
+	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
-	uw.controller.Deed.prototype.valid = function ( thorough ) {
+	uw.controller.Deed.prototype.validate = function ( thorough ) {
 		const deedChoosers = this.getUniqueDeedChoosers( this.uploads ),
-			deedsChosen = this.getUniqueDeedChoosers( this.uploads ).every( ( deedChooser ) => deedChooser.valid() ),
-			validityPromises = [
-				deedsChosen ?
-					$.Deferred().resolve( [], [], [] ).promise() :
-					$.Deferred().reject( [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ], [], [] ).promise()
-			];
+			deedPromises = this.getUniqueDeedChoosers( this.uploads ).map( ( deedChooser ) => deedChooser.validate( thorough ) ),
+			mergedPromise = uw.ValidationStatus.mergePromises( ...deedPromises );
 
-		thorough = thorough || false;
+		return mergedPromise.then(
+			( status ) => {
+				if ( thorough !== true ) {
+					return status;
+				}
 
-		if ( deedsChosen && thorough ) {
-			deedChoosers.forEach( ( deedChooser ) => {
-				deedChooser.deed.getFields().forEach( ( fieldLayout ) => {
-					validityPromises.push( fieldLayout.checkValidity( true ) );
+				// if (and only if) deed choosers are selected, we'll validate their contents
+				const fieldPromises = [];
+				deedChoosers.forEach( ( deedChooser ) => {
+					deedChooser.deed.getFields().forEach( ( fieldLayout ) => {
+						fieldPromises.push( fieldLayout.validate( thorough ) );
+					} );
 				} );
-			} );
-		}
-
-		return this.combineValidityPromises( validityPromises );
+				return uw.ValidationStatus.mergePromises( mergedPromise, ...fieldPromises );
+			}
+		);
 	};
 
 	/**
@@ -333,7 +329,7 @@
 		// actually execute in the order they're supposed to; i.e. the order
 		// they've been called in.
 		setTimeout( () => {
-			this.valid( false ).always( ( errors ) => this.ui.toggleNext( errors.length === 0 ) );
+			this.validate( false ).always( ( status ) => this.ui.toggleNext( status.getErrors().length === 0 ) );
 		} );
 	};
 

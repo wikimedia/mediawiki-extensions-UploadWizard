@@ -117,7 +117,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 					group.setValue( {} );
 				} else {
 					// attach group license selector
-					option.$label.append( group.$element ); // @todo afteR?
+					option.$label.append( group.$element );
 
 					// check the defaults (insofar they exist) for newly selected groups;
 					// ignore groups that had already been selected to ensure existing
@@ -143,6 +143,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 };
 OO.inheritClass( mw.UploadWizardLicenseInput, OO.ui.Widget );
 OO.mixinClass( mw.UploadWizardLicenseInput, OO.ui.mixin.GroupElement );
+OO.mixinClass( mw.UploadWizardLicenseInput, mw.uploadWizard.ValidatableElement );
 
 Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	unload: function () {
@@ -298,82 +299,64 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * See mw.uploadWizard.DetailsWidget
 	 *
 	 * @memberof mw.UploadWizardLicenseInput
-	 * @return {jQuery.Promise}
+	 * @param {boolean} thorough
+	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
-	getErrors: function ( thorough ) {
-		let errors = $.Deferred().resolve( [] ).promise();
-		const addError = function ( message ) {
-			errors = errors.then( ( errors ) => {
-				errors.push( mw.message( message ) );
-				return errors;
-			} );
-		};
+	validate: function ( thorough ) {
+		const status = new mw.uploadWizard.ValidationStatus();
+		let promise = $.Deferred().resolve().promise();
 		const selectedInputs = this.getSerialized();
 
-		thorough = thorough || false;
 		if ( thorough !== true ) {
 			// `thorough` is the strict checks executed on submit, but we don't want errors
 			// to change/display every change event
-			return errors;
+			return status.resolve();
 		}
 
 		if ( Object.keys( selectedInputs ).length === 0 ) {
-			addError( 'mwe-upwiz-deeds-require-selection' );
-		} else {
-			// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
-			// But also check that associated text inputs are filled for if the input is selected, and that
-			// they are the appropriate size.
-			Object.keys( selectedInputs ).forEach( ( name ) => {
-				const licenseMap = selectedInputs[ name ];
-
-				Object.keys( licenseMap ).forEach( ( license ) => {
-					const licenseValue = licenseMap[ license ];
-					if ( typeof licenseValue !== 'string' ) {
-						return;
-					}
-
-					const wikitext = licenseValue.trim();
-
-					if ( wikitext === '' ) {
-						addError( 'mwe-upwiz-error-license-wikitext-missing' );
-					} else if ( wikitext.length < mw.UploadWizard.config.minCustomLicenseLength ) {
-						addError( 'mwe-upwiz-error-license-wikitext-too-short' );
-					} else if ( wikitext.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
-						addError( 'mwe-upwiz-error-license-wikitext-too-long' );
-					} else if ( !/\{\{(.+?)\}\}/g.test( wikitext ) ) {
-						// if text doesn't contain a template, we don't even
-						// need to validate it any further...
-						addError( 'mwe-upwiz-error-license-wikitext-missing-template' );
-					} else if ( mw.UploadWizard.config.customLicenseTemplate !== false ) {
-						// now do a thorough test to see if the text actually
-						// includes a license template
-						errors = $.when(
-							errors, // array of existing errors
-							this.getUsedTemplates( wikitext )
-						).then( ( errors, usedTemplates ) => {
-							if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
-								// no license template found, add another error
-								errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
-							}
-
-							return errors;
-						} );
-					}
-				} );
-			} );
+			return status
+				.addError( mw.message( 'mwe-upwiz-deeds-require-selection' ) )
+				.reject();
 		}
 
-		return errors;
-	},
+		// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
+		// But also check that associated text inputs are filled for if the input is selected, and that
+		// they are the appropriate size.
+		Object.keys( selectedInputs ).forEach( ( name ) => {
+			const licenseMap = selectedInputs[ name ];
 
-	/**
-	 * See mw.uploadWizard.DetailsWidget
-	 *
-	 * @memberof mw.UploadWizardLicenseInput
-	 * @return {jQuery.Promise}
-	 */
-	getWarnings: function () {
-		return $.Deferred().resolve( [] ).promise();
+			Object.keys( licenseMap ).forEach( ( license ) => {
+				const licenseValue = licenseMap[ license ];
+				if ( typeof licenseValue !== 'string' ) {
+					return;
+				}
+
+				const wikitext = licenseValue.trim();
+
+				if ( wikitext === '' ) {
+					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing' ) );
+				} else if ( wikitext.length < mw.UploadWizard.config.minCustomLicenseLength ) {
+					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-too-short' ) );
+				} else if ( wikitext.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
+					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-too-long' ) );
+				} else if ( !/\{\{(.+?)\}\}/g.test( wikitext ) ) {
+					// if text doesn't contain a template, we don't even
+					// need to validate it any further...
+					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
+				} else if ( mw.UploadWizard.config.customLicenseTemplate !== false ) {
+					// now do a thorough test to see if the text actually
+					// includes a license template
+					promise = this.getUsedTemplates( wikitext ).then( ( status, usedTemplates ) => {
+						if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
+							// no license template found, add another error
+							status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
+						}
+					} );
+				}
+			} );
+		} );
+
+		return promise.then( () => status.getErrors().length === 0 ? status.resolve() : status.reject() );
 	},
 
 	/**

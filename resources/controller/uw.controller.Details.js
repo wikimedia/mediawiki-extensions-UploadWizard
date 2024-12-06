@@ -160,10 +160,8 @@
 	 * TODO move the rest of the logic here from mw.UploadWizard
 	 */
 	uw.controller.Details.prototype.startDetails = function () {
-		this.valid( true )
-			.always( ( errors, warnings, notices ) => {
-				this.showErrors( errors, warnings, notices );
-			} )
+		this.validate( true )
+			.always( ( status ) => this.showStatus( status ) )
 			.done( () => {
 				this.ui.hideEndButtons();
 				this.submit();
@@ -174,13 +172,12 @@
 	 * Check details for validity.
 	 *
 	 * @param {boolean} thorough
-	 * @return {jQuery.Promise}
+	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
-	uw.controller.Details.prototype.valid = function ( thorough ) {
-		const titles = [],
-			validityPromises = [];
-
-		thorough = thorough || false;
+	uw.controller.Details.prototype.validate = function ( thorough ) {
+		const status = new uw.ValidationStatus(),
+			titles = [],
+			fieldPromises = [];
 
 		this.uploads.forEach( ( upload ) => {
 			// Seen this title before?
@@ -190,20 +187,21 @@
 				if ( titles[ title ] ) {
 					// Don't submit. Instead, set an error in details step.
 					upload.details.setDuplicateTitleError();
-					validityPromises.push(
-						$.Deferred().reject( [ mw.message( 'mwe-upwiz-error-title-duplicate' ) ], [], [] ).promise()
-					);
+					status.addError( mw.message( 'mwe-upwiz-error-title-duplicate' ) );
 				} else {
 					titles[ title ] = true;
 				}
 			}
 
 			upload.details.getAllFields().forEach( ( fieldLayout ) => {
-				validityPromises.push( fieldLayout.checkValidity( thorough ) );
+				fieldPromises.push( fieldLayout.validate( thorough ) );
 			} );
 		} );
 
-		return this.combineValidityPromises( validityPromises );
+		return uw.ValidationStatus.mergePromises(
+			status.getErrors().length === 0 ? status.resolve() : status.reject(),
+			...fieldPromises
+		);
 	};
 
 	uw.controller.Details.prototype.canTransition = function ( upload ) {
@@ -274,17 +272,15 @@
 	 * Show errors, warnings & notices in the form.
 	 * See UI class for more.
 	 *
-	 * @param {mw.message[]} errors
-	 * @param {mw.message[]} warnings
-	 * @param {mw.message[]} notices
+	 * @param {uw.ValidationStatus} status
 	 */
-	uw.controller.Details.prototype.showErrors = function ( errors, warnings, notices ) {
+	uw.controller.Details.prototype.showStatus = function ( status ) {
 		this.ui.enableEdits();
 
 		this.removeCopyMetadataFeature();
 		this.addCopyMetadataFeature();
 
-		this.ui.showErrors( errors, warnings, notices );
+		this.ui.showStatus( status );
 	};
 
 	/**

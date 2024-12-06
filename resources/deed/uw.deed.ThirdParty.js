@@ -37,9 +37,9 @@
 		} );
 		this.sourceInput.$input.attr( 'id', 'mwe-source-' + this.getInstanceCount() );
 		// See uw.DetailsWidget
-		this.sourceInput.getErrors = ( thorough ) => {
-			const
-				errors = [],
+		uw.ValidatableElement.decorate( this.sourceInput );
+		this.sourceInput.validate = ( thorough ) => {
+			const status = new uw.ValidationStatus(),
 				minLength = this.config.minSourceLength,
 				maxLength = this.config.maxSourceLength,
 				text = this.sourceInput.getValue().trim();
@@ -47,22 +47,18 @@
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
-				return [];
+				return status.resolve();
 			}
 
 			if ( text === '' ) {
-				errors.push( mw.message( 'mwe-upwiz-error-question-blank' ) );
+				status.addError( mw.message( 'mwe-upwiz-error-question-blank' ) );
 			} else if ( text.length < minLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
+				status.addError( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
 			} else if ( text.length > maxLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
+				status.addError( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
 			}
 
-			return errors;
-		};
-		// See uw.DetailsWidget
-		this.sourceInput.getWarnings = function () {
-			return $.Deferred().resolve( [] ).promise();
+			return status.getErrors().length === 0 ? status.resolve() : status.reject();
 		};
 		this.sourceInputField = new uw.FieldLayout( this.sourceInput, {
 			label: $( '<li>' )
@@ -77,9 +73,9 @@
 			name: 'author'
 		} );
 		this.authorInput.$input.attr( 'id', 'mwe-author-' + this.getInstanceCount() );
-		this.authorInput.getErrors = ( thorough ) => {
-			const
-				errors = [],
+		uw.ValidatableElement.decorate( this.authorInput );
+		this.authorInput.validate = ( thorough ) => {
+			const status = new uw.ValidationStatus(),
 				minLength = this.config.minAuthorLength,
 				maxLength = this.config.maxAuthorLength,
 				text = this.authorInput.getValue().trim();
@@ -87,26 +83,22 @@
 			if ( thorough !== true ) {
 				// `thorough` is the strict checks executed on submit, but we don't want errors
 				// to change/display every change event
-				return [];
+				return status.resolve();
 			}
 
 			if ( this.authorInput.isDisabled() ) {
-				return [];
+				return status.resolve();
 			}
 
 			if ( text === '' ) {
-				errors.push( mw.message( 'mwe-upwiz-error-question-blank' ) );
+				status.addError( mw.message( 'mwe-upwiz-error-question-blank' ) );
 			} else if ( text.length < minLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
+				status.addError( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
 			} else if ( text.length > maxLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
+				status.addError( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
 			}
 
-			return $.Deferred().resolve( errors ).promise();
-		};
-		// See uw.DetailsWidget
-		this.authorInput.getWarnings = function () {
-			return $.Deferred().resolve( [] ).promise();
+			return status.getErrors().length === 0 ? status.resolve() : status.reject();
 		};
 		this.authorInputField = new uw.FieldLayout( this.authorInput, {
 			label: $( '<li>' )
@@ -225,7 +217,7 @@
 				if ( this.templateOptions.authorUnknown.input.isSelected() ) {
 					this.authorInput.setDisabled( true );
 					this.authorInput.setValue( '' );
-					this.authorInputField.checkValidity( false );
+					this.authorInputField.validate( false );
 				} else {
 					this.authorInput.setDisabled( false );
 				}

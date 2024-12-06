@@ -166,9 +166,8 @@
 			// that is managed by uw.FieldLayout (or rather, uw.ValidationMessageElement)
 			this.descriptionSameAsCaption.connect( this.descriptionsWidget, { change: [ 'emit', 'change' ] } );
 			this.descriptionsDetails.connect( this.descriptionsWidget, { change: [ 'emit', 'change' ] } );
-			// forward warnings & errors checks between the combined widget & descriptionsDetails
-			this.descriptionsWidget.getWarnings = this.descriptionsDetails.getWarnings.bind( this.descriptionsDetails );
-			this.descriptionsWidget.getErrors = this.descriptionsDetails.getErrors.bind( this.descriptionsDetails );
+			// forward validation checks between the combined widget & descriptionsDetails
+			this.descriptionsWidget.validate = ( thorough ) => this.descriptionsDetails.validate( thorough );
 
 			this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsWidget, {
 				required: descriptionRequired,
@@ -558,34 +557,14 @@
 		/**
 		 * Check all the fields for validity.
 		 *
-		 * @return {jQuery.Promise} Promise resolved with multiple array arguments, each containing a
-		 *   list of error messages for a single field. If API requests necessary to check validity
-		 *   fail, the promise may be rejected. The form is valid if the promise is resolved with all
-		 *   empty arrays.
+		 * @return {jQuery.Promise<mw.uploadWizard.ValidationStatus>}
 		 */
-		getErrors: function () {
-			return $.when.apply( $, this.getAllFields().map( ( fieldLayout ) => {
-				// return errors if field has them, empty array (no errors) otherwise
-				if ( fieldLayout.fieldWidget.getErrors ) {
-					return fieldLayout.fieldWidget.getErrors();
-				}
-				return [];
-			} ) );
-		},
+		validate: function ( thorough ) {
+			const fieldPromises = this.getAllFields()
+				.filter( ( fieldLayout ) => !!fieldLayout.fieldWidget.validate )
+				.map( ( fieldLayout ) => fieldLayout.fieldWidget.validate( thorough ) );
 
-		/**
-		 * Check all the fields for warnings.
-		 *
-		 * @return {jQuery.Promise} Same as #getErrors
-		 */
-		getWarnings: function () {
-			return $.when.apply( $, this.getAllFields().map( ( fieldLayout ) => {
-				// return warnings if field has them, empty array (no warnings) otherwise
-				if ( fieldLayout.fieldWidget.getWarnings ) {
-					return fieldLayout.fieldWidget.getWarnings();
-				}
-				return [];
-			} ) );
+			return mw.uploadWizard.ValidationStatus.mergePromises( ...fieldPromises );
 		},
 
 		/**

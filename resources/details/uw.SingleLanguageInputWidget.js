@@ -73,7 +73,7 @@
 		this.setRemovable( this.config.removable );
 	};
 	OO.inheritClass( uw.SingleLanguageInputWidget, uw.DetailsWidget );
-	OO.mixinClass( uw.SingleLanguageInputWidget, uw.ValidationMessageElement );
+	OO.mixinClass( uw.SingleLanguageInputWidget, uw.ValidatableElement );
 
 	/**
 	 * Handle remove button click events.
@@ -145,20 +145,20 @@
 	/**
 	 * @inheritdoc
 	 */
-	uw.SingleLanguageInputWidget.prototype.getErrors = function () {
-		const
-			errors = [],
+	// eslint-disable-next-line no-unused-vars
+	uw.SingleLanguageInputWidget.prototype.validate = function ( thorough ) {
+		const status = new mw.uploadWizard.ValidationStatus(),
 			text = this.textInput.getValue().trim();
 
 		if ( text.length !== 0 && text.length < this.config.minLength ) {
 			// Empty input is allowed
-			errors.push( mw.message( 'mwe-upwiz-error-too-short', this.config.minLength ) );
+			status.addError( mw.message( 'mwe-upwiz-error-too-short', this.config.minLength ) );
 		}
 		if ( text.length > this.config.maxLength ) {
-			errors.push( mw.message( 'mwe-upwiz-error-too-long', this.config.maxLength ) );
+			status.addError( mw.message( 'mwe-upwiz-error-too-long', this.config.maxLength ) );
 		}
 
-		return $.Deferred().resolve( errors ).promise();
+		return status.getErrors().length === 0 ? status.resolve() : status.reject();
 	};
 
 	/**
