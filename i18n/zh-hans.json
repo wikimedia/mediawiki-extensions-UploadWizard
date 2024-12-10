@@ -156,7 +156,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "（要求使用{{PLURAL:$1|此媒体|这些媒体}}的人适当注明来源）",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "（释放所有权利，任何人都能以任何方式自由使用{{PLURAL:$1|此作品|这些作品}}）",
 	"mwe-upwiz-source-ownwork-generic-explain": "（可以接受将{{PLURAL:$1|此作品|这些作品}}上传至该wiki）",
-	"mwe-upwiz-source-ownwork-question": "{{GENDER:$2|您}}需要以什么许可协议发布{{PLURAL:$1|此作品|这些作品}}？在Commoncs上的所有媒体都应该以自由许可协议发布。",
+	"mwe-upwiz-source-ownwork-question": "{{GENDER:$2|您}}想要以什么许可协议发布{{PLURAL:$1|此作品|这些作品}}？维基共享资源上的所有媒体都应该以自由许可协议发布。",
 	"mwe-upwiz-source-ownwork-purpose-label": "请选择最能描述{{PLURAL:$1|此作品|这些作品}}的目的的选项。",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|此作品|这些作品}}向其他人提供知识、说明或信息。",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|此作品|这些作品}}用于个人用途，例如我自己、我的家人或朋友的照片，或者自我宣传内容。",
