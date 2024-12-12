@@ -108,7 +108,7 @@
 
 	// override default OOUI warning message style
 	.oo-ui-fieldLayout-messages {
-		margin: 0;
+		margin: 1em 0 0;
 
 		> .oo-ui-messageWidget {
 			margin-left: 0;
@@ -119,6 +119,10 @@
 			}
 		}
 	}
+
+	.mwe-upwiz-deed-subgroup .oo-ui-fieldLayout-messages {
+		margin: 0;
+	}
 }
 
 .mwe-upwiz-deed-license-group-body {
@@ -128,7 +132,6 @@
 }
 
 .mwe-upwiz-deed-subgroup {
-	margin: 1em 0;
 	padding: 1em 2em;
 	background-color: @background-color-neutral-subtle;
 	border-radius: 3px;
@@ -148,12 +151,18 @@
 	}
 }
 
-.mwe-upwiz-license-custom {
+.mwe-upwiz-license-custom .oo-ui-fieldLayout-body {
 	// side by side input field & button
 	display: flex;
+	flex-wrap: wrap;
 	max-width: 48em;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
+
+	.mwe-upwiz-details-input {
+		flex: 1;
+		margin-right: 8px;
+	}
 
 	.oo-ui-inputWidget-input {
 		font-family: monospace;
@@ -166,6 +175,10 @@
 		// force them to be of the same size
 		line-height: 20px;
 		height: auto;
+	}
+
+	.mwe-upwiz-label-extra {
+		width: 100%;
 	}
 }
 
@@ -266,6 +279,11 @@ label:has( .mwe-upwiz-license-custom ),
 	}
 }
 
+// remove padding; warning should not be surrounded by the fieldlayout's grey background
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head .mwe-upwiz-fieldLayout {
+	padding: 0;
+}
+
 /*
  * another highly customized option: manually inputting a PD tag
  * we want this one to fit with the default license config, but it needs
@@ -291,14 +309,14 @@ label:has( .mwe-upwiz-license-custom ),
 			display: block;
 
 			&.mwe-upwiz-license-custom {
-				display: flex;
+				display: block;
 			}
 		}
 	}
 }
 
 /*
- * another customized option, where we need to tyle  a link to the VRT form as a button
+ * another customized option, where we need to style a link to the VRT form as a button
  */
 .mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-vrt-head .mwe-upwiz-deed-license-group {
 	.mwe-upwiz-deed-license-group-subhead {

@@ -34,19 +34,15 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 	}
 
 	// create inputs and licenses from config
-	const groups = [];
 	if ( config.licenseGroups === undefined ) {
 		const group = new mw.uploadWizard.LicenseGroup( config, this.type, this.api, this.count );
-		groups.push( group );
+		const groupField = new mw.uploadWizard.FieldLayout( group, {} );
+		group.connect( groupField, { change: [ 'emit', 'change' ] } );
+
+		this.addItems( [ groupField ] );
 		this.$element.append( this.$group );
 	} else {
-		const $container = $( '<div>' ).addClass( 'mwe-upwiz-deed-license-group-container' );
-
-		this.widget = this.type === 'radio' ? new OO.ui.RadioSelectWidget() : new OO.ui.CheckboxMultiselectWidget();
-
-		this.$element.append( $container );
-
-		config.licenseGroups.forEach( ( groupConfig ) => {
+		const options = config.licenseGroups.map( ( groupConfig ) => {
 			const classes = [ 'mwe-upwiz-deed-license-group-head', 'mwe-upwiz-deed-license-group-' + groupConfig.head ];
 
 			const $icons = $( '<span>' );
@@ -61,50 +57,69 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 			const labelExtraParams = [ groupConfig[ 'head-extra' ], this.count ].concat( groupConfig.url ).concat( $icons );
 			const labelExtra = groupConfig[ 'head-extra' ] && mw.message.apply( mw.message, labelExtraParams ).parse() || '';
 
-			let option;
 			if ( this.type === 'radio' ) {
-				option = new OO.ui.RadioOptionWidget( {
+				return new OO.ui.RadioOptionWidget( {
 					label: $( '<span>' )
 						.append( label )
 						.append( $( '<span>' ).addClass( 'mwe-upwiz-label-extra' ).append( labelExtra ) )
 						.contents(),
-					// label: new OO.ui.HtmlSnippet( label ),
 					classes: classes
 				} );
-			} else if ( this.type === 'checkbox' ) {
-				option = new OO.ui.CheckboxMultioptionWidget( {
+			} else { // if ( this.type === 'checkbox' ) {
+				return new OO.ui.CheckboxMultioptionWidget( {
 					label: $( '<span>' )
 						.append( label )
 						.append( $( '<span>' ).addClass( 'mwe-upwiz-label-extra' ).append( labelExtra ) )
 						.contents(),
-					// label: new OO.ui.HtmlSnippet( label ),
 					classes: classes
 				} );
 			}
-			this.widget.addItems( [ option ] );
+		} );
+		this.widget = this.type === 'radio' ? new OO.ui.RadioSelectWidget() : new OO.ui.CheckboxMultiselectWidget();
+		this.widget.addItems( options );
 
+		const groupFields = config.licenseGroups.map( ( groupConfig ) => {
 			const group = new mw.uploadWizard.LicenseGroup(
-				Object.assign( {}, groupConfig, { option: option } ),
+				groupConfig,
 				// group config can override overall type; e.g. a single group can be "and", while
 				// the rest of the config can be "or"
 				( groupConfig.type || config.type ) === 'or' ? 'radio' : 'checkbox',
 				this.api,
 				this.count
 			);
-			group.$element.addClass( 'mwe-upwiz-deed-subgroup' );
-			groups.push( group );
+
+			const groupField = new mw.uploadWizard.FieldLayout( group, {} );
+			groupField.$element.addClass( 'mwe-upwiz-deed-subgroup' );
+			group.connect( groupField, { change: [ 'emit', 'change' ] } );
+
+			return groupField;
 		} );
-		$container.append( this.widget.$element );
+		this.addItems( groupFields );
+
+		// link option to the groups they're associated with, so we can easily move from
+		// one to the other when they need to be interacted with
+		groupFields.forEach( ( groupField, i ) => {
+			groupField.option = options[ i ];
+		} );
+
+		this.$element.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-deed-license-group-container' )
+				.append( this.widget.$group )
+		);
 
 		this.widget.on( 'select', ( selectedOption, isSelected ) => {
+			this.emit( 'change' );
+
 			// radios don't have a second 'selected' arg; they're always true
 			isSelected = isSelected || true;
 
 			// radio groups won't fire events for group that got deselected
 			// (as a results of a new one being selected), so we'll iterate
 			// all groups to remove no-longer-active ones
-			groups.forEach( ( group ) => {
-				const option = group.config.option,
+			this.getItems().forEach( ( groupField ) => {
+				const group = groupField.fieldWidget,
+					option = groupField.option,
 					defaultLicenses = ( group.config.defaults || [] ).reduce( ( defaults, license ) => {
 						defaults[ license ] = true;
 						return defaults;
@@ -113,11 +128,11 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 				if ( !option.isSelected() ) {
 					// collapse & nix any inputs that may have been selected in groups that
 					// are no longer active/selected
-					group.$element.detach();
+					groupField.$element.detach();
 					group.setValue( {} );
 				} else {
 					// attach group license selector
-					option.$label.append( group.$element );
+					option.$label.append( groupField.$element );
 
 					// check the defaults (insofar they exist) for newly selected groups;
 					// ignore groups that had already been selected to ensure existing
@@ -134,7 +149,6 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 		} );
 	}
 
-	this.addItems( groups );
 	this.aggregate( { change: 'change' } );
 
 	// [wikitext => list of templates used in wikitext] map, used in
@@ -147,8 +161,8 @@ OO.mixinClass( mw.UploadWizardLicenseInput, mw.uploadWizard.ValidatableElement )
 
 Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	unload: function () {
-		this.getItems().forEach( ( group ) => {
-			group.unload();
+		this.getItems().forEach( ( groupField ) => {
+			groupField.fieldWidget.unload();
 		} );
 	},
 
@@ -163,7 +177,8 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	setValues: function ( values, groupName ) {
 		const selectedGroups = [];
 
-		this.getItems().forEach( ( group ) => {
+		this.getItems().forEach( ( groupField ) => {
+			const group = groupField.fieldWidget;
 			if ( groupName === undefined || group.getGroup() === groupName ) {
 				group.setValue( values );
 				if ( Object.keys( group.getValue() ).length > 0 ) {
@@ -194,8 +209,9 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 		// in the case of multiple option groups (with a parent radio/check to expand/collapse),
 		// we need to make sure the parent option and expanded state match the state of the
 		// group - when the group has things that are selected, it must be active
-		this.getItems().forEach( ( group ) => {
-			const option = group.config.option,
+		this.getItems().forEach( ( groupField ) => {
+			const group = groupField.fieldWidget,
+				option = groupField.option,
 				selected = Object.keys( group.getValue() ).length > 0;
 
 			if ( !option ) {
@@ -204,14 +220,14 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 
 			option.setSelected( selected );
 			if ( selected ) {
-				option.$element.append( group.$element );
+				option.$element.append( groupField.$element );
 				// there's an event listener bound to respond to changes when an option
 				// is selected, but that in only triggered by manual (user) selection;
 				// we're programmatically updating values here, and need to make sure
 				// it also responds to these
 				this.widget.emit( 'select', option, true );
 			} else {
-				group.$element.detach();
+				groupField.$element.detach();
 			}
 		} );
 	},
@@ -239,8 +255,10 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	getLicenses: function () {
 		const licenses = {};
 
-		this.getItems().forEach( ( group ) => {
-			const licenseNames = Object.keys( group.getValue() );
+		this.getItems().forEach( ( groupField ) => {
+			const group = groupField.fieldWidget,
+				licenseNames = Object.keys( group.getValue() );
+
 			licenseNames.forEach( ( name ) => {
 				licenses[ name ] = mw.UploadWizard.config.licenses[ name ] || {};
 			} );
@@ -256,7 +274,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @return {string} of wikitext (empty string if no inputs set)
 	 */
 	getWikiText: function () {
-		return this.getItems().map( ( group ) => group.getWikiText() ).join( '' ).trim();
+		return this.getItems().map( ( groupField ) => groupField.fieldWidget.getWikiText() ).join( '' ).trim();
 	},
 
 	/**
@@ -300,12 +318,15 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 *
 	 * @memberof mw.UploadWizardLicenseInput
 	 * @param {boolean} thorough
-	 * @return {jQuery.Promise<uw.ValidationStatus>}
+	 * @return {jQuery.Promise<mw.uploadWizard.ValidationStatus>}
 	 */
 	validate: function ( thorough ) {
-		const status = new mw.uploadWizard.ValidationStatus();
-		let promise = $.Deferred().resolve().promise();
-		const selectedInputs = this.getSerialized();
+		// Gather errors from each item
+		const status = new mw.uploadWizard.ValidationStatus(),
+			selectedGroupPromises = this.getItems()
+				// only validate selected groups, or if there is no option (i.e. only 1 group)
+				.filter( ( groupField ) => groupField.option === undefined || groupField.option.isSelected() )
+				.map( ( groupField ) => groupField.validate( thorough ) );
 
 		if ( thorough !== true ) {
 			// `thorough` is the strict checks executed on submit, but we don't want errors
@@ -313,50 +334,18 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 			return status.resolve();
 		}
 
-		if ( Object.keys( selectedInputs ).length === 0 ) {
-			return status
-				.addError( mw.message( 'mwe-upwiz-deeds-require-selection' ) )
-				.reject();
+		if ( selectedGroupPromises.length === 0 ) {
+			status.addError( mw.message( 'mwe-upwiz-deeds-require-selection' ) );
 		}
 
-		// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
-		// But also check that associated text inputs are filled for if the input is selected, and that
-		// they are the appropriate size.
-		Object.keys( selectedInputs ).forEach( ( name ) => {
-			const licenseMap = selectedInputs[ name ];
-
-			Object.keys( licenseMap ).forEach( ( license ) => {
-				const licenseValue = licenseMap[ license ];
-				if ( typeof licenseValue !== 'string' ) {
-					return;
-				}
-
-				const wikitext = licenseValue.trim();
-
-				if ( wikitext === '' ) {
-					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing' ) );
-				} else if ( wikitext.length < mw.UploadWizard.config.minCustomLicenseLength ) {
-					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-too-short' ) );
-				} else if ( wikitext.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
-					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-too-long' ) );
-				} else if ( !/\{\{(.+?)\}\}/g.test( wikitext ) ) {
-					// if text doesn't contain a template, we don't even
-					// need to validate it any further...
-					status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
-				} else if ( mw.UploadWizard.config.customLicenseTemplate !== false ) {
-					// now do a thorough test to see if the text actually
-					// includes a license template
-					promise = this.getUsedTemplates( wikitext ).then( ( status, usedTemplates ) => {
-						if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
-							// no license template found, add another error
-							status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
-						}
-					} );
-				}
-			} );
-		} );
-
-		return promise.then( () => status.getErrors().length === 0 ? status.resolve() : status.reject() );
+		return mw.uploadWizard.ValidationStatus.mergePromises( ...selectedGroupPromises ).then(
+			// license groups are valid
+			() => status.getErrors().length === 0 ? status.resolve() : status.reject(),
+			// there was an error in one of the license groups; we'll still want
+			// to reject, but those child messages need not be added into this status
+			// object, since they'll already be displayed within those child widgets
+			() => status.reject()
+		);
 	},
 
 	/**
@@ -366,7 +355,8 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	getSerialized: function () {
 		const values = {};
 
-		this.getItems().forEach( ( group ) => {
+		this.getItems().forEach( ( groupField ) => {
+			const group = groupField.fieldWidget;
 			const groupName = group.getGroup();
 			const value = group.getValue();
 

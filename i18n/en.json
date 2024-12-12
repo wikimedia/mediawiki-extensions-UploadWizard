@@ -256,8 +256,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "This title is too short.\nPlease make sure this title is at least $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-caption-blank": "Caption is required",
 	"mwe-upwiz-error-description-blank": "Description is required",
-	"mwe-upwiz-error-bad-captions": "There are problems with some of the captions.",
-	"mwe-upwiz-error-bad-descriptions": "There are problems with some of the descriptions.",
 	"mwe-upwiz-error-title-blacklisted": "This title contains some undesirable text. Please revise it.",
 	"mwe-upwiz-error-title-senselessimagename": "Please make this title more meaningful.",
 	"mwe-upwiz-error-title-thumbnail": "This looks like a thumbnail title. Please do not upload thumbnails back to the same wiki. Otherwise, please fix the filename so it is more meaningful, and does not have the thumbnail prefix.",
