@@ -128,7 +128,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "（要求使用{{PLURAL:$1|此|這些}}媒體的人提供適當的標明出處，並在同一授權條款下分發。）",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "（釋出所有權利，任何人都能以任何方式自由使用{{PLURAL:$1|本作品|這些作品}}。）",
 	"mwe-upwiz-source-ownwork-generic-explain": "{{PLURAL:$1|此作品|這些作品}}可被接受上傳至此 wiki",
-	"mwe-upwiz-source-ownwork-question": "{{GENDER:$2|您}}想要在哪個授權條款之下發布{{PLURAL:$1|此|這些}}作品在？維基共享資源上的所有媒體都應以自由授權條款發布。",
+	"mwe-upwiz-source-ownwork-question": "{{GENDER:$2|您}}想要在哪個授權條款之下發布{{PLURAL:$1|此|這些}}作品？維基共享資源上的所有媒體都應以自由授權條款發布。",
 	"mwe-upwiz-source-ownwork-purpose-label": "請選擇最能描述{{PLURAL:$1|此|這些}}作品用途的選項。",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|此|這些}}作品為他人提供知識、說明、或是資訊。",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|此|這些}}作品用於個人用途，例如我自己、我的家人、朋友的照片，或是自我宣傳的內容。",
