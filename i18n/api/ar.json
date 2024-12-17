@@ -17,6 +17,7 @@
 	"apihelp-query+allcampaigns-param-enabledonly": "فقط اعرض الحملات المفعلة.",
 	"apihelp-query+allcampaigns-param-limit": "عدد من الحملات للعودة.",
 	"apihelp-query+allcampaigns-example-1": "رقم الحملات المفعلة",
+	"apihelp-mediadetection-summary": "إرجاع احتمالية أن الصورة المخزنة التي يمثلها مفتاح الملف المقدم هي شعار",
 	"apihelp-mediadetection-param-filename": "هنا اسم صفحة الملف",
 	"apihelp-mediadetection-example-filename": "إرجاع احتمالية هو أن الصورة التي يمثلها اسم الملف المقدم وهي شعار",
 	"apierror-mediadetection-no-valid-thumbnail": "لا توجد صورة صغيره للصورة لذا لا يمكن إرسالها إلى المصنف"
