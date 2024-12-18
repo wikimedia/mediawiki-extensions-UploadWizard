@@ -20,5 +20,6 @@
 	"apihelp-mediadetection-summary": "إرجاع احتمالية أن الصورة المخزنة التي يمثلها مفتاح الملف المقدم هي شعار",
 	"apihelp-mediadetection-param-filename": "هنا اسم صفحة الملف",
 	"apihelp-mediadetection-example-filename": "إرجاع احتمالية هو أن الصورة التي يمثلها اسم الملف المقدم وهي شعار",
+	"apihelp-mediadetection-example-filekey": "إرجاع احتمالية أن الصورة المخزنة التي يمثلها مفتاح الملف المقدم هي شعار",
 	"apierror-mediadetection-no-valid-thumbnail": "لا توجد صورة صغيره للصورة لذا لا يمكن إرسالها إلى المصنف"
 }
