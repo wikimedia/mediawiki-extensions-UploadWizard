@@ -20,7 +20,7 @@
 		this.notices = [];
 		this.successMessages = []; // unused, but OO.ui.FieldLayout.prototype.updateMessages assumes this exists
 
-		this.validatedWidget.on( 'change', () => this.validate( false ) );
+		this.validatedWidget.on( 'change', () => this.validate && this.validate( false ) );
 
 		this.$messages.addClass( 'oo-ui-fieldLayout-messages' );
 		this.$element.addClass( 'mwe-upwiz-validationMessageElement' );

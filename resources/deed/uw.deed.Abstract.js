@@ -39,6 +39,7 @@
 					name: tcName,
 					value: details.template
 				} );
+				uw.ValidatableElement.decorate( input );
 				field = new uw.FieldLayout(
 					input,
 					{
