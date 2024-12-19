@@ -222,7 +222,7 @@
 	"mwe-upwiz-fileexists-replace-on-page": "يُوجَد ملفٌ بهذا الاسم مُسبقاً. إِذا كنت تريد أَن تستبدله، انتقل إِلى الصَّفحة ل[$2 $1] واستبدله هُناك.",
 	"mwe-upwiz-fileexists-replace-on-page-v2": "هذا العنوان مستعمَل. اختر عنواناً فريداً آخر. نصيحة: أضف التاريخ أو الشهر أو السنة لجعل العنوان فريداً.",
 	"mwe-upwiz-fileexists-replace-no-link": "الرجاء اختيار عنوانٍ مُختلِفٍ، لأَنَّ هذا العنوان هو اسمٌ لملف آخر حاليَّاً.",
-	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "فضلاً اكتب عنوانا أكثر دلالة ([$2 أمثلة])",
+	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "فضلاً اكتب عنوانًا أكثر دلالة ([$2 أمثلة])",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "أمثلة للعنوان",
 	"mwe-upwiz-blacklisted-details": "يحتوي هذا الاسم على محارف غير صالحة أو بنسق غير صالح.  ([$2 انقر هنا] للحصول على توجيهات حول تصحيح هذه المشكلة.)",
 	"mwe-upwiz-blacklisted-details-feedback": "يرجى كتابة عنوان وصف مختلف ([$2 معلومات إضافية]) • [$3 أرسل رداً مرتجعاً]",
