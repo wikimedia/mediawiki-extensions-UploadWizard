@@ -151,10 +151,8 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @since 1.2
 	 */
 	protected function handleCampaign() {
-		$campaignName = $this->getRequest()->getVal( 'campaign' );
-		if ( $campaignName === null ) {
-			$campaignName = Config::getSetting( 'defaultCampaign' );
-		}
+		$campaignName = $this->getRequest()->getVal( 'campaign' ) ??
+			Config::getSetting( 'defaultCampaign' );
 
 		if ( $campaignName !== null && $campaignName !== '' ) {
 			$campaign = Campaign::newFromName( $campaignName );

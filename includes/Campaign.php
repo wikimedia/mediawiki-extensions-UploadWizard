@@ -94,7 +94,7 @@ class Campaign {
 	 */
 	public static function newFromName( $name ) {
 		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
-		if ( $campaignTitle === null || !$campaignTitle->exists() ) {
+		if ( !$campaignTitle || !$campaignTitle->exists() ) {
 			return false;
 		}
 
@@ -124,11 +124,7 @@ class Campaign {
 		} else {
 			$this->config = $config;
 		}
-		if ( $context === null ) {
-			$this->context = RequestContext::getMain();
-		} else {
-			$this->context = $context;
-		}
+		$this->context = $context ?? RequestContext::getMain();
 	}
 
 	/**
@@ -324,9 +320,7 @@ class Campaign {
 	 * @return array
 	 */
 	public function getParsedConfig( ?Language $lang = null ) {
-		if ( $lang === null ) {
-			$lang = $this->context->getLanguage();
-		}
+		$lang ??= $this->context->getLanguage();
 
 		// We check if the parsed config for this campaign is cached. If it is available in cache,
 		// we then check to make sure that it is the latest version - by verifying that its

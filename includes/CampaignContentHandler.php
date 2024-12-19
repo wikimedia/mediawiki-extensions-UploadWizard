@@ -54,7 +54,7 @@ class CampaignContentHandler extends JsonContentHandler {
 	) {
 		'@phan-var CampaignContent $content';
 		$title = Title::castFromPageReference( $cpoParams->getPage() );
-		if ( $title === null ) {
+		if ( !$title ) {
 			throw new UnexpectedValueException( '$title shouldn\'t be NULL' );
 		}
 

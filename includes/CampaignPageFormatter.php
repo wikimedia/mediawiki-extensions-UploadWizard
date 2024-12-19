@@ -34,11 +34,7 @@ class CampaignPageFormatter {
 	 */
 	public function __construct( $campaign, $context = null ) {
 		$this->campaign = $campaign;
-		if ( $context === null ) {
-			$this->context = RequestContext::getMain();
-		} else {
-			$this->context = $context;
-		}
+		$this->context = $context ?? RequestContext::getMain();
 	}
 
 	/**
