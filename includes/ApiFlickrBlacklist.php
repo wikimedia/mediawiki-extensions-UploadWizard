@@ -40,6 +40,7 @@ class ApiFlickrBlacklist extends ApiBase {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'url' => [

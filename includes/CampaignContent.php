@@ -21,6 +21,9 @@ use MediaWiki\Json\FormatJson;
  */
 class CampaignContent extends JsonContent {
 
+	/**
+	 * @param string $text
+	 */
 	public function __construct( $text ) {
 		parent::__construct( $text, 'Campaign' );
 	}

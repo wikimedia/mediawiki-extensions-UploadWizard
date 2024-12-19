@@ -88,6 +88,10 @@ class Campaign {
 	/** @var \MediaWiki\Interwiki\InterwikiLookup */
 	private $interwikiLookup;
 
+	/**
+	 * @param string $name
+	 * @return Campaign|false
+	 */
 	public static function newFromName( $name ) {
 		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
 		if ( $campaignTitle === null || !$campaignTitle->exists() ) {
@@ -97,6 +101,11 @@ class Campaign {
 		return new Campaign( $campaignTitle );
 	}
 
+	/**
+	 * @param Title $title
+	 * @param array|null $config
+	 * @param RequestContext|null $context
+	 */
 	public function __construct( $title, $config = null, $context = null ) {
 		$services = MediaWikiServices::getInstance();
 		$this->wanObjectCache = $services->getMainWANObjectCache();
@@ -144,10 +153,16 @@ class Campaign {
 		return $this->title->getDBkey();
 	}
 
+	/**
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
+	/**
+	 * @return Title|null
+	 */
 	public function getTrackingCategory() {
 		$trackingCats = Config::getSetting( 'trackingCategory' );
 		return Title::makeTitleSafe(
@@ -155,10 +170,16 @@ class Campaign {
 		);
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getUploadedMediaCount() {
 		return Category::newFromTitle( $this->getTrackingCategory() )->getFileCount();
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getTotalContributorsCount() {
 		$dbr = $this->dbr;
 		$fname = __METHOD__;

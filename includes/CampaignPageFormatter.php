@@ -28,6 +28,10 @@ class CampaignPageFormatter {
 	/** @var IContextSource|null */
 	protected $context = null;
 
+	/**
+	 * @param Campaign $campaign
+	 * @param IContextSource|null $context
+	 */
 	public function __construct( $campaign, $context = null ) {
 		$this->campaign = $campaign;
 		if ( $context === null ) {
