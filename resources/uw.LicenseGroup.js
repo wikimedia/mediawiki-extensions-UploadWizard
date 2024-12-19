@@ -35,6 +35,7 @@
 		this.api = api;
 		this.count = count;
 		this.customInputs = {};
+		this.customInputFields = {};
 		this.previewDialog = new uw.LicensePreviewDialog();
 		this.windowManager = new OO.ui.WindowManager();
 		this.windowManager.addWindows( [ this.previewDialog ] );
@@ -59,8 +60,12 @@
 			setTimeout( () => {
 				// first find selected thing(s), then figure out if the one we just clicked is among
 				// them; if so and if that option has an input field, immediately focus it
-				let selectedItems = this.group.findSelectedItems();
-				selectedItems = selectedItems instanceof Array ? selectedItems : [ this.group.findSelectedItem() ];
+				let selectedItems;
+				if ( this.type === 'radio' ) {
+					selectedItems = this.group.findSelectedItem() ? [ this.group.findSelectedItem() ] : [];
+				} else if ( this.type === 'checkbox' ) {
+					selectedItems = this.group.findSelectedItems();
+				}
 				selectedItems.forEach( ( item ) => {
 					const name = item.getData();
 					if ( item.$element.has( event.target ) && this.customInputs[ name ] ) {
@@ -74,6 +79,7 @@
 		this.$element = this.fieldset.$element;
 	};
 	OO.inheritClass( uw.LicenseGroup, OO.ui.Widget );
+	OO.mixinClass( uw.LicenseGroup, uw.ValidatableElement );
 
 	uw.LicenseGroup.prototype.unload = function () {
 		this.windowManager.$element.remove();
@@ -277,6 +283,46 @@
 		}
 	};
 
+	uw.LicenseGroup.prototype.validate = function ( thorough ) {
+		const status = new uw.ValidationStatus();
+
+		if ( thorough !== true ) {
+			// `thorough` is the strict checks executed on submit, but we don't want errors
+			// to change/display every change event
+			return status.resolve();
+		}
+
+		let selected, name;
+		if ( this.type === 'radio' ) {
+			selected = this.group.findSelectedItem() ? [ this.group.findSelectedItem() ] : [];
+		} else if ( this.type === 'checkbox' ) {
+			selected = this.group.findSelectedItems();
+		}
+
+		if ( selected.length === 0 ) {
+			return status
+				.addError( mw.message( 'mwe-upwiz-deeds-require-selection' ) )
+				.reject();
+		}
+
+		const customInputPromises = [];
+		selected.forEach( ( item ) => {
+			name = item.getData();
+			if ( name in this.customInputFields ) {
+				customInputPromises.push( this.customInputFields[ name ].validate( thorough ) );
+			}
+		} );
+
+		return uw.ValidationStatus.mergePromises( ...customInputPromises ).then(
+			// custom input (if any) is fine
+			() => status.getErrors().length === 0 ? status.resolve() : status.reject(),
+			// there was an error in one of the custom inputs; we'll still want
+			// to reject, but those child messages need not be added into this status
+			// object, since they'll already be displayed within those child widgets
+			() => status.reject()
+		);
+	};
+
 	/**
 	 * @private
 	 * @param {string} name
@@ -377,13 +423,14 @@
 			this.config.special === 'custom' ||
 			licenseInfo.props.special === 'input'
 		) {
-			$label.append( this.createInput( name, licenseInfo.props.defaultText ) );
+			const inputField = this.createInput( name, licenseInfo.props.defaultText );
 
+			$label.append( inputField.$element );
 			if ( licenseInfo.props.msgSpecial !== undefined ) {
-				$label.append(
+				inputField.$body.append(
 					$( '<span>' )
 						.html( mw.message( licenseInfo.props.msgSpecial, this.count || 0, $licenseLink ).parse() )
-						.addClass( 'mwe-upwiz-label-extra mwe-upwiz-label-input' )
+						.addClass( 'mwe-upwiz-label-extra' )
 				);
 			}
 		}
@@ -411,10 +458,10 @@
 	 * @private
 	 * @param {string} name license name
 	 * @param {string} [defaultText] Default custom license text
-	 * @return {jQuery} Wrapped textarea
+	 * @return {uw.FieldLayout}
 	 */
 	uw.LicenseGroup.prototype.createInput = function ( name, defaultText ) {
-		this.customInputs[ name ] = new OO.ui.TextInputWidget( {
+		const input = new OO.ui.TextInputWidget( {
 			value: defaultText
 		} );
 
@@ -423,11 +470,11 @@
 			flags: [ 'progressive' ]
 		} );
 
-		this.customInputs[ name ].on( 'change', () => {
+		input.on( 'change', () => {
 			// Update displayed errors as the user is typing
 			OO.ui.debounce( this.emit.bind( this, 'change', this ), 500 );
 		} );
-		this.customInputs[ name ].$element.on( 'mousedown', ( event ) => {
+		input.$element.on( 'mousedown', ( event ) => {
 			// T294389 "Another reason not mentioned above" license input textarea: Text is unclickable.
 			// When used inside other widgets (e.g. RadioSelectWidget or CheckboxMultioptionWidget),
 			// those may have event handlers to respond to clicks (e.g. selecting the radio/checkbox)
@@ -437,7 +484,7 @@
 			// but that'll then require those parent widgets to handle such relevant events themselves.
 			event.stopPropagation();
 		} );
-		this.customInputs[ name ].$element.on( 'keydown', ( event ) => {
+		input.$element.on( 'keydown', ( event ) => {
 			switch ( event.which ) {
 				case OO.ui.Keys.UP:
 				case OO.ui.Keys.LEFT:
@@ -461,13 +508,53 @@
 		} );
 
 		button.on( 'click', () => {
-			this.showPreview( this.customInputs[ name ].getValue() );
+			this.showPreview( input.getValue() );
 		} );
 
-		return $( '<div>' ).addClass( 'mwe-upwiz-license-custom mwe-upwiz-label-input' ).append(
-			this.customInputs[ name ].$element,
-			button.$element
-		);
+		uw.ValidatableElement.decorate( input );
+		input.validate = ( thorough ) => {
+			const status = new uw.ValidationStatus();
+			let promise = $.Deferred().resolve().promise();
+
+			if ( thorough !== true ) {
+				return status.resolve();
+			}
+
+			const wikitext = input.getValue().trim();
+			if ( wikitext === '' ) {
+				status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing' ) );
+			} else if ( wikitext.length < mw.UploadWizard.config.minCustomLicenseLength ) {
+				status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-too-short' ) );
+			} else if ( wikitext.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
+				status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-too-long' ) );
+			} else if ( !/\{\{(.+?)\}\}/g.test( wikitext ) ) {
+				// if text doesn't contain a template, we don't even
+				// need to validate it any further...
+				status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
+			} else if ( mw.UploadWizard.config.customLicenseTemplate !== false ) {
+				// now do a thorough test to see if the text actually
+				// includes a license template
+				promise = this.getUsedTemplates( wikitext ).then( ( status, usedTemplates ) => {
+					if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
+						// no license template found, add another error
+						status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
+					}
+				} );
+			}
+
+			return promise.then( () => status.getErrors().length === 0 ? status.resolve() : status.reject() );
+		};
+
+		const inputField = new uw.FieldLayout( input, {
+			classes: [ 'mwe-upwiz-license-custom', 'mwe-upwiz-label-input' ]
+		} );
+		inputField.$body.append( button.$element );
+		input.connect( inputField, { change: [ 'emit', 'change' ] } );
+
+		this.customInputs[ name ] = input;
+		this.customInputFields[ name ] = inputField;
+
+		return inputField;
 	};
 
 	/**

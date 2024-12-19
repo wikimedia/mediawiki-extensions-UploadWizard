@@ -290,8 +290,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Used as error message. Parameters:\n* $1 - minimum number of characters",
 	"mwe-upwiz-error-caption-blank": "Error message when the user hasn't entered any caption.",
 	"mwe-upwiz-error-description-blank": "Error message when the user hasn't entered any description.",
-	"mwe-upwiz-error-bad-captions": "Used as error message when something is wrong with one (or more) of the captions.",
-	"mwe-upwiz-error-bad-descriptions": "Used as error message when something is wrong with one (or more) of the descriptions.",
 	"mwe-upwiz-error-title-blacklisted": "Error message shown to the user when they have entered a file name that matches the 'blacklist' of banned words.",
 	"mwe-upwiz-error-title-senselessimagename": "Error message shown to the user when they have entered a file name that looks like an automatic name rather than a useful one.",
 	"mwe-upwiz-error-title-thumbnail": "Appears when thumbnail title is similar to \"22px-Example.jpg\" - the prefix is what MW adds when downloading pictures as thumbnails.",

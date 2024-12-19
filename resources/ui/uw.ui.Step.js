@@ -134,7 +134,8 @@
 	// eslint-disable-next-line no-unused-vars
 	uw.ui.Step.prototype.showStatus = function ( status ) {
 		const show = ( kind ) => {
-			const $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ),
+			// eslint-disable-next-line no-jquery/no-sizzle
+			const $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ).filter( ':visible' ),
 				count = $elements.length;
 
 			if ( count === 0 ) {

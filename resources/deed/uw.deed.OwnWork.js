@@ -338,23 +338,19 @@
 		uw.ValidatableElement.decorate( this.originRadio );
 		this.originRadio.validate = ( thorough ) => {
 			const status = new uw.ValidationStatus();
-			if ( thorough !== true ) {
-				// `thorough` is the strict checks executed on submit, but we don't want errors
-				// to change/display every change event
-				return status.resolve();
-			}
-			if ( this.originRadio.findSelectedItem() === null ) {
+			if ( thorough === true && this.originRadio.findSelectedItem() === null ) {
 				return status
 					.addError( mw.message( 'mwe-upwiz-deeds-require-selection' ) )
 					.reject();
 			}
-			if (
-				this.originRadio.findSelectedItem().getData() === 'others' &&
-				this.originOthersRadio.findSelectedItem() === null
-			) {
-				return status
-					.addError( mw.message( 'mwe-upwiz-deeds-require-selection' ) )
-					.reject();
+			if ( this.originRadio.findSelectedItem().getData() === 'others' ) {
+				// this method should reflect success/failures within the child widget,
+				// but not relay that one's errors; i.e. resolve/reject accordingly,
+				// but without errors, since those will already be shown within the child
+				return this.originOthersRadioField.validate( thorough ).then(
+					() => status.resolve(),
+					() => status.reject()
+				);
 			}
 			return status.resolve();
 		};

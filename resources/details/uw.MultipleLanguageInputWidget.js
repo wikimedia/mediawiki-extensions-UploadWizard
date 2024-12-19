@@ -11,7 +11,6 @@
 	 * @param {mw.Message} [config.label] Text for label
 	 * @param {mw.Message} [config.placeholder] Placeholder text for input field
 	 * @param {mw.Message} [config.remove] Title text for remove icon
-	 * @param {mw.Message} [config.error] Error message
 	 * @param {mw.Message} [config.errorBlank] Error message for blank input
 	 * @param {number} [config.minLength=0] Minimum input length
 	 * @param {number} [config.maxLength=99999] Maximum input length
@@ -217,18 +216,10 @@
 		return uw.ValidationStatus.mergePromises( ...inputPromises ).then(
 			// input (if any) in single language fields is fine
 			() => status.getErrors().length === 0 ? status.resolve() : status.reject(),
-			// there was an error in one of the single language; we'll still want to reject,
-			// but those child messages need not be added into this status object, since
-			// they'll already be displayed within those child widgets
-			( mergedStatus ) => {
-				// Fold all errors into a single one (they are displayed in the UI for each item, but we still
-				// want to return a generic error here to prevent form submission).
-				if ( this.config.error && mergedStatus.getErrors().length > 0 ) {
-					// One of the items has errors
-					status.addError( this.config.error );
-				}
-				return status.reject();
-			}
+			// there was an error in one of the single language inputs; we'll still want
+			// to reject, but those child messages need not be added into this status
+			// object, since they'll already be displayed within those child widgets
+			() => status.reject()
 		);
 	};
 
