@@ -282,8 +282,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Bu başlık çok kısa.\nLütfen bu başlığın en az $1 {{PLURAL:$1|karakter}} olduğundan emin olun.",
 	"mwe-upwiz-error-caption-blank": "Altyazı gerekli",
 	"mwe-upwiz-error-description-blank": "Açıklama gerekli",
-	"mwe-upwiz-error-bad-captions": "Bazı alt yazılarla ilgili sorunlar var.",
-	"mwe-upwiz-error-bad-descriptions": "Bazı tanımlarla ilgili sorunlar var.",
 	"mwe-upwiz-error-title-blacklisted": "Bu başlık bazı istenmeyen metinler içeriyor. Lütfen gözden geçirin.",
 	"mwe-upwiz-error-title-senselessimagename": "Lütfen bu başlık daha anlamlı olsun.",
 	"mwe-upwiz-error-title-thumbnail": "Bu küçük resim başlığına benziyor. Lütfen küçük resimleri aynı vikiye geri yüklemeyin. Aksi takdirde, lütfen dosya adını düzeltin, böylece daha anlamlı olur ve küçük resim önekine sahip olmaz.",

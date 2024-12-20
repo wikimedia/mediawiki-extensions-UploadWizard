@@ -255,8 +255,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Ta naslov je prekratek. Dolg naj bo vsaj $1 {{PLURAL:$1|znak|znaka|znake|znakov}}.",
 	"mwe-upwiz-error-caption-blank": "Potreben je napis",
 	"mwe-upwiz-error-description-blank": "Potreben je opis",
-	"mwe-upwiz-error-bad-captions": "Obstaja nekaj težav s napisi.",
-	"mwe-upwiz-error-bad-descriptions": "Obstaja nekaj težav z opisi.",
 	"mwe-upwiz-error-title-blacklisted": "Naslov vsebuje nekaj neželenega besedila. Prosimo, popravite ga.",
 	"mwe-upwiz-error-title-senselessimagename": "Naj bo ta naslov bolj poveden.",
 	"mwe-upwiz-error-title-thumbnail": "To izgleda kot naslov predogledne sličice. Prosimo, ne nalagajte sličic nazaj na isti wiki. V nasprotnem primeru popravite ime datoteke, da bo bolj smiselno in da ne bo imelo predpone predoglednih sličic.",

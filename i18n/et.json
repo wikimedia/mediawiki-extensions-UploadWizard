@@ -246,8 +246,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "See pealkiri on liiga lühike.\nPalun lisa vähemalt $1 {{PLURAL:$1|märgi}} pikkune pealkiri.",
 	"mwe-upwiz-error-caption-blank": "Pealdis on nõutav.",
 	"mwe-upwiz-error-description-blank": "Kirjeldus on nõutav.",
-	"mwe-upwiz-error-bad-captions": "Mõned pealdised on probleemsed.",
-	"mwe-upwiz-error-bad-descriptions": "Mõni kirjeldus on probleemne.",
 	"mwe-upwiz-error-title-blacklisted": "See pealkiri sisaldab soovimatut teksti. Palun kohenda seda.",
 	"mwe-upwiz-error-title-senselessimagename": "Palun vali midagiütlevam pealkiri.",
 	"mwe-upwiz-error-title-thumbnail": "Paistab, et see on pisipildi pealkiri. Palun ära pisipilte samasse vikisse tagasi üles laadi. Või siis muuda failinimi mõistetavamaks ja ära lisa sellele pisipildi eesliidet.",

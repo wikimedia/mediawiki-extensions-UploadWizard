@@ -313,8 +313,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "此标题太短。请调整成至少$1个{{PLURAL:$1|字符}}。",
 	"mwe-upwiz-error-caption-blank": "必须提供说明文字",
 	"mwe-upwiz-error-description-blank": "必须提供描述",
-	"mwe-upwiz-error-bad-captions": "说明文字存在一点问题。",
-	"mwe-upwiz-error-bad-descriptions": "描述存在一点问题。",
 	"mwe-upwiz-error-title-blacklisted": "该标题含有一些不良文字。请修改。",
 	"mwe-upwiz-error-title-senselessimagename": "请使该标题更有意义。",
 	"mwe-upwiz-error-title-thumbnail": "这似乎是缩略图标题。请不要将缩略图上传回相同的维基。否则，请修改文件名，使其更有意义并且没有缩略图前缀。",

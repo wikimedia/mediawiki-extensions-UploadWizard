@@ -278,8 +278,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "هذا هو العنوان قصير ويُرجى التأكد من أن هذا العنوان لا يقل عن $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-caption-blank": "التسمية التوضيحية مطلوبة",
 	"mwe-upwiz-error-description-blank": "الوصف مطلوب",
-	"mwe-upwiz-error-bad-captions": "هُناك مُشكلاتٌ في بعض الشُّروح.",
-	"mwe-upwiz-error-bad-descriptions": "هناك مٌشكلاتٌ في بعض الأَوصاف.",
 	"mwe-upwiz-error-title-blacklisted": "يحتوِي هذا العنوان نصوصٍ غير مُستحبَّة. الرَّجاء إِعادة صياغته.",
 	"mwe-upwiz-error-title-senselessimagename": "الرَّجاء جعلُ هذا العنوان أَكثر وضُوحاً.",
 	"mwe-upwiz-error-title-thumbnail": "يبدو أن هذاالعنوان هو لصورةٍ مُصغَّرةٍ. الرَّجاء عدم تحميل الصُّور المُصغرَّة مرةً أُخرى إِلى نفس الويكي. بخلاف ذلك، أَصلِح اسم الملف ليكون أَكثر وضوحاً من خلال إِزالة بادئة الصورة المُصغَّرة.",

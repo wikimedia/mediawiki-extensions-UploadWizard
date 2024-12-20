@@ -248,8 +248,6 @@
 	"mwe-upwiz-error-too-short": "Esta entrada é muito curta.\nPor favor, certifique-se de que ela tem pelo menos $1 {{PLURAL:$1|caráter|caracteres}}.",
 	"mwe-upwiz-error-title-too-long": "Este título é muito longo.\nPor favor, certifique-se que este título é no máximo $1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-title-too-short": "Este título é muito curto.\nPor favor, certifique-se que este título seja pelo menos $1 {{PLURAL:$1|byte|bytes}}.",
-	"mwe-upwiz-error-bad-captions": "Algumas das legendas têm problemas.",
-	"mwe-upwiz-error-bad-descriptions": "Existem problemas com algumas das descrições.",
 	"mwe-upwiz-error-title-blacklisted": "Este título contém algum texto indesejável. Reveja-o, por favor.",
 	"mwe-upwiz-error-title-senselessimagename": "Altere este título para ser seja mais significativo, por favor.",
 	"mwe-upwiz-error-title-thumbnail": "Este título parece ser o de uma miniatura. Não coloque miniaturas na wiki donde as obteve, por favor. Se não a obteve desta wiki, altere o nome do arquivo para que este seja mais fácil de compreender e não tenha o prefixo de uma miniatura, por favor.",

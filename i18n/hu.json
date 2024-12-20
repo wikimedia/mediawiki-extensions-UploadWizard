@@ -191,7 +191,6 @@
 	"mwe-upwiz-error-blank": "A mező kitöltése kötelező.",
 	"mwe-upwiz-error-too-long": "Ez a bejegyzés túl hosszú.\nLegfeljebb $1 karaktert írj bele!",
 	"mwe-upwiz-error-too-short": "Ez a bejegyzés túl rövid.\nÍrj bele legalább $1 karaktert!",
-	"mwe-upwiz-error-bad-descriptions": "Problémák vannak néhány leírással.",
 	"mwe-upwiz-error-title-blacklisted": "A cím nemkívánatos szöveget tartalmaz. Nézd át, és távolítsd el belőle.",
 	"mwe-upwiz-error-title-senselessimagename": "Adj egy érthetőbb címet a médiafájlnak!",
 	"mwe-upwiz-error-title-thumbnail": "A kép címe egy bélyegkép címének tűnik. Kérjük, hogy ne tölts vissza bélyegképeket ugyanarra a wikire. Egyéb esetben javítsd a fájl nevét valami érthetőbbre, ami nem tartalmazza a bélyegkép előtagját.",

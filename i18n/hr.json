@@ -243,8 +243,6 @@
 	"mwe-upwiz-error-title-too-short": "Ovaj naslov je prekratak.\nVodite računa da sadrži najmanje $1 {{PLURAL:$1|znak|znaka|znakova}}.",
 	"mwe-upwiz-error-caption-blank": "Naslov je obvezan",
 	"mwe-upwiz-error-description-blank": "Opis je obvezan",
-	"mwe-upwiz-error-bad-captions": "Postoje problemi s nekim od naslova.",
-	"mwe-upwiz-error-bad-descriptions": "Postoje problemi s nekim od opisa.",
 	"mwe-upwiz-error-title-blacklisted": "Ovaj naslov sadrži neželjeni tekst. Molimo popravite ga.",
 	"mwe-upwiz-error-title-senselessimagename": "Molimo da naslov bude smisleniji.",
 	"mwe-upwiz-error-title-extension": "Ne morate dodavati datotečni nastavak. Učinite naslov razumljivijim a aplikacija će uraditi ostalo.",

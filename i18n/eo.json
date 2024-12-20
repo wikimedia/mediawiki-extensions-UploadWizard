@@ -226,8 +226,6 @@
 	"mwe-upwiz-error-too-short": "Tiu ĉi ero estas tro mallonga. \nBonvolu certigi, ke ĝi estas almenaŭ $1 {{PLURAL:$1|signo|signoj}} longa.",
 	"mwe-upwiz-error-title-too-long": "Ĉi tiu titolo estas tro longa.\nKoncizigu ĝin ĝis maksimume $1 {{PLURAL:$1|bajto|bajtoj}}.",
 	"mwe-upwiz-error-title-too-short": "Ĉi tiu titolo estas tro mallonga.\nAmpleksigu ĝin ĝis almenaŭ $1 {{PLURAL:$1|bajto|bajtoj}}.",
-	"mwe-upwiz-error-bad-captions": "Ekzistas problemoj kun kelkaj de la bildotekstoj.",
-	"mwe-upwiz-error-bad-descriptions": "Ekzistas problemoj kun kelkaj el la bildotekstoj.",
 	"mwe-upwiz-error-title-blacklisted": "Tiu ĉi titolo enhavas iom da nedezirata teksto. Bonvolu revizii ĝin.",
 	"mwe-upwiz-error-title-senselessimagename": "Bonvolu igi tiun-ĉi titolon esti pli senca kaj klara.",
 	"mwe-upwiz-error-title-thumbnail": "Ĉi tiu aspektas kiel titolo de etigita versio de plena bildo. Bonvolu ne alŝuti etigitajn versiojn de bildoj en la sama vikio. Alimaniere, bonvolu modifi la dosiernomon pli signife, kaj ne plu havas la eta-versian prefikson.",

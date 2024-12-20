@@ -283,8 +283,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Ten tytuł jest zbyt krótki.\nUpewnij się, że tytuł ma co najmniej $1 {{PLURAL:$1|znak|znaki|znaków}}.",
 	"mwe-upwiz-error-caption-blank": "Podpis jest wymagany",
 	"mwe-upwiz-error-description-blank": "Opis jest wymagany",
-	"mwe-upwiz-error-bad-captions": "Występują problemy z niektórymi podpisami.",
-	"mwe-upwiz-error-bad-descriptions": "Występują problemy z niektórymi opisami.",
 	"mwe-upwiz-error-title-blacklisted": "Ten tytuł zawiera niepożądane treści. Należy go poprawić.",
 	"mwe-upwiz-error-title-senselessimagename": "Należy poprawić tytuł, tak aby był bardziej sensowny.",
 	"mwe-upwiz-error-title-thumbnail": "Nazwa pliku wskazuje na to, że próbujesz przesyłać miniaturkę obrazka. Prosimy nie przesyłać miniaturek w ramach tej samej wiki. Jeśli jest to konieczne, to zmień proszę nazwę na bardziej opisową (w szczególności taką, w której nie ma prefiksu typowego dla miniaturek).",

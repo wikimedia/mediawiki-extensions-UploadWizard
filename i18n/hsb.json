@@ -191,8 +191,6 @@
 	"mwe-upwiz-error-too-short": "Tutón zapisk je překrótki.\nProšu zawěsć, zo změje znajmjeńša $1 {{PLURAL:$1|znamješko|znamješce|znamješka|znamješkow}}.",
 	"mwe-upwiz-error-title-too-long": "Tutón titul je předołhi.\nProšu zawěsć, zo změje maksimalnje $1 {{PLURAL:$1|znamješko|znamješce|znamješka|znamješkow}}.",
 	"mwe-upwiz-error-title-too-short": "Tutón titul je překrótki.\nProšu zawěsć, zo změje znajmjeńša $1 {{PLURAL:$1|znamješko|znamješce|znamješka|znamješkow}}.",
-	"mwe-upwiz-error-bad-captions": "Su problemy z někotrymi wopisami.",
-	"mwe-upwiz-error-bad-descriptions": "Su problemy z někotrymi wopisami.",
 	"mwe-upwiz-error-title-blacklisted": "Tutón titul wobsahuje njewitany tekst. Prošu změń jón.",
 	"mwe-upwiz-error-title-senselessimagename": "Prošu podaj wuprajiwše mjeno.",
 	"mwe-upwiz-error-title-thumbnail": "To wupada kaž titul miniatury. Prošu njenahrawaj miniaturne wobrazy na samsnym wikiju. Hewak zapodaj prošu bóle wuprajacy titul, kotryž nima prefiks miniatury.",

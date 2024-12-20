@@ -264,8 +264,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Tiêu đề này quá ngắn.\nXin hãy chắc chắn rằng mục này kéo dài {{PLURAL:$1|$1}} ký tự trở lên.",
 	"mwe-upwiz-error-caption-blank": "Cần có chú thích",
 	"mwe-upwiz-error-description-blank": "Cần có mô tả",
-	"mwe-upwiz-error-bad-captions": "Có vấn đề trong một số chú thích.",
-	"mwe-upwiz-error-bad-descriptions": "Có vấn đề trong lời miêu tả.",
 	"mwe-upwiz-error-title-blacklisted": "Tên này chứa những văn bản không hợp lý. Xin vui lòng sửa lại nó.",
 	"mwe-upwiz-error-title-senselessimagename": "Xin vui lòng đặt tên miêu tả rõ ràng hơn.",
 	"mwe-upwiz-error-title-thumbnail": "Hình như đây là tên của một hình thu nhỏ được tự động tạo ra. Xin đừng tải lên những hình nhỏ lại vào wiki ban đầu. Nếu không phải, xin vui lòng sửa tên tập tin để rõ ràng hơn và dời tiền tố cỡ hình khỏi tên.",

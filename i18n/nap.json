@@ -149,7 +149,6 @@
 	"mwe-upwiz-error-blank": "Stu valore ce vuò.",
 	"mwe-upwiz-error-too-long": "St'elemento è troppo luongo.\nPe' piacere facite sicuro ca st'elemento è a 'o cchiù luongo ... massimo $1 {{PLURAL:$1|carattere}}.",
 	"mwe-upwiz-error-too-short": "St'elemento è troppo curto.\nPe' piacere facite sicuro ca st'elemento è a 'o cchiù curto ... minimo $1 {{PLURAL:$1|carattere}}.",
-	"mwe-upwiz-error-bad-descriptions": "Nce stanno prubbleme ch' 'e descrizziune.",
 	"mwe-upwiz-error-title-blacklisted": "Stu titolo cuntene parole nun opportune. Riveditevello.",
 	"mwe-upwiz-error-title-senselessimagename": "Pe' piacere facite 'o cunto ca 'o titolo avess'a essere cchiù significativo.",
 	"mwe-upwiz-error-title-thumbnail": "Chesto pare nu titolo 'e miniatura. Pe' piacere nun carrecate miniature 'a stessa wiki. 'E n'atu modo, cagnate pe' piacere 'o nomme d' 'o file, facenno chesto cchiù significativo e senza prefisso 'e miniatura.",

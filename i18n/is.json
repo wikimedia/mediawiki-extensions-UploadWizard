@@ -184,8 +184,6 @@
 	"mwe-upwiz-error-blank": "Fylla þarf út þennan reit.",
 	"mwe-upwiz-error-too-long": "Þessi færsla er of löng.\nVinsamlegast sjáðu til þess að færslan sé styttri en $1 {{PLURAL:$1|stafur|stafir}}.",
 	"mwe-upwiz-error-too-short": "Þessi færsla er of stutt.\nVinsamlegast sjáðu til þess að færslan sé lengri en $1 {{PLURAL:$1|stafur|stafir}}.",
-	"mwe-upwiz-error-bad-captions": "Það eru vandamál með suma skýringatextana.",
-	"mwe-upwiz-error-bad-descriptions": "Það eru vandamál með sumar lýsinganna.",
 	"mwe-upwiz-error-title-blacklisted": "Þessi titill inniheldur óæskilegan texta. Vinsamlegast endurorðaðu hann.",
 	"mwe-upwiz-error-title-senselessimagename": "Vinsamlegast gerðu titilinn merkingarmeiri.",
 	"mwe-upwiz-error-title-thumbnail": "Titillinn bendir til þess að myndin sé smámynd. Vinsamlegast ekki hlaða inn smámyndum aftur á sama wiki og þær komu frá. Annars, ef það er ekki tilfellið, lagaðu skráarnafnið svo það hafi merkingu og hafi ekki forskeyti smámynda.",

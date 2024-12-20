@@ -243,8 +243,6 @@
 	"mwe-upwiz-error-title-too-long": "Denne tittelen er for lang.\nSjekk at tittelen er maksimalt $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-title-too-short": "Denne tittelen er for kort.\nSjekk at tittelen er minst $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-description-blank": "Beskrivelse er påkrevd",
-	"mwe-upwiz-error-bad-captions": "Det er problemer med noen av bildetekstene.",
-	"mwe-upwiz-error-bad-descriptions": "Det er problemer med noen av beskrivelsene.",
 	"mwe-upwiz-error-title-blacklisted": "Denne tittelen inneholder uønsket tekst. Vennligst endre på dette.",
 	"mwe-upwiz-error-title-senselessimagename": "Velg et mer meningsfullt navn.",
 	"mwe-upwiz-error-title-thumbnail": "Dette ser ut som en miniatyrbildetittel. Ikke last opp miniatyrbilder på samme wiki. Om dette ikke stemmer, fiks filnavnet så det er mer betydningsfullt, og ikke har miniatyrbildeprefikset.",

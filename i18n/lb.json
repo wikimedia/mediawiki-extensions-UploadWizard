@@ -181,8 +181,6 @@
 	"mwe-upwiz-error-question-blank": "Eng Äntwert op dës Fro ass obligatoresch.",
 	"mwe-upwiz-error-too-long": "Dës Entrée ass ze laang.\nMaacht et esou datt dës Entrée héchstens $1 {{PLURAL:$1|Zeechen}} huet.",
 	"mwe-upwiz-error-too-short": "Dës Entrée ass ze kuerz.\nMaacht et esou datt dës Entrée mindestens $1 {{PLURAL:$1|Zeechen}} huet.",
-	"mwe-upwiz-error-bad-captions": "Et gëtt Problemer mat e puer vun de Beschrëftungen.",
-	"mwe-upwiz-error-bad-descriptions": "Et gëtt Problemer mat e puer Beschreiwungen.",
 	"mwe-upwiz-error-title-blacklisted": "An dësem Titel ass Text, den net erwënscht ass. Ännert e wgl.",
 	"mwe-upwiz-error-title-senselessimagename": "Gitt wgl. en Titel dee méi ausseet.",
 	"mwe-upwiz-error-title-thumbnail": "Dësen Numm gesäit aus wéi den Numm vun engem Miniaturbild. Luet wgl. keng Miniatur-Biller zréck op déi selwecht Wiki. Sollt et sech ëm een anert Bild handelen da sicht wgl. e Fichiersnumm dee méi verständlech ass an den net sou ufänkt wéi e Miniaturbild.",

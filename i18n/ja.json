@@ -267,7 +267,6 @@
 	"mwe-upwiz-error-title-too-short": "このタイトルは短すぎます。タイトルは$1 {{PLURAL:$1|バイト}}以上にしてください。",
 	"mwe-upwiz-error-caption-blank": "キャプションは必須です",
 	"mwe-upwiz-error-description-blank": "説明は必須です",
-	"mwe-upwiz-error-bad-descriptions": "説明にいくつかの問題があります。",
 	"mwe-upwiz-error-title-blacklisted": "このタイトルには望ましくないテキストが含まれます。修正してください。",
 	"mwe-upwiz-error-title-senselessimagename": "このタイトルをもっと意味があるものにしてください。",
 	"mwe-upwiz-error-title-thumbnail": "これはサムネイルのタイトルのように見えます。同じウィキにサムネイルをアップロードしないでください。そうでなければ、ファイル名をもっと意味のあるもの、かつ、サムネイルの接頭辞を持っていないものに修正してください。",

@@ -171,7 +171,6 @@
 	"mwe-upwiz-error-blank": "Šis laukas būtinas.",
 	"mwe-upwiz-error-too-long": "Šis įrašas yra per ilgas.\nPrašome įsitikinti ar jį sudaro mažiau nei $1 {{PLURAL:$1|simbolis|simboliai|simbolių}}.",
 	"mwe-upwiz-error-too-short": "Šis įrašas yra per trumpas.\nPrašome įsitikinti ar jį sudaro daugiau nei $1 {{PLURAL:$1|simbolis|simboliai|simbolių}}.",
-	"mwe-upwiz-error-bad-descriptions": "Yra problemų su kai kuriais aprašymais.",
 	"mwe-upwiz-error-title-blacklisted": "Šiame pavadinime yra nepageidaujamo teksto. Prašome jį peržiūrėti.",
 	"mwe-upwiz-error-title-senselessimagename": "Prašome šį pavadinimą padaryti prasmingesnį.",
 	"mwe-upwiz-error-title-thumbnail": "Tai panašu į miniatiūros pavadinimą. Prašome neįkelinėti miniatiūrų į tą patį vikį. Kitu atveju, prašome nurodyti prasmingesnį failo vardą, ir kuris neturi miniatiūros prefikso.",

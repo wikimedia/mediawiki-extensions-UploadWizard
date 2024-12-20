@@ -263,8 +263,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Bu başlıq çox qısadır.\nZəhmət olmasa bu başlığın ən azı $1 {{PLURAL:$1|simvol}}dan ibarət olduğuna əmin olun.",
 	"mwe-upwiz-error-caption-blank": "İzah tələb olunur",
 	"mwe-upwiz-error-description-blank": "Açıqlama tələb olunur",
-	"mwe-upwiz-error-bad-captions": "Bəzi izahlarda problemlər var.",
-	"mwe-upwiz-error-bad-descriptions": "Bəzi açıqlamalarda problemlər var.",
 	"mwe-upwiz-error-title-blacklisted": "Bu başlıqda bəzi arzuolunmaz mətnlər var. Zəhmət olmasa, yenidən nəzərdən keçirin.",
 	"mwe-upwiz-error-title-senselessimagename": "Bu başlığı daha mənalı edin.",
 	"mwe-upwiz-error-title-thumbnail": "Bu, miniatür başlığına bənzəyir. Lütfən, eyni vikiyə miniatürləri yenidən yükləməyin. Əks halda, zəhmət olmasa fayl adını düzəldin ki, o, daha mənalı olsun və miniatür prefiksi olmasın.",

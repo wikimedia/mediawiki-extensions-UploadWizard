@@ -125,7 +125,6 @@
 	"mwe-upwiz-error-blank": "Kailangan ang hanay na ito.",
 	"mwe-upwiz-error-too-long": "Napakahaba ng hanay na ito.\nGawin itong mas maiksi kaysa $1 {{PLURAL:$1|panitik|mga panitik}}.",
 	"mwe-upwiz-error-too-short": "Napaiksi ng hanay na ito.\nGawin itong mas mahaba kaysa {{PLURAL:$1|panitik|mga panitik}}.",
-	"mwe-upwiz-error-bad-descriptions": "Mayroong mga problema sa ilan sa mga deskripsyon.",
 	"mwe-upwiz-error-title-blacklisted": "Ang pamagat na ito ay naglalaman ng ilang hindi kanais-nais na teksto. Mangyaring baguhin ito.",
 	"mwe-upwiz-error-title-senselessimagename": "Mangyaring gawing mas makahulugan ang pamagat na ito.",
 	"mwe-upwiz-error-title-thumbnail": "Mukhang isa itong pamagat ng kagyat. Mangyaring huwag magkargang papaitaas ng mga kagyat pabalik sa kaparehong wiki.  Kung hindi, mangyaring kumpunihin ang pangalan ng talaksan upang maging mas makahulugan ito, at walang unlapi ng kagyat.",

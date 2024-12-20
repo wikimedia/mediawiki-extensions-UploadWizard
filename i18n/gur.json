@@ -219,8 +219,6 @@
 	"mwe-upwiz-error-too-short": "Yeledina wa ba'am ana la girega. N beleni fu mɛ bisɛ suŋa suŋa suŋa ti yele wa de la $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-title-too-long": "Tile kuna wa ba'am wɔgɛ mɛ. N beleni fu mɛ bisɛ suŋa suŋa ti tile wa de la $1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-title-too-short": "N beleni fu mɛ tile dina wa ba'am ana la girega. N beleni fu mɛ bisɛ suŋa suŋa ti tile wa de la $1 {{PLURAL:$1|byte|bytes}}.",
-	"mwe-upwiz-error-bad-captions": "Daaŋɔ boi la yɛla basɛba n boi gɔŋɔ la puan.",
-	"mwe-upwiz-error-bad-descriptions": "Daaŋɔ boi la yɛla basɛba n boi pa'alegɔ la puan.",
 	"mwe-upwiz-error-title-blacklisted": "Tile dina wa tari la gulesegɔ n ka tari vuurɛ. N beleni fu mɛ tee ka.",
 	"mwe-upwiz-error-title-senselessimagename": "N beleni fu mɛ basɛ ti tile wa vuurɛ pa'asɛ.",
 	"mwe-upwiz-error-title-thumbnail": "Dina ŋwɔni mɛ la \"thumbnail\" tile la. N beleni fu mɛ DA \"upload\" \"thumbnail\" pooren n boi wiki nuu puan.Sankana, n beleni fu mɛ maalɛ yu'urɛ n tari putĩ’ir la bala la vuurɛ n ba’am ana suŋa suŋa gee ka tari \"thumbnail\" duma gɔŋɔ la.",

@@ -162,8 +162,6 @@
 	"mwe-upwiz-error-blank": "Acest câmp este obligatoriu.",
 	"mwe-upwiz-error-too-long": "Această înregistrare este prea lungă.\nTrebuie să fie mai scurtă de $1 {{PLURAL:$1|caracter|caractere|de caractere}}.",
 	"mwe-upwiz-error-too-short": "Această intrare este prea scurtă.\nTrebuie să fie mai lungă de $1 {{PLURAL:$1|caracter|caractere|de caractere}}.",
-	"mwe-upwiz-error-bad-captions": "Există probleme cu unele dintre legende.",
-	"mwe-upwiz-error-bad-descriptions": "Există probleme cu unele dintre descrieri.",
 	"mwe-upwiz-error-title-blacklisted": "Acest titlu conține text nedorit. Vă rugăm să îl revizuiți.",
 	"mwe-upwiz-error-title-senselessimagename": "Vă rugăm să alegeți un alt titlu, mai descriptiv.",
 	"mwe-upwiz-error-title-thumbnail": "Acesta arată ca un titlu pentru o miniatură. Vă rugăm să nu încărcați miniaturi înapoi pe același wiki. În caz contrar, vă rugăm să corectați numele fișierului pentru ca acesta să fie mai semnificativ și să nu aibă prefixul de miniatură.",

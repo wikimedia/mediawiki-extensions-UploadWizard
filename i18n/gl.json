@@ -264,8 +264,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "O título é curto de máis.\nAsegúrate de que o título ten, como mínimo, $1 {{PLURAL:$1|carácter|caracteres}}.",
 	"mwe-upwiz-error-caption-blank": "O pé de foto é obrigatorio",
 	"mwe-upwiz-error-description-blank": "A descrición é obrigatoria",
-	"mwe-upwiz-error-bad-captions": "Hai problemas con algúns pés de foto.",
-	"mwe-upwiz-error-bad-descriptions": "Hai problemas con algunhas das descricións.",
 	"mwe-upwiz-error-title-blacklisted": "Este título contén texto que non está permitido. Por favor, revísao.",
 	"mwe-upwiz-error-title-senselessimagename": "Modifica o título para facelo máis significativo.",
 	"mwe-upwiz-error-title-thumbnail": "Semella que este título é dunha miniatura. Non subas miniaturas no wiki do que as sacaches. Se non é así, corrixe o nome do ficheiro para que sexa máis significativo e non teña o prefixo das miniaturas.",

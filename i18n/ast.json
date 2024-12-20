@@ -189,8 +189,6 @@
 	"mwe-upwiz-error-blank": "Esti campu ye obligatoriu.",
 	"mwe-upwiz-error-too-long": "Esta entrada ye demasiao llarga.\nAsegúrate de que la entrada tien, como muncho, $1 {{PLURAL:$1|caráuter|caráuteres}}.",
 	"mwe-upwiz-error-too-short": "Esta entrada ye demasiao curtia.\nAsegúrate de que tien polo menos $1 {{PLURAL:$1|caráuter|caráuteres}}.",
-	"mwe-upwiz-error-bad-captions": "Hai problemes con dalguna de les lleendes.",
-	"mwe-upwiz-error-bad-descriptions": "Hai problemes con delles descripciones.",
 	"mwe-upwiz-error-title-blacklisted": "Esti títulu contién testu que nun ta permitíu. Por favor revísalu.",
 	"mwe-upwiz-error-title-senselessimagename": "Por favor, da un títulu con más significáu.",
 	"mwe-upwiz-error-title-thumbnail": "Esti paez el títulu d'una miniatura. Por favor, nun xubas miniatures a la mesma wiki de la que les sacasti. D'otra manera, camuda'l nome del ficheru pa facelu más significativu, y quita-y el prefixu de les miniatures.",

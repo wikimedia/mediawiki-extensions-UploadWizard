@@ -145,8 +145,6 @@
 	"mwe-upwiz-error-blank": "Ovo polje je obvezno.",
 	"mwe-upwiz-error-too-long": "Zapisav je predug.\nSkratite ga na ne više od {{PLURAL:$1|jednog znaka|$1 znaka|$1 znakova}}.",
 	"mwe-upwiz-error-too-short": "Zapisav je prekratak.\nDopunite ga da ima barem {{PLURAL:$1|jednog znaka|$1 znaka|$1 znakova}}.",
-	"mwe-upwiz-error-bad-captions": "Dogodili su problemi sa nekima od opisa.",
-	"mwe-upwiz-error-bad-descriptions": "Dogodili su problemi sa nekima od opisa.",
 	"mwe-upwiz-error-title-blacklisted": "Ovaj naslov sadrži nepoželjan tekst. Izmenite ga.",
 	"mwe-upwiz-error-title-senselessimagename": "Npravite naslov opisnijim.",
 	"mwe-upwiz-error-title-thumbnail": "Izgleda da je ovo naslov minijature. Ne otpremajte minijature slika na isti viki. Ukoliko ovo nije tak, ispravite ime datoteke tako da bude opisnije i da nema prefiks minijature.",

@@ -270,8 +270,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Otsikko on liian lyhyt. Varmista, että tämä otsikko on vähintään $1 {{PLURAL:$1|merkki|merkkiä}} pitkä.",
 	"mwe-upwiz-error-caption-blank": "Kuvateksti on pakollinen",
 	"mwe-upwiz-error-description-blank": "Kuvaus on pakollinen",
-	"mwe-upwiz-error-bad-captions": "Osa kuvateksteistä sisältää virheitä.",
-	"mwe-upwiz-error-bad-descriptions": "Jotkut tiedostokuvaukset eivät kelpaa.",
 	"mwe-upwiz-error-title-blacklisted": "Tämä nimi sisältää ei-toivottua tekstiä. Ole hyvä ja tarkista se.",
 	"mwe-upwiz-error-title-senselessimagename": "Vaihda tämä nimi merkityksellisemmäksi.",
 	"mwe-upwiz-error-title-thumbnail": "Tiedoston nimi näyttää kuuluvan esikatselukuvalle. Älä tallenna esikatselukuvia takaisin samaan wikiin. Muussa tapauksessa korjaa tiedostonimi siten, että se on merkityksellisempi ja ettei sillä ole esikatselukuvan etuliitettä.",

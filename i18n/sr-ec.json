@@ -251,8 +251,6 @@
 	"mwe-upwiz-error-title-too-short": "Наслов је прекратак.\nНаслов мора имати бар $1 {{PLURAL:$1|бајт|бајтова}}.",
 	"mwe-upwiz-error-caption-blank": "Натпис је обавезан",
 	"mwe-upwiz-error-description-blank": "Опис је обавезан",
-	"mwe-upwiz-error-bad-captions": "Дошло је до проблема са неким од поднаслова.",
-	"mwe-upwiz-error-bad-descriptions": "Дошло је до проблема са неким од описа.",
 	"mwe-upwiz-error-title-blacklisted": "Овај наслов садржи непожељан текст. Измените га.",
 	"mwe-upwiz-error-title-senselessimagename": "Направите наслов који има више смисла.",
 	"mwe-upwiz-error-title-thumbnail": "Изгледа да је ово наслов минијатуре. Не отпремајте минијатуре слика на исти вики. Ако се не ради о томе, исправите назив датотеке тако да има више смисла и да нема префикс минијатуре.",

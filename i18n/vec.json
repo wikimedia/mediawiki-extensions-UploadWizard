@@ -141,7 +141,6 @@
 	"mwe-upwiz-error-blank": "Sto canpo xè obligatorio.",
 	"mwe-upwiz-error-too-long": "Sto elemento el xe masa longo.\nEl ga da esar longo al masimo $1 {{PLURAL:$1|caratere|carateri}}.",
 	"mwe-upwiz-error-too-short": "Sto elemento el xe masa curto.\nEl ga da esar longo almanco $1 {{PLURAL:$1|caratere|carateri}}.",
-	"mwe-upwiz-error-bad-captions": "Ghe xe problemi co dele descrisioni.",
 	"mwe-upwiz-error-title-blacklisted": "Sto titoło el contien parołe nó oportune. Canbiało.",
 	"mwe-upwiz-error-title-senselessimagename": "Rendi sto titoło pì significativo.",
 	"mwe-upwiz-error-title-thumbnail": "Sto cuà el pare esar el titoło de na miniadura. Nó cargar łe miniadure so ła stesa wiki. Opur, canbia el titoło in modo che'l sia pì significativo e nó 'l gapia el prefiso de ła miniadura.",

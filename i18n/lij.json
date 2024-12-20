@@ -188,8 +188,6 @@
 	"mwe-upwiz-error-too-short": "Questo elemento o l'è troppo curto.\nAsseguite ch'o segge aomanco $1 {{PLURAL:$1|carattere|caratteri}}.",
 	"mwe-upwiz-error-title-too-long": "Questo tittolo o l'è troppo longo.\nAsseguite ch'o no segge ciu de $1 {{PLURAL:$1|carattere|caratteri}}.",
 	"mwe-upwiz-error-title-too-short": "Questo tittolo o l'è troppo curto.\nAsseguite ch'o segge aomanco $1 {{PLURAL:$1|carattere|caratteri}}.",
-	"mwe-upwiz-error-bad-captions": "Gh'è di problemi con quarche didascalie.",
-	"mwe-upwiz-error-bad-descriptions": "Gh'è di problemi con quarche descrissioin.",
 	"mwe-upwiz-error-title-blacklisted": "Questo tittolo o conten de parolle inoportun-e. Pe piaxei modiffichilo.",
 	"mwe-upwiz-error-title-senselessimagename": "Pe piaxei rendi sto tittolo ciù scignificativo.",
 	"mwe-upwiz-error-title-thumbnail": "Sto chì o pâ 'n tittolo da miniatua. Pe piaxei no stanni a caregâ e miniatue in scia mæxima wiki. O dunque, corezi o nomme do file de moddo ch'o segge ciù scignificativo e o no g'agge o prefisso da miniatua.",

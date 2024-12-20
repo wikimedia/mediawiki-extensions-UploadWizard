@@ -271,8 +271,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "הכותרת הזאת קצרה מדי.\nנא לוודא שבכותרת הזאת יש {{PLURAL:$1|תו אחד|$1 תווים}} לכל הפחות.",
 	"mwe-upwiz-error-caption-blank": "הכיתוב נדרש",
 	"mwe-upwiz-error-description-blank": "התיאור נדרש",
-	"mwe-upwiz-error-bad-captions": "יש בעיות עם חלק מהכיתובים.",
-	"mwe-upwiz-error-bad-descriptions": "יש בעיות עם חלק מהתיאורים.",
 	"mwe-upwiz-error-title-blacklisted": "השם הזה מכיל מילים לא רצויות. נא לערוך אותו.",
 	"mwe-upwiz-error-title-senselessimagename": "נא לבחור כותרת משמעותית יותר.",
 	"mwe-upwiz-error-title-thumbnail": "זה נראה כמו שם של תמונה ממוזערת. נא לא להעלות תמונות ממוזערות חזרה לאותו אתר ויקי. כמו־כן, נא לתקן את השם כדי שיהיה משמעותי יותר, ולא יכיל את תחילית של תמונה ממוזערת.",

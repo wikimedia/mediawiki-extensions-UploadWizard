@@ -244,8 +244,6 @@
 	"mwe-upwiz-error-title-too-short": "Judul ini terlalu singkat.\nTolong pastikan judul ini panjangnya paling sedikit $1 {{PLURAL:$1|bita}}.",
 	"mwe-upwiz-error-caption-blank": "Takarir wajib diisi",
 	"mwe-upwiz-error-description-blank": "Deskripsi wajib diisi",
-	"mwe-upwiz-error-bad-captions": "Terdapat masalah dengan beberapa takarir.",
-	"mwe-upwiz-error-bad-descriptions": "Terdapat masalah dengan beberapa deskripsi.",
 	"mwe-upwiz-error-title-blacklisted": "Judul ini mengandung teks yang tidak diinginkan. Harap perbaiki",
 	"mwe-upwiz-error-title-senselessimagename": "Harap berikan judul yang lebih bermakna.",
 	"mwe-upwiz-error-title-thumbnail": "Tampaknya ini adalah judul gambar mini. Jangan mengunggah kembali gambar mini ke wiki sama. Jika tidak, tolong perbaiki nama berkas agar lebih bermakna dan tidak memiliki awalan seperti pada judul gambar mini.",

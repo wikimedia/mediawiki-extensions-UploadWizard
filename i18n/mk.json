@@ -261,8 +261,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Овој наслов е прекраток.\nДополнете го за да има барем {{PLURAL:$1|еден знак|$1 знаци}}.",
 	"mwe-upwiz-error-caption-blank": "Се бара толкување",
 	"mwe-upwiz-error-description-blank": "Се бара опис",
-	"mwe-upwiz-error-bad-captions": "Се јавија проблеми со некои од толкувањата.",
-	"mwe-upwiz-error-bad-descriptions": "Се јавија проблеми со некои од описите.",
 	"mwe-upwiz-error-title-blacklisted": "Овој наслов содржи непожелен текст. Изменете го.",
 	"mwe-upwiz-error-title-senselessimagename": "Нправете го насловот поописен.",
 	"mwe-upwiz-error-title-thumbnail": "Изгледа дека ова е наслов на минијатура. Не подигајте минијатури од слики на истово вики. Ако ова не е така, исправете го името на податотеката за да биде поописно и да нема претставка на минијатура.",

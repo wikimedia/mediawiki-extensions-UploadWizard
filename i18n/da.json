@@ -180,8 +180,6 @@
 	"mwe-upwiz-error-blank": "Dette felt skal udfyldes.",
 	"mwe-upwiz-error-too-long": "Denne værdi er for lang.\nDen må højst være på $1 {{PLURAL:$1|tegn}}.",
 	"mwe-upwiz-error-too-short": "Denne værdi er for kort.\nDen skal være på mindst $1 {{PLURAL:$1|tegn}}.",
-	"mwe-upwiz-error-bad-captions": "Der er problemer med nogle af billedteksterne.",
-	"mwe-upwiz-error-bad-descriptions": "Der er problemer med nogen af beskrivelserne.",
 	"mwe-upwiz-error-title-blacklisted": "Denne titel indeholder noget uønsket tekst. Revider den venligst",
 	"mwe-upwiz-error-title-senselessimagename": "Gør venligst denne titel mere meningsfuld.",
 	"mwe-upwiz-error-title-thumbnail": "Dette ser ud som navnet på en miniatureforhåndsvisning. Undlad venligst at lægge miniaturer tilbage op på den samme wiki. Ellers ret venligst filnavnet, sådan at det giver mere mening og ikke har samme præfiks som en miniature.",

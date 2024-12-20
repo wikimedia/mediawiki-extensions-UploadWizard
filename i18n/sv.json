@@ -269,8 +269,6 @@
 	"mwe-upwiz-error-title-too-short": "Denna titel är för kort.\nSe till att titeln är minst $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-caption-blank": "Bildtext är obligatorisk",
 	"mwe-upwiz-error-description-blank": "Beskrivning är obligatorisk",
-	"mwe-upwiz-error-bad-captions": "Det finns problem med några av bildtexterna.",
-	"mwe-upwiz-error-bad-descriptions": "Det finns problem med några av beskrivningarna.",
 	"mwe-upwiz-error-title-blacklisted": "Denna titel innehåller en del oönskade text. Vänligen se över den",
 	"mwe-upwiz-error-title-senselessimagename": "Gör denna titel mer meningsfull.",
 	"mwe-upwiz-error-title-thumbnail": "Detta ser ut som en titel på en miniatyrbild. Ladda inte upp miniatyrer tillbaka till samma wiki. Om så inte är fallet, ändra vänligen filnamnet så att det blir mer meningsfullt, och inte har prefixet miniatyr (eller thumbnail).",

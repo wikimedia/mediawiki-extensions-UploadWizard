@@ -249,8 +249,6 @@
 	"mwe-upwiz-error-title-too-short": "ХӀара тӀех йоцца цӀе йу.\nЦуьнан йохалла $1 {{PLURAL:$1|байтал}} кӀезга хила ца йеза.",
 	"mwe-upwiz-error-caption-blank": "Цхьа тайпа куьг йаздан деза",
 	"mwe-upwiz-error-description-blank": "Хаам тӀебуза беза",
-	"mwe-upwiz-error-bad-captions": "Цхьадолчу куьг йаздарца проблемаш йу.",
-	"mwe-upwiz-error-bad-descriptions": "Цхьаболчу хаамашца проблемаш йу.",
 	"mwe-upwiz-error-title-blacklisted": "ХӀокху цӀарца цхьацца ца оьшу текст йу. Дехар до, хьажа-хьаьжна, хийца.",
 	"mwe-upwiz-error-title-senselessimagename": "ХӀара цӀе кхин а маьӀне хилийтахьара ахьа.",
 	"mwe-upwiz-error-title-thumbnail": "ХӀара эскизан цӀе санна йу (миниатюран). Дехар до, жима сурт йуха оццу вики чу ма даккха. Вуьшта, файлан цӀе нисйе, иза маьӀне хилийта, жима эскизан префикс ца хилийта.",

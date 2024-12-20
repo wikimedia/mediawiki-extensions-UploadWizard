@@ -270,8 +270,6 @@
 	"mwe-upwiz-error-title-too-short": "Questo titolo è troppo breve.\nAssicurati che sia almeno $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-caption-blank": "La didascalia è obbligatoria",
 	"mwe-upwiz-error-description-blank": "La descrizione è obbligatoria",
-	"mwe-upwiz-error-bad-captions": "Ci sono problemi con alcune delle didascalie.",
-	"mwe-upwiz-error-bad-descriptions": "Ci sono problemi con alcune delle descrizioni.",
 	"mwe-upwiz-error-title-blacklisted": "Questo titolo contiene parole non opportune. Rivedilo.",
 	"mwe-upwiz-error-title-senselessimagename": "Rendi questo titolo più significativo.",
 	"mwe-upwiz-error-title-thumbnail": "Questo sembra essere il titolo di una miniatura. Non caricare le miniature sulla stessa wiki. Altrimenti, modifica il titolo in modo che sia più significativo e non abbia il prefisso della miniatura.",

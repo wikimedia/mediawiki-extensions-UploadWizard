@@ -322,8 +322,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Cette entrée est trop courte.\nVeuillez faire en sorte qu’elle contienne au moins $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-caption-blank": "La légende est obligatoire",
 	"mwe-upwiz-error-description-blank": "La description est obligatoire",
-	"mwe-upwiz-error-bad-captions": "Il y a des problèmes avec certaines légendes.",
-	"mwe-upwiz-error-bad-descriptions": "Il y a des problèmes avec certaines descriptions.",
 	"mwe-upwiz-error-title-blacklisted": "Ce titre contient du texte indésirable. Veuillez le réviser.",
 	"mwe-upwiz-error-title-senselessimagename": "Veuillez rendre ce titre plus significatif.",
 	"mwe-upwiz-error-title-thumbnail": "Cela ressemble à un titre de vignette (« thumbnail »). Veuillez ne réimporter aucune vignette sur le même wiki. Sinon, veuillez corriger le nom du fichier de sorte qu’il soit plus significatif et n’aie pas le préfixe « thumbnail ».",

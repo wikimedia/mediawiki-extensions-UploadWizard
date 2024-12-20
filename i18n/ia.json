@@ -255,8 +255,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Iste titulo es troppo curte.\nAssecura te que illo non ha minus que $1 {{PLURAL:$1|character|characteres}}.",
 	"mwe-upwiz-error-caption-blank": "Le legenda es obligatori",
 	"mwe-upwiz-error-description-blank": "Le description es obligatori",
-	"mwe-upwiz-error-bad-captions": "Il ha problemas con alcunes del legendas.",
-	"mwe-upwiz-error-bad-descriptions": "Il ha problemas con alcunes del descriptiones.",
 	"mwe-upwiz-error-title-blacklisted": "Iste titulo contine texto indesirabile. Per favor revide lo.",
 	"mwe-upwiz-error-title-senselessimagename": "Per favor rende iste titulo plus significative.",
 	"mwe-upwiz-error-title-thumbnail": "Isto pare como un titulo de miniatura. Per favor non re-incarga miniaturas in le mesme wiki. Alteremente, per favor modifica le nomine del file pro render lo plus significative, e non ha le prefixo de miniatura.",

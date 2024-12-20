@@ -268,8 +268,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Tento název je příliš krátký. Název musí mít alespoň $1 {{PLURAL:$1|znak|znaky|znaků}}.",
 	"mwe-upwiz-error-caption-blank": "Popisek je povinný",
 	"mwe-upwiz-error-description-blank": "Popis je povinný",
-	"mwe-upwiz-error-bad-captions": "Některé popisky jsou chybné.",
-	"mwe-upwiz-error-bad-descriptions": "Některé popisy jsou chybné.",
 	"mwe-upwiz-error-title-blacklisted": "Tento název obsahuje nežádoucí text. Prosím upravte jej.",
 	"mwe-upwiz-error-title-senselessimagename": "Prosím použijte smysluplnější název.",
 	"mwe-upwiz-error-title-thumbnail": "Tohle vypadá jako název souboru s náhledem obrázku. Nenačítejte na stejnou wiki prosím náhledy. Případně opravte název, aby byl smysluplnější a neobsahoval prefix jako náhled.",

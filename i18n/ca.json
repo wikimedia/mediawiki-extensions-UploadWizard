@@ -222,8 +222,6 @@
 	"mwe-upwiz-error-too-short": "Aquest camp és massa curt.\nFeu-lo més llarg de $1 {{PLURAL:$1|caràcter|caràcters}}.",
 	"mwe-upwiz-error-title-too-long": "Aquest títol és massa llarg.\nSi us plau, assegureu-vos que aquest títol tingui com a màxim l'$1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-title-too-short": "Aquest títol és massa curt.\nSi us plau, assegureu-vos que aquest títol tingui com a mínim l'$1 {{PLURAL:$1|byte|bytes}}.",
-	"mwe-upwiz-error-bad-captions": "Hi ha problemes amb algunes llegendes.",
-	"mwe-upwiz-error-bad-descriptions": "Hi ha problemes amb algunes de les descripcions.",
 	"mwe-upwiz-error-title-blacklisted": "Aquest títol conté algun text no desitjable. Si us plau, reviseu-lo.",
 	"mwe-upwiz-error-title-senselessimagename": "Doneu un títol amb més significat.",
 	"mwe-upwiz-error-title-thumbnail": "Això sembla que és el títol d'una miniatura. Si us plau, no carregueu versions reduïdes en miniatura al mateix wiki. Si no és el cas, corregiu el nom del fitxer de forma que sigui més significatiu i sense el prefix d'una miniatura.",

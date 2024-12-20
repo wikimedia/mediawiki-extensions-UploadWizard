@@ -281,8 +281,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Deze titel is te kort.\nZorg ervoor dat de titel minimaal $1 teken{{PLURAL:$1||s}} lang is.",
 	"mwe-upwiz-error-caption-blank": "Bijschrift is vereist",
 	"mwe-upwiz-error-description-blank": "Beschrijving is vereist",
-	"mwe-upwiz-error-bad-captions": "Er zijn problemen met enkele opgegeven bijschriften.",
-	"mwe-upwiz-error-bad-descriptions": "Er zijn problemen met enkele opgegeven beschrijvingen.",
 	"mwe-upwiz-error-title-blacklisted": "Deze titel bevat ongewenste tekst. Corrigeer deze.",
 	"mwe-upwiz-error-title-senselessimagename": "Geef deze titel meer betekenis.",
 	"mwe-upwiz-error-title-thumbnail": "Dit ziet eruit als de titel van een miniatuur. Upload geen miniaturen terug naar dezelfde wiki. Zo niet, corrigeer dan de bestandsnaam zodat deze duidelijker is en geen voorvoegsel “thumbnail” heeft.",

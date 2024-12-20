@@ -267,8 +267,6 @@
 	"mwe-upwiz-error-title-too-short": "Este título es demasiado corto.\nPor favor, asegúrate de que este título esté al menos $1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-caption-blank": "Se requiere leyenda",
 	"mwe-upwiz-error-description-blank": "La descripción es necesaria",
-	"mwe-upwiz-error-bad-captions": "Existen problemas con algunas de las leyendas.",
-	"mwe-upwiz-error-bad-descriptions": "Hay problemas con algunas de las descripciones.",
 	"mwe-upwiz-error-title-blacklisted": "Este título contiene texto que no está permitido. Revísalo.",
 	"mwe-upwiz-error-title-senselessimagename": "Haz que el título sea más significativo.",
 	"mwe-upwiz-error-title-thumbnail": "Parece que el título es de una imagen en miniatura. Por favor no suba imágenes en miniaturas en el wiki del que las sacó. Si la imagen no es una miniatura, corrija el nombre del archivo para que sea más significativo y no tenga el prefijo de las miniaturas.",

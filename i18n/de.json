@@ -282,8 +282,6 @@
 	"mwe-upwiz-error-title-too-few-characters": "Dieser Titel ist zu kurz.\nBitte stelle sicher, dass er mindestens {{PLURAL:$1|ein Zeichen|$1 Zeichen}} lang ist.",
 	"mwe-upwiz-error-caption-blank": "Beschriftung ist erforderlich",
 	"mwe-upwiz-error-description-blank": "Beschreibung wird benötigt",
-	"mwe-upwiz-error-bad-captions": "Es gibt Probleme mit einigen Beschriftungen.",
-	"mwe-upwiz-error-bad-descriptions": "Es gibt Probleme mit einigen Beschreibungen.",
 	"mwe-upwiz-error-title-blacklisted": "Der Name enthält unerwünschten Text. Bitte den Namen überarbeiten.",
 	"mwe-upwiz-error-title-senselessimagename": "Bitte einen aussagekräftigeren Namen angeben.",
 	"mwe-upwiz-error-title-thumbnail": "Dies ist vermutlich der Name eines Miniaturvorschaubildes. Bitte keine Miniaturvorschaubilder auf dem gleichen Wiki hochladen. Anderenfalls bitte einen aussagekräftigeren Namen angeben, der zudem nicht über den Dateianfang eines Miniaturvorschaubildes verfügt.",

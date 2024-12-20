@@ -217,8 +217,6 @@
 	"mwe-upwiz-error-too-short": "A ni kpɛhi binshɛli maa pɔri pam.\npahimi suɣilo che ka a ni zaŋ shɛli kpɛhi maa yi kuli pɔri yaɣi $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-title-too-long": "A ni kpɛhi taachi shɛli maa waɣi pam.\npahimi suɣilo che ka a ni zaŋ shɛli kpɛhi maa yi kuli galisi yaɣi $1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-title-too-short": "A ni kpɛhi taachi shɛli maa ji pam.\npahimi suɣilo che ka a ni zaŋ shɛli kpɛhi maa yi kuli ji yaɣi $1 {{PLURAL:$1|byte|bytes}}.",
-	"mwe-upwiz-error-bad-captions": "Yɛlmuɣisira bela a lahabal' ŋmahi maa ni.",
-	"mwe-upwiz-error-bad-descriptions": "Yɛlmuɣisira bela a buɣisa maa ni.",
 	"mwe-upwiz-error-title-blacklisted": "Taachi ŋɔ mali la bachi shɛŋa din kpa. Pahimi suɣilo labi yuli li.",
 	"mwe-upwiz-error-title-senselessimagename": "Pahimi suɣilo che ka taachi ŋɔ mali gbunni",
 	"mwe-upwiz-error-title-thumbnail": "Dimbɔŋɔ ŋmanila thumbnail taachi. Pahimi suɣilo di zaŋ thumbnails lahi kpɛhi wiki ni yaha. Ka yo pa lala, pahimi suɣilo, mali di yuli maa niŋ ka di che ka di mali gbunni, ka ka thubnail prefix.",
