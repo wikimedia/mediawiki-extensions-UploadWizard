@@ -38,7 +38,8 @@
 		OO.ui.mixin.GroupWidget.call( this, config );
 		this.setGroupElement( this.$element );
 		this.aggregate( {
-			remove: 'itemRemove'
+			remove: 'itemRemove',
+			change: [ 'emit', 'change' ]
 		} );
 		this.connect( this, {
 			itemRemove: 'onTagRemove'

@@ -62,6 +62,7 @@
 
 			this.createDetails( upload );
 			upload.details.attach();
+			upload.details.on( 'change', () => this.emit( 'change' ) );
 
 			// restore earlier details (user may have started inputting details,
 			// then went back some steps, and now got here again)
@@ -161,7 +162,7 @@
 	 */
 	uw.controller.Details.prototype.startDetails = function () {
 		this.validate( true )
-			.always( ( status ) => this.showStatus( status ) )
+			.always( () => this.updateErrorSummary() )
 			.done( () => {
 				this.ui.hideEndButtons();
 				this.submit();
@@ -271,16 +272,14 @@
 	/**
 	 * Show errors, warnings & notices in the form.
 	 * See UI class for more.
-	 *
-	 * @param {uw.ValidationStatus} status
 	 */
-	uw.controller.Details.prototype.showStatus = function ( status ) {
+	uw.controller.Details.prototype.updateErrorSummary = function () {
 		this.ui.enableEdits();
 
 		this.removeCopyMetadataFeature();
 		this.addCopyMetadataFeature();
 
-		this.ui.showStatus( status );
+		this.ui.updateErrorSummary();
 	};
 
 	/**

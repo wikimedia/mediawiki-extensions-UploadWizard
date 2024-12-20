@@ -33,7 +33,8 @@
 			details: {
 				getSerialized: stubs.getSerialized,
 				setSerialized: stubs.setSerialized,
-				attach: stubs.attach
+				attach: stubs.attach,
+				on: function () {}
 			},
 
 			state: aborted ? 'aborted' : 'stashed',

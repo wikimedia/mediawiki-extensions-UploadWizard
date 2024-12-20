@@ -45,7 +45,7 @@
 		}
 
 		this.validate( true )
-			.always( ( status ) => this.ui.showStatus( status ) )
+			.always( () => this.ui.updateErrorSummary() )
 			.done( () => uw.controller.Step.prototype.moveNext.call( this ) );
 	};
 
@@ -157,6 +157,7 @@
 			} else if ( selectedOption.getData() === 'individual' ) {
 				this.loadIndividual( localUploads );
 			}
+			this.emit( 'change' );
 		} );
 
 		multiDeedRadio.selectItemByData( defaultDeedInterface );
@@ -194,6 +195,12 @@
 		// reveal next button when deed has been chosen
 		deedChooser.on( 'choose', this.enableNextIfAllDeedsChosen.bind( this ) );
 		this.enableNextIfAllDeedsChosen();
+
+		// aggregate change events within
+		deedChooser.on( 'choose', () => this.emit( 'change' ) );
+		Object.keys( deeds ).forEach( ( name ) => {
+			deeds[ name ].on( 'change', () => this.emit( 'change' ) );
+		} );
 	};
 
 	/**
@@ -214,6 +221,12 @@
 
 			// reveal next button when deeds for all files have been chosen
 			deedChooser.on( 'choose', this.enableNextIfAllDeedsChosen.bind( this ) );
+
+			// aggregate change events within
+			deedChooser.on( 'choose', () => this.emit( 'change' ) );
+			Object.keys( deeds ).forEach( ( name ) => {
+				deeds[ name ].on( 'change', () => this.emit( 'change' ) );
+			} );
 		} );
 
 		this.ui.showIndividualForm( this.getUniqueDeedChoosers( uploads ) );
