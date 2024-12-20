@@ -47,7 +47,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 
 		$this->addWhereIf( [ 'campaign_enabled' => 1 ], $params['enabledonly'] );
 		$this->addOption( 'LIMIT', $limit + 1 );
-		$this->addOption( 'ORDER BY', 'campaign_id' ); // Not sure if required?
+		$this->addOption( 'ORDER BY', 'campaign_id' );
 
 		$this->addFields( [
 			'campaign_id',
