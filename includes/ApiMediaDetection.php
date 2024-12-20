@@ -178,11 +178,11 @@ class ApiMediaDetection extends ApiBase {
 		] );
 		$request = $this->httpRequestFactory->create(
 			self::MEDIA_DETECTION_URL,
-			[ 'method' => 'POST', 'postData' => $body, 'timeout' => 15 ], // @todo timeout?
+			[ 'method' => 'POST', 'postData' => $body, 'timeout' => 15 ],
 			__METHOD__
 		);
 		$request->setHeader( 'Host', self::MEDIA_DETECTION_HOST_HEADER );
-		$request->setHeader( 'User-Agent', 'Wikimedia Commons Upload Wizard' ); // @todo add '(contact e-mail)'
+		$request->setHeader( 'User-Agent', 'Wikimedia Commons Upload Wizard' );
 		$request->setHeader( 'Content-Type', 'application/json; charset=utf-8' );
 		$request->setHeader( 'Content-Length', strval( strlen( $body ) ) );
 		$status = $request->execute();
