@@ -68,6 +68,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Dette verket|Desse verka}} inneheld arbeidet til andre enn meg sjølv",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Nei, {{PLURAL:$1|det|dei}} er verna av opphavsrett",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Eg er ikkje sikker",
+	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Eg}} laga {{PLURAL:$1|dette verket|desse verka}} med eit verktøy med kunstig intelligens [[COM:AI-generated_media|(sjå retningsliner)]]",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Dette verket|Desse verka}} er laga av nokon annan og kan delast fritt.",
 	"mwe-upwiz-source-thirdparty-intro": "Skriv inn adressa der du fann kvar av filene.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Om alle filene har den same kjelda, opphavspersonen og opphavsrettsstoda kan du oppgje dei éin gong for alle saman.",
