@@ -164,7 +164,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-4.0-explain": "(exige que la personne utilisant {{PLURAL:$1|ce média|ces médias}} donne le crédit approprié)",
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(exige que la personne utilisant {{PLURAL:$1|ce média|ces médias}} crédite l'auteur de manière appropriée)",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(libère tous les droits, chacun est libre d'utiliser {{PLURAL:$1|cette œuvre|ces œuvres}} de quelque manière que ce soit)",
-	"mwe-upwiz-source-ownwork-generic-explain": "(ce{{PLURAL:$1|tte œuvre est acceptable|s œuvres sont acceptables}} pour le téléchargement sur ce wiki)",
+	"mwe-upwiz-source-ownwork-generic-explain": "ce{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}} peu{{PLURAL:$1||ven}}t être téléversée{{PLURAL:$1||s}} sur ce wiki",
 	"mwe-upwiz-source-ownwork-question": "Sous quelle licence souhaitez-{{GENDER:$2|vous}} publier {{PLURAL:$1|cette œuvre|ces œuvres}} ? Tous les médias de Wikimedia Commons doivent être publiés sous une licence libre.",
 	"mwe-upwiz-source-ownwork-purpose-label": "Veuillez sélectionner l'option qui décrit le mieux {{PLURAL:$1|cette œuvre|ces œuvres}}.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|Cette œuvre fournit|Ces œuvres fournissent}} des connaissances, des instructions ou des informations à d'autres.",
@@ -487,7 +487,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Vous ne recevrez plus de notifications pour marquer vos téléversements.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nous n’avons pas pu sauvegarder vos préférences. Veuillez vous rendre dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]] pour vous inscrire aux notifications.",
 	"mwe-upwiz-upload-comment-own-work": "Téléversement de mon propre travail avec UploadWizard",
-	"mwe-upwiz-upload-comment-third-party": "Œuvre de $1 venant de $2 téléversée avec l’assistant de téléversement de médias",
+	"mwe-upwiz-upload-comment-third-party": "Œuvre de $1 venant de $2 téléversée avec UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Données personnelles",
 	"mwe-upwiz-metadata-notice-description": "Les métadonnées EXIF de ce fichier peuvent contenir l'emplacement ou d'autres données personnelles ajoutées automatiquement par votre appareil photo. Consultez [https://commons.wikimedia.org/wiki/Commons:Exif Commons:Exif] pour savoir comment modifier ou supprimer les métadonnées EXIF."
 }
