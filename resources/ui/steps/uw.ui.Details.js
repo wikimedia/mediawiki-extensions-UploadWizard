@@ -149,7 +149,6 @@
 	 * Hide buttons for moving to the next step.
 	 */
 	uw.ui.Details.prototype.hideEndButtons = function () {
-		this.showStatus( new uw.ValidationStatus() );
 		this.$div
 			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
 			.hide();

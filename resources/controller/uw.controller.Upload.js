@@ -44,6 +44,9 @@
 			action: this.transitionOne.bind( this )
 		} );
 		this.queue.on( 'complete', this.showNext.bind( this ) );
+		this.queue.on( 'change', () => this.emit( 'change' ) );
+		this.queue.on( 'progress', () => this.emit( 'change' ) );
+		this.queue.on( 'complete', () => this.emit( 'change' ) );
 
 		this.ui.on( 'files-added', ( files ) => {
 			const totalFiles = files.length + this.uploads.length,
@@ -54,6 +57,7 @@
 			} else {
 				this.addFiles( files );
 			}
+			this.emit( 'change' );
 		} );
 	};
 

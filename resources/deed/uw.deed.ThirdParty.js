@@ -35,6 +35,7 @@
 			classes: [ 'mwe-source' ],
 			name: 'source'
 		} );
+		this.sourceInput.on( 'change', () => this.emit( 'change' ) );
 		this.sourceInput.$input.attr( 'id', 'mwe-source-' + this.getInstanceCount() );
 		// See uw.DetailsWidget
 		uw.ValidatableElement.decorate( this.sourceInput );
@@ -72,6 +73,7 @@
 			classes: [ 'mwe-author' ],
 			name: 'author'
 		} );
+		this.authorInput.on( 'change', () => this.emit( 'change' ) );
 		this.authorInput.$input.attr( 'id', 'mwe-author-' + this.getInstanceCount() );
 		uw.ValidatableElement.decorate( this.authorInput );
 		this.authorInput.validate = ( thorough ) => {
@@ -112,6 +114,7 @@
 			this.uploadCount,
 			api
 		);
+		this.licenseInput.on( 'change', () => this.emit( 'change' ) );
 		this.licenseInput.$element.addClass( 'mwe-upwiz-deed-license-groups' );
 		this.licenseInput.setDefaultValues();
 		this.licenseInputField = new uw.FieldLayout( this.licenseInput, {

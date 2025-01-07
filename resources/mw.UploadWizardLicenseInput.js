@@ -324,9 +324,12 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 		// Gather errors from each item
 		const status = new mw.uploadWizard.ValidationStatus(),
 			selectedGroupPromises = this.getItems()
-				// only validate selected groups, or if there is no option (i.e. only 1 group)
-				.filter( ( groupField ) => groupField.option === undefined || groupField.option.isSelected() )
-				.map( ( groupField ) => groupField.validate( thorough ) );
+				// validate all fields; allowing previously invalid subgroups to be re-validated
+				// (e.g. clearing out errors), even when they're not selected
+				.map( ( groupField ) => groupField.validate( thorough ) )
+				// but only use the validation result of the selected groups (or the only available
+				// group if there is no choice)
+				.filter( ( groupField ) => groupField.option === undefined || groupField.option.isSelected() );
 
 		if ( thorough !== true ) {
 			// `thorough` is the strict checks executed on submit, but we don't want errors

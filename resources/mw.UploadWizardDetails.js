@@ -20,6 +20,8 @@
 		this.structuredDataSubmissionErrors = false;
 
 		this.$div = $( '<div>' ).addClass( 'mwe-upwiz-info-file filled' );
+
+		OO.EventEmitter.call( this );
 	};
 
 	mw.UploadWizardDetails.prototype = {
@@ -58,6 +60,7 @@
 				minLength: config.minTitleLength,
 				maxLength: config.maxTitleLength
 			} );
+			this.titleDetails.on( 'change', () => this.emit( 'change' ) );
 			this.titleDetailsField = new uw.FieldLayout( this.titleDetails, {
 				label: mw.message( 'mwe-upwiz-title' ).text(),
 				required: true
@@ -78,6 +81,7 @@
 				minLength: config.minCaptionLength,
 				maxLength: config.maxCaptionLength
 			} );
+			this.captionsDetails.on( 'change', () => this.emit( 'change' ) );
 			this.captionsDetailsField = new uw.FieldLayout( this.captionsDetails, {
 				required: true,
 				classes: [ 'mwe-upwiz-caption' ],
@@ -110,6 +114,7 @@
 				minLength: config.minDescriptionLength,
 				maxLength: config.maxDescriptionLength
 			} );
+			this.descriptionsDetails.on( 'change', () => this.emit( 'change' ) );
 
 			// Checkbox telling whether descriptions must be identical to captions.
 			// If selected, hide descriptions. This is the default behavior.
@@ -134,6 +139,7 @@
 				// when a campaign provides alternatives) & captions turn optional
 				this.descriptionsDetails.setRequired( descriptionRequired && !this.descriptionSameAsCaptionCheckbox.isSelected() );
 				this.captionsDetails.setRequired( this.descriptionSameAsCaptionCheckbox.isSelected() );
+				this.emit( 'change' );
 			} );
 
 			// Descriptions are fickle; they are required (unless, as described earlier,
@@ -178,6 +184,7 @@
 			// Date
 			//
 			this.dateDetails = new uw.DateDetailsWidget( { upload: this.upload } );
+			this.dateDetails.on( 'change', () => this.emit( 'change' ) );
 			this.dateDetailsField = new uw.FieldLayout( this.dateDetails, {
 				label: mw.message( 'mwe-upwiz-date-created' ).text(),
 				help: mw.message( 'mwe-upwiz-tooltip-date' ).text(),
@@ -207,6 +214,7 @@
 				longitudeKey: 'longitude',
 				headingKey: 'heading'
 			} );
+			this.locationInput.on( 'change', () => this.emit( 'change' ) );
 			this.locationInputField = new uw.FieldLayout( this.locationInput, {
 				label: mw.message( 'mwe-upwiz-location' ).text(),
 				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
@@ -228,6 +236,7 @@
 			this.categoriesDetails = new uw.CategoriesDetailsWidget( {
 				placeholder: mw.message( 'mwe-upwiz-categories-placeholder' )
 			} );
+			this.categoriesDetails.on( 'change', () => this.emit( 'change' ) );
 			this.categoriesDetailsField = new uw.FieldLayout( this.categoriesDetails, {
 				label: mw.message( 'mwe-upwiz-categories' ).text(),
 				help: mw.message( 'mwe-upwiz-tooltip-categories-v2' ).text(),
@@ -238,6 +247,7 @@
 			// Any other information
 			//
 			this.otherDetails = new uw.OtherDetailsWidget();
+			this.otherDetails.on( 'change', () => this.emit( 'change' ) );
 			this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
 				label: $( '<span>' ).append(
 					new OO.ui.IconWidget( { icon: 'expand' } ).$element,
@@ -287,6 +297,7 @@
 					}
 
 					const widget = this.createStatementWidget( propertyId );
+					widget.on( 'change', () => this.emit( 'change' ) );
 					statementFields[ propertyId ] = new uw.FieldLayout( widget, {
 						// unknown labels will get filled in later on
 						label: this.propertyTitles[ propertyId ] || propertyId,
@@ -1546,5 +1557,6 @@
 				.text( s );
 		}
 	};
+	OO.mixinClass( mw.UploadWizardDetails, OO.EventEmitter );
 
 }( mw.uploadWizard ) );

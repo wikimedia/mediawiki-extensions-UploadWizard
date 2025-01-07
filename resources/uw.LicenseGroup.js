@@ -472,7 +472,7 @@
 
 		input.on( 'change', () => {
 			// Update displayed errors as the user is typing
-			OO.ui.debounce( this.emit.bind( this, 'change', this ), 500 );
+			this.emit( 'change' );
 		} );
 		input.$element.on( 'mousedown', ( event ) => {
 			// T294389 "Another reason not mentioned above" license input textarea: Text is unclickable.

@@ -38,13 +38,26 @@
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mwe-upwiz-content' ).append( this.$div );
 
+		this.nextButton = new OO.ui.ButtonWidget( {
+			classes: [ 'mwe-upwiz-button-next' ],
+			label: mw.message( 'mwe-upwiz-next' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', () => {
+			this.emit( 'next-step' );
+		} );
+		this.previousButton = new OO.ui.ButtonWidget( {
+			classes: [ 'mwe-upwiz-button-previous' ],
+			label: mw.message( 'mwe-upwiz-previous' ).text()
+		} ).on( 'click', () => {
+			this.emit( 'previous-step' );
+		} );
+
 		// this will make sure that buttons will only be added if they've been
 		// set in the controller, otherwise there's nowhere to go...
 		this.nextButtonPromise = $.Deferred();
 		this.previousButtonPromise = $.Deferred();
 
-		this.$errorCount = $( '<div>' )
-			.attr( 'id', 'mwe-upwiz-details-error-count' );
+		this.$errorCount = $( '<div>' ).attr( 'id', 'mwe-upwiz-details-error-count' );
 		this.$buttons.append( this.$errorCount );
 	};
 
@@ -63,6 +76,9 @@
 
 		this.uploads = uploads;
 		this.$div.append( this.$buttons ).show();
+
+		// clear any errors that may have been visible
+		this.updateErrorSummary();
 
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( 'html, body' ).animate( {
@@ -92,14 +108,6 @@
 	 * Add a 'next' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addNextButton = function () {
-		this.nextButton = new OO.ui.ButtonWidget( {
-			classes: [ 'mwe-upwiz-button-next' ],
-			label: mw.message( 'mwe-upwiz-next' ).text(),
-			flags: [ 'progressive', 'primary' ]
-		} ).on( 'click', () => {
-			this.emit( 'next-step' );
-		} );
-
 		this.nextButtonPromise.done( () => {
 			this.$buttons.append( this.nextButton.$element );
 		} );
@@ -109,13 +117,6 @@
 	 * Add a 'previous' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addPreviousButton = function () {
-		this.previousButton = new OO.ui.ButtonWidget( {
-			classes: [ 'mwe-upwiz-button-previous' ],
-			label: mw.message( 'mwe-upwiz-previous' ).text()
-		} ).on( 'click', () => {
-			this.emit( 'previous-step' );
-		} );
-
 		this.previousButtonPromise.done( () => {
 			this.$buttons.append( this.previousButton.$element );
 		} );
@@ -128,45 +129,80 @@
 	 * so it should be obvious to the user they need to fix things.
 	 * This is a bit of a hack. We should already know how many errors there are, and where.
 	 * This method also opens up collapsed elements if the form has errors.
-	 *
-	 * @param {uw.ValidationStatus} status
 	 */
 	// eslint-disable-next-line no-unused-vars
-	uw.ui.Step.prototype.showStatus = function ( status ) {
-		const show = ( kind ) => {
-			// eslint-disable-next-line no-jquery/no-sizzle
-			const $elements = this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ).filter( ':visible' ),
-				count = $elements.length;
+	uw.ui.Step.prototype.updateErrorSummary = function () {
+		// eslint-disable-next-line no-jquery/no-sizzle
+		const getElements = ( kind ) => this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ).filter( ':visible' );
+		const uploadCount = ( this.uploads || [] ).length;
 
-			if ( count === 0 ) {
-				return 0;
-			}
-
-			// Open collapsed elements that contain errors
-			$elements.each( function () {
-				const $collapsibleWrapper = $( this ).closest( '.mw-collapsible' );
-				if ( $collapsibleWrapper.length ) {
-					$collapsibleWrapper.data( 'mw-collapsible' ).expand();
-				}
-			} );
-
-			this.$errorCount.append(
-				new OO.ui.MessageWidget( {
-					type: kind,
-					inline: true,
-					label: mw.message( 'mwe-upwiz-details-' + kind + '-count', count, this.uploads.length ).text()
-				} ).$element
-			);
-
-			// Immediately stop existing animations, then scroll to first error
+		const scrollTo = ( $element ) => {
+			// Immediately stop existing animations, then scroll to error
 			// eslint-disable-next-line no-jquery/no-global-selector
-			$( 'html, body' ).stop().animate( { scrollTop: $( $elements[ 0 ] ).offset().top - 50 }, 'slow' );
-
-			return count;
+			$( 'html, body' ).stop().animate( { scrollTop: $( $element ).offset().top - 50 }, 'slow' );
 		};
 
-		// Default to showing errors; warnings are shown only if there are no errors
-		this.$errorCount.empty();
+		const updateSummary = ( kind, message ) => {
+			const $elements = getElements( kind );
+			const errorCount = $elements.length;
+
+			// reset to pristine state: no error, no scroll button, visible next button
+			this.$errorCount.empty();
+			this.$div.find( '.mwe-upwiz-details-error-scroll' ).remove();
+			this.nextButton.$element.show();
+
+			if ( errorCount === 0 ) {
+				return;
+			}
+
+			const warningWidget = new OO.ui.MessageWidget( {
+				type: kind,
+				inline: true,
+				label: message.params( [ errorCount, uploadCount ] ).text()
+			} );
+			this.$errorCount.append( warningWidget.$element );
+
+			const scrollWidget = new OO.ui.ButtonWidget( {
+				classes: [ 'mwe-upwiz-details-error-scroll' ],
+				label: mw.message( 'mwe-upwiz-details-' + kind + '-scroll', errorCount, uploadCount ).text(),
+				flags: [ 'progressive' ]
+			} );
+			scrollWidget.on( 'click', () => scrollTo( $elements[ 0 ] ) );
+			this.nextButton.$element.hide().before( scrollWidget.$element );
+		};
+
+		const observe = ( element, kind ) => {
+			const observer = new MutationObserver( () => {
+				observer.disconnect();
+				updateSummary( kind, mw.message( 'mwe-upwiz-details-' + kind + '-generic' ) );
+			} );
+			observer.observe(
+				element.parentNode,
+				{ childList: true }
+			);
+		};
+
+		const show = ( kind ) => {
+			const $elements = getElements( kind );
+
+			updateSummary( kind, mw.message( 'mwe-upwiz-details-' + kind + '-count' ) );
+
+			if ( $elements.length > 0 ) {
+				$elements.each( function () {
+					observe( this, kind );
+
+					// Open collapsed elements that contain errors
+					const $collapsibleWrapper = $( this ).closest( '.mw-collapsible' );
+					if ( $collapsibleWrapper.length ) {
+						$collapsibleWrapper.data( 'mw-collapsible' ).expand();
+					}
+				} );
+
+				scrollTo( $elements[ 0 ] );
+			}
+
+			return $elements.length;
+		};
 
 		// show errors first; warnings only when there are no errors
 		// don't bother with notices; no need to inform user about those merely showing them near the input

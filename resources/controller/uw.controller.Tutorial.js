@@ -37,6 +37,7 @@
 					// indicate that the skip preference has changed, so we can
 					// alter the preference when we move to another step
 					this.newSkipPreference = skipped;
+					this.emit( 'change' );
 				} ),
 			api,
 			config

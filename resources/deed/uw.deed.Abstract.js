@@ -39,6 +39,7 @@
 					name: tcName,
 					value: details.template
 				} );
+				input.on( 'change', () => this.emit( 'change' ) );
 				uw.ValidatableElement.decorate( input );
 				field = new uw.FieldLayout(
 					input,
@@ -59,7 +60,10 @@
 				};
 			}
 		}
+
+		OO.EventEmitter.call( this );
 	};
+	OO.mixinClass( uw.deed.Abstract, OO.EventEmitter );
 
 	/**
 	 * @type {number}
@@ -157,6 +161,7 @@
 	 */
 	uw.deed.Abstract.prototype.getPatentAgreementField = function ( uploads ) {
 		const field = new OO.ui.HiddenInputWidget();
+		field.on( 'change', () => this.emit( 'change' ) );
 		uw.ValidatableElement.decorate( field );
 		field.validate = this.validatePatentAgreement.bind( this, field, uploads );
 
@@ -207,6 +212,7 @@
 			} );
 			dialog.on( 'agree', () => {
 				this.patentAgreed = true;
+				input.emit( 'change' );
 				deferred.resolve();
 			} );
 
