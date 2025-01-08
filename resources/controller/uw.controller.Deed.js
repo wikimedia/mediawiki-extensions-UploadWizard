@@ -342,7 +342,10 @@
 		// actually execute in the order they're supposed to; i.e. the order
 		// they've been called in.
 		setTimeout( () => {
-			this.validate( false ).always( ( status ) => this.ui.toggleNext( status.getErrors().length === 0 ) );
+			this.validate( false ).always( ( status ) => {
+				this.ui.updateErrorSummary();
+				this.ui.toggleNext( status.getErrors().length === 0 );
+			} );
 		} );
 	};
 
