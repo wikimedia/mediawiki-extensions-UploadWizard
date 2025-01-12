@@ -151,9 +151,6 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 
 	this.aggregate( { change: 'change' } );
 
-	// [wikitext => list of templates used in wikitext] map, used in
-	// getUsedTemplates to reduce amount of API calls
-	this.templateCache = {};
 };
 OO.inheritClass( mw.UploadWizardLicenseInput, OO.ui.Widget );
 OO.mixinClass( mw.UploadWizardLicenseInput, OO.ui.mixin.GroupElement );
@@ -275,42 +272,6 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 */
 	getWikiText: function () {
 		return this.getItems().map( ( groupField ) => groupField.fieldWidget.getWikiText() ).join( '' ).trim();
-	},
-
-	/**
-	 * Returns a list of templates used & transcluded in given wikitext
-	 *
-	 * @memberof mw.UploadWizardLicenseInput
-	 * @param {string} wikitext
-	 * @return {jQuery.Promise} Promise that resolves with an array of template names
-	 */
-	getUsedTemplates: function ( wikitext ) {
-		if ( wikitext in this.templateCache ) {
-			return $.Deferred().resolve( this.templateCache[ wikitext ] ).promise();
-		}
-
-		return this.api.get( {
-			action: 'parse',
-			pst: true,
-			prop: 'templates',
-			title: 'File:UploadWizard license verification.png',
-			text: wikitext
-		} ).then( ( result ) => {
-			const templates = [];
-			for ( let i = 0; i < result.parse.templates.length; i++ ) {
-				const template = result.parse.templates[ i ];
-
-				// normalize templates to mw.Title.getPrefixedDb() format
-				const title = new mw.Title( template.title, template.ns );
-				templates.push( title.getPrefixedDb() );
-			}
-
-			// cache result so we won't have to fire another API request
-			// for the same content
-			this.templateCache[ wikitext ] = templates;
-
-			return templates;
-		} );
 	},
 
 	/**

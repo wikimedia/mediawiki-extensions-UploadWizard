@@ -30,6 +30,9 @@
 			throw new Error( 'Invalid type: ' + type );
 		}
 
+		// [wikitext => list of templates used in wikitext] map, used in
+		// getUsedTemplates to reduce amount of API calls
+		this.templateCache = {};
 		this.config = config;
 		this.type = type;
 		this.api = api;
@@ -455,6 +458,38 @@
 	};
 
 	/**
+	 * Returns a list of templates used & transcluded in given wikitext
+	 *
+	 * @private
+	 * @param {string} wikitext
+	 * @return {jQuery.Promise} Promise that resolves with an array of template names
+	 */
+	uw.LicenseGroup.prototype.getUsedTemplates = function ( wikitext ) {
+		if ( wikitext in this.templateCache ) {
+			return $.Deferred().resolve( this.templateCache[ wikitext ] ).promise();
+		}
+		return this.api.get( {
+			action: 'parse',
+			pst: true,
+			prop: 'templates',
+			title: 'File:UploadWizard license verification.png',
+			text: wikitext
+		} ).then( ( result ) => {
+			const templates = [];
+			for ( let i = 0; i < result.parse.templates.length; i++ ) {
+				const template = result.parse.templates[ i ];
+				// normalize templates to mw.Title.getPrefixedDb() format
+				const title = new mw.Title( template.title, template.ns );
+				templates.push( title.getPrefixedDb() );
+			}
+			// cache result so we won't have to fire another API request
+			// for the same content
+			this.templateCache[ wikitext ] = templates;
+			return templates;
+		} );
+	};
+
+	/**
 	 * @private
 	 * @param {string} name license name
 	 * @param {string} [defaultText] Default custom license text
@@ -534,7 +569,7 @@
 			} else if ( mw.UploadWizard.config.customLicenseTemplate !== false ) {
 				// now do a thorough test to see if the text actually
 				// includes a license template
-				promise = this.getUsedTemplates( wikitext ).then( ( status, usedTemplates ) => {
+				promise = this.getUsedTemplates( wikitext ).then( ( usedTemplates ) => {
 					if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
 						// no license template found, add another error
 						status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
