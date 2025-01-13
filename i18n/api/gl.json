@@ -5,14 +5,21 @@
 			"Toliño"
 		]
 	},
-	"apihelp-flickrblacklist-summary": "Validar unha URL de Flickr verificando o identificador do usuario (NSID) na lista negra.",
+	"apihelp-flickrblacklist-summary": "Validar un enderezo URL de Flickr verificando o identificador do usuario (NSID) na lista negra.",
 	"apihelp-flickrblacklist-extended-description": "Cando se usa coa opción <var>list</var>, devolve tódolos identificadores da lista negra.",
 	"apihelp-flickrblacklist-param-url": "O enderezo URL do Flickr a probar.",
 	"apihelp-flickrblacklist-param-list": "Ao definilo, devólvese a lista negra ao completo. Non se pode utilizar xunto a $1url.",
-	"apihelp-flickrblacklist-example-1": "Comprobar un enderezo URL coa lista negra.",
+	"apihelp-flickrblacklist-example-1": "Comprobar un enderezo URL contra a lista negra",
 	"apihelp-flickrblacklist-example-2": "Devolver a lista negra ao completo",
 	"apihelp-query+allcampaigns-summary": "Enumerar todas as campañas do asistente de cargas.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Listar unicamente as campañas activas.",
 	"apihelp-query+allcampaigns-param-limit": "Número de campañas a devolver.",
-	"apihelp-query+allcampaigns-example-1": "Enumerar as campañas activas"
+	"apihelp-query+allcampaigns-example-1": "Enumerar as campañas activas",
+	"apihelp-mediadetection-summary": "Devolver a probabilidade de que a imaxe almacenada representada pola clave de ficheiro proporcionada sexa un logotipo",
+	"apihelp-mediadetection-param-filename": "Nome da páxina do ficheiro",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var> devolto pola solicitude á API <kbd>stash</kbd>",
+	"apihelp-mediadetection-example-filename": "Devolver a probabilidade de que a imaxe almacenada representada polo nome de ficheiro proporcionado sexa un logotipo",
+	"apihelp-mediadetection-example-filekey": "Devolver a probabilidade de que a imaxe almacenada representada pola clave de ficheiro proporcionada sexa un logotipo",
+	"apierror-mediadetection-no-valid-thumbnail": "Non existe ningunha miniatura para a imaxe, polo que non se pode enviar ao clasificador",
+	"apierror-mediadetection-invalid-mime-type": "O extremo da API non está dispoñible para este tipo de ficheiros; os tipos permitidos son: image/jpeg, image/gif, image/png, image/bmp"
 }
