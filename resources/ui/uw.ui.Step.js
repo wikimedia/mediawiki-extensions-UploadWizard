@@ -136,14 +136,13 @@
 		const getElements = ( kind ) => this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ).filter( ':visible' );
 		const uploadCount = ( this.uploads || [] ).length;
 
-		const scrollTo = ( $element ) => {
+		const scrollToFirst = ( $elements ) => {
 			// Immediately stop existing animations, then scroll to error
 			// eslint-disable-next-line no-jquery/no-global-selector
-			$( 'html, body' ).stop().animate( { scrollTop: $( $element ).offset().top - 50 }, 'slow' );
+			$( 'html, body' ).stop().animate( { scrollTop: $elements.eq( 0 ).offset().top - 50 }, 'slow' );
 		};
 
-		const updateSummary = ( kind, message ) => {
-			const $elements = getElements( kind );
+		const updateSummary = ( kind, message, $elements ) => {
 			const errorCount = $elements.length;
 
 			// reset to pristine state: no error, no scroll button, visible next button
@@ -167,14 +166,22 @@
 				label: mw.message( 'mwe-upwiz-details-' + kind + '-scroll', errorCount, uploadCount ).text(),
 				flags: [ 'progressive' ]
 			} );
-			scrollWidget.on( 'click', () => scrollTo( $elements[ 0 ] ) );
+			scrollWidget.on( 'click', () => scrollToFirst( $elements ) );
 			this.nextButton.$element.hide().before( scrollWidget.$element );
 		};
 
-		const observe = ( element, kind ) => {
+		const observe = ( element, kind, $observedElements ) => {
 			const observer = new MutationObserver( () => {
-				observer.disconnect();
-				updateSummary( kind, mw.message( 'mwe-upwiz-details-' + kind + '-generic' ) );
+				// eslint-disable-next-line no-jquery/no-sizzle
+				if ( !$( element ).is( ':visible' ) ) {
+					observer.disconnect();
+					updateSummary(
+						kind,
+						mw.message( 'mwe-upwiz-details-' + kind + '-generic' ),
+						// eslint-disable-next-line no-jquery/no-sizzle
+						$observedElements.filter( ':visible' )
+					);
+				}
 			} );
 			observer.observe(
 				element.parentNode,
@@ -185,11 +192,15 @@
 		const show = ( kind ) => {
 			const $elements = getElements( kind );
 
-			updateSummary( kind, mw.message( 'mwe-upwiz-details-' + kind + '-count' ) );
+			updateSummary(
+				kind,
+				mw.message( 'mwe-upwiz-details-' + kind + '-count' ),
+				$elements
+			);
 
 			if ( $elements.length > 0 ) {
 				$elements.each( function () {
-					observe( this, kind );
+					observe( this, kind, $elements );
 
 					// Open collapsed elements that contain errors
 					const $collapsibleWrapper = $( this ).closest( '.mw-collapsible' );
@@ -198,7 +209,7 @@
 					}
 				} );
 
-				scrollTo( $elements[ 0 ] );
+				scrollToFirst( $elements );
 			}
 
 			return $elements.length;
