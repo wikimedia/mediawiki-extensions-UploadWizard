@@ -46,7 +46,7 @@
 	"mwe-upwiz-upload-count": "$1/$2 {{PLURAL:$2|файл}} жүктөлдү",
 	"mwe-upwiz-progressbar-uploading": "жүктөлүүдө",
 	"mwe-upwiz-almost-finished": "Файлдар иштетилүүдө…",
-	"mwe-upwiz-finished": "Даяр !",
+	"mwe-upwiz-finished": "Даяр!",
 	"mwe-upwiz-deeds-macro-prompt-text": "Викиказынага жүктөлгөн файлдардын баарын ар бирөө  эркин колдоно алышы үчүн төмөндөгү маалыматты сурап жатабыз.",
 	"mwe-upwiz-source-ownwork-description": "Мисал: жаратылыштын, маанилүү окуянын {{PLURAL:$1|фотографиясы|фотографиялары}} сыяктуу башка чыгармаңыздар.",
 	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Бул}} {{PLURAL:$1|чыгарма|чыгармалар}} толугу менен {{GENDER:$2|өзүңүздүкүбү}} ?",

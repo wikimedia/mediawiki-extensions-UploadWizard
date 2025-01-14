@@ -19,7 +19,9 @@
 	"apihelp-query+allcampaigns-example-1": "رقم الحملات المفعلة",
 	"apihelp-mediadetection-summary": "إرجاع احتمالية أن الصورة المخزنة التي يمثلها مفتاح الملف المقدم هي شعار",
 	"apihelp-mediadetection-param-filename": "هنا اسم صفحة الملف",
+	"apihelp-mediadetection-param-filekey": "تم إرجاع <var>filekey</var> من طلب API <kbd>stash</kbd>",
 	"apihelp-mediadetection-example-filename": "إرجاع احتمالية هو أن الصورة التي يمثلها اسم الملف المقدم وهي شعار",
 	"apihelp-mediadetection-example-filekey": "إرجاع احتمالية أن الصورة المخزنة التي يمثلها مفتاح الملف المقدم هي شعار",
-	"apierror-mediadetection-no-valid-thumbnail": "لا توجد صورة صغيره للصورة لذا لا يمكن إرسالها إلى المصنف"
+	"apierror-mediadetection-no-valid-thumbnail": "لا توجد صورة صغيره للصورة لذا لا يمكن إرسالها إلى المصنف",
+	"apierror-mediadetection-invalid-mime-type": "نقطة نهاية API غير متاحة لهذا النوع من الملفات - الأنواع المسموح بها هي image/jpeg، image/gif، image/png، image/bmp"
 }
