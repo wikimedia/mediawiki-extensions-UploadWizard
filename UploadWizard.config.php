@@ -510,14 +510,14 @@ return [
 		],
 		'custom' => [
 			'msg' => 'mwe-upwiz-license-custom',
-			'templates' => [ 'subst:Custom license marker added by UW' ],
+			'templates' => [],
 			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse(),
 			'special' => 'input',
 			'msgSpecial' => 'mwe-upwiz-license-custom-explain'
 		],
 		'custom-pd' => [
 			'msg' => 'mwe-upwiz-license-custom-pd',
-			'templates' => [ 'subst:Custom license marker added by UW' ],
+			'templates' => [],
 			'url' => wfMessage( 'mwe-upwiz-license-custom-pd-url' )->parse(),
 			'special' => 'input',
 			'msgSpecial' => 'mwe-upwiz-license-custom-pd-explain'
