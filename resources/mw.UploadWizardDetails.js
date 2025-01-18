@@ -424,10 +424,10 @@
 						}
 					]
 				} );
-				this.captionsDetails.getItems()[ 0 ].setLanguage(
+				this.captionsDetails.getItems()[ 0 ].fieldWidget.setLanguage(
 					uri.query.captionlang ?
-						this.captionsDetails.getItems()[ 0 ].getClosestAllowedLanguage( uri.query.captionlang ) :
-						this.captionsDetails.getItems()[ 0 ].getDefaultLanguage()
+						this.captionsDetails.getItems()[ 0 ].fieldWidget.getClosestAllowedLanguage( uri.query.captionlang ) :
+						this.captionsDetails.getItems()[ 0 ].fieldWidget.getDefaultLanguage()
 				);
 			}
 
@@ -440,10 +440,10 @@
 						}
 					]
 				} );
-				this.descriptionsDetails.getItems()[ 0 ].setLanguage(
+				this.descriptionsDetails.getItems()[ 0 ].fieldWidget.setLanguage(
 					uri.query.descriptionlang ?
-						this.descriptionsDetails.getItems()[ 0 ].getClosestAllowedLanguage( uri.query.descriptionlang ) :
-						this.descriptionsDetails.getItems()[ 0 ].getDefaultLanguage()
+						this.descriptionsDetails.getItems()[ 0 ].fieldWidget.getClosestAllowedLanguage( uri.query.descriptionlang ) :
+						this.descriptionsDetails.getItems()[ 0 ].fieldWidget.getDefaultLanguage()
 				);
 			}
 
@@ -749,8 +749,8 @@
 						]
 					} );
 					// The language is probably wrong in many cases...
-					this.descriptionsDetails.getItems()[ 0 ].setLanguage(
-						this.descriptionsDetails.getItems()[ 0 ].getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) )
+					this.descriptionsDetails.getItems()[ 0 ].fieldWidget.setLanguage(
+						this.descriptionsDetails.getItems()[ 0 ].fieldWidget.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) )
 					);
 				}
 			}
