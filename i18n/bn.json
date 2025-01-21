@@ -131,6 +131,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|আমি}} কৃত্রিম বুদ্ধিমত্তা সরঞ্জাম ব্যবহার করে {{PLURAL:$1|এই কর্মটি|এই কর্মগুলি}} উৎপন্ন করেছি [[COM:AI-generated_media|(নির্দেশিকা দেখুন)]]",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "ব্যবহৃত কৃত্রিম বুদ্ধিমত্তা ইঞ্জিনের নাম লিখুন। যদি এই {{PLURAL:$1|কর্মটি|কর্মগুলি}} তৈরি করতে অন্য কারও মূল কর্ম ব্যবহার করা হয়, তবে সেগুলিও তালিকাভুক্ত করুন।",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>উদাহরণ:</b> লেখক: মিডজার্নি এআই; ছবি তুলেছেন অ্যানসেল অ্যাডামস; কলর্ম এআই, ইত্যাদি দিয়ে রঙকরণ",
+	"mwe-upwiz-source-ownwork-origin-option-ai-prompt": "এই মিডিয়া তৈরিতে ব্যবহৃত প্রম্পটটি লিখুন",
 	"mwe-upwiz-source-permission": "কাজগুলোর স্বত্তাধিকারী আপনাকে এগুলো আপলোড করার পূর্ণ অনুমতি প্রদান করেছেন",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|এটি|এগুলি}} অন্য কারও কর্ম এবং {{PLURAL:$1|এটি|এগুলি}} ভাগাভাগি করে নেওয়ার জন্য উন্মুক্ত।",
 	"mwe-upwiz-source-thirdparty-description": "উদাহরণ: অনলাইনে বা অন্য কোথাও খুঁজে পাওয়া {{PLURAL:$1|ছবি/স্ক্রিনশট}}, অন্য কারও দ্বারা সৃষ্ট কর্ম, ইত্যাদি।",
