@@ -29,6 +29,7 @@
 	"tag-uploadwizard-description": "A Feltöltésvarázslóval feltöltött fájlok",
 	"tag-uploadwizard-flickr-description": "Flickr-feltöltések a Feltöltésvarázslóval",
 	"right-mass-upload": "fájlok tömeges feltöltése a Feltöltésvarázslóval",
+	"action-mass-upload": "fájlok tömeges feltöltése a Feltöltésvarázslóval",
 	"right-upwizcampaigns": "Feltöltés varázsló kampányok konfigurálása",
 	"action-upwizcampaigns": "feltöltési kampányok konfigurálása",
 	"group-upwizcampeditors": "Feltöltés varázsló kampány szerkesztők",
