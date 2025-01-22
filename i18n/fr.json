@@ -344,6 +344,8 @@
 	"mwe-upwiz-details-warning-count": "Le{{PLURAL:$2||s}} formulaire{{PLURAL:$2||s}} ci-dessus donne{{PLURAL:$2||nt}} {{PLURAL:$1|un|$1}} avertissement{{PLURAL:$1||s}}. Nous vous recommandons d’y remédier avant de continuer.",
 	"mwe-upwiz-details-error-generic": "Veuillez corriger toutes les erreurs dans le formulaire avant de continuer.",
 	"mwe-upwiz-details-warning-generic": "Veuillez corriger tous les avertissements dans le formulaire avant de continuer.",
+	"mwe-upwiz-details-error-scroll": "Aller à l'erreur sur la page",
+	"mwe-upwiz-details-warning-scroll": "Accéder à l'avertissement sur la page",
 	"mwe-upwiz-too-many-files-text": "Vous pouvez téléverser au maximum $1 fichier{{PLURAL:$1||s}} en une seule fois, mais vous avez essayé d’en téléverser $2 en tout. Veuillez réessayer avec moins de fichiers !",
 	"mwe-upwiz-too-many-files": "Trop de fichiers.",
 	"mwe-upwiz-file-too-large-text": "Vous pouvez téléverser uniquement des fichiers d’une taille maximale de $1. Vous avez essayé de téléverser un fichier d’une taille de $2.",
