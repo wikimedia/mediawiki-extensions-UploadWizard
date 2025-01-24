@@ -40,7 +40,11 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 		] );
 		$block->setTarget( $user );
 		$block->setBlocker( $this->getTestSysop()->getUser() );
-		$block->insert();
+
+		$this->getServiceContainer()
+			->getDatabaseBlockStoreFactory()
+			->getDatabaseBlockStore( $block->getWikiId() )
+			->insertBlock( $block );
 
 		$caughtException = false;
 		try {
@@ -48,8 +52,6 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 		} catch ( UserBlockedError $e ) {
 			$caughtException = true;
 		}
-
-		$block->delete();
 
 		$this->assertSame( $expectException, $caughtException );
 	}
