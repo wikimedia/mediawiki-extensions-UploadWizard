@@ -14,5 +14,6 @@
 	"apihelp-query+allcampaigns-summary": "Räkna upp alla UploadWizard-kampanjer.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Lista enbart kampanjer som är aktiverade.",
 	"apihelp-query+allcampaigns-param-limit": "Antal kampanjer att returnera.",
-	"apihelp-query+allcampaigns-example-1": "Räkna upp aktiverade kampanjer"
+	"apihelp-query+allcampaigns-example-1": "Räkna upp aktiverade kampanjer",
+	"apihelp-mediadetection-param-filename": "Namnet på filsidan"
 }
