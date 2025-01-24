@@ -429,5 +429,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Uploaded own work with UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "Uploaded a work by $1 from $2 with UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Personal data",
-	"mwe-upwiz-metadata-notice-description": "EXIF metadata in this file may contain location or other personal data automatically added by your camera. [https://commons.wikimedia.org/wiki/Commons:Exif Learn more] about how to edit or remove EXIF metadata."
+	"mwe-upwiz-metadata-notice-description": "EXIF metadata in this file may contain location or other personal data automatically added by your camera. [https://commons.wikimedia.org/wiki/Commons:Exif Learn more] about how to edit or remove EXIF metadata.",
+	"namespaceinfo-description-ns460": "Namespace for upload campaigns",
+	"namespaceinfo-description-ns461": "Talk pages for upload campaigns"
 }

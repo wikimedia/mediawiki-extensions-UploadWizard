@@ -463,5 +463,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Own work upload comment shown in upload log. This message will not be parsed.",
 	"mwe-upwiz-upload-comment-third-party": "Third party work upload comment shown in upload log. Only variable substitution will be done on this message.\n* $1 – author of the work\n* $2 – source of the work",
 	"mwe-upwiz-metadata-notice-header": "Bolded header for Personal Data notice",
-	"mwe-upwiz-metadata-notice-description": "Notice explaining that EXIF metadata is going to be added to the uploaded images if available."
+	"mwe-upwiz-metadata-notice-description": "Notice explaining that EXIF metadata is going to be added to the uploaded images if available.",
+	"namespaceinfo-description-ns460": "Namespace description for the Campaign namespace",
+	"namespaceinfo-description-ns461": "Namespace description for the Campaign talk namespace"
 }
