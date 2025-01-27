@@ -456,5 +456,7 @@
 	"mwe-upwiz-upload-comment-own-work": "ارفع عملك الشَّخصيَّ باستعمال مُعالِج الرَّفع",
 	"mwe-upwiz-upload-comment-third-party": "تم تحميل عمل بواسطة $1 من $2 باستخدام UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "بيانات شخصية",
-	"mwe-upwiz-metadata-notice-description": "صيغة الملف الصوري القابل للتبادل (EXIF) المستعملة في هذا الملف قد تتضمن معلومات عن الموقع أو بيانات شخصية أخرى تضيفها آلة التصوير آلياً.\n[https://commons.wikimedia.org/wiki/Commons:Exif تعرف على المزيد] حول كيفية تعديل أو إزالة البيانات الوصفية."
+	"mwe-upwiz-metadata-notice-description": "صيغة الملف الصوري القابل للتبادل (EXIF) المستعملة في هذا الملف قد تتضمن معلومات عن الموقع أو بيانات شخصية أخرى تضيفها آلة التصوير آلياً.\n[https://commons.wikimedia.org/wiki/Commons:Exif تعرف على المزيد] حول كيفية تعديل أو إزالة البيانات الوصفية.",
+	"namespaceinfo-description-ns460": "مساحة اسمية لحملات التحميل",
+	"namespaceinfo-description-ns461": "صفحات المناقشة لحملات التحميل"
 }

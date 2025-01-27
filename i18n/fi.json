@@ -441,5 +441,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Tallensi oman teoksen ohjattulla tiedoston tallentamisella",
 	"mwe-upwiz-upload-comment-third-party": "Tallensi tekijän $1 teoksen lähteestä $2 ohjattulla tiedoston tallentamisella",
 	"mwe-upwiz-metadata-notice-header": "Henkilötietoja havaittu",
-	"mwe-upwiz-metadata-notice-description": "Tiedosto saattaa sisältää kuvailutietoja, kuten sijainnin tai muita kameran automaattisesti lisäämiä yksityisiä tietoja. [https://commons.wikimedia.org/wiki/Commons:Exif Lisätietoja] kuvailutietojen poistamisesta ja muokkaamisesta."
+	"mwe-upwiz-metadata-notice-description": "Tiedosto saattaa sisältää kuvailutietoja, kuten sijainnin tai muita kameran automaattisesti lisäämiä yksityisiä tietoja. [https://commons.wikimedia.org/wiki/Commons:Exif Lisätietoja] kuvailutietojen poistamisesta ja muokkaamisesta.",
+	"namespaceinfo-description-ns460": "Nimiavaruus tallennuskampanjoille",
+	"namespaceinfo-description-ns461": "Tallennuskampanjoiden keskustelusivut"
 }

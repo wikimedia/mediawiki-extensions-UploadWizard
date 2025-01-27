@@ -454,5 +454,7 @@
 	"mwe-upwiz-upload-comment-own-work": "eigenes Werk mit dem Hochlade-Assistenten hochgeladen",
 	"mwe-upwiz-upload-comment-third-party": "ein Werk von $1 von $2 mit dem Hochlade-Assistenten hochgeladen",
 	"mwe-upwiz-metadata-notice-header": "Personenbezogene Daten",
-	"mwe-upwiz-metadata-notice-description": "Die EXIF-Metadaten in dieser Datei können Ortsangaben oder andere persönliche Daten enthalten, die von deiner Kamera automatisch hinzugefügt wurden. [https://commons.wikimedia.org/wiki/Commons:Exif Hier findest du Informationen darüber], wie du EXIF-Metadaten bearbeiten oder entfernen kannst."
+	"mwe-upwiz-metadata-notice-description": "Die EXIF-Metadaten in dieser Datei können Ortsangaben oder andere persönliche Daten enthalten, die von deiner Kamera automatisch hinzugefügt wurden. [https://commons.wikimedia.org/wiki/Commons:Exif Hier findest du Informationen darüber], wie du EXIF-Metadaten bearbeiten oder entfernen kannst.",
+	"namespaceinfo-description-ns460": "Namensraum für Hochlade-Kampagnen",
+	"namespaceinfo-description-ns461": "Diskussionsseiten für Hochlade-Kampagnen"
 }

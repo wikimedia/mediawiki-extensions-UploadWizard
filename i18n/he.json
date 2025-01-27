@@ -442,5 +442,7 @@
 	"mwe-upwiz-upload-comment-own-work": "העלאת יצירה מקורית באמצעות אשף ההעלאה",
 	"mwe-upwiz-upload-comment-third-party": "העלאת יצירה מאת $1 מתוך $2 באמצעות אשף ההעלאה",
 	"mwe-upwiz-metadata-notice-header": "נתונים אישיים",
-	"mwe-upwiz-metadata-notice-description": "מטא־נתוני EXIF בקובץ הזה יכולים להכיל מיקום או נתונים אישיים אחרים שנוספים אוטומטית על־ידי המצלמה שלך. [https://commons.wikimedia.org/wiki/Commons:Exif מידע נוסף] על איך באפשרותך לערוך או להסיר מטא־נתוני EXIF."
+	"mwe-upwiz-metadata-notice-description": "מטא־נתוני EXIF בקובץ הזה יכולים להכיל מיקום או נתונים אישיים אחרים שנוספים אוטומטית על־ידי המצלמה שלך. [https://commons.wikimedia.org/wiki/Commons:Exif מידע נוסף] על איך באפשרותך לערוך או להסיר מטא־נתוני EXIF.",
+	"namespaceinfo-description-ns460": "מרחב שם למבצעים העלאות",
+	"namespaceinfo-description-ns461": "דפי שיחה למבצעי העלאות"
 }
