@@ -433,5 +433,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Подигнато сопствено дело со Помошникот за подигање",
 	"mwe-upwiz-upload-comment-third-party": "Подигнато дело на $1 од $2 со Помошникот за подигање",
 	"mwe-upwiz-metadata-notice-header": "Лични податоци",
-	"mwe-upwiz-metadata-notice-description": "EXIF-метаподатоците во оваа податотека може да содржат местоположба или други лични податоци кои автоматски ги става вашата камера. [https://commons.wikimedia.org/wiki/Commons:Exif Дознајте како] да ги измените или отстраните."
+	"mwe-upwiz-metadata-notice-description": "EXIF-метаподатоците во оваа податотека може да содржат местоположба или други лични податоци кои автоматски ги става вашата камера. [https://commons.wikimedia.org/wiki/Commons:Exif Дознајте како] да ги измените или отстраните.",
+	"namespaceinfo-description-ns460": "Именски простор за походи за подигање",
+	"namespaceinfo-description-ns461": "Разговорни страници за походи за подигање"
 }

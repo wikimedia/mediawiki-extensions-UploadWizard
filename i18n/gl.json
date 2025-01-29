@@ -436,5 +436,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Subiu obras propias co asistente de cargas",
 	"mwe-upwiz-upload-comment-third-party": "Subiu unha obra de $1 desde $2 co asistente de cargas",
 	"mwe-upwiz-metadata-notice-header": "Datos persoais",
-	"mwe-upwiz-metadata-notice-description": "Os metadatos EXIF deste ficheiro poden conter a localización ou outros datos persoais engadidos automaticamente pola túa cámara. [https://commons.wikimedia.org/wiki/Commons:Exif Máis información] sobre como editar ou eliminar os metadatos EXIF."
+	"mwe-upwiz-metadata-notice-description": "Os metadatos EXIF deste ficheiro poden conter a localización ou outros datos persoais engadidos automaticamente pola túa cámara. [https://commons.wikimedia.org/wiki/Commons:Exif Máis información] sobre como editar ou eliminar os metadatos EXIF.",
+	"namespaceinfo-description-ns460": "Espazo de nomes para as campañas de cargas",
+	"namespaceinfo-description-ns461": "Páxinas de conversa para as campañas de cargas"
 }
