@@ -138,7 +138,7 @@ class UploadWizardFlickrBlacklist {
 		];
 		$response = MediaWikiServices::getInstance()->getHttpRequestFactory()
 			->post( $this->flickrApiUrl, $params, __METHOD__ );
-		if ( $response !== false ) {
+		if ( $response !== null ) {
 			$response = json_decode( $response, true );
 		}
 		if ( isset( $response['photo']['owner']['nsid'] ) ) {
