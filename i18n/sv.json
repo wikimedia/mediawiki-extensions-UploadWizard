@@ -359,7 +359,7 @@
 	"mwe-upwiz-license-free-head": "Skaparen har släppt eller publicerat {{PLURAL:$1|det här verket|dessa verk}} under en fri licens t.ex. [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons license]",
 	"mwe-upwiz-license-free-subhead": "Vet du vilken licens skaparen publicerade {{PLURAL:$1|det här verket|de här verken}} under?",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|Detta verk|Dessa verk}} skyddas inte av upphovsrättslagar",
-	"mwe-upwiz-license-cc0-head-extra": "Exempel: gamla verk vars upphovsrätt har gått ut eller verk som släppts av en regering som offentliga handlingar, osv. [$2 Ta reda på mer]",
+	"mwe-upwiz-license-cc0-head-extra": "Exempel: {{PLURAL:$1|gammalt verk|gamla verk}} vars upphovsrätt har gått ut eller verk som släppts av en regering som offentliga handlingar, osv. [$2 Ta reda på mer]",
 	"mwe-upwiz-license-cc0-subhead-2": "Vilket av alternativen nedan är sant? Bocka i alla som stämmer.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} ligger i USA, så {{PLURAL:$1|verket|verken}} får inte heller ha upphovsrätt i USA.",
 	"mwe-upwiz-license-vrt-head": "Jag har tillstånd att ladda upp {{PLURAL$1|det här verket|de här verken}} från min arbetsgivare eller {{PLURAL:$1|verkets|verkens}} skapare",
@@ -446,5 +446,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Laddade upp eget verk med UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "Laddade upp ett verk av $1 från $2 med UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Personlig data",
-	"mwe-upwiz-metadata-notice-description": "EXIF-metadata i denna fil kan innehålla plats- eller personlig data som automatiskt läggs till av din kamera. [https://commons.wikimedia.org/wiki/Commons:Exif Läs mer] om man redigerar eller tar bort EXIF-metadata."
+	"mwe-upwiz-metadata-notice-description": "EXIF-metadata i denna fil kan innehålla plats- eller personlig data som automatiskt läggs till av din kamera. [https://commons.wikimedia.org/wiki/Commons:Exif Läs mer] om man redigerar eller tar bort EXIF-metadata.",
+	"namespaceinfo-description-ns460": "Namnrymd för uppladdningskampanjer",
+	"namespaceinfo-description-ns461": "Diskussionssidor för uppladdningskampanjer"
 }

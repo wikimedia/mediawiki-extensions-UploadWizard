@@ -429,5 +429,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Obra proprie incargate con le Assistente de incargamento",
 	"mwe-upwiz-upload-comment-third-party": "Obra de $1 proveniente de $2 incargate con le Assistente de incargamento",
 	"mwe-upwiz-metadata-notice-header": "Datos personal",
-	"mwe-upwiz-metadata-notice-description": "Le metadatos EXIF in iste file pote continer un position geographic o altere datos personal que tu camera ha addite automaticamente. [https://commons.wikimedia.org/wiki/Commons:Exif Lege plus] sur como modificar o remover le metadatos EXIF."
+	"mwe-upwiz-metadata-notice-description": "Le metadatos EXIF in iste file pote continer un position geographic o altere datos personal que tu camera ha addite automaticamente. [https://commons.wikimedia.org/wiki/Commons:Exif Lege plus] sur como modificar o remover le metadatos EXIF.",
+	"namespaceinfo-description-ns460": "Spatio de nomines pro campanias de incargamento",
+	"namespaceinfo-description-ns461": "Paginas de discussion pro campanias de incargamento"
 }

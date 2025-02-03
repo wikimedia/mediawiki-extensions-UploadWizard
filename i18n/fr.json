@@ -494,5 +494,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Téléversement de mon propre travail avec UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "Œuvre de $1 venant de $2 téléversée avec UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Données personnelles",
-	"mwe-upwiz-metadata-notice-description": "Les métadonnées EXIF de ce fichier peuvent contenir l'emplacement ou d'autres données personnelles ajoutées automatiquement par votre appareil photo. Consultez [https://commons.wikimedia.org/wiki/Commons:Exif Commons:Exif] pour savoir comment modifier ou supprimer les métadonnées EXIF."
+	"mwe-upwiz-metadata-notice-description": "Les métadonnées EXIF de ce fichier peuvent contenir l'emplacement ou d'autres données personnelles ajoutées automatiquement par votre appareil photo. Consultez [https://commons.wikimedia.org/wiki/Commons:Exif Commons:Exif] pour savoir comment modifier ou supprimer les métadonnées EXIF.",
+	"namespaceinfo-description-ns460": "Espace de noms pour les campagnes de téléchargement",
+	"namespaceinfo-description-ns461": "Pages de discussion pour les campagnes de téléchargement"
 }
