@@ -3,7 +3,8 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Aushulz",
-			"Sarvaturi"
+			"Sarvaturi",
+			"GianAntonucci"
 		]
 	},
 	"uploadwizard": "Carricamentu guidatu",
@@ -32,7 +33,7 @@
 	"mwe-upwiz-next-file": "Camina",
 	"mwe-upwiz-next-deeds": "N avanti",
 	"mwe-upwiz-upload-another": "Càrrica àutri file",
-	"mwe-upwiz-tooltip-more-info": "Pi sapìrinni cchiossai.",
+	"mwe-upwiz-tooltip-more-info": "Autri nfurmazzioni.",
 	"mwe-upwiz-label-optional": "Facultativu",
 	"mwe-upwiz-too-many-files": "Troppi file.",
 	"mwe-upwiz-dialog-yes": "Sì",
@@ -41,7 +42,7 @@
 	"mwe-upwiz-license-custom-preview": "Antiprima",
 	"mwe-upwiz-categories": "Catigurìi",
 	"mwe-upwiz-errordialog-ok": "OK",
-	"prefs-upwiz-interface": "Ntirfaccia utenti",
+	"prefs-upwiz-interface": "Ntirfacci di l'utenti",
 	"mwe-upwiz-prefs-license-name": "Nomu di l'auturi",
 	"campaigns": "Campagni di carricamentu guidatu"
 }
