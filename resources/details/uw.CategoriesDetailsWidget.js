@@ -6,15 +6,18 @@
 	 * @constructor
 	 * @param {Object} [config] Configuration options
 	 * @param {mw.Api} [config.api] Instance of mw.Api (or subclass thereof) to use for queries
-	 * @param {number} [config.limit=10] Maximum number of results to load
+	 * @param {number} [config.searchLimit=50] Maximum number of category search results to load
+	 * @param {number} [config.subLimit=500] Maximum number of sub-categories to load
 	 */
 	uw.CategoriesDetailsWidget = function MWCategoryMultiselectWidget( config ) {
 		// Config initialization
 		config = Object.assign( {
-			limit: 10,
+			searchLimit: 50,
+			subLimit: 500,
 			classes: [ 'mwe-upwiz-categoriesDetailsWidget' ]
 		}, config );
-		this.limit = config.limit;
+		this.searchLimit = config.searchLimit;
+		this.subLimit = config.subLimit;
 
 		// Parent constructor
 		uw.CategoriesDetailsWidget.super.call( this, $.extend( true, {}, config, {
@@ -206,7 +209,7 @@
 			action: 'query',
 			generator: 'prefixsearch',
 			gpsnamespace: NS_CATEGORY,
-			gpslimit: this.limit,
+			gpslimit: this.searchLimit,
 			gpssearch: input,
 			prop: 'categoryinfo'
 		} )
@@ -232,8 +235,7 @@
 			action: 'query',
 			generator: 'categorymembers',
 			gcmnamespace: NS_CATEGORY,
-			// minus 2, because "back to parent" and "this exact category" will also be added
-			gcmlimit: this.limit - 2,
+			gcmlimit: this.subLimit,
 			gcmtitle: mw.Title.newFromText( input, NS_CATEGORY ).getPrefixedDb(),
 			prop: 'categoryinfo'
 		} )
