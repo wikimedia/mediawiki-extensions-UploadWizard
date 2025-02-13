@@ -454,5 +454,7 @@
 	"mwe-upwiz-upload-comment-own-work": "UploadWizard ile kendi çalışmansını yükledi",
 	"mwe-upwiz-upload-comment-third-party": "UploadWizard ile $2 kaynağından $1 tarafından bir çalışma yükledi",
 	"mwe-upwiz-metadata-notice-header": "Kişisel veri",
-	"mwe-upwiz-metadata-notice-description": "Bu dosyadaki EXIF meta verileri, kameranız tarafından otomatik olarak eklenen konum veya diğer kişisel verileri içerebilir. EXIF meta verilerinin nasıl düzenleneceği veya kaldırılacağı hakkında [https://commons.wikimedia.org/wiki/Commons:Exif daha fazla bilgi edinin]."
+	"mwe-upwiz-metadata-notice-description": "Bu dosyadaki EXIF meta verileri, kameranız tarafından otomatik olarak eklenen konum veya diğer kişisel verileri içerebilir. EXIF meta verilerinin nasıl düzenleneceği veya kaldırılacağı hakkında [https://commons.wikimedia.org/wiki/Commons:Exif daha fazla bilgi edinin].",
+	"namespaceinfo-description-ns460": "Yükleme kampanyaları için ad alanı",
+	"namespaceinfo-description-ns461": "Yükleme kampanyaları için tartışma sayfaları"
 }
