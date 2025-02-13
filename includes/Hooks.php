@@ -5,10 +5,10 @@ namespace MediaWiki\Extension\UploadWizard;
 use MediaWiki\ChangeTags\Hook\ChangeTagsAllowedAddHook;
 use MediaWiki\ChangeTags\Hook\ChangeTagsListActiveHook;
 use MediaWiki\ChangeTags\Hook\ListDefinedTagsHook;
+use MediaWiki\Config\Config as MwConfig;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\IsUploadAllowedFromUrlHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Registration\ExtensionRegistry;
@@ -22,6 +22,14 @@ class Hooks implements
 	ChangeTagsAllowedAddHook,
 	PreferencesGetIconHook
 {
+
+	private MwConfig $config;
+
+	public function __construct(
+		MwConfig $config
+	) {
+		$this->config = $config;
+	}
 
 	/**
 	 * Adds the preferences of UploadWizard to the list of available ones.
@@ -224,10 +232,8 @@ class Hooks implements
 	 * @param \Skin $skin
 	 */
 	public function onBeforePageDisplay( $out, $skin ): void {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'WikibaseMediaInfo' ) ) {
-			$properties = $config->get( 'MediaInfoProperties' );
+			$properties = $this->config->get( 'MediaInfoProperties' );
 			if ( $properties ) {
 				$propertyTitles = [];
 				$propertyPlaceholders = [];
