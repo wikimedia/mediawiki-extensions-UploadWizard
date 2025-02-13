@@ -11,7 +11,6 @@ use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;
 use MediaWiki\Extension\UploadWizard\Tutorial;
 use MediaWiki\Html\Html;
-use MediaWiki\Request\WebRequest;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
@@ -45,11 +44,8 @@ class SpecialUploadWizard extends SpecialPage {
 
 	/**
 	 * @param UserOptionsLookup $userOptionsLookup
-	 * @param WebRequest|null $request the request (usually wgRequest)
-	 * @param string|null $par everything in the URL after Special:UploadWizard.
-	 *   Not sure what we can use it for
 	 */
-	public function __construct( UserOptionsLookup $userOptionsLookup, $request = null, $par = null ) {
+	public function __construct( UserOptionsLookup $userOptionsLookup ) {
 		$this->userOptionsLookup = $userOptionsLookup;
 		parent::__construct( 'UploadWizard', 'upload' );
 	}
