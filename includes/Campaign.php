@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\UploadWizard;
 
 use InvalidArgumentException;
 use MediaWiki\Category\Category;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Language\Language;
 use MediaWiki\MediaWikiServices;
@@ -72,9 +73,8 @@ class Campaign {
 	 * The RequestContext to use for operations performed from this object
 	 *
 	 * @since 1.4
-	 * @var RequestContext|null
 	 */
-	protected $context = null;
+	protected IContextSource $context;
 
 	/** @var WANObjectCache */
 	private $wanObjectCache;
@@ -104,7 +104,7 @@ class Campaign {
 	/**
 	 * @param Title $title
 	 * @param array|null $config
-	 * @param RequestContext|null $context
+	 * @param IContextSource|null $context
 	 */
 	public function __construct( $title, $config = null, $context = null ) {
 		$services = MediaWikiServices::getInstance();
