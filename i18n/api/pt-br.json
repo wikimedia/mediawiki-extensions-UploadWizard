@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"EPorto (WMB)"
 		]
 	},
 	"apihelp-flickrblacklist-summary": "Valide um URL do Flickr usando o ID do usuário (NSID) para a lista negra.",
@@ -13,5 +14,7 @@
 	"apihelp-query+allcampaigns-summary": "Enumerar todas as campanhas do UploadWizard.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Apenas lista as campanhas habilitadas.",
 	"apihelp-query+allcampaigns-param-limit": "Número de campanhas para retornar.",
-	"apihelp-query+allcampaigns-example-1": "Enumerar todas as campanhas"
+	"apihelp-query+allcampaigns-example-1": "Enumerar todas as campanhas",
+	"apierror-mediadetection-no-valid-thumbnail": "Não existe nenhuma miniatura para a imagem, então não pode ser enviada para o classificador",
+	"apierror-mediadetection-invalid-mime-type": "A chamada da API não está disponível para esse tipo de arquivo - tipos permitidos são image/jpeg, image/gif, image/png, image/bmp"
 }
