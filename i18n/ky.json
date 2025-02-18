@@ -47,7 +47,7 @@
 	"mwe-upwiz-progressbar-uploading": "жүктөлүүдө",
 	"mwe-upwiz-almost-finished": "Файлдар иштетилүүдө…",
 	"mwe-upwiz-finished": "Даяр!",
-	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Бул}} {{PLURAL:$1|чыгарма|чыгармалар}} толугу менен {{GENDER:$2|өзүңүздүкүбү}} ?",
+	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Бул}} {{PLURAL:$1|чыгарма|чыгармалар}} толугу менен {{GENDER:$2|өзүңүздүкүбү}}?",
 	"mwe-upwiz-source-ownwork-origin-option-others": "Бул {{PLURAL:$1|чыгарма|чыгармалар}} башкалардын чыгармаларын камтыйт",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Так билбейм",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Мисал:</b> Автор: Midjourney AI; Ансель Адамстын фотографиясы; Colorme AI түстөткөн ж.б.",
