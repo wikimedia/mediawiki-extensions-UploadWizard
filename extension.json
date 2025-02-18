@@ -675,7 +675,10 @@
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "MediaWiki\\Extension\\UploadWizard\\Hooks"
+			"class": "MediaWiki\\Extension\\UploadWizard\\Hooks",
+			"services": [
+				"MainConfig"
+			]
 		},
 		"campaign": {
 			"class": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks",
