@@ -539,18 +539,6 @@
 		},
 
 		/**
-		 * Display error message about multiple uploaded files with the same title specified
-		 *
-		 * @return {mw.UploadWizardDetails}
-		 * @chainable
-		 */
-		setDuplicateTitleError: function () {
-			// TODO This should give immediate response, not only when submitting the form
-			this.titleDetailsField.setErrors( [ mw.message( 'mwe-upwiz-error-title-duplicate' ) ] );
-			return this;
-		},
-
-		/**
 		 * @private
 		 *
 		 * @return {uw.FieldLayout[]}

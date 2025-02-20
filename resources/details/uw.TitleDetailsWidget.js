@@ -31,6 +31,11 @@
 		this.$element.append(
 			this.titleInput.$element
 		);
+
+		this.isDuplicate = false;
+		this.on( 'change', () => {
+			this.isDuplicate = false;
+		} );
 	};
 	OO.inheritClass( uw.TitleDetailsWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.TitleDetailsWidget, uw.ValidatableElement );
@@ -99,6 +104,10 @@
 		return title;
 	};
 
+	uw.TitleDetailsWidget.prototype.setIsDuplicate = function ( isDuplicate ) {
+		this.isDuplicate = !!isDuplicate;
+	};
+
 	/**
 	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
@@ -130,6 +139,11 @@
 
 		if ( !title ) {
 			status.addError( mw.message( 'mwe-upwiz-error-title-invalid' ) );
+			return status.reject();
+		}
+
+		if ( this.isDuplicate ) {
+			status.addError( mw.message( 'mwe-upwiz-error-title-duplicate' ) );
 			return status.reject();
 		}
 
