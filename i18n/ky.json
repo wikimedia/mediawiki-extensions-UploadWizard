@@ -49,7 +49,7 @@
 	"mwe-upwiz-finished": "Даяр!",
 	"mwe-upwiz-deeds-macro-prompt-text": "Викиказынага жүктөлгөн файлдардын баарын ар бирөө  эркин колдоно алышы үчүн төмөндөгү маалыматты сурап жатабыз.",
 	"mwe-upwiz-source-ownwork-description": "Мисал: жаратылыштын, маанилүү окуянын {{PLURAL:$1|фотографиясы|фотографиялары}} сыяктуу башка чыгармаңыздар.",
-	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Бул}} {{PLURAL:$1|чыгарма|чыгармалар}} толугу менен {{GENDER:$2|өзүңүздүкүбү}} ?",
+	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Бул}} {{PLURAL:$1|чыгарма|чыгармалар}} толугу менен {{GENDER:$2|өзүңүздүкүбү}}?",
 	"mwe-upwiz-source-ownwork-origin-option-others": "Бул {{PLURAL:$1|чыгарма|чыгармалар}} башкалардын чыгармаларын камтыйт",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Так билбейм",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Мисал:</b> Автор: Midjourney AI; Ансель Адамстын фотографиясы; Colorme AI түстөткөн ж.б.",
