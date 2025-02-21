@@ -176,8 +176,7 @@
 	 * @return {jQuery.Promise<uw.ValidationStatus>}
 	 */
 	uw.controller.Details.prototype.validate = function ( thorough ) {
-		const status = new uw.ValidationStatus(),
-			titles = [],
+		const titles = [],
 			fieldPromises = [];
 
 		this.uploads.forEach( ( upload ) => {
@@ -185,13 +184,8 @@
 			let title = upload.details.getTitle();
 			if ( title ) {
 				title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
-				if ( titles[ title ] ) {
-					// Don't submit. Instead, set an error in details step.
-					upload.details.setDuplicateTitleError();
-					status.addError( mw.message( 'mwe-upwiz-error-title-duplicate' ) );
-				} else {
-					titles[ title ] = true;
-				}
+				upload.details.titleDetails.setIsDuplicate( title in titles );
+				titles[ title ] = true;
 			}
 
 			upload.details.getAllFields().forEach( ( fieldLayout ) => {
@@ -199,10 +193,7 @@
 			} );
 		} );
 
-		return uw.ValidationStatus.mergePromises(
-			status.getErrors().length === 0 ? status.resolve() : status.reject(),
-			...fieldPromises
-		);
+		return uw.ValidationStatus.mergePromises( ...fieldPromises );
 	};
 
 	uw.controller.Details.prototype.canTransition = function ( upload ) {
