@@ -42,8 +42,8 @@
 		this.input.$input.on(
 			'change input cut paste',
 			OO.ui.debounce( () => this.updateMenuItems(
-				this.searchCategories( this.input.$input.val() ),
-				this.input.$input.val()
+				this.searchCategories( this.input.$input.val().trim() ),
+				this.input.$input.val().trim()
 			), 100 )
 		);
 
@@ -56,6 +56,9 @@
 	OO.mixinClass( uw.CategoriesDetailsWidget, uw.ValidatableElement );
 
 	uw.CategoriesDetailsWidget.prototype.updateMenuItems = function ( results, input ) {
+		const arrowParent = document.documentElement.dir === 'ltr' ? '←' : '→';
+		const arrowChildren = document.documentElement.dir === 'ltr' ? '→' : '←';
+
 		this.getMenu().clearItems();
 
 		this.pushPending();
@@ -95,11 +98,11 @@
 										data.parent.results,
 										data.parent.input
 									);
-									text = mw.message( 'mwe-upwiz-categories-up', input ).text();
+									text = arrowParent;
 								} else if ( data.current ) {
 									// indicate that this is the current category (and clicking it
 									// will not navigate to its subcategories, but select it instead)
-									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-current' ).text( text )[ 0 ].outerHTML;
+									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( text )[ 0 ].outerHTML;
 									text = mw.message( 'mwe-upwiz-categories-current', text ).text();
 								} else if ( data.categoryinfo.subcats > 0 ) {
 									// indicate that the category has subcategories
@@ -115,7 +118,7 @@
 										} ),
 										title.getMainText()
 									);
-									text = mw.message( 'mwe-upwiz-categories-down', text ).text();
+									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( text )[ 0 ].outerHTML + ' ' + arrowChildren;
 								}
 
 								return new OO.ui.MenuOptionWidget( {

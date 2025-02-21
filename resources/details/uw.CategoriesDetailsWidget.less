@@ -3,28 +3,34 @@
 .mwe-upwiz-categoriesDetailsWidget .oo-ui-menuSelectWidget {
 	max-height: 350px;
 
-	/*
-	 * Below is a bit of a hack to apply styling to the non-title part of a category name.
-	 *
-	 * An entry will look something like:
-	 * This is a category title   parent category
-	 * Where "This is a category title" is a variable category title, and "parent category" is a
-	 * localized message.
-	 *
-	 * The localized message part is the one that we would like to style differently, but I'd rather
-	 * not rely on (and impose the burden on) translators adding HTML tags as part of their message.
-	 * Instead, I'll simply apply the custom style on the node as a whole, and then undo it on the
-	 * category title part, where I can easily add one programmatically.
-	 */
-	.oo-ui-labelElement-label:has( .mwe-upwiz-categories-current ) {
-		font-size: smaller;
-		font-variant-caps: small-caps;
-		color: @color-subtle;
+	.oo-ui-labelElement-label {
+		// add some whitespace between <title> and <arrow> (or PARENT CATEGORY text)
+		display: flex;
+		gap: 1em;
 
-		.mwe-upwiz-categories-current {
-			font-size: larger;
-			font-variant-caps: normal;
-			color: @color-base;
+		/*
+		 * Below is a bit of a hack to apply styling to the non-title part of a category name.
+		 *
+		 * An entry will look something like:
+		 * This is a category title   parent category
+		 * Where "This is a category title" is a variable category title, and "parent category" is a
+		 * localized message.
+		 *
+		 * The localized message part is the one that we would like to style differently, but I'd rather
+		 * not rely on (and impose the burden on) translators adding HTML tags as part of their message.
+		 * Instead, I'll simply apply the custom style on the node as a whole, and then undo it on the
+		 * category title part, where I can easily add one programmatically.
+		 */
+		&:has( .mwe-upwiz-categories-category-title ) {
+			font-size: smaller;
+			font-variant-caps: small-caps;
+			color: @color-subtle;
+
+			.mwe-upwiz-categories-category-title {
+				font-size: larger;
+				font-variant-caps: normal;
+				color: @color-base;
+			}
 		}
 	}
 }
