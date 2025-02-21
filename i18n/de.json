@@ -404,6 +404,7 @@
 	"mwe-upwiz-categories": "Kategorie",
 	"mwe-upwiz-categories-missing": "Die rot {{PLURAL:$1|dargestellte Kategorie existiert|dargestellten Kategorien existieren}} nicht und es fehlt eine Beschreibungsseite. Falls {{PLURAL:$1|eine ähnliche Kategorie existiert|ähnliche Kategorien existieren}}, empfehlen wir dir {{PLURAL:$1|diese|jene}} zu verwenden. Falls nicht, gehe bitte {{PLURAL:$1|zur neuen Kategorieseite|zu den neuen Kategorieseiten}} und füge eine Beschreibung hinzu.",
 	"mwe-upwiz-categories-placeholder": "z.B. Säugetiere des Etosha Nationalparks",
+	"mwe-upwiz-categories-current": "$1&nbsp;&nbsp;&nbsp;übergeordnete Kategorie",
 	"mwe-upwiz-statements-title-depicts": "Die wichtigsten Themen, die in dieser Arbeit zu sehen sind",
 	"mwe-upwiz-statements-too-many-items": "Wir empfehlen, die Anzahl der Einträge auf maximal $1 zu beschränken",
 	"mwe-upwiz-statements-placeholder-depicts": "z.B. Angolanische Giraffe",

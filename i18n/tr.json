@@ -404,6 +404,7 @@
 	"mwe-upwiz-categories": "Kategori",
 	"mwe-upwiz-categories-missing": "Kırmızı ile gösterilen {{PLURAL:$1|kategori|kategoriler}} mevcut değil ve açıklama {{PLURAL:$1|sayfası|sayfaları}} yok. Eğer benzer {{PLURAL:$1|bir kategori|kategoriler}} varsa, {{PLURAL:$1|bunu|bunları}} kullanmanızı öneriyoruz. Değilse, yeni kategori {{PLURAL:$1|sayfasına|sayfalarına}} gidin ve bir açıklama ekleyin.",
 	"mwe-upwiz-categories-placeholder": "ör. Etosha Ulusal Parkı Memelileri",
+	"mwe-upwiz-categories-current": "$1&nbsp;&nbsp;&nbsp;ana kategori",
 	"mwe-upwiz-statements-title-depicts": "Bu çalışmada görünen ana konular",
 	"mwe-upwiz-statements-too-many-items": "Öge sayısını en fazla $1 olarak tutmanızı öneririz",
 	"mwe-upwiz-statements-placeholder-depicts": "ör. Angola zürafası",
