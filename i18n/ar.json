@@ -406,7 +406,7 @@
 	"mwe-upwiz-categories": "تصنيف",
 	"mwe-upwiz-categories-missing": "لا توجد {{PLURAL:$1|category|categories}} الموضحة باللون الأحمر {{PLURAL:$1|does|do}} و{{PLURAL:$1|lacks|lack}} صفحة وصف. إذا كانت {{PLURAL:$1|a similar category exists|similar categories exist}}، فنوصيك باستخدام {{PLURAL:$1|that|those}}. وإذا لم يكن الأمر كذلك، فالرجاء الانتقال إلى الفئة الجديدة {{PLURAL:$1|page|pages}} وإضافة وصف.",
 	"mwe-upwiz-categories-placeholder": "مثلاً: Mammals of Etosha National Park",
-	"mwe-upwiz-categories-current": "$1&nbsp;&nbsp;&nbsp;التصنيف الأعلى",
+	"mwe-upwiz-categories-current": "$1 التصنيف الأعلى",
 	"mwe-upwiz-statements-title-depicts": "المواضيع أو الأغراض الرئيسة الظاهرة أو التي تناولها هذا العمل",
 	"mwe-upwiz-statements-too-many-items": "نوصي بالحفاظ على عدد العناصر دون $1",
 	"mwe-upwiz-statements-placeholder-depicts": "مثلًا: المسجد الأموي، البتراء، صلاح الدين الأيوبي...",

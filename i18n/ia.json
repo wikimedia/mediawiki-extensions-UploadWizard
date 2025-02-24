@@ -379,6 +379,7 @@
 	"mwe-upwiz-categories": "Categoria",
 	"mwe-upwiz-categories-missing": "Le categoria{{PLURAL:$1||s}} monstrate in rubie non existe e care de pagina{{PLURAL:$1||s}} de description. Si {{PLURAL:$1|un categoria|categorias}} similar existe, nos recommenda usar iste{{PLURAL:$1||s}}. Si non, per favor visita le pagina{{PLURAL:$1||s}} del nove categoria{{PLURAL:$1||s}} e adde un description.",
 	"mwe-upwiz-categories-placeholder": "p.ex. Mammiferos del Parco National Etosha",
+	"mwe-upwiz-categories-current": "Categoria genitor $1",
 	"mwe-upwiz-statements-title-depicts": "Le subjectos principal visibile in iste obra",
 	"mwe-upwiz-statements-too-many-items": "Nos recommenda limitar le numero de elementos a $1",
 	"mwe-upwiz-statements-placeholder-depicts": "p.ex. girafa angolan",

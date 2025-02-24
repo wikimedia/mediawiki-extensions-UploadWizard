@@ -366,7 +366,7 @@
 	"mwe-upwiz-categories": "Категорија",
 	"mwe-upwiz-categories-missing": "{{PLURAL:$1|Категорија|Категорије}} у црвеном {{PLURAL:$1|не постоји|не постоје}} и {{PLURAL:$1|нема|немају}} описну страницу. Ако {{PLURAL:$1|постоји слична категорија|постоје сличне категорије}}, саветујемо да {{PLURAL:$1|њу|њих}} користите. Ако не, молимо идите на {{PLURAL:$1|страницу нове категорије|странице нових категорија}} и додајте опис.",
 	"mwe-upwiz-categories-placeholder": "нпр. сисари Националног парка Етоша",
-	"mwe-upwiz-categories-current": "$1&nbsp;&nbsp;&nbsp;надређена категорија",
+	"mwe-upwiz-categories-current": "$1 надређена категорија",
 	"mwe-upwiz-statements-title-depicts": "Предмет приказан у овом раду",
 	"mwe-upwiz-statements-placeholder-depicts": "нпр. анголска жирафа",
 	"mwe-upwiz-thumbnail-failed": "Отпремање је успело, али сервер не може да понуди минијатуру прегледа.",

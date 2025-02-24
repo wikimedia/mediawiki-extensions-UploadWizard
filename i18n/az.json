@@ -385,7 +385,7 @@
 	"mwe-upwiz-categories": "Kateqoriya",
 	"mwe-upwiz-categories-missing": "Qırmızı rəngdə göstərilmiş {{PLURAL:$1|kateqoriya|kateqoriyalar}} mövcud deyil və açıqlama {{PLURAL:$1|səhifəsi|səhifələri}} yoxdur. Əgər oxşar {{PLURAL:$1|kateqoriya|kateqoriyalar}} varsa, onları istifadə etməyi tövsiyə edirik. Yoxdursa, yeni kateqoriyaya səhifəsinə gedin və təsvir əlavə edin.",
 	"mwe-upwiz-categories-placeholder": "məsələn, Etoşa Milli Parkının məməliləri",
-	"mwe-upwiz-categories-current": "$1&nbsp;&nbsp;&nbsp;ana kateqoriya",
+	"mwe-upwiz-categories-current": "$1 ana kateqoriya",
 	"mwe-upwiz-statements-title-depicts": "Bu işdə görünən əsas mövzular",
 	"mwe-upwiz-statements-too-many-items": "Elementlərin maksimum $1 olaraq saxlamağı tövsiyə edirik",
 	"mwe-upwiz-statements-placeholder-depicts": "məsələn, Anqola zürafəsi",
