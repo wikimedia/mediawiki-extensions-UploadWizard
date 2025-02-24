@@ -216,7 +216,10 @@
 			gpssearch: input,
 			prop: 'categoryinfo'
 		} )
-			.then( ( res ) => Object.keys( res && res.query && res.query.pages || [] ).map( ( key ) => res.query.pages[ key ] ) )
+			.then( ( res ) => Object.keys( res && res.query && res.query.pages || [] )
+				.map( ( key ) => res.query.pages[ key ] )
+				.sort( ( a, b ) => a.index > b.index )
+			)
 			.fail( () => delete this.cacheSearch[ cacheKey ] );
 
 		return this.cacheSearch[ cacheKey ];
