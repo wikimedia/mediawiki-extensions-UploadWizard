@@ -385,7 +385,7 @@
 	"mwe-upwiz-statements-too-many-items": "Recomendamos manter o número de elementos nun máximo de $1",
 	"mwe-upwiz-statements-placeholder-depicts": "por exemplo, xirafa angoleña",
 	"mwe-upwiz-thumbnail-failed": "A carga realizouse correctamente, pero o servidor non puido obter ningunha vista previa para a miniatura",
-	"mwe-upwiz-unparseable-filename": "Non se entendeu o nome do ficheiro \"$1\"",
+	"mwe-upwiz-unparseable-filename": "Non se entendeu o nome do ficheiro \"$1\".",
 	"mwe-upwiz-error-title-invalid": "O título non é válido. Asegúrate de retirar calquera corchete, dous puntos, operador de comparación, barra vertical e chave.",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemas coñecidos]",
 	"mwe-upwiz-subhead-alt-upload": "Volver ao formulario antigo",
