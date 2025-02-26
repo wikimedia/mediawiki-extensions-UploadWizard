@@ -368,6 +368,6 @@
 	 * @return {boolean}
 	 */
 	mw.ApiUploadHandler.prototype.isIgnoredWarning = function ( code ) {
-		return this.ignoreWarnings.indexOf( code ) > -1;
+		return this.ignoreWarnings.includes( code );
 	};
 }() );

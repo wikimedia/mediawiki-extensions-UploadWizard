@@ -118,7 +118,7 @@
 						protection = data.query.pages[ -1 ].protection;
 						if ( protection && protection.length > 0 ) {
 							protection.forEach( ( val ) => {
-								if ( mw.config.get( 'wgUserGroups' ).indexOf( val.level ) === -1 ) {
+								if ( !mw.config.get( 'wgUserGroups' ).includes( val.level ) ) {
 									result = {
 										isUnique: true,
 										isProtected: true

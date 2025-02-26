@@ -366,7 +366,7 @@
 		}
 
 		if ( width !== undefined || height !== undefined ) {
-			if ( props.indexOf( 'url' ) === -1 ) {
+			if ( !props.includes( 'url' ) ) {
 				props.push( 'url' );
 			}
 			if ( width !== undefined ) {
@@ -431,7 +431,7 @@
 		};
 
 		if ( width !== undefined || height !== undefined ) {
-			if ( props.indexOf( 'url' ) === -1 ) {
+			if ( !props.includes( 'url' ) ) {
 				props.push( 'url' );
 			}
 			if ( width !== undefined ) {

@@ -150,7 +150,7 @@
 			usedLanguageCodes = Object.keys( this.getUsedLanguages() );
 
 		return Object.keys( allLanguages ).reduce( ( remaining, language ) => {
-			if ( usedLanguageCodes.indexOf( language ) < 0 ) {
+			if ( !usedLanguageCodes.includes( language ) ) {
 				remaining[ language ] = allLanguages[ language ];
 			}
 			return remaining;

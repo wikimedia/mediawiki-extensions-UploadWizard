@@ -74,10 +74,10 @@
 					if ( upload.state === 'aborted' ) {
 						return;
 					}
-					if ( this.successStates.indexOf( upload.state ) !== -1 ) {
+					if ( this.successStates.includes( upload.state ) ) {
 						successStateCount++;
 					}
-					if ( this.errorStates.indexOf( upload.state ) !== -1 ) {
+					if ( this.errorStates.includes( upload.state ) ) {
 						errorStateCount++;
 					}
 					if ( upload[ this.progressProperty ] !== undefined ) {

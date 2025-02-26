@@ -130,7 +130,7 @@
 	 * This is a bit of a hack. We should already know how many errors there are, and where.
 	 * This method also opens up collapsed elements if the form has errors.
 	 */
-	// eslint-disable-next-line no-unused-vars
+
 	uw.ui.Step.prototype.updateErrorSummary = function () {
 		// eslint-disable-next-line no-jquery/no-sizzle
 		const getElements = ( kind ) => this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ).filter( ':visible' );

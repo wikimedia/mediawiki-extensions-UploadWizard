@@ -511,7 +511,7 @@
 		// show the purpose field if we aren't in a campaign and the user isn't autoconfirmed
 		if (
 			!new mw.Uri().query.campaign &&
-			mw.config.get( 'wgUserGroups' ).indexOf( 'autoconfirmed' ) === -1
+			!mw.config.get( 'wgUserGroups' ).includes( 'autoconfirmed' )
 		) {
 			$formFields.append(
 				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-purpose' )

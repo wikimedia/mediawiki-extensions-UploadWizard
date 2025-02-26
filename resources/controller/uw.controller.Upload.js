@@ -310,7 +310,7 @@
 		// check if the filename is valid
 		upload.setTitle( basename );
 		if ( !upload.title ) {
-			if ( basename.indexOf( '.' ) === -1 ) {
+			if ( !basename.includes( '.' ) ) {
 				this.ui.showMissingExtensionError( filename );
 				return false;
 			} else {
@@ -328,7 +328,7 @@
 
 		if (
 			mw.UploadWizard.config.fileExtensions !== null &&
-			mw.UploadWizard.config.fileExtensions.indexOf( extension.toLowerCase() ) === -1
+			!mw.UploadWizard.config.fileExtensions.includes( extension.toLowerCase() )
 		) {
 			this.ui.showBadExtensionError( filename, extension );
 			return false;

@@ -343,7 +343,7 @@
 				} );
 
 				( config.defaults.statements || [] ).forEach( ( data ) => {
-					if ( defaultProperties.indexOf( data.propertyId ) < 0 ) {
+					if ( !defaultProperties.includes( data.propertyId ) ) {
 						defaultProperties.push( data.propertyId );
 					}
 					propertyDataValuesTypes[ data.propertyId ] = data.dataType;
@@ -613,6 +613,7 @@
 		/**
 		 * Check all the fields for validity.
 		 *
+		 * @param thorough
 		 * @return {jQuery.Promise<mw.uploadWizard.ValidationStatus>}
 		 */
 		validate: function ( thorough ) {
@@ -1578,7 +1579,7 @@
 				code = 'ratelimited';
 			}
 
-			if ( recoverable.indexOf( code ) > -1 ) {
+			if ( recoverable.includes( code ) ) {
 				this.recoverFromError( code, result.errors[ 0 ].html );
 				return;
 			}

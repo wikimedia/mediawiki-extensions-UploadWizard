@@ -67,23 +67,23 @@
 		this.content = new OO.ui.PanelLayout( { padded: false, expanded: false } );
 		this.content.$element.addClass( 'mwe-upwiz-patent-rights' );
 
-		if ( this.panels.indexOf( 'filelist' ) !== -1 ) {
+		if ( this.panels.includes( 'filelist' ) ) {
 			label.setLabel( mw.msg( 'mwe-upwiz-patent-dialog-title-filename', mw.language.listToText( filenames ) ) );
 			label.$element.addClass( 'oo-ui-processDialog-title mwe-upwiz-patent-rights-filelist' );
 			this.content.$element.append( label.$element );
 		}
 
-		if ( this.panels.indexOf( 'warranty' ) !== -1 ) {
+		if ( this.panels.includes( 'warranty' ) ) {
 			panels.$element.append( this.getWarrantyLayout().$element );
 		}
 
 		if (
-			this.panels.indexOf( 'license-ownership' ) !== -1 ||
-			this.panels.indexOf( 'license-grant' ) !== -1
+			this.panels.includes( 'license-ownership' ) ||
+			this.panels.includes( 'license-grant' )
 		) {
 			panels.$element.append( this.getLicenseLayout(
-				this.panels.indexOf( 'license-ownership' ) !== -1,
-				this.panels.indexOf( 'license-grant' ) !== -1
+				this.panels.includes( 'license-ownership' ),
+				this.panels.includes( 'license-grant' )
 			).$element );
 		}
 

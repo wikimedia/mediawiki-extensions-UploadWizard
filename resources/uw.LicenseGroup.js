@@ -26,7 +26,7 @@
 			throw new Error( 'improper license config' );
 		}
 
-		if ( [ 'radio', 'checkbox' ].indexOf( type ) < 0 ) {
+		if ( ![ 'radio', 'checkbox' ].includes( type ) ) {
 			throw new Error( 'Invalid type: ' + type );
 		}
 
@@ -401,7 +401,7 @@
 			let targetLanguageCode = 'en'; // final fallback
 			const fallbackChain = mw.language.getFallbackLanguageChain();
 			for ( let i = 0; i < fallbackChain.length; i++ ) {
-				if ( licenseInfo.props.availableLanguages.indexOf( fallbackChain[ i ] ) !== -1 ) {
+				if ( licenseInfo.props.availableLanguages.includes( fallbackChain[ i ] ) ) {
 					targetLanguageCode = fallbackChain[ i ];
 					break;
 				}
@@ -570,7 +570,7 @@
 				// now do a thorough test to see if the text actually
 				// includes a license template
 				promise = this.getUsedTemplates( wikitext ).then( ( usedTemplates ) => {
-					if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
+					if ( !usedTemplates.includes( mw.UploadWizard.config.customLicenseTemplate ) ) {
 						// no license template found, add another error
 						status.addError( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
 					}

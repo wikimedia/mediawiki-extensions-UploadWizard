@@ -23,7 +23,9 @@
 		"no-shadow": "warn",
 		"es-x/no-symbol-prototype-description": "warn",
 		"es-x/no-typed-arrays": "warn",
-		"no-jquery/no-extend": "warn"
+		"no-jquery/no-extend": "warn",
+		"no-jquery/no-done-fail": "warn",
+		"no-jquery/no-animate": "warn"
 	},
 	"settings": {
 		"jsdoc": {

@@ -102,7 +102,7 @@
 		// which case we'll want the "copy" feature to appear below the 2nd
 		// upload (or the first not-yet-completed not flat-out-failed upload)
 		this.uploads.some( ( upload ) => {
-			if ( upload && invalidStates.indexOf( upload.state ) === -1 ) {
+			if ( upload && !invalidStates.includes( upload.state ) ) {
 				first = upload;
 				return true; // Break Array.some loop
 			}

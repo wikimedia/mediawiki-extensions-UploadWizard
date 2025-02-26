@@ -181,7 +181,7 @@
 	uw.ui.Details.prototype.needsPatentAgreement = function ( upload ) {
 		const extensions = mw.UploadWizard.config.patents.extensions;
 
-		return extensions.indexOf( upload.title.getExtension().toLowerCase() ) !== -1;
+		return extensions.includes( upload.title.getExtension().toLowerCase() );
 	};
 
 }( mw.uploadWizard ) );

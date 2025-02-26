@@ -256,7 +256,7 @@
 		states = Array.isArray( states ) ? states : [ states ];
 
 		this.uploads.forEach( ( upload ) => {
-			if ( states.indexOf( upload.state ) > -1 ) {
+			if ( states.includes( upload.state ) ) {
 				count++;
 			}
 		} );

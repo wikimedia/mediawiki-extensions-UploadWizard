@@ -291,7 +291,7 @@
 	 */
 	uw.controller.Deed.prototype.getUniqueDeedChoosers = function ( uploads ) {
 		return uploads.reduce( ( uniques, upload ) => {
-			if ( upload.deedChooser && uniques.indexOf( upload.deedChooser ) < 0 ) {
+			if ( upload.deedChooser && !uniques.includes( upload.deedChooser ) ) {
 				uniques.push( upload.deedChooser );
 			}
 			return uniques;
