@@ -242,6 +242,65 @@
 				help: mw.message( 'mwe-upwiz-tooltip-categories-v2' ).text(),
 				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
 			} );
+			if ( OO.ui.isMobile() ) {
+				this.categoriesDetails.menu.$element.on( 'scroll', () => {
+					// hide the software keyboard, leaving more space for autocomplete menu
+					// (note: the more obvious thing to do with be blurring the input field,
+					// but that would also trigger this widget to automatically convert any
+					// input into a category tag)
+					this.categoriesDetails.input.$input[ 0 ].inputMode = 'none';
+				} );
+				this.categoriesDetails.input.$input.on( 'focus mousedown keypress', () => {
+					// while scrolling the autocomplete results, we changed the input mode
+					// to get rid of the software keyboard; now that the user is interacting
+					// we need to make sure they're able to)
+					this.categoriesDetails.input.$input[ 0 ].inputMode = 'text';
+				} );
+				this.categoriesDetails.input.$input.on( 'mousedown', () => {
+					// mobile devices tend to auto-zoom to input when focused (for small
+					// enough font sizes), but we'd actually prefer they don't in this case,
+					// as we will be adding the categories selection menu to the input,
+					// and such zoom may interfere with the user's ability to see/interact
+					// with that
+					// the way we're going to accomplish this is a bit of a hack: we'll
+					// temporarily disable user-scalable in the viewport meta tag on mousedown
+					// (at which point the auto-zoom is not yet triggered), then reinstated
+					// the original viewport content later on in the click lifecycle, so it
+					// once again becomes available for the users to zoom in/out themselves
+					// if they wish
+					// eslint-disable-next-line no-jquery/no-global-selector
+					const $viewport = $( 'head meta[name="viewport"]' );
+					const viewportContent = $viewport.attr( 'content' );
+					if ( viewportContent ) {
+						// keep track of original content; then quickly swap out user-scalable
+						$viewport.data( 'content', viewportContent );
+						$viewport.attr( 'content', viewportContent.replace( /user-scalable=(1|yes)/, 'user-scalable=0' ) );
+					}
+				} );
+				this.categoriesDetails.input.$input.on( 'focus', () => {
+					// stop existing animations & scroll categories input to top
+					// (mobile devices tend to center the input when focused, but
+					// since we want to add a menu to it, we'd rather have it up top
+					// to allow for more space to show the menu
+					setTimeout( () => {
+						// eslint-disable-next-line no-jquery/no-global-selector
+						$( 'html, body' )
+							.stop()
+							.animate( {
+								scrollTop: this.categoriesDetails.input.$input.eq( 0 ).offset().top - 50
+							} );
+					} );
+
+					// restore original viewport content
+					// eslint-disable-next-line no-jquery/no-global-selector
+					const $viewport = $( 'head meta[name="viewport"]' );
+					const viewportContentOriginal = $viewport.data( 'content' );
+					if ( viewportContentOriginal ) {
+						$viewport.attr( 'content', viewportContentOriginal );
+						$viewport.removeData( 'content' );
+					}
+				} );
+			}
 
 			//
 			// Any other information
