@@ -340,7 +340,7 @@
 	"mwe-upwiz-categories": "Categorías",
 	"mwe-upwiz-categories-missing": "Unha das categorías carece dunha páxina de descrición. Está seguro de ter escrito o nome correctamente?",
 	"mwe-upwiz-thumbnail-failed": "A carga realizouse correctamente, pero o servidor non puido obter ningunha vista previa para a miniatura",
-	"mwe-upwiz-unparseable-filename": "Non se entendeu o nome do ficheiro \"$1\"",
+	"mwe-upwiz-unparseable-filename": "Non se entendeu o nome do ficheiro \"$1\".",
 	"mwe-upwiz-error-title-invalid": "O título non é válido. Asegúrate de retirar calquera corchete, dous puntos, operador de comparación, barra vertical e chave.",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemas coñecidos]",
 	"mwe-upwiz-subhead-alt-upload": "Volver ao formulario antigo",
