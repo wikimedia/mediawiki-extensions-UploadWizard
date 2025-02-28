@@ -404,6 +404,7 @@
 	"mwe-upwiz-categories": "Categorie",
 	"mwe-upwiz-categories-missing": "De in het rood weergegeven {{PLURAL:$1|categorie bestaat|categorieën bestaan}} niet en {{PLURAL:$1|heeft|hebben}} geen beschrijvingspagina. Als er {{PLURAL:$1|een soortgelijke categorie is|soortgelijke categorieën zijn}}, kunt u het beste die gebruiken. Zo niet, ga dan naar de nieuwe categoriepagina{{PLURAL:$1||’s}} en voeg daar een beschrijving toe.",
 	"mwe-upwiz-categories-placeholder": "bv. Zoogdieren van het Etosha Nationaal Park",
+	"mwe-upwiz-categories-current": "Bovenliggende categorie $1",
 	"mwe-upwiz-statements-title-depicts": "Belangrijkste onderwerpen zichtbaar in dit werk",
 	"mwe-upwiz-statements-too-many-items": "We raden u aan het aantal items op maximaal $1 te houden",
 	"mwe-upwiz-statements-placeholder-depicts": "bijvoorbeeld Angolese giraffe",
