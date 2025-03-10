@@ -84,35 +84,37 @@
 								return title !== null;
 							} )
 							.map( ( data ) => {
-								const originalData = Object.assign( {}, data );
-								const title = mw.Title.newFromText( data.title, NS_CATEGORY );
+								// clone data to avoid modifying the original object, as that will
+								// be passed forward to the subcategory handler
+								const menuData = Object.assign( {}, data );
+								const title = mw.Title.newFromText( menuData.title, NS_CATEGORY );
 
 								// ensure title is properly escaped; we'll be inserting it unescaped
 								// (some will get additional HTML) later on
 								let text = title.getMainText();
 								text = $( '<span>' ).text( text ).html();
 
-								if ( data.parent ) {
+								if ( menuData.parent ) {
 									// indicate that this navigates to the parent category
-									data.handler = () => this.updateMenuItems(
-										data.parent.results,
-										data.parent.input
+									menuData.handler = () => this.updateMenuItems(
+										menuData.parent.results,
+										menuData.parent.input
 									);
 									text = arrowParent;
-								} else if ( data.current ) {
+								} else if ( menuData.current ) {
 									// indicate that this is the current category (and clicking it
 									// will not navigate to its subcategories, but select it instead)
 									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( text )[ 0 ].outerHTML;
 									text = mw.message( 'mwe-upwiz-categories-current', text ).text();
-								} else if ( data.categoryinfo.subcats > 0 ) {
+								} else if ( menuData.categoryinfo.subcats > 0 ) {
 									// indicate that the category has subcategories
-									data.handler = () => this.updateMenuItems(
+									menuData.handler = () => this.updateMenuItems(
 										this.getSubCategories( title.getMainText() ).then( ( subcategories ) => {
 											const navigation = [
 												// upwards navigation, back to parent
-												Object.assign( {}, originalData, { parent: { results: results, input: input } } ),
+												Object.assign( {}, data, { parent: { results: results, input: input } } ),
 												// current category selector (i.e. allow selection despite it having subcats)
-												Object.assign( {}, originalData, { current: true } )
+												Object.assign( {}, data, { current: true } )
 											];
 											return navigation.concat( subcategories );
 										} ),
@@ -122,9 +124,9 @@
 								}
 
 								return new OO.ui.MenuOptionWidget( {
-									data: data,
+									data: menuData,
 									label: new OO.ui.HtmlSnippet( text ),
-									selected: !data.parent && this.getItems().some( ( item ) => item.data === title.getMainText() )
+									selected: !menuData.parent && this.getItems().some( ( item ) => item.data === title.getMainText() )
 								} );
 							} )
 					)
