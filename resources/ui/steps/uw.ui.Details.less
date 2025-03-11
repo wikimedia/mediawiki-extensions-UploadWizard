@@ -153,3 +153,12 @@
 		display: none;
 	}
 }
+
+.mwe-upwiz-statements-menu,
+.mwe-upwiz-categoriesDetailsWidget .oo-ui-menuSelectWidget {
+	// !important is needed because the statements widget will dynamically set a max-height
+	// in JS directly, which we don't care for...
+	// stylelint-disable-next-line declaration-no-important
+	max-height: 350px !important;
+	overflow: scroll;
+}

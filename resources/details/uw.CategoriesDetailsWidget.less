@@ -1,37 +1,33 @@
 @import 'mediawiki.skin.variables.less';
 
-.mwe-upwiz-categoriesDetailsWidget .oo-ui-menuSelectWidget {
-	max-height: 350px;
+.mwe-upwiz-categoriesDetailsWidget .oo-ui-menuSelectWidget .oo-ui-labelElement-label {
+	// add some whitespace between <title> and <arrow> (or PARENT CATEGORY text)
+	display: flex;
+	gap: 1em;
+	text-wrap: wrap;
 
-	.oo-ui-labelElement-label {
-		// add some whitespace between <title> and <arrow> (or PARENT CATEGORY text)
-		display: flex;
-		gap: 1em;
-		text-wrap: wrap;
+	/*
+	 * Below is a bit of a hack to apply styling to the non-title part of a category name.
+	 *
+	 * An entry will look something like:
+	 * This is a category title   parent category
+	 * Where "This is a category title" is a variable category title, and "parent category" is a
+	 * localized message.
+	 *
+	 * The localized message part is the one that we would like to style differently, but I'd rather
+	 * not rely on (and impose the burden on) translators adding HTML tags as part of their message.
+	 * Instead, I'll simply apply the custom style on the node as a whole, and then undo it on the
+	 * category title part, where I can easily add one programmatically.
+	 */
+	&:has( .mwe-upwiz-categories-category-title ) {
+		font-size: smaller;
+		font-variant-caps: small-caps;
+		color: @color-subtle;
 
-		/*
-		 * Below is a bit of a hack to apply styling to the non-title part of a category name.
-		 *
-		 * An entry will look something like:
-		 * This is a category title   parent category
-		 * Where "This is a category title" is a variable category title, and "parent category" is a
-		 * localized message.
-		 *
-		 * The localized message part is the one that we would like to style differently, but I'd rather
-		 * not rely on (and impose the burden on) translators adding HTML tags as part of their message.
-		 * Instead, I'll simply apply the custom style on the node as a whole, and then undo it on the
-		 * category title part, where I can easily add one programmatically.
-		 */
-		&:has( .mwe-upwiz-categories-category-title ) {
-			font-size: smaller;
-			font-variant-caps: small-caps;
-			color: @color-subtle;
-
-			.mwe-upwiz-categories-category-title {
-				font-size: larger;
-				font-variant-caps: normal;
-				color: @color-base;
-			}
+		.mwe-upwiz-categories-category-title {
+			font-size: larger;
+			font-variant-caps: normal;
+			color: @color-base;
 		}
 	}
 }
