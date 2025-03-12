@@ -22,7 +22,8 @@
 		// Parent constructor
 		uw.CategoriesDetailsWidget.super.call( this, $.extend( true, {}, config, {
 			menu: {
-				filterFromInput: false
+				filterFromInput: false,
+				width: '100%'
 			},
 			// This allows the user to both select non-existent categories, and prevents the selector from
 			// being wiped from #onMenuItemsChange when we change the available options in the dropdown
