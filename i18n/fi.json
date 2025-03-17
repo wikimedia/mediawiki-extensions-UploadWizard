@@ -391,6 +391,7 @@
 	"mwe-upwiz-categories": "Luokka",
 	"mwe-upwiz-categories-missing": "Punaisella {{PLURAL:$1|näytettävää luokka|näytettäviä luokkia}} ei ole olemasssa, ja {{PLURAL:$1|siitä|niistä}} puuttuu kuvaussivu. Jos {{PLURAL:$1|samankaltainen luokka|samankaltaisia luokkia}} on olemassa, suosittelemme {{PLURAL:$1|sen|niiden}} käyttöä. Jos ei, mene {{PLURAL:$1|uudelle luokkasivulle|uusille luokkasivuille}} ja lisää kuvaus.",
 	"mwe-upwiz-categories-placeholder": "esim. Mammals of Etosha National Park",
+	"mwe-upwiz-categories-current": "$1 yläluokka",
 	"mwe-upwiz-statements-title-depicts": "Pääaiheet, jota tämä teos esittää",
 	"mwe-upwiz-statements-too-many-items": "Suosittelemme lisäämään enintään $1 kohdetta.",
 	"mwe-upwiz-statements-placeholder-depicts": "esim. angolankirahvi",
