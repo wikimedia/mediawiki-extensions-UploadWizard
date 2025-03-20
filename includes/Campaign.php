@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use MediaWiki\Category\Category;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Language\Language;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
@@ -88,6 +89,8 @@ class Campaign {
 	/** @var \MediaWiki\Interwiki\InterwikiLookup */
 	private $interwikiLookup;
 
+	private int $migrationStage;
+
 	/**
 	 * @param string $name
 	 * @return Campaign|false
@@ -125,6 +128,9 @@ class Campaign {
 			$this->config = $config;
 		}
 		$this->context = $context ?? RequestContext::getMain();
+		$this->migrationStage = $services->getMainConfig()->get(
+			MainConfigNames::FileSchemaMigrationStage
+		);
 	}
 
 	/**
@@ -179,22 +185,29 @@ class Campaign {
 	public function getTotalContributorsCount() {
 		$dbr = $this->dbr;
 		$fname = __METHOD__;
+		$migrationStage = $this->migrationStage;
 
 		return $this->wanObjectCache->getWithSetCallback(
 			$this->wanObjectCache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
 			Config::getSetting( 'campaignStatsMaxAge' ),
-			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname, $dbr ) {
+			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname, $dbr, $migrationStage ) {
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
-				return $dbr->newSelectQueryBuilder()
-					->select( [ 'count' => 'COUNT(DISTINCT img_actor)' ] )
+				$queryBuilder = $dbr->newSelectQueryBuilder()
 					->from( 'categorylinks' )
 					->join( 'page', null, 'cl_from=page_id' )
-					->join( 'image', null, 'page_title=img_name' )
 					->where( [ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ] )
-					->caller( $fname )
-					->useIndex( [ 'categorylinks' => 'cl_timestamp' ] )
-					->fetchField();
+					->useIndex( [ 'categorylinks' => 'cl_timestamp' ] );
+				if ( $migrationStage & SCHEMA_COMPAT_READ_OLD ) {
+					$queryBuilder->select( [ 'count' => 'COUNT(DISTINCT img_actor)' ] )
+						->join( 'image', null, 'page_title=img_name' );
+				} else {
+					$queryBuilder->select( [ 'count' => 'COUNT(DISTINCT fr_actor)' ] )
+						->join( 'file', null, 'page_title=file_name' )
+						->join( 'filerevision', null, 'file_latest=fr_id' );
+				}
+
+				return $queryBuilder->caller( $fname )->fetchField();
 			}
 		);
 	}
