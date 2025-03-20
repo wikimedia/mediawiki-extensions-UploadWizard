@@ -107,7 +107,7 @@
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|Ovo djelo pruža|Ova djela pružaju}} znanje, upute, ili informacije drugima.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|Ovo je djelo|Ova su djela}} za osobnu uporabu, npr. fotografije mene, moje obitelji ili prijatelja, ili mi je nužno za obavljanje mog posla.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Ne postavljajte {{PLURAL:$1|ovu datoteku|ove datoteke}}!</b> Zajednički poslužitelj ne dopušta smještaj osobnog ili privatnog medijskog sadržaja. Molimo pogledajte [[Commons:What_Commons_is_not|ovaj jednostavan vodič]].</p><p> Ako ste u nedoumici, [[COM:L|pročitajte više o licenciranju]] ili prije postavljanja pitajte iskusne suradnike za savjet. Suradnici u [[Commons:Village_pump/Copyright|Kafiću Zajedničkog poslužitelja]] rado će pomoći. Hvala Vam.</p>",
-	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Je li ovo|Jesu li ovo}} u potpunosti {{GENDER:$2|Vaše djelo|Vaša djela}}?",
+	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Je li ovo|Jesu li ovo}} u potpunosti {{PLURAL:$1|Vaše djelo|Vaša djela}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "Ovo {{PLURAL:$1|je|su}} u potpunosti {{GENDER:$2}}{{PLURAL:$1|moje djelo|moja djela}}",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Ovo djelo sadrži|Ova djela sadrže}} djelo drugih",
 	"mwe-upwiz-source-ownwork-origin-option-others-explain": "Npr.: ako je tuđe djelo vidljivo u {{PLURAL:$1|radu|radovima}} koje postavljate, ili ako {{GENDER:$2|ste}} koristili tuđe djelo u svom",
