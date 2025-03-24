@@ -297,7 +297,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Die Seiteneigenschaften konnten nicht abgerufen werden: Die Seite ist (noch) nicht vorhanden.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Die Seiteneigenschaften konnten nicht abgerufen werden: Die Eigenschaft ist (noch) nicht vorhanden.",
 	"mwe-upwiz-error-submit-structured-data": "Das Bild wurde erfolgreich hochgeladen, beim Senden einiger Zusatzdaten ist jedoch ein Fehler aufgetreten.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Um dies zu beheben: Besuche [[$1]], um dort die Daten zu aktualisieren.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Um dies zu beheben, besuche [[$1]], um dort die Daten zu aktualisieren.",
 	"mwe-upwiz-error-postdate": "Das ausgewählte Datum liegt in der Zukunft. Bitte das korrekte Datum auswählen.",
 	"mwe-upwiz-warning-date-prefilled": "Die oben genannten Daten werden den Fotodetails entnommen.",
 	"mwe-upwiz-notice-date-imprecise": "Wir empfehlen, das vollständige Datum anzugeben, sofern es bekannt ist.",
