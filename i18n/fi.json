@@ -284,7 +284,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Sivuominaisuuksien haku epäonnistui: sivua ei ole (vielä) olemassa.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Sivuominaisuuksien haku epäonnistui: ominaisuutta ei ole (vielä) olemassa.",
 	"mwe-upwiz-error-submit-structured-data": "Kuvan tallennus onnistui, mutta jotain meni pieleen lähetettäessä osaa lisätiedoista.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Korjataksesi tämän: mene sivulle [[$1]] päivittääksesi tiedot siellä.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Korjataksesi tämän mene sivulle [[$1]] päivittääksesi tiedot siellä.",
 	"mwe-upwiz-error-postdate": "Valitsemasi päiväys on tulevaisuudessa. Valitse kelvollinen päiväys.",
 	"mwe-upwiz-warning-date-prefilled": "Yllä oleva päiväys on otettu kuvasi tiedoista.",
 	"mwe-upwiz-notice-date-imprecise": "Suosittelemme koko päivämäärän antamista, jos se on tiedossa.",

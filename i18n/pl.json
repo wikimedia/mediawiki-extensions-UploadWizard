@@ -302,7 +302,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Nie udało się pobrać właściwości strony: strona (jeszcze) nie istnieje.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Nie udało się pobrać właściwości strony: właściwość (jeszcze) nie istnieje.",
 	"mwe-upwiz-error-submit-structured-data": "Obraz został przesłany pomyślnie, ale wystąpił problem z przesyłaniem dodatkowych informacji.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Aby naprawić ten problem: przejdź do [[$1]] i zaktualizuj tam dane.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Aby naprawić ten problem, przejdź do [[$1]] i zaktualizuj tam dane.",
 	"mwe-upwiz-error-postdate": "Wybrana data jest w przyszłości. Proszę wybrać prawidłową datę.",
 	"mwe-upwiz-warning-date-prefilled": "Powyższa data została pobrana ze szczegółów Twojego zdjęcia.",
 	"mwe-upwiz-notice-date-imprecise": "Zalecamy podanie pełnej daty, jeśli jest znana.",

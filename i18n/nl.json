@@ -296,7 +296,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Kan pagina-eigenschappen niet ophalen: pagina bestaat (nog) niet.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Kan pagina-eigenschappen niet ophalen: eigenschap bestaat (nog) niet.",
 	"mwe-upwiz-error-submit-structured-data": "De afbeelding is succesvol geüpload, maar er is iets misgegaan bij het verzenden van enkele aanvullende gegevens.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Om dit te repareren: bezoek [[$1]] om daar de data bij te werken.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Om dit te verhelpen bezoekt u [[$1]] en werkt u daar de gegevens bij.",
 	"mwe-upwiz-error-postdate": "De gekozen datum ligt in de toekomst. Kies de juiste datum.",
 	"mwe-upwiz-warning-date-prefilled": "De bovenstaande datum is afkomstig van uw fotogegevens.",
 	"mwe-upwiz-notice-date-imprecise": "Wij raden aan zo mogelijk de volledige datum te vermelden.",

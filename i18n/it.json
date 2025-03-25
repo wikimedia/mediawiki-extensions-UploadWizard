@@ -284,7 +284,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Impossibile consultare le proprietà della pagina: la pagina non esiste (ancora).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Impossibile consultare le proprietà della pagina: la proprietà non esiste (ancora).",
 	"mwe-upwiz-error-submit-structured-data": "L'immagine è stata caricata correttamente, ma qualcosa è andato storto durante l'invio di alcuni dati supplementari.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Per risolverlo: visita [[$1]] per aggiornare lì i dati.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Per risolverlo, visita [[$1]] per aggiornare lì i dati.",
 	"mwe-upwiz-warning-date-prefilled": "La data qui sopra è stata estratta dai dettagli della foto.",
 	"mwe-upwiz-notice-date-imprecise": "È consigliato fornire una data completa se conosciuta.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|C'è un errore|Ci sono $1 errori}} {{PLURAL:$2|nel modulo precedente|nei moduli precedenti}}. Correggi {{PLURAL:$1|l'errore|gli errori}} e riprova.",

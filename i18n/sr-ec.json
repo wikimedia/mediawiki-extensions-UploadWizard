@@ -264,7 +264,7 @@
 	"mwe-upwiz-error-license-wikitext-missing-template": "Викитекст који сте унели не садржи ваљану лиценцу.",
 	"mwe-upwiz-error-patent-disagree": "Морате пристати на услове.",
 	"mwe-upwiz-error-submit-structured-data": "Слика је успешно отпремљена, али дошло је до грешке при отпремању допунских података.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Да поправите ово: посетите [[$1]] да допуните податке тамо.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Да поправите ово, посетите [[$1]] да допуните податке тамо.",
 	"mwe-upwiz-error-postdate": "Изабрани датум је у будућности. Молимо изаберите ваљан датум.",
 	"mwe-upwiz-warning-date-prefilled": "Горњи датум је преузет из метаподатака.",
 	"mwe-upwiz-notice-date-imprecise": "Препоручујемо навођење комплетног датума ако је познат.",

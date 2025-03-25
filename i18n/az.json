@@ -277,7 +277,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Səhifə detallarını əldə etmək alınmadı: səhifə (hələ) mövcud deyil.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Səhifə detallarını əldə etmək alınmadı: detal (hələ) mövcud deyil.",
 	"mwe-upwiz-error-submit-structured-data": "Şəkil uğurla yükləndi, lakin bəzi əlavə məlumatların əlavə edilməsi zamanı xəta baş verdi.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Bunu düzəltmək üçün: məlumatları yeniləmək üçün [[$1]] səhifəsinə gedin.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Bunu düzəltmək üçün [[$1]] səhifəsinə gedin və məlumatları yeniləyin.",
 	"mwe-upwiz-error-postdate": "Seçdiyiniz tarix gələcək zamandadır. Zəhmət olmasa düzgün tarix seçin.",
 	"mwe-upwiz-warning-date-prefilled": "Yuxarıdakı tarix sizin foto məlumatlarınızdan götürülüb.",
 	"mwe-upwiz-notice-date-imprecise": "Bilirsinizsə tam tarixi əlavə etməyi tövsiyə edirik.",

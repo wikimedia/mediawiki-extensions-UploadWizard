@@ -296,7 +296,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Sayfa özellikleri alınamadı: sayfa mevcut değil (henüz).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Sayfa özellikleri alınamadı: özellik (henüz) mevcut değil.",
 	"mwe-upwiz-error-submit-structured-data": "Görsel başarıyla yüklendi, ancak bazı ek veriler gönderilirken bir şeyler ters gitti.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Bunu düzeltmek için: [[$1]] sayfasına giderek veriyi güncelleyin.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Bunu düzeltmek için, [[$1]] sayfasına giderek veriyi güncelleyin.",
 	"mwe-upwiz-error-postdate": "Seçtiğiniz tarih gelecekte. Lütfen doğru tarihi seçin.",
 	"mwe-upwiz-warning-date-prefilled": "Yukarıdaki tarih fotoğraf ayrıntılarınızdan alınmıştır.",
 	"mwe-upwiz-notice-date-imprecise": "Biliniyorsa tam tarih vermenizi öneririz.",
