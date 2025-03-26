@@ -299,7 +299,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "فشلٌ في استرداد خصائِص الصَّفحة: الصفحة غير موجودةٍ (حتَّى الآن).",
 	"mwe-upwiz-error-pageprops-missing-prop": "فشلٌ في استرداد خصائِص الصَّفحة: الخاصيَّة غير مَوجُودةٍ (حتَّى الآن).",
 	"mwe-upwiz-error-submit-structured-data": "تم تحميل الصورة بنجاح، ولكن حدث خطأ أثناء إرسال بعض البيانات التكميلية.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "لإصلاح هذه المشكلة: قم بزيارة [[$1]] لتحديث البيانات هناك.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "لإصلاح هذه المشكلة، قم بزيارة [[$1]] لتحديث البيانات هناك.",
 	"mwe-upwiz-error-postdate": "التاريخ الذي اخترته في المستقبل. فضلاً أضف تاريخاً صحيحاً.",
 	"mwe-upwiz-warning-date-prefilled": "أخذ التاريخ أعلاه من تفاصيل الصورة.",
 	"mwe-upwiz-notice-date-imprecise": "يُستحسن أن تضيف التاريخ كاملاً لو كان معلوماً.",

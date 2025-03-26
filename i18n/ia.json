@@ -272,7 +272,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Non poteva recuperar le proprietates del pagina; le pagina non existe (ancora).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Non poteva recuperar le proprietates del pagina; le proprietate non existe (ancora).",
 	"mwe-upwiz-error-submit-structured-data": "Le imagine ha essite incargate con successo, ma un error ha occurrite durante le invio de alcunes del datos supplementari.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Pro corriger isto: visita [[$1]] pro actualisar le datos ibi.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Pro corriger isto, visita [[$1]] pro actualisar le datos ibi.",
 	"mwe-upwiz-error-postdate": "Le data seligite es in le futuro. Per favor selige le data correcte.",
 	"mwe-upwiz-warning-date-prefilled": "Le data supra es obtenite del detalios de tu photo.",
 	"mwe-upwiz-notice-date-imprecise": "Nos recommenda fornir un data complete si es cognoscite.",
