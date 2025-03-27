@@ -278,7 +278,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Produciuse un erro ao recuperar as propiedades da páxina: a páxina non existe (aínda).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Produciuse un erro ao recuperar as propiedades da páxina: a propiedade non existe (aínda).",
 	"mwe-upwiz-error-submit-structured-data": "A imaxe subiuse correctamente, pero produciuse un erro ao enviar algúns dos datos complementarios.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Para solucionar isto, visita \"[[$1]] e actualizar os datos alí.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Para solucionar isto, visita \"[[$1]]\" e actualiza os datos alí.",
 	"mwe-upwiz-error-postdate": "A data que seleccionaches está no futuro. Selecciona a data correcta.",
 	"mwe-upwiz-warning-date-prefilled": "A data anterior está tomada dos detalles da túa foto.",
 	"mwe-upwiz-notice-date-imprecise": "Recomendamos proporcionar unha data completa se se coñece.",

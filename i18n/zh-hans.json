@@ -327,7 +327,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "无法检索页面属性：页面（尚）不存在。",
 	"mwe-upwiz-error-pageprops-missing-prop": "无法检索页面属性：属性（尚）不存在。",
 	"mwe-upwiz-error-submit-structured-data": "图像上传成功，但提交一些补充数据时出现错误。",
-	"mwe-upwiz-error-submit-structured-data-remedy": "要修复此问题：请访问[[$1]]来更新数据。",
+	"mwe-upwiz-error-submit-structured-data-remedy": "要修复此问题，请访问[[$1]]来更新数据。",
 	"mwe-upwiz-error-postdate": "您选到未来的日期，请重新选择正确日期。",
 	"mwe-upwiz-warning-date-prefilled": "以上是从您的照片详细信息中获取的日期。",
 	"mwe-upwiz-notice-date-imprecise": "如果您知道的话，我们建议您提供完整的日期。",
