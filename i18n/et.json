@@ -258,7 +258,7 @@
 	"mwe-upwiz-error-license-wikitext-missing-template": "Sisestatud vikitekstile ei vasta sobiv litsentsimall.",
 	"mwe-upwiz-error-patent-disagree": "Pead nõustuma tingimustega.",
 	"mwe-upwiz-error-submit-structured-data": "Pildi üleslaadimine õnnestus, aga täiendavate andmete edastamisel läks midagi valesti.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Saad parandada nii: mine leheküljele [[$1]] ja muuda seal andmeid.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Selle parandamiseks mine leheküljele [[$1]] ja muuda seal andmeid.",
 	"mwe-upwiz-error-postdate": "Valisid kuupäeva, mis on tulevikus. Palun vali õige kuupäev.",
 	"mwe-upwiz-warning-date-prefilled": "Ülal olev kuupäev on pärit foto üksikasjadest.",
 	"mwe-upwiz-notice-date-imprecise": "Soovitame lisada terve kuupäev, kui see on teada.",
