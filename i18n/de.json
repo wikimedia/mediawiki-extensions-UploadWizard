@@ -134,7 +134,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|Dieses Werk ist|Diese Werke sind}} vollständig von mir geschaffen",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Dieses Werk enthält|Diese Werke enthalten}} die Werke anderer",
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "Darf die Arbeit anderer Leute in {{PLURAL:$1|diesem Medium|diesen Medien}} kostenlos verwendet und weitergegeben werden?",
-	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Ja, der Urheber hat {{PLURAL:$1|das Werk|die Werke}} unter einer freien Lizenz veröffentlicht, z. B. einer [[COM:L#Well-known_licenses|Creative Commons-Lizenz]]",
+	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Ja, der Urheber hat {{PLURAL:$1|das Werk|die Werke}} unter einer freien Lizenz veröffentlicht, z. B. einer [[COM:L#Well-known_licenses|Creative-Commons-Lizenz]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Ja, {{PLURAL:$1|das Werk ist|die Werke sind}} nicht durch ein Urheberrechtsgesetz geschützt.",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Nein, {{PLURAL:$1|das Werk ist|die Werke sind}} urheberrechtlich geschützt.",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning-text": "<b>{{PLURAL:$1|Diese Datei|Diese Dateien}} nicht hochladen!</b> {{SITENAME}} hostet keine urheberrechtlich geschützten Medien. Auf {{SITENAME}} sind nur Medien mit [[COM:L#Well-known_licenses|freien Lizenzen]] oder Medien in der [[COM:PD|Gemeinfreiheit]] zulässig.",
