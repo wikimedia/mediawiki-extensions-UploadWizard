@@ -44,7 +44,7 @@ class CampaignPageFormatter {
 		return $rl->isModuleRegistered( 'ext.campaigns' );
 	}
 
-	public function generateReadHtml() {
+	public function generateReadHtml(): string {
 		$config = $this->campaign->getParsedConfig();
 
 		$campaignTitle = $config['title'] ?? $this->campaign->getName();
