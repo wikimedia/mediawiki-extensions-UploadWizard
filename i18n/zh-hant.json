@@ -296,7 +296,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "檢索頁面屬性失敗：頁面（尚）不存在。",
 	"mwe-upwiz-error-pageprops-missing-prop": "檢索頁面屬性失敗：屬性（尚）不存在。",
 	"mwe-upwiz-error-submit-structured-data": "圖片上傳成功，不過提交一些補充資料時發生錯誤。",
-	"mwe-upwiz-error-submit-structured-data-remedy": "若要解決此問題：造訪[[$1]]來更新結構化資料。",
+	"mwe-upwiz-error-submit-structured-data-remedy": "要修正此問題，請造訪[[$1]]來更新結構化資料。",
 	"mwe-upwiz-error-postdate": "您選到未來的日期，請重新選擇正確日期。",
 	"mwe-upwiz-warning-date-prefilled": "以上是從您的照片詳細資訊中獲取的日期。",
 	"mwe-upwiz-notice-date-imprecise": "如果您知道的話，我們建議您提供完整的日期。",
