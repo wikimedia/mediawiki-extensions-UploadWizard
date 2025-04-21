@@ -358,7 +358,7 @@
 	"mwe-upwiz-user-blacklisted": "이 $1 계정의 그림은 이 사이트에 올릴 수 없습니다.",
 	"mwe-upwiz-categories": "분류",
 	"mwe-upwiz-categories-placeholder": "예: 에토샤 국립공원의 포유류",
-	"mwe-upwiz-categories-current": "$1 부모 분류",
+	"mwe-upwiz-categories-current": "$1 상위 분류",
 	"mwe-upwiz-statements-title-depicts": "이 저작물에서 볼 수 있는 주요 주제",
 	"mwe-upwiz-statements-placeholder-depicts": "예: 앙골라기린",
 	"mwe-upwiz-thumbnail-failed": "올리기에 성공했지만, 서버가 섬네일 미리 보기를 불러오지 못했습니다.",
