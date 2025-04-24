@@ -3,9 +3,11 @@
 namespace MediaWiki\Extension\UploadWizard\Specials;
 
 use BitmapHandler;
-use ChangeTags;
 use LogicException;
+use MediaWiki\ChangeTags\ChangeTags;
 use MediaWiki\Context\DerivativeContext;
+use MediaWiki\Exception\PermissionsError;
+use MediaWiki\Exception\UserBlockedError;
 use MediaWiki\Extension\UploadWizard\Campaign;
 use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;
@@ -15,10 +17,8 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
-use PermissionsError;
 use UploadBase;
 use UploadFromUrl;
-use UserBlockedError;
 
 /**
  * Special:UploadWizard

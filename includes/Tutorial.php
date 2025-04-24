@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use File;
 use MediaTransformOutput;
+use MediaWiki\FileRepo\File\File;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;

@@ -12,6 +12,7 @@ use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\Skin\Skin;
 use MediaWiki\User\User;
 
 class Hooks implements
@@ -229,7 +230,7 @@ class Hooks implements
 	 * Add UW-specific titles for default SD properties
 	 *
 	 * @param OutputPage $out
-	 * @param \Skin $skin
+	 * @param Skin $skin
 	 */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'WikibaseMediaInfo' ) ) {

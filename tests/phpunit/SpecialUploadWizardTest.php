@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\UploadWizard\Tests;
 
 use MediaWiki\Block\DatabaseBlock;
+use MediaWiki\Exception\UserBlockedError;
 use MediaWiki\Extension\UploadWizard\Specials\SpecialUploadWizard;
 use MediaWiki\MainConfigNames;
 use SpecialPageTestBase;
-use UserBlockedError;
 
 /**
  * @group Database
