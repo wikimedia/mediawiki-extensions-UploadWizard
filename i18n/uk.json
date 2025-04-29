@@ -296,7 +296,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Не вдалося вивести властивості сторінки: сторінка (ще) не існує.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Не вдалося вивести властивості сторінки: властивість (ще) не існує.",
 	"mwe-upwiz-error-submit-structured-data": "Зображення успішно завантажилося, але щось пішло не так із поданням окремих додаткових даних.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "Щоб виправити це: відвідайте [[$1]], аби оновити дані там.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "Щоб виправити це, відвідайте [[$1]], аби оновити дані там.",
 	"mwe-upwiz-error-postdate": "Дата, яку ви обрали, у майбутньому. Будь ласка, оберіть коректну дату.",
 	"mwe-upwiz-warning-date-prefilled": "Вказана угорі дата взята з даних фотографії.",
 	"mwe-upwiz-notice-date-imprecise": "Ми рекомендуємо вказати повну дату, якщо вона відома.",
