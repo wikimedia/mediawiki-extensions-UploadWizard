@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\UploadWizard\Tests;
 
-use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Exception\UserBlockedError;
 use MediaWiki\Extension\UploadWizard\Specials\SpecialUploadWizard;
 use MediaWiki\MainConfigNames;
@@ -34,17 +33,14 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 		] );
 
 		$user = $this->getTestUser()->getUser();
-		$block = new DatabaseBlock( [
-			'expiry' => 'infinite',
-			'sitewide' => $sitewide,
-		] );
-		$block->setTarget( $user );
-		$block->setBlocker( $this->getTestSysop()->getUser() );
-
 		$this->getServiceContainer()
-			->getDatabaseBlockStoreFactory()
-			->getDatabaseBlockStore( $block->getWikiId() )
-			->insertBlock( $block );
+			->getDatabaseBlockStore()
+			->insertBlockWithParams( [
+				'targetUser' => $user,
+				'by' => $this->getTestSysop()->getUser(),
+				'expiry' => 'infinite',
+				'sitewide' => $sitewide,
+			] );
 
 		$caughtException = false;
 		try {
