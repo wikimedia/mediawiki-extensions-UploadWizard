@@ -534,8 +534,9 @@
 				this.$dataDiv
 			);
 
-			const uri = new mw.Uri( location.href, { overrideKeys: true } );
-			if ( config.defaults.caption || uri.query.captionlang ) {
+			const searchParams = new URLSearchParams( location.search );
+			const captionlang = searchParams.get( 'captionlang' );
+			if ( config.defaults.caption || captionlang ) {
 				this.captionsDetails.setSerialized( {
 					inputs: [
 						{
@@ -544,13 +545,14 @@
 					]
 				} );
 				this.captionsDetails.getItems()[ 0 ].fieldWidget.setLanguage(
-					uri.query.captionlang ?
-						this.captionsDetails.getItems()[ 0 ].fieldWidget.getClosestAllowedLanguage( uri.query.captionlang ) :
+					captionlang ?
+						this.captionsDetails.getItems()[ 0 ].fieldWidget.getClosestAllowedLanguage( captionlang ) :
 						this.captionsDetails.getItems()[ 0 ].fieldWidget.getDefaultLanguage()
 				);
 			}
 
-			if ( config.defaults.description || uri.query.descriptionlang ) {
+			const descriptionlang = searchParams.get( 'descriptionlang' );
+			if ( config.defaults.description || descriptionlang ) {
 				this.descriptionSameAsCaptionCheckbox.setSelected( false );
 				this.descriptionsDetails.setSerialized( {
 					inputs: [
@@ -560,8 +562,8 @@
 					]
 				} );
 				this.descriptionsDetails.getItems()[ 0 ].fieldWidget.setLanguage(
-					uri.query.descriptionlang ?
-						this.descriptionsDetails.getItems()[ 0 ].fieldWidget.getClosestAllowedLanguage( uri.query.descriptionlang ) :
+					descriptionlang ?
+						this.descriptionsDetails.getItems()[ 0 ].fieldWidget.getClosestAllowedLanguage( descriptionlang ) :
 						this.descriptionsDetails.getItems()[ 0 ].fieldWidget.getDefaultLanguage()
 				);
 			}
