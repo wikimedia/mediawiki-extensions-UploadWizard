@@ -98,6 +98,7 @@
 	"mwe-upwiz-progressbar-uploading": "올리는 중",
 	"mwe-upwiz-almost-finished": "파일 처리 중...",
 	"mwe-upwiz-finished": "완료!",
+	"mwe-upwiz-deeds-intro": "{{SITENAME}}에 업로드된 모든 미디어는 누구나 자유롭게 사용하고 공유할 수 있습니다. 귀하가 업로드하신 {{PLURAL:$1|저작물}}이 저작권으로부터 자유로울 수 있도록 다음 정보를 제공해 주세요.",
 	"mwe-upwiz-source-ownwork-label": "{{PLURAL:$1|이것은}} 귀하의 저작물이며 누구나 자유롭게 사용할 수 있습니다.",
 	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(이 저작물을 이용 시 적절한 출처 표시와 동일 라이선스 배포가 필요합니다.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(누구나 제가 저작자라는 것을 표시하고 이 라이선스로 2차적 저작물을 만들어 공유하는 조건에 따라 {{PLURAL:$1|이 저작물}}을 이용, 공유, 개작할 수 있습니다.)",
