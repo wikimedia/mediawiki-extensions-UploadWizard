@@ -105,7 +105,7 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 		yield 'Sparse, numeric arrays are not lists' => [
 			[ 1 => 'a', 0 => 'b' ],
 			[ 'x' ],
-			[ 'x' ],
+			[ 1 => 'a', 0 => 'x' ],
 		];
 	}
 
