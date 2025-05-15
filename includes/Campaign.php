@@ -14,6 +14,7 @@ use InvalidArgumentException;
 use MediaWiki\Category\Category;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Interwiki\InterwikiLookup;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinksMigration;
 use MediaWiki\MainConfigNames;
@@ -24,6 +25,7 @@ use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Parser\ParserOutputLinkTypes;
 use MediaWiki\Title\Title;
 use Wikimedia\ObjectCache\WANObjectCache;
+use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
@@ -42,17 +44,15 @@ class Campaign {
 	 * The campaign configuration.
 	 *
 	 * @since 1.2
-	 * @var array
 	 */
-	protected $config = [];
+	private ?array $config = [];
 
 	/**
 	 * The campaign configuration, after wikitext properties have been parsed.
 	 *
 	 * @since 1.2
-	 * @var array|null
 	 */
-	protected $parsedConfig = null;
+	private ?array $parsedConfig = null;
 
 	/**
 	 * Array of templates used in this campaign.
@@ -60,49 +60,33 @@ class Campaign {
 	 * Stored without deduplication
 	 *
 	 * @since 1.2
-	 * @var array
 	 */
-	protected $templates = [];
+	private array $templates = [];
 
 	/**
 	 * The Title representing the current campaign
 	 *
 	 * @since 1.4
-	 * @var Title|null
 	 */
-	protected $title = null;
+	private ?Title $title;
 
 	/**
 	 * The RequestContext to use for operations performed from this object
 	 *
 	 * @since 1.4
 	 */
-	protected IContextSource $context;
-
-	/** @var WANObjectCache */
-	private $wanObjectCache;
-
-	/** @var \Wikimedia\Rdbms\IReadableDatabase */
-	private $dbr;
-
-	/** @var Parser */
-	private $parser;
-
-	/** @var \MediaWiki\Interwiki\InterwikiLookup */
-	private $interwikiLookup;
-
+	private IContextSource $context;
+	private WANObjectCache $wanObjectCache;
+	private IReadableDatabase $dbr;
+	private Parser $parser;
+	private InterwikiLookup $interwikiLookup;
 	private LinksMigration $linksMigration;
-
 	private int $fileSchemaMigrationStage;
 
-	/**
-	 * @param string $name
-	 * @return Campaign|false
-	 */
-	public static function newFromName( $name ) {
+	public static function newFromName( string $name ): ?Campaign {
 		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
 		if ( !$campaignTitle || !$campaignTitle->exists() ) {
-			return false;
+			return null;
 		}
 
 		return new Campaign( $campaignTitle );
@@ -142,28 +126,21 @@ class Campaign {
 	 * Returns true if current campaign is enabled
 	 *
 	 * @since 1.4
-	 *
-	 * @return bool
 	 */
-	public function getIsEnabled() {
-		return $this->config !== null && $this->config['enabled'];
+	public function getIsEnabled(): bool {
+		return $this->config && $this->config['enabled'];
 	}
 
 	/**
 	 * Returns name of current campaign
 	 *
 	 * @since 1.4
-	 *
-	 * @return string
 	 */
-	public function getName() {
+	public function getName(): string {
 		return $this->title->getDBkey();
 	}
 
-	/**
-	 * @return Title
-	 */
-	public function getTitle() {
+	public function getTitle(): Title {
 		return $this->title;
 	}
 
@@ -264,17 +241,13 @@ class Campaign {
 	 * Property name => property value
 	 *
 	 * @since 1.2
-	 *
-	 * @return array
 	 */
-	public function getRawConfig() {
-		return $this->config;
+	public function getRawConfig(): array {
+		return $this->config ?? [];
 	}
 
 	/**
 	 * Update internal list of templates used in parsing this campaign
-	 *
-	 * @param ParserOutput $parserOutput
 	 */
 	private function updateTemplates( ParserOutput $parserOutput ) {
 		foreach ( $parserOutput->getLinkList( ParserOutputLinkTypes::TEMPLATE )
@@ -438,7 +411,7 @@ class Campaign {
 	/**
 	 * Modifies the parsed config if there are time-based modifiers that are active.
 	 */
-	protected function modifyIfNecessary() {
+	private function modifyIfNecessary() {
 		foreach ( $this->parsedConfig as $cnf => $modifiers ) {
 			if ( $cnf === 'whileActive' && $this->isActive() ) {
 				$activeModifiers = $modifiers;

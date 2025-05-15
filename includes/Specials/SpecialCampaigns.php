@@ -57,6 +57,9 @@ class SpecialCampaigns extends SpecialPage {
 				break;
 			} else {
 				$campaign = Campaign::newFromName( $row->campaign_name );
+				if ( !$campaign ) {
+					continue;
+				}
 				$this->getOutput()->addHTML( $this->getHtmlForCampaign( $campaign ) );
 			}
 		}
@@ -68,12 +71,7 @@ class SpecialCampaigns extends SpecialPage {
 		}
 	}
 
-	/**
-	 * @param Campaign $campaign
-	 *
-	 * @return string
-	 */
-	private function getHtmlForCampaign( Campaign $campaign ) {
+	private function getHtmlForCampaign( Campaign $campaign ): string {
 		$config = $campaign->getParsedConfig();
 		$campaignURL = $campaign->getTitle()->getLocalURL();
 		$campaignTitle = $config['title'] ?? htmlspecialchars( $campaign->getName() );
