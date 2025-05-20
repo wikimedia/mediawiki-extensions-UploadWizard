@@ -207,11 +207,9 @@
 	 * @private
 	 */
 	uw.ui.Thanks.prototype.dropParameterFromURL = function ( url, paramName ) {
-		const newUrl = new mw.Uri( url );
-		if ( newUrl.query ) {
-			delete newUrl.query[ paramName ];
-			delete newUrl.query[ paramName + '[]' ];
-		}
+		const newUrl = new URL( url );
+		newUrl.searchParams.delete( paramName );
+		newUrl.searchParams.delete( paramName + '[]' );
 		return newUrl.toString();
 	};
 

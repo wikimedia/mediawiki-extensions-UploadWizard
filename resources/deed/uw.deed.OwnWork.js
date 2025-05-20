@@ -481,7 +481,7 @@
 		const fields = [ this.originRadioField, this.licenseInputField ];
 
 		// don't validate purpose field in campaigns (it is not shown)
-		if ( !new mw.Uri().query.campaign ) {
+		if ( !mw.util.getParamValue( 'campaign' ) ) {
 			fields.push( this.purposeField );
 		}
 
@@ -510,7 +510,7 @@
 
 		// show the purpose field if we aren't in a campaign and the user isn't autoconfirmed
 		if (
-			!new mw.Uri().query.campaign &&
+			!mw.util.getParamValue( 'campaign' ) &&
 			!mw.config.get( 'wgUserGroups' ).includes( 'autoconfirmed' )
 		) {
 			$formFields.append(
