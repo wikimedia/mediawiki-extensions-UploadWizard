@@ -92,7 +92,7 @@
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Служба поддержки",
 	"mwe-upwiz-add-file-n": "Добавить ещё файлы",
 	"mwe-upwiz-add-file-0-free": "Выберите медиафайлы, чтобы поделиться",
-	"mwe-upwiz-add-file-flickr": "Поделиться изображениями с Flickr",
+	"mwe-upwiz-add-file-flickr": "Поделитесь изображениями с Flickr",
 	"mwe-upwiz-add-file-flickr-n": "Добавить больше изображений из Flickr",
 	"mwe-upwiz-add-flickr-or": "или",
 	"mwe-upwiz-add-flickr": "Получить с Flickr",
@@ -429,6 +429,7 @@
 	"mwe-upwiz-categories": "Категория",
 	"mwe-upwiz-categories-missing": "{{PLURAL:$1|Категория, подсвеченная|Категории, подсвеченные}} красным, ещё не {{PLURAL:$1|существует|существуют}} и {{PLURAL:$1|у неё нет страницы|у них нет страниц}} описания. Если {{PLURAL:$1|существует похожая по смыслу категория|существуют похожие по смыслу категории}}, мы рекомендуем использовать {{PLURAL:$1|её|их}}. Если нет, перейдите на {{PLURAL:$1|страницу новой категории|страницы новых категорий}} и добавьте описание.",
 	"mwe-upwiz-categories-placeholder": "например, «Млекопитающие Национального парка Этоша»",
+	"mwe-upwiz-categories-current": "$1 — родительская категория",
 	"mwe-upwiz-statements-title-depicts": "Основные предметы, видимые на этом изображении",
 	"mwe-upwiz-statements-too-many-items": "Мы рекомендуем указывать не более $1 предметов",
 	"mwe-upwiz-statements-placeholder-depicts": "например, «ангольский жираф»",
@@ -479,5 +480,7 @@
 	"mwe-upwiz-upload-comment-own-work": "Загружено собственное произведение через «Мастер загрузки»",
 	"mwe-upwiz-upload-comment-third-party": "Загружено произведение авторства $1 из $2 через «Мастер загрузки»",
 	"mwe-upwiz-metadata-notice-header": "Личные данные",
-	"mwe-upwiz-metadata-notice-description": "EXIF-метаданные этого файла могут содержать геолокацию и другие персональные данные, добавленные вашей камерой автоматически. [https://commons.wikimedia.org/wiki/Commons:Exif/ru Узнайте], как отредактировать или удалить EXIF-метаданные."
+	"mwe-upwiz-metadata-notice-description": "EXIF-метаданные этого файла могут содержать геолокацию и другие персональные данные, добавленные вашей камерой автоматически. [https://commons.wikimedia.org/wiki/Commons:Exif/ru Узнайте], как отредактировать или удалить EXIF-метаданные.",
+	"namespaceinfo-description-ns460": "Пространство имён для кампаний по загрузке",
+	"namespaceinfo-description-ns461": "Страницы обсуждения для кампаний по загрузке"
 }

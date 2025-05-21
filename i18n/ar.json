@@ -343,6 +343,7 @@
 	"mwe-upwiz-license-cc-by-2.0-text": "المشاع الإبداعي مع الإلزام بنسب العمل لمؤلفه ومشاركة المشتقات بالمثل 2.0 $3 [$2 (تعلم المزيد)]",
 	"mwe-upwiz-license-cc-zero-text": "رخصة المشاع الإبداعي CC0 (تنازل) $3 [$2 (معرفة المزيد)]",
 	"mwe-upwiz-license-custom": "أدخل ترخيصا مختلفا",
+	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Copyright_tags/ar",
 	"mwe-upwiz-license-custom-explain": "يلزم أن يحتوي على [$2 وسم حقوق التأليف والنشر] سليم في قالب سليم مثل <nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>",
 	"mwe-upwiz-license-custom-pd": "أضف علامة مجال عام محددة، إذا أمكن.",
 	"mwe-upwiz-license-custom-pd-explain": "يجب أن يحتوي على [وسم المجال العام $2] صالح في قالب صالح مثل <nowiki>{{</nowiki>Pd-old-70<nowiki>}}</nowiki>",
