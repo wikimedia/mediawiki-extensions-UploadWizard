@@ -35,7 +35,8 @@
 			"Salvare",
 			"Waki285",
 			"Yushu-kasai",
-			"Chqaz"
+			"Chqaz",
+			"Shulmj"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -261,9 +262,11 @@
 	"mwe-upwiz-error-latitude": "緯度は-90から90の数字で指定する必要があります。",
 	"mwe-upwiz-error-longitude": "経度は-180から180の数字で指定する必要があります。",
 	"mwe-upwiz-error-altitude": "標高は数値である必要があります。",
+	"mwe-upwiz-error-heading": "方角は0から360の範囲で入力してください。",
 	"mwe-upwiz-error-signature-too-long": "署名が長すぎます。\n$1文字より短くしてください。",
 	"mwe-upwiz-error-signature-too-short": "署名が短すぎます。\n$1文字より長くしてください。",
 	"mwe-upwiz-error-date-license-mismatch": "選択された日付はライセンス($1)と合致しません。",
+	"mwe-upwiz-error-date-license-unlikely": "ライセンス($1)において、選択された日付は正しくない可能性があります。",
 	"mwe-upwiz-error-blank": "この欄は必須入力です。",
 	"mwe-upwiz-error-too-long": "この項目の内容は長すぎます。文字数は$1{{PLURAL:$1|文字}}以下にしてください。",
 	"mwe-upwiz-error-too-short": "この項目の内容は短すぎます。文字数は$1{{PLURAL:$1|文字}}以上にしてください。",
@@ -387,6 +390,9 @@
 	"campaigns": "アップロードウィザードのキャンペーン",
 	"mwe-upload-campaigns-pagination-next": "次のページ",
 	"mwe-upload-campaigns-list-title": "アップロード キャンペーン一覧",
+	"mwe-upwiz-mv-cta-dismiss": "閉じる",
+	"mwe-upwiz-upload-comment-own-work": "アップロードウィザードにより自身の作品をアップロード",
+	"mwe-upwiz-upload-comment-third-party": "アップロードウィザードにより $1 の作品を $2 からアップロード",
 	"mwe-upwiz-metadata-notice-header": "詳細情報が含まれています",
 	"mwe-upwiz-metadata-notice-description": "このファイルの EXIF メタデータにはカメラによって自動的に追加された位置情報やその他の撮影データを含む場合があります。EXIF メタデータを除去したい場合は[https://commons.wikimedia.org/wiki/Commons:Exif 解説]をご覧ください。"
 }
