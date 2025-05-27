@@ -62,7 +62,7 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 		$key = 'Dummy';
 		/** @var Config $config */
 		$config = TestingAccessWrapper::newFromClass( Config::class );
-		$result = $config->arrayReplaceSanely( [ $key => $array ], [ $key => $replacements ] );
+		$result = $config->arrayReplaceSensibly( [ $key => $array ], [ $key => $replacements ] );
 		$this->assertSame( [ $key => $expected ], $result );
 	}
 

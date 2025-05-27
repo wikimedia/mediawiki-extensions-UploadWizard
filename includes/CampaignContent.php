@@ -55,7 +55,7 @@ class CampaignContent extends JsonContent {
 			}
 		}
 
-		$mergedConfig = Config::arrayReplaceSanely( $defaultCampaignConfig, $campaign );
+		$mergedConfig = Config::arrayReplaceSensibly( $defaultCampaignConfig, $campaign );
 		return EventLogging::schemaValidate( $mergedConfig, $schema );
 	}
 

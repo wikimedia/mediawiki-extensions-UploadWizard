@@ -736,7 +736,7 @@
 				return ( n < 10 ? '0' : '' ) + String( n );
 			}
 
-			function getSaneTime( date ) {
+			function getSensibleTime( date ) {
 				let str = '';
 
 				str += pad( date.getHours() ) + ':';
@@ -806,9 +806,9 @@
 			// time value of '00:00:00'.
 			// FIXME: Check for missing time value earlier rather than blacklisting
 			// a potentially legitimate time value.
-			const saneTime = getSaneTime( dateObj );
-			if ( saneTime !== '00:00:00' ) {
-				dateStr += ' ' + saneTime;
+			const sensibleTime = getSensibleTime( dateObj );
+			if ( sensibleTime !== '00:00:00' ) {
+				dateStr += ' ' + sensibleTime;
 			}
 
 			// ok by now we should definitely have a dateObj and a date string
@@ -1060,7 +1060,7 @@
 				description: '',
 				// holds {{Prompt}} template ... gets unset if it has no value
 				'Other fields 1': '',
-				// YYYY, YYYY-MM, or YYYY-MM-DD (required) use jquery but allow editing, then double check for sane date.
+				// YYYY, YYYY-MM, or YYYY-MM-DD (required) use jquery but allow editing, then double check for sensible date.
 				date: '',
 				// {{own}} or wikitext (optional)
 				source: '',

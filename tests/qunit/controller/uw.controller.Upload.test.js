@@ -18,7 +18,7 @@
 ( function ( uw ) {
 	QUnit.module( 'mw.uploadWizard.controller.Upload', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Constructor sanity test', ( assert ) => {
+	QUnit.test( 'Constructor sense-check', ( assert ) => {
 		const step = new uw.controller.Upload( new mw.Api(), {
 			maxUploads: 10,
 			maxSimultaneousConnections: 3

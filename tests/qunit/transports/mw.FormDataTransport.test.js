@@ -31,7 +31,7 @@
 		return new mw.FormDataTransport( api, {}, config );
 	}
 
-	QUnit.test( 'Constructor sanity test', ( assert ) => {
+	QUnit.test( 'Constructor sense-check', ( assert ) => {
 		const transport = createTransport();
 
 		assert.true( !!transport );

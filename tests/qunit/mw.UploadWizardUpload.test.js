@@ -38,7 +38,7 @@
 		return upload;
 	}
 
-	QUnit.test( 'constructor sanity test', ( assert ) => {
+	QUnit.test( 'constructor sense-check', ( assert ) => {
 		const upload = createUpload();
 
 		assert.true( !!upload );

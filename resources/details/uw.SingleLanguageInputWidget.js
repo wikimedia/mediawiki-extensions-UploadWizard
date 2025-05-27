@@ -114,7 +114,8 @@
 
 	/**
 	 * Get the default language to use for inputs.
-	 * Choose a sane default based on user preferences and wiki config.
+	 *
+	 * Choose a reasonable default based on user preferences and wiki config.
 	 *
 	 * @public
 	 * @return {string}

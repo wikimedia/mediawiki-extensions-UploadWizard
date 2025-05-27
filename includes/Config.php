@@ -17,16 +17,16 @@ namespace MediaWiki\Extension\UploadWizard;
 class Config {
 
 	/**
-	 * Same functionality as array_merge_recursive, but sanely
+	 * Same functionality as array_merge_recursive, but sensibly.
 	 * It treats 'normal' integer indexed arrays as scalars, and does
 	 * not recurse into them. Associative arrays are recursed into
 	 */
-	public static function arrayReplaceSanely( array $array, array $replacements ): array {
+	public static function arrayReplaceSensibly( array $array, array $replacements ): array {
 		foreach ( $replacements as $key => $replacement ) {
 			$oldValue = $array[$key] ?? null;
 			// Recurse only into associative arrays
 			if ( is_array( $oldValue ) && !array_is_list( $oldValue ) ) {
-				$replacement = self::arrayReplaceSanely( $oldValue, $replacement );
+				$replacement = self::arrayReplaceSensibly( $oldValue, $replacement );
 			}
 			$array[$key] = $replacement;
 		}
@@ -57,7 +57,7 @@ class Config {
 
 		if ( !self::$mergedConfig ) {
 			// This intentionally overwrites the global with defaults
-			$wgUploadWizardConfig = self::arrayReplaceSanely(
+			$wgUploadWizardConfig = self::arrayReplaceSensibly(
 				self::getDefaultConfig(),
 				$wgUploadWizardConfig
 			);
@@ -67,7 +67,7 @@ class Config {
 		// Don't put a specific campaign into the global
 		$config = $wgUploadWizardConfig;
 		if ( $campaignName !== null ) {
-			$config = self::arrayReplaceSanely( $config, self::getCampaignConfig( $campaignName ) );
+			$config = self::arrayReplaceSensibly( $config, self::getCampaignConfig( $campaignName ) );
 		}
 		return array_replace_recursive( $config, self::$urlConfig );
 	}

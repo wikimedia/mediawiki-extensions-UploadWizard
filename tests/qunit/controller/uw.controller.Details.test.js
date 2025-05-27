@@ -43,7 +43,7 @@
 		};
 	}
 
-	QUnit.test( 'Constructor sanity test', ( assert ) => {
+	QUnit.test( 'Constructor sense-check', ( assert ) => {
 		const step = new uw.controller.Details( new mw.Api(), {
 			maxSimultaneousConnections: 1
 		} );

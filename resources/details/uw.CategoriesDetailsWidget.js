@@ -80,7 +80,7 @@
 					.addItems(
 						items
 							.filter( ( data ) => {
-								// sanity check
+								// Sense-check
 								const title = mw.Title.newFromText( data.title, NS_CATEGORY );
 								return title !== null;
 							} )

@@ -18,7 +18,7 @@
 ( function ( uw ) {
 	QUnit.module( 'mw.uploadWizard.controller.Deed', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Constructor sanity test', ( assert ) => {
+	QUnit.test( 'Constructor sense-check', ( assert ) => {
 		const step = new uw.controller.Deed();
 		assert.true( step instanceof uw.controller.Step );
 		assert.true( !!step.ui );
