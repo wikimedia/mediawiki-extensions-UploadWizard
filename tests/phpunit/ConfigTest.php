@@ -18,6 +18,7 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \MediaWiki\Extension\UploadWizard\Config
  */
 class ConfigTest extends MediaWikiIntegrationTestCase {
+
 	protected function setUp(): void {
 		parent::setUp();
 
@@ -52,6 +53,60 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 		// it once and then storing the result in-place in the global variable.
 		// This does not work for more than 1 test in a row.
 		TestingAccessWrapper::newFromClass( Config::class )->mergedConfig = false;
+	}
+
+	/**
+	 * @dataProvider provideConfigArrayReplacements
+	 */
+	public function testConfigArrayReplacements( array $array, array $replacements, array $expected ) {
+		$key = 'Dummy';
+		/** @var Config $config */
+		$config = TestingAccessWrapper::newFromClass( Config::class );
+		$result = $config->arrayReplaceSanely( [ $key => $array ], [ $key => $replacements ] );
+		$this->assertSame( [ $key => $expected ], $result );
+	}
+
+	public function provideConfigArrayReplacements() {
+		yield 'Trivial replacement' => [
+			[ 'a' => 1, 'b' => 2 ],
+			[ 'b' => 99 ],
+			[ 'a' => 1, 'b' => 99 ],
+		];
+		yield 'Recursion' => [
+			[ 'foo' => [ 'a' => 1, 'b' => 2 ] ],
+			[ 'foo' => [ 'b' => 99 ] ],
+			[ 'foo' => [ 'a' => 1, 'b' => 99 ] ],
+		];
+		yield 'New values are added' => [
+			[],
+			[ 'foo' => 2 ],
+			[ 'foo' => 2 ],
+		];
+		yield 'Numeric lists are replaced, not merged' => [
+			[ 'a', 'b', [ 'c' => 1 ] ],
+			[ 'x', 'y' ],
+			[ 'x', 'y' ],
+		];
+		yield 'String-keyed arrays are merged, not replaced' => [
+			[ 'a', 'b', 'string' => [ 'c', 'd' => 2 ] ],
+			[ 'x', 'string' => [ 'd' => 99 ] ],
+			[ 'x', 'b', 'string' => [ 'c', 'd' => 99 ] ],
+		];
+		yield 'The source (no string keys) dictates the behavior' => [
+			[ 'a' ],
+			[ 'string' => 'x' ],
+			[ 'string' => 'x' ],
+		];
+		yield 'The replacements (no string keys) do not dictate the behavior' => [
+			[ 'string' => 'a' ],
+			[ 'x' ],
+			[ 'string' => 'a', 'x' ],
+		];
+		yield 'Sparse, numeric arrays are not lists' => [
+			[ 1 => 'a', 0 => 'b' ],
+			[ 'x' ],
+			[ 'x' ],
+		];
 	}
 
 	public static function objRefProvider() {
