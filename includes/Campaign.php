@@ -283,6 +283,7 @@ class Campaign {
 			$value, $this->getTitle(), $parserOptions
 		);
 		$processedOutput = $output->runOutputPipeline( $parserOptions, [
+			'unwrap' => true,
 			'enableSectionEditLinks' => false,
 		] );
 
