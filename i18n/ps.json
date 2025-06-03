@@ -73,7 +73,7 @@
 	"mwe-upwiz-source-multiple-label-common": "د ټولو دوتنو لپاره ورته مالومات چمتو کړئ",
 	"mwe-upwiz-source-multiple-label-individual": "د هرې دوتنې لپاره مالومات چمتو کړئ",
 	"mwe-upwiz-patent-dialog-title": "امتياز رښتې",
-	"mwe-upwiz-patent-dialog-title-filename": "د دې قانوني رښتې",
+	"mwe-upwiz-patent-dialog-title-filename": "د دې قانوني رښتې: $1",
 	"mwe-upwiz-patent-dialog-button-back": "شا",
 	"mwe-upwiz-patent-dialog-button-next": "راتلونکی",
 	"mwe-upwiz-patent-dialog-title-warranty": "امتياز اړوند ژمنه",
