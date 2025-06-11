@@ -40,7 +40,7 @@
 			.addClass( 'mwe-upwiz-file ui-helper-clearfix' )
 			.append( this.$addFileContainer );
 
-		this.addFile = new OO.ui.SelectFileWidget( {
+		this.addFile = new OO.ui.SelectFileInputWidget( {
 			classes: [ 'mwe-upwiz-add-file' ],
 			multiple: true,
 			showDropTarget: true,
