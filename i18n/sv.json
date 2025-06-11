@@ -289,7 +289,7 @@
 	"mwe-upwiz-error-pageprops-missing-page": "Misslyckades att hämta sidegenskaper: Sidan finns inte (ännu).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Misslyckades att hämta sidegenskaper: Egenskapen finns inte (ännu).",
 	"mwe-upwiz-error-submit-structured-data": "Bilden laddades upp, men någonting blev fel när en del av tilläggsdatan skulle skickas.",
-	"mwe-upwiz-error-submit-structured-data-remedy": "För att åtgärda detta: gå till [[$1]] för att uppdatera datan där.",
+	"mwe-upwiz-error-submit-structured-data-remedy": "För att åtgärda detta, gå till [[$1]] för att uppdatera datan där.",
 	"mwe-upwiz-error-postdate": "Datumet du valt ligger i framtiden. Välj rätt datum.",
 	"mwe-upwiz-warning-date-prefilled": "Ovanstående datum är taget från din bilds detaljer.",
 	"mwe-upwiz-notice-date-imprecise": "Vi rekommenderar ett fullständigt datum om det är känt.",
