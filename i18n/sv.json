@@ -137,7 +137,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Exempel:<b/> Upphovsperson: Midjourney AI; Fotografi av Ansel Adams; färglagd med Colorme AI, osv.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-prompt": "Ange prompten som användes för att generera denna media",
 	"mwe-upwiz-source-permission": "Deras upphovsperson gav dig uttryckligt tillstånd att ladda upp dem",
-	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Detta verk är|Dessa verk är}} skapades av någon annan och är {{PLURAL:$1|fritt|fria}} att delas.",
+	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Detta verk|Dessa verk}} skapades av någon annan och är {{PLURAL:$1|fritt|fria}} att delas.",
 	"mwe-upwiz-source-thirdparty-intro": "Ange för varje fil den adress där du hittade den.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Om alla filer har samma källa, upphovsperson och upphovsrättsliga status kan du ange dem bara en gång för allihopa.",
 	"mwe-upwiz-source-thirdparty-explain": "Du får ladda upp andra verk så länge det har publicerats under en fri licens eller dess upphovsrätt har gått ut.",
