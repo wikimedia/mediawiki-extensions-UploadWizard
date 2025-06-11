@@ -24,6 +24,9 @@
 				classes: [ 'mwe-idfield', 'mwe-upwiz-campaignDetailsWidget-input' ],
 				maxLength: config.maxLength
 			} );
+			if ( config.pattern !== undefined ) {
+				this.input.$input.attr( 'pattern', config.pattern );
+			}
 		} else if ( config.type === 'select' ) {
 			this.input = new OO.ui.DropdownInputWidget( {
 				classes: [ 'mwe-idfield', 'mwe-upwiz-campaignDetailsWidget-input' ],

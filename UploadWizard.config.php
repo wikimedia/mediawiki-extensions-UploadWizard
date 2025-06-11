@@ -214,6 +214,9 @@ return [
 			// The maximum length of the id field.
 			'maxLength' => 25,
 
+			// Pattern (regular expression) for the id field.
+			'pattern' => '',
+
 			// Initial value for the id field.
 			'initialValue' => '',
 
