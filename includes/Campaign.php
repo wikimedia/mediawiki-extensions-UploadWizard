@@ -7,6 +7,7 @@ use MediaWiki\Category\Category;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Language\Language;
+use MediaWiki\Linker\LinksMigration;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
@@ -89,7 +90,9 @@ class Campaign {
 	/** @var \MediaWiki\Interwiki\InterwikiLookup */
 	private $interwikiLookup;
 
-	private int $migrationStage;
+	private LinksMigration $linksMigration;
+
+	private int $fileSchemaMigrationStage;
 
 	/**
 	 * @param string $name
@@ -128,9 +131,10 @@ class Campaign {
 			$this->config = $config;
 		}
 		$this->context = $context ?? RequestContext::getMain();
-		$this->migrationStage = $services->getMainConfig()->get(
+		$this->fileSchemaMigrationStage = $services->getMainConfig()->get(
 			MainConfigNames::FileSchemaMigrationStage
 		);
+		$this->linksMigration = $services->getLinksMigration();
 	}
 
 	/**
@@ -185,20 +189,31 @@ class Campaign {
 	public function getTotalContributorsCount() {
 		$dbr = $this->dbr;
 		$fname = __METHOD__;
-		$migrationStage = $this->migrationStage;
+		$fileSchemaMigrationStage = $this->fileSchemaMigrationStage;
+		$categorylinksQueryInfo = $this->linksMigration->getQueryInfo( 'categorylinks' );
+		$categorylinksConditions = $this->linksMigration->getLinksConditions(
+			'categorylinks',
+			$this->getTrackingCategory()
+		);
 
 		return $this->wanObjectCache->getWithSetCallback(
 			$this->wanObjectCache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
 			Config::getSetting( 'campaignStatsMaxAge' ),
-			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname, $dbr, $migrationStage ) {
+			static function ( $oldValue, &$ttl, array &$setOpts ) use (
+				$fname, $dbr, $fileSchemaMigrationStage, $categorylinksQueryInfo, $categorylinksConditions
+			) {
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
 				$queryBuilder = $dbr->newSelectQueryBuilder()
-					->from( 'categorylinks' )
+					->tables( $categorylinksQueryInfo['tables'] )
 					->join( 'page', null, 'cl_from=page_id' )
-					->where( [ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ] )
+					->where( array_merge(
+						$categorylinksConditions,
+						[ 'cl_type' => 'file' ]
+					) )
+					->joinConds( $categorylinksQueryInfo['joins'] )
 					->useIndex( [ 'categorylinks' => 'cl_timestamp' ] );
-				if ( $migrationStage & SCHEMA_COMPAT_READ_OLD ) {
+				if ( $fileSchemaMigrationStage & SCHEMA_COMPAT_READ_OLD ) {
 					$queryBuilder->select( [ 'count' => 'COUNT(DISTINCT img_actor)' ] )
 						->join( 'image', null, 'page_title=img_name' );
 				} else {
@@ -218,11 +233,21 @@ class Campaign {
 	 * @return Title[]
 	 */
 	public function getUploadedMedia( $limit = 24 ) {
+		$categorylinksQueryInfo = $this->linksMigration->getQueryInfo( 'categorylinks' );
+		$categorylinksConditions = $this->linksMigration->getLinksConditions(
+			'categorylinks',
+			$this->getTrackingCategory()
+		);
+
 		$result = $this->dbr->newSelectQueryBuilder()
 			->select( [ 'cl_from', 'page_namespace', 'page_title' ] )
-			->from( 'categorylinks' )
+			->tables( $categorylinksQueryInfo['tables'] )
 			->join( 'page', null, 'cl_from=page_id' )
-			->where( [ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ] )
+			->where( array_merge(
+				$categorylinksConditions,
+				[ 'cl_type' => 'file' ]
+			) )
+			->joinConds( $categorylinksQueryInfo['joins'] )
 			->orderBy( 'cl_timestamp', SelectQueryBuilder::SORT_DESC )
 			->limit( $limit )
 			->useIndex( [ 'categorylinks' => 'cl_timestamp' ] )
