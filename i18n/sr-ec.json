@@ -371,6 +371,7 @@
 	"mwe-upwiz-categories-placeholder": "нпр. сисари Националног парка Етоша",
 	"mwe-upwiz-categories-current": "$1 надређена категорија",
 	"mwe-upwiz-statements-title-depicts": "Предмет приказан у овом раду",
+	"mwe-upwiz-statements-too-many-items": "Саветујемо највише $1 ставки.",
 	"mwe-upwiz-statements-placeholder-depicts": "нпр. анголска жирафа",
 	"mwe-upwiz-thumbnail-failed": "Отпремање је успело, али сервер не може да понуди минијатуру прегледа.",
 	"mwe-upwiz-unparseable-filename": "Не могу да разумем назив датотеке „$1“.",
