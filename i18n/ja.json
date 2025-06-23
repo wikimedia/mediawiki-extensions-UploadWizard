@@ -140,7 +140,7 @@
 	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|これ|これら}}は完全に{{GENDER:$2|あなた}}自身の{{PLURAL:$1|作品}}ですか?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|この作品|これらの作品}}はすべて私が作成したものです",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|この作品には|これらの作品には}}他の利用者の作品が含まれています",
-	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "{{PLURAL:$1|この|これらの}}メディアに含まれる他者の作品は、自由に利用および共有することができますか?",
+	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "{{PLURAL:$1|この|これらの}}メディアに含まれる他者の作品は、自由に使用および共有できますか?",
 	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "はい、{{PLURAL:$1|この作品|これらの作品}}は[[COM:L#Well-known_licenses|フリーライセンス]]の下で公開されました 例: [[COM:L#Well-known_licenses|クリエイティブ・コモンズ ライセンス]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "はい、{{PLURAL:$1|この作品|これらの作品}}は著作権法によって保護されていません",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "いいえ、{{PLURAL:$1|この作品|これらの作品}}は著作権で保護されています",
