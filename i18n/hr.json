@@ -293,6 +293,7 @@
 	"mwe-upwiz-license-external": "Datoteka je na mrežnom mjestu \"$1\" licencirana licencijom: $2.",
 	"mwe-upwiz-license-external-invalid": "Datoteka je na mrežnom mjestu \"$1\" licencirana licencijom: $2. Nažalost, ovaj wiki ne dopušta takvu licenciju.",
 	"mwe-upwiz-license-pd-old-70-1923": "Prvi put objavljeno prije 1927. i autor je preminuo prije više od 70 godina",
+	"mwe-upwiz-user-blacklisted": "Nažalost, preuzimanje slika s ovog računa mrežnog mjesta $1 nije moguće.",
 	"mwe-upwiz-categories": "Kategorije",
 	"mwe-upwiz-thumbnail-failed": "Postavljanje je uspješno, ali server nije mogao stvoriti minijaturu pregleda.",
 	"mwe-upwiz-unparseable-filename": "Ime datoteke \"$1\" nije razumljivo.",
