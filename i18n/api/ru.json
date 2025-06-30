@@ -2,16 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Dirruw'o",
+			"Engineer56",
 			"Kaganer",
 			"Okras"
 		]
 	},
+	"apihelp-flickrblacklist-summary": "Проверьте URL-адрес Flickr, используя ID пользователя (NSID) для внесения в черный список.",
+	"apihelp-flickrblacklist-extended-description": "При использовании с опцией <var>списка</var> возвращает все ID, занесенные в черный список.",
 	"apihelp-flickrblacklist-param-url": "URL-адрес на Flickr, который должен быть проверен.",
 	"apihelp-flickrblacklist-param-list": "При установке возвращается полный чёрный список. Не может использоваться вместе с $1url.",
 	"apihelp-flickrblacklist-example-1": "Проверить URL-адрес по чёрному списку",
 	"apihelp-flickrblacklist-example-2": "Вернуть запись чёрного списка",
+	"apihelp-query+allcampaigns-summary": "Перечислить все кампании Мастера загрузки.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Список только тех кампаний, которые сейчас активны.",
 	"apihelp-query+allcampaigns-param-limit": "Возвращаемое число кампаний.",
 	"apihelp-query+allcampaigns-example-1": "Перечислить включённые кампании",
-	"apihelp-mediadetection-param-filename": "Название файловой страницы"
+	"apihelp-mediadetection-param-filename": "Название файловой страницы",
+	"apierror-mediadetection-no-valid-thumbnail": "Для изображения не существует миниатюры, поэтому его невозможно отправить в классификатор.",
+	"apierror-mediadetection-invalid-mime-type": "Конечная точка API недоступна для этого типа файла — разрешенные типы: image/jpeg, image/gif, image/png, image/bmp"
 }
