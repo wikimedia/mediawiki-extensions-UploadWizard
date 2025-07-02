@@ -45,20 +45,33 @@ mw.FlickrChecker.licensePromise = null;
 mw.FlickrChecker.licenseList = [];
 
 // Map each Flickr license name to the equivalent templates.
-// These are the current Flickr license names as of April 26, 2011.
+// These are the current Flickr license names as of July 2, 2025.
 // Live list at http://api.flickr.com/services/rest/?&method=flickr.photos.licenses.getInfo&api_key=...
 mw.FlickrChecker.licenseMaps = {
 	'All Rights Reserved': 'invalid',
+	'CC BY 2.0': '{{cc-by-2.0}}{{flickrreview}}',
+	'CC BY-ND 2.0': 'invalid',
+	'CC BY-NC-ND 2.0': 'invalid',
+	'CC BY-NC 2.0': 'invalid',
+	'CC BY-NC-SA 2.0': 'invalid',
+	'CC BY-SA 2.0': '{{cc-by-sa-2.0}}{{flickrreview}}',
+	'No known copyright restrictions': '{{Flickr-no known copyright restrictions}}{{flickrreview}}',
+	'United States Government Work': '{{PD-USGov}}{{flickrreview}}',
+	'Public Domain Dedication (CC0)': '{{cc-zero}}{{flickrreview}}',
+	'Public Domain Mark': '{{PD-US}}{{flickrreview}}',
+	'CC BY 4.0': '{{cc-by-4.0}}{{flickrreview}}',
+	'CC BY-ND 4.0': 'invalid',
+	'CC BY-NC-ND 4.0': 'invalid',
+	'CC BY-NC 4.0': 'invalid',
+	'CC BY-NC-SA 4.0': 'invalid',
+	'CC BY-SA 4.0': '{{cc-by-sa-4.0}}{{flickrreview}}',
+	// the following are old flickr license names from 2011, preserved here just in case
 	'Attribution License': '{{cc-by-2.0}}{{flickrreview}}',
 	'Attribution-NoDerivs License': 'invalid',
 	'Attribution-NonCommercial-NoDerivs License': 'invalid',
 	'Attribution-NonCommercial License': 'invalid',
 	'Attribution-NonCommercial-ShareAlike License': 'invalid',
-	'Attribution-ShareAlike License': '{{cc-by-sa-2.0}}{{flickrreview}}',
-	'No known copyright restrictions': '{{Flickr-no known copyright restrictions}}{{flickrreview}}',
-	'United States Government Work': '{{PD-USGov}}{{flickrreview}}',
-	'Public Domain Dedication (CC0)': '{{cc-zero}}{{flickrreview}}',
-	'Public Domain Mark': '{{PD-US}}{{flickrreview}}'
+	'Attribution-ShareAlike License': '{{cc-by-sa-2.0}}{{flickrreview}}'
 };
 
 mw.FlickrChecker.prototype = {
