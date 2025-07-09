@@ -65,7 +65,7 @@ class CampaignContent extends JsonContent {
 	public function isValid() {
 		try {
 			return parent::isValid() && $this->validate();
-		} catch ( JsonSchemaException $e ) {
+		} catch ( JsonSchemaException ) {
 			return false;
 		}
 	}
