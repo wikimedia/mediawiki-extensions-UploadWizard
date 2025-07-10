@@ -28,15 +28,8 @@ class FlickrBlacklist {
 	 */
 	protected static $blacklist = null;
 
-	/**
-	 * @var string
-	 */
-	protected $flickrApiKey;
-
-	/**
-	 * @var string
-	 */
-	protected $flickrApiUrl;
+	protected readonly string $flickrApiKey;
+	protected readonly string $flickrApiUrl;
 
 	/**
 	 * Name of the wiki page which contains the NSID blacklist.
@@ -46,14 +39,8 @@ class FlickrBlacklist {
 	 * path_alias and NSID for the same user.
 	 *
 	 * Lines starting with # are ignored.
-	 * @var string
 	 */
-	protected $flickrBlacklistPage;
-
-	/**
-	 * @var IContextSource
-	 */
-	protected $context;
+	protected readonly string $flickrBlacklistPage;
 
 	/**
 	 * Sets options based on a config array such as Config::getConfig().
@@ -61,11 +48,13 @@ class FlickrBlacklist {
 	 *     'flickrBlacklistPage' keys
 	 * @param IContextSource $context
 	 */
-	public function __construct( array $options, IContextSource $context ) {
+	public function __construct(
+		array $options,
+		protected readonly IContextSource $context,
+	) {
 		$this->flickrApiKey = $options['flickrApiKey'];
 		$this->flickrApiUrl = $options['flickrApiUrl'];
 		$this->flickrBlacklistPage = $options['flickrBlacklistPage'];
-		$this->context = $context;
 	}
 
 	/**

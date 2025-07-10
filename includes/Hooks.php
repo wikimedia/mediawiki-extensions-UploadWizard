@@ -24,12 +24,9 @@ class Hooks implements
 	PreferencesGetIconHook
 {
 
-	private MwConfig $config;
-
 	public function __construct(
-		MwConfig $config
+		private readonly MwConfig $config,
 	) {
-		$this->config = $config;
 	}
 
 	/**

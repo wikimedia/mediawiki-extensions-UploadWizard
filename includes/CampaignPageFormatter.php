@@ -23,15 +23,12 @@ use OOUI\ButtonWidget;
  * Helper class to produce formatted HTML output for Campaigns
  */
 class CampaignPageFormatter {
-	protected Campaign $campaign;
-	protected IContextSource $context;
+	protected readonly IContextSource $context;
 
-	/**
-	 * @param Campaign $campaign
-	 * @param IContextSource|null $context
-	 */
-	public function __construct( $campaign, $context = null ) {
-		$this->campaign = $campaign;
+	public function __construct(
+		protected readonly Campaign $campaign,
+		?IContextSource $context = null,
+	) {
 		$this->context = $context ?? RequestContext::getMain();
 	}
 

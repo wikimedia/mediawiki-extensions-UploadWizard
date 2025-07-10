@@ -43,14 +43,9 @@ class CampaignHooks implements
 	LinksUpdateCompleteHook
 {
 
-	/** @var IConnectionProvider */
-	private $dbLoadBalancerFactory;
-
-	/**
-	 * @param IConnectionProvider $dbLoadBalancerFactory
-	 */
-	public function __construct( IConnectionProvider $dbLoadBalancerFactory ) {
-		$this->dbLoadBalancerFactory = $dbLoadBalancerFactory;
+	public function __construct(
+		private readonly IConnectionProvider $dbLoadBalancerFactory,
+	) {
 	}
 
 	/**

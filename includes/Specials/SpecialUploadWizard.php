@@ -39,14 +39,9 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	protected $campaign = null;
 
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
-
-	/**
-	 * @param UserOptionsLookup $userOptionsLookup
-	 */
-	public function __construct( UserOptionsLookup $userOptionsLookup ) {
-		$this->userOptionsLookup = $userOptionsLookup;
+	public function __construct(
+		private readonly UserOptionsLookup $userOptionsLookup,
+	) {
 		parent::__construct( 'UploadWizard', 'upload' );
 	}
 

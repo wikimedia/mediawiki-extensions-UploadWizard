@@ -37,22 +37,20 @@ class ApiMediaDetection extends ApiBase {
 		'image/tiff', 'image/gif', 'image/webp',
 		'image/x-xcf', 'image/vnd.djvu', 'image/bmp',
 	];
-	private IReadableDatabase $dbr;
-	private LocalRepo $localRepo;
-	private HttpRequestFactory $httpRequestFactory;
+	private readonly IReadableDatabase $dbr;
+	private readonly LocalRepo $localRepo;
 
 	public function __construct(
 		ApiMain $main,
 		string $action,
 		IConnectionProvider $dbProvider,
 		RepoGroup $repoGroup,
-		HttpRequestFactory $httpRequestFactory
+		private readonly HttpRequestFactory $httpRequestFactory,
 	) {
 		parent::__construct( $main, $action );
 
 		$this->dbr = $dbProvider->getReplicaDatabase();
 		$this->localRepo = $repoGroup->getLocalRepo();
-		$this->httpRequestFactory = $httpRequestFactory;
 	}
 
 	/**
