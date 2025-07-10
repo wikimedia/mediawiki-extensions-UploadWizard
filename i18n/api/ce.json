@@ -9,5 +9,6 @@
 	"apihelp-flickrblacklist-example-2": "Ӏаьржачу могӀаман дӀайаздар йухадерзор",
 	"apihelp-query+allcampaigns-param-enabledonly": "Жигара йолу кампанийн могӀам бен.",
 	"apihelp-query+allcampaigns-param-limit": "Йухайерзош йолу кампанийн дукхалла.",
-	"apihelp-query+allcampaigns-example-1": "Йукъахь йолу кампанеш йагарйан"
+	"apihelp-query+allcampaigns-example-1": "Йукъахь йолу кампанеш йагарйан",
+	"apihelp-mediadetection-param-filename": "Файлан агӀонан цӀе"
 }
