@@ -668,6 +668,7 @@
 		"ContentModelCanBeUsedOn": "campaign",
 		"EditFilterMergedContent": "campaign",
 		"CodeEditorGetPageLanguage": "codeeditor",
+		"CodeMirrorGetMode": "codemirror",
 		"PageSaveComplete": "campaign",
 		"ArticleDeleteComplete": "campaign",
 		"PageMoveComplete": "campaign",
@@ -688,7 +689,16 @@
 			]
 		},
 		"codeeditor": {
-			"class": "MediaWiki\\Extension\\UploadWizard\\CodeEditorHooks"
+			"class": "MediaWiki\\Extension\\UploadWizard\\CodeEditorHooks",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"codemirror": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\CodeMirrorHooks",
+			"services": [
+				"MainConfig"
+			]
 		},
 		"schema": {
 			"class": "MediaWiki\\Extension\\UploadWizard\\SchemaHooks"
@@ -713,6 +723,14 @@
 	"config": {
 		"UploadWizardConfig": {
 			"value": []
+		},
+		"UploadWizardUseCodeEditor": {
+			"value": true,
+			"description": "Whether to use CodeEditor as the JSON editor for the Campaign: namespace."
+		},
+		"UploadWizardUseCodeMirror": {
+			"value": false,
+			"description": "Whether to use CodeMirror as the JSON editor for the Campaign: namespace."
 		}
 	},
 	"manifest_version": 2
