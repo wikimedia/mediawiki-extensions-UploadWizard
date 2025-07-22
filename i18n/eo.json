@@ -21,12 +21,13 @@
 			"Tlustulimu",
 			"Yekrats",
 			"YvesNevelsteen",
-			"Ziko"
+			"Ziko",
+			"Joao Xavier"
 		]
 	},
-	"uploadwizard": "Alŝuta asistilo",
+	"uploadwizard": "Utensilo ''Upload Wizard''",
 	"uploadwizard-desc": "Alŝuta asistilo, uz-afabla ilo por alŝutado de plurmediaĵoj",
-	"tag-uploadwizard": "Alŝuta asistilo",
+	"tag-uploadwizard": "Utensilo ''Upload Wizard''",
 	"tag-uploadwizard-description": "Alŝutoj faritaj per Alŝuta asistilo",
 	"tag-uploadwizard-flickr-description": "Alŝutoj al Flickr faritaj per Alŝuta asistilo",
 	"right-mass-upload": "Amase alŝuti plurajn dosierojn samtempe per Alŝuta asistilo",

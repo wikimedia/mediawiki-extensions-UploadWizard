@@ -78,6 +78,8 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Om alle filene har den same kjelda, opphavspersonen og opphavsrettsstoda kan du oppgje dei éin gong for alle saman.",
 	"mwe-upwiz-source-thirdparty-cases": "Sei oss kvifor du er viss på at du har løyve til å gje ut {{PLURAL:$1|arbeidet|arbeida}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Greitt",
+	"mwe-upwiz-source-multiple-label-common": "Gje den same informasjonen for alle filene",
+	"mwe-upwiz-source-multiple-label-individual": "Gje informasjon for filene kvar for seg",
 	"mwe-upwiz-patent-dialog-button-back": "Attende",
 	"mwe-upwiz-patent-dialog-button-next": "Neste",
 	"mwe-upwiz-patent-dialog-link-warranty": "Lær meir",
