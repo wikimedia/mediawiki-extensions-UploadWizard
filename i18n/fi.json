@@ -223,7 +223,7 @@
 	"mwe-upwiz-previous": "Takaisin",
 	"mwe-upwiz-home": "Siirry wikin etusivulle",
 	"mwe-upwiz-upload-another": "Tallenna lisää tiedostoja",
-	"mwe-upwiz-tooltip-skiptutorial": "Voit ottaa tämän ohjeen käyttöön uudelleen [$1 käyttäjäasetuksissasi], $2 → $3.",
+	"mwe-upwiz-tooltip-skiptutorial": "Voit ottaa tämän oppaan uudelleen käyttöön [$1 käyttäjäasetuksissasi], kohdassa $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Kuvan ottajan, kuvan piirtäjän, maalauksen maalaajan tai muun vastaavan nimi.",
 	"mwe-upwiz-tooltip-source": "Tämän digitaalisen tiedoston lähde — esimerkiksi verkko-osoite, kirja tai julkaisu.",
 	"mwe-upwiz-tooltip-sign": "Voit käyttää wikitunnustasi tai oikeaa nimeäsi.\nKummassakin tapauksessa se linkitetään käyttäjäsivullesi.",
