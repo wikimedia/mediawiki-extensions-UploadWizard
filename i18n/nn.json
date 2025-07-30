@@ -113,6 +113,7 @@
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Ukjend filnamn",
 	"mwe-upwiz-ok": "Greitt",
 	"mwe-upwiz-fileexists-replace-no-link": "Det finst alt ei fil med dette namnet.",
+	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Skriv inn ein meir informativ tittel ([$2 sjå døme]).",
 	"mwe-upwiz-blacklisted-details": "Vel ein annan og meir skildrande tittel ([$2 meir]).",
 	"mwe-upwiz-next": "Neste",
 	"mwe-upwiz-next-file": "Hald fram",
