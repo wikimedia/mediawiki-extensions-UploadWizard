@@ -68,7 +68,8 @@
 			"Wladek92",
 			"Wouterhagens",
 			"Wyz",
-			"Y-M D"
+			"Y-M D",
+			"Antimuonium"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -264,7 +265,7 @@
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nom de fichier inconnu",
 	"mwe-upwiz-ok": "Valider",
 	"mwe-upwiz-fileexists-replace-on-page": "Un fichier avec ce nom existe déjà. Si vous souhaitez le remplacer, allez sur la page pour [$2 $1] et remplacez-le là-bas.",
-	"mwe-upwiz-fileexists-replace-on-page-v2": "Ce titre a déja été utilisé. Veuillez choisir un autre titre. Astuce : ajoutez la date ou le mois ou l'année de l'œuvre pour obtenir son unicité.",
+	"mwe-upwiz-fileexists-replace-on-page-v2": "Ce titre a déjà été utilisé. Veuillez choisir un autre titre. Astuce : ajoutez la date ou le mois ou l'année de l'œuvre pour obtenir son unicité.",
 	"mwe-upwiz-fileexists-replace-no-link": "Veuillez choisir un titre différent, car ce titre est déjà utilisé par un autre fichier.",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Veuillez fournir un titre plus détaillé ([$2 voir les exemples]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Exemples de titres",
