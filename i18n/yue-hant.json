@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"H78c67c",
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"uploadwizard": "上載精靈",
@@ -23,11 +24,16 @@
 	"mwe-upwiz-upload-count": "$2個檔案中嘅$1個已經上載咗",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|呢份作品|呢啲作品}}係for我個人用途，例如係我自己、屋企人或朋友嘅相，或自我宣傳內容。",
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|我}}用咗人工智能工具生成{{PLURAL:$1|呢份作品|呢啲作品}}[[COM:AI-generated_media|（睇指引）]]",
+	"mwe-upwiz-desc": "描述",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=加一段説明|加另一個語言嘅説明}}",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|呢份作品|呢啲作品}}用咗人工智能工具生成",
+	"mwe-upwiz-ok": "好",
 	"mwe-upwiz-next-file": "繼續",
 	"mwe-upwiz-previous": "返轉頭",
 	"mwe-upwiz-tooltip-source": "呢個數碼檔案嘅來源──可以係URL、書或者出版物。",
+	"mwe-upwiz-dialog-yes": "係",
+	"mwe-upwiz-errordialog-ok": "好",
+	"prefs-upwiz-licensing": "協議",
 	"mwe-upwiz-metadata-notice-header": "私人數據",
 	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
 }
