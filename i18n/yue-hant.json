@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Winston Sung",
-			"H78c67c"
+			"H78c67c",
+			"Yueman"
 		]
 	},
 	"uploadwizard": "上載精靈",
@@ -36,12 +37,19 @@
 	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 波蘭授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
 	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 羅馬尼亞授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|呢個檔案|呢啲檔案}}唔係我自己嘅作品。",
+	"mwe-upwiz-desc": "描述",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=加一段説明|加另一個語言嘅説明}}",
 	"mwe-upwiz-author": "作者",
 	"mwe-upwiz-source": "來源",
+	"mwe-upwiz-ok": "好",
 	"mwe-upwiz-next-file": "繼續",
 	"mwe-upwiz-previous": "返轉頭",
 	"mwe-upwiz-tooltip-source": "呢個數碼檔案嘅來源──可以係URL、書或者出版物。",
+	"mwe-upwiz-dialog-yes": "係",
+	"mwe-upwiz-dialog-no": "唔係",
+	"mwe-upwiz-campaign-no-uploads-yet": "未有上傳住！",
+	"mwe-upwiz-errordialog-ok": "好",
+	"prefs-upwiz-licensing": "協議",
 	"mwe-upwiz-metadata-notice-header": "私人數據",
 	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
 }
