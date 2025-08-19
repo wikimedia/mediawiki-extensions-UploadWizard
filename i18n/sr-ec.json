@@ -117,7 +117,7 @@
 	"mwe-upwiz-source-ownwork-purpose-label": "Молимо изаберите опцију која најбоље описује сврху {{PLURAL:$1|овог рада|ових радова}}.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|Овај рад пружа|Ови радови пружају}} знања, упутства или информације другима.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|Овај рад је|Ови радови су}} за мене лично нпр. самопортрет, моја породица и пријатељи или само промотивни садржај.",
-	"mwe-upwiz-source-ownwork-origin-label": "Да ли {{PLURAL:$1|је|су}} {{GENDER:$2|ово}} употпуности {{PLURAL:$1|Ваш рад|Ваши радови}}?",
+	"mwe-upwiz-source-ownwork-origin-label": "Да ли {{PLURAL:$1|је|су}} {{GENDER:$2|ово}} у целости {{PLURAL:$1|Ваш рад|Ваши радови}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|Ово је мој рад|Ово су моји радови}} {{GENDER:$2|у}} целости",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Овај рад садржи|Ови радови садрже}} радове других",
 	"mwe-upwiz-source-ownwork-origin-option-others-explain": "На пример: ако је туђи рад видљив у {{PLURAL:$1|раду који|радовима које}} {{GENDER:$2|отпремате}} или сте користили туђи рад у свом",
