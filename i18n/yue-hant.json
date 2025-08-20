@@ -32,8 +32,12 @@
 	"mwe-upwiz-previous": "返轉頭",
 	"mwe-upwiz-tooltip-source": "呢個數碼檔案嘅來源──可以係URL、書或者出版物。",
 	"mwe-upwiz-dialog-yes": "係",
+	"mwe-upwiz-dialog-no": "唔係",
+	"mwe-upwiz-campaign-no-uploads-yet": "未有上傳住！",
 	"mwe-upwiz-errordialog-ok": "好",
 	"prefs-upwiz-licensing": "協議",
+	"prefs-upwiz-experimental": "實驗功能",
+	"prefs-upwiz-interface": "用戶介面",
 	"mwe-upwiz-metadata-notice-header": "私人數據",
 	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
 }
