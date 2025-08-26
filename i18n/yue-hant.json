@@ -37,6 +37,8 @@
 	"mwe-upwiz-license-no-subhead": "<p><b>唔好上載{{PLURAL:$1|呢個檔案|呢啲檔案}}！</b> 維基同享唔 host 受版權保護嘅媒體。維基同享淨係接受[$2 自由授權]或[$3 公有領域]嘅圖。</p><p>如果你有任何疑惑，請[$4 睇下關於授權嘅資訊]，或喺上載之前問下資深貢獻者嘅意見。[$5 維基同享 Village Pump]度會有人樂意幫你。多謝。</p>",
 	"mwe-upwiz-errordialog-ok": "好",
 	"prefs-upwiz-licensing": "協議",
+	"prefs-upwiz-experimental": "實驗功能",
+	"prefs-upwiz-interface": "用戶介面",
 	"mwe-upwiz-metadata-notice-header": "私人數據",
 	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
 }
