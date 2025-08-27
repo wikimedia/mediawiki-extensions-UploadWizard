@@ -212,7 +212,7 @@ class Campaign {
 						[ 'cl_type' => 'file' ]
 					) )
 					->joinConds( $categorylinksQueryInfo['joins'] )
-					->useIndex( [ 'categorylinks' => 'cl_timestamp' ] );
+					->useIndex( [ 'categorylinks' => 'cl_timestamp_id' ] );
 				if ( $fileSchemaMigrationStage & SCHEMA_COMPAT_READ_OLD ) {
 					$queryBuilder->select( [ 'count' => 'COUNT(DISTINCT img_actor)' ] )
 						->join( 'image', null, 'page_title=img_name' );
@@ -250,7 +250,7 @@ class Campaign {
 			->joinConds( $categorylinksQueryInfo['joins'] )
 			->orderBy( 'cl_timestamp', SelectQueryBuilder::SORT_DESC )
 			->limit( $limit )
-			->useIndex( [ 'categorylinks' => 'cl_timestamp' ] )
+			->useIndex( [ 'categorylinks' => 'cl_timestamp_id' ] )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 
