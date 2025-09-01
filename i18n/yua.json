@@ -1,7 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Halle"
+			"Halle",
+			"Cenzontle25"
 		]
-	}
+	},
+	"uploadwizard": " aantaj u na'akal",
+	"uploadwizard-desc": "aantaj u na'akal junp'eel nu'ukul cheen ch'aabil ti'al naaksik meyaj multimedia.",
+	"tag-uploadwizard-description": "Na'akal ku beeta'al yéetel aantaj u na'akal.",
+	"tag-uploadwizard-flickr-description": "na'akal yéetel flickr beetpaja'an yéetel le aantaj ti' na'akal",
+	"right-mass-upload": "beet junp'éel ku'uch meyajo'ob yéetel aantaj u na'akal.",
+	"action-mass-upload": " na'aks jejeláas meyajilo'ob yéetel u áantaj tsol na'akalil",
+	"api-error-parsererror": "Le servidor tu núukaj yéetel jump'éel ju'una' JSON ma' válido. Le je'ela' je'el u páajtal u jump'éel talamil yéetel le API, wa je'el u páajtal u utilizando jump'éel servidor proxy ku impide u na'akal archivos.",
+	"api-error-aborted": "U na'akal xu'ulsa'an.",
+	"api-error-noimageinfo": "Le na'aksil bin utsil, ba'ale' le servidoro' ma' tu ts'áaj to'on mix jump'éel a'alajil t'aan yo'osal le archivo.",
+	"mwe-upwiz-unavailable": "A navegador ma' táan compatible yéetel UploadWizard wa yaan JavaScript tupa'an, bey u Táan k we'esik ti' jump'éel formulario na'akal ken a wa'ale'. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility View compatibility requirements].)"
 }
