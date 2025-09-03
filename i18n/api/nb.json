@@ -14,5 +14,12 @@
 	"apihelp-query+allcampaigns-summary": "List opp alle opplastingsveiviserkampanjer.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Bare list opp kampanjer som er aktivert.",
 	"apihelp-query+allcampaigns-param-limit": "Antall kampanjer som skal returneres.",
-	"apihelp-query+allcampaigns-example-1": "List opp aktiverte kampanjer"
+	"apihelp-query+allcampaigns-example-1": "List opp aktiverte kampanjer",
+	"apihelp-mediadetection-summary": "Returner sannsynligheten for at det stashede bildet som representeres av den gitte filnøkkelen er en logo",
+	"apihelp-mediadetection-param-filename": "Navnet på filsiden",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var> returnert fra API-forespørselen <kbd>stash</kbd>",
+	"apihelp-mediadetection-example-filename": "Returner sannsynligheten for at bildet som representeres av det gitte filnavnet er en logo",
+	"apihelp-mediadetection-example-filekey": "Returner sannsynligheten for at det stashede bildet som representeres av den angitte filnøkkelen er en logo",
+	"apierror-mediadetection-no-valid-thumbnail": "Det finnes ikke noe miniatyrbilde av dette bildet, så det kan ikke sendes til klassifikatoren",
+	"apierror-mediadetection-invalid-mime-type": "API-endepunkt ikke tilgjengelig for denne filtypen – tillatte typer er image/jpeg, image/gif, image/png og image/bmp"
 }
