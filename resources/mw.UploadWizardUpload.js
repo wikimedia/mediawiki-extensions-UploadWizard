@@ -394,7 +394,7 @@
 			}
 		}
 
-		this.api.get( params ).done( ok ).fail( err );
+		this.api.get( params ).then( ok, err );
 	};
 
 	/**
@@ -459,7 +459,7 @@
 			}
 		}
 
-		this.api.get( params ).done( ok ).fail( err );
+		this.api.get( params ).then( ok, err );
 	};
 
 	/**
@@ -792,19 +792,21 @@
 		const dpr = window.devicePixelRatio || 1;
 		this.extractMetadataFromJpegMeta()
 			.then( this.makePreview.bind( this, Math.round( width * dpr ) ) )
-			.done( imageCallback )
-			.fail( () => {
-				// Can't generate the thumbnail locally, get the thumbnail via API after
-				// the file is uploaded. Queries are cached, so if this thumbnail was
-				// already fetched for some reason, we'll get it immediately.
-				if ( this.state !== 'new' && this.state !== 'transporting' && this.state !== 'error' ) {
-					this.getApiThumbnail( width, height ).done( imageCallback );
-				} else {
-					this.once( 'success', () => {
-						this.getApiThumbnail( width, height ).done( imageCallback );
-					} );
+			.then(
+				imageCallback,
+				() => {
+					// Can't generate the thumbnail locally, get the thumbnail via API after
+					// the file is uploaded. Queries are cached, so if this thumbnail was
+					// already fetched for some reason, we'll get it immediately.
+					if ( this.state !== 'new' && this.state !== 'transporting' && this.state !== 'error' ) {
+						this.getApiThumbnail( width, height ).then( imageCallback );
+					} else {
+						this.once( 'success', () => {
+							this.getApiThumbnail( width, height ).then( imageCallback );
+						} );
+					}
 				}
-			} );
+			);
 
 		return this.thumbnailPromise[ width + 'x' + height ];
 	};

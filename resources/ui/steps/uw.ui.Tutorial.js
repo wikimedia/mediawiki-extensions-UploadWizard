@@ -123,7 +123,7 @@
 			this.emit( 'next-step' );
 		} );
 
-		this.nextButtonPromise.done( () => {
+		this.nextButtonPromise.then( () => {
 			this.$buttons.append(
 				new OO.ui.HorizontalLayout( {
 					items: [ this.skipCheckbox, this.skipCheckboxLabel, this.nextButton ]

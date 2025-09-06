@@ -112,7 +112,7 @@
 	};
 
 	uw.ui.Details.prototype.addNextButton = function () {
-		this.nextButtonPromise.done( () => {
+		this.nextButtonPromise.then( () => {
 			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )

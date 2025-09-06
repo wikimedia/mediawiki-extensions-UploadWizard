@@ -48,7 +48,7 @@
 			this.$deedsContainer.addClass( 'ui-helper-clearfix' )
 		);
 
-		this.nextButtonPromise.done( () => {
+		this.nextButtonPromise.then( () => {
 			// hide "next" button, controller will only show it once license has
 			// been selected
 			this.nextButton.$element.hide();
@@ -83,7 +83,7 @@
 			// Add previews and details to the DOM
 			if ( !upload.file.fromURL ) {
 				// This must match the CSS dimensions of .mwe-upwiz-thumbnail
-				upload.getThumbnail( 120, 120 ).done( ( thumb ) => {
+				upload.getThumbnail( 120, 120 ).then( ( thumb ) => {
 					mw.UploadWizard.placeThumbnail( $element, thumb );
 				} );
 
@@ -105,7 +105,7 @@
 
 				// Add previews and details to the DOM
 				if ( !upload.file.fromURL ) {
-					upload.getThumbnail( 150, 150 ).done( ( thumb ) => {
+					upload.getThumbnail( 150, 150 ).then( ( thumb ) => {
 						mw.UploadWizard.placeThumbnail( $element, thumb );
 					} );
 

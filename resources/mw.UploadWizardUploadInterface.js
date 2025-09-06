@@ -237,7 +237,7 @@
 		const $preview = this.$div.find( '.mwe-upwiz-file-preview' ),
 			deferred = $.Deferred();
 		// This must match the CSS dimensions of .mwe-upwiz-file-preview
-		this.upload.getThumbnail( 120, 120 ).done( ( thumb ) => {
+		this.upload.getThumbnail( 120, 120 ).then( ( thumb ) => {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
 			deferred.resolve();
 		} );

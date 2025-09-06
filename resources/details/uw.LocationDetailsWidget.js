@@ -64,7 +64,7 @@
 		this.connect( this, { change: 'onChange' } );
 
 		this.mapButton.toggle( false );
-		mw.loader.using( [ 'ext.kartographer.box', 'ext.kartographer.editing' ] ).done( () => {
+		mw.loader.using( [ 'ext.kartographer.box', 'ext.kartographer.editing' ] ).then( () => {
 			// Kartographer is installed and we'll be able to show the map. Display the button.
 			this.mapButton.toggle( true );
 		} );

@@ -338,7 +338,7 @@
 						// We're no longer displaying any of these thumbnails, stop
 						deferred.reject();
 					}
-					upload.ui.showThumbnail().done( () => {
+					upload.ui.showThumbnail().then( () => {
 						deferred.resolve();
 					} );
 				} );
@@ -348,7 +348,7 @@
 	};
 
 	uw.ui.Upload.prototype.addNextButton = function () {
-		this.nextButtonPromise.done( () => {
+		this.nextButtonPromise.then( () => {
 			this.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
@@ -533,7 +533,7 @@
 	uw.ui.Upload.prototype.flickrChecker = function ( checker ) {
 		const flickrInputUrl = this.flickrInput.getValue();
 
-		checker.getLicenses().done( () => {
+		checker.getLicenses().then( () => {
 			checker.checkFlickr( flickrInputUrl );
 		} );
 	};

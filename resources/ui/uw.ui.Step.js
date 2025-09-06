@@ -108,7 +108,7 @@
 	 * Add a 'next' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addNextButton = function () {
-		this.nextButtonPromise.done( () => {
+		this.nextButtonPromise.then( () => {
 			this.$buttons.append( this.nextButton.$element );
 		} );
 	};
@@ -117,7 +117,7 @@
 	 * Add a 'previous' button to the step's button container
 	 */
 	uw.ui.Step.prototype.addPreviousButton = function () {
-		this.previousButtonPromise.done( () => {
+		this.previousButtonPromise.then( () => {
 			this.$buttons.append( this.previousButton.$element );
 		} );
 	};

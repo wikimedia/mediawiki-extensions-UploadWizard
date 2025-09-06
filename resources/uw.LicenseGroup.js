@@ -619,7 +619,7 @@
 			) );
 		};
 
-		this.api.parse( wikiText, { pst: true } ).done( show ).fail( error );
+		this.api.parse( wikiText, { pst: true } ).then( show, error );
 	};
 
 }( mw.uploadWizard ) );

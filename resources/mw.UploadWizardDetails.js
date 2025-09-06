@@ -518,7 +518,7 @@
 			} ).on( 'click', () => {
 				OO.ui.confirm( mw.message( 'mwe-upwiz-license-confirm-remove' ).text(), {
 					title: mw.message( 'mwe-upwiz-license-confirm-remove-title' ).text()
-				} ).done( ( confirmed ) => {
+				} ).then( ( confirmed ) => {
 					if ( confirmed ) {
 						this.upload.emit( 'remove-upload' );
 					}
@@ -733,7 +733,7 @@
 		populate: function () {
 			const $thumbnailDiv = this.$thumbnailDiv;
 			// This must match the CSS dimensions of .mwe-upwiz-thumbnail
-			this.upload.getThumbnail( 230 ).done( ( thumb ) => {
+			this.upload.getThumbnail( 230 ).then( ( thumb ) => {
 				mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 			} );
 			this.prefillDate();

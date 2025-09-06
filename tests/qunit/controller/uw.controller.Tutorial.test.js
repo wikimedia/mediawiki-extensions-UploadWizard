@@ -25,38 +25,43 @@
 		assert.true( !!step.api );
 	} );
 
-	QUnit.test( 'setSkipPreference', function ( assert ) {
+	QUnit.test( 'setSkipPreference on success', async function ( assert ) {
 		const acwStub = { release: this.sandbox.stub() };
-		let api = new mw.Api(),
-			step = new uw.controller.Tutorial( api ),
-			pwtd = $.Deferred();
+		const api = new mw.Api();
+		const step = new uw.controller.Tutorial( api );
 
 		this.sandbox.stub( mw, 'confirmCloseWindow' ).returns( acwStub );
-		this.sandbox.stub( api, 'postWithToken' ).returns( pwtd.promise() );
+		this.sandbox.stub( api, 'postWithToken' ).returns( $.Deferred().resolve().promise() );
 
-		step.setSkipPreference( true );
+		const promise = step.setSkipPreference( true );
 
 		assert.true( mw.confirmCloseWindow.called );
 		assert.true( api.postWithToken.calledWithExactly( 'options', {
 			action: 'options',
 			change: 'upwiz_skiptutorial=1'
 		} ) );
+		assert.false( acwStub.release.called, 'release waits for the API call to settle' );
 
-		pwtd.resolve();
+		await promise;
+
 		assert.true( acwStub.release.called );
+		assert.strictEqual( step.skipPreference, true );
+	} );
 
-		api = new mw.Api();
-		step = new uw.controller.Tutorial( api );
-		acwStub.release.reset();
-		pwtd = $.Deferred();
+	QUnit.test( 'setSkipPreference on failure', async function ( assert ) {
+		const acwStub = { release: this.sandbox.stub() };
+		const api = new mw.Api();
+		const step = new uw.controller.Tutorial( api );
 		const mnStub = this.sandbox.stub( mw, 'notify' );
 
-		this.sandbox.stub( api, 'postWithToken' ).returns( pwtd.promise() );
+		this.sandbox.stub( mw, 'confirmCloseWindow' ).returns( acwStub );
+		this.sandbox.stub( api, 'postWithToken' ).returns(
+			$.Deferred().reject( 'http', { textStatus: 'Foo bar' } ).promise()
+		);
 
-		step.setSkipPreference( true );
-		assert.false( acwStub.release.called );
+		await step.setSkipPreference( true );
 
-		pwtd.reject( 'http', { textStatus: 'Foo bar' } );
 		assert.true( mnStub.calledWith( 'Foo bar' ) );
+		assert.false( acwStub.release.called );
 	} );
 }( mw.uploadWizard ) );

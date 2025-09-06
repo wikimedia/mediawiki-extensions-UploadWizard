@@ -54,19 +54,23 @@
 	 * Set the skip tutorial user preference via the options API
 	 *
 	 * @param {boolean} skip
+	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Tutorial.prototype.setSkipPreference = function ( skip ) {
 		const allowCloseWindow = mw.confirmCloseWindow();
 
-		this.api.postWithToken( 'options', {
+		return this.api.postWithToken( 'options', {
 			action: 'options',
 			change: skip ? 'upwiz_skiptutorial=1' : 'upwiz_skiptutorial'
-		} ).done( () => {
-			allowCloseWindow.release();
-			this.skipPreference = skip;
-		} ).fail( ( code, err ) => {
-			mw.notify( err.textStatus );
-		} );
+		} ).then(
+			() => {
+				allowCloseWindow.release();
+				this.skipPreference = skip;
+			},
+			( code, err ) => {
+				mw.notify( err.textStatus );
+			}
+		);
 	};
 
 	uw.controller.Tutorial.prototype.load = function ( uploads ) {

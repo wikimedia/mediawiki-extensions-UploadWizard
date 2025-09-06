@@ -200,7 +200,7 @@
 			{ id: 'aoeu' }
 		];
 
-		step.transitionAll().done( donestub );
+		step.transitionAll().then( donestub );
 		setTimeout( () => {
 			const calls = [ tostub.getCall( 0 ), tostub.getCall( 1 ), tostub.getCall( 2 ) ];
 

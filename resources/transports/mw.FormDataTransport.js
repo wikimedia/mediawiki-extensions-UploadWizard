@@ -163,7 +163,7 @@
 					newPromise = $.Deferred(),
 					isLastChunk = offset + chunkSize >= fileSize,
 					thisChunkSize = isLastChunk ? ( fileSize % chunkSize ) : chunkSize;
-				prevPromise.done( () => {
+				prevPromise.then( () => {
 					this.uploadChunk( file, offset )
 						.done( isLastChunk ? deferred.resolve : newPromise.resolve )
 						.fail( deferred.reject )
