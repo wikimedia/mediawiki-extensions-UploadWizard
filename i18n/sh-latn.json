@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
@@ -189,7 +190,7 @@
 	"mwe-upwiz-warning-categories-missing": "Preporučuje se da stavite nekoliko kategorija u otpremanju.",
 	"mwe-upwiz-warning-postdate": "Izabrani datum je u budućnosti.",
 	"mwe-upwiz-too-many-files": "Previše datoteka.",
-	"mwe-upwiz-file-too-large-text": "Otpremljene datoteke ne mogu biti veće od $1. Probali ste da otpremite datoteku veličine $2.",
+	"mwe-upwiz-file-too-large-text": "Postavljene datoteke ne mogu biti veće od $1. Pokušali ste da postavite datoteku veličine $2.",
 	"mwe-upwiz-file-too-large": "Datoteka je prevelika.",
 	"mwe-upwiz-dialog-warning": "Preporučujemo Vam da popunite sva polja praviljno. Želite li da nastavite bez ispravljanja ukazanoga?",
 	"mwe-upwiz-dialog-yes": "Da",
