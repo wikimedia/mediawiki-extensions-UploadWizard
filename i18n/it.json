@@ -43,6 +43,7 @@
 	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "Caricamenti da Flickr eseguiti con la procedura guidata",
 	"right-mass-upload": "Carica in batch più file contemporaneamente con il Caricamento guidato",
+	"action-mass-upload": "caricare in batch più file contemporaneamente con il Caricamento guidato",
 	"right-upwizcampaigns": "Configura iniziative per caricamento guidato",
 	"action-upwizcampaigns": "configurare iniziative per il caricamento guidato",
 	"group-upwizcampeditors": "Modificatori delle campagne del caricamento guidato",

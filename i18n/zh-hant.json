@@ -355,7 +355,7 @@
 	"mwe-upwiz-license-custom-head": "以上未提及的其他原因",
 	"mwe-upwiz-license-custom-preview": "預覽",
 	"mwe-upwiz-license-none-head": "我在網路上找到的，我不太確定",
-	"mwe-upwiz-license-none": "我相信{{PLURAL:$1|此|這些}}作品有自由許可或是法律上的公共領域。我了解若我不及時新增必要的許可資訊，{{PLURAL:$1|此|這些}}檔案可能會被刪除。",
+	"mwe-upwiz-license-none": "我相信{{PLURAL:$1|此|這些}}作品有自由許可或是法律上的公有領域。我了解若我不及時新增必要的許可資訊，{{PLURAL:$1|此|這些}}檔案可能會被刪除。",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|此作品|這些作品}}可被接受上傳至此 wiki",
 	"mwe-upwiz-license-generic": "我已閱讀了[[{{int:disclaimerpage}}|此 wiki 的免責聲明]]，並據本人所知{{PLURAL:$1|此作品|這些作品}}不會超出此 wiki 的資料保護級別。",
 	"mwe-upwiz-license-confirm-remove": "您確定要移除{{PLURAL:$1|此|這些}}上傳嗎？",
