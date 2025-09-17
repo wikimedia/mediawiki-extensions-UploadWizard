@@ -115,7 +115,7 @@
 				),
 			required: true,
 			help: new OO.ui.HtmlSnippet(
-				mw.msg( 'mwe-upwiz-source-ownwork-origin-option-ai-description' )
+				mw.message( 'mwe-upwiz-source-ownwork-origin-option-ai-description' ).parse()
 			)
 		} );
 
