@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file
+ * @ingroup Extensions
+ * @ingroup UploadWizard
+ *
+ * @author Ori Livneh <ori@wikimedia.org>
+ * @author Yuvi Panda <yuvipanda@gmail.com>
+ */
 
 namespace MediaWiki\Extension\UploadWizard;
 
@@ -11,15 +19,7 @@ use UnexpectedValueException;
 
 /**
  * JSON Schema Content Handler
- *
- * @file
- * @ingroup Extensions
- * @ingroup UploadWizard
- *
- * @author Ori Livneh <ori@wikimedia.org>
- * @author Yuvi Panda <yuvipanda@gmail.com>
  */
-
 class CampaignContentHandler extends JsonContentHandler {
 
 	/**

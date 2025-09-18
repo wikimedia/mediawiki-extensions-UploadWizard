@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file
+ * @ingroup Upload
+ * @ingroup API
+ *
+ * @license GPL-2.0-or-later
+ * @author Nischay Nahata <nischayn22@gmail.com>
+ */
 
 namespace MediaWiki\Extension\UploadWizard;
 
@@ -9,13 +17,6 @@ use Wikimedia\ParamValidator\ParamValidator;
  * API module to fetch blacklisting details of a flickr image
  *
  * @since 1.2
- *
- * @file
- * @ingroup Upload
- * @ingroup API
- *
- * @license GPL-2.0-or-later
- * @author Nischay Nahata <nischayn22@gmail.com>
  */
 class ApiFlickrBlacklist extends ApiBase {
 	public function execute() {

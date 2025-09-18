@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file
+ * @ingroup Upload
+ *
+ * @license GPL-2.0-or-later
+ * @author Yuvi Panda <yuvipanda@gmail.com>
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 
 namespace MediaWiki\Extension\UploadWizard;
 
@@ -26,14 +34,7 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
  * This class is 'readonly' - to modify the campaigns, please
  * edit the appropriate Campaign: namespace page
  *
- * @file
- * @ingroup Upload
- *
  * @since 1.2
- *
- * @license GPL-2.0-or-later
- * @author Yuvi Panda <yuvipanda@gmail.com>
- * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class Campaign {
 

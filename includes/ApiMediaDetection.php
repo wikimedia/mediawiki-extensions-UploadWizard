@@ -1,4 +1,11 @@
 <?php
+/**
+ * @file
+ * @ingroup Upload
+ * @ingroup API
+ *
+ * @license GPL-2.0-or-later
+ */
 
 namespace MediaWiki\Extension\UploadWizard;
 
@@ -16,12 +23,6 @@ use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
- * @file
- * @ingroup Upload
- * @ingroup API
- *
- * @license GPL-2.0-or-later
- *
  * @experimental
  * @deprecated This is a proof of concept and may be dropped, altered, moved or replaced at any time
  */

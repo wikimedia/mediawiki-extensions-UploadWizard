@@ -1,4 +1,11 @@
 <?php
+/**
+ * @file
+ * @ingroup Extensions
+ * @ingroup UploadWizard
+ *
+ * @author Ori Livneh <ori@wikimedia.org>
+ */
 
 namespace MediaWiki\Extension\UploadWizard;
 
@@ -26,14 +33,7 @@ use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * Hooks for managing JSON Schema namespace and content model.
- *
- * @file
- * @ingroup Extensions
- * @ingroup UploadWizard
- *
- * @author Ori Livneh <ori@wikimedia.org>
  */
-
 class CampaignHooks implements
 	ContentModelCanBeUsedOnHook,
 	EditFilterMergedContentHook,

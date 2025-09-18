@@ -1,7 +1,5 @@
 <?php
 /**
- * Upload Campaign Formatter
- *
  * @file
  * @ingroup Extensions
  * @ingroup UploadWizard
@@ -20,6 +18,8 @@ use MediaWiki\Skin\SkinComponentUtils;
 use OOUI\ButtonWidget;
 
 /**
+ * Upload Campaign Formatter
+ *
  * Helper class to produce formatted HTML output for Campaigns
  */
 class CampaignPageFormatter {

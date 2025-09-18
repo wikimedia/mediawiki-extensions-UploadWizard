@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file
+ * @ingroup SpecialPage
+ * @ingroup Upload
+ */
 
 namespace MediaWiki\Extension\UploadWizard\Specials;
 
@@ -24,12 +29,7 @@ use UploadFromUrl;
  * Special:UploadWizard
  *
  * Easy to use multi-file upload page.
- *
- * @file
- * @ingroup SpecialPage
- * @ingroup Upload
  */
-
 class SpecialUploadWizard extends SpecialPage {
 	/**
 	 * The name of the upload wizard campaign, or null when none is specified.

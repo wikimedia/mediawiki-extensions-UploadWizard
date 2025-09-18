@@ -1,17 +1,18 @@
 <?php
+/**
+ * @file
+ * @ingroup Upload
+ *
+ * @license GPL-2.0-or-later
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 
 namespace MediaWiki\Extension\UploadWizard;
 
 /**
  * Static class with methods for interacting with the Upload Wizards configuration.
  *
- * @file
- * @ingroup Upload
- *
  * @since 1.2
- *
- * @license GPL-2.0-or-later
- * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class Config {
 

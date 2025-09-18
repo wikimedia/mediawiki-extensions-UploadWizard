@@ -1,9 +1,5 @@
 <?php
 /**
- * This upload form is used at Special:UploadWizard
- *
- * Special:UploadWizard is easy to use multi-file upload page.
- *
  * @file
  * @ingroup SpecialPage
  * @ingroup Upload
@@ -14,6 +10,10 @@ namespace MediaWiki\Extension\UploadWizard\Specials;
 use UploadForm;
 
 /**
+ * This upload form is used at Special:UploadWizard
+ *
+ * Special:UploadWizard is easy to use multi-file upload page.
+ *
  * This is a hack on UploadForm, to make one that works from UploadWizard when JS is not available.
  *
  * @codeCoverageIgnore

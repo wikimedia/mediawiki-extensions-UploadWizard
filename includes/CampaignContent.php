@@ -1,7 +1,5 @@
 <?php
 /**
- * Upload Campaign Content Model
- *
  * @file
  * @ingroup Extensions
  * @ingroup UploadWizard
@@ -17,6 +15,8 @@ use MediaWiki\Extension\EventLogging\Libs\JsonSchemaValidation\JsonSchemaExcepti
 use MediaWiki\Json\FormatJson;
 
 /**
+ * Upload Campaign Content Model
+ *
  * Represents the configuration of an Upload Campaign
  */
 class CampaignContent extends JsonContent {

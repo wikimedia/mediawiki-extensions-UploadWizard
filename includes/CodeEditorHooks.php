@@ -1,4 +1,12 @@
 <?php
+/**
+ * @file
+ * @ingroup Extensions
+ * @ingroup UploadWizard
+ *
+ * @author Ori Livneh <ori@wikimedia.org>
+ */
+
 declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\UploadWizard;
@@ -9,14 +17,7 @@ use MediaWiki\Title\Title;
 
 /**
  * All hooks from the CodeEditor extension which is optional to use with this extension.
- *
- * @file
- * @ingroup Extensions
- * @ingroup UploadWizard
- *
- * @author Ori Livneh <ori@wikimedia.org>
  */
-
 class CodeEditorHooks implements CodeEditorGetPageLanguageHook {
 
 	private bool $useCodeEditor;
