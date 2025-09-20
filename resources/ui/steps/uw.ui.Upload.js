@@ -276,6 +276,7 @@
 
 		if ( uploads.length === 0 ) {
 			this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
+			this.$addFileContainer.show();
 		}
 
 		const $noticeMessage = $( '<span>' )
