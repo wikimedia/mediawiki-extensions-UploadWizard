@@ -399,7 +399,7 @@
 	"mwe-upwiz-license-vrt": "Parameters:\n* $1 - number of the files",
 	"mwe-upwiz-license-generic-head": "Used as license group option text.\n{{Related|Mwe-upwiz-license-head}}",
 	"mwe-upwiz-license-generic": "Parameters:\n* $1 - number of the files",
-	"mwe-upwiz-license-confirm-remove": "Used as confirmation message. Parameters:\n* $1 - number of the uploads",
+	"mwe-upwiz-license-confirm-remove": "Used as confirmation message.",
 	"mwe-upwiz-license-confirm-remove-title": "Title for dialog box to confirm that you want to abandon an upload that you started",
 	"mwe-upwiz-license-external": "Parameters:\n* $1 - name of website\n* $2 - name of license\nSee also:\n* {{msg-mw|Mwe-upwiz-license-external-invalid}}",
 	"mwe-upwiz-license-external-invalid": "Error shown when a Flickr photo is input that is incompatible with the site's licensing policies. Parameters:\n* $1 - name of the external website, e.g. Flickr\n* $2 - name of the license\nSee also:\n* {{msg-mw|Mwe-upwiz-license-external}}",
