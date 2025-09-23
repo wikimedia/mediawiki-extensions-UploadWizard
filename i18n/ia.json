@@ -365,7 +365,7 @@
 	"mwe-upwiz-license-vrt": "Io comprende que, si le autorisation non es inviate intra 30 dies post le incargamento, iste file{{PLURAL:$1||s}} essera delite.",
 	"mwe-upwiz-license-generic-head": "Iste obra{{PLURAL:$1||s}} es acceptabile pro incargamento a iste wiki",
 	"mwe-upwiz-license-generic": "Io ha relegite [[{{int:disclaimerpage}}|le declaration de non-responsabilitate pro iste wiki]] e, secundo mi cognoscentia, iste obra{{PLURAL:$1||s}} non es sub nivellos de protection de datos superior a illos de iste wiki.",
-	"mwe-upwiz-license-confirm-remove": "Es tu secur de voler remover iste {{PLURAL:$1|incargamento|incargamentos}}?",
+	"mwe-upwiz-license-confirm-remove": "Es tu secur de voler remover iste incargamento?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirmar remotion",
 	"mwe-upwiz-license-external": "Le file es sub le sequente licentia in le sito de origine \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "Le file sur $1 es sub le sequente licentia: $2.<br><br>Regrettabilemente, iste wiki non permitte iste licentia.",

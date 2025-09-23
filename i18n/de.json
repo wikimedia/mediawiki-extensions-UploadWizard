@@ -307,7 +307,7 @@
 	"mwe-upwiz-details-warning-generic": "Bitte korrigiere alle Warnungen im Formular, bevor du fortfährst.",
 	"mwe-upwiz-details-error-scroll": "Gehe zum Fehler auf der Seite",
 	"mwe-upwiz-details-warning-scroll": "Gehe zur Warnung auf der Seite",
-	"mwe-upwiz-too-many-files-text": "{{#FORMAL:Du kannst|Sie können}} nur {{PLURAL:$1|eine Datei|$1 Dateien}} auf einmal hochladen. {{#FORMAL:Du versuchtest|Sie versuchten}} {{PLURAL:$2|eine Datei|$2 Dateien}} hochzuladen. {{#FORMAL:|Bitte versuche es erneut mit weniger Dateien!|Bitte versuchen Sie es erneut mit weniger Dateien!}}",
+	"mwe-upwiz-too-many-files-text": "{{#FORMAL:Du kannst|Sie können}} nur {{PLURAL:$1|eine Datei|$1 Dateien}} auf einmal hochladen. {{#FORMAL:Du hast versucht|Sie haben versucht}}, {{PLURAL:$2|eine Datei|$2 Dateien}} hochzuladen. {{#FORMAL:|Bitte versuche|Bitte versuchen Sie}} es erneut mit weniger Dateien!",
 	"mwe-upwiz-too-many-files": "Zu viele Dateien.",
 	"mwe-upwiz-file-too-large-text": "{{#FORMAL:Du kannst|Sie können}} nur Dateien mit einer Größe von bis zu $1 hochladen. {{#FORMAL:Du hast|Sie haben}} versucht, eine Datei mit $2 hochzuladen.",
 	"mwe-upwiz-file-too-large": "Die Datei ist zu groß.",

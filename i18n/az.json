@@ -372,7 +372,7 @@
 	"mwe-upwiz-license-vrt": "Mən başa düşürəm ki, əgər e-poçt bu faylı yüklədikdən sonra 30 gün ərzində göndərilməsə, bu {{PLURAL:$1|fayl|fayllar}} silinəcək.",
 	"mwe-upwiz-license-generic-head": "Bu {{PLURAL:$1|əsər|əsərlər}} bu vikiyə yükləmək üçün uyğundur",
 	"mwe-upwiz-license-generic": "Mən [[{{int:disclaimerpage}}|bu vikinin diskleymerini]] nəzərdən keçirdim və bildiyim qədər bu {{PLURAL:$1|əsər|əsərlər}} bu vikinin məlumatların mühafizəsi səviyyəsində deyil.",
-	"mwe-upwiz-license-confirm-remove": "Bu {{PLURAL:$1|yükləməni|yükləmələri}} silmək istədiyinizə əminsiniz?",
+	"mwe-upwiz-license-confirm-remove": "Bu yükləməni silmək istədiyinizə əminsiniz?",
 	"mwe-upwiz-license-confirm-remove-title": "Silinməyi təsdiqləyin",
 	"mwe-upwiz-license-external": "Fayl \"$1\" mənbə saytında aşağıdakı lisenziya altında dərc olunub: $2.",
 	"mwe-upwiz-license-external-invalid": "$1 saytında olan bu fayl aşağıdakı lisenziya altında dərc olunub: $2.<br><br> Təəssüf ki, bu viki həmin lisenziyanı qəbul etmir.",

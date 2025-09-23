@@ -377,7 +377,7 @@
 	"mwe-upwiz-license-vrt": "Ymmärrän, että jos sähköpostia ei lähetetä 30 päivän sisällä tallennuksesta, {{PLURAL:$1|tämä tiedosto|nämä tiedostot}} poistetaan.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Tämä teos|Nämä teokset}} voidaan hyväksyä tallennettaviksi tähän wikiin",
 	"mwe-upwiz-license-generic": "Olen lukenut [[{{int:disclaimerpage}}|tämän wikin vastuunvapautuslausekkeen]], ja parhaan tietämykseni mukaan {{PLURAL:$1|tämän teoksen|näiden teoksien}} käyttörajoitukset eivät ylitä tämän wikin rajoituksia.",
-	"mwe-upwiz-license-confirm-remove": "Oletko varma, että haluat poistaa {{PLURAL:$1|tämän tallennuksen|nämä tallennukset}}?",
+	"mwe-upwiz-license-confirm-remove": "Oletko varma, että haluat poistaa tämän tallennuksen?",
 	"mwe-upwiz-license-confirm-remove-title": "Vahvista poisto",
 	"mwe-upwiz-license-external": "Tiedosto on sivustolla $1 seuraavalla lisenssillä: $2.",
 	"mwe-upwiz-license-external-invalid": "Tämä tiedosto sivustolla $1 käyttää lisenssiä $2.<br><br>Valitettavasti tämä lisenssi ei sovellu käytettäväksi tässä wikissä.",

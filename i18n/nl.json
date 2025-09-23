@@ -390,7 +390,7 @@
 	"mwe-upwiz-license-vrt": "Ik begrijp dat {{PLURAL:$1|dit bestand wordt|deze bestanden worden}} verwijderd als de e-mail niet binnen dertig dagen na het uploaden ervan wordt verzonden.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Dit werk is|Deze werken zijn}} acceptabel om te uploaden op deze wiki",
 	"mwe-upwiz-license-generic": "Ik heb [[{{int:disclaimerpage}}|de disclaimer voor deze wiki]] bekeken en voor zover ik weet {{PLURAL:$1|is dit werk|zijn deze werken}} niet onder een gegevensbeschermingsniveau die hoger is dan die van deze wiki.",
-	"mwe-upwiz-license-confirm-remove": "Weet u zeker dat u deze {{PLURAL:$1|upload|uploads}} wilt verwijderen?",
+	"mwe-upwiz-license-confirm-remove": "Weet u zeker dat u deze upload wilt verwijderen?",
 	"mwe-upwiz-license-confirm-remove-title": "Verwijderen bevestigen",
 	"mwe-upwiz-license-external": "Het bestand is beschikbaar onder de volgende licentie op de bronsite \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "Het bestand is op $1 beschikbaar onder de volgende licentie: $2.<br /><br />Helaas wordt deze licentie niet geaccepteerd op deze site.",

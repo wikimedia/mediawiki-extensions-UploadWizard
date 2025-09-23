@@ -372,7 +372,7 @@
 	"mwe-upwiz-license-vrt": "Entendo que se o correo electrónico non se envía nos 30 días posteriores {{PLURAL:$1|á subida, o ficheiro será eliminado|ás subidas, os ficheiros serán eliminados}}.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Esta obra é|Estas obras son}} aceptables para subir a este wiki",
 	"mwe-upwiz-license-generic": "Lin [[{{int:disclaimerpage}}|as cláusulas deste wiki]] e, ata onde teño coñecemento, {{PLURAL:$1|esta obra non está|estas obras non están}} baixo niveis de protección de datos superiores aos deste wiki.",
-	"mwe-upwiz-license-confirm-remove": "Queres eliminar {{PLURAL:$1|esta carga|estas cargas}}?",
+	"mwe-upwiz-license-confirm-remove": "Queres eliminar esta carga?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirmar a eliminación",
 	"mwe-upwiz-license-external": "O ficheiro está baixo a seguinte licenza no sitio de orixe \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "O ficheiro de $1 está baixo a seguinte licenza: $2.<br><br>Por desgraza, este wiki non permite esa licenza.",

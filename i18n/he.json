@@ -378,7 +378,7 @@
 	"mwe-upwiz-license-vrt": "ברור לי שאם הדוא\"ל לא נשלח בתוך 30 יום {{PLURAL:$1|מההעלאה, קובץ המדיה הזה יימחק|מההעלאות, קובצי המדיה האלה יימחקו}}.",
 	"mwe-upwiz-license-generic-head": "קביל להעלות את {{PLURAL:$1|היצירה הזאת|היצירות האלו}} לוויקי הזה",
 	"mwe-upwiz-license-generic": "בדקתי את [[{{int:disclaimerpage}}|הגבלת האחריות הכללית של הוויקי הזה]] ולמיטב ידיעתי {{PLURAL:$1|היצירה הזאת|היצירות האלו}} אינם תחת רמות הגנת הנתונים שחורגות מאלו של הוויקי הזה.",
-	"mwe-upwiz-license-confirm-remove": "האם ברצונך באמת רוצים להסיר את {{PLURAL:$1|ההעלאה הזאת|ההעלאות האלו}}?",
+	"mwe-upwiz-license-confirm-remove": "האם ברצונך באמת רוצים להסיר את ההעלאה הזאת?",
 	"mwe-upwiz-license-confirm-remove-title": "אישור הסרה",
 	"mwe-upwiz-license-external": "על הקובץ הזה חל הרישיון הבא באתר המקור {{GRAMMAR:תחילית|$1}}&rlm;: $2.",
 	"mwe-upwiz-license-external-invalid": "הקובץ הזה באתר $1 פורסם ברישיון הבא: $2.<br><br>למרבה הצער, הוויקי הזה לא מקבל את הרישיון ההוא.",
