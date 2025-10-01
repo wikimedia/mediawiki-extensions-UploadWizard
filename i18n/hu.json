@@ -381,7 +381,7 @@
 	"mwe-upwiz-license-vrt": "Tudomásul veszem, hogy ha az emailt nem küldöm el a feltöltésétől számított 30 napon belül, akkor a {{PLURAL:$1|fájlt|fájlokat}} törölni fogják.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Ez a mű megfelelő|Ezek a művek megfelelőek}} az ezen wikire való feltöltéshez",
 	"mwe-upwiz-license-generic": "Átnéztem [[{{int:disclaimerpage}}|ennek a wikinek a jogi nyilatkozatát]], és legjobb tudomásom szerint {{PLURAL:$1|ez a mű|ezek a művek}} nem haladják meg ennek a wikinek az adatvédelmi szintjeit.",
-	"mwe-upwiz-license-confirm-remove": "Biztosan el szeretnéd távolítani {{PLURAL:$1|ezt a feltöltést|ezeket a feltöltéseket}}?",
+	"mwe-upwiz-license-confirm-remove": "Biztosan eltávolítod ezt a feltöltést?",
 	"mwe-upwiz-license-confirm-remove-title": "Eltávolítás megerősítése",
 	"mwe-upwiz-license-external": "A fájl a következő licenc alatt érhető el a forrásoldalon ($1): $2.",
 	"mwe-upwiz-license-external-invalid": "A fájl a $1 oldalon a következő licenc alatt van: $2. Sajnos ez a licenc nem engedélyezett ezen a wikin.",

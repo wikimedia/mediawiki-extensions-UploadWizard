@@ -351,7 +351,7 @@
 	"mwe-upwiz-license-vrt": "Mõistan, et kui e-kirja ei saadeta 30 päeva jooksul pärast üleslaadimist, siis {{PLURAL:$1|see fail|need failid}} kustutatakse",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|See fail sobib|Need failid sobivad}} siia vikisse üleslaadimiseks",
 	"mwe-upwiz-license-generic": "Olen vaadanud läbi [[{{int:disclaimerpage}}|selle viki lahtiütluse]] ja minu parima arusaamise ei ole {{PLURAL:$1|see teos|need teosed}} õiguslikult kaitstud suuremal määral kui siin vikis ette nähtud.",
-	"mwe-upwiz-license-confirm-remove": "Kas oled kindel, et soovid {{PLURAL:$1|selle üleslaaditud faili|need üleslaaditud failid}} eemaldada?",
+	"mwe-upwiz-license-confirm-remove": "Kas oled kindel, et soovid selle üleslaaditud faili eemaldada?",
 	"mwe-upwiz-license-confirm-remove-title": "Eemaldamise kinnitus",
 	"mwe-upwiz-license-external": "Fail on avaldatud lähtesaidil \"$1\" järgmise litsentsi all: $2.",
 	"mwe-upwiz-license-external-invalid": "See fail alliksaidilt $1 kuulub järgmise litsentsi alla: $2. Kahjuks see viki ei luba seda litsentsi.",
@@ -413,5 +413,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Sa ei saa enam teavitusi enda üleslaaditud failide sildistamise kohta.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Meil ei õnnestunud hetkel sinu eelistusi salvestada. Palun mine enda [[c:Special:Preferences#mw-prefsection-echo|eelistuste leheküljele]] ja luba teavitused.",
 	"mwe-upwiz-metadata-notice-header": "Isiklikud andmed",
-	"mwe-upwiz-metadata-notice-description": "Selle faili EXIF-metaandmed võivad sisaldada asukohta või muid isiklikke andmeid, mille lisab kaamera automaatselt. [https://commons.wikimedia.org/wiki/Commons:Exif Loe lähemalt] selle kohta, kuidas EXIF-metaandmeid muuta või need eemaldada."
+	"mwe-upwiz-metadata-notice-description": "Selle faili EXIF-metaandmed võivad sisaldada asukohta või muid isiklikke andmeid, mille lisab kaamera automaatselt. [https://commons.wikimedia.org/wiki/Commons:Exif Loe lähemalt] selle kohta, kuidas EXIF-metaandmeid muuta või need eemaldada.",
+	"namespaceinfo-description-ns460": "Üleslaadimiskampaaniate nimeruum",
+	"namespaceinfo-description-ns461": "Üleslaadimiskampaaniate aruteluleheküljed"
 }
