@@ -396,6 +396,22 @@ return [
 			'languageCodePrefix' => 'deed.',
 			'availableLanguages' => $uwCcAvailableLanguages
 		],
+		'cc-by-4.0-heirs' => [
+			'msg' => 'mwe-upwiz-license-cc-by-sa-4.0-text',
+			'msgExplain' => 'mwe-upwiz-source-heirs-cc-by-4.0-explain',
+			'icons' => [ 'cc-by' ],
+			'url' => '//creativecommons.org/licenses/by-sa/4.0/',
+			'languageCodePrefix' => 'deed.',
+			'availableLanguages' => $uwCcAvailableLanguages
+		],
+		'cc-by-sa-4.0-heirs' => [
+			'msg' => 'mwe-upwiz-license-cc-by-sa-4.0-text',
+			'msgExplain' => 'mwe-upwiz-source-heirs-cc-by-sa-4.0-explain',
+			'icons' => [ 'cc-by', 'cc-sa' ],
+			'url' => '//creativecommons.org/licenses/by-sa/4.0/',
+			'languageCodePrefix' => 'deed.',
+			'availableLanguages' => $uwCcAvailableLanguages
+		],
 		'cc-by-3.0' => [
 			'msg' => 'mwe-upwiz-license-cc-by-3.0-text',
 			'msgExplain' => 'mwe-upwiz-source-ownwork-cc-by-3.0-explain',
@@ -606,6 +622,14 @@ return [
 						'cc-by-sa-2.5',
 						'custom',
 						'unknown',
+					]
+				],
+				[
+					'head' => 'mwe-upwiz-license-heirs-head',
+					'subhead' => 'mwe-upwiz-license-heirs-subhead',
+					'licenses' => [
+						'cc-by-4.0-heirs',
+						'cc-by-sa-4.0-heirs'
 					]
 				],
 				[
