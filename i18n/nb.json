@@ -379,7 +379,7 @@
 	"mwe-upwiz-license-vrt": "Jeg forstår at {{PLURAL:$1|fila|filene}} blir slettet dersom ikke en tillatelses-e-post sendes innen 30 dager.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Dette verket|Disse verkene}} er {{PLURAL:$1|godtatt|godtatte}} for opplasting på denne wikien",
 	"mwe-upwiz-license-generic": "Jeg har gått gjennom [[{{int:disclaimerpage}}|ansvarsfraskrivelsen for denne wikien]] og så vidt jeg vet er {{PLURAL:$1|dette verket|disse verkene}} ikke under databeskyttelsesnivåer som overskrider denne wikiens.",
-	"mwe-upwiz-license-confirm-remove": "Er du sikker på at du ønsker å fjerne {{PLURAL:$1|denne opplastingen|disse opplastingene}}?",
+	"mwe-upwiz-license-confirm-remove": "Er du sikker på at du vil fjerne denne opplastingen?",
 	"mwe-upwiz-license-confirm-remove-title": "Bekreft fjerning",
 	"mwe-upwiz-license-external": "Denne filen er på kildenettstedet «$1» underlagt følgende lisens: $2.",
 	"mwe-upwiz-license-external-invalid": "På $1 er denne filen underlagt følgende lisens: $2.<br><br>Dessverre tillates ikke denne lisensen på denne wikien.",

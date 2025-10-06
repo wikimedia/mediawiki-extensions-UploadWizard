@@ -432,7 +432,7 @@
 	"mwe-upwiz-license-vrt": "Je comprends que si un courriel n'est pas envoyé dans les 30 jours suivant {{PLURAL:$1|ce téléversement, ce ficher sera supprimé|ces téléversements, ces fichiers seront supprimés}}.",
 	"mwe-upwiz-license-generic-head": "Ce{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}} peu{{PLURAL:$1||ven}}t être téléversée{{PLURAL:$1||s}} sur ce wiki",
 	"mwe-upwiz-license-generic": "J’ai relu [[{{int:disclaimerpage}}|la clause de non-responsabilité de ce wiki]] et, à ma connaissance, cet{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}} n{{PLURAL:$1|’es|e son}}t pas protégée{{PLURAL:$1||s}} à des niveaux dépassant ceux de ce wiki.",
-	"mwe-upwiz-license-confirm-remove": "Êtes-vous sûr de vouloir supprimer {{PLURAL:$1|ce téléversement|ces téléversements}} ?",
+	"mwe-upwiz-license-confirm-remove": "Êtes-vous sûr de vouloir supprimer ce téléversement ?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirmer le retrait",
 	"mwe-upwiz-license-external": "Le fichier est sous la licence suivante sur le site source « $1 » : $2.",
 	"mwe-upwiz-license-external-invalid": "Ce fichier sur « $1 » est sous la licence suivante : $2.<br><br>Malheureusement, ce wiki n’accepte pas cette licence.",
