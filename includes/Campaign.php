@@ -21,6 +21,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Parser\ParserOutputLinkTypes;
 use MediaWiki\Title\Title;
 use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\Database;
@@ -281,11 +282,11 @@ class Campaign {
 	 * @param ParserOutput $parserOutput
 	 */
 	private function updateTemplates( ParserOutput $parserOutput ) {
-		$templateIds = $parserOutput->getTemplateIds();
-		foreach ( $parserOutput->getTemplates() as $ns => $templates ) {
-			foreach ( $templates as $dbk => $id ) {
-				$this->templates[$ns][$dbk] = [ $id, $templateIds[$ns][$dbk] ];
-			}
+		foreach ( $parserOutput->getLinkList( ParserOutputLinkTypes::TEMPLATE )
+				as [ 'link' => $link, 'pageid' => $pageid, 'revid' => $revid ] ) {
+			$ns = $link->getNamespace();
+			$dbk = $link->getDBkey();
+			$this->templates[$ns][$dbk] = [ $pageid, $revid ];
 		}
 	}
 
