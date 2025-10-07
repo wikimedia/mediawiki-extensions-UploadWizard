@@ -62,7 +62,7 @@ class CampaignContentHandler extends JsonContentHandler {
 
 		if ( $cpoParams->getGenerateHtml() ) {
 			$html = $this->generateHtml( $campaign );
-			$parserOutput->setText( $html );
+			$parserOutput->setContentHolderText( $html );
 		}
 
 		// Register template usage
