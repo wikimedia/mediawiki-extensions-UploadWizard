@@ -196,7 +196,6 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		// clear blacklist cache
 		$reflection = new ReflectionClass( FlickrBlacklist::class );
 		$property = $reflection->getProperty( 'blacklist' );
-		$property->setAccessible( true );
 		$property->setValue( null, null );
 	}
 
