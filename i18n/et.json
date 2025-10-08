@@ -413,5 +413,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Sa ei saa enam teavitusi enda üleslaaditud failide sildistamise kohta.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Meil ei õnnestunud hetkel sinu eelistusi salvestada. Palun mine enda [[c:Special:Preferences#mw-prefsection-echo|eelistuste leheküljele]] ja luba teavitused.",
 	"mwe-upwiz-metadata-notice-header": "Isiklikud andmed",
-	"mwe-upwiz-metadata-notice-description": "Selle faili EXIF-metaandmed võivad sisaldada asukohta või muid isiklikke andmeid, mille lisab kaamera automaatselt. [https://commons.wikimedia.org/wiki/Commons:Exif Loe lähemalt] selle kohta, kuidas EXIF-metaandmeid muuta või need eemaldada."
+	"mwe-upwiz-metadata-notice-description": "Selle faili EXIF-metaandmed võivad sisaldada asukohta või muid isiklikke andmeid, mille lisab kaamera automaatselt. [https://commons.wikimedia.org/wiki/Commons:Exif Loe lähemalt] selle kohta, kuidas EXIF-metaandmeid muuta või need eemaldada.",
+	"namespaceinfo-description-ns460": "Üleslaadimiskampaaniate nimeruum",
+	"namespaceinfo-description-ns461": "Üleslaadimiskampaaniate aruteluleheküljed"
 }
