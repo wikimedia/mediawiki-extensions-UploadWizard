@@ -6,6 +6,7 @@
 			"Macofe",
 			"Matma Rex",
 			"Rancher",
+			"SaldırganSincap",
 			"Vlad5250"
 		]
 	},
@@ -206,7 +207,7 @@
 	"mwe-upwiz-fileexists-replace-no-link": "Изберете друг наслов. Овој е веќе зафатен.",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Внесете поинформативен наслов ([$2 погл. примери]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Примери за наслови",
-	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>Примери за добри податотечни имиња:</b></p><ul><li>Поглед на областа Дембелија од Негобило - јули 2022</li><li>1875 Народен собир во село Кушкундалево, Недојденско</li><li>Псевдоедар со теме невидливо од центарот</li></ul><br><p><b>Примери за лоши податотечни имиња:</b></p><ul><li>Слика01</li><li>Диме</li><li>DSC00001</li><li>Нешто.svg.png</li><li>30996951316264l</li><li>ПСЕВДОЕДАР СО ТЕМЕ НЕВИДЛИВИ ОД ЦЕНТАРОТ</li></ul><p><a href='https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename' target='_blank'>Дознајте повеќе</a>",
+	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>Примери за добри податотечни имиња:</b></p><ul><li>Поглед на областа Дембелија од Негобило - јули 2022</li><li>1875 Народен собир во село Кушкундалево, Недојденско</li><li>Псевдоедар со теме невидливо од центарот</li></ul><br><p><b>Примери за лоши податотечни имиња:</b></p><ul><li>Слика01</li><li>Диме</li><li>DSC00001</li><li>Нешто.svg.png</li><li>30996951316264l</li><li>ПСЕВДОЕДАР СО ТЕМЕ НЕВИДЛИВИ ОД ЦЕНТАРОТ</li></ul><p><a href='https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename' target='_blank'>Дознајте повеќе</a></p>",
 	"mwe-upwiz-blacklisted-details": "Податотечното име содржи неважечки знаци или е во неважечки формат. ([$2 Стиснете тука] за да дознате како да го поправите проблемот.)",
 	"mwe-upwiz-blacklisted-details-feedback": "Внесете различен и описен наслов ([$2 повеќе инфо]) • [$3 Дајте мислење]",
 	"mwe-upwiz-next": "Следна",
@@ -369,7 +370,7 @@
 	"mwe-upwiz-license-vrt": "Разбирам дека доколку е-поштата не се испрати во рок од 30 дена од {{PLURAL:$1|подигањето, оваа податотека ќе биде избришана|подигањата, овие податотеки ќе бидат избришани}}.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Ова дело е прифатливо|Овие дела се прифатливи}} за подигање на ова вики",
 	"mwe-upwiz-license-generic": "Го прочитав [[{{int:disclaimerpage}}|предупредувањата за правна одговорност на ова вики]] и колку што ми е познато, {{PLURAL:$1|ова дело не е|овие дела не се}} под степени на заштита што ги надминуваат оние на ова вики.",
-	"mwe-upwiz-license-confirm-remove": "Дали сте сигурни дека сакате {{PLURAL:$1|ја отстраните подигнатата податотека|ги отстраните подигнативе податотеки}}?",
+	"mwe-upwiz-license-confirm-remove": "Дали сигурно сакате да го остраните ова подигање?",
 	"mwe-upwiz-license-confirm-remove-title": "Потврдете го отстранувањето",
 	"mwe-upwiz-license-external": "Податотеката е под следнава лиценца на изворното место „$1“: $2.",
 	"mwe-upwiz-license-external-invalid": "Оваа податотека на $1 е под следнава ллиценца: $2.<br><br>За жал, ова вики не ја прифаќа таа лиценца.",
