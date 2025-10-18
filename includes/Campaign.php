@@ -14,6 +14,7 @@ use InvalidArgumentException;
 use MediaWiki\Category\Category;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Deferred\LinksUpdate\CategoryLinksTable;
 use MediaWiki\Interwiki\InterwikiLookup;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinksMigration;
@@ -78,6 +79,7 @@ class Campaign {
 	private IContextSource $context;
 	private WANObjectCache $wanObjectCache;
 	private IReadableDatabase $dbr;
+	private IReadableDatabase $categoryLinksDbr;
 	private Parser $parser;
 	private InterwikiLookup $interwikiLookup;
 	private LinksMigration $linksMigration;
@@ -100,7 +102,9 @@ class Campaign {
 	public function __construct( $title, $config = null, $context = null ) {
 		$services = MediaWikiServices::getInstance();
 		$this->wanObjectCache = $services->getMainWANObjectCache();
-		$this->dbr = $services->getConnectionProvider()->getReplicaDatabase();
+		$connProvider = $services->getConnectionProvider();
+		$this->dbr = $connProvider->getReplicaDatabase();
+		$this->categoryLinksDbr = $connProvider->getReplicaDatabase( CategoryLinksTable::VIRTUAL_DOMAIN );
 		$this->parser = $services->getParser();
 		$this->interwikiLookup = $services->getInterwikiLookup();
 		$wikiPageFactory = $services->getWikiPageFactory();
@@ -213,7 +217,7 @@ class Campaign {
 			$this->getTrackingCategory()
 		);
 
-		$result = $this->dbr->newSelectQueryBuilder()
+		$result = $this->categoryLinksDbr->newSelectQueryBuilder()
 			->select( [ 'cl_from', 'page_namespace', 'page_title' ] )
 			->from( 'categorylinks' )
 			->join( 'linktarget', null, 'cl_target_id=lt_id' )
