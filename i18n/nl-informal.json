@@ -22,6 +22,6 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "De door jou ingevoerde wikitekst is te lang.",
 	"mwe-upwiz-too-many-files-text": "Je kunt maar {{PLURAL:$1|één bestand|$1 bestanden}} per keer uploaden. Je probeerde {{PLURAL:$2|één bestand|$2 bestanden}} toe te voegen. Probeer het opnieuw met minder bestanden.",
 	"mwe-upwiz-file-too-large-text": "Je kunt alleen bestanden uploaden die niet groter zijn dan $1. Je hebt geprobeerd een bestand te uploaden dat $2 groot is.",
-	"mwe-upwiz-license-confirm-remove": "Weet je zeker dat je deze {{PLURAL:$1|upload|uploads}} wilt verwijderen?",
+	"mwe-upwiz-license-confirm-remove": "Weet je zeker dat je deze upload wilt verwijderen?",
 	"mwe-upwiz-errordialog-title": "Er is een fout opgetreden in je inzending"
 }

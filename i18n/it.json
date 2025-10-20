@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Anto",
+			"Antonino Faro",
 			"Aushulz",
 			"Beta16",
 			"Darth Kule",
@@ -80,7 +81,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Questo modulo carica contenuti ospitati da flickr.com e soggetto alle\n[https://www.flickr.com/help/terms/ condizioni d'uso] e alla [https://www.flickr.com/help/privacy-policy/ politica sulla privacy] di Flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Nota che, usando questa funzione, il tuo indirizzo IP e i dettagli della richiesta saranno disponibili a Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Non è possibile recuperare il file da $1.",
-	"mwe-upwiz-multi-file-select2": "Seleziona i file che vorresti caricare. Tieni premuto il tasto Maiusc e clicca per selezionare  più file alla volta. Puoi selezionare fino a $1 file da caricare.",
+	"mwe-upwiz-multi-file-select2": "Seleziona i file che vorresti caricare. Tieni premuto il tasto Maiusc e clicca per selezionare  più file alla volta. Puoi selezionare fino a $1 {{PLURAL:$1|file|files}} da caricare.",
 	"mwe-upwiz-transport-started": "Inizializzazione...",
 	"mwe-upwiz-uploading": "Caricamento in corso…",
 	"mwe-upwiz-queued": "In coda...",
@@ -110,6 +111,7 @@
 	"mwe-upwiz-progressbar-uploading": "caricamento in corso",
 	"mwe-upwiz-almost-finished": "Elaborazione del file...",
 	"mwe-upwiz-finished": "Completato!",
+	"mwe-upwiz-deeds-intro": "Tutti i contenuti caricati su {{SITENAME}} sono libere e possono essere usate e condivise da chiunque con o senza internet. Per garantire che {{PLURAL:$1|l'opera|le opere}} che hai caricato {{PLURAL:$1|è|sono}} senza diritto d'autore, ti preghiamo di fornire le seguenti informazioni.",
 	"mwe-upwiz-source-ownwork-label": "{{PLURAL:$1|Quest'opera è stata creata|Queste opere sono state create}} da me e chiunque è libero di {{PLURAL:$1|utilizzarla|utilizzarle}}.",
 	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(richiede che la persona che utilizza {{PLURAL:$1|questo file multimediale|questi file multimediali}} fornisca i crediti appropriati e {{PLURAL:$1|lo|li}} distribuisca con la stessa licenza)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(richiede che la persona che utilizza {{PLURAL:$1|questo file multimediale|questi file multimediali}} fornisca i crediti appropriati e {{PLURAL:$1|lo|li}} distribuisca con la stessa licenza)",
@@ -139,6 +141,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Sì, il creatore ha pubblicato {{PLURAL:$1|l'opera|le opere}} con una licenza libera, ad esempio le [[COM:L#Well-known_licenses|licenze Creative Commons]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Sì, {{PLURAL:$1|l'opera non è protetta|le opere non sono protette}} da alcuna legge sul diritto d'autore",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "No, {{PLURAL:$1|l'opera è protetta|le opere sono protette}} dal diritto d'autore",
+	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning-text": "<b>Non caricare {{PLURAL:$1|questo|questi}} file!</b> Wikimedia Commons non ospita media protetti da copyright. Su Commons sono ammessi solo i media con [[COM:L#Well-known_licenses|licenze libere]] oppure nel [[COM:PD|dominio pubblico]].",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Non so se {{PLURAL:$1|sia libera|siano libere}} da usare e condividere",
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Io}} ho generato {{PLURAL:$1|questa opera|queste opere}} usando uno strumento di intelligenza artificiale [[COM:AI-generated_media|(vedi linee guida)]]",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Inserisci del motore di intelligenza artificiale che hai usato. Se il lavoro originale di qualcun altro è stato usato per generare {{PLURAL:$1|questa opera|queste opere}}, aggiungi anch'esso all'elenco.",
