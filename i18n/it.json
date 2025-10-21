@@ -33,7 +33,8 @@
 			"Viscontino",
 			"Walter Raffoni",
 			"Ximo17",
-			"Ruthven"
+			"Ruthven",
+			"Antonino Faro"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -80,7 +81,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Questo modulo carica contenuti ospitati da flickr.com e soggetto alle\n[https://www.flickr.com/help/terms/ condizioni d'uso] e alla [https://www.flickr.com/help/privacy-policy/ politica sulla privacy] di Flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Nota che, usando questa funzione, il tuo indirizzo IP e i dettagli della richiesta saranno disponibili a Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Non è possibile recuperare il file da $1.",
-	"mwe-upwiz-multi-file-select2": "Seleziona i file che vorresti caricare. Tieni premuto il tasto Maiusc e clicca per selezionare  più file alla volta. Puoi selezionare fino a $1 file da caricare.",
+	"mwe-upwiz-multi-file-select2": "Seleziona i file che vorresti caricare. Tieni premuto il tasto Maiusc e clicca per selezionare  più file alla volta. Puoi selezionare fino a $1 {{PLURAL:$1|file|files}} da caricare.",
 	"mwe-upwiz-transport-started": "Inizializzazione...",
 	"mwe-upwiz-uploading": "Caricamento in corso…",
 	"mwe-upwiz-queued": "In coda...",

@@ -20,7 +20,8 @@
 			"관인생략",
 			"밥풀떼기",
 			"아라",
-			"Suleiman the Magnificent Television"
+			"Suleiman the Magnificent Television",
+			"Tensama0415"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
@@ -229,7 +230,7 @@
 	"mwe-upwiz-metadata-title": "메타데이터 추가",
 	"mwe-upwiz-previous": "뒤로",
 	"mwe-upwiz-home": "위키의 대문으로 돌아가기",
-	"mwe-upwiz-upload-another": "더 많은 파일 올리기",
+	"mwe-upwiz-upload-another": "더 많은 파일 업로드",
 	"mwe-upwiz-tooltip-skiptutorial": "[$1 사용자 환경 설정]의 $2 → $3에 따라 이 자습서를 다시 활성화할 수 있습니다.",
 	"mwe-upwiz-tooltip-author": "사진을 찍거나 그림을 그린 사람의 이름",
 	"mwe-upwiz-tooltip-thirdparty-license": "(저작물을 발견하신 웹사이트 어딘가에 해당 정보가 기입되어 있을 수도 있습니다.)",
