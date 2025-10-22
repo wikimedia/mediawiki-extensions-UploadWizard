@@ -16,7 +16,8 @@
 			"לואיקה",
 			"נדב ס",
 			"ערן",
-			"פוילישער"
+			"פוילישער",
+			"Geagea"
 		]
 	},
 	"uploadwizard": "אשף ההעלאה",
@@ -367,7 +368,7 @@
 	"mwe-upwiz-license-cc-subhead": "לא כל הרישיונות של קריאייטיב קומונז טובים לאתר {{SITENAME}}. נא לוודא שבעל הזכויות השתמש באחד הרישיונות המתאימים.",
 	"mwe-upwiz-license-flickr-head": "בעל הזכויות פרסם את {{PLURAL:$1|התמונה או את הסרט|התמונות או את הסרטים}} באתר Flickr עם רישיון מתאים",
 	"mwe-upwiz-license-flickr-subhead": "חפשו תחת הכותרת \"רישיון\" בצד של דף Flickr. הסמלים ושם הרישיון צריכים להתאים לאחת האפשרויות כאן.",
-	"mwe-upwiz-license-public-domain-usa-head": "זכויות היוצרים בוודאות פגו בארצות הברית.",
+	"mwe-upwiz-license-public-domain-usa-head": "זכויות היוצרים פגו בוודאות בארצות הברית.",
 	"mwe-upwiz-license-public-domain-usa-subhead": "אתר {{SITENAME}} נמצא בארצות הברית ולכן אסור שיחולו זכויות יוצרים על היצירה באותה המדינה.",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|היצירה הזאת נוצרה|היצירות האלו נוצרו}} על־ידי ממשלת ארצות הברית",
 	"mwe-upwiz-license-misc": "סיבות שונות",
