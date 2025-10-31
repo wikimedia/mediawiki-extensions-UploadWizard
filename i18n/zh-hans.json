@@ -105,7 +105,7 @@
 	"mwe-upwiz-add-flickr": "从Flickr获取",
 	"mwe-upwiz-flickr-input-placeholder": "Flickr网址",
 	"mwe-upwiz-select-flickr": "上传选定的图像",
-	"mwe-upwiz-flickr-disclaimer1": "该表格将加载flickr.com保管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用条款]和[https://www.flickr.com/help/privacy-policy/ 隐私权政策]。",
+	"mwe-upwiz-flickr-disclaimer1": "此表单将加载由flickr.com托管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用条款]和[https://www.flickr.com/help/privacy-policy/ 隐私政策]。",
 	"mwe-upwiz-flickr-disclaimer2": "请注意，使用此工具您的IP地址和请求详情将提供给Flickr。",
 	"mwe-upwiz-error-no-image-retrieved": "我们无法从$1获取文件。",
 	"mwe-upwiz-multi-file-select2": "选择您想要上传的文件。按住Shift键并点击选择多个文件。您最多可以选择$1个{{PLURAL:$1|文件}}上传。",
@@ -334,6 +334,10 @@
 	"mwe-upwiz-notice-date-imprecise": "如果您知道的话，我们建议您提供完整的日期。",
 	"mwe-upwiz-details-error-count": "上面的{{PLURAL:$2|表格}}中有$1个错误。请更正错误，并尝试再次提交。",
 	"mwe-upwiz-details-warning-count": "上方{{PLURAL:$2|表单}}中有{{PLURAL:$1|一条|$1条}}警告。我们建议您先修复{{PLURAL:$1|这个|这些}}问题然后再继续。",
+	"mwe-upwiz-details-error-generic": "请在继续前先更正表单中的所有错误。",
+	"mwe-upwiz-details-warning-generic": "请在继续前先更正表单中的所有警告。",
+	"mwe-upwiz-details-error-scroll": "转到页面上的错误",
+	"mwe-upwiz-details-warning-scroll": "转到页面上的警告",
 	"mwe-upwiz-too-many-files-text": "您一次只能上传$1个文件，但是您尝试上传共$2个文件，请尝试上传更少的文件。",
 	"mwe-upwiz-too-many-files": "文件过多。",
 	"mwe-upwiz-file-too-large-text": "您只能上传大小不超过 $1 的文件。您试图上传的文件大小为 $2。",
@@ -432,6 +436,7 @@
 	"mwe-upwiz-categories": "分类",
 	"mwe-upwiz-categories-missing": "以红色显示的分类尚不存在，且缺少描述页面。如果存在相似的分类，我们建议您使用{{PLURAL:$1|该|那些}}分类。如果不存在，请前往新分类的页面并添加描述。",
 	"mwe-upwiz-categories-placeholder": "例如：埃托沙国家公园的哺乳动物",
+	"mwe-upwiz-categories-current": "$1父分类",
 	"mwe-upwiz-statements-title-depicts": "此作品中可见的主要主题",
 	"mwe-upwiz-statements-too-many-items": "我们建议将项目数量限制在$1个以内",
 	"mwe-upwiz-statements-placeholder-depicts": "例如：安哥拉长颈鹿",
@@ -482,5 +487,7 @@
 	"mwe-upwiz-upload-comment-own-work": "使用UploadWizard上传自己的作品",
 	"mwe-upwiz-upload-comment-third-party": "使用UploadWizard从$2上传了$1的作品",
 	"mwe-upwiz-metadata-notice-header": "个人数据",
-	"mwe-upwiz-metadata-notice-description": "文件中的EXIF元数据可能包含由相机自动添加的位置等个人信息。[https://commons.wikimedia.org/wiki/Commons:Exif 点此]了解如何删改EXIF元数据。"
+	"mwe-upwiz-metadata-notice-description": "文件中的EXIF元数据可能包含由相机自动添加的位置等个人信息。[https://commons.wikimedia.org/wiki/Commons:Exif 点此]了解如何删改EXIF元数据。",
+	"namespaceinfo-description-ns460": "上传活动的命名空间",
+	"namespaceinfo-description-ns461": "上传活动的讨论页"
 }
