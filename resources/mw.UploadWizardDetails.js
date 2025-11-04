@@ -312,7 +312,7 @@
 					new OO.ui.IconWidget( { icon: 'expand' } ).$element,
 					new OO.ui.IconWidget( { icon: 'collapse' } ).$element,
 					' ',
-					mw.message( 'mwe-upwiz-other-v2', mw.user ).text()
+					mw.message( 'mwe-upwiz-other-v2', mw.user ).escaped()
 				),
 				classes: [
 					'mwe-upwiz-fieldLayout-additional-info',
@@ -1594,7 +1594,7 @@
 		 */
 		showError: function ( code, html ) {
 			this.showIndicator( 'error' );
-			this.setStatus( html );
+			this.setStatus( Object.assign( html ) );
 		},
 
 		/**
@@ -1650,7 +1650,13 @@
 		},
 
 		setStatus: function ( s ) {
-			this.$div.find( '.mwe-upwiz-file-status-line' ).html( s ).show();
+			const $statusLine = this.$div.find( '.mwe-upwiz-file-status-line' );
+			if ( typeof s === 'object' ) {
+				$statusLine.html( s );
+			} else {
+				$statusLine.text( s );
+			}
+			$statusLine.show();
 		},
 
 		// TODO: De-duplicate with code form mw.UploadWizardUploadInterface.js

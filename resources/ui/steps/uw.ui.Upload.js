@@ -477,7 +477,7 @@
 	 * @param {string} filename
 	 */
 	uw.ui.Upload.prototype.showUnparseableFilenameError = function ( filename ) {
-		this.showFilenameError( mw.message( 'mwe-upwiz-unparseable-filename', filename ).escaped() );
+		this.showFilenameError( mw.msg( 'mwe-upwiz-unparseable-filename', filename ) );
 	};
 
 	/**
