@@ -215,7 +215,13 @@
 					const titleMessage = mw.message( messageKey + '-title' ),
 						title = titleMessage.exists() ? titleMessage.text() : '',
 						textMessage = mw.message( messageKey + '-text' ),
-						text = textMessage.exists() ? textMessage.text() : result.blacklist.blacklistReason;
+						text = textMessage.exists() ? textMessage.parseDom() : result.blacklist.blacklistReason;
+
+					if ( typeof text === 'object' ) {
+						// T407157: Links created by jqueryMsg don't open in a new tab, but we don't want the user to
+						// lose their progress when clicking on a link. Therefore, we manually fix this here.
+						text.find( 'a' ).attr( 'target', '_blank' );
+					}
 
 					mw.errorDialog( text, title );
 				}
