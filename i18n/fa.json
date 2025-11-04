@@ -393,7 +393,7 @@
 	"mwe-upwiz-subhead-alternatives": "بارگذاری به روش دیگر",
 	"mwe-upwiz-feedback-prompt": "بازخوردی بگذارید",
 	"mwe-upwiz-feedback-title": "ارسال نظرات در مورد برنامۀ جادویی بارگذاری",
-	"mwe-upwiz-feedback-blacklist-line-intro": "این مورد، ورودی لیست عنوان‌های غیرمجاز است که با آن مطابقت دارد:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "این مورد، ورودی فهرست عنوان‌های غیرمجاز است که با آن مطابقت دارد:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "عنوان بارگذاری من، «$1» ممنوع شد.",
 	"mwe-upwiz-errordialog-title": "در ثبت شما، خطایی وجود داشت.",
 	"mwe-upwiz-errordialog-ok": "تأیید",
