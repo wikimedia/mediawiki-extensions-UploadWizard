@@ -113,7 +113,7 @@ mw.FlickrChecker.prototype = {
 			}
 		} else {
 			// XXX show user the message that the URL entered was not valid
-			mw.errorDialog( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
+			mw.errorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
 			this.$spinner.remove();
 			this.ui.flickrInterfaceReset();
 		}
@@ -363,7 +363,7 @@ mw.FlickrChecker.prototype = {
 				photoset = data.photos;
 			}
 			if ( !photoset ) {
-				$.Deferred().reject( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
+				$.Deferred().reject( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
 			}
 			return photoset;
 		} );
@@ -482,7 +482,7 @@ mw.FlickrChecker.prototype = {
 			} );
 
 			if ( checker.imageUploads.length === 0 ) {
-				return $.Deferred().reject( mw.message( 'mwe-upwiz-license-photoset-invalid' ).escaped() );
+				return $.Deferred().reject( mw.msg( 'mwe-upwiz-license-photoset-invalid' ) );
 			} else {
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-flickr-select-list-container' ).show();
@@ -520,14 +520,14 @@ mw.FlickrChecker.prototype = {
 			photo_id: photoId
 		} ).then( ( data ) => {
 			if ( !data.photo ) {
-				return $.Deferred().reject( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
+				return $.Deferred().reject( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
 			}
 			return data.photo;
 		} ).then( ( photo ) => {
 			var isBlacklistedPromise = checker.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
 			return isBlacklistedPromise.then( ( isBlacklisted ) => {
 				if ( isBlacklisted ) {
-					return $.Deferred().reject( mw.message( 'mwe-upwiz-user-blacklisted', 'Flickr' ).escaped() );
+					return $.Deferred().reject( mw.msg( 'mwe-upwiz-user-blacklisted', 'Flickr' ) );
 				} else {
 					return photo;
 				}
@@ -735,7 +735,7 @@ mw.FlickrChecker.prototype = {
 				}
 				upload.url = largestSize.source;
 			} else {
-				mw.errorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
+				mw.errorDialog( mw.msg( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ) );
 				checker.$spinner.remove();
 				checker.ui.flickrInterfaceReset();
 				return $.Deferred().reject();
@@ -752,7 +752,7 @@ mw.FlickrChecker.prototype = {
 		// Set the license message to show the user.
 		var licenseMessage;
 		if ( licenseValue === 'invalid' ) {
-			licenseMessage = mw.msg( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
+			licenseMessage = mw.message( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName ).parseDom();
 		} else {
 			licenseMessage = mw.msg( 'mwe-upwiz-license-external', 'Flickr', licenseName );
 		}
