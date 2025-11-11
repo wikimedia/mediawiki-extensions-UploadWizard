@@ -25,7 +25,11 @@
 		"es-x/no-typed-arrays": "warn",
 		"no-jquery/no-extend": "warn",
 		"no-jquery/no-done-fail": "warn",
-		"no-jquery/no-animate": "warn"
+		"no-jquery/no-animate": "warn",
+		"es-x/no-iterator-prototype-reduce": "warn",
+		"es-x/no-iterator-prototype-some": "warn",
+		"mediawiki/no-unlabeled-buttonwidget": "warn",
+		"es-x/no-iterator-prototype-toarray": "warn"
 	},
 	"settings": {
 		"jsdoc": {

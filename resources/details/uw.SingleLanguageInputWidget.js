@@ -106,7 +106,7 @@
 		if ( this.config.languages[ code ] ) {
 			return code;
 		}
-		if ( code.lastIndexOf( '-' ) !== -1 ) {
+		if ( code.includes( '-' ) ) {
 			return this.getClosestAllowedLanguage( code.slice( 0, code.lastIndexOf( '-' ) ), fallback );
 		}
 		return arguments.length > 1 ? fallback : this.getDefaultLanguage();
