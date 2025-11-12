@@ -10,7 +10,8 @@
 			"बिप्लब आनन्द",
 			"राम प्रसाद जोशी",
 			"हिमाल सुबेदी",
-			"Nirmal Dulal"
+			"Nirmal Dulal",
+			"बडा काजी"
 		]
 	},
 	"uploadwizard": "अपलोड विजार्ड",
@@ -144,7 +145,7 @@
 	"mwe-upwiz-label-optional": "वैकल्पिक",
 	"mwe-upwiz-too-many-files": "धेरै फाइलहरू।",
 	"mwe-upwiz-file-too-large-text": "तपाईले $1 सम्मको आकारका फाइलहरू मात्र उर्ध्वभरण गर्न सक्नुहुन्छ। तपाईले $2 भएको फाइल उर्ध्वभरण गर्ने प्रयास गर्नुभयो।",
-	"mwe-upwiz-file-too-large": "फाइल धेरै ठूलो छ।",
+	"mwe-upwiz-file-too-large": "फाइल धेरै ठुलो छ।",
 	"mwe-upwiz-dialog-yes": "हो",
 	"mwe-upwiz-dialog-no": "कुनै",
 	"mwe-upwiz-dialog-title": "चेतावनी",

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"apihelp-flickrblacklist-summary": "د تورلړ کولو لپاره د کارن (NSID) پېژند کارولو سره د فليکر وېبتړ تاييد کړئ.",
+	"apihelp-flickrblacklist-extended-description": "کله چې <var>list</var> خوښنې سره وکارول شي؛ نو ټولې تورلړ شوې پېژندې بېرته راگرځوي.",
+	"apihelp-flickrblacklist-param-url": "فليکر وېبتړ چې بايد وازمويل شي.",
+	"apihelp-flickrblacklist-param-list": "کله چې واوڼل شي؛ بشپړ تورلړ بېرته راگرځي.\nله $1url سره يوځای نشي کارېدای.",
+	"apihelp-flickrblacklist-example-1": "د تورلړ په وړاندې د يو وېبتړ سم‌کتل",
+	"apihelp-flickrblacklist-example-2": "ټول تورلړ بېرته راگرځوي",
+	"apihelp-query+allcampaigns-summary": "د کوډگرراپورته‌کولو ټولې ټاکنيزې‌سيالۍ شمېرل.",
+	"apihelp-query+allcampaigns-param-enabledonly": "يوازې هغه ټاکنيزې‌سيالۍ لړليکوي چې چارن‌شوې وي.",
+	"apihelp-query+allcampaigns-param-limit": "د بېرته‌راستنېدونکو ټاکنيزو سياليو شمېر.",
+	"apihelp-query+allcampaigns-example-1": "چارن‌شوې ټاکنيزې‌سيالۍ شمېرل"
+}
