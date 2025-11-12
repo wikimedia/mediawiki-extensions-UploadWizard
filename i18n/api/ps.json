@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"apihelp-flickrblacklist-summary": "د تورلړ کولو لپاره د کارن (NSID) پېژند کارولو سره د فليکر وېبتړ تاييد کړئ.",
+	"apihelp-flickrblacklist-extended-description": "کله چې <var>list</var> خوښنې سره وکارول شي؛ نو ټولې تورلړ شوې پېژندې بېرته راگرځوي.",
+	"apihelp-flickrblacklist-param-url": "فليکر وېبتړ چې بايد وازمويل شي.",
+	"apihelp-flickrblacklist-param-list": "کله چې واوڼل شي؛ بشپړ تورلړ بېرته راگرځي.\nله $1url سره يوځای نشي کارېدای.",
+	"apihelp-flickrblacklist-example-1": "د تورلړ په وړاندې د يو وېبتړ سم‌کتل",
+	"apihelp-flickrblacklist-example-2": "ټول تورلړ بېرته راگرځوي",
+	"apihelp-query+allcampaigns-summary": "د کوډگرراپورته‌کولو ټولې ټاکنيزې‌سيالۍ شمېرل.",
+	"apihelp-query+allcampaigns-param-enabledonly": "يوازې هغه ټاکنيزې‌سيالۍ لړليکوي چې چارن‌شوې وي.",
+	"apihelp-query+allcampaigns-param-limit": "د بېرته‌راستنېدونکو ټاکنيزو سياليو شمېر.",
+	"apihelp-query+allcampaigns-example-1": "چارن‌شوې ټاکنيزې‌سيالۍ شمېرل",
+	"apihelp-mediadetection-summary": "د دې شونتيا بېرته راگرځوي چې د ورکړل شوې دوتنې کونجي له خوا ښودل شوی پټ شوی انځور يو نښان دی",
+	"apihelp-mediadetection-param-filename": "د دوتنې د مخ نوم",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var> له ای‌پي‌آی غوښتنې څخه راگرځېدلې <kbd>stash</kbd>",
+	"apihelp-mediadetection-example-filename": "د دې شونتيا بېرته راگرځوي چې د ورکړل شوې دوتنې نوم له خوا ښودل شوی انځور يو نښان دی",
+	"apihelp-mediadetection-example-filekey": "د دې شونتيا بېرته راگرځوي چې د ورکړل شوې دوتنې کونجي له خوا ښودل شوی پټ شوی انځور يو نښان دی",
+	"apierror-mediadetection-no-valid-thumbnail": "د انځور لپاره هېڅ بټنوک نشته؛ نو دا ډلبندي کوونکي ته نشي لېږل کېدای",
+	"apierror-mediadetection-invalid-mime-type": "د دې ډول دوتنې لپاره ای‌پي‌آی پای‌ټکی شتون نه لري - اجازه ورکړل شوي ډولونه image/jpeg, image/gif, image/png, image/bmp دي"
+}
