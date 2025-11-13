@@ -39,11 +39,6 @@
 	font-weight: normal;
 }
 
-// don't show additional license explainer text for third party license selection
-.mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-license-group .mwe-upwiz-label-explainer {
-	display: none;
-}
-
 // don't show warnings/inputs until selected
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-license-group label:not( :has( *:checked ) ):not( :focus-within ) {
 	.mwe-upwiz-label-warning,
@@ -238,6 +233,7 @@ label:has( .mwe-upwiz-license-custom ),
  * so we will target these directly and mimic OO.ui.MessageWidget( { type: 'warning' } )
  */
 .mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-unknown-head .mwe-upwiz-deed-license-group,
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-vrt-head > .oo-ui-labelElement-label > .mwe-upwiz-label-extra,
 .mwe-upwiz-label-warning {
 	// show warning style instead of default grey background
 	background: @background-color-warning-subtle ~'url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 24px 16px / 20px';
@@ -315,25 +311,13 @@ label:has( .mwe-upwiz-license-custom ),
 	}
 }
 
-/*
- * another customized option, where we need to style a link to the VRT form as a button
- */
-.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-vrt-head .mwe-upwiz-deed-license-group {
-	.mwe-upwiz-deed-license-group-subhead {
-		font-weight: normal;
-		color: inherit;
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-vrt-head {
+	> .oo-ui-labelElement-label > .mwe-upwiz-label-extra {
+		margin-top: 16px;
+	}
 
-		a:last-of-type {
-			display: block;
-			width: fit-content;
-			margin-top: 1em;
-			padding: 5px 12px;
-			font-weight: bold;
-			background-color: @background-color-base;
-			color: @color-progressive;
-			border: 1px solid @border-color-base;
-			border-radius: 2px;
-		}
+	&:not( .oo-ui-optionWidget-selected ) .mwe-upwiz-label-extra {
+		display: none;
 	}
 }
 

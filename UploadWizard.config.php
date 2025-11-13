@@ -525,9 +525,39 @@ return [
 			'special' => 'input',
 			'msgSpecial' => 'mwe-upwiz-license-custom-pd-explain'
 		],
-		'vrt' => [
-			'msg' => 'mwe-upwiz-license-vrt',
-			'templates' => [ 'Permission_pending' ]
+		'vrt-cc0' => [
+			'msg' => 'mwe-upwiz-license-cc-zero-text',
+			'msgExplain' => 'mwe-upwiz-source-ownwork-cc-zero-explain',
+			'icons' => [ 'cc-zero' ],
+			'url' => '//creativecommons.org/publicdomain/zero/1.0/',
+			'languageCodePrefix' => 'deed.',
+			'availableLanguages' => $uwCcAvailableLanguages,
+			'templates' => [ 'subst:PP', 'cc-zero' ]
+		],
+		'vrt-cc-by-4.0' => [
+			'msg' => 'mwe-upwiz-license-cc-by-4.0-text',
+			'msgExplain' => 'mwe-upwiz-source-ownwork-cc-by-4.0-explain',
+			'icons' => [ 'cc-by' ],
+			'url' => '//creativecommons.org/licenses/by/4.0/',
+			'languageCodePrefix' => 'deed.',
+			'availableLanguages' => $uwCcAvailableLanguages,
+			'templates' => [ 'subst:PP', 'cc-by-4.0' ]
+		],
+		'vrt-cc-by-sa-4.0' => [
+			'msg' => 'mwe-upwiz-license-cc-by-sa-4.0-text',
+			'msgExplain' => 'mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain',
+			'icons' => [ 'cc-by', 'cc-sa' ],
+			'url' => '//creativecommons.org/licenses/by-sa/4.0/',
+			'languageCodePrefix' => 'deed.',
+			'availableLanguages' => $uwCcAvailableLanguages,
+			'templates' => [ 'subst:PP', 'cc-by-sa-4.0' ]
+		],
+		'vrt-custom' => [
+			'msg' => 'mwe-upwiz-license-custom',
+			'templates' => [ 'subst:PP' ],
+			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse(),
+			'special' => 'input',
+			'msgSpecial' => 'mwe-upwiz-license-custom-explain'
 		],
 		'generic' => [
 			'msg' => 'mwe-upwiz-license-generic',
@@ -595,14 +625,18 @@ return [
 				],
 				[
 					'head' => 'mwe-upwiz-license-vrt-head',
-					'subhead' => 'mwe-upwiz-license-vrt-subhead',
+					'head-extra' => 'mwe-upwiz-license-vrt-head-extra',
+					'subhead' => 'mwe-upwiz-license-vrt-subhead-1',
 					'url' => [
 						'permissions-commons@wikimedia.org',
 						'//commons.wikimedia.org/wiki/Commons:Wikimedia_VRT_release_generator',
 					],
-					'type' => 'and',
+					'type' => 'or',
 					'licenses' => [
-						'vrt',
+						'vrt-cc0',
+						'vrt-cc-by-4.0',
+						'vrt-cc-by-sa-4.0',
+						'vrt-custom',
 					]
 				],
 				[
