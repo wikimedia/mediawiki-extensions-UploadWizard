@@ -212,7 +212,7 @@
 	"mwe-upwiz-prefs-def-license": "Podrazumijevana licencija",
 	"mwe-upwiz-prefs-def-license-def": "Koristi podrazumijevano",
 	"mwe-upwiz-prefs-def-license-custom": "Druga osnovna licencija",
-	"mwe-upwiz-prefs-def-license-custom-help": "Ovo polje je u upotrebi jedino ako izaberite posljednju mogućnost iznad.",
+	"mwe-upwiz-prefs-def-license-custom-help": "Ovo polje koristi se samo ako ste izaberili posljednju opciju iznad.",
 	"mwe-upload-campaigns-pagination-next": "Sljedeća stranica",
 	"mwe-upload-campaigns-list-title": "Lista pothvata postavljanja"
 }
