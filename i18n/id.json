@@ -364,7 +364,6 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Manakah dari pilihan berikut yang benar? Centang semua yang berlaku.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} berlokasi di Amerika Serikat, jadi {{PLURAL:$1|karya|karya-karya}} juga harus bebas hak cipta di Amerika Serikat pula.",
 	"mwe-upwiz-license-vrt-head": "Saya memiliki izin untuk mengunggah {{PLURAL:$1|karya|karya-karya}} dari atasan saya atau pembuat {{PLURAL:$1|karya|karya-karya}} ini",
-	"mwe-upwiz-license-vrt-subhead": "Pembuat {{PLURAL:$1|karya|karya-karya}} ini atau perwakilan mereka harus mengirimkan persetujuan tertulis kepada [mailto:$2 $2] untuk merilis karya ini di bawah lisensi bebas dalam waktu 30 hari sejak Anda mengunggahnya. Harap gunakan generator surell di bawah ini. [$3 Pembuat surel perilisan otomatis]",
 	"mwe-upwiz-license-unknown-head": "Saya tidak tahu apakah {{PLURAL:$1|karya|karya-karya}} itu bebas untuk digunakan dan dibagikan",
 	"mwe-upwiz-license-unknown-subhead": "<b>Jangan unggah {{PLURAL:$1|berkas ini|berkas-berkas ini}}!</b> Hanya media dengan [[COM:L#Well-known_licenses|lisensi bebas]] atau berada dalam [[COM:PD|domain publik]] yang diizinkan di {{SITENAME}}. Jika Anda ragu, silakan [[COM:L|pelajari lebih lanjut tentang berkas apa yang diizinkan]], atau [[COM:VPC|tanyakan kepada kontributor berpengalaman]] sebelum mengunggah. Terima kasih.",
 	"mwe-upwiz-license-other-head": "Masukkan lisensi lain dalam format teks wiki",

@@ -323,7 +323,6 @@
 	"mwe-upwiz-license-cc0-head-extra": "Npr: {{PLURAL:$1|staro djelo|stara djela}} čija su autorska prava istekla ili {{PLURAL:$1|djelo koje|djela koja}} je objavila vlada kao javni zapis, itd. [$2 Vidi više]",
 	"mwe-upwiz-license-cc0-subhead-2": "Koja je od niže navednih mogućnosti točna? Označite sve koje se mogu primijeniti.",
 	"mwe-upwiz-license-vrt-head": "Imam dopuštenje svog poslodavca ili autora {{PLURAL:$1|ovog djela|ovih djela}} za postavljanje {{PLURAL:$1|ovog djela|ovih djela}}",
-	"mwe-upwiz-license-vrt-subhead": "Autor {{PLURAL:$1|ovog djela|ovih djela}} ili njegov zastupnik mora poslati pisanu suglasnost na [mailto:$2 $2] za objavu pod slobodnom licencijom u roku od 30 dana od vašeg postavljanja. Molimo rabite generator e-poruka. [$3 Generator e-poruka]",
 	"mwe-upwiz-license-unknown-head": "Ne znam {{PLURAL:$1|je li slobodna|jesu li slobodne}} za dijeljenje",
 	"mwe-upwiz-license-other-head": "Unesite drugu licenciju u wikitekst formatu",
 	"mwe-upwiz-license-cc-head": "Nositelj autorskog prava objavio je {{PLURAL:$1|ovo djelo|ova djela}} pod Creative Commons licencijom.",

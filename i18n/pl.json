@@ -377,7 +377,6 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Które z poniższych są prawdziwe? Wybierz wszystkie, które mają zastosowanie.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} jest utrzymywana w Stanach Zjednoczonych, dlatego {{PLURAL:$1|ta praca musi|te prace muszą}} być nieobjęte prawami autorskimi również w USA.",
 	"mwe-upwiz-license-vrt-head": "Mam pozwolenie na przesłanie {{PLURAL:$1|tej pracy|tych prac}} od mojego pracodawcy lub twórcy {{PLURAL:$1|tej pracy|tych prac}}",
-	"mwe-upwiz-license-vrt-subhead": "Twórca {{PLURAL:$1|tej pracy|tych prac}} lub jego przedstawiciel musi w ciągu 30 dni wysłać pisemną zgodę pod adres [mailto:$2 $2], aby potwierdzić udzielenie wolnej licencji. Do przygotowania treści maila prosimy użyć [$3 Generatora treści pozwoleń].",
 	"mwe-upwiz-license-unknown-head": "Nie jestem {{GENDER:|pewien|pewna}} czy {{PLURAL:$1|może|mogą}} być swobodnie udostępniane",
 	"mwe-upwiz-license-unknown-subhead": "<b>Nie przesyłaj {{PLURAL:$1|tego pliku|tych plików}}!</b> W {{SITENAME}} dozwolone są wyłącznie multimedia na [[COM:L#Well-known_licenses|wolnych licencjach]] lub w [[COM:PD|domenie publicznej]]. W razie wątpliwości, [[COM:L|przeczytaj więcej o tym, co jest dozwolone]] lub [[COM:VPC|zapytaj doświadczonych użytkowników]], zanim prześlesz plik. Dziękujemy.",
 	"mwe-upwiz-license-other-head": "Wprowadź wikikod, określający inną licencję",

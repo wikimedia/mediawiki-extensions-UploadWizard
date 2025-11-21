@@ -361,7 +361,6 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Hvilket av alternativene nedenfor stemmer? Velg alle som gjelder.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} ligger i USA, så {{PLURAL:$1|verket|verkene}} må ha falt i det fri der også.",
 	"mwe-upwiz-license-vrt-head": "Jeg har tillatelse til å laste opp {{PLURAL:$1|dette verket|disse verkene}} fra arbeidsgiveren min eller {{PLURAL:$1|verkets|verkenes}} opphavsperson.",
-	"mwe-upwiz-license-vrt-subhead": "{{PLURAL:$1|Verkets|Verkenes}} opphavsperson eller hens representant må sende et skriftlig samtykke til [mailto:$2 $2] for å utgi {{PLURAL:$1|verket|verkene}} under en fri lisens innen 30 dager fra opplastingen. Bruk e-postgeneratoren nedenfor. [$3 Generator for frivigelses-e-post]",
 	"mwe-upwiz-license-unknown-head": "Jeg vet ikke om {{PLURAL:$1|det|de}} kan deles fritt",
 	"mwe-upwiz-license-unknown-subhead": "<b>Ikke last opp {{PLURAL:$1|denne fila|disse filene}}!</b> Kun mediefiler som er utgitt under [[COM:L#Well-known_licenses|frie lisenser]] eller har [[COM:PD|falt i det fri]] tillates på {{SITENAME}}. [[COM:L|Lær mer om hva som er tillatt]] hvis du er i tvil, eller [[COM:VPC|spør erfarne bidragsytere]] før du laster opp. Takk.",
 	"mwe-upwiz-license-other-head": "Skriv inn en annen lisens i wikitekstformat",

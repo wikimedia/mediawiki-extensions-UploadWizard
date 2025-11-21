@@ -375,7 +375,6 @@
 	"mwe-upwiz-license-cc0-subhead-2": "下列哪一個選項符合實情？請勾選所有適用的選項。",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}}位於美國，因此{{PLURAL:$1|作品}}也必須在美國不受版權保護。",
 	"mwe-upwiz-license-vrt-head": "我有來自我的雇主或{{PLURAL:$1|這|這些}}作品創作者的允許，來上傳{{PLURAL:$1|這|這些}}作品",
-	"mwe-upwiz-license-vrt-subhead": "{{PLURAL:$1|這|這些}}作品的創作者或代表者必須在您上傳後 30 天內對[mailto:$2 $2]傳送書面同意，來以自由授權條款釋出此作品。請使用下方的電子郵件產生器。[$3 釋出電子郵件產生器]",
 	"mwe-upwiz-license-unknown-head": "我不知道{{PLURAL:$1|這|這些}}是否能夠自由分享。",
 	"mwe-upwiz-license-unknown-subhead": "<b>請不要上傳{{PLURAL:$1|這|這些}}檔案！</b>僅有具備[[COM:L#Well-known_licenses|自由授權條款]]或是[[COM:PD|公有領域]]的媒體才允許在{{SITENAME\n}}上使用。若您有任何疑問，請在上傳前[[COM:L|詳細了解允許的內容]]或[[COM:VPC|詢問經驗豐富的貢獻者]]。感謝。",
 	"mwe-upwiz-license-other-head": "以 wikitext 格式輸入不同的授權條款",

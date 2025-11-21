@@ -352,7 +352,6 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Katera od naslednjih možnosti je pravilna? Izberite vse, kar velja.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} se nahaja v ZDA, zato {{PLURAL:$1|mora biti delo avtorskopravno nevarovano tudi v ZDA|morajo biti dela avtorskopravno nevarovana tudi v ZDA}}.",
 	"mwe-upwiz-license-vrt-head": "Imam dovoljenje za nalaganje {{PLURAL:$1|tega dela|teh del}} od svojega delodajalca ali ustvarjalca {{PLURAL:$1|tega dela|teh del}}",
-	"mwe-upwiz-license-vrt-subhead": "Za objavo tega dela pod prosto licenco mora ustvarjalec {{PLURAL:$1|tega dela|teh del}} ali njegov zastopnik v 30 dneh od nalaganja poslati pisno soglasje na [mailto: $2 $2]. Prosimo, uporabite spodnji generator e-poštnih sporočil. [$3 Generator e-poštnih sporočil za objavo]",
 	"mwe-upwiz-license-unknown-head": "Ne vem, ali {{PLURAL:$1|je prosto za deljenje|sta prosti za deljenje|so prosta za deljenje}}",
 	"mwe-upwiz-license-unknown-subhead": "<b>Ne naložite {{PLURAL:$1|te datoteke|teh datotek}}!</b> V {{SITENAME}} je dovoljeno samo predstavnostno gradivo pod [[COM:L#Well-known_licenses|prostimi licencami]] ali v [[COM:PD|javni domeni]]. Če ste v kakršnem koli dvomu, si pred nalaganjem [[COM:L|preberite več o tem, kaj je dovoljeno]], ali [[COM:VPC|vprašajte izkušene sodelavce]]. Hvala.",
 	"mwe-upwiz-license-other-head": "V obliki vikibesedila vnesite drugo licenco",

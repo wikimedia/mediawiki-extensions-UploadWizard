@@ -363,7 +363,6 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Vilket av alternativen nedan är sant? Bocka i alla som stämmer.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} ligger i USA, så {{PLURAL:$1|verket|verken}} får inte heller ha upphovsrätt i USA.",
 	"mwe-upwiz-license-vrt-head": "Jag har tillstånd att ladda upp {{PLURAL:$1|det här verket|de här verken}} från min arbetsgivare eller {{PLURAL:$1|verkets|verkens}} skapare",
-	"mwe-upwiz-license-vrt-subhead": "{{PLURAL:$1|Verkets|Verkens}} skapare eller {{PLURAL:$1|dess|deras}} representant måste skicka in ett skrivet medgivande till [mailto:$2 $2] för att släppa det här verket under en fri licens inom 30 dagar efter din uppladdning. Använd mejlgeneratorn nedan. [$3 Mejlgeneratorn].",
 	"mwe-upwiz-license-unknown-head": "Jag vet inte om {{PLURAL:$1|det är fritt|de är fria}} att dela",
 	"mwe-upwiz-license-unknown-subhead": "<b>Ladda inte upp {{PLURAL:$1|den här filen|de här filerna}}!</b> Endast media med [[COM:L#Well-known_licenses|fria licenser]] eller i [[COM:PD|public domain]] är tillåtna på {{SITENAME}}. Om du tvivlar kan du [[COM:L|läsa mer om vad som är tillåtet]], eller [[COM:VPC|fråga en erfaren bidragsgivare]] innan du laddar upp. Tack.",
 	"mwe-upwiz-license-other-head": "Ange en annan licens i wikitextformat",

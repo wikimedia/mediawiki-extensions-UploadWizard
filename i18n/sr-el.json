@@ -332,7 +332,6 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Koje od navedenog je tačno? Označite sve primenljive.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} je locirana u SAD-u, samim tim {{PLURAL:$1|rad mora|radovi moraju}} biti slobodni i u SAD-u.",
 	"mwe-upwiz-license-vrt-head": "Ja imam dozvolu od svog poslodavca ili tvorca {{PLURAL:$1|ovog rada|ovih radova}} da otpremim {{PLURAL:$1|ovaj rad|ove radove}}",
-	"mwe-upwiz-license-vrt-subhead": "Tvorac {{PLURAL:$1|ovog rada|ovih radova}} ili njegov zastupnik mora poslati pisanu saglasnost na [mailto:$2 $2] da oslobođa dela pod slobodnom licencom u roku od 30 dana od dana otpremanja. Molimo upotrebite generator imejla  ispod. [$3 Release email generator]",
 	"mwe-upwiz-license-unknown-head": "Ne znam da li {{PLURAL:$1|je slobodan|su slobodni}} za deljenje",
 	"mwe-upwiz-license-other-head": "Unesete drugu licencu u vikitekst formatu.",
 	"mwe-upwiz-license-cc-head": "Nosilac autorskog prava je objavio {{PLURAL:$1|1=ovo delo|ova dela}} pod licencom Creative Commons",
