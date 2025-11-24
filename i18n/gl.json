@@ -353,6 +353,8 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Cal das seguintes opcións é certa? Marca todas as que correspondan.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} está aloxado nos EUA, de modo que {{PLURAL:$1|a obra|as obras}} tamén {{PLURAL:$1|debe|deben}} estar {{PLURAL:$1|libre|libres}} de dereitos de autoría nos EUA.",
 	"mwe-upwiz-license-vrt-head": "Teño o permiso do meu empregador ou da persoa autora para subir {{PLURAL:$1|esta obra|estas obras}}",
+	"mwe-upwiz-license-vrt-head-extra": "O creador {{PLURAL:$1|desta obra|destas obras}} ou o seu representante debe enviar un consentimento por escrito a [mailto:$2 $2] para poder liberar esta obra baixo unha licenza libre. Podes usar este [$3 xerador de correos electrónicos] como modelo para o teu correo electrónico. <b>Se a mensaxe de correo electrónico non se envía nos 30 días posteriores á carga, este contido multimedia eliminarase.</b>",
+	"mwe-upwiz-license-vrt-subhead-1": "Selecciona o tipo de licenza baixo a que se pretende publicar esta obra",
 	"mwe-upwiz-license-unknown-head": "Non sei se se {{PLURAL:$1|pode|poden}} compartir libremente",
 	"mwe-upwiz-license-unknown-subhead": "<b>Non subas {{PLURAL:$1|este ficheiro|estes ficheiros}}!</b> En {{SITENAME}} só se permiten os medios con [[COM:L#Well-known_licenses|licenzas libres]] ou no [[COM:PD|dominio público]]. Se tes algunha dúbida, [[COM:L|obtén máis información sobre o que está permitido]] ou [[COM:VPC|pide consello a algúns colaboradores experimentados]] antes de subires nada. Grazas.",
 	"mwe-upwiz-license-other-head": "Introduce unha licenza diferente en formato de texto wiki",
