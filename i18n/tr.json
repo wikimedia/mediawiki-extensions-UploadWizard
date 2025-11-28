@@ -371,6 +371,8 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Aşağıdaki hangi seçenek doğru? Uyanların tümünü işaretleyin.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} ABD'de bulunmaktadır, dolayısıyla {{PLURAL:$1|çalışmanın|çalışmaların}} ABD'de de telif hakkının sona ermiş olması gerekir.",
 	"mwe-upwiz-license-vrt-head": "İşverenimden ya da bu {{PLURAL:$1|çalışmanın|çalışmaların}} üreticisinden bu {{PLURAL:$1|çalışmayı|çalışmaları}} yükleme iznim var",
+	"mwe-upwiz-license-vrt-head-extra": "Bu {{PLURAL:$1|eseri|eserleri}} oluşturan ya da temsilcisi, bu eseri özgür bir lisans altında yayımlamak için [mailto:$2 $2] adresine yazılı bir onay göndermelidir. E-postanız için şablon olarak bu [$3 e-posta oluşturucuyu] kullanabilirsiniz. <b>E-posta, yüklendikten sonraki 30 gün içinde gönderilmezse, bu ortam silinecektir.</b>",
+	"mwe-upwiz-license-vrt-subhead-1": "Bu eserin hangi lisans altında yayınlanmasının amaçlandığını seçin",
 	"mwe-upwiz-license-unknown-head": "{{PLURAL:$1|Bu|Bunlar}} özgürce paylaşılabilir mi emin değilim",
 	"mwe-upwiz-license-unknown-subhead": "<b>Bu {{PLURAL:$1|dosyayı|dosyaları}} yüklemeyin!</b> {{SITENAME}}, yalnızca [[COM:L#Well-known_licenses|özgür lisansı]] olan ya da [[COM:PD|kamu malı]] ortama izin verir. Herhangi bir şüpheniz varsa lütfen yüklemeden önce [[COM:L|neye izin verildiği hakkında daha fazla bilgi edinin]] ya da [[COM:VPC|deneyimli katkıda bulunanlara sorun]]. Teşekkürler.",
 	"mwe-upwiz-license-other-head": "Vikimetin biçiminde farklı bir lisans girin",
