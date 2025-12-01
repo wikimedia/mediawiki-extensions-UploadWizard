@@ -362,6 +362,8 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Az alábbi lehetőségek közül melyik igaz? Jelöld be mindet, ami igaz.",
 	"mwe-upwiz-license-cc0-subhead-extra": "A {{SITENAME}} az USA-ban található, így a {{PLURAL:$1|mű|művek}} nem lehetnek szerzői jogi védelem alatt az USA-ban sem.",
 	"mwe-upwiz-license-vrt-head": "Van engedélyem a {{PLURAL:$1|mű|művek}} feltöltésére a munkáltatómtól vagy a {{PLURAL:$1|mű|művek}} alkotójától",
+	"mwe-upwiz-license-vrt-head-extra": "{{PLURAL:$1|E mű|Ezen művek}} készítőjének vagy az ő képviselőjének egy írásos engedélyt kell küldenie a [mailto:$2 $2] címre ahhoz, hogy ezt a művet szabad licenc alatt közzétegye. Használhatod az [$3 email generátort] sablonként az e-mailedhez. <b>Ha az e-mailt nem küldöd el a feltöltéstől számított 30 napon belül, a médiafájl törlésre kerül.</b>",
+	"mwe-upwiz-license-vrt-subhead-1": "Válaszd ki a licenc típusát, amely alatt ezt a művet közzé lehet tenni",
 	"mwe-upwiz-license-unknown-head": "Nem tudom, hogy {{PLURAL:$1|terjeszthető-e szabadon|terjeszthetőek-e szabadon}}",
 	"mwe-upwiz-license-unknown-subhead": "<b>Ne töltsd fel {{PLURAL:$1|ezt a fájlt|ezeket a fájlokat}}!</b> A {{SITENAME}} oldalon csak olyan médiaállomány engedélyezett aminek [[COM:L#Well-known_licenses|szabad a licence]] vagy [[COM:PD|közkincs]]. Ha bármilyen kétséged támadt, kérjük a feltöltés előtt [[COM:L|tudj meg többet a megengedett tartalmakról]], vagy [[COM:VPC|kérdezz meg tapasztalt szerkesztőket]]. Köszönjük.",
 	"mwe-upwiz-license-other-head": "Adj meg egy másik licencet wikitext formátumban",

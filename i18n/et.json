@@ -332,6 +332,8 @@
 	"mwe-upwiz-license-cc0-subhead-2": "Millised järgmistest valikuvõimalustest on õiged? Vali kõik, mis sobivad.",
 	"mwe-upwiz-license-cc0-subhead-extra": "{{SITENAME}} asub Ühendriikides ja seetõttu {{PLURAL:$1|peab teos|peavad teosed}} olema autoriõiguse kaitseta ka selles riigis.",
 	"mwe-upwiz-license-vrt-head": "{{PLURAL:$1|Selle teose|Nende teoste}} üleslaadimiseks andis mulle loa minu tööandja või {{PLURAL:$1|selle teose|nende teoste}} autor",
+	"mwe-upwiz-license-vrt-head-extra": "{{PLURAL:$1|Selle teose|Nende teoste}} autor või tema esindaja peab saatma kirjaliku nõusoleku aadressile [mailto:$2 $2], et loovutada {{PLURAL:$1|see teos|need teosed}} vaba litsentsi alla. Saad kasutada seda [$3 e-kirja koostamise vahendit] e-kirja plangina. <b>Kui e-kirja ei saadeta 30 päeva jooksul pärast seda, kui oled {{PLURAL:$1|selle teose|need teosed}} üles laadinud, siis {{PLURAL:$1|see teos|need teosed}} kustutatakse.</b>",
+	"mwe-upwiz-license-vrt-subhead-1": "Vali litsents, mille all soovitakse teos avaldada.",
 	"mwe-upwiz-license-unknown-head": "Ma ei tea, kas {{PLURAL:$1|seda|neid}} tohib vabalt jagada",
 	"mwe-upwiz-license-unknown-subhead": "<b>Ära laadi {{PLURAL:$1|seda faili|neid faile}} üles!</b> {{GRAMMAR:inessive|{{SITENAME}}}} on lubatud ainult [[COM:L#Well-known_licenses|vaba litsentsiga]] failid või [[COM:PD|avalikku omandisse]] kuuluvad failid. Kui kahtled, siis palun [[COM:L|loe veel selle kohta, mis on lubatud]], või [[COM:VPC|küsi enne üleslaadimist nõu mõne kogenud kaastöölise käest]]. Aitäh.",
 	"mwe-upwiz-license-other-head": "Sisestan muu litsentsi vikiteksti vormingus",
