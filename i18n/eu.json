@@ -328,7 +328,7 @@
 	"mwe-upwiz-license-unknown": "Ez dakit",
 	"mwe-upwiz-license-unknown-warning": "<b>Ez igo {{PLURAL:$1|fitxategi hau|fitxategi hauek}}</b> argitaratu {{PLURAL:$1|den|diren}} lizentzia ziur ez badakizu. Zalantzarik baduzu, mesedez [[COM:L|ikasi gehiago baimendutakoari buruz]], edo [[COM:VPC|galdetu eskarmentua duten kideei]] igo aurretik. Eskerrik asko.",
 	"mwe-upwiz-license-unsure": "Ez nago ziur AEBetan copyrightik gabe ote {{PLURAL:$1|dagoen|dauden}}",
-	"mwe-upwiz-license-free-head": "Sortzialeak lan {{PLURAL:$1|hau|hauek}} lizentzia libre baten pean argitaratu {{PLURAL:$1|du|ditu}}, adb. [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons lizentzia] bat.",
+	"mwe-upwiz-license-free-head": "Sortzaileak lan {{PLURAL:$1|hau|hauek}} lizentzia libre baten pean argitaratu {{PLURAL:$1|du|ditu}}, adb. [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons lizentzia] bat.",
 	"mwe-upwiz-license-free-subhead": "Badakizu zein lizentziapean argitaratu {{PLURAL:$1|duen sortzaileak lan hau|dituen sortzaileak lan hauek}}?",
 	"mwe-upwiz-license-cc0-head": "Lan {{PLURAL:$1|hau ez dago|hauek ez daude}} copyright legeak babestuta",
 	"mwe-upwiz-license-cc0-head-extra": "Adibidea: copyrighta iraungi {{PLURAL:$1|zaion|zaien}} lan zaharra edo gobernuak erregistro publiko gisa argitaratutako {{PLURAL:$1|lana|lanak}}, etab. [$2 Informazio gehiago]",
