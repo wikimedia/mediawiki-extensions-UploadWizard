@@ -141,7 +141,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "En ole varma",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown-warning": "<b>Älä tallenna {{PLURAL:$1|tätä tiedostoa|näitä tiedostoja}}!</b> Jos olet epävarma, [[COM:L|lue lisää lisensoinnista]] tai kysy neuvoa joltain kokeneelta käyttäjältä ennen tallentamista. [[COM:VPC|Wikimedia Commonsin kahvihuoneessa]] sinua autetaan mielellään. Kiitos.",
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Loin}} {{PLURAL:$1|tämän teoksen|nämä teokset}} käyttämällä tekoälytyökalua [[COM:AI-generated_media|(katso säännöt)]]",
-	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Anna käytetyn tekoälyohjelman nimi. Jos jonkun muun alkuperäistä teosta  käytettiin {{PLURAL:$1|tämän teoksen|näiden teosten}} luomiseen, luettele myös ne.",
+	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Anna käytetyn tekoälyohjelman nimi. Jos jonkun muun alkuperäistä teosta käytettiin {{PLURAL:$1|tämän teoksen|näiden teosten}} luomiseen, luettele myös ne.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Esimerkki:</b> ”Tekijä: Midjourney AI”; ”Valokuvan ottaja: Ansel Adams, väritetty Colorme AI:lla” tms.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-prompt": "Anna kehote (prompti), jota käytettiin tämän median luomisessa",
 	"mwe-upwiz-source-permission": "Niiden tekijä antoi yksiselitteisen luvan tiedostojen tallentamiseen",
