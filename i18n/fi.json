@@ -139,7 +139,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "En tiedä, voiko {{PLURAL:$1|sitä|niitä}} käyttää ja jakaa vapaasti",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown-warning-text": "<b>Älä tallenna {{PLURAL:$1|tätä tiedostoa|näitä tiedostoja}}!</b> Ainoastaan media, joka on lisensoitu [[COM:L#Well-known_licenses|vapailla lisensseillä]] tai jotka ovat [[COM:PD|public domainissa]] ovat sallittuja {{GRAMMAR:inessive|{{SITENAME}}}}. Jos olet epävarma, [[COM:L|lue lisää siitä, mikä on sallittua]], tai kysy neuvoa [[COM:VPC|kokeneilta käyttäjiltä]] ennen tallentamista. Kiitos.",
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Loin}} {{PLURAL:$1|tämän teoksen|nämä teokset}} käyttämällä tekoälytyökalua [[COM:AI-generated_media|(katso säännöt)]]",
-	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Anna käytetyn tekoälyohjelman nimi. Jos jonkun muun alkuperäistä teosta  käytettiin {{PLURAL:$1|tämän teoksen|näiden teosten}} luomiseen, luettele myös ne.",
+	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Anna käytetyn tekoälyohjelman nimi. Jos jonkun muun alkuperäistä teosta käytettiin {{PLURAL:$1|tämän teoksen|näiden teosten}} luomiseen, luettele myös ne.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Esimerkki:</b> ”Tekijä: Midjourney AI”; ”Valokuvan ottaja: Ansel Adams, väritetty Colorme AI:lla” tms.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-prompt": "Anna kehote (prompti), jota käytettiin tämän median luomisessa",
 	"mwe-upwiz-source-permission": "Niiden tekijä antoi yksiselitteisen luvan tiedostojen tallentamiseen",
