@@ -69,6 +69,9 @@
 				}
 			];
 
+		// load requires a h1 element to scroll to T411644
+		$( '<h1>' ).appendTo( '#qunit-fixture' );
+
 		step.load( uploads );
 
 		assert.strictEqual( ststub.callCount, 2 );
