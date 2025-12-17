@@ -10,26 +10,24 @@
 	},
 	"rules": {
 		"max-len": "off",
-		"mediawiki/class-doc": "warn",
-		"mediawiki/msg-doc": "warn",
 		"jsdoc/no-undefined-types": [
 			"warn",
 			{
 				"definedTypes": [
-					"uw"
+					"uw",
+					"uw.controller.Step",
+					"uw.DetailsWidget",
+					"uw.FieldLayout",
+					"uw.PatentDialog",
+					"uw.UlsWidget",
+					"uw.ui.Step",
+					"uw.ValidatableElement",
+					"uw.ValidationStatus"
 				]
 			}
 		],
 		"no-shadow": "warn",
-		"es-x/no-symbol-prototype-description": "warn",
-		"es-x/no-typed-arrays": "warn",
-		"no-jquery/no-extend": "warn",
-		"no-jquery/no-done-fail": "warn",
-		"no-jquery/no-animate": "warn",
-		"es-x/no-iterator-prototype-reduce": "warn",
-		"es-x/no-iterator-prototype-some": "warn",
-		"mediawiki/no-unlabeled-buttonwidget": "warn",
-		"es-x/no-iterator-prototype-toarray": "warn"
+		"no-jquery/no-done-fail": "warn"
 	},
 	"settings": {
 		"jsdoc": {
