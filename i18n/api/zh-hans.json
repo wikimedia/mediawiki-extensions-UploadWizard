@@ -16,5 +16,10 @@
 	"apihelp-query+allcampaigns-param-limit": "要返回的通告数。",
 	"apihelp-query+allcampaigns-example-1": "列举启用的通告",
 	"apihelp-mediadetection-summary": "传回由所提供文件键表示出贮藏图片为标志的可能性",
-	"apihelp-mediadetection-param-filename": "文件页面名称"
+	"apihelp-mediadetection-param-filename": "文件页面名称",
+	"apihelp-mediadetection-param-filekey": "从<kbd>stash</kbd>API请求回传的<var>filekey</var>",
+	"apihelp-mediadetection-example-filename": "传回由所提供文件名称表示出图片为标志的可能性",
+	"apihelp-mediadetection-example-filekey": "传回由所提供文件键表示出贮藏图片为标志的可能性",
+	"apierror-mediadetection-no-valid-thumbnail": "图片不存在缩略图，因此无法发送给分类器",
+	"apierror-mediadetection-invalid-mime-type": "API端点不适用于此类文件 - 允许的类型为image/jpeg、image/gif、image/png、image/bmp"
 }
