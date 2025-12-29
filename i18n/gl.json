@@ -210,7 +210,7 @@
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Escribe un título máis descritivo ([$2 ollar os exemplos]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Exemplos de títulos",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>Exemplos de bos nomes de ficheiros:</b></p><ul><li>Panorámica de Nodnol desde a Casa do Concello de Nodnol - agosto de 2022</li><li>Reunión de colonos en Falconer Bay, New Nodland (1875)</li><li>Pseudoedro sen vértices visibles desde o centro</li></ul><br><p><b>Exemplos de malos nomes de ficheiros:</b></p><ul><li>Imaxe01</li><li>María</li><li>DSC00001</li><li>Casa.svg.png</li><li>30996951316264l</li><li>PSEUDEDRO SEN VÉRTICES VISIBLES DESDE O CENTRO</li></ul><p><a href='https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename' target='_blank'>Máis información</a></p>",
-	"mwe-upwiz-blacklisted-details": "O nome do ficheiro contén caracteres non válidos ou ten un formato non válido. ([$2 Fai clic aquí] para obter orientación sobre como corrixir este problema.)",
+	"mwe-upwiz-blacklisted-details": "O nome do ficheiro contén caracteres non válidos ou ten un formato non válido. ([$2 Guía para corrixir o nome do ficheiro].)",
 	"mwe-upwiz-blacklisted-details-feedback": "Escribe un título diferente e máis descritivo ([$2 máis información]) • [$3 Enviar comentarios]",
 	"mwe-upwiz-next": "Seguinte",
 	"mwe-upwiz-next-file": "Continuar",
