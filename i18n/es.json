@@ -220,7 +220,7 @@
 	"mwe-upwiz-fileexists-replace-on-page-v2": "Ya se ha usado este. Elija un título único. Consejo: agrega la fecha, el mes o el año de la obra para que sea única.",
 	"mwe-upwiz-fileexists-replace-no-link": "Por favor, elige un título diferente, porque ya existe un archivo con este título.",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Ejemplos de títulos",
-	"mwe-upwiz-blacklisted-details": "Este nombre de archivo contiene caracteres no válidos o está en un formato no válido. ([ $2 Guía para corregir el nombre del archivo ].)",
+	"mwe-upwiz-blacklisted-details": "Este nombre de archivo contiene caracteres no válidos o está en un formato no válido. ([$2 Guía para corregir el nombre del archivo].)",
 	"mwe-upwiz-blacklisted-details-feedback": "Por favor escriba un título más informativo ([$2 ver ejemplos]). • [$3 Enviar comentarios]",
 	"mwe-upwiz-next": "Siguiente",
 	"mwe-upwiz-next-file": "Continuar",
