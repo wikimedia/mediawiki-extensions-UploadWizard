@@ -314,7 +314,7 @@
 	"mwe-upwiz-license-cc-zero-text": "크리에이티브 커먼즈 CC0 보편적 $3 [$2 (라이선스 전문)]",
 	"mwe-upwiz-license-custom": "다른 라이선스 입력",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:저작권 태그",
-	"mwe-upwiz-license-custom-explain": "유효한 [$2 저작권 태그]가 들어가야 합니다",
+	"mwe-upwiz-license-custom-explain": "유효한 [$2 저작권 태그]가 들어가야 합니다. (예: <nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>)",
 	"mwe-upwiz-license-custom-pd": "해당되는 경우 특정 퍼블릭 도메인 태그를 추가하세요.",
 	"mwe-upwiz-license-custom-pd-explain": "유효한 틀에 유효한 [$2 퍼블릭 도메인 태그]를 추가하세요. (예: <nowiki>{{</nowiki>Pd-old-70<nowiki>}}</nowiki>)",
 	"mwe-upwiz-license-fal": "프리 아트 라이선스",
