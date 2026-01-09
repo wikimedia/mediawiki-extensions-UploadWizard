@@ -111,7 +111,7 @@
 				$subhead.append(
 					$( '<span>' )
 						.addClass( 'mwe-upwiz-label-extra' )
-						.append( mw.message.apply( mw.message, labelExtraParams ).parse() )
+						.append( mw.message.apply( mw.message, labelExtraParams ).parseDom() )
 				);
 			}
 
@@ -432,7 +432,7 @@
 			if ( licenseInfo.props.msgSpecial !== undefined ) {
 				inputField.$body.append(
 					$( '<span>' )
-						.html( mw.message( licenseInfo.props.msgSpecial, this.count || 0, $licenseLink ).parse() )
+						.append( mw.message( licenseInfo.props.msgSpecial, this.count || 0, $licenseLink ).parseDom() )
 						.addClass( 'mwe-upwiz-label-extra' )
 				);
 			}

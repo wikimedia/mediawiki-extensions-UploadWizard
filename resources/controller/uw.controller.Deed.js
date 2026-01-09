@@ -124,7 +124,7 @@
 						'mwe-upwiz-source-multiple-label-common',
 						localUploads.length,
 						mw.user
-					).parse(),
+					).parseDom(),
 					data: 'common'
 				} ),
 				new OO.ui.RadioOptionWidget( {
@@ -132,7 +132,7 @@
 						'mwe-upwiz-source-multiple-label-individual',
 						localUploads.length,
 						mw.user
-					).parse(),
+					).parseDom(),
 					data: 'individual'
 				} )
 			]

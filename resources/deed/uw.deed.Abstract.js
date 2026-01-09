@@ -49,7 +49,7 @@
 							details.label,
 							uploads.length,
 							mw.user
-						).parse(),
+						).parseDom(),
 						align: 'inline',
 						required: true // not really required, set true so "optional" won't display
 					}

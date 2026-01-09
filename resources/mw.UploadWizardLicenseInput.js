@@ -53,9 +53,9 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 			// 'url' can be either a single (string) url, or an array of (string) urls;
 			// hence this convoluted variable-length parameters assembly...
 			const labelParams = [ groupConfig.head, this.count ].concat( groupConfig.url ).concat( $icons );
-			const label = groupConfig.head && mw.message.apply( mw.message, labelParams ).parse() || '';
+			const label = groupConfig.head && mw.message.apply( mw.message, labelParams ).parseDom() || '';
 			const labelExtraParams = [ groupConfig[ 'head-extra' ], this.count ].concat( groupConfig.url ).concat( $icons );
-			const labelExtra = groupConfig[ 'head-extra' ] && mw.message.apply( mw.message, labelExtraParams ).parse() || '';
+			const labelExtra = groupConfig[ 'head-extra' ] && mw.message.apply( mw.message, labelExtraParams ).parseDom() || '';
 
 			if ( this.type === 'radio' ) {
 				return new OO.ui.RadioOptionWidget( {
