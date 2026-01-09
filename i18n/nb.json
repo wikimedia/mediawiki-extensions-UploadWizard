@@ -217,7 +217,7 @@
 	"mwe-upwiz-fileexists-replace-no-link": "Vennligst velg en annen tittel, da denne tittelen allerede er i bruk av en annen fil.",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Skriv en mer informativ tittel ([$2 se eksempler]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Titteleksempler",
-	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>Eksempler på gode filnavn:</b></p><ul><li>Trondheim sett fra Munkholmen, august 2025</li><li>Hans Rotmo under Vømmølfestivalen 2013</li><li>Hornløs tautervær</li></ul><br><p><b>Eksempler på dårlige filnavn:</b></p><ul><li>Bilde01</li><li>DSC00001</li><li>Uten tittel.svg.png</li><li>30996951316265l</li><li>HORNLØS TAUTERVÆR</li></ul><p><a href='https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename' target='_blank'>Lær mer</a></p>",
+	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>Eksempler på gode filnavn:</b></p><ul><li>Trondheim sett fra Munkholmen, august 2025</li><li>Hans Rotmo under Vømmølfestivalen 2013</li><li>Hornløs tautervær</li></ul><br><p><b>Eksempler på dårlige filnavn:</b></p><ul><li>Bilde01</li><li>DSC00001</li><li>Uten tittel.svg.png</li><li>30996951316265l</li><li>HORNLØS TAUTERVÆR</li></ul><p>[https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename Lær mer]</p>",
 	"mwe-upwiz-blacklisted-details": "Dette filnavnet inneholder ugyldige tegn eller har ugyldig format. ([$2 Trykk her] for å lære hvordan du kan rette opp i denne feilen.)",
 	"mwe-upwiz-blacklisted-details-feedback": "Skriv en annen, beskrivende tittel ([$2 mer info]) • [$3 Gi tilbakemelding]",
 	"mwe-upwiz-next": "Neste",
