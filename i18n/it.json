@@ -224,7 +224,7 @@
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Scrivi un titolo più informativo ([$2 vedi esempi]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Esempi di titoli",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>Esempi di buoni nomi file:</b></p><ul><li> Panorama di Napoli visto dal Vomero - agosto 2022</li><li>Incontro dei coloni a Procida, Campani (1300)</li><li>Pseudoedro senza vertice visibile dal centro</li></ul><br><p> <b>Esempi di nomi di file sconsigliati:</b></p><ul><li> Immagine01</li><li>Giove</li><li>DSC00001</li><li>Pippo.svg.png</li><li>30996951316264l</li><li>PSEUDOEDRO SENZA VERTICE VISIBILE DAL CENTRO</li></ul><p> [https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename Saperne di più]</p>",
-	"mwe-upwiz-blacklisted-details": "Questo nome file contiene caratteri non validi o è in un formato non valido. ([$2 Clicca qui] per indicazioni sulla correzione del problema.)",
+	"mwe-upwiz-blacklisted-details": "Questo nome file contiene caratteri non validi o è in un formato non valido. ([$2 Indicazioni per correggere il nome del file].)",
 	"mwe-upwiz-blacklisted-details-feedback": "Scrivi un titolo diverso e descrittivo ([$2 ulteriori informazioni]) • [$3 Invia commenti]",
 	"mwe-upwiz-next": "Successivo",
 	"mwe-upwiz-next-file": "Continua",

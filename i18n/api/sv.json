@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Lokal Profil",
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
@@ -15,5 +16,11 @@
 	"apihelp-query+allcampaigns-param-enabledonly": "Lista enbart kampanjer som är aktiverade.",
 	"apihelp-query+allcampaigns-param-limit": "Antal kampanjer att returnera.",
 	"apihelp-query+allcampaigns-example-1": "Räkna upp aktiverade kampanjer",
-	"apihelp-mediadetection-param-filename": "Namnet på filsidan"
+	"apihelp-mediadetection-summary": "Returnera sannolikheten att den undanstoppade (stashed) bilden som representeras av den angivna filnyckeln är en logotyp",
+	"apihelp-mediadetection-param-filename": "Namnet på filsidan",
+	"apihelp-mediadetection-param-filekey": "<var>filnyckeln</var> returnerades från <kbd>stash</kbd> API-förfrågan",
+	"apihelp-mediadetection-example-filename": "Returnera sannolikheten att bilden som representeras av det angivna filnamnet är en logotyp",
+	"apihelp-mediadetection-example-filekey": "Returnera sannolikheten att den undanstoppade (stashed) bilden som representeras av den angivna filnyckeln är en logotyp",
+	"apierror-mediadetection-no-valid-thumbnail": "Det finns ingen miniatyrbild för bilden, så den kan inte skickas till klassificeraren",
+	"apierror-mediadetection-invalid-mime-type": "API-slutpunkten är inte tillgänglig för den här filtypen – tillåtna filtyper är image/jpeg, image/gif, image/png, image/bmp"
 }
