@@ -34,7 +34,8 @@
 			"列维劳德",
 			"捍粵者",
 			"沈澄心",
-			"LowensteinYang"
+			"LowensteinYang",
+			"Leo768"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -238,7 +239,7 @@
 	"mwe-upwiz-fileexists-replace-no-link": "此標題已被其他檔案使用，請選擇其他標題。",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "請填寫更具描述性的標題（[$2 參閱範例]）。",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "標題範例",
-	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>良好檔案名稱範例：</b></p><ul><li>Nodnol skyline from Nodnol City Hall - Aug 2022</li><li>1875 Meeting of Settlers at Falconer Bay, New Nodland</li><li>Pseudohedron with no vertex visible from center</li></ul><br><p><b>不良檔案名稱範例：</b></p><ul><li>Image01</li><li>Joe</li><li>DSC00001</li><li>Foo.svg.png</li><li>30996951316264l</li><li>PSEUDOHEDRON WITH NO VERTEX VISIBLE FROM CENTER</li></ul><p><a href='https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename' target='_blank'>了解更多</a></p>",
+	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>良好檔案名稱範例：</b></p><ul><li>Nodnol skyline from Nodnol City Hall - Aug 2022</li><li>1875 Meeting of Settlers at Falconer Bay, New Nodland</li><li>Pseudohedron with no vertex visible from center</li></ul><br><p><b>不良檔案名稱範例：</b></p><ul><li>Image01</li><li>Joe</li><li>DSC00001</li><li>Foo.svg.png</li><li>30996951316264l</li><li>PSEUDOHEDRON WITH NO VERTEX VISIBLE FROM CENTER</li></ul><p>[https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename了解更多]</p>",
 	"mwe-upwiz-blacklisted-details": "檔案名稱包含無效字元或者檔案名稱格式無效。（[$2 點此]來獲取有關修正此問題的指南。）",
 	"mwe-upwiz-blacklisted-details-feedback": "請填寫另一個更具描述性的標題（[$2 更多資訊]） • [$3 發送意見回饋]",
 	"mwe-upwiz-next": "下一步",
