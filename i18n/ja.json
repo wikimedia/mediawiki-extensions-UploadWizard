@@ -34,6 +34,7 @@
 			"W.CC",
 			"Waki285",
 			"Whym",
+			"YeBoy371",
 			"Yushu-kasai",
 			"Yusuke1109",
 			"青子守歌"
@@ -374,7 +375,7 @@
 	"mwe-upwiz-license-none": "私は{{PLURAL:$1|こ|これら}}の作品が自由なライセンスの下にあるか、法的にパブリックドメインの状態にあると確信しています。時期を見計らって必要なライセンス情報を補わなかった場合、{{PLURAL:$1|こ|これら}}のファイルは削除される可能性があることを理解しています。",
 	"mwe-upwiz-license-vrt": "アップロード後、30日以内にメールが届かなかった場合、{{PLURAL:$1|このファイル|これらのファイル}}は削除されることを理解しました",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|この作品は|これらの作品は}}このウィキにアップロードできます",
-	"mwe-upwiz-license-confirm-remove": "{{PLURAL:$1|このアップロード|これらのアップロード}}を本当に除去しますか?",
+	"mwe-upwiz-license-confirm-remove": "このアップロードを本当に除去しますか?",
 	"mwe-upwiz-license-confirm-remove-title": "除去の確認",
 	"mwe-upwiz-license-external": "元のサイト「$1」上で以下のライセンスのもとにあるファイルです: $2。",
 	"mwe-upwiz-license-external-invalid": "このファイルは、$1上において以下のライセンスで提供されています: $2。<br><br>残念ながら、このウィキでは使用が許可されていないライセンスです。",

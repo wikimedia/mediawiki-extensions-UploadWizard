@@ -336,7 +336,7 @@
 	"mwe-upwiz-license-custom": "Masukkan lisensi yang berbeda",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Copyright_tags",
 	"mwe-upwiz-license-custom-explain": "Harus berisi [$2 tanda hak cipta] yang absah dalam templat yang absah seperti <nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>",
-	"mwe-upwiz-license-custom-pd": "Tambahkan tanda domain publik tertentu, jika berlaku.",
+	"mwe-upwiz-license-custom-pd": "Tambahkan tanda domain publik tertentu, jika berkasnya merupakan domain publik.",
 	"mwe-upwiz-license-custom-pd-explain": "Harus berisi [$2 tanda domain publik] yang absah dalam templat yang absah seperti <nowiki>{{</nowiki>Pd-old-70<nowiki>}}</nowiki>",
 	"mwe-upwiz-license-fal": "Lisensi Artistik Bebas",
 	"mwe-upwiz-license-own-pd-text": "Semua hak dilepaskan dengan lisensi Creative Commons Zero (seperti domain publik) $3",
