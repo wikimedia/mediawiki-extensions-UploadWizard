@@ -92,7 +92,7 @@
 	"mwe-upwiz-author-not-known": "Мындай маалыматым жок",
 	"mwe-upwiz-author-text-ai-help": "<b>Мисал:</b> Автор: Midjourney AI; Джейн Доунун буйрутмасы боюнча",
 	"mwe-upwiz-other-v2": "{{GENDER:$1|Бөлүшкөңүз}} келген башка маалымат",
-	"mwe-upwiz-source-text": "Бул {{PLURAL:$1|чыгарманы|чыгармаларды}} кайдан {{GENDER:$2|таптыңыз}}? Сайтты, китепти же башка булакты келтриңиз.",
+	"mwe-upwiz-source-text": "Бул {{PLURAL:$1|чыгарманы|чыгармаларды}} кайдан {{GENDER:$2|таптыңыз}}? Сайтты, китепти же башка булакты келтириңиз.",
 	"mwe-upwiz-source-ai": "Бул {{PLURAL:$1|чыгарма|чыгармалар}} жасалма интеллект тарабынан жасалган.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Баары бир жүктөлсүнбү?",
 	"mwe-upwiz-ok": "Макул",
