@@ -34,7 +34,9 @@
 			"Viscontino",
 			"Walter Raffoni",
 			"Ximo17",
-			"Antonino Faro"
+			"Antonino Faro",
+			"Amedeo463",
+			"Camillo Pellizzari"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -164,7 +166,7 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Sono d'accordo con questi termini",
 	"mwe-upwiz-patent-weapon-policy": "Gli utenti dovrebbero evitare di caricare modelli 3D che potrebbero essere interpretati come armi o \"articoli da difesa\".\nLa comunità di Commons potrebbe rimuovere tali oggetti in seguito a una verifica.",
 	"mwe-upwiz-patent-weapon-policy-link": "Leggi i dettagli della normativa",
-	"mwe-upwiz-license-metadata-title-v2": "La licenza CC-O verrà applicata alle didascalie e altre informazioni aggiuntive come il soggetto principale e la posizione (NON il file)",
+	"mwe-upwiz-license-metadata-title-v2": "La licenza CC0 verrà applicata alle didascalie e alle altre informazioni aggiuntive come il soggetto principale e la posizione (NON al file)",
 	"mwe-upwiz-license-metadata-content": "Cliccando su \"Pubblica modifiche\", accetti le [[wmf:Terms_of_Use|condizioni d'uso]] e accetti irrevocabilmente di pubblicare il tuo contributo in base alla licenza [https://creativecommons.org/publicdomain/zero/1.0/deed.it Creative Commons CC0].",
 	"mwe-upwiz-more-information-toggle": "Aggiungi ulteriori informazioni …",
 	"mwe-upwiz-copy-metadata-text": "Copia le informazioni sugli altri caricamenti",
@@ -379,7 +381,7 @@
 	"mwe-upwiz-license-custom-preview": "Anteprima",
 	"mwe-upwiz-license-none-head": "L'ho trovato su Internet: non sono sicuro",
 	"mwe-upwiz-license-none": "Credo che {{PLURAL:$1|quest'opera sia stata pubblicata|queste opere siano state pubblicate}} con licenza libera oppure {{PLURAL:$1|sia|siano}} legalmente nel  pubblico dominio. Sono consapevole che se non fornisco le necessarie informazioni sulla licenza in un tempo ragionevole,  {{PLURAL:$1|potrebbe essere cancellata|potrebbero essere cancellate}}.",
-	"mwe-upwiz-license-vrt": "Sono consapevole che se l'e-mail non verrà inviata entro 30 giorni dal caricamento, {{PLURAL:$1| questo file verrà eliminato|questi file verranno eliminati}}.",
+	"mwe-upwiz-license-vrt": "Sono consapevole che se l'e-mail non verrà inviata entro 30 giorni dal caricamento, {{PLURAL:$1|questo file verrà eliminato|questi file verranno eliminati}}.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Quest'opera è accettabile|Queste opere sono accettabili}} per il caricamento in questo wiki",
 	"mwe-upwiz-license-generic": "Ho rivisto [[{{int:disclaimerpage}}|il disclaimer di questo wiki]] e alla mia migliore conoscenza {{PLURAL:$1|quest'opera non è|queste opere non sono}} sotto livelli di protezione dei dati superiori a quelli di questa wiki.",
 	"mwe-upwiz-license-confirm-remove": "Sei sicuro di voler rimuovere {{PLURAL:$1|questo file caricato|questi file caricati}}?",
