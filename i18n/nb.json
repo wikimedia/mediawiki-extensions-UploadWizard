@@ -328,7 +328,7 @@
 	"mwe-upwiz-license-cc-by-2.5-text": "Creative Commons Navngivelse 2.5 $3 [$2 (lær mer)]",
 	"mwe-upwiz-license-cc-by-sa-2.0-text": "Creative Commons Navngivelse-DelPåSammeVilkår 2.0 $3 [$2 (lær mer)]",
 	"mwe-upwiz-license-cc-by-2.0-text": "Creative Commons Navngivelse 2.0 $3 [$2 (lær mer)]",
-	"mwe-upwiz-license-cc-zero-text": "Creative Commons CC0-frislipp $3 [$2 (lær mer)]",
+	"mwe-upwiz-license-cc-zero-text": "Creative Commons CC0-frislipp $3 (CC0) [$2 lær mer]",
 	"mwe-upwiz-license-custom": "Angi en annen lisens",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Lisensmaler",
 	"mwe-upwiz-license-custom-explain": "Må inneholde et gyldig [$2 opphavsrettsmerke] i en gyldig mal, som f.eks. <nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>",

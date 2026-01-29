@@ -35,7 +35,8 @@
 			"Viscontino",
 			"Walter Raffoni",
 			"Ximo17",
-			"Amedeo463"
+			"Amedeo463",
+			"Camillo Pellizzari"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -165,7 +166,7 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Sono d'accordo con questi termini",
 	"mwe-upwiz-patent-weapon-policy": "Gli utenti dovrebbero evitare di caricare modelli 3D che potrebbero essere interpretati come armi o \"articoli da difesa\".\nLa comunità di Commons potrebbe rimuovere tali oggetti in seguito a una verifica.",
 	"mwe-upwiz-patent-weapon-policy-link": "Leggi i dettagli della normativa",
-	"mwe-upwiz-license-metadata-title-v2": "La licenza CC-O verrà applicata alle didascalie e altre informazioni aggiuntive come il soggetto principale e la posizione (NON il file)",
+	"mwe-upwiz-license-metadata-title-v2": "La licenza CC0 verrà applicata alle didascalie e alle altre informazioni aggiuntive come il soggetto principale e la posizione (NON al file)",
 	"mwe-upwiz-license-metadata-content": "Cliccando su \"Pubblica modifiche\", accetti le [[wmf:Terms_of_Use|condizioni d'uso]] e accetti irrevocabilmente di pubblicare il tuo contributo in base alla licenza [https://creativecommons.org/publicdomain/zero/1.0/deed.it Creative Commons CC0].",
 	"mwe-upwiz-more-information-toggle": "Aggiungi ulteriori informazioni …",
 	"mwe-upwiz-copy-metadata-text": "Copia le informazioni sugli altri caricamenti",
