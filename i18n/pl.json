@@ -411,6 +411,7 @@
 	"mwe-upwiz-categories": "Kategoria",
 	"mwe-upwiz-categories-missing": "{{PLURAL:$1|Kategoria zaznaczona na czerwono nie istnieje i nie ma|Kategorie zaznaczone na czerwono nie istnieją i nie mają}} strony opisu. Jeśli {{PLURAL:$1|istnieje już podobna kategoria|istnieją już podobne kategorie}}, zalecamy wykorzystanie {{PLURAL:$1|jej|ich}}. Jeśli nie, przejdź do {{PLURAL:$1|strony|stron}} kategorii i dodaj opis.",
 	"mwe-upwiz-categories-placeholder": "np. Mammals of Etosha National Park",
+	"mwe-upwiz-categories-current": "Kategoria nadrzędna $1",
 	"mwe-upwiz-statements-title-depicts": "Główne podmioty widoczne w tej pracy",
 	"mwe-upwiz-statements-too-many-items": "Zalecamy ograniczenie wyboru do maksymalnie $1",
 	"mwe-upwiz-statements-placeholder-depicts": "np. Lis rudy",
