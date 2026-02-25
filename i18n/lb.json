@@ -33,7 +33,7 @@
 	"mwe-upwiz-api-warning-was-deleted": "Et gouf schonn e Fichier mat deem Numm, \"$1\", awer e gouf geläscht an Dir kënnt de Fichier net nach emol eroplueden. Wann et en anere Fichier ass, da probéiert him en aneren Numm ze ginn.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Pardon, mir konnte keng Uleedung an Ärer Sprooch fannen. Déi $1 Versioun gëtt amplaz gewisen.",
 	"mwe-upwiz-tutorial-error-file-missing": "Et konnte leider keng Fichiere vun der Hëllef, déi hei disponibel si soll, fonnt ginn. Kontaktéiert wgl. ee vun de System-Administrateuren.",
-	"mwe-upwiz-tutorial-error-cannot-transform": "Pardon, mir hu kee reduzéiert Bild vum Guide deen op Ären Ecran passt. Dëst kann en temporäre Probleem op WikimediaCommons sinn; probéiert wgl. méi spéit nach eng Kéier.",
+	"mwe-upwiz-tutorial-error-cannot-transform": "Pardon, mir hu kee reduzéiert Bild vum Guide, deen op Ären Ecran passt. Dëst kann en temporäre Problem op Wikimedia Commons sinn; probéiert wgl. méi spéit nach eng Kéier.",
 	"mwe-upwiz-help-desk": "Helpdesk",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Helpdesk",
 	"mwe-upwiz-add-file-n": "Méi Fichieren derbäisetzen",
