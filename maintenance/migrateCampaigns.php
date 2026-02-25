@@ -260,7 +260,7 @@ class MigrateCampaigns extends Maintenance {
 
 		$username = $this->getOption( 'user', 'Maintenance script' );
 
-		$this->dbr = $services->getDBLoadBalancerFactory()->getPrimaryDatabase();
+		$this->dbr = $services->getConnectionProvider()->getPrimaryDatabase();
 		$campaigns = $this->dbr->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'uw_campaigns' )

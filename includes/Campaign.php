@@ -117,7 +117,7 @@ class Campaign {
 	public function __construct( $title, $config = null, $context = null ) {
 		$services = MediaWikiServices::getInstance();
 		$this->wanObjectCache = $services->getMainWANObjectCache();
-		$this->dbr = $services->getDBLoadBalancerFactory()->getReplicaDatabase();
+		$this->dbr = $services->getConnectionProvider()->getReplicaDatabase();
 		$this->parser = $services->getParser();
 		$this->interwikiLookup = $services->getInterwikiLookup();
 		$wikiPageFactory = $services->getWikiPageFactory();
