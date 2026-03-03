@@ -33,7 +33,8 @@
 			"Zlir'a",
 			"Александр Сигачёв",
 			"Ата",
-			"Тест"
+			"Тест",
+			"MonX94"
 		]
 	},
 	"uploadwizard": "Майстер завантаження",
@@ -150,6 +151,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-ai": "Я {{GENDER:$2|створив|створила}} {{PLURAL:$1|цю роботу|ці роботи}} за допомогою інструменту штучного інтелекту [[COM:AI-generated_media|(переглянути настанови)]]",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Введіть назву використаного рушія штучного інтелекту. Якщо для створення {{PLURAL:$1|цієї роботи|цих робіт}} використано чужі оригінальні твори, перелічіть і їх.",
 	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Приклад:</b> Автор: Midjourney AI; Фотографія Анселя Адамса; розфарбована за допомогою Colorme AI тощо.",
+	"mwe-upwiz-source-ownwork-origin-option-ai-prompt": "Введіть запит (промпт), який використовувався для генерації цього медіафайлу",
 	"mwe-upwiz-source-permission": "Їхній автор дав вам явний дозвіл на завантаження",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Це}} чиясь робота та {{PLURAL:$1|цим}} можна вільно ділитися.",
 	"mwe-upwiz-source-thirdparty-description": "Приклади: {{PLURAL:$1|фото/скріншот|фотографії/скріншоти}}, які ви знайшли в мережі чи десь іще, створена кимось іншим робота тощо.",
@@ -203,6 +205,7 @@
 	"mwe-upwiz-date-created": "Дата",
 	"mwe-upwiz-select-date": "Виберіть дату",
 	"mwe-upwiz-location": "Місцезнаходження",
+	"mwe-upwiz-location-object": "Розташування об'єкта",
 	"mwe-upwiz-location-button": "Показати на мапі",
 	"mwe-upwiz-location-lat": "Широта",
 	"mwe-upwiz-location-lon": "Довгота",
@@ -291,6 +294,7 @@
 	"mwe-upwiz-error-title-blank": "Назва є обов'язковою",
 	"mwe-upwiz-error-title-too-long": "Ця назва задовга.\nБудь ласка, впевніться, що розмір назви не перевищує $1 {{PLURAL:$1|байт|байти|байтів}}.",
 	"mwe-upwiz-error-title-too-short": "Ця назва закоротка.\nБудь ласка, впевніться, що розмір назви становить хоча б $1 {{PLURAL:$1|байт|байти|байтів}}.",
+	"mwe-upwiz-error-title-too-few-characters": "Ця назва закоротка.\nБудь ласка, впевніться, що розмір назви становить хоча б $1 {{PLURAL:$1|байт|байти|байтів}}.",
 	"mwe-upwiz-error-caption-blank": "Підпис є обов'язковим",
 	"mwe-upwiz-error-description-blank": "Опис є обов'язковим",
 	"mwe-upwiz-error-bad-captions": "Виникли проблеми з деякими підписами.",
