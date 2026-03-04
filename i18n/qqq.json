@@ -347,7 +347,7 @@
 	"mwe-upwiz-license-cc-by-sa-2.0-text": "Parameters:\n* $1 - (Unused) empty string\n* $2 - the URL \"//creativecommons.org/licenses/by-sa/2.0/deed.en\" or one of its localized versions\n* $3 - html for license icons\nFor more information, see https://www.mediawiki.org/wiki/UploadWizard\n{{Related|Mwe-upwiz-license-cc}}",
 	"mwe-upwiz-license-cc-by-2.0-text": "Parameters:\n* $1 - (Unused) empty string\n* $2 - the URL \"//creativecommons.org/licenses/by/2.0/deed.en\" or one of its localized versions\n* $3 - html for license icons\nFor more information, see https://www.mediawiki.org/wiki/UploadWizard\n{{Related|Mwe-upwiz-license-cc}}",
 	"mwe-upwiz-license-cc-zero-text": "Parameters:\n* $1 - (Unused) empty string\n* $2 - URL \"//creativecommons.org/publicdomain/zero/1.0/deed.en\" or one of its localized versions\n* $3 - html for license icons\n{{Related|Mwe-upwiz-license-cc}}",
-	"mwe-upwiz-license-custom": "",
+	"mwe-upwiz-license-custom": "Prompt shown in the UploadWizard for a user to manually enter the wikitext for a different copyright licence for their file.",
 	"mwe-upwiz-license-custom-url": "{{optional}}\nUsed as <code>$2</code> in {{msg-mw|Mwe-upwiz-license-custom}}.",
 	"mwe-upwiz-license-custom-explain": "Parameters:\n* $2 - full URL, {{msg-mw|mwe-upwiz-license-custom-url}}",
 	"mwe-upwiz-license-custom-pd": "Parameters:\n* $1 - (Unused) empty string\n* $2 - full URL, {{msg-mw|mwe-upwiz-license-custom-pd-url}}\n* $3 - html for license icons",

@@ -37,7 +37,8 @@
 			"Yusuke1109",
 			"青子守歌",
 			"Shulmj",
-			"YeBoy371"
+			"YeBoy371",
+			"Yukkuri Shambis"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -225,7 +226,7 @@
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "不明なファイル名",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "この名前のファイルは既に存在します。置き換えたい場合は、[$2 $1]で置き換えてください。",
-	"mwe-upwiz-fileexists-replace-on-page-v2": "このタイトルは既に使用されいます。重複しないタイトルを設定してください。ヒント: 作品の日付、年、月などを追加してみてください。",
+	"mwe-upwiz-fileexists-replace-on-page-v2": "このタイトルは既に使用されています。重複しないタイトルを設定してください。ヒント: 作品の日付、年、月などを追加してみてください。",
 	"mwe-upwiz-fileexists-replace-no-link": "このファイル名は別のファイルで既に使用されているため、別のファイル名を指定してください。",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "よりわかりやすいタイトルを入力してください ([$2 例を見る]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "タイトルの例",
