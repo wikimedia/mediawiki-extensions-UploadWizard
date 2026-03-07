@@ -139,6 +139,13 @@ class SpecialUploadWizard extends SpecialPage {
 		// load spinner styles early
 		$out->addModuleStyles( [ 'ext.uploadWizard.page.styles', 'jquery.spinner.styles' ] );
 
+		// If flickr uploading is enabled
+		if ( UploadFromUrl::isEnabled() && UploadFromUrl::isAllowed( $this->getUser() ) === true ) {
+			$out->getCSP()->addScriptSrc( Config::getSetting( 'flickrApiUrl' ) );
+			// TODO: Not sure which violation this is hitting, connect, script or media.
+			$out->getCSP()->addDefaultSrc( 'https://live.staticflickr.com' );
+		}
+
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
 		$out->addHTML( $this->getWizardHtml() );
