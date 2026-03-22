@@ -66,7 +66,7 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( [ $key => $expected ], $result );
 	}
 
-	public function provideConfigArrayReplacements() {
+	public static function provideConfigArrayReplacements() {
 		yield 'Trivial replacement' => [
 			[ 'a' => 1, 'b' => 2 ],
 			[ 'b' => 99 ],
