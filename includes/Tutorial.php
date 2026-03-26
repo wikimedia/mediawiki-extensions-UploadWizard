@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\UploadWizard;
 use MediaTransformOutput;
 use MediaWiki\FileRepo\File\File;
 use MediaWiki\Html\Html;
+use MediaWiki\Language\Language;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
@@ -22,24 +23,23 @@ class Tutorial {
 	 * Fetches appropriate HTML for the tutorial portion of the wizard.
 	 * Looks up an image on the current wiki. This will work as is on Commons, and will also work
 	 * on test wikis that enable instantCommons.
+	 * @param Language $lang User language
 	 * @param string|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
 	 * @return string html that will display the tutorial.
 	 */
-	public static function getHtml( $campaign = null ) {
-		global $wgLang;
-
+	public static function getHtml( Language $lang, $campaign = null ) {
 		$error = null;
 		$errorHtml = '';
 		$tutorialHtml = '';
 
-		$langCode = $wgLang->getCode();
+		$langCode = $lang->getCode();
 
 		$tutorial = Config::getSetting( 'tutorial', $campaign );
 		// getFile returns false if it can't find the right file
 		$tutorialFile = self::getFile( $langCode, $tutorial );
 		if ( $tutorialFile === false ) {
 			$error = 'localized-file-missing';
-			foreach ( $wgLang->getFallbackLanguages() as $langCode ) {
+			foreach ( $lang->getFallbackLanguages() as $langCode ) {
 				$tutorialFile = self::getFile( $langCode, $tutorial );
 				if ( $tutorialFile !== false ) {
 					// $langCode remains as the code where a file is found.
@@ -82,7 +82,7 @@ class Tutorial {
 			$errorMsg = wfMessage( 'mwe-upwiz-tutorial-error-' . $error );
 			if ( $error === 'localized-file-missing' ) {
 				$errorMsg->params( MediaWikiServices::getInstance()->getLanguageNameUtils()
-					->getLanguageName( $langCode, $wgLang->getCode() ) );
+					->getLanguageName( $langCode, $lang->getCode() ) );
 			}
 			$errorHtml = Html::errorBox(
 				$errorMsg->parse()

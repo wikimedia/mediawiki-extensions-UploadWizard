@@ -360,7 +360,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// always load the html: even if the tutorial is skipped, users can
 		// still move back to view it
-		$tutorialHtml = Tutorial::getHtml( $this->campaign );
+		$tutorialHtml = Tutorial::getHtml( $this->getLanguage(), $this->campaign );
 
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )

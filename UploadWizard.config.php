@@ -11,10 +11,11 @@ use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
-global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules,
 	$wgCheckFileExtensions, $wgWBRepoSettings;
 
-$userLangCode = $wgLang->getCode();
+// TODO replace this reference using dependency injection
+$userLangCode = RequestContext::getMain()->getLanguage()->getCode();
 // Commons only: ISO 646 code of Tagalog is 'tl', but language template is 'tgl'
 $uwDefaultLanguageFixups = [ 'tl' => 'tgl' ];
 
