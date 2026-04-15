@@ -36,12 +36,7 @@ class CodeEditorHooks implements CodeEditorGetPageLanguageHook {
 	 * @return bool
 	 */
 	public function onCodeEditorGetPageLanguage( Title $title, ?string &$lang, string $model, string $format ): bool {
-		if ( $title->inNamespace( NS_CAMPAIGN ) && (
-				$this->useCodeEditor ||
-				// Temporary while CodeMirror is still in beta (T373711#11018957).
-				!( \MediaWiki\Extension\CodeEditor\Hooks::tempIsCodeMirrorEnabled() )
-			)
-		) {
+		if ( $title->inNamespace( NS_CAMPAIGN ) && $this->useCodeEditor ) {
 			$lang = 'json';
 			return false;
 		}
