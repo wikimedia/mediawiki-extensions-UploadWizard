@@ -93,7 +93,7 @@
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
 		const request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
-		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
+		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) + '?action=query' );
 		assert.true( request.async );
 
 		transport.abort();
@@ -120,7 +120,7 @@
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
 		const request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
-		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
+		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) + '?action=query' );
 		assert.true( request.async );
 
 		transport.abort();
