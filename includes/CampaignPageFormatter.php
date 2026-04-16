@@ -9,12 +9,12 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use ImageGalleryBase;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Gallery\ImageGalleryBase;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Skin\SkinComponentUtils;
+use MediaWiki\Skin\Components\SkinComponentUtils;
 use OOUI\ButtonWidget;
 
 /**

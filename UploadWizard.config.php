@@ -7,9 +7,10 @@
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Language\LanguageCode;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use MediaWiki\Upload\UploadBase;
 
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules,
 	$wgCheckFileExtensions, $wgWBRepoSettings;

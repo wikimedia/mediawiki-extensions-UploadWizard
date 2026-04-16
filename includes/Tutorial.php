@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use MediaTransformOutput;
 use MediaWiki\FileRepo\File\File;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
+use MediaWiki\Media\MediaTransformOutput;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 

@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\UploadWizard\Tests;
 use MediaWiki\Exception\UserBlockedError;
 use MediaWiki\Extension\UploadWizard\Specials\SpecialUploadWizard;
 use MediaWiki\MainConfigNames;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 
 /**
  * @group Database

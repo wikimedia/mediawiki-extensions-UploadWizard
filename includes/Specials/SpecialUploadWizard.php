@@ -7,7 +7,6 @@
 
 namespace MediaWiki\Extension\UploadWizard\Specials;
 
-use BitmapHandler;
 use LogicException;
 use MediaWiki\ChangeTags\ChangeTags;
 use MediaWiki\Context\DerivativeContext;
@@ -18,12 +17,13 @@ use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;
 use MediaWiki\Extension\UploadWizard\Tutorial;
 use MediaWiki\Html\Html;
+use MediaWiki\Media\BitmapHandler;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\Upload\UploadBase;
+use MediaWiki\Upload\UploadFromUrl;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
-use UploadBase;
-use UploadFromUrl;
 
 /**
  * Special:UploadWizard

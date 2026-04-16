@@ -7,7 +7,7 @@
 
 namespace MediaWiki\Extension\UploadWizard\Specials;
 
-use UploadForm;
+use MediaWiki\Specials\Forms\UploadForm;
 
 /**
  * This upload form is used at Special:UploadWizard
