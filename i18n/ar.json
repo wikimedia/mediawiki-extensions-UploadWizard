@@ -230,7 +230,7 @@
 	"mwe-upwiz-fileexists-replace-no-link": "الرجاء اختيار عنوانٍ مُختلِفٍ، لأَنَّ هذا العنوان هو اسمٌ لملف آخر حاليَّاً.",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "فضلاً اكتب عنوانًا أكثر دلالة ([$2 أمثلة])",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "أمثلة للعنوان",
-	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>أمثلة لأسماء ملفات جيدة:</b></p><ul><li>Nodnol skyline from Nodnol City Hall - Aug 2022</li><li>1875 Meeting of Settlers at Falconer Bay, New Nodland</li><li>Pseudohedron with no vertex visible from center</li></ul><br><p><b>أمثلة لأسماء ملفات سيئة:</b></p><ul><li>Image01</li><li>Joe</li><li>DSC00001</li><li>Foo.svg.png</li><li>30996951316264l</li><li>PSEUDOHEDRON WITH\n NO VERTEX VISIBLE FROM CENTER</li></ul><p>[https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename معرفة المزيد]</p>",
+	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text": "<p><b>أمثلة على أسماء ملفات جيدة:</b></p><ul><li>أفق نودنول من مبنى بلدية نودنول - أغسطس 2022</li><li>اجتماع المستوطنين عام 1875 في خليج فالكونر، نيو نودلاند</li><li>مجسم زائف بدون رؤوس مرئية من المركز</li></ul><br><p><b>أمثلة على أسماء ملفات سيئة:</b></p><ul><li>Image01</li><li>Joe</li><li>DSC00001</li><li>Foo.svg.png</li><li>30996951316264l</li><li>مجسم زائف بدون رؤوس مرئية من المركز</li></ul><p>[https://commons.wikimedia.org/wiki/MediaWiki:Titleblacklist-custom-filename تعرف على المزيد]</p>",
 	"mwe-upwiz-blacklisted-details": "يحتوي اسم هذا الملف على محارف غير صالحة، وقد يكون تنسيقه غير صالح. ([ $2 إرشادات لتصحيح اسم الملف])",
 	"mwe-upwiz-blacklisted-details-feedback": "يرجى كتابة عنوان وصف مختلف ([$2 معلومات إضافية]) • [$3 أرسل رداً مرتجعاً]",
 	"mwe-upwiz-next": "التَّالي",
