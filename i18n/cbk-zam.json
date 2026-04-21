@@ -29,7 +29,7 @@
 	"mwe-upwiz-step-thanks": "Usa",
 	"mwe-upwiz-campaign-name-duplicate": "Tiene ya ansina nombre ta wxisti el un campaña",
 	"mwe-upwiz-campaign-unknown-error": "Tiene error desconocido el ya ocuri.",
-	"mwe-upwiz-api-warning-exists": "Tiene ya [$1 file] na wiki na tiene ansina nombre de file",
+	"mwe-upwiz-api-warning-exists": "Tiene ya [$1 archivo] na wiki na tiene ansina nombre de archivo",
 	"mwe-upwiz-api-warning-was-deleted": "Tiene ya un file ansina el nombre, \"$1\", pero borrao ya este y no puede ya tu hace reupload con el file. Si diferente el de tuyo file, proba hace cambia con el nombre de este.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Paciencia gayod, no puede kame encontra un tutorial para na de tuyo lenguaje. El $1 ya lang el ta dale mira.",
 	"mwe-upwiz-tutorial-error-file-missing": "Paciencia gayod, no puede kame encontra maga files para na tutorial que debe anda aqui. Por favor man contact con el maga administrador de sistema.",
