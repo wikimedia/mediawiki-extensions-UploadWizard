@@ -42,7 +42,12 @@ class SpecialUploadWizard extends SpecialPage {
 	public function __construct(
 		private readonly UserOptionsLookup $userOptionsLookup,
 	) {
-		parent::__construct( 'UploadWizard', 'upload' );
+		parent::__construct( 'UploadWizard' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'upload';
 	}
 
 	/**
