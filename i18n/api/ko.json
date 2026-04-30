@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"YeBoy371",
-			"Ykhwong"
+			"Ykhwong",
+			"Tensama0415"
 		]
 	},
 	"apihelp-flickrblacklist-param-url": "테스트할 플리커 URL입니다.",
 	"apihelp-flickrblacklist-example-1": "블랙리스트에 대해 URL을 검사합니다",
 	"apihelp-flickrblacklist-example-2": "모든 블랙리스트를 반환합니다",
+	"apihelp-query+allcampaigns-param-limit": "반환할 캠페인 수 입니다.",
+	"apihelp-query+allcampaigns-example-1": "활성화된 캠페인 나열",
 	"apihelp-mediadetection-param-filename": "파일 문서 이름"
 }
