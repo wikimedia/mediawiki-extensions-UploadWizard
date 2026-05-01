@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mmistmurt"
+			"Mmistmurt",
+			"ButterflyOfFire"
 		]
 	},
-	"api-error-noimageinfo": "Azdam yetwaxdam, maca aqeddac ur d-yefka ara tilɣa ɣef ufaylu."
+	"api-error-noimageinfo": "Azdam yetwaxdam, maca aqeddac ur d-yefka ara tilɣa ɣef ufaylu.",
+	"mwe-upwiz-location-button": "Sken-it-id deg tkarḍa"
 }
