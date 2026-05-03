@@ -19,7 +19,7 @@
 				i++;
 			}
 			// Messages are documented above (scaleMsgKeys)
-			// eslint-disable-next-line mediawiki/msg-doc
+
 			return mw.message( scaleMsgKeys[ i ], size.toFixed( i > 1 ? 2 : 0 ) ).text();
 		}
 	};
