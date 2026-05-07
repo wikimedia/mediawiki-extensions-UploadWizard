@@ -36,7 +36,7 @@
 	"api-error-parsererror": "Сэрвэр адказаў няслушным JSON-дакумэнтам. Гэта можа сьведчыць пра праблему з API, альбо вы карыстаецеся проксі-сэрвэрам, які забараняе загружаць файлы.",
 	"api-error-aborted": "Загрузка перарваная.",
 	"api-error-noimageinfo": "Файл загружаны, але сэрвэр ня даў пра яго ніякай інфармацыі.",
-	"mwe-upwiz-unavailable": "Альбо ваш броўзэр несумяшчальны з Майстрам загрузкі, альбо адключаны JavaScript, таму адлюстроўваецца простая форма загрузкі. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Гл. патрабаваньні сумяшчальнасьці].)",
+	"mwe-upwiz-unavailable": "Альбо ваш броўзэр неспалучальны з Майстрам загрузкі, альбо вымнкуты JavaScript, таму паказваецца простая форма загрузкі. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Гл. патрабаваньні спалучальнасьці].)",
 	"mwe-upwiz-extension-disabled": "Гэтая старонка была адключана з-за часовых тэхнічных праблемаў. Выкарыстоўвайце пакуль стандартную форму загрузкі.",
 	"mwe-upwiz-step-tutorial": "Даведайцеся",
 	"mwe-upwiz-step-file": "Загрузіце",
