@@ -6,12 +6,21 @@
 			"Ykhwong"
 		]
 	},
+	"apihelp-flickrblacklist-summary": "차단 목록에 등록하기 위해 사용자 ID (NSID) 를 사용하여 Flickr URL를 검증합니다.",
+	"apihelp-flickrblacklist-extended-description": "<var>list</var> 옵션과 함께 사용되면 차단 목록에 있는 모든 ID를 반환합니다.",
 	"apihelp-flickrblacklist-param-url": "테스트할 플리커 URL입니다.",
+	"apihelp-flickrblacklist-param-list": "설정되면 모든 차단 목록이 반환됩니다. $1url와 함께 사용될 수 없습니다.",
 	"apihelp-flickrblacklist-example-1": "블랙리스트에 대해 URL을 검사합니다",
 	"apihelp-flickrblacklist-example-2": "모든 블랙리스트를 반환합니다",
 	"apihelp-query+allcampaigns-summary": "모든 UploadWizard 캠페인을 나열합니다.",
 	"apihelp-query+allcampaigns-param-enabledonly": "활성화된 캠페인만 나열합니다.",
 	"apihelp-query+allcampaigns-param-limit": "반환할 캠페인 수 입니다.",
 	"apihelp-query+allcampaigns-example-1": "활성화된 캠페인 나열",
-	"apihelp-mediadetection-param-filename": "파일 문서 이름"
+	"apihelp-mediadetection-summary": "제공된 파일키가 나타내는 저장된 이미지가 로고일 확률을 반환",
+	"apihelp-mediadetection-param-filename": "파일 문서 이름",
+	"apihelp-mediadetection-param-filekey": "<kbd>stash</kbd> API 요청에서 반환된 <var>filekey</var>",
+	"apihelp-mediadetection-example-filename": "제공된 파일 이름이 나타내는 저장된 이미지가 로고일 확률을 반환",
+	"apihelp-mediadetection-example-filekey": "제공된 파일키가 나타내는 저장된 이미지가 로고일 확률을 반환",
+	"apierror-mediadetection-no-valid-thumbnail": "이미지에 대한 섬네일이 없습니다. 그렇기에 분류자에 보낼 수 없습니다",
+	"apierror-mediadetection-invalid-mime-type": "API 종단점은 이 유형의 파일에서 사용할 수 없습니다. 허용된 유형은 image/jpeg, image/gif, image/png, image/bmp입니다"
 }
