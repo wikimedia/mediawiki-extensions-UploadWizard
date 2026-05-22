@@ -2,15 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Maax",
-			"Matma Rex"
+			"Matma Rex",
+			"AhmedG612"
 		]
 	},
+	"uploadwizard-desc": "Saaxirka Soo Gelinta, qalab fudud oo lagu soo geliyo warbaahinta badan",
+	"mwe-upwiz-unavailable": "Bsraawsarkaaga lama jaanqaadi karo UploadWizard ama JavaScript ayaa dansan, sidaas darteed waxaan ku tusaynaa foom fudud oo lagu soo geliyo faylasha. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Eeg shuruudaha iswa])",
 	"mwe-upwiz-step-tutorial": "Baro",
 	"mwe-upwiz-step-file": "Soo geli",
 	"mwe-upwiz-step-deeds": "Soo deynta ogolaashadeeda",
 	"mwe-upwiz-step-details": "Ka hadal",
 	"mwe-upwiz-step-thanks": "Isticmaal",
+	"mwe-upwiz-tutorial-error-localized-file-missing": "Raalli ahow, ma aanan helin cashar ku qoran luqaddaada. Sidaas darteed, waxaa lagu tusayaa kan $1.",
 	"mwe-upwiz-tutorial-error-file-missing": "Naga raali noqo, waa weynay wax fayl ah oo ku aadan daadihinta la rabay in ee meeshaan ku qornaato. Fadlan la hadal maamulaha combiyutarka.",
+	"mwe-upwiz-tutorial-error-cannot-transform": "Raalli ahow, ma aanan heli karin sawir la cabbiray oo casharka ku habboon shaashaddan. Tani waxay noqon kartaa dhibaato ku meel gaar ah oo ku saabsan Wikimedia Commons; fadlan mar kale isku day dambe.",
 	"mwe-upwiz-add-file-n": "Ku dar fayl kale",
 	"mwe-upwiz-add-file-0-free": "Dooro faylka wararka si aad u tabarucdid",
 	"mwe-upwiz-transport-started": "Woo bilaabanooyaa...",
@@ -27,5 +32,6 @@
 	"mwe-upwiz-next-deeds": "Kan ku xiga",
 	"mwe-upwiz-home": "Booqo bogga internetka ee wiki",
 	"mwe-upwiz-deeds-require-selection": "fadlan dooro laysinka.",
-	"mwe-upwiz-license-show-all": "Isticmaal laysin kala duwan"
+	"mwe-upwiz-license-show-all": "Isticmaal laysin kala duwan",
+	"mwe-upwiz-license-cc-by-2.5-text": "Shatiga Creative Commons Attribution 2.5 (CC BY 2.5) $3 [$2 baro wax badan]"
 }
