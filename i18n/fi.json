@@ -98,7 +98,7 @@
 	"mwe-upwiz-file-all-ok": "Kaikki tallennukset onnistuivat.",
 	"mwe-upwiz-file-some-failed": "Osa tallennuksista epäonnistui.",
 	"mwe-upwiz-file-retry": "Yritä uudelleen",
-	"mwe-upwiz-next-file-despite-failures": "Jatka",
+	"mwe-upwiz-next-file-despite-failures": "Jatka silti",
 	"mwe-upwiz-skip-tutorial-future": "Ohita tämä vaihe jatkossa",
 	"mwe-upwiz-file-all-failed": "Yksikään tallennus ei onnistunut.",
 	"mwe-upwiz-upload-count": "$1 tiedoston tallentaminen {{PLURAL:$2||$2 tiedostosta}} onnistui",
