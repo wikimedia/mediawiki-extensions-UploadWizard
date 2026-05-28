@@ -38,7 +38,8 @@
 			"Yusuke1109",
 			"青子守歌",
 			"YeBoy371",
-			"Yukkuri Shambis"
+			"Yukkuri Shambis",
+			"Tensama0415"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -328,7 +329,7 @@
 	"mwe-upwiz-license-cc-by-2.5-text": "クリエイティブ・コモンズ 表示 2.5 $3（[$2 もっと詳しく]）",
 	"mwe-upwiz-license-cc-by-sa-2.0-text": "クリエイティブ・コモンズ 表示-継承 2.0 $3（[$2 もっと詳しく]）",
 	"mwe-upwiz-license-cc-by-2.0-text": "クリエイティブ・コモンズ 表示 2.0 $3（[$2 もっと詳しく]）",
-	"mwe-upwiz-license-cc-zero-text": "クリエイティブ・コモンズ CC0 権利放棄 $3（[$2 もっと詳しく]）",
+	"mwe-upwiz-license-cc-zero-text": "クリエイティブ・コモンズ CC0 権利放棄 $3 (CC0) [$2 もっと詳しく]",
 	"mwe-upwiz-license-custom": "別のライセンスを入力してください",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:コピーライト・タグ",
 	"mwe-upwiz-license-custom-explain": "<nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>のような、有効な[$2 著作権タグ]のテンプレートを含める必要があります",

@@ -2,15 +2,21 @@
 	"@metadata": {
 		"authors": [
 			"Maax",
-			"Matma Rex"
+			"Matma Rex",
+			"AhmedG612"
 		]
 	},
+	"uploadwizard-desc": "Saaxirka Soo Gelinta, qalab fudud oo lagu soo geliyo warbaahinta badan",
+	"mwe-upwiz-unavailable": "Bsraawsarkaaga lama jaanqaadi karo UploadWizard ama JavaScript ayaa dansan, sidaas darteed waxaan ku tusaynaa foom fudud oo lagu soo geliyo faylasha. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Eeg shuruudaha iswa])",
 	"mwe-upwiz-step-tutorial": "Baro",
 	"mwe-upwiz-step-file": "Soo geli",
 	"mwe-upwiz-step-deeds": "Soo deynta ogolaashadeeda",
 	"mwe-upwiz-step-details": "Ka hadal",
 	"mwe-upwiz-step-thanks": "Isticmaal",
+	"mwe-upwiz-api-warning-was-deleted": "Waxaa jiray fayl leh magacan \"$1\", balse waa la tirtiray mana dib loo soo gelin karo. Haddii faylkaagu ka duwan yahay, isku day inaad magac kale u bixiso.",
+	"mwe-upwiz-tutorial-error-localized-file-missing": "Raalli ahow, ma aanan helin cashar ku qoran luqaddaada. Sidaas darteed, waxaa lagu tusayaa kan $1.",
 	"mwe-upwiz-tutorial-error-file-missing": "Naga raali noqo, waa weynay wax fayl ah oo ku aadan daadihinta la rabay in ee meeshaan ku qornaato. Fadlan la hadal maamulaha combiyutarka.",
+	"mwe-upwiz-tutorial-error-cannot-transform": "Raalli ahow, ma aanan heli karin sawir la cabbiray oo casharka ku habboon shaashaddan. Tani waxay noqon kartaa dhibaato ku meel gaar ah oo ku saabsan Wikimedia Commons; fadlan mar kale isku day dambe.",
 	"mwe-upwiz-add-file-n": "Ku dar fayl kale",
 	"mwe-upwiz-add-file-0-free": "Dooro faylka wararka si aad u tabarucdid",
 	"mwe-upwiz-transport-started": "Woo bilaabanooyaa...",
@@ -24,6 +30,7 @@
 	"mwe-upwiz-source-thirdparty-intro": "fadlan ku qor ciwaanka aa ka soo heshay fayl kasto",
 	"mwe-upwiz-date-created": "taariikhda la sameeyay",
 	"mwe-upwiz-upload-error-stashed-anyway": "Iska soo gali?",
+	"mwe-upwiz-blacklisted-details-feedback": "Fadlan qor cinwaan kale oo faahfaahsan ([$2 macluumaad dheeraad ah]) • [$3 Soo dir ra’yi-celin]",
 	"mwe-upwiz-next-deeds": "Kan ku xiga",
 	"mwe-upwiz-home": "Booqo bogga internetka ee wiki",
 	"mwe-upwiz-deeds-require-selection": "fadlan dooro laysinka.",
