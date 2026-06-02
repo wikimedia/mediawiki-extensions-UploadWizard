@@ -204,7 +204,7 @@
 	"mwe-upwiz-author-text-ai": "사용한 인공지능 엔진의 명칭과, 프롬프트를 생성한 사람의 이름을 입력해 주세요.",
 	"mwe-upwiz-author-text-ai-help": "<b>예:</b> 제작자: Midjourney AI, 김철수가 생성함",
 	"mwe-upwiz-autoconverted": "이 파일은 자동으로 $1 포맷으로 변환되었습니다.",
-	"mwe-upwiz-other-v2": "{{GENDER:$1|귀하}}가 포함하려는 추가 정보",
+	"mwe-upwiz-other-v2": "{{GENDER:$1|당신}}이 포함하려는 추가 정보",
 	"mwe-upwiz-source-text": "{{PLURAL:$1|이 저작물|이 저작물들}}을 {{PLURAL:$2|어디서}} 찾으셨나요? 웹사이트 이름, 서적 이름, 기타 출처 등을 입력해 주세요.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|이 저작물은|이 저작물들은}} 인공지능 툴로 생성되었습니다",
 	"mwe-upwiz-thanks-message": "전 세계에서 자유롭게 이용할 수 있는 저작물과 지식에 기여해 주셔서 감사합니다.",
