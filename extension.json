@@ -104,6 +104,9 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\UploadWizard\\": "includes/"
 	},
+	"TestAutoloadNamespaces": {
+		"MediaWiki\\Extension\\UploadWizard\\Tests\\": "tests/phpunit/"
+	},
 	"ResourceModules": {
 		"ext.uploadWizard.page": {
 			"scripts": "resources/mw.UploadWizardPage.js",
@@ -707,6 +710,12 @@
 		},
 		"schema": {
 			"class": "MediaWiki\\Extension\\UploadWizard\\SchemaHooks"
+		},
+		"publish-captcha": {
+			"factory": "MediaWiki\\Extension\\UploadWizard\\PublishCaptchaHandler::factory",
+			"optional_services": [
+				"ConfirmEditCaptchaFactory"
+			]
 		}
 	},
 	"namespaces": [
