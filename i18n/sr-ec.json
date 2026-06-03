@@ -123,6 +123,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Да, туђи {{PLURAL:$1|рад је објављен|радови су објављени}} под једном од ових [[COM:L#Well-known_licenses|слободних лиценци]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Да, {{PLURAL:$1|рад није|радови нису}} заштићени ауторским правима",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Не, {{PLURAL:$1|рад је заштићен|радови су заштићени}} ауторским правима",
+	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning-text": "<b>Не шаљите {{PLURAL:$1|ову датотеку|ове датотеке}}!</b> {{SITENAME}} не хостује датотеке заштићене ауторским правима. Само [[COM:L#Well-known_licenses|слободно лиценциране]] или у [[COM:PD|јавном власништву]] датотеке су дозвољене на {{SITENAME}}.",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Не знам да ли {{PLURAL:$1|је слободан|су слободни}} за употребу и дељење",
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Ја сам}} генерисао {{PLURAL:$1|овај рад|ове радове}} помоћу AI алатке [[COM:AI-generated_media|(видети смернице)]]",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Унесите назив коришћене AI алатке. Ако су туђи радови коришћени за генерисање {{PLURAL:$1|овог рада|ових радова}}, такође их наведите.",
