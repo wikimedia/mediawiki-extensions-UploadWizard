@@ -32,6 +32,8 @@
 			'details'
 		);
 
+		this.captchaHandler = new uw.CaptchaHandler( this.$buttons );
+
 		this.nextButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-publish-details' ).text(),
 			flags: [ 'progressive', 'primary' ]
@@ -59,6 +61,11 @@
 	};
 
 	OO.inheritClass( uw.ui.Details, uw.ui.Step );
+
+	uw.ui.Details.prototype.unload = function () {
+		this.captchaHandler.clear();
+		uw.ui.Step.prototype.unload.call( this );
+	};
 
 	uw.ui.Details.prototype.load = function ( uploads ) {
 		uw.ui.Step.prototype.load.call( this, uploads );
@@ -182,6 +189,25 @@
 		const extensions = mw.UploadWizard.config.patents.extensions;
 
 		return extensions.includes( upload.title.getExtension().toLowerCase() );
+	};
+
+	/**
+	 * Reverses disableEdits()/hideEndButtons() so the user can retry: when the captcha popup
+	 * is dismissed before any uploads are attempted, or after the server demands a captcha.
+	 */
+	uw.ui.Details.prototype.cancelSubmitting = function () {
+		this.$div.find( '.mwe-upwiz-data' ).morphCrossfade( '.detailsForm' );
+		this.enableEdits();
+		this.$div.find( '.mwe-upwiz-file-next-some-failed, .mwe-upwiz-file-next-all-failed' ).hide();
+		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).show();
+	};
+
+	uw.ui.Details.prototype.showCaptcha = function ( captchaData ) {
+		return this.captchaHandler.show( captchaData );
+	};
+
+	uw.ui.Details.prototype.getCaptchaToken = function () {
+		return this.captchaHandler.getCaptchaToken();
 	};
 
 }( mw.uploadWizard ) );

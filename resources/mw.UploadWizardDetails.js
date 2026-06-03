@@ -1147,9 +1147,10 @@
 		},
 
 		/**
+		 * @param {Object|null} [captchaData] CAPTCHA submission data to include in the API request
 		 * @return {jQuery.Promise}
 		 */
-		submit: function () {
+		submit: function ( captchaData ) {
 			this.$containerDiv.find( 'form' ).trigger( 'submit' );
 
 			this.upload.title = this.getTitle();
@@ -1158,7 +1159,7 @@
 			this.showIndicator( 'progress' );
 
 			const wikitext = this.getWikiText();
-			let promise = this.submitWikiText( wikitext );
+			let promise = this.submitWikiText( wikitext, captchaData );
 
 			if ( mw.UploadWizard.config.wikibase.enabled ) {
 				promise = promise
@@ -1241,9 +1242,10 @@
 		 * an error, see #processError).
 		 *
 		 * @param {string} wikiText
+		 * @param {Object|null} [captchaData] CAPTCHA submission data to include in the API request
 		 * @return {jQuery.Promise}
 		 */
-		submitWikiText: function ( wikiText ) {
+		submitWikiText: function ( wikiText, captchaData ) {
 			const tags = [ 'uploadwizard' ],
 				deed = this.upload.deedChooser.deed,
 				config = mw.UploadWizard.config;
@@ -1270,7 +1272,7 @@
 				).plain();
 			}
 
-			const params = {
+			const params = Object.assign( {}, captchaData || {}, {
 				action: 'upload',
 				filekey: this.upload.fileKey,
 				filename: this.getTitle().getMain(),
@@ -1282,7 +1284,7 @@
 				// that is a duplicate of something in a foreign repo
 				ignorewarnings: true,
 				text: wikiText
-			};
+			} );
 
 			// Only enable async publishing if file is larger than 10MiB
 			if ( this.upload.transportWeight > 10 * 1024 * 1024 ) {
@@ -1575,10 +1577,32 @@
 		},
 
 		/**
+		 * Handle a captcha challenge returned by the publish API. Stashes the
+		 * captcha descriptor on the upload and flips state to 'recoverable-error'
+		 * so the controller can render the widget and let the user retry.
+		 *
+		 * @param {string} code API error code
+		 * @param {Object} result Full API result object
+		 */
+		handleCaptchaError: function ( code, result ) {
+			// ApiMessage data lands on the top-level error object in the legacy envelope
+			// that mw.Api uses by default (no errorformat).
+			const captchaInfo = OO.getProp( result, 'error', 'captcha' );
+			if ( !captchaInfo || !captchaInfo.type ) {
+				this.showError( code, OO.getProp( result, 'error', 'info' ) || '' );
+				return;
+			}
+			this.upload.captchaError = captchaInfo;
+			// Restore the form without pinning a per-file error: the captcha widget IS the message.
+			this.upload.state = 'recoverable-error';
+			this.$dataDiv.morphCrossfade( '.detailsForm' );
+		},
+
+		/**
 		 * Create a recoverable error -- show the form again, and highlight the problematic field.
 		 *
-		 * @param {string} code
-		 * @param {string} html Error message to show.
+		 * @param {string} code API error code
+		 * @param {string} html Error message HTML to show
 		 */
 		recoverFromError: function ( code, html ) {
 			this.upload.state = 'recoverable-error';
@@ -1624,6 +1648,11 @@
 				'upload-error-duplicate-archive',
 				'unknown-warning'
 			];
+
+			if ( code === 'captcha' ) {
+				this.handleCaptchaError( code, result );
+				return;
+			}
 
 			if ( code === 'badtoken' ) {
 				this.api.badToken( 'csrf' );

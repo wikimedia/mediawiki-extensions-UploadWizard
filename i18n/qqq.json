@@ -97,6 +97,8 @@
 	"mwe-upwiz-submitting-structured-data": "Used to indicate that captions are being submitted.\nParameters:\n* $1 - The amount of captions for PLURAL",
 	"mwe-upwiz-published": "Used as status message.\n\nThis message indicates it has been published successfully.\n{{Identical|Published}}",
 	"mwe-upwiz-failed": "{{Identical|Failed}}",
+	"mwe-upwiz-captcha-description": "Shown on the publish step when a CAPTCHA security check is required before the upload can be published. Displayed once below the publish action buttons (the same captcha gates the whole batch, not per file).",
+	"mwe-upwiz-captcha-load-failed": "Shown on the publish step when the CAPTCHA widget could not be loaded (e.g. due to a network error or because the ConfirmEdit extension is unavailable). Instructs the user to reload the page.",
 	"mwe-upwiz-remove": "{{Identical|Remove}}",
 	"mwe-upwiz-override": "Message for a button to steamroll over some errors. The only use right now is for overriding duplicate-archive errors, where the file was uploaded and deleted before.",
 	"mwe-upwiz-override-upload": "Used as hint for the action link which is labeled {{msg-mw|Mwe-upwiz-override}}.",

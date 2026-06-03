@@ -36,6 +36,8 @@
 
 		this.stepName = 'details';
 		this.finishState = 'complete';
+		this.currentCaptchaData = null;
+		this.captchaPromptedEagerly = false;
 
 		this.queue = new uw.ConcurrentQueue( {
 			count: this.config.maxSimultaneousConnections,
@@ -52,6 +54,18 @@
 	 */
 	uw.controller.Details.prototype.load = function ( uploads ) {
 		uw.controller.Step.prototype.load.call( this, uploads );
+
+		// Render the CAPTCHA widget on entry to the Details step so the user can solve it
+		// while filling out the form rather than being interrupted at publish time. The
+		// widget is torn down on unload, so this re-arms on every visit.
+		this.captchaPromptedEagerly = false;
+		if ( this.shouldPromptCaptchaEagerly() ) {
+			this.captchaPromptedEagerly = true;
+			// On a load failure, drop the flag so the next Publish click re-attempts via submit().
+			this.ui.showCaptcha( mw.UploadWizard.config.publishCaptchaType ).catch( () => {
+				this.captchaPromptedEagerly = false;
+			} );
+		}
 
 		// make sure queue is empty before starting this step
 		this.queue.abortExecuting();
@@ -210,7 +224,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.transitionOne = function ( upload ) {
-		return upload.details.submit();
+		return upload.details.submit( this.currentCaptchaData );
 	};
 
 	/**
@@ -220,25 +234,80 @@
 	 */
 	uw.controller.Details.prototype.transitionAll = function () {
 		const deferred = $.Deferred();
+		const uploads = this.uploads.filter( ( upload ) => this.canTransition( upload ) );
 
-		this.uploads.forEach( ( upload ) => {
-			if ( this.canTransition( upload ) ) {
-				this.queue.addItem( upload );
-			}
-		} );
+		if ( this.hasCaptchaToken() && uploads.length > 1 ) {
+			const [ first, ...rest ] = uploads;
+			// First upload sets the timestamp for the last time a captcha was solved in the backend session
+			// before the rest run in parallel.
+			this.queue.once( 'progress', () => {
+				if ( !first.captchaError ) {
+					rest.forEach( ( upload ) => this.queue.addItem( upload ) );
+				}
+			} );
+			this.queue.addItem( first );
+		} else {
+			uploads.forEach( ( upload ) => this.queue.addItem( upload ) );
+		}
 
-		this.queue.on( 'complete', deferred.resolve );
+		this.queue.once( 'complete', deferred.resolve );
 		this.queue.startExecuting();
 
 		return deferred.promise();
 	};
 
+	uw.controller.Details.prototype.hasCaptchaToken = function () {
+		return !!this.currentCaptchaData;
+	};
+
+	uw.controller.Details.prototype.consumeCaptchaError = function () {
+		const failed = this.uploads.filter( ( upload ) => upload.captchaError );
+		if ( failed.length === 0 ) {
+			return null;
+		}
+		const pendingCaptchaData = failed[ 0 ].captchaError;
+		failed.forEach( ( upload ) => {
+			upload.captchaError = null;
+		} );
+		return pendingCaptchaData;
+	};
+
 	/**
 	 * Submit details to the API.
 	 *
-	 * @return {jQuery.Promise}
+	 * @return {Promise<void>}
 	 */
-	uw.controller.Details.prototype.submit = function () {
+	uw.controller.Details.prototype.submit = async function () {
+		if ( this.shouldPromptCaptchaEagerly() ) {
+			this.captchaPromptedEagerly = true;
+			this.ui.cancelSubmitting();
+			this.ui.showCaptcha( mw.UploadWizard.config.publishCaptchaType );
+			return;
+		}
+
+		this.prepareUploadsForSubmit();
+		this.ui.disableEdits();
+		this.removeCopyMetadataFeature();
+
+		await this.acquireCaptchaToken();
+		await this.transitionAll();
+		await this.finishSubmit();
+	};
+
+	/**
+	 * Render the CAPTCHA widget before hitting the publish API. Server-side
+	 * enforcement remains authoritative — the reactive error path covers a
+	 * stale or bypassed flag.
+	 *
+	 * @return {boolean}
+	 */
+	uw.controller.Details.prototype.shouldPromptCaptchaEagerly = function () {
+		return !this.captchaPromptedEagerly &&
+			!!mw.UploadWizard.config.publishCaptchaRequired &&
+			!!mw.UploadWizard.config.publishCaptchaType;
+	};
+
+	uw.controller.Details.prototype.prepareUploadsForSubmit = function () {
 		this.uploads.forEach( ( upload ) => {
 			// Clear error state
 			if ( upload.state === 'error' || upload.state === 'recoverable-error' ) {
@@ -248,16 +317,33 @@
 			// Set details view to have correct title
 			upload.details.setVisibleTitle( upload.details.getTitle().getMain() );
 		} );
+	};
 
-		// Disable edit interface
-		this.ui.disableEdits();
-		this.removeCopyMetadataFeature();
+	uw.controller.Details.prototype.acquireCaptchaToken = async function () {
+		try {
+			this.currentCaptchaData = await this.ui.getCaptchaToken();
+		} catch ( e ) {
+			this.currentCaptchaData = null;
+			this.ui.cancelSubmitting();
+			this.addCopyMetadataFeature();
+			throw new Error( 'captcha-cancelled' );
+		}
+	};
 
-		return this.transitionAll().then( () => {
-			if ( this.showNext() ) {
-				this.moveNext();
-			}
-		} );
+	uw.controller.Details.prototype.finishSubmit = function () {
+		this.currentCaptchaData = null;
+
+		const failedCaptchaData = this.consumeCaptchaError();
+		if ( failedCaptchaData ) {
+			this.ui.cancelSubmitting();
+			this.ui.showCaptcha( failedCaptchaData );
+			this.addCopyMetadataFeature();
+			return;
+		}
+
+		if ( this.showNext() ) {
+			this.moveNext();
+		}
 	};
 
 	/**
