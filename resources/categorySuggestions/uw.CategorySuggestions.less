@@ -1,0 +1,34 @@
+@import 'mediawiki.skin.variables.less';
+
+/*
+ * The category suggestions section. The container also carries the shared
+ * '.mwe-upwiz-details-help' class so it matches the field's help-text style
+ * (subtle color, spacing). Each suggestion is rendered as a frameless button
+ * styled to look like an underlined link in the success color.
+ */
+.mwe-upwiz-categorySuggestions {
+	// Inline flow so suggestions read as a comma-separated list and wrap naturally.
+	margin-top: 0.5em;
+
+	.mwe-upwiz-categorySuggestions-item.oo-ui-buttonElement {
+		margin: 0;
+		vertical-align: baseline;
+		// Keep each suggestion (name + count) together when the list wraps.
+		white-space: nowrap;
+
+		> .oo-ui-buttonElement-button {
+			min-height: 0;
+			padding: 0;
+			font-weight: normal;
+			color: @color-success;
+			text-decoration: @text-decoration-underline;
+		}
+
+		// Keep the link appearance (no button background) on interaction.
+		&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+		&.oo-ui-widget-enabled > .oo-ui-buttonElement-button:focus {
+			color: @color-success;
+			background-color: transparent;
+		}
+	}
+}

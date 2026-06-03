@@ -234,6 +234,7 @@
 			// Categories
 			//
 			this.categoriesDetails = new uw.CategoriesDetailsWidget( {
+				upload: this.upload,
 				placeholder: mw.message( 'mwe-upwiz-categories-placeholder' )
 			} );
 			this.categoriesDetails.on( 'change', () => this.emit( 'change' ) );
@@ -719,6 +720,7 @@
 			this.prefillTitle();
 			this.prefillDescription();
 			this.prefillLocation();
+			this.categoriesDetails.loadSuggestions();
 		},
 
 		/**

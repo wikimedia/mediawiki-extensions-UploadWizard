@@ -6,6 +6,8 @@
 	 * @constructor
 	 * @param {Object} [config] Configuration options
 	 * @param {mw.Api} [config.api] Instance of mw.Api (or subclass thereof) to use for queries
+	 * @param {mw.UploadWizardUpload} [config.upload] Upload the categories belong to, used as
+	 *   the source of signals (title, metadata, ...) for category suggestions
 	 * @param {number} [config.searchLimit=50] Maximum number of category search results to load
 	 * @param {number} [config.subLimit=500] Maximum number of sub-categories to load
 	 */
@@ -35,6 +37,7 @@
 
 		// Initialize
 		this.api = config.api || new mw.Api();
+		this.upload = config.upload;
 
 		this.cacheSearch = {};
 		this.cacheChildren = {};
@@ -47,6 +50,33 @@
 				this.input.$input.val().trim()
 			), 100 )
 		);
+
+		// Category suggestions: an optional row of categories, derived from the
+		// upload, that the user can click to add. Suggestions are only ever
+		// offered here, never added automatically.
+		this.suggestions = [];
+		this.$suggestions = $( '<div>' )
+			// 'mwe-upwiz-details-help' makes the section match the field's help text
+			.addClass( 'mwe-upwiz-categorySuggestions mwe-upwiz-details-help' )
+			.toggle( false );
+		this.$element.append( this.$suggestions );
+
+		const suggestionsConfig = mw.UploadWizard.config.categorySuggestions || {};
+		// The feature must be enabled for the wiki, and the user must have opted in
+		// via their preferences (the preference is only offered when wiki-enabled).
+		const userOptedIn = !!Number( mw.user.options.get( 'upwiz_show_cat_suggestions' ) );
+		if ( suggestionsConfig.enabled && userOptedIn ) {
+			// Cap on how many suggestions are shown; falls back to 5 if not set
+			// to a positive number.
+			this.maxSuggestions = suggestionsConfig.maxSuggestions > 0 ?
+				suggestionsConfig.maxSuggestions : 5;
+			this.aggregator = new uw.CategorySuggestionAggregator( [
+				new uw.TitleCategorySuggestionProvider()
+			] );
+			// Re-render whenever the selection changes, so chips for categories the
+			// user just added (or removed) are kept in sync.
+			this.connect( this, { change: 'renderSuggestions' } );
+		}
 
 		// Keep only valid titles
 		const categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( ( cat ) => !!mw.Title.makeTitle( NS_CATEGORY, cat ) );
@@ -252,6 +282,116 @@
 			.fail( () => delete this.cacheChildren[ cacheKey ] );
 
 		return this.cacheChildren[ cacheKey ];
+	};
+
+	/**
+	 * Build the context object handed to suggestion providers.
+	 *
+	 * @private
+	 * @return {Object}
+	 */
+	uw.CategoriesDetailsWidget.prototype.getSuggestionContext = function () {
+		const upload = this.upload;
+		return {
+			upload: upload,
+			title: upload && upload.title ? upload.title.getNameText() : '',
+			metadata: ( upload && upload.imageinfo && upload.imageinfo.metadata ) || {},
+			selected: this.getItems().map( ( item ) => item.data ),
+			api: this.api
+		};
+	};
+
+	/**
+	 * Fetch category suggestions for the current upload and render them.
+	 *
+	 * No-op when the feature is disabled. Safe to call once the upload's image
+	 * info (EXIF metadata etc.) is available, i.e. from the details form's
+	 * populate() step.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	uw.CategoriesDetailsWidget.prototype.loadSuggestions = function () {
+		if ( !this.aggregator ) {
+			return $.Deferred().resolve().promise();
+		}
+
+		this.pushPending();
+		return this.aggregator.getSuggestions( this.getSuggestionContext() )
+			.then( ( suggestions ) => {
+				// Hard cap to the top N ranked suggestions. The set does not refill
+				// as the user accepts suggestions; it only shrinks.
+				this.suggestions = suggestions.slice( 0, this.maxSuggestions );
+				this.renderSuggestions();
+			} )
+			.always( this.popPending.bind( this ) );
+	};
+
+	/**
+	 * Render the suggestion chips, excluding any category that is already
+	 * selected. Hides the row when there is nothing left to suggest.
+	 *
+	 * @private
+	 */
+	uw.CategoriesDetailsWidget.prototype.renderSuggestions = function () {
+		if ( !this.$suggestions ) {
+			return;
+		}
+
+		this.$suggestions.empty();
+
+		const selected = this.getItems().map( ( item ) => item.data );
+		const available = this.suggestions.filter(
+			( suggestion ) => !selected.includes( suggestion.title )
+		);
+
+		if ( available.length === 0 ) {
+			this.$suggestions.toggle( false );
+			return;
+		}
+
+		this.$suggestions.append(
+			$( '<span>' )
+				.text( mw.message( 'mwe-upwiz-categories-suggestions-label', available.length ).text() )
+		);
+
+		available.forEach( ( suggestion, index ) => {
+			// Space between the label and the first item, localized comma between
+			// consecutive items, so the row reads as "label: A, B, C".
+			this.$suggestions.append( document.createTextNode(
+				index === 0 ? mw.msg( 'word-separator' ) : mw.msg( 'comma-separator' )
+			) );
+
+			let label = suggestion.title;
+			if ( suggestion.count !== null && suggestion.count !== undefined ) {
+				label += ' ' + mw.message(
+					'mwe-upwiz-categories-suggestion-count',
+					mw.language.convertNumber( suggestion.count ),
+					suggestion.count
+				).text();
+			}
+
+			const button = new OO.ui.ButtonWidget( {
+				label: label,
+				framed: false,
+				classes: [ 'mwe-upwiz-categorySuggestions-item' ],
+				title: mw.message( 'mwe-upwiz-categories-suggestion-add', suggestion.title ).text()
+			} );
+			button.connect( this, { click: [ 'addSuggestion', suggestion.title ] } );
+			this.$suggestions.append( button.$element );
+		} );
+
+		this.$suggestions.toggle( true );
+	};
+
+	/**
+	 * Add a suggested category to the selection. The change event triggers a
+	 * re-render, which drops the now-selected category's chip.
+	 *
+	 * @private
+	 * @param {string} title Category title (without namespace)
+	 */
+	uw.CategoriesDetailsWidget.prototype.addSuggestion = function ( title ) {
+		this.addTag( title );
 	};
 
 	uw.CategoriesDetailsWidget.prototype.validate = function () {

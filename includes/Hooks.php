@@ -50,6 +50,16 @@ class Hooks implements
 			];
 		}
 
+		// User preference to opt in to category suggestions, only offered where the
+		// feature is enabled for the wiki.
+		if ( Config::getSetting( 'categorySuggestions' )['enabled'] ?? false ) {
+			$preferences['upwiz_show_cat_suggestions'] = [
+				'type' => 'check',
+				'label-message' => 'mwe-upwiz-prefs-show-cat-suggestions',
+				'section' => 'uploads/upwiz-interface'
+			];
+		}
+
 		$preferences['upwiz_licensename'] = [
 			'type' => 'text',
 			'label-message' => 'mwe-upwiz-prefs-license-name',

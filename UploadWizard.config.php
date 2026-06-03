@@ -149,6 +149,26 @@ return [
 	// Does not consider autoAdd.categories, which are hidden.
 	'missingCategoriesWikiText' => '',
 
+	// Dynamic category suggestions shown on the Details step. When enabled, the
+	// Categories field offers categories derived from the file (title, metadata,
+	// location, the user's history, ...) which the user can click to add.
+	// Suggestions are only ever offered, never added automatically. Individual
+	// suggestion sources degrade gracefully when their dependencies (e.g. GeoData,
+	// CirrusSearch) are unavailable.
+	'categorySuggestions' => [
+		// Wiki-level availability of the feature. Off by default; enable it where
+		// the suggestion sources can produce useful results (e.g. Wikimedia
+		// Commons). When enabled, individual users still opt in via the
+		// "Show category suggestions" preference (off by default), so this acts as
+		// the rollout gate rather than turning suggestions on for everyone.
+		'enabled' => false,
+
+		// Maximum number of suggestions to display at once. Caps the combined,
+		// ranked list (across all suggestion sources) so the form doesn't get
+		// crowded. Falls back to 5 if not a positive number.
+		'maxSuggestions' => 5,
+	],
+
 	'display' => [
 		// wikitext to display above the UploadWizard UI.
 		'headerLabel' => '',
