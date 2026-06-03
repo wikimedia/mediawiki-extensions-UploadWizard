@@ -12,9 +12,11 @@ use MediaWiki\ChangeTags\ChangeTags;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Exception\UserBlockedError;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
 use MediaWiki\Extension\UploadWizard\Campaign;
 use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;
+use MediaWiki\Extension\UploadWizard\PublishCaptchaHandler;
 use MediaWiki\Extension\UploadWizard\Tutorial;
 use MediaWiki\Html\Html;
 use MediaWiki\Media\BitmapHandler;
@@ -41,6 +43,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 	public function __construct(
 		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly ?CaptchaFactory $captchaFactory,
 	) {
 		parent::__construct( 'UploadWizard' );
 	}
@@ -269,6 +272,8 @@ class SpecialUploadWizard extends SpecialPage {
 				->inContentLanguage()->plain()
 		];
 
+		$config += $this->getPublishCaptchaRequiredJsVars();
+
 		$bitmapHandler = new BitmapHandler();
 		$this->getOutput()->addJsConfigVars(
 			[
@@ -276,6 +281,26 @@ class SpecialUploadWizard extends SpecialPage {
 				'wgFileCanRotate' => $bitmapHandler->canRotate(),
 			]
 		);
+	}
+
+	private function getPublishCaptchaRequiredJsVars(): array {
+		if ( $this->captchaFactory === null ) {
+			return [ 'publishCaptchaRequired' => false ];
+		}
+
+		$captcha = $this->captchaFactory->getGlobalInstance( PublishCaptchaHandler::TRIGGER );
+		if ( !$captcha->triggersCaptcha( PublishCaptchaHandler::TRIGGER ) ) {
+			return [ 'publishCaptchaRequired' => false ];
+		}
+
+		if ( $captcha->canSkipCaptcha( $this->getUser() ) ) {
+			return [ 'publishCaptchaRequired' => false ];
+		}
+
+		return [
+			'publishCaptchaRequired' => true,
+			'publishCaptchaType' => $captcha->describeCaptchaType( PublishCaptchaHandler::TRIGGER ),
+		];
 	}
 
 	/**

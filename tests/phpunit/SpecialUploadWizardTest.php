@@ -17,7 +17,7 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 	 */
 	protected function newSpecialPage() {
 		$userOptionsLookup = $this->getServiceContainer()->getUserOptionsLookup();
-		return new SpecialUploadWizard( $userOptionsLookup );
+		return new SpecialUploadWizard( $userOptionsLookup, null );
 	}
 
 	/**
