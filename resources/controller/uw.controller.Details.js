@@ -330,13 +330,17 @@
 		}
 	};
 
-	uw.controller.Details.prototype.finishSubmit = function () {
+	uw.controller.Details.prototype.finishSubmit = async function () {
 		this.currentCaptchaData = null;
 
 		const failedCaptchaData = this.consumeCaptchaError();
 		if ( failedCaptchaData ) {
+			if ( await this.ui.showCaptcha( failedCaptchaData ).catch( () => false ) ) {
+				// ConfirmEdit signalled the captcha re-validated silently —
+				// re-fire publish without making the user click again.
+				return this.submit();
+			}
 			this.ui.cancelSubmitting();
-			this.ui.showCaptcha( failedCaptchaData );
 			this.addCopyMetadataFeature();
 			return;
 		}

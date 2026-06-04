@@ -1585,11 +1585,11 @@
 		 * @param {Object} result Full API result object
 		 */
 		handleCaptchaError: function ( code, result ) {
-			// ApiMessage data lands on the top-level error object in the legacy envelope
-			// that mw.Api uses by default (no errorformat).
-			const captchaInfo = OO.getProp( result, 'error', 'captcha' );
+			// UploadWizard always requests errorformat=html (see mw.UploadWizard.getApi),
+			// so ApiMessage data lives at errors[ 0 ].data.
+			const captchaInfo = OO.getProp( result, 'errors', 0, 'data', 'captcha' );
 			if ( !captchaInfo || !captchaInfo.type ) {
-				this.showError( code, OO.getProp( result, 'error', 'info' ) || '' );
+				this.showError( code, OO.getProp( result, 'errors', 0, 'html' ) || '' );
 				return;
 			}
 			this.upload.captchaError = captchaInfo;

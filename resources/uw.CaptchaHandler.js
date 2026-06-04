@@ -78,14 +78,20 @@
 			} );
 
 			try {
-				await this.captchaWidget.updateForFailure( captchaData );
+				// ConfirmEdit's updateForFailure may resolve to true when the
+				// widget has silently re-validated (e.g. hCaptcha satisfying an
+				// AbuseFilter forceshowcaptcha challenge without user input).
+				// In that case the caller can re-fire the API request immediately.
+				const shouldAutoResubmit = await this.captchaWidget.updateForFailure( captchaData );
 				await this.captchaWidget.renderCaptcha();
 				this.scrollTo( $captchaContainer );
+				return shouldAutoResubmit === true;
 			} catch ( error ) {
 				mw.errorLogger.logError( error, 'error.uploadwizard' );
 				this.showLoadError( $captchaContainer, error );
 				// Drop the rejection so getCaptchaToken() sees a resolved promise with no widget.
 				this.captchaLoadingPromise = null;
+				return false;
 			}
 		}
 

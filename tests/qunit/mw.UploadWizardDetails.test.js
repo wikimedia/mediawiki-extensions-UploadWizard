@@ -3,21 +3,21 @@
 
 	QUnit.test.each( 'processError: captcha error', {
 		'valid captchaInfo sets captchaError and morphs back to detailsForm': {
-			result: { error: { captcha: { type: 'math', id: '123' } } },
-			expectedCaptchaError: { type: 'math', id: '123' },
+			result: { errors: [ { code: 'captcha', html: 'oops', data: { captcha: { type: 'hcaptcha', key: 'abc' } } } ] },
+			expectedCaptchaError: { type: 'hcaptcha', key: 'abc' },
 			expectedState: 'recoverable-error',
 			expectedMorphCount: 1,
 			expectedShowErrorCount: 0
 		},
 		'missing captchaInfo calls showError': {
-			result: { error: {}, errors: [ { html: 'oops' } ] },
+			result: { errors: [ { html: 'oops' } ] },
 			expectedCaptchaError: null,
 			expectedState: undefined,
 			expectedMorphCount: 0,
 			expectedShowErrorCount: 1
 		},
 		'captchaInfo missing type calls showError': {
-			result: { error: { captcha: { id: '456' } }, errors: [ { html: 'oops' } ] },
+			result: { errors: [ { html: 'oops', data: { captcha: { id: '456' } } } ] },
 			expectedCaptchaError: null,
 			expectedState: undefined,
 			expectedMorphCount: 0,

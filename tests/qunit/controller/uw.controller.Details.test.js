@@ -296,7 +296,8 @@
 		this.sandbox.stub( step.ui, 'getCaptchaToken' ).returns(
 			$.Deferred().resolve( null ).promise()
 		);
-		const showCaptchaStub = this.sandbox.stub( step.ui, 'showCaptcha' );
+		const showCaptchaStub = this.sandbox.stub( step.ui, 'showCaptcha' )
+			.returns( $.Deferred().resolve( false ).promise() );
 
 		const upload = createTestUpload( this.sandbox );
 		upload.state = 'details';
@@ -314,9 +315,52 @@
 		assert.strictEqual( addCopyStub.callCount, 1 );
 		assert.strictEqual( cancelSubmittingStub.callCount, 1 );
 		assert.true(
-			cancelSubmittingStub.calledBefore( showCaptchaStub ),
-			'cancelSubmitting called before showCaptcha'
+			showCaptchaStub.calledBefore( cancelSubmittingStub ),
+			'showCaptcha called before cancelSubmitting so the form stays in the submitting state until the widget reports back'
 		);
+	} );
+
+	QUnit.test( 'submit auto-resubmits when ui.showCaptcha resolves to true', async function ( assert ) {
+		const captchaData = { id: 'captcha-failed' };
+
+		this.sandbox.stub( uw.controller.Details.prototype, 'transitionAll' )
+			.returns( $.Deferred().resolve().promise() );
+		this.sandbox.stub( uw.controller.Details.prototype, 'showNext' ).returns( false );
+		const addCopyStub = this.sandbox.stub( uw.controller.Details.prototype, 'addCopyMetadataFeature' );
+		this.sandbox.stub( uw.controller.Details.prototype, 'removeCopyMetadataFeature' );
+
+		const step = new uw.controller.Details(
+			new mw.Api(),
+			{ maxSimultaneousConnections: 1 }
+		);
+
+		this.sandbox.stub( step.ui, 'disableEdits' );
+		this.sandbox.stub( step.ui, 'enableEdits' );
+		const cancelSubmittingStub = this.sandbox.stub( step.ui, 'cancelSubmitting' );
+		this.sandbox.stub( step.ui, 'getCaptchaToken' ).returns(
+			$.Deferred().resolve( null ).promise()
+		);
+		const showCaptchaStub = this.sandbox.stub( step.ui, 'showCaptcha' )
+			.returns( $.Deferred().resolve( true ).promise() );
+
+		const upload = createTestUpload( this.sandbox );
+		upload.state = 'details';
+		// Only the first submit() iteration carries a captcha error; cleared
+		// here-after so the recursive submit() from auto-resubmit reaches moveNext.
+		upload.captchaError = captchaData;
+		upload.details.setVisibleTitle = this.sandbox.stub();
+		upload.details.getTitle = this.sandbox.stub().returns( {
+			getMain: () => 'Foo.jpg'
+		} );
+		step.uploads = [ upload ];
+
+		const submitSpy = this.sandbox.spy( step, 'submit' );
+		await step.submit();
+
+		assert.strictEqual( showCaptchaStub.callCount, 1, 'showCaptcha called once with the failed challenge' );
+		assert.strictEqual( submitSpy.callCount, 2, 'submit re-fired automatically after captcha silent re-validation' );
+		assert.strictEqual( cancelSubmittingStub.callCount, 0, 'cancelSubmitting not called on the auto-resubmit path' );
+		assert.strictEqual( addCopyStub.callCount, 0, 'addCopyMetadataFeature not called on the auto-resubmit path' );
 	} );
 
 	QUnit.test( 'submit handles getCaptchaToken rejection by cancelling and restoring copy metadata', async function ( assert ) {
@@ -380,7 +424,8 @@
 		this.sandbox.stub( step.ui, 'getCaptchaToken' ).returns(
 			$.Deferred().resolve( null ).promise()
 		);
-		const showCaptchaStub = this.sandbox.stub( step.ui, 'showCaptcha' );
+		const showCaptchaStub = this.sandbox.stub( step.ui, 'showCaptcha' )
+			.returns( $.Deferred().resolve( false ).promise() );
 
 		const upload = createTestUpload( this.sandbox );
 		upload.state = 'details';
