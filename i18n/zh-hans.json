@@ -124,6 +124,8 @@
 	"mwe-upwiz-submitting-structured-data": "正在提交结构化数据…",
 	"mwe-upwiz-published": "已发表！",
 	"mwe-upwiz-failed": "失败。",
+	"mwe-upwiz-captcha-description": "请完成验证码以发布您的文件。",
+	"mwe-upwiz-captcha-load-failed": "安全检查加载失败。请刷新页面后重试。",
 	"mwe-upwiz-remove": "移除",
 	"mwe-upwiz-override": "继续上传",
 	"mwe-upwiz-override-upload": "无论如何都要上传此文件。",
