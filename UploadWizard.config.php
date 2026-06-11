@@ -397,10 +397,10 @@ return [
 			'availableLanguages' => $uwCcAvailableLanguages
 		],
 		'cc-by-4.0-heirs' => [
-			'msg' => 'mwe-upwiz-license-cc-by-sa-4.0-text',
+			'msg' => 'mwe-upwiz-license-cc-by-4.0-text',
 			'msgExplain' => 'mwe-upwiz-source-heirs-cc-by-4.0-explain',
 			'icons' => [ 'cc-by' ],
-			'url' => '//creativecommons.org/licenses/by-sa/4.0/',
+			'url' => '//creativecommons.org/licenses/by/4.0/',
 			'languageCodePrefix' => 'deed.',
 			'availableLanguages' => $uwCcAvailableLanguages
 		],
