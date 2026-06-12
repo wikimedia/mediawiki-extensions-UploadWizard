@@ -96,6 +96,8 @@
 	"mwe-upwiz-submitting-structured-data": "Надсилання структурованих даних…",
 	"mwe-upwiz-published": "Опубліковано!",
 	"mwe-upwiz-failed": "Не вдалося.",
+	"mwe-upwiz-captcha-description": "Будь ласка, заповніть капчу, щоб опублікувати файл.",
+	"mwe-upwiz-captcha-load-failed": "Не вдалося завантажити перевірку безпеки. Будь ласка, перезавантажте сторінку та спробуйте ще раз.",
 	"mwe-upwiz-remove": "Вилучити",
 	"mwe-upwiz-override": "Все одно завантажити",
 	"mwe-upwiz-override-upload": "Завантажити цей файл, що б там не було.",
