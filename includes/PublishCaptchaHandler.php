@@ -66,6 +66,10 @@ class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedPara
 			return true;
 		}
 
+		if ( !$this->isUploadWizardUpload() ) {
+			return true;
+		}
+
 		$captcha = $this->getCaptcha();
 		if ( !$captcha || !$captcha->triggersCaptcha( self::TRIGGER ) ) {
 			return true;
@@ -99,6 +103,11 @@ class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedPara
 			return;
 		}
 
+		$params['uploadwizardpublish'] ??= [
+			ParamValidator::PARAM_TYPE => 'boolean',
+			ApiBase::PARAM_HELP_MSG => 'apihelp-upload-param-uploadwizardpublish',
+		];
+
 		$captcha = $this->getCaptcha();
 		if ( !$captcha ) {
 			return;
@@ -128,6 +137,16 @@ class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedPara
 			'wgConfirmEditForceShowCaptcha' => 'confirmedit-hcaptcha-apihelp-param-forceshowcaptcha',
 			default => 'captcha-apihelp-param-' . $name,
 		};
+	}
+
+	/**
+	 * Detects UploadWizard publishes via the `uploadwizardpublish` param its
+	 * frontend always sends. Uses a dedicated param, not the `uploadwizard`
+	 * change tag, because tags are gated on `applychangetags` (absent for
+	 * logged-out and temporary accounts) and so would not fire for them.
+	 */
+	private function isUploadWizardUpload(): bool {
+		return $this->request->getBool( 'uploadwizardpublish' );
 	}
 
 	private function getCaptcha(): ?SimpleCaptcha {

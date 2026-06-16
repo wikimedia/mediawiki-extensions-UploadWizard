@@ -35,8 +35,13 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testReturnsTrueWhenUserCanSkipCaptcha(): void {
+		$this->setGroupPermissions( 'sysop', 'skipcaptcha', true );
 		$user = $this->getTestSysop()->getUser();
 		$request = $this->createMock( WebRequest::class );
+		$request
+			->method( 'getBool' )
+			->with( 'uploadwizardpublish' )
+			->willReturn( true );
 		$request
 			->expects( $this->never() )
 			->method( 'getSession' );
@@ -52,7 +57,7 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 
 	public function testReturnsTrueWhenCaptchaRecentlySolvedViaSession(): void {
 		$user = $this->getTestUser()->getUser();
-		$request = new FauxRequest();
+		$request = new FauxRequest( [ 'uploadwizardpublish' => '1' ] );
 		$this->setRequest( $request );
 		$request->getSession()->set( self::LAST_SOLVED_TIMESTAMP_SESSION_KEY, time() );
 
@@ -67,7 +72,7 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 
 	public function testReturnsFalseWithApiMessageWhenNoCaptchaToken(): void {
 		$user = $this->getTestUser()->getUser();
-		$request = new FauxRequest();
+		$request = new FauxRequest( [ 'uploadwizardpublish' => '1' ] );
 		$this->setRequest( $request );
 
 		$error = null;
@@ -85,7 +90,7 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 		ConvertibleTimestamp::setFakeTime( $baseTimestamp );
 
 		$user = $this->getTestUser()->getUser();
-		$request = new FauxRequest();
+		$request = new FauxRequest( [ 'uploadwizardpublish' => '1' ] );
 		$this->setRequest( $request );
 		$request->getSession()->set( self::LAST_SOLVED_TIMESTAMP_SESSION_KEY, $baseTimestamp );
 
