@@ -394,11 +394,7 @@
 		} );
 		step.uploads = [ upload ];
 
-		await assert.rejects(
-			step.submit(),
-			/captcha-cancelled/,
-			'submit() should reject when getCaptchaToken rejects'
-		);
+		await step.submit();
 		assert.strictEqual( cancelSubmittingStub.callCount, 1 );
 		assert.strictEqual( addCopyStub.callCount, 1 );
 		assert.strictEqual( step.currentCaptchaData, null );

@@ -285,13 +285,19 @@
 			return;
 		}
 
-		this.prepareUploadsForSubmit();
-		this.ui.disableEdits();
-		this.removeCopyMetadataFeature();
+		try {
+			this.prepareUploadsForSubmit();
+			this.ui.disableEdits();
+			this.removeCopyMetadataFeature();
 
-		await this.acquireCaptchaToken();
-		await this.transitionAll();
-		await this.finishSubmit();
+			await this.acquireCaptchaToken();
+			await this.transitionAll();
+			await this.finishSubmit();
+		} catch ( e ) {
+			this.currentCaptchaData = null;
+			this.ui.cancelSubmitting();
+			this.addCopyMetadataFeature();
+		}
 	};
 
 	/**
@@ -323,9 +329,6 @@
 		try {
 			this.currentCaptchaData = await this.ui.getCaptchaToken();
 		} catch ( e ) {
-			this.currentCaptchaData = null;
-			this.ui.cancelSubmitting();
-			this.addCopyMetadataFeature();
 			throw new Error( 'captcha-cancelled' );
 		}
 	};
@@ -340,9 +343,7 @@
 				// re-fire publish without making the user click again.
 				return this.submit();
 			}
-			this.ui.cancelSubmitting();
-			this.addCopyMetadataFeature();
-			return;
+			throw new Error( 'captcha-cancelled' );
 		}
 
 		if ( this.showNext() ) {
