@@ -31,14 +31,20 @@ class PublishCaptchaHandlerTest extends MediaWikiUnitTestCase {
 	 */
 	public function testReturnsTrueWhenShouldShortCircuit(
 		bool $uploadFromStash,
-		bool $withCaptchaFactory
+		bool $withCaptchaFactory,
+		bool $isUploadWizardPublish
 	): void {
 		$upload = $uploadFromStash
 			? $this->createMock( UploadFromStash::class )
 			: $this->createMock( UploadBase::class );
 		$captchaFactory = $withCaptchaFactory ? $this->createMock( CaptchaFactory::class ) : null;
+		$request = $this->createMock( WebRequest::class );
+		$request
+			->method( 'getBool' )
+			->with( 'uploadwizardpublish' )
+			->willReturn( $isUploadWizardPublish );
 		$handler = new PublishCaptchaHandler(
-			$this->createMock( WebRequest::class ),
+			$request,
 			$this->createMock( MessageLocalizer::class ),
 			$captchaFactory
 		);
@@ -57,10 +63,17 @@ class PublishCaptchaHandlerTest extends MediaWikiUnitTestCase {
 			'upload is not from stash' => [
 				'uploadFromStash' => false,
 				'withCaptchaFactory' => true,
+				'isUploadWizardPublish' => false,
 			],
 			'CaptchaFactory unavailable' => [
 				'uploadFromStash' => true,
 				'withCaptchaFactory' => false,
+				'isUploadWizardPublish' => true,
+			],
+			'not an uploadwizard publish' => [
+				'uploadFromStash' => true,
+				'withCaptchaFactory' => true,
+				'isUploadWizardPublish' => false,
 			],
 		];
 	}

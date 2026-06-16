@@ -1278,6 +1278,10 @@
 				filename: this.getTitle().getMain(),
 				comment: comment,
 				tags: config.CanAddTags ? tags : [],
+				// Marks the publish as originating from the UploadWizard so the
+				// CAPTCHA is only enforced here. Sent unconditionally because,
+				// unlike the change tag above, it is not gated on applychangetags.
+				uploadwizardpublish: 1,
 				// we can ignore upload warnings here, we've already checked
 				// when stashing the file
 				// not ignoring warnings would prevent us from uploading a file

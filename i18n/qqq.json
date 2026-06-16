@@ -472,6 +472,7 @@
 	"mwe-upwiz-upload-comment-third-party": "Third party work upload comment shown in upload log. Only variable substitution will be done on this message.\n* $1 – author of the work\n* $2 – source of the work",
 	"mwe-upwiz-metadata-notice-header": "Bolded header for Personal Data notice",
 	"mwe-upwiz-metadata-notice-description": "Notice explaining that EXIF metadata is going to be added to the uploaded images if available.",
+	"apihelp-upload-param-uploadwizardpublish": "API help message for the <code>uploadwizardpublish</code> parameter added to action=upload by UploadWizard. The parameter name must not be translated.",
 	"namespaceinfo-description-ns460": "Namespace description for the Campaign namespace",
 	"namespaceinfo-description-ns461": "Namespace description for the Campaign talk namespace"
 }
