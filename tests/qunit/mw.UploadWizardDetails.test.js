@@ -105,6 +105,31 @@
 		assert.strictEqual( params.action, 'upload' );
 	} );
 
+	QUnit.test( 'submitWikiText: always sends uploadwizardpublish param', function ( assert ) {
+		this.sandbox.stub( mw.UploadWizard, 'config' ).value( {
+			uploadComment: { ownWork: 'Own work' },
+			CanAddTags: false
+		} );
+
+		const details = {
+			upload: {
+				fileKey: 'key123',
+				deedChooser: { deed: { name: 'ownwork' } },
+				file: { source: 'web' },
+				transportWeight: 0
+			},
+			getTitle: this.sandbox.stub().returns( { getMain: () => 'Foo.jpg' } ),
+			submitWikiTextInternal: this.sandbox.stub().returns( $.Deferred().resolve().promise() ),
+			firstPoll: null
+		};
+
+		mw.UploadWizardDetails.prototype.submitWikiText.call( details, 'wikitext' );
+
+		assert.strictEqual( details.submitWikiTextInternal.callCount, 1 );
+		const params = details.submitWikiTextInternal.getCall( 0 ).args[ 0 ];
+		assert.strictEqual( params.uploadwizardpublish, 1 );
+	} );
+
 	QUnit.test( 'submit: threads captchaData to submitWikiText', function ( assert ) {
 		this.sandbox.stub( mw.UploadWizard, 'config' ).value(
 			Object.assign( {}, mw.UploadWizard.config, { wikibase: { enabled: false } } )
