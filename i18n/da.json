@@ -16,7 +16,8 @@
 			"Ribewiki",
 			"Saederup92",
 			"Weblars",
-			"Zakawer2"
+			"Zakawer2",
+			"MGA73"
 		]
 	},
 	"uploadwizard": "Vejviser til oplægning af filer",
@@ -117,7 +118,7 @@
 	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=Tilføj billedtekst|Tilføj billedtekst på et andet sprog}}",
 	"mwe-upwiz-desc": "Beskrivelse",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Tilføj beskrivelse|Tilføj beskrivelse på et andet sprog}}",
-	"mwe-upwiz-title": "Billedtitel",
+	"mwe-upwiz-title": "Titel",
 	"mwe-upwiz-date-created": "Dato",
 	"mwe-upwiz-select-date": "Vælg en dato",
 	"mwe-upwiz-location": "Sted",
