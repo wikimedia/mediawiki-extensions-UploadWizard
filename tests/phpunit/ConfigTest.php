@@ -155,7 +155,7 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function getHomeButtonHref() {
-		$campaign = new Campaign( Title::newFromText( 'uw-test-campaign', NS_CAMPAIGN ),
+		$campaign = new Campaign( Title::makeTitle( NS_CAMPAIGN, 'Uw-test-campaign' ),
 			[
 				'enabled' => true,
 				'display' => [
