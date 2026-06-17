@@ -464,6 +464,7 @@
 	"mwe-upwiz-upload-comment-third-party": "ein Werk von $1 von $2 mit dem Hochlade-Assistenten hochgeladen",
 	"mwe-upwiz-metadata-notice-header": "Personenbezogene Daten",
 	"mwe-upwiz-metadata-notice-description": "Die EXIF-Metadaten in dieser Datei können Ortsangaben oder andere persönliche Daten enthalten, die von deiner Kamera automatisch hinzugefügt wurden. [https://commons.wikimedia.org/wiki/Commons:Exif Hier findest du Informationen darüber], wie du EXIF-Metadaten bearbeiten oder entfernen kannst.",
+	"apihelp-upload-param-uploadwizardpublish": "Interner Parameter, der vom [[Special:UploadWizard|Hochladeassistent]] festgelegt wird, um eine Veröffentlichung als von diesem stammend zu kennzeichnen.",
 	"namespaceinfo-description-ns460": "Namensraum für Hochlade-Kampagnen",
 	"namespaceinfo-description-ns461": "Diskussionsseiten für Hochlade-Kampagnen"
 }
