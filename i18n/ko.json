@@ -459,6 +459,7 @@
 	"mwe-upwiz-upload-comment-third-party": "업로드 마법사를 사용하여 $2에서 $1의 저작물을 업로드했습니다.",
 	"mwe-upwiz-metadata-notice-header": "개인 데이터",
 	"mwe-upwiz-metadata-notice-description": "이 파일의 EXIF 메타데이터에는 카메라에서 자동으로 추가한 위치 정보 또는 기타 개인 정보가 포함될 수 있습니다. [https://commons.wikimedia.org/wiki/Commons:Exif 더 알아보기]에서 EXIF 메타데이터를 편집하거나 삭제하는 방법을 알아보세요.",
+	"apihelp-upload-param-uploadwizardpublish": "[[Special:UploadWizard|업로드 마법사]]에서 설정한 내부 매개변수로, 게시가 해당 마법사에서 시작된 것임을 표시합니다.",
 	"namespaceinfo-description-ns460": "업로드 캠페인 이름공간",
 	"namespaceinfo-description-ns461": "업로드 캠페인 토론 문서"
 }

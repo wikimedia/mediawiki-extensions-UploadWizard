@@ -463,6 +463,7 @@
 	"mwe-upwiz-upload-comment-third-party": "Heeft een werk van $1 geüpload vanuit $2 met UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Persoonlijke gegevens",
 	"mwe-upwiz-metadata-notice-description": "EXIF-metagegevens in dit bestand kunnen locatiegegevens of andere persoonlijke gegevens bevatten die automatisch door uw camera zijn toegevoegd. [https://commons.wikimedia.org/wiki/Commons:Exif Meer informatie] over het bewerken of verwijderen van EXIF-metagegevens.",
+	"apihelp-upload-param-uploadwizardpublish": "Interne parameter ingesteld door de [[Special:UploadWizard|UploadWizard]] om een publicatie te markeren als afkomstig van deze wizard.",
 	"namespaceinfo-description-ns460": "Naamruimte voor uploadcampagnes",
 	"namespaceinfo-description-ns461": "Overlegpagina’s voor uploadcampagnes"
 }
