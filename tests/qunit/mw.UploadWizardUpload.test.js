@@ -56,4 +56,40 @@
 		upload = createUpload( '///////////' );
 		assert.strictEqual( upload.getBasename(), '', 'Nonsensical path is just removed' );
 	} );
+
+	QUnit.test( 'setError shows retry button on http error', ( assert ) => {
+		const upload = createUpload( 'file.png' );
+		upload.setError( 'http', 'Network failure' );
+		assert.true(
+			$.contains( upload.ui.$div[ 0 ], upload.ui.retryCtrl.$element[ 0 ] ),
+			'Retry button is attached under the upload\'s $div'
+		);
+	} );
+
+	QUnit.test( 'setError shows retry button on non-http errors', ( assert ) => {
+		const upload = createUpload( 'file.png' );
+		upload.setError( 'badtoken', 'Bad token' );
+		assert.true(
+			$.contains( upload.ui.$div[ 0 ], upload.ui.retryCtrl.$element[ 0 ] ),
+			'Retry button is attached under the upload\'s $div'
+		);
+	} );
+
+	QUnit.test( 'retry removes the retry button', ( assert ) => {
+		const upload = createUpload( 'file.png' );
+		upload.controller.queueUpload = () => {};
+		upload.controller.startQueuedUploads = () => {};
+
+		upload.setError( 'http', 'Network failure' );
+		assert.true(
+			$.contains( upload.ui.$div[ 0 ], upload.ui.retryCtrl.$element[ 0 ] ),
+			'Retry button is attached after error'
+		);
+
+		upload.retry();
+		assert.false(
+			$.contains( upload.ui.$div[ 0 ], upload.ui.retryCtrl.$element[ 0 ] ),
+			'Retry button is detached after retry'
+		);
+	} );
 }() );

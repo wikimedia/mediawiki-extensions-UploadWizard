@@ -189,18 +189,15 @@
 		this.queue.startExecuting();
 	};
 
+	/**
+	 * Retry all failed uploads.
+	 */
 	uw.controller.Upload.prototype.retry = function () {
 		this.uploads.forEach( ( upload ) => {
 			if ( upload.state === 'error' ) {
-				// reset any uploads in error state back to be shiny & new
-				upload.state = 'new';
-				upload.ui.clearStatus();
-				// and queue them
-				this.queueUpload( upload );
+				upload.retry();
 			}
 		} );
-
-		this.startQueuedUploads();
 	};
 
 	/**

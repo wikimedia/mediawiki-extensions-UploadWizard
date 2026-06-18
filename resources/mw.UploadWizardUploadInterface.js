@@ -40,6 +40,15 @@
 			)
 		);
 
+		this.retryCtrl = new OO.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-retry' ).text(),
+			title: mw.message( 'mwe-upwiz-retry-upload' ).text(),
+			icon: 'reload',
+			framed: false
+		} ).on( 'click', () => {
+			this.emit( 'upload-retried' );
+		} );
+
 		this.removeCtrl = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-remove' ).text(),
 			title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
@@ -89,6 +98,20 @@
 		this.$spinner.toggle( progress );
 		this.statusMessage.toggle( status && !progress ).setType( status );
 		this.$indicator.toggleClass( 'mwe-upwiz-file-indicator-visible', !!status );
+	};
+
+	/**
+	 * Add the retry button before the remove button.
+	 */
+	mw.UploadWizardUploadInterface.prototype.showRetryButton = function () {
+		this.retryCtrl.$element.insertBefore( this.removeCtrl.$element );
+	};
+
+	/**
+	 * Remove the retry button.
+	 */
+	mw.UploadWizardUploadInterface.prototype.removeRetryButton = function () {
+		this.retryCtrl.$element.detach();
 	};
 
 	/**

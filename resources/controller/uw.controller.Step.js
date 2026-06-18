@@ -61,7 +61,8 @@
 		 * @property {Object}
 		 */
 		this.uploadHandlers = {
-			'remove-upload': this.removeUpload
+			'remove-upload': this.removeUpload,
+			'retry-upload': this.retryUpload
 		};
 
 		this.ui.on( 'next-step', () => {
@@ -335,6 +336,15 @@
 		} );
 
 		this.removeUploads( toRemove );
+	};
+
+	/**
+	 * Retry a failed upload.
+	 *
+	 * @param {mw.UploadWizardUpload} upload
+	 */
+	uw.controller.Step.prototype.retryUpload = function ( upload ) {
+		upload.retry();
 	};
 
 }( mw.uploadWizard ) );

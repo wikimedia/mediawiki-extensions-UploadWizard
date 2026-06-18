@@ -291,6 +291,8 @@
 				"mwe-upwiz-remove-upload",
 				"mwe-upwiz-remove-caption",
 				"mwe-upwiz-remove-description",
+				"mwe-upwiz-retry",
+				"mwe-upwiz-retry-upload",
 				"mwe-upwiz-deleted-duplicate-unknown-filename",
 				"mwe-upwiz-upload",
 				"mwe-upwiz-file-retry",

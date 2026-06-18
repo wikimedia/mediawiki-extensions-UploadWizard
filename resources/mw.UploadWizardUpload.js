@@ -3,6 +3,7 @@
  * This is our 'model' object if we are thinking MVC. Needs to be better factored, lots of feature envy with the UploadWizard
  * states:
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
+ *
  * should fork this into two -- local and remote, e.g. filename
  *
  * @param uw
@@ -58,7 +59,8 @@
 				 * which will then eventually come back to call `remove` on this
 				 * object.
 				 */
-				'upload-removed': [ 'emit', 'remove-upload' ]
+				'upload-removed': [ 'emit', 'remove-upload' ],
+				'upload-retried': [ 'emit', 'retry-upload' ]
 			} );
 
 		if ( file.licenseName ) {
@@ -98,6 +100,19 @@
 	};
 
 	/**
+	 * Reset this upload's state and re-queue it for retry.
+	 */
+	mw.UploadWizardUpload.prototype.retry = function () {
+		this.state = 'new';
+		this.ui.clearStatus();
+		this.ui.removeRetryButton();
+		this.controller.queueUpload( this );
+
+		// This is idempotent and can be called multiple times.
+		this.controller.startQueuedUploads();
+	};
+
+	/**
 	 * Wear our current progress, for observing processes to see
 	 *
 	 * @param {number} fraction
@@ -127,6 +142,8 @@
 		this.state = 'error';
 		this.transportProgress = 0;
 		this.ui.showError( code, html, $additionalStatus );
+
+		this.ui.showRetryButton();
 	};
 
 	/**
