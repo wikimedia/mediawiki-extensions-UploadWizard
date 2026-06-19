@@ -162,3 +162,10 @@
 	max-height: 350px !important;
 	overflow: scroll;
 }
+
+// ConfirmEdit injects its hCaptcha loading spinner directly after the captcha
+// notice while acquiring the publish token. Add breathing room above it,
+// scoped to UploadWizard so that other interfaces keep their own spacing.
+.mwe-upwiz-stepdiv .ext-confirmEdit-hCaptchaLoadingIndicator {
+	padding-top: @spacing-100;
+}

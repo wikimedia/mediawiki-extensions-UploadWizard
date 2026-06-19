@@ -74,7 +74,8 @@
 		async renderWidget( $captchaContainer, captchaData ) {
 			this.captchaWidget = new mw.libs.confirmEdit.CaptchaWidget( {
 				container: $captchaContainer[ 0 ],
-				interfaceName: 'uploadwizard'
+				interfaceName: 'uploadwizard',
+				showLoadingIndicator: true
 			} );
 
 			try {
