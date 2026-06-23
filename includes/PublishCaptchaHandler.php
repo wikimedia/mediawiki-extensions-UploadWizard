@@ -30,6 +30,8 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
 class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedParamsHook {
 
 	public const string TRIGGER = 'uploadwizard-publish';
+	public const string PUBLISH_PARAM = 'uploadwizardpublish';
+
 	private const string LAST_SOLVED_TIMESTAMP_SESSION_KEY = 'uw-captcha-publish-solved';
 
 	/**
@@ -70,12 +72,14 @@ class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedPara
 			return true;
 		}
 
+		// The AbuseFilter force-show flag is only set in time when AbuseFilter's
+		// UploadVerifyUpload handler runs before this one (AbuseFilter loaded first).
 		$captcha = $this->getCaptcha();
 		if ( !$captcha || !$captcha->triggersCaptcha( self::TRIGGER ) ) {
 			return true;
 		}
 
-		if ( $captcha->canSkipCaptcha( $user ) ) {
+		if ( $captcha->shouldSkipCaptcha( $user ) ) {
 			return true;
 		}
 
@@ -91,7 +95,7 @@ class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedPara
 		$error = ApiMessage::create(
 			$this->messageLocalizer->msg( 'mwe-upwiz-captcha-description' ),
 			'captcha',
-			[ 'captcha' => $captcha->describeCaptchaType( self::TRIGGER ) ]
+			[ 'captcha' => $captcha->getCaptchaApiData() ]
 		);
 
 		return false;
@@ -103,7 +107,7 @@ class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedPara
 			return;
 		}
 
-		$params['uploadwizardpublish'] ??= [
+		$params[self::PUBLISH_PARAM] ??= [
 			ParamValidator::PARAM_TYPE => 'boolean',
 			ApiBase::PARAM_HELP_MSG => 'apihelp-upload-param-uploadwizardpublish',
 		];
@@ -146,7 +150,7 @@ class PublishCaptchaHandler implements UploadVerifyUploadHook, APIGetAllowedPara
 	 * logged-out and temporary accounts) and so would not fire for them.
 	 */
 	private function isUploadWizardUpload(): bool {
-		return $this->request->getBool( 'uploadwizardpublish' );
+		return $this->request->getBool( self::PUBLISH_PARAM );
 	}
 
 	private function getCaptcha(): ?SimpleCaptcha {

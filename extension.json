@@ -706,7 +706,8 @@
 		"LinksUpdateComplete": "campaign",
 		"PreferencesGetIcon": "main",
 		"UploadVerifyUpload": "publish-captcha",
-		"APIGetAllowedParams": "publish-captcha"
+		"APIGetAllowedParams": "publish-captcha",
+		"ConfirmEditBeforeForceShowCaptcha": "publish-captcha-consequence"
 	},
 	"HookHandlers": {
 		"main": {
@@ -739,6 +740,12 @@
 		"publish-captcha": {
 			"factory": "MediaWiki\\Extension\\UploadWizard\\PublishCaptchaHandler::factory",
 			"optional_services": [
+				"ConfirmEditCaptchaFactory"
+			]
+		},
+		"publish-captcha-consequence": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\PublishCaptchaConsequenceHandler",
+			"services": [
 				"ConfirmEditCaptchaFactory"
 			]
 		}

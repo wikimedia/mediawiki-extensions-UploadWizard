@@ -8,10 +8,13 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMessage;
 use MediaWiki\Api\ApiUpload;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
+use MediaWiki\Extension\ConfirmEdit\SimpleCaptcha\SimpleCaptcha;
 use MediaWiki\Extension\UploadWizard\PublishCaptchaHandler;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Upload\UploadFromStash;
+use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
@@ -46,10 +49,7 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 			->expects( $this->never() )
 			->method( 'getSession' );
 
-		$error = null;
-		$result = $this->newHandler( $request )->onUploadVerifyUpload(
-			$this->createMock( UploadFromStash::class ), $user, null, '', '', $error
-		);
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
 
 		$this->assertTrue( $result );
 		$this->assertNull( $error );
@@ -61,10 +61,7 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 		$this->setRequest( $request );
 		$request->getSession()->set( self::LAST_SOLVED_TIMESTAMP_SESSION_KEY, time() );
 
-		$error = null;
-		$result = $this->newHandler( $request )->onUploadVerifyUpload(
-			$this->createMock( UploadFromStash::class ), $user, null, '', '', $error
-		);
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
 
 		$this->assertTrue( $result );
 		$this->assertNull( $error );
@@ -75,14 +72,9 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 		$request = new FauxRequest( [ 'uploadwizardpublish' => '1' ] );
 		$this->setRequest( $request );
 
-		$error = null;
-		$result = $this->newHandler( $request )->onUploadVerifyUpload(
-			$this->createMock( UploadFromStash::class ), $user, null, '', '', $error
-		);
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
 
-		$this->assertFalse( $result );
-		$this->assertInstanceOf( ApiMessage::class, $error );
-		$this->assertSame( 'captcha', $error->getApiCode() );
+		$this->assertCaptchaRequired( $result, $error );
 	}
 
 	public function testExpiredSessionFlagFallsThroughToVerify(): void {
@@ -96,14 +88,9 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 
 		ConvertibleTimestamp::setFakeTime( $baseTimestamp + 200 );
 
-		$error = null;
-		$result = $this->newHandler( $request )->onUploadVerifyUpload(
-			$this->createMock( UploadFromStash::class ), $user, null, '', '', $error
-		);
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
 
-		$this->assertFalse( $result );
-		$this->assertInstanceOf( ApiMessage::class, $error );
-		$this->assertSame( 'captcha', $error->getApiCode() );
+		$this->assertCaptchaRequired( $result, $error );
 	}
 
 	public function testOnAPIGetAllowedParamsDeclaresCaptchaParamsForUploadModule(): void {
@@ -129,6 +116,106 @@ class PublishCaptchaHandlerTest extends MediaWikiIntegrationTestCase {
 		$this->newHandler( new FauxRequest() )->onAPIGetAllowedParams( $module, $params, 0 );
 
 		$this->assertSame( [ 'existing' => true ], $params );
+	}
+
+	public function testReturnsTrueForRegularUploadWithoutUploadWizardParam(): void {
+		$user = $this->getTestUser()->getUser();
+		$request = new FauxRequest();
+		$this->setRequest( $request );
+
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
+
+		$this->assertTrue( $result );
+		$this->assertNull( $error );
+	}
+
+	public function testForceShowFromAbuseFilterConsequenceIsEnforcedOnPublish(): void {
+		// No trigger configured, so enforcement can only come from the force-show flag.
+		$this->overrideConfigValue( 'CaptchaTriggers', [] );
+		$factory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$factory->unsetGlobalInstancesForTests();
+		$factory->getGlobalInstance( PublishCaptchaHandler::TRIGGER )->setForceShowCaptcha( true );
+
+		$user = $this->getTestUser()->getUser();
+		$request = new FauxRequest( [ 'uploadwizardpublish' => '1' ] );
+		$this->setRequest( $request );
+
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
+
+		$this->assertCaptchaRequired( $result, $error );
+	}
+
+	public function testForwardsCaptchaErrorCodeToClient(): void {
+		// The captcha's error code (e.g. hCaptcha's "forceshowcaptcha") must reach the client
+		// so it can switch to the always-challenge widget.
+		$captcha = $this->createMock( SimpleCaptcha::class );
+		$captcha->method( 'triggersCaptcha' )->willReturn( true );
+		$captcha->method( 'shouldSkipCaptcha' )->willReturn( false );
+		$captcha->method( 'passCaptchaFromRequest' )->willReturn( false );
+		$captcha->method( 'getCaptchaApiData' )->willReturn( [ 'type' => 'hcaptcha', 'error' => 'forceshowcaptcha' ] );
+
+		$factory = $this->createMock( CaptchaFactory::class );
+		$factory->method( 'getGlobalInstance' )->willReturn( $captcha );
+
+		$user = $this->getTestUser()->getUser();
+		$request = new FauxRequest( [ 'uploadwizardpublish' => '1' ] );
+		$this->setRequest( $request );
+
+		$handler = new PublishCaptchaHandler( $request, RequestContext::getMain(), $factory );
+		$error = null;
+		$result = $handler->onUploadVerifyUpload(
+			$this->createMock( UploadFromStash::class ), $user, null, '', '', $error
+		);
+
+		$this->assertCaptchaRequired( $result, $error );
+		$this->assertSame( 'forceshowcaptcha', $error->getApiData()['captcha']['error'] );
+	}
+
+	public function testForceShowStillExemptsBotUsers(): void {
+		$this->overrideConfigValue( 'CaptchaTriggers', [] );
+		$factory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$factory->unsetGlobalInstancesForTests();
+		$factory->getGlobalInstance( PublishCaptchaHandler::TRIGGER )->setForceShowCaptcha( true );
+
+		$user = $this->getTestUser( [ 'bot' ] )->getUser();
+		$request = new FauxRequest( [ PublishCaptchaHandler::PUBLISH_PARAM => '1' ] );
+		$this->setRequest( $request );
+
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
+
+		$this->assertTrue( $result );
+		$this->assertNull( $error );
+	}
+
+	public function testForceShowOverridesSkipCaptchaRight(): void {
+		$this->setGroupPermissions( 'sysop', 'skipcaptcha', true );
+		$this->overrideConfigValue( 'CaptchaTriggers', [] );
+		$factory = $this->getServiceContainer()->get( 'ConfirmEditCaptchaFactory' );
+		$factory->unsetGlobalInstancesForTests();
+		$factory->getGlobalInstance( PublishCaptchaHandler::TRIGGER )->setForceShowCaptcha( true );
+
+		$user = $this->getTestSysop()->getUser();
+		$request = new FauxRequest( [ 'uploadwizardpublish' => '1' ] );
+		$this->setRequest( $request );
+
+		[ $result, $error ] = $this->runOnUploadVerify( $request, $user );
+
+		$this->assertCaptchaRequired( $result, $error );
+	}
+
+	private function runOnUploadVerify( WebRequest $request, User $user ): array {
+		$error = null;
+		$result = $this->newHandler( $request )->onUploadVerifyUpload(
+			$this->createMock( UploadFromStash::class ), $user, null, '', '', $error
+		);
+
+		return [ $result, $error ];
+	}
+
+	private function assertCaptchaRequired( bool $result, $error ): void {
+		$this->assertFalse( $result );
+		$this->assertInstanceOf( ApiMessage::class, $error );
+		$this->assertSame( 'captcha', $error->getApiCode() );
 	}
 
 	private function newHandler( WebRequest $request ): PublishCaptchaHandler {
