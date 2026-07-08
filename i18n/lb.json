@@ -281,6 +281,7 @@
 	"mwe-upwiz-categories-missing": "Eng vun de Kategorien huet keng Beschreiwungssäit. Sidd Dir sécher, datt Dir den Numm richteg getippt hutt?",
 	"mwe-upwiz-categories-placeholder": "z.&nbsp;B. Mamendéieren am Etosha-Nationalpark",
 	"mwe-upwiz-categories-current": "$1 Iwwerkategorie",
+	"mwe-upwiz-categories-suggestions-label": "Virgeschloe {{PLURAL:$1|Kategorie|Kategorien}}:",
 	"mwe-upwiz-statements-placeholder-depicts": "z.&nbsp;B. angolanesch Giraff",
 	"mwe-upwiz-thumbnail-failed": "D'Eroplueden huet geklappt, mä de Server ka kee Miniaturbild vum Fichier weisen.",
 	"mwe-upwiz-unparseable-filename": "Den Numm vum Fichier \"$1\" gouf net verstan",

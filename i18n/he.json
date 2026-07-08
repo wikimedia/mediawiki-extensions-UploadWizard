@@ -81,10 +81,14 @@
 	"mwe-upwiz-submitting-structured-data": "שולח נתונים מובנים...",
 	"mwe-upwiz-published": "פורסם!",
 	"mwe-upwiz-failed": "זה לא עבד.",
+	"mwe-upwiz-captcha-description": "נא למלא את ב־captcha כדי לפרסם את הקובץ שלך.",
+	"mwe-upwiz-captcha-load-failed": "לא היה אפשר לטעון את בדיקת האבטחה. נא לרענן את הדף ולנסות שוב.",
 	"mwe-upwiz-remove": "הסרה",
+	"mwe-upwiz-retry": "לנסות שוב",
 	"mwe-upwiz-override": "להעלות בכל־זאת",
 	"mwe-upwiz-override-upload": "להעלות את הקובץ הזה בכל־זאת.",
 	"mwe-upwiz-remove-upload": "הסרת הקובץ הזה מרשימת הקבצים להעלאה",
+	"mwe-upwiz-retry-upload": "ניסיון חוזר להעלות את הקובץ הזה",
 	"mwe-upwiz-remove-caption": "הסרת כיתוב זה",
 	"mwe-upwiz-remove-description": "הסרת תיאור זה",
 	"mwe-upwiz-upload": "להעלות",
@@ -452,6 +456,7 @@
 	"mwe-upwiz-upload-comment-third-party": "העלאת יצירה מאת $1 מתוך $2 באמצעות אשף ההעלאה",
 	"mwe-upwiz-metadata-notice-header": "נתונים אישיים",
 	"mwe-upwiz-metadata-notice-description": "מטא־נתוני EXIF בקובץ הזה יכולים להכיל מיקום או נתונים אישיים אחרים שנוספים אוטומטית על־ידי המצלמה שלך. [https://commons.wikimedia.org/wiki/Commons:Exif מידע נוסף] על איך באפשרותך לערוך או להסיר מטא־נתוני EXIF.",
+	"apihelp-upload-param-uploadwizardpublish": "פרמטר פנימי שנקבע על־ידי [[Special:UploadWizard|אשף ההעלאות]] כדי לסמן פרסום כמקור מתוכו.",
 	"namespaceinfo-description-ns460": "מרחב שם למבצעים העלאות",
 	"namespaceinfo-description-ns461": "דפי שיחה למבצעי העלאות"
 }

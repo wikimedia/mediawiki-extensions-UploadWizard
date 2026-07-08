@@ -8,6 +8,7 @@
 			"Beta16",
 			"Camillo Pellizzari",
 			"Darth Kule",
+			"Dream Indigo",
 			"Envlh",
 			"F. Cosoleto",
 			"Fierodelveneto",
@@ -97,6 +98,7 @@
 	"mwe-upwiz-published": "Pubblicato!",
 	"mwe-upwiz-failed": "Non riuscito.",
 	"mwe-upwiz-remove": "Rimuovi",
+	"mwe-upwiz-retry": "Riprova",
 	"mwe-upwiz-override": "Carica comunque",
 	"mwe-upwiz-override-upload": "Carica questo file comunque.",
 	"mwe-upwiz-remove-upload": "Rimuovi questo file dall'elenco dei file da caricare",
@@ -359,7 +361,7 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl-text": "Copyleft, attribuzione richiesta (GFDL, CC BY-SA 3.0) $3",
 	"mwe-upwiz-license-unknown": "Non lo so",
 	"mwe-upwiz-license-unknown-warning": "<b>Non caricare {{PLURAL:$1|questo|questi}} file!</b> a meno che tu non sia certo della licenza con cui è stato pubblicato. Se hai dubbi, [[COM:L|scopri di più su cosa è consentito]] oppure [[COM:VPC|chiedi consiglio a qualche contributore esperto]] prima di caricare. Grazie.",
-	"mwe-upwiz-license-unsure": "Non sono sicuro che non {{PLURAL:$1|sia protetta|siano protette}} dal diritto d'autore negli USA",
+	"mwe-upwiz-license-unsure": "Non ho la certezza che non {{PLURAL:$1|sia protetta|siano protette}} dal diritto d'autore negli USA",
 	"mwe-upwiz-license-free-head": "Il creatore ha rilasciato o pubblicato {{PLURAL:$1|quest'opera|queste opere}} con una licenza libera, ad esempio [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons]",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|Questa opera non è protetta|Queste opere non sono protette}} dalle leggi sul diritto d'autore",
 	"mwe-upwiz-license-cc0-head-extra": "Esempio: {{PLURAL:$1|vecchia opera|vecchie opere}} il cui copyright è scaduto oppure {{PLURAL:$1|opera rilasciata|opere rilasciate}}  dal governo come documenti pubblici, etc. [$2 per maggiori informazioni]",
@@ -400,6 +402,7 @@
 	"mwe-upwiz-categories": "Categoria",
 	"mwe-upwiz-categories-missing": "Per {{PLURAL:$1|la categoria mostrata|le categorie mostrate}} in rosso non esiste e manca una pagina di descrizione. Se esiste {{PLURAL:$1|una categoria simile|categorie simili}}, consigliamo di utilizzare {{PLURAL:$1|quella|quelle}}. In caso contrario, vai alla pagina {{PLURAL:$1|della nuova categoria|delle nuove categorie}} e aggiungi una descrizione.",
 	"mwe-upwiz-categories-placeholder": "ad es. \"Stelvio National Park\", \"Animals of Lombardy\"",
+	"mwe-upwiz-categories-suggestions-label": "{{PLURAL:$1|Categoria suggerita|Categorie suggerite}}:",
 	"mwe-upwiz-statements-title-depicts": "I soggetti principali visibili in quest'opera",
 	"mwe-upwiz-statements-too-many-items": "Si consiglia di mantenere il numero di elementi entro un massimo di $1",
 	"mwe-upwiz-statements-placeholder-depicts": "ad es. \"marmotta\"",
@@ -450,5 +453,6 @@
 	"mwe-upwiz-upload-comment-own-work": "Caricato la propria opera con UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "Caricato un lavoro di $1 da $2 con UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Dati personali",
-	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in questo file potrebbero contenere la posizione e altri dati personali aggiunti automaticamente dalla tua fotocamera. [https://commons.wikimedia.org/wiki/Commons:Exif Scopri di più] su come modificare o rimuovere i metadati EXIF."
+	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in questo file potrebbero contenere la posizione e altri dati personali aggiunti automaticamente dalla tua fotocamera. [https://commons.wikimedia.org/wiki/Commons:Exif Scopri di più] su come modificare o rimuovere i metadati EXIF.",
+	"apihelp-upload-param-uploadwizardpublish": "Parametro interno impostato da [[Special:UploadWizard|UploadWizard]] per contrassegnare una pubblicazione come proveniente da esso."
 }

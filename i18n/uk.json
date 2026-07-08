@@ -100,6 +100,7 @@
 	"mwe-upwiz-captcha-description": "Будь ласка, заповніть капчу, щоб опублікувати файл.",
 	"mwe-upwiz-captcha-load-failed": "Не вдалося завантажити перевірку безпеки. Будь ласка, перезавантажте сторінку та спробуйте ще раз.",
 	"mwe-upwiz-remove": "Вилучити",
+	"mwe-upwiz-retry": "Повторити",
 	"mwe-upwiz-override": "Все одно завантажити",
 	"mwe-upwiz-override-upload": "Завантажити цей файл, що б там не було.",
 	"mwe-upwiz-remove-upload": "Видалити цей файл зі списку файлів для завантаження",
@@ -471,6 +472,7 @@
 	"mwe-upwiz-upload-comment-third-party": "Завантажив роботу $1 з $2 через Майстер завантажень",
 	"mwe-upwiz-metadata-notice-header": "Особові дані",
 	"mwe-upwiz-metadata-notice-description": "EXIF-метадані в цьому файлі можуть містити розташування та інші особові дані, автоматично додані Вашою камерою. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Дізнайтеся більше] про те, як редагувати та вилучати EXIF-метадані.",
+	"apihelp-upload-param-uploadwizardpublish": "Внутрішній параметр, встановлений [[Special:UploadWizard|UploadWizard]], щоб позначити публікацію як таку, що походить від нього.",
 	"namespaceinfo-description-ns460": "Простір назв для кампаній завантаження",
 	"namespaceinfo-description-ns461": "Сторінки обговорення для кампаній завантаження"
 }
