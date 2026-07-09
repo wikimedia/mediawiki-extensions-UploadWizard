@@ -354,7 +354,7 @@
 	"mwe-upwiz-license-custom-preview": "প্রাকদর্শন",
 	"mwe-upwiz-license-none-head": "আমি এটি ইন্টারনেট থেকে পেয়েছি -- নিশ্চিত নই",
 	"mwe-upwiz-license-generic-head": "({{PLURAL:$1|এই কাজটি|এই কাজগুলি}} এই উইকিতে আপলোডের জন্য গ্রহণযোগ্য)",
-	"mwe-upwiz-license-confirm-remove": "আপনি কি নিশ্চিত যে {{PLURAL:$1|এই আপলোডকৃত ফাইলটি|এই আপলোডকৃত ফাইলগুলো}} অপসারণ করবেন?",
+	"mwe-upwiz-license-confirm-remove": "আপনি কি নিশ্চিত যে আপনি এই আপলোডটি অপসারণ করতে চান?",
 	"mwe-upwiz-license-confirm-remove-title": "অপসারণ নিশ্চিত করুন",
 	"mwe-upwiz-license-external": "এই ফাইলটি উৎস সাইটে \"$1\": $2 লাইসেন্সের আওতায় রয়েছে।",
 	"mwe-upwiz-license-external-invalid": "এই ফাইলটি $1-এ নিম্নলিখিত লাইসেন্সের আওতায় রয়েছে: $2।<br><br> দুর্ভাগ্যবশত, এই উইকি সেই লাইসেন্সটি গ্রহণ করে না।",
