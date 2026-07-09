@@ -447,6 +447,7 @@
 	"mwe-upwiz-prefs-def-license-def": "De standaard gebruiken",
 	"mwe-upwiz-prefs-def-license-custom": "Aangepaste standaardlicentie",
 	"mwe-upwiz-prefs-def-license-custom-help": "Dit veld wordt alleen gebruikt als u de laatste optie hierboven kiest.",
+	"mwe-upwiz-prefs-show-cat-suggestions": "Categorievoorstellen tonen",
 	"mwe-upwiz-prefs-license-name": "Naam auteur",
 	"mwe-upwiz-prefs-license-name-help": "Standaard ingesteld op gebruikersnaam als het veld leeg wordt gelaten",
 	"mwe-upwiz-prefs-license-own": "Eigen werk - $1",
