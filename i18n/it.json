@@ -36,7 +36,8 @@
 			"Una tantum",
 			"Viscontino",
 			"Walter Raffoni",
-			"Ximo17"
+			"Ximo17",
+			"Dream Indigo"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -359,7 +360,7 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl-text": "Copyleft, attribuzione richiesta (GFDL, CC BY-SA 3.0) $3",
 	"mwe-upwiz-license-unknown": "Non lo so",
 	"mwe-upwiz-license-unknown-warning": "<b>Non caricare {{PLURAL:$1|questo|questi}} file!</b> a meno che tu non sia certo della licenza con cui è stato pubblicato. Se hai dubbi, [[COM:L|scopri di più su cosa è consentito]] oppure [[COM:VPC|chiedi consiglio a qualche contributore esperto]] prima di caricare. Grazie.",
-	"mwe-upwiz-license-unsure": "Non sono sicuro che non {{PLURAL:$1|sia protetta|siano protette}} dal diritto d'autore negli USA",
+	"mwe-upwiz-license-unsure": "Non ho la certezza che non {{PLURAL:$1|sia protetta|siano protette}} dal diritto d'autore negli USA",
 	"mwe-upwiz-license-free-head": "Il creatore ha rilasciato o pubblicato {{PLURAL:$1|quest'opera|queste opere}} con una licenza libera, ad esempio [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons]",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|Questa opera non è protetta|Queste opere non sono protette}} dalle leggi sul diritto d'autore",
 	"mwe-upwiz-license-cc0-head-extra": "Esempio: {{PLURAL:$1|vecchia opera|vecchie opere}} il cui copyright è scaduto oppure {{PLURAL:$1|opera rilasciata|opere rilasciate}}  dal governo come documenti pubblici, etc. [$2 per maggiori informazioni]",
