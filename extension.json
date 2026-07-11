@@ -671,6 +671,7 @@
 			"categorySuggestions/uw.TitleCategorySuggestionProvider.test.js",
 			"categorySuggestions/uw.CategorySuggestionAggregator.test.js",
 			"details/uw.LocationDetailsWidget.test.js",
+			"details/uw.CategoriesDetailsWidget.test.js",
 			"transports/mw.FormDataTransport.test.js",
 			"uw.CaptchaHandler.test.js",
 			"uw.ConcurrentQueue.test.js",

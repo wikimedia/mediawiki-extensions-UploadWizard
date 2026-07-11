@@ -135,7 +135,7 @@
 								} else if ( menuData.current ) {
 									// indicate that this is the current category (and clicking it
 									// will not navigate to its subcategories, but select it instead)
-									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( text )[ 0 ].outerHTML;
+									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( title.getMainText() )[ 0 ].outerHTML;
 									text = mw.message( 'mwe-upwiz-categories-current', text ).text();
 								} else if ( menuData.categoryinfo.subcats > 0 ) {
 									// indicate that the category has subcategories
@@ -151,7 +151,7 @@
 										} ),
 										title.getMainText()
 									);
-									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( text )[ 0 ].outerHTML + ' ' + arrowChildren;
+									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( title.getMainText() )[ 0 ].outerHTML + ' ' + arrowChildren;
 								}
 
 								return new OO.ui.MenuOptionWidget( {
