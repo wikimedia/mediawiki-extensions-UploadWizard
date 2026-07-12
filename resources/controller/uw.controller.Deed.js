@@ -45,8 +45,11 @@
 		}
 
 		this.validate( true )
-			.always( () => this.ui.updateErrorSummary() )
-			.done( () => uw.controller.Step.prototype.moveNext.call( this ) );
+			.fail( () => this.ui.updateErrorSummary() )
+			.done( () => {
+				this.ui.clearErrorSummary();
+				uw.controller.Step.prototype.moveNext.call( this );
+			} );
 	};
 
 	uw.controller.Deed.prototype.unload = function () {

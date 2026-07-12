@@ -131,6 +131,15 @@
 	 * This method also opens up collapsed elements if the form has errors.
 	 */
 
+	/**
+	 * Clears the error summary container and restores the state of the buttons.
+	 */
+	uw.ui.Step.prototype.clearErrorSummary = function () {
+		this.$errorCount.empty();
+		this.$div.find( '.mwe-upwiz-details-error-scroll' ).remove();
+		this.nextButton.$element.show();
+	};
+
 	uw.ui.Step.prototype.updateErrorSummary = function () {
 		// eslint-disable-next-line no-jquery/no-sizzle
 		const getElements = ( kind ) => this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ).filter( ':visible' );
@@ -146,9 +155,7 @@
 			const errorCount = $elements.length;
 
 			// reset to pristine state: no error, no scroll button, visible next button
-			this.$errorCount.empty();
-			this.$div.find( '.mwe-upwiz-details-error-scroll' ).remove();
-			this.nextButton.$element.show();
+			this.clearErrorSummary();
 
 			if ( errorCount === 0 ) {
 				return;

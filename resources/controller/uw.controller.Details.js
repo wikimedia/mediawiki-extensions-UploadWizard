@@ -176,8 +176,9 @@
 	 */
 	uw.controller.Details.prototype.startDetails = function () {
 		this.validate( true )
-			.always( () => this.updateErrorSummary() )
+			.fail( () => this.updateErrorSummary() )
 			.done( () => {
+				this.ui.clearErrorSummary();
 				this.ui.hideEndButtons();
 				this.submit();
 			} );
