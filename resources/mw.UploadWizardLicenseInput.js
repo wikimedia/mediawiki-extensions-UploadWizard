@@ -198,21 +198,21 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 			// 1 group
 			// in that case, we're only going to select the *last* occurrence, which is what
 			// a browser would do when trying to find/select a radio that occurs twice
-			selectedGroups.forEach( ( group ) => {
+			for ( const group of selectedGroups ) {
 				group.setValue( {} );
-			} );
+			}
 		}
 
 		// in the case of multiple option groups (with a parent radio/check to expand/collapse),
 		// we need to make sure the parent option and expanded state match the state of the
 		// group - when the group has things that are selected, it must be active
-		this.getItems().forEach( ( groupField ) => {
-			const group = groupField.fieldWidget,
-				option = groupField.option,
-				selected = Object.keys( group.getValue() ).length > 0;
+		for ( const groupField of this.getItems() ) {
+			const group = groupField.fieldWidget;
+			const option = groupField.option;
+			const selected = Object.keys( group.getValue() ).length > 0;
 
 			if ( !option ) {
-				return;
+				continue;
 			}
 
 			option.setSelected( selected );
@@ -226,7 +226,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 			} else {
 				groupField.$element.detach();
 			}
-		} );
+		}
 	},
 
 	/**
@@ -236,9 +236,9 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 */
 	setDefaultValues: function () {
 		const values = {};
-		this.defaults.forEach( ( license ) => {
+		for ( const license of this.defaults ) {
 			values[ license ] = true;
-		} );
+		}
 		this.setValues( values );
 	},
 
@@ -252,14 +252,12 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	getLicenses: function () {
 		const licenses = {};
 
-		this.getItems().forEach( ( groupField ) => {
-			const group = groupField.fieldWidget,
-				licenseNames = Object.keys( group.getValue() );
-
-			licenseNames.forEach( ( name ) => {
+		for ( const groupField of this.getItems() ) {
+			const group = groupField.fieldWidget;
+			for ( const name in group.getValue() ) {
 				licenses[ name ] = mw.UploadWizard.config.licenses[ name ] || {};
-			} );
-		} );
+			}
+		}
 
 		return licenses;
 	},
@@ -324,7 +322,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	getSerialized: function () {
 		const values = {};
 
-		this.getItems().forEach( ( groupField ) => {
+		for ( const groupField of this.getItems() ) {
 			const group = groupField.fieldWidget;
 			const groupName = group.getGroup();
 			const value = group.getValue();
@@ -333,7 +331,7 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 				// $.extend just in case there are multiple groups with the same name...
 				values[ groupName ] = Object.assign( {}, values[ groupName ] || {}, value );
 			}
-		} );
+		}
 
 		return values;
 	},
@@ -343,9 +341,9 @@ Object.assign( mw.UploadWizardLicenseInput.prototype, {
 	 * @param {Object} serialized
 	 */
 	setSerialized: function ( serialized ) {
-		Object.keys( serialized ).forEach( ( groupName ) => {
+		for ( const groupName in serialized ) {
 			this.setValues( serialized[ groupName ], groupName );
-		} );
+		}
 	}
 
 } );

@@ -58,9 +58,9 @@
 		this.uploadedDeedSerialization =
 			deedChoosers[ Object.keys( deedChoosers )[ 0 ] ].getSerialized();
 
-		deedChoosers.forEach( ( deedChooser ) => {
+		for ( const deedChooser of deedChoosers ) {
 			deedChooser.remove();
-		} );
+		}
 	};
 
 	/**
@@ -163,13 +163,13 @@
 		multiDeedRadio.selectItemByData( defaultDeedInterface );
 
 		// restore serialized data (if any)
-		uploads.forEach( ( upload ) => {
+		for ( const upload of uploads ) {
 			if ( serializedDeeds[ upload.getFilename() ] ) {
 				upload.deedChooser.setSerialized( serializedDeeds[ upload.getFilename() ] );
 			} else if ( this.uploadedDeedSerialization ) {
 				upload.deedChooser.setSerialized( this.uploadedDeedSerialization );
 			}
-		} );
+		}
 	};
 
 	/**
@@ -186,9 +186,9 @@
 				uploads
 			);
 
-		uploads.forEach( ( upload ) => {
+		for ( const upload of uploads ) {
 			upload.deedChooser = deedChooser;
-		} );
+		}
 
 		this.ui.showCommonForm( deedChooser );
 
@@ -198,9 +198,9 @@
 
 		// aggregate change events within
 		deedChooser.on( 'choose', () => this.emit( 'change' ) );
-		Object.keys( deeds ).forEach( ( name ) => {
+		for ( const name in deeds ) {
 			deeds[ name ].on( 'change', () => this.emit( 'change' ) );
-		} );
+		}
 	};
 
 	/**
@@ -209,13 +209,13 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.loadIndividual = function ( uploads ) {
-		uploads.forEach( ( upload ) => {
-			const deeds = this.getLicensingDeeds( uploads ),
-				deedChooser = new mw.UploadWizardDeedChooser(
-					this.config,
-					deeds,
-					[ upload ]
-				);
+		for ( const upload of uploads ) {
+			const deeds = this.getLicensingDeeds( uploads );
+			const deedChooser = new mw.UploadWizardDeedChooser(
+				this.config,
+				deeds,
+				[ upload ]
+			);
 
 			upload.deedChooser = deedChooser;
 
@@ -224,10 +224,10 @@
 
 			// aggregate change events within
 			deedChooser.on( 'choose', () => this.emit( 'change' ) );
-			Object.keys( deeds ).forEach( ( name ) => {
+			for ( const name in deeds ) {
 				deeds[ name ].on( 'change', () => this.emit( 'change' ) );
-			} );
-		} );
+			}
+		}
 
 		this.ui.showIndividualForm( this.getUniqueDeedChoosers( uploads ) );
 
@@ -317,11 +317,11 @@
 
 				// if (and only if) deed choosers are selected, we'll validate their contents
 				const fieldPromises = [];
-				deedChoosers.forEach( ( deedChooser ) => {
-					deedChooser.deed.getFields().forEach( ( fieldLayout ) => {
+				for ( const deedChooser of deedChoosers ) {
+					for ( const fieldLayout of deedChooser.deed.getFields() ) {
 						fieldPromises.push( fieldLayout.validate( thorough ) );
-					} );
-				} );
+					}
+				}
 				return uw.ValidationStatus.mergePromises( mergedPromise, ...fieldPromises );
 			}
 		);

@@ -249,8 +249,7 @@
 			gpssearch: input,
 			prop: 'categoryinfo'
 		} )
-			.then( ( res ) => Object.keys( res && res.query && res.query.pages || [] )
-				.map( ( key ) => res.query.pages[ key ] )
+			.then( ( res ) => Object.values( res && res.query && res.query.pages || {} )
 				.sort( ( a, b ) => a.index > b.index )
 			)
 			.fail( () => delete this.cacheSearch[ cacheKey ] );
@@ -278,7 +277,7 @@
 			gcmtitle: mw.Title.newFromText( input, NS_CATEGORY ).getPrefixedDb(),
 			prop: 'categoryinfo'
 		} )
-			.then( ( res ) => Object.keys( res && res.query && res.query.pages || [] ).map( ( key ) => res.query.pages[ key ] ) )
+			.then( ( res ) => Object.values( res && res.query && res.query.pages || {} ) )
 			.fail( () => delete this.cacheChildren[ cacheKey ] );
 
 		return this.cacheChildren[ cacheKey ];
