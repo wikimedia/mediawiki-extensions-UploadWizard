@@ -31,6 +31,7 @@ class CampaignContent extends JsonContent {
 	/**
 	 * Checks user input JSON to make sure that it produces a valid campaign object
 	 *
+	 * @internal For use in CampaignHooks only.
 	 * @throws JsonSchemaException If invalid.
 	 * @return bool True if valid.
 	 */
