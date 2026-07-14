@@ -290,7 +290,7 @@
 	"mwe-upload-campaigns-pagination-next": "Pagina noeuva",
 	"mwe-upload-campaigns-list-title": "Lista di campagne per el caregament assistid",
 	"mwe-upwiz-mv-cta-heading": "Ajuta a render i imagin pussee facil de vessre trovade per tut",
-	"mwe-upwiz-mv-cta-description": "\nCommons el gh'hà vun [[c:Commons:Structured_data/Computer-aided_tagging|new tool| istrument noeuv]] che 'lsuggeriss i etichete per i imagin che te careghet se t'hee nanamò sgiontad i etichete. Quando che te confermet di etichete adatte, te contribuisset a render i imagin pusse facil de vesser trovade per tucc.",
+	"mwe-upwiz-mv-cta-description": "\nCommons el gh'hà vun [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|new tool| istrument noeuv]] che 'lsuggeriss i etichete per i imagin che te careghet se t'hee nanamò sgiontad i etichete. Quando che te confermet di etichete adatte, te contribuisset a render i imagin pusse facil de vesser trovade per tucc.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Si, me piasarìa ricever di notifiche quand che i me caregament i gh'hann di etichete pronte per la mia revision",
 	"mwe-upwiz-mv-cta-final-cta": "Te seet pront per comenzà subit a meter i etichete? [[c:Special:SuggestedTags|Prœuva o strumento]] cont el meter 'na quai eticheta in su di imagin popolare adess!",
 	"mwe-upwiz-mv-cta-dismiss": "Ignora",
@@ -300,5 +300,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Carega el lavorà che t'hee fad depertì cont el Caregament Assistid",
 	"mwe-upwiz-upload-comment-third-party": "Caregad un lavorà de $1 de $2 col Caregament Assistid",
 	"mwe-upwiz-metadata-notice-header": "Dati personai",
-	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in 'sto fail a podarissen havégh dedenter la posizzion o di alter dati personai sgiontad in automatich de la toa videocamera. [https://commons.wikimedia.org/wiki/Commons:Exif Per savénn pussee] sora la manera de modifegà o scassà i metadati EXIF."
+	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in 'sto fail a podarissen havégh dedenter la posizzion o di alter dati personai sgiontad in automatich de la toa videocamera. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Per savénn pussee] sora la manera de modifegà o scassà i metadati EXIF."
 }

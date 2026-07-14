@@ -110,7 +110,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|यो कार्य|यी कार्यहरु}} पूर्ण रूपमा मैले नै सिर्जना गरेको हो।",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|यो कार्य|यी कार्यहरू}}मा अरूको काम समावेश छ।",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "{{PLURAL:$1|यो|तिनीहरू}} प्रयोग गर्न वा साझा गर्न स्वतन्त्र छन् कि छैनन् भन्ने बारे मलाई थाह छैन।",
-	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|मैले}} कृत्रिम बुद्धिमत्ता उपकरण प्रयोग गरेर {{PLURAL:$1|यो कार्य|यी कार्यहरू}} उत्पन्न गरेको हुँ [[COM:AI-generated_media|(निर्देशनहरू हेर्नुहोस्)]]",
+	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|मैले}} कृत्रिम बुद्धिमत्ता उपकरण प्रयोग गरेर {{PLURAL:$1|यो कार्य|यी कार्यहरू}} उत्पन्न गरेको हुँ [[Special:MyLanguage/COM:AI-generated_media|(निर्देशनहरू हेर्नुहोस्)]]",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|यो कार्य|यी कार्यहरू}} अरू कसैले सिर्जना गरेका हुन् र {{PLURAL:$1|यो|यिनीहरू}} साझेदारी गर्न स्वतन्त्र छन्।",
 	"mwe-upwiz-source-thirdparty-explain": "जबसम्म यो नि: शुल्क इजाजतपत्र अन्तर्गत प्रकाशित भएको छ वा यसको प्रतिलिपि अधिकार समाप्त भएको छ तबसम्म तपाई अरूको काम अपलोड गर्न सक्नुहुनेछ।",
 	"mwe-upwiz-patent-dialog-button-back": "पछाडि",

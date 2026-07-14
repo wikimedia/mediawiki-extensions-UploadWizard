@@ -356,7 +356,7 @@
 	"mwe-upload-campaigns-pagination-next": "Sekva paĝo",
 	"mwe-upload-campaigns-list-title": "Listo de alŝutaj kampanjoj",
 	"mwe-upwiz-mv-cta-heading": "Helpu fari bildojn pli troveblaj por ĉiuj",
-	"mwe-upwiz-mv-cta-description": "Komunejo havas [[c:Commons:Structured_data/Computer-aided_tagging|novan ilon]] kiu proponos etikedojn por bildoj, kiujn vi alŝutas, se vi ne jam aldonis etikedojn. Konfirmante precizajn etikedojn, vi helpas ke bildojn estas pli bone serĉeblaj por ĉiuj.",
+	"mwe-upwiz-mv-cta-description": "Komunejo havas [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|novan ilon]] kiu proponos etikedojn por bildoj, kiujn vi alŝutas, se vi ne jam aldonis etikedojn. Konfirmante precizajn etikedojn, vi helpas ke bildojn estas pli bone serĉeblaj por ĉiuj.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Jes, mi ŝatus ricevi sciigojn kiam miaj alŝutoj havas etikedojn pretajn por mia revizio",
 	"mwe-upwiz-mv-cta-final-cta": "Ĉu vi pretas komenci etikedadon tuj? [[c:Special:SuggestedTags|Provu la ilon]] etikedante popularajn bildojn nun!",
 	"mwe-upwiz-mv-cta-dismiss": "Forĵeti",
@@ -366,5 +366,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Alŝutis propran verkon kun UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "Alŝutis verkon de $1 el $2 kun UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Personaj datumoj",
-	"mwe-upwiz-metadata-notice-description": "EXIF-metadatumoj en ĉi tiu dosiero povas enhavi lokon aŭ aliajn personajn datumojn aŭtomate aldonitajn de via fotilo. [https://commons.wikimedia.org/wiki/Commons:Exif Lernu pli] pri kiel redakti aŭ forigi EXIF-metadatumojn."
+	"mwe-upwiz-metadata-notice-description": "EXIF-metadatumoj en ĉi tiu dosiero povas enhavi lokon aŭ aliajn personajn datumojn aŭtomate aldonitajn de via fotilo. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Lernu pli] pri kiel redakti aŭ forigi EXIF-metadatumojn."
 }

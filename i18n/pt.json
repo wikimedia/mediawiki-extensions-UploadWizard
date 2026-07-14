@@ -126,12 +126,12 @@
 	"mwe-upwiz-source-ownwork-purpose-label": "Selecione a opção que melhor descreve o propósito {{PLURAL:$1|desta obra|destas obras}}.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|Este trabalho fornece|Estes trabalhos fornecem}} conhecimento, instruções ou informações para outras pessoas.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|Esta obra é|Estas obras são}} para meu uso pessoal (por exemplo, {{PLURAL:$1|uma fotografia|fotografias}} de mim próprio, da minha família ou de amigos) ou sou obrigado a {{PLURAL:$1|carregá-la|carregá-las}} para o meu trabalho.",
-	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Não carregue {{PLURAL:$1|este ficheiro|estes ficheiros}}!</b> A wiki Wikimedia Commons não permite o alojamento de conteúdo multimédia pessoal ou privado. Consulte [[Special:MyLanguage/Commons:What_Commons_is_not|este guia simples]], por favor.</p><p>Se tiver alguma dúvida, [[COM:L|aprenda mais sobre o uso de licenças]] ou peça conselho a alguns colaboradores experientes antes de fazer o carregamento. Todos terão gosto em ajudá-lo na [[Commons:Village_pump/Copyright|assistência da wiki Wikimedia Commons]]. Obrigado.</p>",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Não carregue {{PLURAL:$1|este ficheiro|estes ficheiros}}!</b> A wiki Wikimedia Commons não permite o alojamento de conteúdo multimédia pessoal ou privado. Consulte [[Special:MyLanguage/Commons:What_Commons_is_not|este guia simples]], por favor.</p><p>Se tiver alguma dúvida, [[Special:MyLanguage/COM:L|aprenda mais sobre o uso de licenças]] ou peça conselho a alguns colaboradores experientes antes de fazer o carregamento. Todos terão gosto em ajudá-lo na [[Commons:Village_pump/Copyright|assistência da wiki Wikimedia Commons]]. Obrigado.</p>",
 	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Esta obra é|Estas obras são}} inteiramente de sua autoria?{{GENDER:$2|}}",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|Esta obra é|Estas obras são}} inteiramente de minha autoria{{GENDER:$2|}}",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Esta obra contém|Estas obras contêm}} trabalho de outras pessoas",
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "{{PLURAL:$1|A obra pré-existente é|As obras pré-existentes são}} de uso e partilha livre?",
-	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Sim, {{PLURAL:$1|a obra pré-existente foi publicada|as obras pré-existentes foram publicadas}} com uma destas [[COM:L#Well-known_licenses|licenças livres]]",
+	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Sim, {{PLURAL:$1|a obra pré-existente foi publicada|as obras pré-existentes foram publicadas}} com uma destas [[Special:MyLanguage/COM:L#Well-known_licenses|licenças livres]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Sim, {{PLURAL:$1|a obra pré-existente não tem|as obras pré-existentes não têm}} restrições relacionadas com direitos de autor",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Não, {{PLURAL:$1|a obra tem|as obras têm}} restrições relacionadas com direitos de autor",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Não tenho a certeza",
@@ -379,7 +379,7 @@
 	"mwe-upload-campaigns-pagination-next": "Página seguinte",
 	"mwe-upload-campaigns-list-title": "Lista de campanhas de carregamento de ficheiros",
 	"mwe-upwiz-mv-cta-heading": "Ajude a tornar as imagens mais fáceis de encontrar por todos",
-	"mwe-upwiz-mv-cta-description": "A wiki Commons tem uma [[c:Commons:Structured_data/Computer-aided_tagging|ferramenta nova]] que sugere etiquetas para as imagens que você carregar se ainda não adicionou nenhuma etiqueta. Se confirmar as etiquetas corretas, estará a ajudar a tornar as imagens mais fáceis de encontrar por todos.",
+	"mwe-upwiz-mv-cta-description": "A wiki Commons tem uma [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|ferramenta nova]] que sugere etiquetas para as imagens que você carregar se ainda não adicionou nenhuma etiqueta. Se confirmar as etiquetas corretas, estará a ajudar a tornar as imagens mais fáceis de encontrar por todos.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Sim, gostaria de receber notificações quando os meus carregamentos tiverem etiquetas prontas para minha revisão",
 	"mwe-upwiz-mv-cta-final-cta": "Pronto para começar já a etiquetar? [[c:Special:SuggestedTags|Experimente a ferramenta]], etiquetando imagens populares agora!",
 	"mwe-upwiz-mv-cta-dismiss": "Ignorar",
@@ -389,5 +389,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Carregou uma obra do próprio com o Assistente de Carregamento de Ficheiros",
 	"mwe-upwiz-upload-comment-third-party": "Carregou uma obra de $1 originária de $2 com o Assistente de Carregamento de Ficheiros",
 	"mwe-upwiz-metadata-notice-header": "Dados particulares",
-	"mwe-upwiz-metadata-notice-description": "Os metadados EXIF deste ficheiro podem conter a localização ou outros dados particulares que são adicionados automaticamente pela sua câmara. [https://commons.wikimedia.org/wiki/Commons:Exif Aprenda mais] sobre como editar ou remover metadados EXIF."
+	"mwe-upwiz-metadata-notice-description": "Os metadados EXIF deste ficheiro podem conter a localização ou outros dados particulares que são adicionados automaticamente pela sua câmara. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Aprenda mais] sobre como editar ou remover metadados EXIF."
 }

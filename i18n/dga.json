@@ -101,12 +101,12 @@
 	"mwe-upwiz-source-ownwork-purpose-label": "sɔroo la iri a iruuŋ naŋ maale manne wuli a boɔbɔ yineŋ {{PLURAL:$1|a toma ŋa|toma ama}}.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|This work provides|A toma ŋa maŋ tere la}} yɛŋ, sobi-wuli, bee duoro ko mine.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|a toma ŋa e la |a toma ama eɛ la \n}} n meŋɛ toma poɔŋ aseŋ; meŋɛ enfuomo, meŋɛ dɔgeroŋ bee bare, bee N boɔrɔ ka n eŋ o a n toma.",
-	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Ta aploodi {{PLURAL:$1|a pɛll ŋa|a pɛllɛ ŋa}}!</b> Wikimidia Kɔmmons ba sage sɛge kyaare meŋɛ bee meŋɛ midia. Sɔroo la leɛkaa [[Special:MyLanguage/Commons:What_Commons_is_not|this simple guide]].</p><p>ka fõõ wa be buriburi zaa, sɔroo [[COM:L|learn more about licensing]], bee sɔroo soore  kontiribiutare naŋ toŋ a toma kɔɔre ka ba teɛbo hakelɛ sɛre ka fo aploodi. Noba poore na pɛle la ka ba soŋ fo kyɛ [[Commons:Village_pump/Copyright|Wikimedia Commons's Village Pump]]. Fo bareka.</p>",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Ta aploodi {{PLURAL:$1|a pɛll ŋa|a pɛllɛ ŋa}}!</b> Wikimidia Kɔmmons ba sage sɛge kyaare meŋɛ bee meŋɛ midia. Sɔroo la leɛkaa [[Special:MyLanguage/Commons:What_Commons_is_not|this simple guide]].</p><p>ka fõõ wa be buriburi zaa, sɔroo [[Special:MyLanguage/COM:L|learn more about licensing]], bee sɔroo soore  kontiribiutare naŋ toŋ a toma kɔɔre ka ba teɛbo hakelɛ sɛre ka fo aploodi. Noba poore na pɛle la ka ba soŋ fo kyɛ [[Commons:Village_pump/Copyright|Wikimedia Commons's Village Pump]]. Fo bareka.</p>",
 	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Is this|Ama}} zaa e la {{GENDER:$2|fo}} meŋɛ {{PLURAL:$1|work|toma}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|This is|Ama zaa}} e la {{GENDER:$2|n}} meŋɛ {{PLURAL:$1|work|toma}}",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|This work contains|A toma ama taa la}} noba mine toma naŋ be a poɔ",
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "{{PLURAL:$1|Is|la}} ana naŋ na bebe {{PLURAL:$1|work|toma}} na de toŋ ne ane po?",
-	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Õõ, a naŋ na bebe {{PLURAL:$1|work was|toma da}} daa yi la gbaŋgbale yi a ama kaŋa [[COM:L#Well-known_licenses|free licenses]]",
+	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Õõ, a naŋ na bebe {{PLURAL:$1|work was|toma da}} daa yi la gbaŋgbale yi a ama kaŋa [[Special:MyLanguage/COM:L#Well-known_licenses|free licenses]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Õõ, ana naŋ na bebe {{PLURAL:$1|work is|toma la}} ka copyright lɔɔ zaa ba gu a",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Aayi, {{PLURAL:$1|it is|ba e la}} copyright guubo",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "N ba maale sage di",
@@ -350,7 +350,7 @@
 	"mwe-upload-campaigns-pagination-next": "Gampɛle paalaa",
 	"mwe-upload-campaigns-list-title": "Yelbaŋe wulli embo gane",
 	"mwe-upwiz-mv-cta-heading": "Soŋ maale enfuomo noba yaga naŋ milli",
-	"mwe-upwiz-mv-cta-description": "\n\nCommons taa la [[c:Commons:Structured_data/Computer-aided_tagging|new tool]] naŋ na maŋ wuli tags ko enfuomo fo naŋ eŋe ka fooŋ ba wa daŋ paale tags. Ka fooŋ wat e nyͻe tags toraa, fo sonnͻ maala la enfuomo mͻlͻ lԑ ka neԑzaa na tõͻ bͻnyԑ.",
+	"mwe-upwiz-mv-cta-description": "\n\nCommons taa la [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|new tool]] naŋ na maŋ wuli tags ko enfuomo fo naŋ eŋe ka fooŋ ba wa daŋ paale tags. Ka fooŋ wat e nyͻe tags toraa, fo sonnͻ maala la enfuomo mͻlͻ lԑ ka neԑzaa na tõͻ bͻnyԑ.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Õõ, n da na boͻrͻ ka nyԑ duoro ka a n embo taa tags naŋ e sere ne n leԑkaabo",
 	"mwe-upwiz-mv-cta-final-cta": "E la sere na piili tagging a ŋaa? [[c:Special:SuggestedTags|ko a tontoŋe bone e-nyԑ]] a tagging enfuomo milli pampana!",
 	"mwe-upwiz-mv-cta-dismiss": "Baroo",
@@ -360,5 +360,5 @@
 	"mwe-upwiz-upload-comment-own-work": "N eŋԑԑ n meŋԑ toma ane Embosõͻbͻ",
 	"mwe-upwiz-upload-comment-third-party": "Eŋԑԑ toma ane $1 yi neŋ $2 ane Embosõͻbͻ",
 	"mwe-upwiz-metadata-notice-header": "Meŋԑ yԑlԑ",
-	"mwe-upwiz-metadata-notice-description": "\nEXIF meta yԑlԑ a daga ŋa poͻ na baŋ taa la bezie bee meŋԑ yuԑlԑ duoro mine a fo kamira naŋ de paale. [https://commons.wikimedia.org/wiki/Commons:Exif Zanne yaga] a kyaare lԑ fo naŋ na e sԑgere eŋ bee iri barebo EXIF meta yԑlԑ."
+	"mwe-upwiz-metadata-notice-description": "\nEXIF meta yԑlԑ a daga ŋa poͻ na baŋ taa la bezie bee meŋԑ yuԑlԑ duoro mine a fo kamira naŋ de paale. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Zanne yaga] a kyaare lԑ fo naŋ na e sԑgere eŋ bee iri barebo EXIF meta yԑlԑ."
 }

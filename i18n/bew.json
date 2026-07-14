@@ -291,7 +291,7 @@
 	"mwe-upload-campaigns-pagination-next": "Halaman selanjutnya",
 	"mwe-upload-campaigns-list-title": "Daptar kampanye unggahan",
 	"mwe-upwiz-mv-cta-heading": "Bantu bikin gambar lebi gampil dicari ama sapa aja",
-	"mwe-upwiz-mv-cta-description": "Commons ada punya [[c:Commons:Structured_data/Computer-aided_tagging|peranti baru]] nyang nyaranin tenger bakal gambar lu punya angkat kalo lu belon nambahin tenger. Dengen nandesin tenger nyang pas, lu artinya ngebantu gambar lebi gampil dicari ama sapa aja.",
+	"mwe-upwiz-mv-cta-description": "Commons ada punya [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|peranti baru]] nyang nyaranin tenger bakal gambar lu punya angkat kalo lu belon nambahin tenger. Dengen nandesin tenger nyang pas, lu artinya ngebantu gambar lebi gampil dicari ama sapa aja.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Ya, gua pèngèn dapet ma'lumat pas gua punya angkatan ada punya tenger nyang siap gua perèksa ulang",
 	"mwe-upwiz-mv-cta-final-cta": "Siap langsung mulain nengerin? [[c:Special:SuggestedTags|Jal paké ni peranti]] dengen nengerin gambar populèr sekarang!",
 	"mwe-upwiz-mv-cta-dismiss": "Tutup",
@@ -301,5 +301,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Ngangkat gawéan sendèwèk paké Dukun Pengangkatan",
 	"mwe-upwiz-upload-comment-third-party": "Ngangkat $1 punya gawéan deri $2 paké Dukun Pengangkatan",
 	"mwe-upwiz-metadata-notice-header": "Data perorangan",
-	"mwe-upwiz-metadata-notice-description": "Métadata EXIF di ni berekas barangkali isinya tempat atawa data perorangan laènnya nyang dengen sendirinya ketambahan deri lu punya tustèl. [https://commons.wikimedia.org/wiki/Commons:Exif Belajarin lebi lanjut] pasal cara mermak atawa ngebuang métadata EXIF."
+	"mwe-upwiz-metadata-notice-description": "Métadata EXIF di ni berekas barangkali isinya tempat atawa data perorangan laènnya nyang dengen sendirinya ketambahan deri lu punya tustèl. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Belajarin lebi lanjut] pasal cara mermak atawa ngebuang métadata EXIF."
 }

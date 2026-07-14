@@ -329,7 +329,7 @@
 	"mwe-upload-campaigns-pagination-next": "Dumotono šə səhifə",
 	"mwe-upload-campaigns-list-title": "Bo əlovə karde əməlijoton sijohi",
 	"mwe-upwiz-mv-cta-heading": "Dastək bybən ki bydə bo harki hoston bybu šikilon pəjdo karde",
-	"mwe-upwiz-mv-cta-description": "Vikiamboədə bə məjdon bešə [[c:Commons:Structured_data/Computer-aided_tagging|nujə diləg]], kom bo šikilon tegon tovsijə kardejdə, komon šymə əlovə kardejdəjon, girəm šymə tegon əlovə kardənijone. Kejnə šymə təsdyǧ kardəjon dyrystə tegon əlovə karde, šymə dastək kardəjon bo həmmə šikilon nəve hoston karde.",
+	"mwe-upwiz-mv-cta-description": "Vikiamboədə bə məjdon bešə [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|nujə diləg]], kom bo šikilon tegon tovsijə kardejdə, komon šymə əlovə kardejdəjon, girəm šymə tegon əlovə kardənijone. Kejnə šymə təsdyǧ kardəjon dyrystə tegon əlovə karde, šymə dastək kardəjon bo həmmə šikilon nəve hoston karde.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Bəle, az {{GENDER:|pidəme}} xəbədo səj, kejnə cymy əlovə kardə cijonku tegon bəben bo cymy əvoni pevylo kardej.",
 	"mwe-upwiz-mv-cta-final-cta": "Hozyjon tegon əlovə karde bino karde ysət? [[c:Special:SuggestedTags|Bo diləgi šans bydən]], ysət tegon noj bo nominə šikilon!",
 	"mwe-upwiz-mv-cta-dismiss": "Žəj",
@@ -339,5 +339,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Yštə əsəri de UploadWizard əlovə kardyme",
 	"mwe-upwiz-upload-comment-third-party": "$1 əsəri əlovə kardyme cyjo $2 de UploadWizard vositə",
 	"mwe-upwiz-metadata-notice-header": "Xysusijə məlumot",
-	"mwe-upwiz-metadata-notice-description": "Ce ym fajli EXIF-metaməlumot bəzynen geolokasijə ogəte ijən čo xysusijə məlumot, kom šymə kamera avtomatik əlovə kardəše. [https://commons.wikimedia.org/wiki/Commons:Exif/ru Umutən] cerə sərost karde ja mole EXIF-metaməlumoti."
+	"mwe-upwiz-metadata-notice-description": "Ce ym fajli EXIF-metaməlumot bəzynen geolokasijə ogəte ijən čo xysusijə məlumot, kom šymə kamera avtomatik əlovə kardəše. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif/ru Umutən] cerə sərost karde ja mole EXIF-metaməlumoti."
 }

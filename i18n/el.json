@@ -315,7 +315,7 @@
 	"mwe-upload-campaigns-pagination-next": "Επόμενη σελίδα",
 	"mwe-upload-campaigns-list-title": "Λίστα εκστρατειών ανεβάσματος",
 	"mwe-upwiz-mv-cta-heading": "Βοηθήστε να κάνουμε την εξεύρεση εικόνων ευκολότερη για όλους",
-	"mwe-upwiz-mv-cta-description": "Το Commons διαθέτει ένα [[c:Commons:Structured_data/Computer-aided_tagging|νέο εργαλείο]] που θα προτείνει ετικέτες για τις εικόνες που ανεβάζετε, εάν δεν έχετε ήδη προσθέσει ετικέτες. Όταν επιβεβαιώνετε ακριβείς ετικέτες, συμβάλλετε στη διευκόλυνση της αναζήτησης εικόνων από όλους.",
+	"mwe-upwiz-mv-cta-description": "Το Commons διαθέτει ένα [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|νέο εργαλείο]] που θα προτείνει ετικέτες για τις εικόνες που ανεβάζετε, εάν δεν έχετε ήδη προσθέσει ετικέτες. Όταν επιβεβαιώνετε ακριβείς ετικέτες, συμβάλλετε στη διευκόλυνση της αναζήτησης εικόνων από όλους.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Ναι, θα ήθελα να λαμβάνω ειδοποιήσεις όταν οι μεταφορτώσεις μου έχουν ετικέτες που είναι έτοιμες για έλεγχο",
 	"mwe-upwiz-mv-cta-final-cta": "Είστε έτοιμοι να αρχίσετε να προσθέτετε ετικέτες αμέσως; [[c:Special:SuggestedTags|Δοκιμάστε το εργαλείο]] προσθέτοντας ετικέτες σε δημοφιλείς εικόνες τώρα!",
 	"mwe-upwiz-mv-cta-dismiss": "Απόρριψη",
@@ -325,5 +325,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Ανέβασε τη δική του εργασία με το UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "Ανέβασε ένα έργο του $1 από $2 με το UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Προσωπικά δεδομένα",
-	"mwe-upwiz-metadata-notice-description": "Τα μεταδεδομένα EXIF σε αυτό το αρχείο ενδέχεται να περιέχουν τοποθεσία ή άλλα προσωπικά δεδομένα που προστίθενται αυτόματα από την κάμερά σας. [https://commons.wikimedia.org/wiki/Commons:Exif Μάθετε περισσότερα] σχετικά με τον τρόπο επεξεργασίας ή κατάργησης μεταδεδομένων EXIF."
+	"mwe-upwiz-metadata-notice-description": "Τα μεταδεδομένα EXIF σε αυτό το αρχείο ενδέχεται να περιέχουν τοποθεσία ή άλλα προσωπικά δεδομένα που προστίθενται αυτόματα από την κάμερά σας. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Μάθετε περισσότερα] σχετικά με τον τρόπο επεξεργασίας ή κατάργησης μεταδεδομένων EXIF."
 }

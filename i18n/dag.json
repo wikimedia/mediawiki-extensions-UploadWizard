@@ -97,12 +97,12 @@
 	"mwe-upwiz-source-ownwork-purpose-label": "Pahimi suɣilo piimi din buɣisi di tuma {{PLURAL:$1tuuni ŋɔ|tuma ŋɔ}}.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|tuuni ŋɔ tirila|tuma ŋɔ tirila}} baŋsim, soli wuhibu, bee lahabali zaŋ ti shɛba.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|Tuuni ŋɔ nyɛla| Tuma ŋɔ nyɛla}} din za n-ti N konko zaŋ tum shɛhira, m-maŋa anfooninima, N dɔɣim bee N zonima, bee ka di bɔri ni N zaŋli kpɛhi N tuma ni.",
-	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Di zaŋ{{PLURAL:$1|kol' bila ŋɔ|kol' bihi ŋɔ}}!</b>  kpɛhim Wikimedia Commons bi saɣi ti lala. Pahimi suɣilo labi yuli[[Special:MyLanguage/Commons:What_Commons_is_not|this simple guide]].</p><p>A yi biɛhim, pahimi suɣilo [[COM:L|learn more about licensing]], bee pahimi suɣilo bɔhimi ban pun tumdi tuma ŋɔ ka di yuui ka bɛ ti a saɣisigu pɔi ka a naanyi zaŋ kpɛhi. Salo ni bɔri ni bɔ sɔŋ a [[Commons:Village_pump/Copyright|Wikimedia Commons's Village Pump]]. Ti puhiya.</p>",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Di zaŋ{{PLURAL:$1|kol' bila ŋɔ|kol' bihi ŋɔ}}!</b>  kpɛhim Wikimedia Commons bi saɣi ti lala. Pahimi suɣilo labi yuli[[Special:MyLanguage/Commons:What_Commons_is_not|this simple guide]].</p><p>A yi biɛhim, pahimi suɣilo [[Special:MyLanguage/COM:L|learn more about licensing]], bee pahimi suɣilo bɔhimi ban pun tumdi tuma ŋɔ ka di yuui ka bɛ ti a saɣisigu pɔi ka a naanyi zaŋ kpɛhi. Salo ni bɔri ni bɔ sɔŋ a [[Commons:Village_pump/Copyright|Wikimedia Commons's Village Pump]]. Ti puhiya.</p>",
 	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Is this|Are these}} entirely {{GENDER:$2|your}} own {{PLURAL:$1|work|works}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|This is|These are}} entirely {{GENDER:$2|my}} own {{PLURAL:$1|work|works}}",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Tuuni ŋɔ malila|Tuma ŋɔ malila}} shɛba tuma.",
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "{{PLURAL:$1 nyɛla|Are}}din pun beni{{PLURAL:$1|work|works}} din be yoli ti sokam?",
-	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Iin,din pun beni maa {{PLURAL:$1|work was|works were}} daa zaŋmi wuhi salo yɛla ŋɔ zaɣ' yini ni ni [[COM:L#Well-known_licenses|free licenses]]",
+	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Iin,din pun beni maa {{PLURAL:$1|work was|works were}} daa zaŋmi wuhi salo yɛla ŋɔ zaɣ' yini ni ni [[Special:MyLanguage/COM:L#Well-known_licenses|free licenses]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Iin, din pun beni maa {{PLURAL:$1|work is|works are}} nyɛla din gu ka taɣi zaligu puuni",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Aayi, {{PLURAL:$1|it is|they are}} zaligu gbubi li mi",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "M bi dihi tabili",
@@ -345,7 +345,7 @@
 	"mwe-upload-campaigns-pagination-next": "yaɣali din pahi",
 	"mwe-upload-campaigns-list-title": "Kampeenima kalinli din zaŋ kpɛhi",
 	"mwe-upwiz-mv-cta-heading": "Sɔŋmi che ka anfoonima bo n-nya niŋ asama to sokam",
-	"mwe-upwiz-mv-cta-description": "Commons mali la [[c:Commons:Structured_data/Computer-aided_tagging|new tool\n]] din buɣisi yuya zaŋ ti anfooni shɛŋa a ni zaŋ kpɛhi a yi na bi zaŋ yuya pahi di zuɣu. A saɣiti yu' shɛŋa din  tuhi, a sɔŋdimi che ka anfooninima bɔbu bi to zaŋ ti salo.",
+	"mwe-upwiz-mv-cta-description": "Commons mali la [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|new tool\n]] din buɣisi yuya zaŋ ti anfooni shɛŋa a ni zaŋ kpɛhi a yi na bi zaŋ yuya pahi di zuɣu. A saɣiti yu' shɛŋa din  tuhi, a sɔŋdimi che ka anfooninima bɔbu bi to zaŋ ti salo.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Iin, ni bɔri ni yi gbuligima tibili ni zaŋ binshɛŋa kpɛhi maa yi taba din saɣi ni n labi yuli li.",
 	"mwe-upwiz-mv-cta-final-cta": "Shili biya ni di pili tagging pumpɔŋɔ?[[c:Special:SuggestedTags|Give the tool a try]] ka di nyɛla a yɛn zaŋla anfooninima din yoli n-taagi taba saha ŋɔ!",
 	"mwe-upwiz-mv-cta-dismiss": "Wurimma",
@@ -355,5 +355,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Zaŋmi din zaŋdi binyɛra kpatuɣili la n-kpɛhi a maŋmaŋa tuma",
 	"mwe-upwiz-upload-comment-third-party": "Zaŋmi din zaŋdi binyɛra kpatuɣili la n-kpɛhi $1 ni $2",
 	"mwe-upwiz-metadata-notice-header": "A zuɣu lahabali",
-	"mwe-upwiz-metadata-notice-description": "EXIF metadata din kol' bila ŋɔ ni tooi mali di ni yi luɣ' shɛli bee daadam maŋmaŋa lahabali a kamara maa ni zaŋ pahi di toli [https://commons.wikimedia.org/wiki/Commons:Exif Learn more] din nyɛ a ni yɛn niŋ sh~m m-mali niŋ bee n-yihi EXIF\n metadata."
+	"mwe-upwiz-metadata-notice-description": "EXIF metadata din kol' bila ŋɔ ni tooi mali di ni yi luɣ' shɛli bee daadam maŋmaŋa lahabali a kamara maa ni zaŋ pahi di toli [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Learn more] din nyɛ a ni yɛn niŋ sh~m m-mali niŋ bee n-yihi EXIF\n metadata."
 }

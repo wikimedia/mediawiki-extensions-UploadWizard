@@ -23,7 +23,7 @@
 	"mwe-upwiz-file-all-ok": "成功上載所有檔案！",
 	"mwe-upwiz-upload-count": "$2個檔案中嘅$1個已經上載咗",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|呢份作品|呢啲作品}}係for我個人用途，例如係我自己、屋企人或朋友嘅相，或自我宣傳內容。",
-	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|我}}用咗人工智能工具生成{{PLURAL:$1|呢份作品|呢啲作品}}[[COM:AI-generated_media|（睇指引）]]",
+	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|我}}用咗人工智能工具生成{{PLURAL:$1|呢份作品|呢啲作品}}[[Special:MyLanguage/COM:AI-generated_media|（睇指引）]]",
 	"mwe-upwiz-desc": "描述",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=加一段説明|加另一個語言嘅説明}}",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|呢份作品|呢啲作品}}用咗人工智能工具生成",
@@ -39,5 +39,5 @@
 	"prefs-upwiz-experimental": "實驗功能",
 	"prefs-upwiz-interface": "用戶介面",
 	"mwe-upwiz-metadata-notice-header": "私人數據",
-	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
+	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
 }

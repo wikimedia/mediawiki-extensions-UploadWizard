@@ -347,7 +347,7 @@
 	"mwe-upload-campaigns-pagination-next": "Pàgina següent",
 	"mwe-upload-campaigns-list-title": "Llista de campanyes de càrrega",
 	"mwe-upwiz-mv-cta-heading": "Ajudeu a fer que els altres trobin les imatges més fàcilment",
-	"mwe-upwiz-mv-cta-description": "Commons té una [[c:Commons:Structured_data/Computer-aided_tagging|nova eina]] que us suggerirà les etiquetes per a les imatges que pengeu, si és que encara no les hi heu afegides. Cada cop que assigneu una etiqueta amb precisió, contribuïu a fer que les imatges siguin més fàcilment localitzables per qualsevol altra persona entre els milions de fitxers que hi ha a Commons.",
+	"mwe-upwiz-mv-cta-description": "Commons té una [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|nova eina]] que us suggerirà les etiquetes per a les imatges que pengeu, si és que encara no les hi heu afegides. Cada cop que assigneu una etiqueta amb precisió, contribuïu a fer que les imatges siguin més fàcilment localitzables per qualsevol altra persona entre els milions de fitxers que hi ha a Commons.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Sí, m'agradaria rebre notificacions quan les meves càrregues tinguin etiquetes pendents de revisió",
 	"mwe-upwiz-mv-cta-final-cta": "Sou a punt per començar a etiquetar immediatament? [[c:Special:SuggestedTags|Proveu l'eina]] d'etiquetatge i comenceu amb alguns dels fitxers més populars i emprats de Commons!",
 	"mwe-upwiz-mv-cta-dismiss": "Descarta",
@@ -357,5 +357,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Obra pròpia carregada amb l'auxiliar de càrregues",
 	"mwe-upwiz-upload-comment-third-party": "S'ha carregat una obra per $1 a partir de $2 amb l'auxiliar de càrregues",
 	"mwe-upwiz-metadata-notice-header": "Dades personals",
-	"mwe-upwiz-metadata-notice-description": "Les metadades EXIF d'aquest fitxer poden contenir la ubicació o altres dades personals que la càmera afegeix automàticament. [https://commons.wikimedia.org/wiki/Commons:Exif Més informació] sobre com editar o eliminar metadades EXIF."
+	"mwe-upwiz-metadata-notice-description": "Les metadades EXIF d'aquest fitxer poden contenir la ubicació o altres dades personals que la càmera afegeix automàticament. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Més informació] sobre com editar o eliminar metadades EXIF."
 }

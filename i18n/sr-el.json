@@ -113,11 +113,11 @@
 	"mwe-upwiz-source-ownwork-origin-option-own": "Ovo {{PLURAL:$1|je moj rad|su moji radovi}} u celosti",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Ovaj rad sadrži|Ovi radovi sadrže}} radove drugih",
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "Da li {{PLURAL:$1|je tuđi radu u ovom radu slobodan|su tuđi radovi u ovim radovima  slobodni}} za upotrebu i deljenje?",
-	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Da, tuđi {{PLURAL:$1|rad je objavljen|radovi su objavljeni}} pod jednom od ovih [[COM:L#Well-known_licenses|slobodnih licenci]]",
+	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Da, tuđi {{PLURAL:$1|rad je objavljen|radovi su objavljeni}} pod jednom od ovih [[Special:MyLanguage/COM:L#Well-known_licenses|slobodnih licenci]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Da, {{PLURAL:$1|rad nije|radovi nisu}} zaštićeni autorskim pravima",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Ne, {{PLURAL:$1|rad je zaštićen|radovi su zaštićeni}} autorskim pravima",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Ne znam da li {{PLURAL:$1|je slobodan|su slobodni}} za upotrebu i deljenje",
-	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Ja sam}} generisao {{PLURAL:$1|ovaj rad|ove radove}} pomoću AI alatke [[COM:AI-generated_media|(vidi smernice)]]",
+	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Ja sam}} generisao {{PLURAL:$1|ovaj rad|ove radove}} pomoću AI alatke [[Special:MyLanguage/COM:AI-generated_media|(vidi smernice)]]",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Unesite naziv korišćene AI alatke. Ako su tuđi radovi korišćeni za generisanje {{PLURAL:$1|ovog rada|ovih radova}}, takođe ih navedite.",
 	"mwe-upwiz-source-permission": "Njihov autor dao je izričitu dozvolu za otpremanje",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Ovo je tuđi rad i dozvoljeno je njegovo deljenje|Ovo su tuđi radovi i dozvoljeno je njihovo deljenje}}.",
@@ -400,12 +400,12 @@
 	"mwe-upload-campaigns-pagination-next": "Sledeća stranica",
 	"mwe-upload-campaigns-list-title": "Spisak kampanji otpremanja",
 	"mwe-upwiz-mv-cta-heading": "Pomozite da svako može lakše pronaći slike",
-	"mwe-upwiz-mv-cta-description": "Ostava ima [[c:Commons:Structured_data/Computer-aided_tagging|novu alatku]] koja predlaže oznake za slike koje otpremite ako ih već niste dodali. Kada potvrdite tačne oznake, pomažete da svako može lakše pronaći slike.",
+	"mwe-upwiz-mv-cta-description": "Ostava ima [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|novu alatku]] koja predlaže oznake za slike koje otpremite ako ih već niste dodali. Kada potvrdite tačne oznake, pomažete da svako može lakše pronaći slike.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Da, želim da dobijam obaveštenja kada moja otpremanja imaju oznake koje su spremne za moj pregled",
 	"mwe-upwiz-mv-cta-final-cta": "Spremni da odmah počnete sa označavanjem? [[c:Special:SuggestedTags|Isprobajte alatku]] označavanjem popularnih slika!",
 	"mwe-upwiz-mv-cta-dismiss": "Odbaci",
 	"mwe-upwiz-upload-comment-own-work": "Otpremljen sopstveni rad Vodičem za otpremanje",
 	"mwe-upwiz-upload-comment-third-party": "Otpremljen rad $1 iz $2 Vodičem za otpremanje",
 	"mwe-upwiz-metadata-notice-header": "Lični podaci",
-	"mwe-upwiz-metadata-notice-description": "EXIF metapodaci u ovoj datoteci možda sadrže lokaciju ili druge lične podatke koje kamera automatski dodaje. [https://commons.wikimedia.org/wiki/Commons:Exif Saznajte više] kako da uredite ili uklonite EXIF metapodatke."
+	"mwe-upwiz-metadata-notice-description": "EXIF metapodaci u ovoj datoteci možda sadrže lokaciju ili druge lične podatke koje kamera automatski dodaje. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Saznajte više] kako da uredite ili uklonite EXIF metapodatke."
 }
