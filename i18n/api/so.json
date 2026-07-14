@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"apihelp-flickrblacklist-summary": "Xaqiiji URL-ka Flickr adigoo adeegsanaya aqoonsiga isticmaalaha (NSID) si loo sameeyo liiska madow.",
+	"apihelp-flickrblacklist-extended-description": "Marka la isticmaalo ikhtiyaarka <var>list</var>, waxa uu soo celinayaa dhammaan aqoonsiyada ku jira liiska madow.",
+	"apihelp-flickrblacklist-param-url": "URL-ka Flickr ee la tijaabinayo.",
+	"apihelp-flickrblacklist-param-list": "Marka la dejiyo, liiska madow oo dhammaystiran ayaa la soo celinayaa. Lama isticmaali karo isla mar ahaantaas $1url.",
+	"apihelp-flickrblacklist-example-1": "Hubi URL ka liiska madow",
+	"apihelp-flickrblacklist-example-2": "Soo celi liiska madow oo dhan",
+	"apihelp-query+allcampaigns-summary": "Liis garee dhammaan ololayaasha UploadWizard",
+	"apihelp-query+allcampaigns-param-enabledonly": "Kaliya liiska ololayaasha la hawlgeliyay.",
+	"apihelp-query+allcampaigns-param-limit": "Tirada ololayaasha la soo celinayo",
+	"apihelp-query+allcampaigns-example-1": "Liis garee ololayaasha la hawlgeliyay",
+	"apihelp-mediadetection-summary": "Soo celi suurtagalnimada in sawirka kaydsan ee lagu matalay furaha faylka la bixiyay uu yahay calaamad",
+	"apihelp-mediadetection-param-filename": "Magaca bogga faylka",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var> oo laga helay codsiga API-ga <kbd>stash</kbd>",
+	"apihelp-mediadetection-example-filename": "Soo celi suurtagalnimada in sawirka uu matalayo faylka la bixiyay uu yahay calaamad",
+	"apihelp-mediadetection-example-filekey": "Soo celi suurtagalnimada in sawirka kaydsan ee uu matalayo furaha faylka la bixiyay uu yahay calaamad",
+	"apierror-mediadetection-no-valid-thumbnail": "Ma jiro sawir yaryar, sidaas darteed looma diri karo kala soocaha",
+	"apierror-mediadetection-invalid-mime-type": "API-ga looma heli karo noocan faylka ah - noocyada la oggol yahay waa image/jpeg, image/gif, image/png, image/bmp"
+}
