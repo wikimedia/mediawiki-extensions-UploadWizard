@@ -52,7 +52,7 @@
 	"mwe-upwiz-next-file-despite-failures": "तैयो जारी रखी",
 	"mwe-upwiz-progressbar-uploading": "उपारोपण होवैत",
 	"mwe-upwiz-finished": "समाप्त!",
-	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "हमरा बिश्वास न हे",
+	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "हमरा न पता कि {{PLURAL:$1|ई|ईसभ}} उपयोग आउ साझा करेला मुक्त {{PLURAL:$1|हे}} कि न",
 	"mwe-upwiz-patent-dialog-title": "पेटेण्ट् अधिकार",
 	"mwe-upwiz-patent-dialog-title-filename": "$1 लागि बैधानिक अधिकार",
 	"mwe-upwiz-patent-dialog-button-back": "पाछे",
