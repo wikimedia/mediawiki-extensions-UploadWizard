@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BrennodAloisi",
+			"COMISSIONTOPOC",
 			"Cedric31",
 			"Envlh",
 			"McDutchie"
@@ -31,6 +32,7 @@
 	"mwe-upwiz-published": "Publicat !",
 	"mwe-upwiz-failed": "Fracàs.",
 	"mwe-upwiz-remove": "Levar",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<b>Mandar pas {{PLURAL:$1| aqueste fichier|aquestei fichiers}}!</b> {{SITENAME}} autoriza pas l'aubergament de mèdias personals ò privats. Se dobtatz, [[Special:MyLanguage/COM:L|ne’n saber mai sus çò qu'es permés]], o [[Special:MyLanguage/COM:VPC|demandar a de contributors experimentats]] abans de o mandar. Mercés.",
 	"mwe-upwiz-title": "Títol",
 	"mwe-upwiz-date-created": "Data de creacion",
 	"mwe-upwiz-location": "Emplaçament",
@@ -51,5 +53,6 @@
 	"mwe-upwiz-categories": "Categorias",
 	"mwe-upwiz-subhead-alt-upload": "Retorn a l’ancian formulari",
 	"mwe-upwiz-feedback-prompt": "Daissar un comentari",
-	"mwe-upwiz-errordialog-ok": "D'acòrdi"
+	"mwe-upwiz-errordialog-ok": "D'acòrdi",
+	"mwe-upwiz-mv-cta-description": "Commons possedís una [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|new tool]] que suggerirà d'etiquetas per leis imatges que mandatz s'avètz pas encara ajustat d'etiquetas. Quand confirmatz d'etiquetas precisas, facilitatz lei recèrcas en totei."
 }
