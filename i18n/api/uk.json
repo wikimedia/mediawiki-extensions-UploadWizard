@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Movses",
 			"Piramidion",
 			"Ата"
 		]
@@ -14,5 +15,6 @@
 	"apihelp-query+allcampaigns-summary": "Перерахувати всі кампанії Майстра завантаження.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Тільки список увімкнених кампаній.",
 	"apihelp-query+allcampaigns-param-limit": "Кількість кампаній для виведення.",
-	"apihelp-query+allcampaigns-example-1": "Перерахувати увімкнені кампанії"
+	"apihelp-query+allcampaigns-example-1": "Перерахувати увімкнені кампанії",
+	"apihelp-mediadetection-param-filename": "Назва сторінки файлу"
 }
