@@ -55,7 +55,8 @@
 			"Дмитрий",
 			"Краснорядцева Елена",
 			"Умар",
-			"Ядерный Трамвай"
+			"Ядерный Трамвай",
+			"Shabe"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -127,7 +128,7 @@
 	"mwe-upwiz-file-all-ok": "Все загрузки завершены успешно!",
 	"mwe-upwiz-file-some-failed": "Некоторые загрузки выполнить не удалось.",
 	"mwe-upwiz-file-retry": "Повторить неудавшиеся загрузки",
-	"mwe-upwiz-next-file-despite-failures": "Все равно продолжить",
+	"mwe-upwiz-next-file-despite-failures": "Всё равно продолжить",
 	"mwe-upwiz-skip-tutorial-future": "Пропустить этот шаг в будущем",
 	"mwe-upwiz-file-all-failed": "Ни одна из загрузок не удалась.",
 	"mwe-upwiz-upload-count": "{{PLURAL:$1|Передан|Передано}} $1 из $2 {{PLURAL:$2|файла|файлов}}",
