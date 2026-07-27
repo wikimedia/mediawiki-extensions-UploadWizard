@@ -161,7 +161,6 @@
 			options.push( option );
 		} );
 
-		// eslint-disable-next-line mediawiki/class-doc
 		return new OO.ui.RadioSelectWidget( { items: options, classes: classes } );
 	};
 
@@ -194,7 +193,6 @@
 			options.push( option );
 		} );
 
-		// eslint-disable-next-line mediawiki/class-doc
 		return new OO.ui.CheckboxMultiselectWidget( { items: options, classes: classes } );
 	};
 

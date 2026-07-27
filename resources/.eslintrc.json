@@ -10,8 +10,6 @@
 	},
 	"rules": {
 		"max-len": "off",
-		"mediawiki/class-doc": "warn",
-		"mediawiki/msg-doc": "warn",
 		"jsdoc/no-undefined-types": [
 			"warn",
 			{
@@ -25,7 +23,8 @@
 		"es-x/no-typed-arrays": "warn",
 		"no-jquery/no-extend": "warn",
 		"no-jquery/no-done-fail": "warn",
-		"no-jquery/no-animate": "warn"
+		"no-jquery/no-animate": "warn",
+		"unicorn/prefer-includes": "warn"
 	},
 	"settings": {
 		"jsdoc": {
