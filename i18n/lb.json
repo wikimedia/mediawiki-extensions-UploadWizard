@@ -228,7 +228,7 @@
 	"mwe-upwiz-campaign-create-account-button": "Maacht ee Benotzerkont op a luet e Fichier erop!",
 	"mwe-upwiz-campaign-upload-button": "Eroplueden!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Eropgeluedene Fichier|Eropgeluede Fichieren}}",
-	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Auteur|Auteuren}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Contributeur|Contributeuren}}",
 	"mwe-upwiz-campaign-view-all-media": "All eropgeluede Medie weisen",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nach keng eropgeluede Fichieren!",
 	"mwe-upwiz-license-cc-by-4.0-text": "Creative Commons Attributioun 4.0 $3 [$2 (méi gewuer ginn)]",
