@@ -77,7 +77,7 @@
 	"mwe-upwiz-file-retry": "Déi Fichieren, déi net eropgeluede goufen, nach emol probéieren",
 	"mwe-upwiz-next-file-despite-failures": "Trotzdeem virufueren",
 	"mwe-upwiz-skip-tutorial-future": "Dës Etapp an Zukunft iwwersprangen",
-	"mwe-upwiz-file-all-failed": "D'Eropluede vun alle Fichieren huet net funktionéiert",
+	"mwe-upwiz-file-all-failed": "D'Eropluede vun alle Fichieren huet net funktionéiert.",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|Fichier|Fichiere}} vu(n) $2 {{PLURAL:$2|Fichier|Fichieren}} eropgelueden",
 	"mwe-upwiz-progressbar-uploading": "eroplueden",
 	"mwe-upwiz-almost-finished": "Fichiere verschaffen...",
