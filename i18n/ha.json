@@ -4,7 +4,8 @@
 			"Ammarpad",
 			"Bashir Gwanki",
 			"Hamza DK",
-			"Omar Ali"
+			"Omar Ali",
+			"M Bash Ne"
 		]
 	},
 	"uploadwizard": "Ɗora Hoto",
@@ -89,6 +90,7 @@
 	"mwe-upwiz-copy-metadata-button-undo": "Warware",
 	"mwe-upwiz-copied-metadata": "Kofe!",
 	"mwe-upwiz-undid-metadata": "Ba a kwafa ba.",
+	"mwe-upwiz-title": "Suna",
 	"mwe-upwiz-date-created": "Kwanan wata",
 	"mwe-upwiz-select-date": "Zaba rana",
 	"mwe-upwiz-location": "Wuri",
@@ -106,9 +108,11 @@
 	"mwe-upwiz-next": "Gaba",
 	"mwe-upwiz-next-file": "Cigaba",
 	"mwe-upwiz-next-deeds": "Naba",
+	"mwe-upwiz-publish-details": "Wallafa fayil",
 	"mwe-upwiz-previous": "Baya",
 	"mwe-upwiz-upload-another": "Sanya wasu bayani",
 	"mwe-upwiz-deeds-require-selection": "Ana buƙatar zaɓi",
+	"mwe-upwiz-label-optional": "Zaɓi",
 	"mwe-upwiz-error-blank": "Ana buƙatar amsar wannan tambayar",
 	"mwe-upwiz-error-question-blank": "Ana buƙatar amsar wannan tambayar",
 	"mwe-upwiz-error-license-wikitext-missing": "Ana buƙatar shigarwa",
