@@ -71,7 +71,8 @@
 			"Wyz",
 			"Y-M D",
 			"Poro26",
-			"Codeurluce"
+			"Codeurluce",
+			"Framawiki"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -326,7 +327,7 @@
 	"mwe-upwiz-error-title-too-few-characters": "Cette entrée est trop courte.\nVeuillez faire en sorte qu’elle contienne au moins $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-caption-blank": "La légende est obligatoire",
 	"mwe-upwiz-error-description-blank": "La description est obligatoire",
-	"mwe-upwiz-error-title-blacklisted": "Ce titre contient du texte indésirable. Veuillez le réviser.",
+	"mwe-upwiz-error-title-blacklisted": "Ce titre contient du texte indésirable. Veuillez l'améliorer.",
 	"mwe-upwiz-error-title-senselessimagename": "Veuillez rendre ce titre plus significatif.",
 	"mwe-upwiz-error-title-thumbnail": "Cela ressemble à un titre de vignette (« thumbnail »). Veuillez ne réimporter aucune vignette sur le même wiki. Sinon, veuillez corriger le nom du fichier de sorte qu’il soit plus significatif et n’aie pas le préfixe « thumbnail ».",
 	"mwe-upwiz-error-title-extension": "Vous n’avez pas besoin d’ajouter une extension de fichier. Il suffit de donner un titre compréhensible par un humain et l’application se chargera du reste.",
