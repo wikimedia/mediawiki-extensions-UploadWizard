@@ -24,7 +24,6 @@ use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Parser\ParserOutputLinkTypes;
 use MediaWiki\Title\Title;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
@@ -201,11 +200,9 @@ class Campaign {
 		return $this->wanObjectCache->getWithSetCallback(
 			$this->wanObjectCache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
 			Config::getSetting( 'campaignStatsMaxAge' ),
-			static function ( $oldValue, &$ttl, array &$setOpts ) use (
+			static function () use (
 				$fname, $dbr, $fileSchemaMigrationStage, $categorylinksQueryInfo, $categorylinksConditions
 			) {
-				$setOpts += Database::getCacheSetOptions( $dbr );
-
 				$queryBuilder = $dbr->newSelectQueryBuilder()
 					->tables( $categorylinksQueryInfo['tables'] )
 					->join( 'page', null, 'cl_from=page_id' )
