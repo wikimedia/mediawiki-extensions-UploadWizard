@@ -253,7 +253,7 @@ mw.FlickrChecker.prototype = {
 		}
 		data.collection.forEach( ( value ) => {
 			const $li = $( '<li>' );
-			$li.append( value.title );
+			$li.text( value.title );
 			if ( value.collection !== undefined ) {
 				$li.append( this.buildCollectionLinks( false, value ) );
 			}
@@ -261,7 +261,7 @@ mw.FlickrChecker.prototype = {
 				const $ul = $( '<ul>' );
 				value.set.forEach( ( value2 ) => {
 					const $link = $( '<a>' ).attr( { href: '#', role: 'button', 'data-id': value2.id } );
-					$link.append( value2.title );
+					$link.text( value2.title );
 					$link.on( 'click', () => {
 						// eslint-disable-next-line no-jquery/no-global-selector
 						$( '#mwe-upwiz-files-collection-chooser' ).remove();
