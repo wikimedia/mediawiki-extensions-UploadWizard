@@ -229,7 +229,7 @@
 	"mwe-upwiz-upload-error-duplicate": "این پرونده از قبل در این ویکی بارگذاری شده است.",
 	"mwe-upwiz-upload-error-duplicate-archive": "این پرونده پیش‌تر دراین ویکی بارگذاری شده بود اما حذف شد.",
 	"mwe-upwiz-upload-error-stashed-anyway": "به هر حال بارگذاری شود؟",
-	"mwe-upwiz-deleted-duplicate-unknown-filename": "اسم پرونده نامعلوم",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "نام پرونده ناشناخته",
 	"mwe-upwiz-ok": "تأیید",
 	"mwe-upwiz-fileexists-replace-on-page": "در حال حاضر پرونده‌ای با این نام وجود دارد. اگر می‌خواهید آن را جایگزین کنید، به صفحه بروید برای [$2 $1] و آن را آنجا جایگزین کنید.",
 	"mwe-upwiz-fileexists-replace-on-page-v2": "این عنوان قبلاً استفاده شده است. لطفاً یک عنوان یکتا انتخاب کنید. نکته: افزودن تاریخ، ماه یا سال اثر می‌تواند به یکتابودن آن کمک کند.",
