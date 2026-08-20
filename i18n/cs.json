@@ -21,7 +21,8 @@
 			"Patrik L.",
 			"Ragimiri",
 			"Urbanecm",
-			"Utar"
+			"Utar",
+			"Henryk Siuda"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -351,8 +352,11 @@
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl-text": "Copyleft, vyžadováno uvedení autora (GFDL, CC BY-SA 3.0) $3",
 	"mwe-upwiz-license-unknown": "Nevím",
+	"mwe-upwiz-license-free-head": "Autor vydal nebo publikoval {{PLURAL:$1|toto dílo|tato díla}} pod svobodnou licencí, např. [https://creativecommons.org/share-your-work/cclicenses/Creative Commons license]",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|Toto dílo není chráněno|Tato díla nejsou chráněna}} autorským právem",
 	"mwe-upwiz-license-cc0-head-extra": "Příklad: {{PLURAL:$1|historické dílo, jehož|historická díla, jejichž}} autorská práva vypršela, nebo {{PLURAL:$1|dílo, zveřejněné|díla, zveřejněná}} jako úřední, atp. [$2 Více informací]",
+	"mwe-upwiz-license-vrt-head": "Mám povolení k nahrání {{PLURAL:$1|tohoto díla|těchto děl}} od mého zaměstnavatele nebo autora {{PLURAL:$1|tohoto díla|těchto děl}}",
+	"mwe-upwiz-license-unknown-head": "Nevím zda je možné {{PLURAL:$1|toto dílo|tato díla}} volně sdílet.",
 	"mwe-upwiz-license-other-head": "Zadejte odlišnou licenci ve formátu wikitext",
 	"mwe-upwiz-license-cc-head": "Držitel autorských práv zveřejnil {{PLURAL:$1|toto dílo|tato díla}} pod použitelnou licencí Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Ne každá licence Creative Commons je na tomto serveru přijatelná. Ujistěte se, že držitel autorských práv použil jednu z těchto licencí.",
