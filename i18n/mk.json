@@ -326,7 +326,7 @@
 	"mwe-upwiz-license-cc-by-2.0-text": "Криејтив комонс Наведи извор 2.0 (CC BY 2.0) $3 [$2 (дознајте повеќе)]",
 	"mwe-upwiz-license-cc-zero-text": "Криејтив комонс CC0 Откажување (CC0) $3 [$2 (дознајте повеќе)]",
 	"mwe-upwiz-license-custom": "Внесете поинаква лиценца",
-	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Ознаки за слики",
+	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags",
 	"mwe-upwiz-license-custom-explain": "Мора да содржи важечка [$2 авторскоправна ознака] во важечка предлошка како <nowiki>{{</nowiki>Cc-by-2.0<nowiki>}}</nowiki>",
 	"mwe-upwiz-license-custom-pd": "Додајте конкретна ознака за јавна сопственост, ако е применливо.",
 	"mwe-upwiz-license-custom-pd-explain": "Мора да содржи важечка [$2 ознака за јавна сопственост] во важечка предлошка како <nowiki>{{</nowiki>Pd-old-70<nowiki>}}</nowiki>",

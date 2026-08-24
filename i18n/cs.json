@@ -352,7 +352,7 @@
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl-text": "Copyleft, vyžadováno uvedení autora (GFDL, CC BY-SA 3.0) $3",
 	"mwe-upwiz-license-unknown": "Nevím",
-	"mwe-upwiz-license-free-head": "Autor vydal nebo publikoval {{PLURAL:$1|toto dílo|tato díla}} pod svobodnou licencí, např. [https://creativecommons.org/share-your-work/cclicenses/Creative Commons license]",
+	"mwe-upwiz-license-free-head": "Autor zveřejnil nebo vydal {{PLURAL:$1|toto dílo|tato díla}} pod svobodnou licencí, např. [https://creativecommons.org/share-your-work/cclicenses/ licencí Creative Commons]",
 	"mwe-upwiz-license-heirs-head": "Jsem dědicem duševního vlastnictví osoby, která toto dílo vytvořila.",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|Toto dílo není chráněno|Tato díla nejsou chráněna}} autorským právem",
 	"mwe-upwiz-license-cc0-head-extra": "Příklad: {{PLURAL:$1|historické dílo, jehož|historická díla, jejichž}} autorská práva vypršela, nebo {{PLURAL:$1|dílo, zveřejněné|díla, zveřejněná}} jako úřední, atp. [$2 Více informací]",
