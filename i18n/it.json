@@ -56,7 +56,7 @@
 	"api-error-parsererror": "Il server ha risposto con un documento JSON non valido. Potrebbe trattarsi di un problema con le API oppure potresti stare usando un server proxy che ti impedisce di caricare dei file.",
 	"api-error-aborted": "Caricamento annullato.",
 	"api-error-noimageinfo": "Il caricamento è riuscito, ma il server non ci ha restituito alcuna informazione sul file.",
-	"mwe-upwiz-unavailable": "Il tuo browser non è compatibile con UploadWizard o ha JavaScript disattivato, quindi ti stiamo mostrando un semplice modulo di caricamento. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Vedi i requisiti di compatibilità].)",
+	"mwe-upwiz-unavailable": "Il tuo browser non è compatibile con UploadWizard o ha JavaScript disattivato. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Vedi i requisiti di compatibilità].)",
 	"mwe-upwiz-extension-disabled": "Questa pagina è stata disattivata a causa di problemi tecnici temporanei. Nel frattempo usa il modulo di caricamento normale.",
 	"mwe-upwiz-step-tutorial": "Impara",
 	"mwe-upwiz-step-file": "Carica",
