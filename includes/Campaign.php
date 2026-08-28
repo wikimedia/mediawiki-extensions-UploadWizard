@@ -191,7 +191,6 @@ class Campaign {
 		$dbr = $this->dbr;
 		$fname = __METHOD__;
 		$fileSchemaMigrationStage = $this->fileSchemaMigrationStage;
-		$categorylinksQueryInfo = $this->linksMigration->getQueryInfo( 'categorylinks' );
 		$categorylinksConditions = $this->linksMigration->getLinksConditions(
 			'categorylinks',
 			$this->getTrackingCategory()
@@ -201,16 +200,16 @@ class Campaign {
 			$this->wanObjectCache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
 			Config::getSetting( 'campaignStatsMaxAge' ),
 			static function () use (
-				$fname, $dbr, $fileSchemaMigrationStage, $categorylinksQueryInfo, $categorylinksConditions
+				$fname, $dbr, $fileSchemaMigrationStage, $categorylinksConditions
 			) {
 				$queryBuilder = $dbr->newSelectQueryBuilder()
-					->tables( $categorylinksQueryInfo['tables'] )
+					->from( 'categorylinks' )
+					->join( 'linktarget', null, 'cl_target_id=lt_id' )
 					->join( 'page', null, 'cl_from=page_id' )
 					->where( array_merge(
 						$categorylinksConditions,
 						[ 'cl_type' => 'file' ]
 					) )
-					->joinConds( $categorylinksQueryInfo['joins'] )
 					->useIndex( [ 'categorylinks' => 'cl_timestamp_id' ] );
 				if ( $fileSchemaMigrationStage & SCHEMA_COMPAT_READ_OLD ) {
 					$queryBuilder->select( [ 'count' => 'COUNT(DISTINCT img_actor)' ] )
@@ -232,7 +231,6 @@ class Campaign {
 	 * @return Title[]
 	 */
 	public function getUploadedMedia( $limit = 24 ) {
-		$categorylinksQueryInfo = $this->linksMigration->getQueryInfo( 'categorylinks' );
 		$categorylinksConditions = $this->linksMigration->getLinksConditions(
 			'categorylinks',
 			$this->getTrackingCategory()
@@ -240,13 +238,13 @@ class Campaign {
 
 		$result = $this->dbr->newSelectQueryBuilder()
 			->select( [ 'cl_from', 'page_namespace', 'page_title' ] )
-			->tables( $categorylinksQueryInfo['tables'] )
+			->from( 'categorylinks' )
+			->join( 'linktarget', null, 'cl_target_id=lt_id' )
 			->join( 'page', null, 'cl_from=page_id' )
 			->where( array_merge(
 				$categorylinksConditions,
 				[ 'cl_type' => 'file' ]
 			) )
-			->joinConds( $categorylinksQueryInfo['joins'] )
 			->orderBy( 'cl_timestamp', SelectQueryBuilder::SORT_DESC )
 			->limit( $limit )
 			->useIndex( [ 'categorylinks' => 'cl_timestamp_id' ] )
