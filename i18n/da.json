@@ -39,7 +39,7 @@
 	"api-error-parsererror": "Serveren svarede med et ugyldigt JSON-dokument. Dette kan være et problem med API'en, eller du bruger muligvis en proxyserver, der forhindrer dig i at uploade filer.",
 	"api-error-aborted": "Upload afbrudt.",
 	"api-error-noimageinfo": "Oplægningen lykkedes, men serveren gav os ikke nogen oplysninger om filen.",
-	"mwe-upwiz-unavailable": "Din browser er ikke kompatibel med UploadWizard, eller JavaScript er slået fra. Derfor viser vi dig en simpel uploadformular. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Se kompatibilitetskrav].)",
+	"mwe-upwiz-unavailable": "Din browser er ikke kompatibel med UploadWizard, eller JavaScript er slået fra. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Se kompatibilitetskrav].)",
 	"mwe-upwiz-extension-disabled": "Denne side er slået fra på grund af midlertidige tekniske problemer. Prøv at bruge standardformularen til filoplægning i mellemtiden.",
 	"mwe-upwiz-step-tutorial": "Lær",
 	"mwe-upwiz-step-file": "Læg op",

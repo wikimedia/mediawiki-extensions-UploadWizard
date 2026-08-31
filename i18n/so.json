@@ -21,7 +21,7 @@
 	"api-error-parsererror": "Seerfarku wuxuu soo celiyay dukumenti JSON aan sax ahayn. Tani waxay noqon kartaa dhibaato ka jirta API-ga, ama waxaad adeegsanaysaa seerfar wakiil oo kaa hor istaagaya inaad faylal soo geliso.",
 	"api-error-aborted": "Soo gelintii waa la joojiyay.",
 	"api-error-noimageinfo": "Soo gelintu way guulaysatay, laakiin serfarku nama siin wax macluumaad ah oo ku saabsan faylka.",
-	"mwe-upwiz-unavailable": "Bsraawsarkaaga lama jaanqaadi karo UploadWizard ama JavaScript ayaa dansan, sidaas darteed waxaan ku tusaynaa foom fudud oo lagu soo geliyo faylasha. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Eeg shuruudaha iswa])",
+	"mwe-upwiz-unavailable": "Bsraawsarkaaga lama jaanqaadi karo UploadWizard ama JavaScript ayaa dansan. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Eeg shuruudaha iswa])",
 	"mwe-upwiz-extension-disabled": "Boggan waa la naafoyeeyay sababo la xiriira dhibaatooyin farsamo oo ku meel gaar ah. Inta ka horreysa, isku day foomka caadiga ah ee soo gelinta.",
 	"mwe-upwiz-step-tutorial": "Baro",
 	"mwe-upwiz-step-file": "Soo geli",

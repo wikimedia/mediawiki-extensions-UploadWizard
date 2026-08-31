@@ -30,7 +30,7 @@
 	"api-error-parsererror": "O servidor respondeu cun documento JSON incorrecto. Isto pode ser un problema coa API ou pode ser que esteas a usar un servidor proxy que impide que subas ficheiros.",
 	"api-error-aborted": "Cancelouse a subida.",
 	"api-error-noimageinfo": "A carga realizouse correctamente, pero o servidor non nos deu ningunha información sobre o ficheiro.",
-	"mwe-upwiz-unavailable": "O teu navegador non é compatible co asistente de cargas ou ten o JavaScript desactivado, polo que che amosamos un formulario sinxelo de subida. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Ver os requisitos de compatibilidade].)",
+	"mwe-upwiz-unavailable": "O teu navegador non é compatible co asistente de cargas ou ten o JavaScript desactivado. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Ver os requisitos de compatibilidade].)",
 	"mwe-upwiz-extension-disabled": "Esta páxina foi desactivada debido a problemas técnicos temporais. Entrementres, podes empregar o formulario estándar de subidas.",
 	"mwe-upwiz-step-tutorial": "Aprender",
 	"mwe-upwiz-step-file": "Subir",
