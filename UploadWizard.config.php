@@ -835,7 +835,7 @@ return [
 	//		'default'	=> 'Commons:Upload',
 	//		'de'		=> 'Commons:Hochladen'
 	//	 );
-	'altUploadForm' => 'Special:Upload',
+	'altUploadForm' => '',
 
 	// Wiki page that lists alternative ways to upload
 	'alternativeUploadToolsPage' => 'Commons:Upload_tools',

@@ -9,6 +9,7 @@ namespace MediaWiki\Extension\UploadWizard\Specials;
 
 use LogicException;
 use MediaWiki\ChangeTags\ChangeTags;
+use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Exception\UserBlockedError;
 use MediaWiki\Extension\ConfirmEdit\Services\CaptchaFactory;
@@ -113,33 +114,23 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->handleCampaign();
 
 		$out = $this->getOutput();
-		$config = Config::getConfig( $this->campaign );
-
-		$uploadUrl = $this->getAltUploadFormUrl( $config );
 
 		// fallback for non-JS
 		$out->addHTML( '<div class="mwe-upwiz-unavailable">' );
-		$out->enableOOUI();
-
 		$out->addHTML(
 			Html::errorBox(
-				Html::rawElement(
-					'p',
-					[],
-					$this->msg( 'mwe-upwiz-unavailable' )->parse()
-				) .
-				( $uploadUrl !== null ? Html::rawElement(
-					'div',
-					[],
-					(string)new \OOUI\ButtonWidget( [
-						'label' => $this->msg( 'mwe-upwiz-subhead-alt-upload' )->text(),
-						'href' => $uploadUrl,
-						'flags' => [ 'progressive' ]
-					] )
-				) : '' )
+				$this->msg( 'mwe-upwiz-unavailable' )->parse()
 			)
 		);
+		// create a simple form for non-JS fallback, which targets the old Special:Upload page.
+		// at some point, if we completely subsume its functionality, change that to point here again,
+		// but then we'll need to process non-JS uploads in the same way Special:Upload does.
+		$derivativeContext = new DerivativeContext( $this->getContext() );
+		$derivativeContext->setTitle( SpecialPage::getTitleFor( 'Upload' ) );
+		$simpleForm = new UploadWizardSimpleForm( [], $derivativeContext, $this->getLinkRenderer() );
+		$simpleForm->show();
 		$out->addHTML( '</div>' );
+
 		// global javascript variables
 		$this->addJsVars( $subPage );
 
@@ -364,19 +355,6 @@ class SpecialUploadWizard extends SpecialPage {
 	}
 
 	/**
-	 * Resolve the campaign's configured alternative upload form into a local URL.
-	 * @param array $config
-	 * @return string|null null if not configured or not a valid title
-	 */
-	private function getAltUploadFormUrl( array $config ): ?string {
-		if ( empty( $config['altUploadForm'] ) ) {
-			return null;
-		}
-		$altUploadForm = Title::newFromText( $config['altUploadForm'] );
-		return $altUploadForm instanceof Title ? $altUploadForm->getLocalURL() : null;
-	}
-
-	/**
 	 * Return the basic HTML structure for the entire page
 	 * Will be enhanced by the javascript to actually do stuff
 	 * @return string html
@@ -391,13 +369,15 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		if ( array_key_exists( 'fallbackToAltUploadForm', $config )
+			&& array_key_exists( 'altUploadForm', $config )
+			&& $config['altUploadForm'] != ''
 			&& $config[ 'fallbackToAltUploadForm' ]
 		) {
 			$linkHtml = '';
-			$uploadUrl = $this->getAltUploadFormUrl( $config );
-			if ( $uploadUrl !== null ) {
+			$altUploadForm = Title::newFromText( $config[ 'altUploadForm' ] );
+			if ( $altUploadForm instanceof Title ) {
 				$linkHtml = Html::rawElement( 'p', [ 'style' => 'text-align: center;' ],
-					Html::element( 'a', [ 'href' => $uploadUrl ],
+					Html::element( 'a', [ 'href' => $altUploadForm->getLocalURL() ],
 						$config['altUploadForm']
 					)
 				);
