@@ -115,7 +115,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$out = $this->getOutput();
 		$config = Config::getConfig( $this->campaign );
 
-		$uploadUrl = $this->getAltUploadFormUrl( $config );
+		$altUploadForm = $this->getAltUploadFormTitle( $config );
 
 		// fallback for non-JS
 		$out->addHTML( '<div class="mwe-upwiz-unavailable">' );
@@ -128,12 +128,12 @@ class SpecialUploadWizard extends SpecialPage {
 					[],
 					$this->msg( 'mwe-upwiz-unavailable' )->parse()
 				) .
-				( $uploadUrl !== null ? Html::rawElement(
+				( $altUploadForm !== null ? Html::rawElement(
 					'div',
 					[],
 					(string)new \OOUI\ButtonWidget( [
 						'label' => $this->msg( 'mwe-upwiz-subhead-alt-upload' )->text(),
-						'href' => $uploadUrl,
+						'href' => $altUploadForm->getLocalURL(),
 						'flags' => [ 'progressive' ]
 					] )
 				) : '' )
@@ -364,16 +364,28 @@ class SpecialUploadWizard extends SpecialPage {
 	}
 
 	/**
-	 * Resolve the campaign's configured alternative upload form into a local URL.
+	 * Resolve the campaign's configured alternative upload form into a title.
+	 *
+	 * The 'altUploadForm' setting holds a page title. It can also hold a map of
+	 * user language code to page title. The 'default' key of that map applies
+	 * to all languages which the map does not list.
+	 *
 	 * @param array $config
-	 * @return string|null null if not configured or not a valid title
+	 * @return Title|null null if not configured or not a valid title
 	 */
-	private function getAltUploadFormUrl( array $config ): ?string {
-		if ( empty( $config['altUploadForm'] ) ) {
+	private function getAltUploadFormTitle( array $config ): ?Title {
+		$altUploadFormValue = $config['altUploadForm'] ?? '';
+		if ( is_array( $altUploadFormValue ) ) {
+			// An empty entry counts as absent, as it does in the JavaScript.
+			$altUploadFormValue = ( $altUploadFormValue[ $this->getLanguage()->getCode() ] ?? '' )
+				?: ( $altUploadFormValue['default'] ?? '' );
+		}
+		if ( !is_string( $altUploadFormValue ) || $altUploadFormValue === '' ) {
 			return null;
 		}
-		$altUploadForm = Title::newFromText( $config['altUploadForm'] );
-		return $altUploadForm instanceof Title ? $altUploadForm->getLocalURL() : null;
+
+		$altUploadForm = Title::newFromText( $altUploadFormValue );
+		return $altUploadForm instanceof Title ? $altUploadForm : null;
 	}
 
 	/**
@@ -394,11 +406,11 @@ class SpecialUploadWizard extends SpecialPage {
 			&& $config[ 'fallbackToAltUploadForm' ]
 		) {
 			$linkHtml = '';
-			$uploadUrl = $this->getAltUploadFormUrl( $config );
-			if ( $uploadUrl !== null ) {
+			$altUploadForm = $this->getAltUploadFormTitle( $config );
+			if ( $altUploadForm !== null ) {
 				$linkHtml = Html::rawElement( 'p', [ 'style' => 'text-align: center;' ],
-					Html::element( 'a', [ 'href' => $uploadUrl ],
-						$config['altUploadForm']
+					Html::element( 'a', [ 'href' => $altUploadForm->getLocalURL() ],
+						$altUploadForm->getPrefixedText()
 					)
 				);
 			}
