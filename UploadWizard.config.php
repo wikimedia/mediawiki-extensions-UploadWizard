@@ -129,8 +129,9 @@ return [
 	// http://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
 	'flickrApiUrl' => 'https://api.flickr.com/services/rest/?',
 
-	// you should probably replace this with your own
-	'flickrApiKey' => 'aeefff139445d825d4460796616f9349',
+	// You must set this to your own Flickr API key via LocalSettings.php;
+	// no default key is shipped with the extension for security reasons.
+	'flickrApiKey' => '',
 
 	// name of wiki page with blacklist of Flickr users
 	'flickrBlacklistPage' => '',
