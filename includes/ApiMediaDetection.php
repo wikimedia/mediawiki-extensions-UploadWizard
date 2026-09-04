@@ -97,17 +97,23 @@ class ApiMediaDetection extends ApiBase {
 	 * @throws ApiUsageException
 	 */
 	private function getUploadStashFile( string $fileKey ): UploadStashFile {
-		$filePath = $this->dbr->selectField(
-			'uploadstash',
-			'us_path',
-			[ 'us_key' => $fileKey ],
-			__METHOD__,
-		);
-		if ( $filePath === false ) {
+		$fileRow = $this->dbr->newSelectQueryBuilder()
+			->select( [ 'us_path', 'us_sha1', 'us_mime' ] )
+			->from( 'uploadstash' )
+			->where( [ 'us_key' => $fileKey ] )
+			->caller( __METHOD__ )
+			->fetchRow();
+		if ( $fileRow === false ) {
 			$this->dieWithError( 'apierror-mediadetection-no-valid-thumbnail' );
 		}
 
-		$stashFile = new UploadStashFile( $this->localRepo, $filePath, $fileKey );
+		$stashFile = new UploadStashFile(
+			$this->localRepo,
+			$fileRow->us_path,
+			$fileKey,
+			$fileRow->us_sha1,
+			$fileRow->us_mime ?? false,
+		);
 		if (
 			!$stashFile->exists() ||
 			$stashFile->getWidth() === 0 ||
