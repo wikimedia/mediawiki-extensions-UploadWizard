@@ -19,7 +19,7 @@
 	"api-error-parsererror": "El server ya responde con un invalido documento de JSON. Puede este queda un problema junto el API, o puede tu usa un proxy server que ta preveni contigo man upload maga files.",
 	"api-error-aborted": "Cancelao el upload.",
 	"api-error-noimageinfo": "Ya puede el upload, pero no hay kanamon el server dale maga informacion acerca del file.",
-	"mwe-upwiz-unavailable": "El browser de tuyo hende compatible na UploadWizard o cerrao el JavaScript, por eso dale ya lang kame mira contigo un simple upload form. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Mira magarequirimiento de compatibilidad].)",
+	"mwe-upwiz-unavailable": "Hende compatible le browser de tuyo na UploadWizard o apagao el JavaScript. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Mira con maga requirimientos de compatibilidad].)",
 	"mwe-upwiz-extension-disabled": "Este pagina ya quita activacion por causa na temporario problema tecnical. Mientras tanto, proba usa el estandard upload form.",
 	"mwe-upwiz-step-tutorial": "Aprende",
 	"mwe-upwiz-step-file": "Man upload",
