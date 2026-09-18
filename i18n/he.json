@@ -19,7 +19,8 @@
 			"נדב ס",
 			"ערן",
 			"פוילישער",
-			"Neriah"
+			"Neriah",
+			"Ladypine"
 		]
 	},
 	"uploadwizard": "אשף ההעלאה",
@@ -193,7 +194,7 @@
 	"mwe-upwiz-objref-notice-existing-image": "כבר קיימת תמונה עבור העצם המופנה.",
 	"mwe-upwiz-objref-notice-update-delay": "עדכון הדף המופנה יכול לקחת זמן.",
 	"mwe-upwiz-author-text": "נא להזין את שם המחבר המקורי של {{PLURAL:$1|היצירה הזאת|היצירות האלו}}:",
-	"mwe-upwiz-author-unknown": "לא ידוע לי של היצירה הזאת",
+	"mwe-upwiz-author-unknown": "לא ידוע לי של מי היצירה הזאת",
 	"mwe-upwiz-author-not-known": "אין לי את המידע הזה",
 	"mwe-upwiz-author-text-ai": "נא להזין את שם מנוע הבינה המלאכותית בשימוש, ואחריו את שם האדם שיצר את ההנחיה:",
 	"mwe-upwiz-author-text-ai-help": "<b>דוגמה:</b> מחבר: Midjourney AI; בהנחיה של שקד לוי",
