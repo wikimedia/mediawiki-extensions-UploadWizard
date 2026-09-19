@@ -155,4 +155,61 @@
 		assert.strictEqual( details.submitWikiText.callCount, 1 );
 		assert.deepEqual( details.submitWikiText.getCall( 0 ).args, [ 'some wikitext', captchaData ] );
 	} );
+
+	QUnit.test( 'showPreview: opens the dialog with the rendered wikitext', function ( assert ) {
+		const open = this.sandbox.stub( mw.uploadWizard.PreviewDialog, 'open' );
+		const promise = $.Deferred().promise();
+		const details = { renderWikiText: this.sandbox.stub().returns( promise ) };
+
+		mw.UploadWizardDetails.prototype.showPreview.call( details );
+
+		assert.strictEqual( open.callCount, 1 );
+		assert.strictEqual( open.getCall( 0 ).args[ 0 ], promise, 'dialog gets the render promise' );
+	} );
+
+	QUnit.test( 'renderWikiText: parses the wikitext and assembles the result', function ( assert ) {
+		const done = assert.async();
+		const load = this.sandbox.stub( mw.loader, 'load' );
+
+		const post = this.sandbox.stub().returns( $.Deferred().resolve( {
+			parse: {
+				text: '<div class="mw-parser-output"><p>Hello</p></div>',
+				categorieshtml: '<div class="catlinks">Cats</div>',
+				modules: [ 'ext.foo' ],
+				modulestyles: [ 'ext.foo.styles' ]
+			}
+		} ).promise() );
+
+		const details = {
+			api: { post: post },
+			getTitle: () => ( { getPrefixedText: () => 'File:Bar.jpg' } ),
+			getWikiText: () => 'some wikitext'
+		};
+
+		mw.UploadWizardDetails.prototype.renderWikiText.call( details ).then( ( $content ) => {
+			const params = post.getCall( 0 ).args[ 0 ];
+			assert.strictEqual( params.action, 'parse' );
+			assert.strictEqual( params.title, 'File:Bar.jpg' );
+			assert.strictEqual( params.text, 'some wikitext' );
+			assert.true( params.pst, 'pre-save transform applied' );
+
+			assert.strictEqual( $content.find( '.mw-parser-output' ).length, 1, 'parser output included' );
+			assert.strictEqual( $content.find( '.catlinks' ).length, 1, 'category links included' );
+			assert.deepEqual( load.getCall( 0 ).args[ 0 ], [ 'ext.foo.styles' ], 'styles loaded' );
+			assert.strictEqual( load.callCount, 1, 'only styles loaded' );
+			done();
+		} );
+	} );
+
+	QUnit.test( 'renderWikiText: falls back to a placeholder title', function ( assert ) {
+		const post = this.sandbox.stub().returns( $.Deferred().promise() );
+
+		mw.UploadWizardDetails.prototype.renderWikiText.call( {
+			api: { post: post },
+			getTitle: () => null,
+			getWikiText: () => ''
+		} );
+
+		assert.strictEqual( post.getCall( 0 ).args[ 0 ].title, 'File:UploadWizard preview' );
+	} );
 }() );

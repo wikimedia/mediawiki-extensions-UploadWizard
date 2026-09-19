@@ -183,6 +183,8 @@
 	"mwe-upwiz-license-metadata-title-v2": "Title for instructions about metadata (e.g. captions, main subjects and location) licensing",
 	"mwe-upwiz-license-metadata-content": "Content for instructions about metadata (e.g. captions) licensing",
 	"mwe-upwiz-more-information-toggle": "Text for a 'more information' toggle that opens more of a form so a user can make more detailed descriptions for uploaded images.",
+	"mwe-upwiz-preview-button-text": "Label for a button which renders a preview of the file page as it would be created from the details form.\n{{Identical|Show preview}}",
+	"mwe-upwiz-preview-title": "Title of the dialog showing the rendered file page preview.\n{{Identical|Preview}}",
 	"mwe-upwiz-copy-metadata-text": "Toggler which expands/collapses a selection of checkboxes vertically which allow the user to selectively copy metadata from the first upload to other uploads.",
 	"mwe-upwiz-copy-metadata-subtitle": "Subtitle for copy metadata checkboxes",
 	"mwe-upwiz-copy-metadata-button-text": "Label of the button which copies the selected metadata from the first upload to all other uploads.\n{{Identical|Copy}}",

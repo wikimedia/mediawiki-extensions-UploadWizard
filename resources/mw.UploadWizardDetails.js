@@ -486,6 +486,19 @@
 			} );
 
 			//
+			// Preview button
+			//
+			// Appended last, so that the copy metadata field the Details
+			// controller may add stays above it.
+			this.$previewField = $( '<div>' ).addClass( 'mwe-upwiz-details-preview' ).append(
+				new OO.ui.ButtonWidget( {
+					label: mw.message( 'mwe-upwiz-preview-button-text' ).text(),
+					flags: [ 'progressive' ]
+				} ).on( 'click', this.showPreview.bind( this ) ).$element
+			);
+			this.$form.append( this.$previewField );
+
+			//
 			// Remove upload button
 			//
 			this.removeCtrl = new OO.ui.ButtonWidget( {
@@ -1146,6 +1159,44 @@
 			wikiText = wikiText.replace( /\n{3,}/g, '\n\n' );
 
 			return wikiText;
+		},
+
+		/**
+		 * Show what this upload's wikitext renders to, in a dialog.
+		 */
+		showPreview: function () {
+			uw.PreviewDialog.open( this.renderWikiText() );
+		},
+
+		/**
+		 * Render this upload's wikitext the way MediaWiki's own "Show preview"
+		 * does: parse with the pre-save transform applied, then pull in whatever
+		 * styles the result asks for.
+		 *
+		 * @return {jQuery.Promise} Promise resolving with the rendered content, as jQuery
+		 */
+		renderWikiText: function () {
+			const title = this.getTitle();
+
+			return this.api.post( {
+				action: 'parse',
+				formatversion: 2,
+				title: title ? title.getPrefixedText() : 'File:UploadWizard preview',
+				text: this.getWikiText(),
+				prop: 'text|categorieshtml|modules',
+				pst: true,
+				preview: true,
+				disableeditsection: true
+			} ).then( ( result ) => {
+				const parse = result.parse;
+				const $content = $( '<div>' ).addClass( 'mw-body-content' ).append(
+					$( $.parseHTML( parse.text ) ),
+					$( $.parseHTML( parse.categorieshtml ) )
+				);
+
+				mw.loader.load( parse.modulestyles );
+				return $content;
+			} );
 		},
 
 		/**

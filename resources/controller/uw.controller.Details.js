@@ -153,7 +153,8 @@
 		// the field isn't actually required, but we want to hide the "optional" text
 		this.copyMetadataField.setRequired( true );
 
-		first.details.$form.append( this.copyMetadataField.$element );
+		// keep the preview button, appended when the form was built, last
+		this.copyMetadataField.$element.insertBefore( first.details.$previewField );
 	};
 
 	uw.controller.Details.prototype.removeCopyMetadataFeature = function () {
