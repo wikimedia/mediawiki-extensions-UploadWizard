@@ -7,5 +7,6 @@
 	"apihelp-flickrblacklist-param-url": "Pārbaudāmais Flickr URL.",
 	"apihelp-flickrblacklist-example-1": "Pārbaudīt URL pret melno sarakstu",
 	"apihelp-flickrblacklist-example-2": "Atgriezt visu melno sarakstu",
-	"apihelp-query+allcampaigns-param-limit": "Atgriežamo kampaņu skaits."
+	"apihelp-query+allcampaigns-param-limit": "Atgriežamo kampaņu skaits.",
+	"apihelp-mediadetection-param-filename": "Faila lapas nosaukums"
 }
