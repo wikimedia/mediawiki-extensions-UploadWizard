@@ -29,3 +29,26 @@ QUnit.module( 'mw.uploadWizard.LocationDetailsWidget' );
 		}
 	} );
 } );
+
+QUnit.test.each( 'setupInputs / setSerialized trims excess coordinate precision to 6 decimal places', {
+	'excess precision': [ '52.52000659999999', '52.520007' ],
+	'negative excess precision': [ '-13.404953999999998', '-13.404954' ],
+	'number, e.g. from EXIF': [ 52.52000659999999, '52.520007' ],
+	zero: [ 0, '0' ],
+	'empty value': [ '', '' ],
+	'invalid text is kept': [ 'abc', 'abc' ],
+	'out of range is kept': [ '1000', '1000' ],
+	'degrees, minutes, seconds': [ '40° 26\' 46" S', '-40.446111' ]
+}, ( assert, [ input, expected ] ) => {
+	const widget = new mw.uploadWizard.LocationDetailsWidget( {
+		latitudeKey: 'latitude',
+		longitudeKey: 'longitude',
+		headingKey: 'heading'
+	} );
+
+	widget.setSerialized( { latitude: input, longitude: input, heading: '180' } );
+
+	assert.strictEqual( widget.getSerialized().latitude, expected, 'latitude' );
+	assert.strictEqual( widget.getSerialized().longitude, expected, 'longitude' );
+	assert.strictEqual( widget.getSerialized().heading, '180', 'heading' );
+} );

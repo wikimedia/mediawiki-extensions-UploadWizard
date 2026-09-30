@@ -138,6 +138,24 @@
 	};
 
 	/**
+	 * Formats a coordinate input string/number, rounding decimal degrees to 6 decimal places.
+	 * If input is empty, invalid, or undefined, it returns the original value.
+	 *
+	 * @param {string|number} [coord] Coordinate value
+	 * @return {string|number} Formatted coordinate string or original value
+	 * @private
+	 */
+	uw.LocationDetailsWidget.prototype.formatCoordinate = function ( coord ) {
+		// Input without any digit, e.g. empty, can't be a coordinate
+		if ( !/\d/.test( coord ) ) {
+			return coord;
+		}
+
+		const normalized = this.normalizeCoordinate( String( coord ) );
+		return isNaN( normalized ) ? coord : String( normalized );
+	};
+
+	/**
 	 * Set up the input fields.
 	 *
 	 * @param {string} [lat] Latitude value to set.
@@ -147,11 +165,11 @@
 	 */
 	uw.LocationDetailsWidget.prototype.setupInputs = function ( lat, lon, head ) {
 		if ( lat !== undefined ) {
-			this.latitudeInput.setValue( lat );
+			this.latitudeInput.setValue( this.formatCoordinate( lat ) );
 		}
 
 		if ( lon !== undefined ) {
-			this.longitudeInput.setValue( lon );
+			this.longitudeInput.setValue( this.formatCoordinate( lon ) );
 		}
 
 		if ( head !== undefined ) {
