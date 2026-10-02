@@ -103,7 +103,8 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"UploadWizardAlias": "UploadWizard.alias.php"
+		"UploadWizardAlias": "UploadWizard.alias.php",
+		"UploadWizardNamespaces": "UploadWizard.namespaces.php"
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\UploadWizard\\": "includes/"
