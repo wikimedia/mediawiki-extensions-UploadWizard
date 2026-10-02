@@ -67,7 +67,8 @@ return [
 							"type" => "string"
 						],
 						"options" => [
-							"type" => "object",
+							// Map of values to labels, or a list of labels
+							"type" => [ "object", "array" ],
 							"properties" => [],
 							"additionalProperties" => true
 						]
@@ -263,16 +264,11 @@ return [
 											"type" => "string"
 										],
 										"type" => [
-											"type" => "array",
-											"items" => [
-												[
-													"type" => "string",
-													"enum" => [
-														"and",
-														"or"
-													]
-												],
-											],
+											"type" => "string",
+											"enum" => [
+												"and",
+												"or"
+											]
 										],
 										"url" => [
 											"oneOf" => [

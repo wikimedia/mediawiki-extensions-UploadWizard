@@ -18,9 +18,6 @@ use Wikimedia\ObjectCache\WANObjectCache;
 class CampaignTest extends MediaWikiIntegrationTestCase {
 
 	public function testExplicitConfigBypassesParsedConfigCache() {
-		// saving a campaign validates it against its schema with EventLogging
-		$this->markTestSkippedIfExtensionNotLoaded( 'EventLogging' );
-
 		$clock = 1000.0;
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$cache->setMockTime( $clock );
@@ -48,9 +45,6 @@ class CampaignTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testCampaignPageRecordsTemplatesWhileConfigIsCached() {
-		// saving a campaign validates it against its schema with EventLogging
-		$this->markTestSkippedIfExtensionNotLoaded( 'EventLogging' );
-
 		$clock = 1000.0;
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$cache->setMockTime( $clock );

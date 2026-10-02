@@ -8,7 +8,6 @@ $cfg['directory_list'] = array_merge(
 	$cfg['directory_list'],
 	[
 		'../../extensions/ConfirmEdit',
-		'../../extensions/EventLogging',
 		'../../extensions/CodeEditor',
 		'../../extensions/CodeMirror',
 	]
@@ -18,7 +17,6 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	$cfg['exclude_analysis_directory_list'],
 	[
 		'../../extensions/ConfirmEdit',
-		'../../extensions/EventLogging',
 		'../../extensions/CodeEditor',
 		'../../extensions/CodeMirror',
 	]
