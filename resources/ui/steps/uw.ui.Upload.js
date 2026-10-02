@@ -250,6 +250,11 @@
 	 * @param {boolean} more
 	 */
 	uw.ui.Upload.prototype.setAddButtonText = function ( more ) {
+		// The following messages are used here:
+		// * mwe-upwiz-add-file-0-free
+		// * mwe-upwiz-add-file-n
+		// * mwe-upwiz-add-file-flickr
+		// * mwe-upwiz-add-file-flickr-n
 		let msg = 'mwe-upwiz-add-file-',
 			fmsg = 'mwe-upwiz-add-file-flickr';
 

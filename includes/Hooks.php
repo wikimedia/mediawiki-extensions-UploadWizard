@@ -41,6 +41,13 @@ class Hooks implements
 	public function onGetPreferences( $user, &$preferences ) {
 		$config = Config::getConfig();
 
+		// Core labels the "uploads" tab and its sections used here with the messages:
+		// * prefs-uploads
+		// * prefs-description-uploads
+		// * prefs-upwiz-interface
+		// * prefs-upwiz-licensing
+		// * prefs-upwiz-experimental
+
 		// User preference to skip the licensing tutorial, provided it's not globally disabled
 		if ( Config::getSetting( 'tutorial' ) != [] ) {
 			$preferences['upwiz_skiptutorial'] = [
@@ -206,6 +213,11 @@ class Hooks implements
 	 * @param string[] &$tags
 	 */
 	public static function addListDefinedTags( &$tags ) {
+		// Core displays these tags with the messages:
+		// * tag-uploadwizard
+		// * tag-uploadwizard-description
+		// * tag-uploadwizard-flickr
+		// * tag-uploadwizard-flickr-description
 		$tags[] = 'uploadwizard';
 		$tags[] = 'uploadwizard-flickr';
 	}
@@ -255,12 +267,14 @@ class Hooks implements
 					if ( $message->exists() ) {
 						$propertyTitles[$property] = $message->text();
 					}
-					// same with placeholders
+					// same with placeholders; possible messages include:
+					// mwe-upwiz-statements-placeholder-depicts
 					$message = wfMessage( 'mwe-upwiz-statements-placeholder-' . ( $name ?: '' ) );
 					if ( $message->exists() ) {
 						$propertyPlaceholders[$property] = $message->text();
 					}
-					// same with "copy" label
+					// same with "copy" label; possible messages include:
+					// mwe-upwiz-copy-statements-depicts
 					$message = wfMessage( 'mwe-upwiz-copy-statements-' . ( $name ?: '' ) );
 					if ( $message->exists() ) {
 						$propertyCopyLabels[$property] = $message->text();

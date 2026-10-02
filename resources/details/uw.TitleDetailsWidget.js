@@ -154,10 +154,12 @@
 
 				if ( result.blacklist.unavailable ) {
 					// We don't have a title blacklist, so just check for some likely undesirable patterns.
-					// Messages:
-					// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
-					// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
 					mw.QuickTitleChecker.checkTitle( title.getNameText() )
+						// The following messages are used here:
+						// * mwe-upwiz-error-title-invalid
+						// * mwe-upwiz-error-title-senselessimagename
+						// * mwe-upwiz-error-title-thumbnail
+						// * mwe-upwiz-error-title-extension
 						.map( ( errorCode ) => mw.message( 'mwe-upwiz-error-title-' + errorCode ) )
 						.forEach( ( error ) => status.addError( error ) );
 				}
@@ -203,6 +205,9 @@
 			errors.push( mw.message( 'mwe-upwiz-error-title-protected' ) );
 		} else {
 			// check whether we have a custom error message for this blacklist reason
+			// The following messages are used here:
+			// * mwe-upwiz-blacklisted-details
+			// * mwe-upwiz-blacklisted-details-titleblacklist-custom-filename
 			let messageKey = 'mwe-upwiz-blacklisted-details-' + result.blacklist.blacklistMessage;
 			if ( !mw.message( messageKey ).exists() ) {
 				messageKey = 'mwe-upwiz-blacklisted-details';
@@ -212,10 +217,16 @@
 				messageKey,
 				titleString,
 				function () {
-					const titleMessage = mw.message( messageKey + '-title' ),
-						title = titleMessage.exists() ? titleMessage.text() : '',
-						textMessage = mw.message( messageKey + '-text' ),
-						text = textMessage.exists() ? textMessage.parseDom() : result.blacklist.blacklistReason;
+					// The following messages are used here, if they exist:
+					// * mwe-upwiz-blacklisted-details-title
+					// * mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title
+					const titleMessage = mw.message( messageKey + '-title' );
+					const title = titleMessage.exists() ? titleMessage.text() : '';
+					// The following messages are used here, if they exist:
+					// * mwe-upwiz-blacklisted-details-text
+					// * mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-text
+					const textMessage = mw.message( messageKey + '-text' );
+					const text = textMessage.exists() ? textMessage.parseDom() : result.blacklist.blacklistReason;
 
 					if ( typeof text === 'object' ) {
 						// T407157: Links created by jqueryMsg don't open in a new tab, but we don't want the user to

@@ -180,6 +180,9 @@
 
 			const scrollWidget = new OO.ui.ButtonWidget( {
 				classes: [ 'mwe-upwiz-details-error-scroll' ],
+				// The following messages are used here:
+				// * mwe-upwiz-details-error-scroll
+				// * mwe-upwiz-details-warning-scroll
 				label: mw.message( 'mwe-upwiz-details-' + kind + '-scroll', errorCount, uploadCount ).text(),
 				flags: [ 'progressive' ]
 			} );
@@ -194,6 +197,9 @@
 					observer.disconnect();
 					updateSummary(
 						kind,
+						// The following messages are used here:
+						// * mwe-upwiz-details-error-generic
+						// * mwe-upwiz-details-warning-generic
 						mw.message( 'mwe-upwiz-details-' + kind + '-generic' ),
 						// eslint-disable-next-line no-jquery/no-sizzle
 						$observedElements.filter( ':visible' )
@@ -211,6 +217,9 @@
 
 			updateSummary(
 				kind,
+				// The following messages are used here:
+				// * mwe-upwiz-details-error-count
+				// * mwe-upwiz-details-warning-count
 				mw.message( 'mwe-upwiz-details-' + kind + '-count' ),
 				$elements
 			);

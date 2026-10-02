@@ -20,6 +20,10 @@
 			this.api,
 			this.formData
 		).on( 'update-stage', ( stage ) => {
+			// The following messages are used here:
+			// * mwe-upwiz-queued
+			// * mwe-upwiz-publish
+			// * mwe-upwiz-assembling
 			upload.ui.setStatus( 'mwe-upwiz-' + stage );
 		} );
 	};

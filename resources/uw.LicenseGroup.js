@@ -101,6 +101,11 @@
 		if ( this.config.subhead ) {
 			// 'url' can be either a single (string) url, or an array of (string) urls;
 			// hence this convoluted variable-length parameters assembly...
+			// The subhead messages come from the licensing config, which campaigns can override.
+			// Campaigns on Wikimedia Commons use messages not in the default config, e.g.:
+			// * mwe-upwiz-license-cc-subhead
+			// * mwe-upwiz-license-flickr-subhead
+			// * mwe-upwiz-license-public-domain-usa-subhead
 			const labelParams = [ this.config.subhead, this.count ].concat( this.config.url );
 			const $subhead = $( '<div>' )
 				.addClass( 'mwe-upwiz-deed-license-group-subhead mwe-upwiz-deed-title' )

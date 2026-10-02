@@ -138,6 +138,12 @@
 			const $arrow = $( '<li>' )
 				.attr( 'id', 'mwe-upwiz-step-' + step.stepName )
 				.append(
+					// The following messages are used here:
+					// * mwe-upwiz-step-tutorial
+					// * mwe-upwiz-step-file
+					// * mwe-upwiz-step-deeds
+					// * mwe-upwiz-step-details
+					// * mwe-upwiz-step-thanks
 					$( '<div>' ).text( mw.message( 'mwe-upwiz-step-' + step.stepName ).text() )
 				);
 			if ( step.showInBreadcrumb ) {

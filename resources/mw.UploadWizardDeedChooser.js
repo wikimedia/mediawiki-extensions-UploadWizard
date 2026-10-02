@@ -41,6 +41,9 @@
 					$( '<div>' ).addClass( 'mwe-upwiz-deed-form' )
 				).hide();
 
+			// The following messages are used here:
+			// * mwe-upwiz-source-ownwork-label
+			// * mwe-upwiz-source-thirdparty-label
 			option.setLabel( mw.message(
 				'mwe-upwiz-source-' + deed.name + '-label',
 				this.uploads.length

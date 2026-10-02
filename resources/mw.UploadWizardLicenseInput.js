@@ -50,6 +50,14 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 				$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 			} );
 
+			// The head messages come from the licensing config, which campaigns can override.
+			// Campaigns on Wikimedia Commons use messages not in the default config, e.g.:
+			// * mwe-upwiz-license-cc-head
+			// * mwe-upwiz-license-flickr-head
+			// * mwe-upwiz-license-public-domain-usa-head
+			// * mwe-upwiz-license-usgov-head
+			// * mwe-upwiz-license-custom-head
+			// * mwe-upwiz-license-none-head
 			// 'url' can be either a single (string) url, or an array of (string) urls;
 			// hence this convoluted variable-length parameters assembly...
 			const labelParams = [ groupConfig.head, this.count ].concat( groupConfig.url ).concat( $icons );
