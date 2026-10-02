@@ -277,7 +277,7 @@
 	/**
 	 * Submit details to the API.
 	 *
-	 * @return {Promise<void>}
+	 * @return {Promise<undefined>}
 	 */
 	uw.controller.Details.prototype.submit = async function () {
 		if ( this.shouldPromptCaptchaEagerly() ) {

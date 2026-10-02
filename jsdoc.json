@@ -23,7 +23,9 @@
 				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html",
 				"mw.UploadWizard": true,
 				"mw.ApiUpload": true,
-				"mw.FlickrChecker": true
+				"mw.FlickrChecker": true,
+				"datamodel.": "https://doc.wikimedia.org/Wikibase/master/js/components/view-wikibase-data-model.md",
+				"dataValues.": "https://doc.wikimedia.org/Wikibase/master/js/components/view-wikibase-data-values.md"
 			},
 			"linkMap": {}
 		}

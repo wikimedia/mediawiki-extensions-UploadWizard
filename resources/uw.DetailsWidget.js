@@ -23,14 +23,18 @@
 	 */
 
 	/**
-	 * @inheritdoc OO.ui.mixin.PendingElement#pushPending
+	 * Increase the pending counter, like in OO.ui.mixin.PendingElement; does nothing by default.
+	 *
+	 * @see OO.ui.mixin.PendingElement#pushPending
 	 */
 	uw.DetailsWidget.prototype.pushPending = function () {
 		// Do nothing by default
 	};
 
 	/**
-	 * @inheritdoc OO.ui.mixin.PendingElement#popPending
+	 * Decrease the pending counter, like in OO.ui.mixin.PendingElement; does nothing by default.
+	 *
+	 * @see OO.ui.mixin.PendingElement#popPending
 	 */
 	uw.DetailsWidget.prototype.popPending = function () {
 		// Do nothing by default
