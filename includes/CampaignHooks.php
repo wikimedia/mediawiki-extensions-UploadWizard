@@ -14,7 +14,6 @@ use MediaWiki\Content\Hook\ContentModelCanBeUsedOnHook;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
 use MediaWiki\EditPage\EditPage;
-use MediaWiki\Extension\EventLogging\Libs\JsonSchemaValidation\JsonSchemaException;
 use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\LinksUpdateCompleteHook;
 use MediaWiki\Hook\PageMoveCompleteHook;
@@ -214,10 +213,9 @@ class CampaignHooks implements
 			return true;
 		}
 
-		try {
-			$content->validate();
-		} catch ( JsonSchemaException $e ) {
-			$status->fatal( $context->msg( $e->getCode(), $e->args ) );
+		$validation = $content->validate();
+		if ( !$validation->isOK() ) {
+			$status->merge( $validation );
 			// @todo Remove this line after this extension do not support mediawiki version 1.36 and before
 			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
 			return false;
