@@ -8,9 +8,9 @@
 	 * @param {Object} [config] Configuration options
 	 * @param {string} config.wikitext Wikitext template to use for this field
 	 * @param {boolean} [config.required=false] Whether to mark this field as required
-	 * @param {string} [config.type='text'] Field type, 'text' or 'select'
+	 * @param {string} [config.type='text'] Field type, 'text', 'textarea' or 'select'
 	 * @param {number} [config.maxLength] Maximum allowed length of input
-	 * @param {Object} [config.options] Map of select dropdown options to use when `type` is 'text'
+	 * @param {Object} [config.options] Map of select dropdown options to use when `type` is 'select'
 	 */
 	uw.CampaignDetailsWidget = function UWCampaignDetailsWidget( config ) {
 		config = Object.assign( { type: 'text' }, config );
@@ -27,6 +27,12 @@
 			if ( config.pattern !== undefined ) {
 				this.input.$input.attr( 'pattern', config.pattern );
 			}
+		} else if ( config.type === 'textarea' ) {
+			this.input = new OO.ui.MultilineTextInputWidget( {
+				classes: [ 'mwe-idfield', 'mwe-upwiz-campaignDetailsWidget-input' ],
+				maxLength: config.maxLength,
+				autosize: true
+			} );
 		} else if ( config.type === 'select' ) {
 			this.input = new OO.ui.DropdownInputWidget( {
 				classes: [ 'mwe-idfield', 'mwe-upwiz-campaignDetailsWidget-input' ],

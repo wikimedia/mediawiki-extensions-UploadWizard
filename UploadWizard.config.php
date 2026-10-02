@@ -246,7 +246,7 @@ return [
 			'required' => false,
 
 			// Define the type of widget that will be rendered,
-			// pick between text and select
+			// pick between text, textarea (multiline text) and select
 			'type' => "text",
 
 			// If the type above is select, provide a dictionary of

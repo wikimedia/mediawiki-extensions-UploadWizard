@@ -625,6 +625,7 @@
 			"details/uw.LocationDetailsWidget.test.js",
 			"details/uw.CategoriesDetailsWidget.test.js",
 			"details/uw.SingleLanguageInputWidget.test.js",
+			"details/uw.CampaignDetailsWidget.test.js",
 			"transports/mw.FormDataTransport.test.js",
 			"uw.CaptchaHandler.test.js",
 			"uw.ConcurrentQueue.test.js",
