@@ -724,7 +724,7 @@
 	 * Return an element suitable for the preview of a certain size. Uses canvas when possible
 	 *
 	 * @private
-	 * @param {HTMLImageElement} image
+	 * @param {HTMLImageElement|HTMLCanvasElement} image
 	 * @param {number} width
 	 * @param {number} height
 	 * @return {HTMLCanvasElement|HTMLImageElement}
@@ -737,6 +737,14 @@
 		}
 		if ( height ) {
 			constraints.height = height;
+		}
+
+		if ( image instanceof HTMLCanvasElement ) {
+			const scaling = this.getScalingFromConstraints( image, constraints );
+			return $( image ).css( {
+				width: Math.round( image.width * scaling ),
+				height: Math.round( image.height * scaling )
+			} );
 		}
 
 		if ( mw.canvas.isAvailable() && !CSS.supports( 'image-orientation', 'from-image' ) ) {
@@ -767,7 +775,7 @@
 		this.thumbnailPromise[ width + 'x' + height ] = deferred.promise();
 
 		/**
-		 * @param {HTMLImageElement|null} image
+		 * @param {HTMLImageElement|HTMLCanvasElement|null} image
 		 */
 		const imageCallback = ( image ) => {
 			if ( image === null ) {
@@ -780,8 +788,10 @@
 			deferred.resolve( image );
 		};
 
+		// Generate the preview at the device's pixel density
+		const dpr = window.devicePixelRatio || 1;
 		this.extractMetadataFromJpegMeta()
-			.then( this.makePreview.bind( this, width ) )
+			.then( this.makePreview.bind( this, Math.round( width * dpr ) ) )
 			.done( imageCallback )
 			.fail( () => {
 				// Can't generate the thumbnail locally, get the thumbnail via API after
@@ -811,70 +821,135 @@
 	 *
 	 * @private
 	 * @param {number} width
-	 * @return {jQuery.Promise}
+	 * @return {jQuery.Promise} Promise resolved with an HTMLImageElement or HTMLCanvasElement
 	 */
 	mw.UploadWizardUpload.prototype.makePreview = function ( width ) {
 		const deferred = $.Deferred();
 
 		// do preview if we can
 		if ( this.isPreviewable() ) {
-			// open video and get frame via canvas
 			if ( this.isVideo() ) {
-				let first = true;
-				const video = document.createElement( 'video' );
-
-				video.addEventListener( 'loadedmetadata', () => {
-					// seek 2 seconds into video or to half if shorter
-					video.currentTime = Math.min( 2, video.duration / 2 );
-					video.volume = 0;
-				} );
-				video.addEventListener( 'seeked', () => {
-					// Firefox 16 sometimes does not work on first seek, seek again
-					if ( first ) {
-						first = false;
-						video.currentTime = Math.min( 2, video.duration / 2 );
-
-					} else {
-						// Chrome sometimes shows black frames if grabbing right away.
-						// wait 500ms before grabbing frame
-						setTimeout( () => {
-							const canvas = document.createElement( 'canvas' );
-							canvas.width = width;
-							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
-							const context = canvas.getContext( '2d' );
-							try {
-								// More ridiculous exceptions, see the comment in #getTransformedCanvasElement
-								context.drawImage( video, 0, 0, canvas.width, canvas.height );
-							} catch ( err ) {
-								deferred.reject();
-							}
-							this.loadImage( canvas.toDataURL(), deferred );
-							this.URL().revokeObjectURL( video.url );
-						}, 500 );
-					}
-				} );
-				const url = this.URL().createObjectURL( this.file );
-				video.src = url;
-				// If we can't get a frame within 10 seconds, something is probably seriously wrong.
-				// This can happen for broken files where we can't actually seek to the time we wanted.
-				setTimeout( () => {
-					deferred.reject();
-					this.URL().revokeObjectURL( video.url );
-				}, 10000 );
+				this.makeVideoPreview( width, deferred );
+			} else if ( window.createImageBitmap && CSS.supports( 'image-orientation', 'from-image' ) ) {
+				// Avoids a full-resolution decode to make a thumbnail
+				this.makeBitmapPreview( width, deferred );
 			} else {
-				const dataUrlReader = new FileReader();
-				dataUrlReader.onload = () => {
-					// this step (inserting image-as-dataurl into image object) is slow for large images, which
-					// is why this is optional and has a control attached to it to load the preview.
-					this.loadImage( dataUrlReader.result, deferred );
-				};
-				dataUrlReader.readAsDataURL( this.file );
+				this.makeFileReaderPreview( deferred );
 			}
 		} else {
 			deferred.reject();
 		}
 
 		return deferred.promise();
+	};
+
+	/**
+	 * Draw a video frame or bitmap into a canvas of the given size.
+	 *
+	 * @private
+	 * @param {HTMLVideoElement|ImageBitmap} source
+	 * @param {number} width
+	 * @param {number} height
+	 * @return {HTMLCanvasElement}
+	 */
+	mw.UploadWizardUpload.prototype.drawPreviewCanvas = function ( source, width, height ) {
+		const canvas = document.createElement( 'canvas' );
+		canvas.width = width;
+		canvas.height = height;
+		canvas.getContext( '2d' ).drawImage( source, 0, 0, width, height );
+		return canvas;
+	};
+
+	/**
+	 * Make a preview by opening the video and grabbing a frame via canvas.
+	 *
+	 * @private
+	 * @param {number} width
+	 * @param {jQuery.Deferred} deferred
+	 */
+	mw.UploadWizardUpload.prototype.makeVideoPreview = function ( width, deferred ) {
+		let first = true;
+		const video = document.createElement( 'video' );
+
+		video.addEventListener( 'loadedmetadata', () => {
+			// seek 2 seconds into video or to half if shorter
+			video.currentTime = Math.min( 2, video.duration / 2 );
+			video.volume = 0;
+		} );
+		video.addEventListener( 'seeked', () => {
+			// Firefox 16 sometimes does not work on first seek, seek again
+			if ( first ) {
+				first = false;
+				video.currentTime = Math.min( 2, video.duration / 2 );
+
+			} else {
+				// Chrome sometimes shows black frames if grabbing right away.
+				// wait 500ms before grabbing frame
+				setTimeout( () => {
+					const height = Math.round( width * video.videoHeight / video.videoWidth );
+					try {
+						// More ridiculous exceptions, see the comment in #getTransformedCanvasElement
+						deferred.resolve( this.drawPreviewCanvas( video, width, height ) );
+					} catch ( err ) {
+						deferred.reject();
+					}
+					this.URL().revokeObjectURL( video.src );
+				}, 500 );
+			}
+		} );
+		const url = this.URL().createObjectURL( this.file );
+		video.src = url;
+		// If we can't get a frame within 10 seconds, something is probably seriously wrong.
+		// This can happen for broken files where we can't actually seek to the time we wanted.
+		setTimeout( () => {
+			deferred.reject();
+			this.URL().revokeObjectURL( video.src );
+		}, 10000 );
+	};
+
+	/**
+	 * Make a preview by decoding the file directly to a thumbnail-sized bitmap via canvas
+	 *
+	 * @private
+	 * @param {number} width
+	 * @param {jQuery.Deferred} deferred
+	 */
+	mw.UploadWizardUpload.prototype.makeBitmapPreview = function ( width, deferred ) {
+		// eslint-disable-next-line compat/compat
+		window.createImageBitmap( this.file, { resizeWidth: width, resizeQuality: 'medium', imageOrientation: 'from-image' } ).then( ( bitmap ) => {
+			try {
+				// Don't trust resizeWidth to have been honoured. (Images smaller than
+				// resizeWidth are upscaled by it already, which is accepted here.)
+				const scale = Math.min( 1, width / bitmap.width );
+				return this.drawPreviewCanvas( bitmap, Math.round( bitmap.width * scale ), Math.round( bitmap.height * scale ) );
+			} finally {
+				bitmap.close();
+			}
+		} ).then( ( canvas ) => {
+			deferred.resolve( canvas );
+		} ).catch( ( err ) => {
+			// Either createImageBitmap or the canvas draw can fail (some file formats make
+			// createImageBitmap reject)
+			mw.log.warn( 'mw.UploadWizardUpload::makeBitmapPreview> ' + err );
+			this.makeFileReaderPreview( deferred );
+		} );
+	};
+
+	/**
+	 * Generate a preview by reading the file into a data URL for <img> to decode
+	 *
+	 * @private
+	 * @param {jQuery.Deferred} deferred
+	 */
+	mw.UploadWizardUpload.prototype.makeFileReaderPreview = function ( deferred ) {
+		const dataUrlReader = new FileReader();
+		dataUrlReader.onload = () => {
+			this.loadImage( dataUrlReader.result, deferred );
+		};
+		dataUrlReader.onerror = () => {
+			deferred.reject();
+		};
+		dataUrlReader.readAsDataURL( this.file );
 	};
 
 	/**
