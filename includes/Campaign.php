@@ -65,6 +65,12 @@ class Campaign {
 	private array $templates = [];
 
 	/**
+	 * Whether the config is the current revision of the campaign page, and may
+	 * thus be read from and written to the shared parsed config cache
+	 */
+	private bool $useCache;
+
+	/**
 	 * The Title representing the current campaign
 	 *
 	 * @since 1.4
@@ -96,7 +102,8 @@ class Campaign {
 
 	/**
 	 * @param Title $title
-	 * @param array|null $config
+	 * @param array|null $config Config to use instead of the current revision of the campaign
+	 *  page, e.g. from an old revision or an edit preview; it bypasses the parsed config cache
 	 * @param IContextSource|null $context
 	 */
 	public function __construct( $title, $config = null, $context = null ) {
@@ -110,6 +117,7 @@ class Campaign {
 		$wikiPageFactory = $services->getWikiPageFactory();
 
 		$this->title = $title;
+		$this->useCache = $config === null;
 		if ( $config === null ) {
 			$content = $wikiPageFactory->newFromTitle( $title )->getContent();
 			if ( !$content instanceof CampaignContent ) {
@@ -347,10 +355,12 @@ class Campaign {
 		);
 		$depKeys = [ $this->makeInvalidateTimestampKey( $this->wanObjectCache ) ];
 
-		$curTTL = null;
-		$memValue = $this->wanObjectCache->get( $memKey, $curTTL, $depKeys );
-		if ( is_array( $memValue ) && $curTTL > 0 ) {
-			$this->parsedConfig = $memValue['config'];
+		if ( $this->useCache ) {
+			$curTTL = null;
+			$memValue = $this->wanObjectCache->get( $memKey, $curTTL, $depKeys );
+			if ( is_array( $memValue ) && $curTTL > 0 ) {
+				$this->parsedConfig = $memValue['config'];
+			}
 		}
 
 		if ( $this->parsedConfig === null ) {
@@ -400,7 +410,9 @@ class Campaign {
 
 			$this->parsedConfig = $parsedConfig;
 
-			$this->wanObjectCache->set( $memKey, [ 'timestamp' => time(), 'config' => $parsedConfig ] );
+			if ( $this->useCache ) {
+				$this->wanObjectCache->set( $memKey, [ 'timestamp' => time(), 'config' => $parsedConfig ] );
+			}
 		}
 
 		$uwDefaults = Config::getSetting( 'defaults' );
