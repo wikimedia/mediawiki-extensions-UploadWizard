@@ -214,6 +214,10 @@
 			} else {
 				sourceValue[ type ] = serialized[ type ];
 			}
+			if ( type === 'description' ) {
+				// The description may be left out in favor of the captions
+				sourceValue.descriptionSameAsCaption = serialized.descriptionSameAsCaption;
+			}
 			copyingTitle = copyingTitle || type === 'title';
 			copyingOther = copyingOther || type === 'other';
 		} );

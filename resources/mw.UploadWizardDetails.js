@@ -118,6 +118,8 @@
 			} );
 			this.descriptionsDetails.on( 'change', () => this.emit( 'change' ) );
 
+			this.captionsAvailable = captionsAvailable;
+
 			// Checkbox telling whether descriptions must be identical to captions.
 			// If selected, hide descriptions. This is the default behavior.
 			this.descriptionSameAsCaptionCheckbox = new OO.ui.CheckboxMultioptionWidget( {
@@ -969,6 +971,7 @@
 				title: this.titleDetails.getSerialized(),
 				caption: this.captionsDetails.getSerialized(),
 				description: this.descriptionSameAsCaptionCheckbox.isSelected() ? undefined : this.descriptionsDetails.getSerialized(),
+				descriptionSameAsCaption: this.descriptionSameAsCaptionCheckbox.isSelected(),
 				date: this.dateDetails.getSerialized(),
 				categories: this.categoriesDetails.getSerialized(),
 				statements: this.serializeStatements(),
@@ -1034,6 +1037,10 @@
 			if ( serialized.description ) {
 				this.descriptionsDetails.setSerialized( serialized.description );
 				this.descriptionSameAsCaptionCheckbox.setSelected( false );
+			}
+			// without captions, there is nothing for descriptions to be the same as
+			if ( serialized.descriptionSameAsCaption !== undefined && this.captionsAvailable ) {
+				this.descriptionSameAsCaptionCheckbox.setSelected( serialized.descriptionSameAsCaption );
 			}
 			if ( serialized.date ) {
 				this.dateDetails.setSerialized( serialized.date );

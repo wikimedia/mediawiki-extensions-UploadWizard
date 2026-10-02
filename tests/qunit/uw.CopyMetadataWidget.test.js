@@ -68,6 +68,44 @@
 		assert.deepEqual( titles, [ 'whitespace 04', 'whitespace 05', 'whitespace 06' ] );
 	} );
 
+	QUnit.test( 'copy description that is the same as the caption', ( assert ) => {
+		// T427890
+		const copied = [];
+		uw.CopyMetadataWidget.copyMetadataSerialized(
+			[ 'caption', 'description' ],
+			{
+				caption: { inputs: [ { language: 'en', text: 'foo', removable: false } ] },
+				description: undefined,
+				descriptionSameAsCaption: true
+			},
+			2,
+			( i, sourceValue ) => copied.push( Object.assign( {}, sourceValue ) )
+		);
+		assert.strictEqual( copied.length, 2 );
+		copied.forEach( ( sourceValue ) => {
+			assert.strictEqual( sourceValue.descriptionSameAsCaption, true );
+			assert.strictEqual( sourceValue.description, undefined );
+		} );
+	} );
+
+	QUnit.test( 'copy caption only, keeping descriptions', ( assert ) => {
+		let copied;
+		uw.CopyMetadataWidget.copyMetadataSerialized(
+			[ 'caption' ],
+			{
+				caption: { inputs: [ { language: 'en', text: 'foo', removable: false } ] },
+				description: undefined,
+				descriptionSameAsCaption: true
+			},
+			1,
+			( i, sourceValue ) => {
+				copied = sourceValue;
+			}
+		);
+		assert.false( 'descriptionSameAsCaption' in copied );
+		assert.false( 'description' in copied );
+	} );
+
 	function copyMetadataTitle( title ) {
 		const titles = [];
 		uw.CopyMetadataWidget.copyMetadataSerialized(

@@ -212,4 +212,56 @@
 
 		assert.strictEqual( post.getCall( 0 ).args[ 0 ].title, 'File:UploadWizard preview' );
 	} );
+	function createSerializableDetails( sandbox, captionsAvailable, sameAsCaption ) {
+		const widget = () => ( { getSerialized: sandbox.stub().returns( {} ), setSerialized: sandbox.stub() } );
+		return {
+			interfaceBuilt: true,
+			captionsAvailable,
+			descriptionSameAsCaptionCheckbox: new OO.ui.CheckboxMultioptionWidget( { selected: sameAsCaption } ),
+			titleDetails: widget(),
+			captionsDetails: widget(),
+			descriptionsDetails: widget(),
+			dateDetails: widget(),
+			categoriesDetails: widget(),
+			locationInput: widget(),
+			objectLocationInput: widget(),
+			otherDetails: widget(),
+			statementWidgets: {},
+			campaignDetailsFields: [],
+			serializeStatements: mw.UploadWizardDetails.prototype.serializeStatements
+		};
+	}
+
+	QUnit.test( 'getSerialized: includes whether the description is the same as the caption', function ( assert ) {
+		let details = createSerializableDetails( this.sandbox, true, true );
+		let serialized = mw.UploadWizardDetails.prototype.getSerialized.call( details );
+		assert.strictEqual( serialized.descriptionSameAsCaption, true );
+		assert.strictEqual( serialized.description, undefined );
+
+		details = createSerializableDetails( this.sandbox, true, false );
+		serialized = mw.UploadWizardDetails.prototype.getSerialized.call( details );
+		assert.strictEqual( serialized.descriptionSameAsCaption, false );
+		assert.deepEqual( serialized.description, {} );
+	} );
+
+	QUnit.test( 'setSerialized: restores whether the description is the same as the caption', function ( assert ) {
+		// T427890: e.g. when copying from an upload with the box ticked to one with a description
+		let details = createSerializableDetails( this.sandbox, true, false );
+		mw.UploadWizardDetails.prototype.setSerialized.call( details, { descriptionSameAsCaption: true } );
+		assert.true( details.descriptionSameAsCaptionCheckbox.isSelected() );
+
+		details = createSerializableDetails( this.sandbox, true, true );
+		const description = { inputs: [ { language: 'en', text: 'foo' } ] };
+		mw.UploadWizardDetails.prototype.setSerialized.call( details, { description, descriptionSameAsCaption: false } );
+		assert.false( details.descriptionSameAsCaptionCheckbox.isSelected() );
+		assert.true( details.descriptionsDetails.setSerialized.calledWith( description ) );
+
+		details = createSerializableDetails( this.sandbox, true, true );
+		mw.UploadWizardDetails.prototype.setSerialized.call( details, {} );
+		assert.true( details.descriptionSameAsCaptionCheckbox.isSelected(), 'kept when not serialized' );
+
+		details = createSerializableDetails( this.sandbox, false, false );
+		mw.UploadWizardDetails.prototype.setSerialized.call( details, { descriptionSameAsCaption: true } );
+		assert.false( details.descriptionSameAsCaptionCheckbox.isSelected(), 'not selected without captions' );
+	} );
 }() );
