@@ -523,6 +523,7 @@
 		);
 
 		this.setDefaultLicense();
+		this.setDefaultOrigin();
 	};
 
 	/**
@@ -535,6 +536,16 @@
 		if ( defaultLicenseKey ) {
 			defaultLicense[ defaultLicenseKey ] = true;
 			this.licenseInput.setValues( defaultLicense );
+		}
+	};
+
+	/**
+	 * Pre-select "entirely created by me" when own work is the default type,
+	 * i.e. when the user's default license preference is an own work license
+	 */
+	uw.deed.OwnWork.prototype.setDefaultOrigin = function () {
+		if ( this.config.licensing.defaultType === 'ownwork' ) {
+			this.originRadio.selectItemByData( 'own' );
 		}
 	};
 
