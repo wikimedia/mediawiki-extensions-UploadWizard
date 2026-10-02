@@ -71,4 +71,67 @@ class CampaignTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertSame( [ 'Uw-test-missing' ], $templates );
 	}
+
+	public function testParsedConfigCacheExpires() {
+		// saving a campaign validates it against its schema with EventLogging
+		$this->markTestSkippedIfExtensionNotLoaded( 'EventLogging' );
+
+		$clock = 1000.0;
+		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
+		$cache->setMockTime( $clock );
+		$this->setService( 'WANObjectCache', $cache );
+
+		$title = Title::makeTitle( NS_CAMPAIGN, 'Uw-test-campaign' );
+		$this->editPage( $title, FormatJson::encode( [ 'enabled' => true, 'title' => 'Old' ] ) );
+		// as on save, so that configs cached afterwards aren't considered stale right away
+		Campaign::newFromName( 'Uw-test-campaign' )->invalidateCache();
+
+		$clock += 60;
+		$this->assertSame( 'Old', Campaign::newFromName( 'Uw-test-campaign' )->getParsedConfig()['title'] );
+
+		// T173642: a change the cache isn't invalidated for, like the creation of a
+		// translation subpage only checked with #ifexist, shows up eventually
+		$this->clearHook( 'PageSaveComplete' );
+		$this->clearHook( 'LinksUpdateComplete' );
+		$this->editPage( $title, FormatJson::encode( [ 'enabled' => true, 'title' => 'New' ] ) );
+
+		$clock += 60;
+		$this->assertSame( 'Old', Campaign::newFromName( 'Uw-test-campaign' )->getParsedConfig()['title'] );
+
+		$clock += WANObjectCache::TTL_DAY;
+		$this->assertSame( 'New', Campaign::newFromName( 'Uw-test-campaign' )->getParsedConfig()['title'] );
+	}
+
+	public function testParsedConfigCacheMinimumTtl() {
+		// saving a campaign validates it against its schema with EventLogging
+		$this->markTestSkippedIfExtensionNotLoaded( 'EventLogging' );
+
+		$clock = 1000.0;
+		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
+		$cache->setMockTime( $clock );
+		$this->setService( 'WANObjectCache', $cache );
+
+		$title = Title::makeTitle( NS_CAMPAIGN, 'Uw-test-campaign' );
+		$this->editPage( $title, FormatJson::encode( [ 'enabled' => true, 'title' => 'Old' ] ) );
+		Campaign::newFromName( 'Uw-test-campaign' )->invalidateCache();
+
+		// Uncacheable wikitext
+		$this->setTemporaryHook( 'ParserAfterParse', static function ( $parser ) {
+			$parser->getOutput()->updateCacheExpiry( 0 );
+		} );
+
+		$clock += 60;
+		$this->assertSame( 'Old', Campaign::newFromName( 'Uw-test-campaign' )->getParsedConfig()['title'] );
+
+		$this->clearHook( 'PageSaveComplete' );
+		$this->clearHook( 'LinksUpdateComplete' );
+		$this->editPage( $title, FormatJson::encode( [ 'enabled' => true, 'title' => 'New' ] ) );
+
+		// The config is still cached for at least 5 minutes
+		$clock += 2 * WANObjectCache::TTL_MINUTE;
+		$this->assertSame( 'Old', Campaign::newFromName( 'Uw-test-campaign' )->getParsedConfig()['title'] );
+
+		$clock += 5 * WANObjectCache::TTL_MINUTE;
+		$this->assertSame( 'New', Campaign::newFromName( 'Uw-test-campaign' )->getParsedConfig()['title'] );
+	}
 }

@@ -71,6 +71,12 @@ class Campaign {
 	private bool $useCache;
 
 	/**
+	 * Shortest parser cache expiry of the wikitext parsed by parseConfig(), in seconds,
+	 * INF if it doesn't expire
+	 */
+	private float|int $parserCacheExpiry = INF;
+
+	/**
 	 * The Title representing the current campaign
 	 *
 	 * @since 1.4
@@ -289,6 +295,7 @@ class Campaign {
 		$output = $this->parser->parse(
 			$value, $this->getTitle(), $parserOptions
 		);
+		$this->parserCacheExpiry = min( $this->parserCacheExpiry, $output->getCacheExpiry() );
 		$processedOutput = $output->runOutputPipeline( $parserOptions, [
 			'unwrap' => true,
 			'enableSectionEditLinks' => false,
@@ -343,76 +350,34 @@ class Campaign {
 	public function getParsedConfig( ?Language $lang = null ) {
 		$lang ??= $this->context->getLanguage();
 
-		// We check if the parsed config for this campaign is cached. If it is available in cache,
-		// we then check to make sure that it is the latest version - by verifying that its
-		// timestamp is greater than or equal to the timestamp of the last time an invalidate was
-		// issued.
-		$memKey = $this->wanObjectCache->makeKey(
-			'uploadwizard-campaign',
-			$this->getName(),
-			'parsed-config',
-			$lang->getCode()
-		);
-		$depKeys = [ $this->makeInvalidateTimestampKey( $this->wanObjectCache ) ];
-
 		if ( $this->useCache ) {
-			$curTTL = null;
-			$memValue = $this->wanObjectCache->get( $memKey, $curTTL, $depKeys );
-			if ( is_array( $memValue ) && $curTTL > 0 ) {
-				$this->parsedConfig = $memValue['config'];
-			}
-		}
-
-		if ( $this->parsedConfig === null ) {
-			$parsedConfig = [];
-			foreach ( $this->config as $key => $value ) {
-				switch ( $key ) {
-					case "title":
-					case "description":
-						$parsedConfig[$key] = $this->parseValue( $value, $lang );
-						break;
-					case "display":
-						foreach ( $value as $option => $optionValue ) {
-							if ( is_array( $optionValue ) ) {
-								$parsedConfig['display'][$option] = $this->parseArrayValues(
-									$optionValue,
-									$lang,
-									[ 'label' ]
-								);
-							} else {
-								$parsedConfig['display'][$option] = $this->parseValue( $optionValue, $lang );
-							}
-						}
-						break;
-					case "fields":
-						$parsedConfig['fields'] = [];
-						foreach ( $value as $field ) {
-							$parsedConfig['fields'][] = $this->parseArrayValues(
-								$field,
-								$lang,
-								[ 'label', 'options' ]
-							);
-						}
-						break;
-					case "whileActive":
-					case "afterActive":
-					case "beforeActive":
-						if ( array_key_exists( 'display', $value ) ) {
-							$value['display'] = $this->parseArrayValues( $value['display'], $lang );
-						}
-						$parsedConfig[$key] = $value;
-						break;
-					default:
-						$parsedConfig[$key] = $value;
-						break;
-				}
-			}
-
-			$this->parsedConfig = $parsedConfig;
-
-			if ( $this->useCache ) {
-				$this->wanObjectCache->set( $memKey, [ 'timestamp' => time(), 'config' => $parsedConfig ] );
-			}
+			$this->parsedConfig = $this->wanObjectCache->getWithSetCallback(
+				$this->wanObjectCache->makeKey(
+					'uploadwizard-campaign',
+					$this->getName(),
+					'parsed-config',
+					$lang->getCode()
+				),
+				WANObjectCache::TTL_DAY,
+				function ( $oldValue, &$ttl ) use ( $lang ) {
+					$parsedConfig = $this->parseConfig( $lang );
+					// Expire along with time-dependent wikitext, e.g. a template switching on the
+					// date. The cache is also invalidated on edits of the campaign and its templates,
+					// but templates are only tracked once the campaign page has been re-parsed.
+					$ttl = min( $ttl, $this->parserCacheExpiry );
+					// Cache for at least 5 minutes, also uncacheable wikitext, to not parse it on
+					// every request
+					$ttl = (int)max( $ttl, 5 * WANObjectCache::TTL_MINUTE );
+					return $parsedConfig;
+				},
+				[
+					'checkKeys' => [ $this->makeInvalidateTimestampKey( $this->wanObjectCache ) ],
+					// Values cached before did not expire
+					'version' => 1,
+				]
+			);
+		} elseif ( $this->parsedConfig === null ) {
+			$this->parsedConfig = $this->parseConfig( $lang );
 		}
 
 		$uwDefaults = Config::getSetting( 'defaults' );
@@ -422,6 +387,62 @@ class Campaign {
 		$this->modifyIfNecessary();
 
 		return $this->parsedConfig;
+	}
+
+	/**
+	 * Parse the wikitext based config parameters
+	 *
+	 * @param Language $lang
+	 * @return array
+	 */
+	private function parseConfig( Language $lang ): array {
+		$this->parserCacheExpiry = INF;
+
+		$parsedConfig = [];
+		foreach ( $this->config as $key => $value ) {
+			switch ( $key ) {
+				case "title":
+				case "description":
+					$parsedConfig[$key] = $this->parseValue( $value, $lang );
+					break;
+				case "display":
+					foreach ( $value as $option => $optionValue ) {
+						if ( is_array( $optionValue ) ) {
+							$parsedConfig['display'][$option] = $this->parseArrayValues(
+								$optionValue,
+								$lang,
+								[ 'label' ]
+							);
+						} else {
+							$parsedConfig['display'][$option] = $this->parseValue( $optionValue, $lang );
+						}
+					}
+					break;
+				case "fields":
+					$parsedConfig['fields'] = [];
+					foreach ( $value as $field ) {
+						$parsedConfig['fields'][] = $this->parseArrayValues(
+							$field,
+							$lang,
+							[ 'label', 'options' ]
+						);
+					}
+					break;
+				case "whileActive":
+				case "afterActive":
+				case "beforeActive":
+					if ( array_key_exists( 'display', $value ) ) {
+						$value['display'] = $this->parseArrayValues( $value['display'], $lang );
+					}
+					$parsedConfig[$key] = $value;
+					break;
+				default:
+					$parsedConfig[$key] = $value;
+					break;
+			}
+		}
+
+		return $parsedConfig;
 	}
 
 	/**
