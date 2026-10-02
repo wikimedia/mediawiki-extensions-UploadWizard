@@ -109,6 +109,34 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
+	/**
+	 * @dataProvider provideCampaignOwnWorkDefaults
+	 */
+	public function testCampaignOwnWorkDefaults( array $campaignOwnWork, ?array $expected ) {
+		/** @var Config $config */
+		$config = TestingAccessWrapper::newFromClass( Config::class );
+		$result = $config->mergeCampaignConfig(
+			[ 'licensing' => [ 'ownWork' => [ 'licenses' => [ 'cc-zero', 'cc-by-4.0', 'cc-by-sa-4.0' ] ] ] ],
+			$campaignOwnWork ? [ 'licensing' => [ 'ownWork' => $campaignOwnWork ] ] : []
+		);
+		$this->assertSame( $expected, $result['licensing']['ownWork']['defaults'] ?? null );
+	}
+
+	public static function provideCampaignOwnWorkDefaults() {
+		yield 'T373575: The first license a campaign lists is the default' => [
+			[ 'licenses' => [ 'cc-by-sa-4.0', 'cc-zero' ] ],
+			[ 'cc-by-sa-4.0' ],
+		];
+		yield 'Defaults specified by the campaign are kept' => [
+			[ 'licenses' => [ 'cc-by-sa-4.0', 'cc-zero' ], 'defaults' => [ 'cc-zero' ] ],
+			[ 'cc-zero' ],
+		];
+		yield 'No default without licenses listed by the campaign' => [
+			[],
+			null,
+		];
+	}
+
 	public static function objRefProvider() {
 		return [
 			[

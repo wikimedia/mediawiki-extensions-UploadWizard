@@ -67,9 +67,29 @@ class Config {
 		// Don't put a specific campaign into the global
 		$config = $wgUploadWizardConfig;
 		if ( $campaignName !== null ) {
-			$config = self::arrayReplaceSensibly( $config, self::getCampaignConfig( $campaignName ) );
+			$config = self::mergeCampaignConfig( $config, self::getCampaignConfig( $campaignName ) );
 		}
 		return array_replace_recursive( $config, self::$urlConfig );
+	}
+
+	/**
+	 * Merge a campaign's configuration into the given configuration.
+	 *
+	 * @param array $config
+	 * @param array $campaignConfig Parsed campaign configuration
+	 * @return array
+	 */
+	private static function mergeCampaignConfig( array $config, array $campaignConfig ): array {
+		$config = self::arrayReplaceSensibly( $config, $campaignConfig );
+
+		// The first of the own work licenses a campaign lists is its default,
+		// unless it specifies the defaults itself
+		$ownWork = $campaignConfig['licensing']['ownWork'] ?? [];
+		if ( isset( $ownWork['licenses'][0] ) && !isset( $ownWork['defaults'] ) ) {
+			$config['licensing']['ownWork']['defaults'] = [ $ownWork['licenses'][0] ];
+		}
+
+		return $config;
 	}
 
 	/**
