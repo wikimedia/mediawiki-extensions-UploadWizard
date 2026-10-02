@@ -9,10 +9,12 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
+use JsonSchema\Constraints\Constraint;
+use JsonSchema\Validator;
 use MediaWiki\Content\JsonContent;
-use MediaWiki\Extension\EventLogging\EventLogging;
-use MediaWiki\Extension\EventLogging\Libs\JsonSchemaValidation\JsonSchemaException;
 use MediaWiki\Json\FormatJson;
+use MediaWiki\Message\Message;
+use StatusValue;
 
 /**
  * Upload Campaign Content Model
@@ -31,16 +33,17 @@ class CampaignContent extends JsonContent {
 	/**
 	 * Checks user input JSON to make sure that it produces a valid campaign object
 	 *
-	 * @throws JsonSchemaException If invalid.
-	 * @return bool True if valid.
+	 * @return StatusValue Fatal for each violation of the campaign schema
 	 */
-	public function validate() {
+	public function validate(): StatusValue {
 		$campaign = $this->getJsonData();
 		if ( !is_array( $campaign ) ) {
-			throw new JsonSchemaException( 'eventlogging-invalid-json' );
+			return StatusValue::newFatal( 'mwe-upwiz-campaign-invalid-json' );
 		}
 
 		$schema = include __DIR__ . '/CampaignSchema.php';
+		// Don't allow unknown campaign fields, e.g. misspelled ones
+		$schema['additionalProperties'] ??= false;
 
 		// Only validate fields we care about
 		$campaignFields = array_keys( $schema['properties'] );
@@ -56,18 +59,31 @@ class CampaignContent extends JsonContent {
 		}
 
 		$mergedConfig = Config::arrayReplaceSensibly( $defaultCampaignConfig, $campaign );
-		return EventLogging::schemaValidate( $mergedConfig, $schema );
+
+		$validator = new Validator();
+		// Type cast to treat associative arrays as objects
+		$validator->validate( $mergedConfig, $schema, Constraint::CHECK_MODE_TYPE_CAST );
+
+		$status = StatusValue::newGood();
+		foreach ( $validator->getErrors() as $error ) {
+			if ( $error['property'] === '' ) {
+				$status->fatal( 'mwe-upwiz-campaign-invalid', Message::plaintextParam( $error['message'] ) );
+			} else {
+				$status->fatal(
+					'mwe-upwiz-campaign-invalid-property',
+					Message::plaintextParam( $error['property'] ),
+					Message::plaintextParam( $error['message'] )
+				);
+			}
+		}
+		return $status;
 	}
 
 	/**
 	 * @return bool Whether content is valid JSON Schema.
 	 */
 	public function isValid() {
-		try {
-			return parent::isValid() && $this->validate();
-		} catch ( JsonSchemaException ) {
-			return false;
-		}
+		return parent::isValid() && $this->validate()->isOK();
 	}
 
 	/**
