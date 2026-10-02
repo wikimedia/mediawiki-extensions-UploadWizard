@@ -20,8 +20,8 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 	 * @inheritDoc
 	 */
 	protected function newSpecialPage() {
-		$userOptionsLookup = $this->getServiceContainer()->getUserOptionsLookup();
-		return new SpecialUploadWizard( $userOptionsLookup, null );
+		$services = $this->getServiceContainer();
+		return new SpecialUploadWizard( $services->getUserOptionsLookup(), $services->getLanguageNameUtils(), null );
 	}
 
 	protected function tearDown(): void {

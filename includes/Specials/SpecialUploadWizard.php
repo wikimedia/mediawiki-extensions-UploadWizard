@@ -7,6 +7,7 @@
 
 namespace MediaWiki\Extension\UploadWizard\Specials;
 
+use Collator;
 use LogicException;
 use MediaWiki\ChangeTags\ChangeTags;
 use MediaWiki\Exception\PermissionsError;
@@ -18,6 +19,7 @@ use MediaWiki\Extension\UploadWizard\Hooks;
 use MediaWiki\Extension\UploadWizard\PublishCaptchaHandler;
 use MediaWiki\Extension\UploadWizard\Tutorial;
 use MediaWiki\Html\Html;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Media\BitmapHandler;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
@@ -42,6 +44,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 	public function __construct(
 		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly LanguageNameUtils $languageNameUtils,
 		private readonly ?CaptchaFactory $captchaFactory,
 	) {
 		parent::__construct( 'UploadWizard' );
@@ -289,6 +292,12 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config += $this->getPublishCaptchaRequiredJsVars();
 
+		// Captions are Wikibase labels; unlike descriptions, they don't need a
+		// language template (see uwLanguages)
+		if ( $config['wikibase']['enabled'] && ( $config['wikibase']['captions'] ?? false ) ) {
+			$config['uwCaptionLanguages'] = $this->getCaptionLanguages();
+		}
+
 		$bitmapHandler = new BitmapHandler();
 		$this->getOutput()->addJsConfigVars(
 			[
@@ -447,5 +456,24 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	protected function getGroupName() {
 		return 'media';
+	}
+
+	/**
+	 * Get the languages captions can be in.
+	 *
+	 * These are the languages defined in MediaWiki, which Wikibase bases its term languages on,
+	 * rather than all languages with known names, many of which Wikibase would reject.
+	 *
+	 * @return array<string,string> Language names by code, sorted by name
+	 */
+	private function getCaptionLanguages(): array {
+		$userLangCode = $this->getLanguage()->getCode();
+		$languages = $this->languageNameUtils->getLanguageNames( $userLangCode, LanguageNameUtils::DEFINED );
+
+		$collator = Collator::create( $userLangCode );
+		if ( !$collator || !$collator->asort( $languages ) ) {
+			natcasesort( $languages );
+		}
+		return $languages;
 	}
 }

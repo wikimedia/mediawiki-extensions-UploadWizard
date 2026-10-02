@@ -69,7 +69,8 @@
 		"UploadWizard": {
 			"class": "MediaWiki\\Extension\\UploadWizard\\Specials\\SpecialUploadWizard",
 			"services": [
-				"UserOptionsLookup"
+				"UserOptionsLookup",
+				"LanguageNameUtils"
 			],
 			"optional_services": [
 				"ConfirmEditCaptchaFactory"
@@ -676,6 +677,7 @@
 			"categorySuggestions/uw.CategorySuggestionAggregator.test.js",
 			"details/uw.LocationDetailsWidget.test.js",
 			"details/uw.CategoriesDetailsWidget.test.js",
+			"details/uw.SingleLanguageInputWidget.test.js",
 			"transports/mw.FormDataTransport.test.js",
 			"uw.CaptchaHandler.test.js",
 			"uw.ConcurrentQueue.test.js",

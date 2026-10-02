@@ -6,16 +6,55 @@ namespace MediaWiki\Extension\UploadWizard\Tests\Integration\Specials;
 
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Specials\SpecialUploadWizard;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Database
  * @covers \MediaWiki\Extension\UploadWizard\Specials\SpecialUploadWizard
  */
 class SpecialUploadWizardTest extends MediaWikiIntegrationTestCase {
+
+	protected function tearDown(): void {
+		parent::tearDown();
+
+		// T378299: Make the next test merge the defaults again.
+		TestingAccessWrapper::newFromClass( Config::class )->mergedConfig = false;
+	}
+
+	/**
+	 * @dataProvider provideCaptionLanguages
+	 */
+	public function testCaptionLanguages( bool $captionsEnabled ): void {
+		$this->overrideConfigValue( 'UploadWizardConfig', [
+			'wikibase' => [ 'enabled' => $captionsEnabled, 'captions' => true ],
+		] );
+		TestingAccessWrapper::newFromClass( Config::class )->mergedConfig = false;
+
+		$config = $this->setUpJsConfigVariables( $this->getTestUser()->getUser(), false );
+
+		if ( !$captionsEnabled ) {
+			$this->assertArrayNotHasKey( 'uwCaptionLanguages', $config );
+			return;
+		}
+		// T440003: all languages Wikibase accepts for labels, not only those with
+		// a language template like for descriptions
+		$defined = $this->getServiceContainer()->getLanguageNameUtils()
+			->getLanguageNames( 'en', LanguageNameUtils::DEFINED );
+		$this->assertEqualsCanonicalizing( array_keys( $defined ), array_keys( $config['uwCaptionLanguages'] ) );
+	}
+
+	public static function provideCaptionLanguages(): array {
+		return [
+			'captions enabled' => [ true ],
+			'captions disabled' => [ false ],
+		];
+	}
 
 	/**
 	 * @dataProvider provideCaptchaConfigVarsScenarios
@@ -87,6 +126,7 @@ class SpecialUploadWizardTest extends MediaWikiIntegrationTestCase {
 
 		$special = new SpecialUploadWizard(
 			$services->getUserOptionsLookup(),
+			$services->getLanguageNameUtils(),
 			$captchaFactory
 		);
 

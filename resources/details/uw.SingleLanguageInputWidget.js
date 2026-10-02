@@ -210,6 +210,12 @@
 			return '';
 		}
 
+		// Captions, which are also used as descriptions by default, can be in languages
+		// without a language template; use the generic template for those
+		if ( !Object.prototype.hasOwnProperty.call( mw.UploadWizard.config.uwLanguages, language ) ) {
+			return '{{Description|text_lang=' + language + '|text=' + mw.Escaper.escapeForTemplate( text ) + '}}';
+		}
+
 		if ( mw.UploadWizard.config.languageTemplateFixups[ language ] ) {
 			language = mw.UploadWizard.config.languageTemplateFixups[ language ];
 		}

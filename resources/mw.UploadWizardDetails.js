@@ -78,6 +78,9 @@
 				} ),
 				required: true,
 				label: mw.message( 'mwe-upwiz-caption-add' ),
+				// Captions can be in any defined language, not only those with a language
+				// template like descriptions (uwLanguages)
+				languages: config.uwCaptionLanguages || config.uwLanguages,
 				errorBlank: mw.message( 'mwe-upwiz-error-caption-blank' ),
 				remove: mw.message( 'mwe-upwiz-remove-caption' ),
 				minLength: config.minCaptionLength,
