@@ -63,6 +63,8 @@
 		this.mapButton.connect( this, { click: 'onMapButtonClick' } );
 		this.connect( this, { change: 'onChange' } );
 
+		this.latitudeInput.$input.on( 'paste', this.onLatitudePaste.bind( this ) );
+
 		this.mapButton.toggle( false );
 		mw.loader.using( [ 'ext.kartographer.box', 'ext.kartographer.editing' ] ).then( () => {
 			// Kartographer is installed and we'll be able to show the map. Display the button.
@@ -80,6 +82,51 @@
 			() => this.mapButton.setDisabled( false ),
 			() => this.mapButton.setDisabled( true )
 		);
+	};
+
+	/**
+	 * Split a coordinate pair pasted into the latitude field, as copied from most map
+	 * services, into the latitude and longitude fields.
+	 *
+	 * @private
+	 * @param {jQuery.Event} e
+	 */
+	uw.LocationDetailsWidget.prototype.onLatitudePaste = function ( e ) {
+		const clipboardData = e.originalEvent && e.originalEvent.clipboardData;
+		const pair = clipboardData && this.splitCoordinatePair( clipboardData.getData( 'text' ) );
+
+		if ( !pair ) {
+			return;
+		}
+
+		e.preventDefault();
+		this.latitudeInput.setValue( pair[ 0 ] );
+		this.longitudeInput.setValue( pair[ 1 ] );
+	};
+
+	/**
+	 * Split a coordinate pair into latitude and longitude.
+	 *
+	 * Formats understood include:
+	 * - 40.446, -79.982 (also separated by whitespace, semicolon, slash or pipe)
+	 * - 40,446, -79,982 or 40,446 -79,982 (decimal commas)
+	 * - 40.446° N, 79.982° W or N 40.446, W 79.982
+	 * - 40°26'46"N 79°58'56"W or 40° 26' 46" N, 79° 58' 56" W
+	 * - geo:40.446,-79.982
+	 *
+	 * @param {string} input
+	 * @return {string[]|null} Latitude and longitude, or null if the input is no valid pair
+	 */
+	uw.LocationDetailsWidget.prototype.splitCoordinatePair = function ( input ) {
+		const value = input.trim().replace( /^geo:([^;?]*).*$/i, '$1' );
+		const pair = [ /\s*[;/|]\s*/, /\s*,\s*/, /,\s+/, /\s+/ ]
+			.map( ( separator ) => value.split( separator ) )
+			.find( ( parts ) => parts.length === 2 &&
+				this.isValidCoordinate( parts[ 0 ], 90 ) &&
+				this.isValidCoordinate( parts[ 1 ], 180 )
+			);
+
+		return pair || null;
 	};
 
 	/**
@@ -113,19 +160,14 @@
 			latInput = this.latitudeInput.getValue(),
 			lonInput = this.longitudeInput.getValue(),
 			headInput = this.headingInput.getValue(),
-			latNum = this.normalizeCoordinate( latInput ),
-			lonNum = this.normalizeCoordinate( lonInput ),
 			headNum = parseFloat( headInput );
 
-		// input is invalid if the coordinates are out of bounds, or if the
-		// coordinates that were derived from the input are 0, without a 0 even
-		// being present in the input
 		if ( latInput || lonInput ) {
-			if ( latNum > 90 || latNum < -90 || ( latNum === 0 && !latInput.includes( '0' ) ) || isNaN( latNum ) ) {
+			if ( !this.isValidCoordinate( latInput, 90 ) ) {
 				status.addError( mw.message( 'mwe-upwiz-error-latitude' ) );
 			}
 
-			if ( lonNum > 180 || lonNum < -180 || ( lonNum === 0 && !lonInput.includes( '0' ) ) || isNaN( lonNum ) ) {
+			if ( !this.isValidCoordinate( lonInput, 180 ) ) {
 				status.addError( mw.message( 'mwe-upwiz-error-longitude' ) );
 			}
 		}
@@ -153,6 +195,21 @@
 
 		const normalized = this.normalizeCoordinate( String( coord ) );
 		return isNaN( normalized ) ? coord : String( normalized );
+	};
+
+	/**
+	 * @private
+	 * @param {string} input
+	 * @param {number} max Maximum absolute value, 90 for latitudes and 180 for longitudes
+	 * @return {boolean}
+	 */
+	uw.LocationDetailsWidget.prototype.isValidCoordinate = function ( input, max ) {
+		const num = this.normalizeCoordinate( input );
+
+		// input is invalid if the coordinate is out of bounds, or if the
+		// coordinate that was derived from the input is 0, without a 0 even
+		// being present in the input
+		return Math.abs( num ) <= max && !( num === 0 && !input.includes( '0' ) );
 	};
 
 	/**

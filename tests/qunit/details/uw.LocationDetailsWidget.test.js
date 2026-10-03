@@ -52,3 +52,52 @@ QUnit.test.each( 'setupInputs / setSerialized trims excess coordinate precision 
 	assert.strictEqual( widget.getSerialized().longitude, expected, 'longitude' );
 	assert.strictEqual( widget.getSerialized().heading, '180', 'heading' );
 } );
+
+[
+	[ '40.446, -79.982', [ '40.446', '-79.982' ] ],
+	[ ' 40.446,-79.982 ', [ '40.446', '-79.982' ] ],
+	[ '40.446 -79.982', [ '40.446', '-79.982' ] ],
+	[ '40.446; -79.982', [ '40.446', '-79.982' ] ],
+	[ '40.446/-79.982', [ '40.446', '-79.982' ] ],
+	[ '40,446, -79,982', [ '40,446', '-79,982' ] ],
+	[ '40,446 -79,982', [ '40,446', '-79,982' ] ],
+	[ '40.446° N, 79.982° W', [ '40.446° N', '79.982° W' ] ],
+	[ '40.446N 79.982W', [ '40.446N', '79.982W' ] ],
+	[ 'N 40.446, W 79.982', [ 'N 40.446', 'W 79.982' ] ],
+	[ '40° 26\' 46" N, 79° 58\' 56" W', [ '40° 26\' 46" N', '79° 58\' 56" W' ] ],
+	[ '40°26\'46.0"N 79°58\'56.0"W', [ '40°26\'46.0"N', '79°58\'56.0"W' ] ],
+	[ 'geo:40.446,-79.982;u=35', [ '40.446', '-79.982' ] ],
+	[ '40.446', null ],
+	[ '40.446° N', null ],
+	[ '40° 26\' 46" N', null ],
+	[ '95.1, 10.2', null ],
+	[ '10.2, 195.1', null ],
+	[ '40.446, -79.982, 120', null ],
+	[ 'foo, bar', null ]
+].forEach( ( [ input, expected ] ) => {
+	QUnit.test( 'splitCoordinatePair( \'' + input + '\' )', ( assert ) => {
+		const result = mw.uploadWizard.LocationDetailsWidget.prototype.splitCoordinatePair( input );
+		assert.deepEqual( result, expected );
+	} );
+} );
+
+QUnit.test( 'Pasting a coordinate pair into the latitude field fills both fields', ( assert ) => {
+	const widget = new mw.uploadWizard.LocationDetailsWidget( { templateName: 'Location' } );
+	const paste = ( text ) => {
+		const e = $.Event( 'paste', {
+			originalEvent: {
+				clipboardData: { getData: () => text },
+				preventDefault: () => {}
+			}
+		} );
+		widget.latitudeInput.$input.trigger( e );
+		return e;
+	};
+
+	assert.true( paste( '40.446, -79.982' ).isDefaultPrevented() );
+	assert.strictEqual( widget.latitudeInput.getValue(), '40.446' );
+	assert.strictEqual( widget.longitudeInput.getValue(), '-79.982' );
+
+	assert.false( paste( '12.34' ).isDefaultPrevented(), 'a single coordinate is pasted as usual' );
+	assert.strictEqual( widget.longitudeInput.getValue(), '-79.982' );
+} );
