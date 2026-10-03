@@ -1,7 +1,12 @@
 ( function ( uw ) {
 
 	/**
-	 * @constructor
+	 * A statement field in UploadWizard's "Details" step form.
+	 *
+	 * @class
+	 * @extends OO.ui.Widget
+	 * @mixes OO.ui.mixin.GroupWidget
+	 * @mixes uw.ValidatableElement
 	 * @param {Object} config Configuration options
 	 * @param {string} config.propertyId Property ID (e.g. P180 id of `depicts` property)
 	 */
@@ -87,7 +92,7 @@
 	};
 
 	/**
-	 * @inheritDoc
+	 * @inheritdoc
 	 */
 	// eslint-disable-next-line no-unused-vars
 	uw.StatementWidget.prototype.validate = function ( thorough ) {

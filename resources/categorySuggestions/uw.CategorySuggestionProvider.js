@@ -15,7 +15,6 @@
 	 *
 	 * @abstract
 	 * @class
-	 * @constructor
 	 */
 	uw.CategorySuggestionProvider = function UWCategorySuggestionProvider() {};
 

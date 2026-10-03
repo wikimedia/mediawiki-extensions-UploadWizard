@@ -14,7 +14,6 @@
 	 *
 	 * @class
 	 * @extends uw.CategorySuggestionProvider
-	 * @constructor
 	 * @param {Object} [config]
 	 * @param {number} [config.limit=5] Maximum number of suggestions to return
 	 */

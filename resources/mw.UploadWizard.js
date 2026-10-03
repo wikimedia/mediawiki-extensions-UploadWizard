@@ -37,7 +37,7 @@
 
 	mw.UploadWizard.userAgent = 'UploadWizard';
 
-	mw.UploadWizard.prototype = {
+	mw.UploadWizard.prototype = /** @lends mw.UploadWizard.prototype */ {
 		/**
 		 * Create the basic interface to make an upload in this div
 		 *

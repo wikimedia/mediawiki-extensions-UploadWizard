@@ -12,7 +12,6 @@
 	 * source (GeoData, CirrusSearch, ...) is unavailable.
 	 *
 	 * @class
-	 * @constructor
 	 * @param {uw.CategorySuggestionProvider[]} [providers]
 	 */
 	uw.CategorySuggestionAggregator = function UWCategorySuggestionAggregator( providers ) {

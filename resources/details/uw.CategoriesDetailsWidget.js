@@ -3,7 +3,12 @@
 	const NS_CATEGORY = mw.config.get( 'wgNamespaceIds' ).category;
 
 	/**
-	 * @constructor
+	 * A categories field in UploadWizard's "Details" step form.
+	 *
+	 * @class
+	 * @extends OO.ui.MenuTagMultiselectWidget
+	 * @mixes OO.ui.mixin.PendingElement
+	 * @mixes uw.ValidatableElement
 	 * @param {Object} [config] Configuration options
 	 * @param {mw.Api} [config.api] Instance of mw.Api (or subclass thereof) to use for queries
 	 * @param {mw.UploadWizardUpload} [config.upload] Upload the categories belong to, used as
@@ -393,6 +398,9 @@
 		this.addTag( title );
 	};
 
+	/**
+	 * @inheritdoc
+	 */
 	uw.CategoriesDetailsWidget.prototype.validate = function () {
 		const status = new uw.ValidationStatus(),
 			missing = this.getItems().filter( ( item ) => item.missing );

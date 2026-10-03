@@ -40,7 +40,7 @@
 		this.beginTime = undefined;
 	};
 
-	mw.GroupProgressBar.prototype = {
+	mw.GroupProgressBar.prototype = /** @lends mw.GroupProgressBar.prototype */ {
 
 		/**
 		 * Show the progress bar

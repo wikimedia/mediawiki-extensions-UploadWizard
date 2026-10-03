@@ -24,12 +24,14 @@
 		OO.EventEmitter.call( this );
 	};
 
-	mw.UploadWizardDetails.prototype = {
+	mw.UploadWizardDetails.prototype = /** @lends mw.UploadWizardDetails.prototype */ {
 
 		// Has this details object been attached to the DOM already?
 		isAttached: false,
 
-		// Build the interface and attach all elements - do this on demand
+		/**
+		 * Build the interface and attach all elements - do this on demand.
+		 */
 		buildInterface: function () {
 			const config = mw.UploadWizard.config,
 				captionsAvailable = config.wikibase.enabled && config.wikibase.captions,
@@ -627,7 +629,7 @@
 			).then( ( text ) => text.charAt( 0 ).toUpperCase() + text.slice( 1 ) );
 		},
 
-		/*
+		/**
 		 * Append the div for this details object to the DOM.
 		 * We need to ensure that we add divs in the right order
 		 * (the order in which the user selected files).

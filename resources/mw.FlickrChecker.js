@@ -74,7 +74,7 @@ mw.FlickrChecker.licenseMaps = {
 	'Attribution-ShareAlike License': '{{cc-by-sa-2.0}}{{flickrreview}}'
 };
 
-mw.FlickrChecker.prototype = {
+mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	/**
 	 * If a photo is from Flickr, retrieve its license. If the license is valid, display the license
 	 * to the user, hide the normal license selection interface, and set it as the deed for the upload.
@@ -178,9 +178,10 @@ mw.FlickrChecker.prototype = {
 		return $.getJSON( this.apiUrl, params );
 	},
 
-	/*
+	/**
 	 * Retrieves a list of photos in photostream and displays it.
-	 * @see {@link getPhotos}
+	 *
+	 * @see #getPhotos
 	 * @param {string} mode may be: 'favorites' - user's favorites are retrieved,
 	 * or 'stream' - user's photostream is retrieved
 	 * @param {string} url URL to get the user from.
