@@ -7,7 +7,7 @@ form.mwe-upwiz-form {
 #mwe-upwiz-steps {
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
+	font-size: @font-size-base;
 	line-height: 2.5;
 	background-color: @background-color-base;
 	border: 0;
@@ -18,7 +18,7 @@ form.mwe-upwiz-form {
 	// to a 2nd line - can't make things infinitely smaller :)
 	@media screen and ( max-width: @min-width-breakpoint-tablet ) {
 		gap: 3px 0;
-		font-size: 0.75em;
+		font-size: @font-size-x-small;
 
 		li {
 			height: 30px;
@@ -89,10 +89,6 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-stepdiv {
 	position: relative;
-}
-
-.mwe-small-print {
-	font-size: x-small;
 }
 
 .mwe-upwiz-custom-deed {

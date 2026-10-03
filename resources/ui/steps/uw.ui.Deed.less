@@ -36,7 +36,7 @@
 .mwe-upwiz-label-extra {
 	display: block;
 	color: @color-subtle;
-	font-weight: normal;
+	font-weight: @font-weight-normal;
 }
 
 // don't show warnings/inputs until selected
@@ -85,7 +85,7 @@
 		margin-top: @spacing-50;
 
 		.mwe-upwiz-details-fieldname {
-			font-size: 14px;
+			font-size: @font-size-small;
 		}
 	}
 
@@ -244,7 +244,7 @@ label:has( .mwe-upwiz-license-custom ),
 
 	// get rid of bold text & margin from the default license selection styles
 	.mwe-upwiz-deed-license-group-subhead {
-		font-weight: normal;
+		font-weight: @font-weight-normal;
 		color: inherit;
 		margin-bottom: 0;
 	}
@@ -298,7 +298,7 @@ label:has( .mwe-upwiz-license-custom ),
 		font-weight: @font-weight-bold;
 
 		.mwe-upwiz-label-input {
-			font-weight: normal;
+			font-weight: @font-weight-normal;
 		}
 
 		// override default collapsed behaviour for this particular input
