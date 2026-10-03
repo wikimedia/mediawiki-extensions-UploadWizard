@@ -1,3 +1,0 @@
-wikitools>=1.1
-poster>=0.8
-http://effbot.org/media/downloads/PIL-1.1.7.tar.gz#egg=PIL
