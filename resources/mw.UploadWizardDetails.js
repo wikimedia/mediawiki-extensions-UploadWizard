@@ -1323,8 +1323,14 @@
 			}
 
 			if ( deed.name === 'ownwork' ) {
-				// This message does not have any parameters, so there's nothing to substitute
-				comment = config.uploadComment.ownWork;
+				mw.messages.set(
+					'mwe-upwiz-upload-comment-own-work',
+					config.uploadComment.ownWork
+				);
+				comment = mw.message(
+					'mwe-upwiz-upload-comment-own-work',
+					mw.user
+				).text();
 			} else {
 				mw.messages.set(
 					'mwe-upwiz-upload-comment-third-party',
@@ -1333,8 +1339,9 @@
 				comment = mw.message(
 					'mwe-upwiz-upload-comment-third-party',
 					deed.getAuthorWikiText(),
-					deed.getSourceWikiText()
-				).plain();
+					deed.getSourceWikiText(),
+					mw.user
+				).text();
 			}
 
 			const params = Object.assign( {}, captchaData || {}, {
