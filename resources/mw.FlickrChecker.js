@@ -437,7 +437,16 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 				if ( item.url_sq ) {
 					checkboxes.push( new OO.ui.CheckboxMultioptionWidget( {
 						data: i,
-						label: $( '<img class="lazy-thumbnail" data-original="' + item.url_sq + '">' )
+						// Square thumbnails (url_sq) are 75×75px, see
+						// https://www.flickr.com/services/api/misc.urls.html; the size keeps
+						// images outside the viewport from loading before they're scrolled to
+						label: $( '<img>' ).attr( {
+							src: item.url_sq,
+							alt: item.title,
+							width: 75,
+							height: 75,
+							loading: 'lazy'
+						} )
 					} ) );
 				}
 			} );
@@ -489,16 +498,6 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 			} else {
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-flickr-select-list-container' ).show();
-				// Lazy-load images
-				// eslint-disable-next-line no-jquery/no-global-selector
-				$( 'img.lazy-thumbnail' ).lazyload( {
-					// jQuery considers all images without 'src' to not be ':visible'
-					skip_invisible: false
-				} );
-				// Trigger initial update (HACK)
-				setTimeout( () => {
-					$( window ).triggerHandler( 'resize' );
-				} );
 			}
 		} ).fail( ( message ) => {
 			mw.errorDialog( message, mw.msg( 'mwe-upwiz-license-photoset-invalid-title' ) );
