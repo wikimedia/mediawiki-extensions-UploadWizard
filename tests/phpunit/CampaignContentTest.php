@@ -85,5 +85,19 @@ class CampaignContentTest extends MediaWikiIntegrationTestCase {
 			FormatJson::encode( [ 'enabled' => true, 'licensing' => [ 'ownWork' => [ 'licenses' => [ 'foo' ] ] ] ] ),
 			[ 'mwe-upwiz-campaign-invalid-property' ],
 		];
+		yield 'Unknown license after a known one' => [
+			FormatJson::encode( [
+				'enabled' => true,
+				'licensing' => [ 'ownWork' => [ 'licenses' => [ 'cc-by-sa-4.0', 'foo' ] ] ],
+			] ),
+			[ 'mwe-upwiz-campaign-invalid-property' ],
+		];
+		yield 'Wrong type in a field after the first one' => [
+			FormatJson::encode( [
+				'enabled' => true,
+				'fields' => [ [ 'wikitext' => '{{Foo|$1}}' ], [ 'wikitext' => '{{Bar|$1}}', 'required' => 'true' ] ],
+			] ),
+			[ 'mwe-upwiz-campaign-invalid-property' ],
+		];
 	}
 }

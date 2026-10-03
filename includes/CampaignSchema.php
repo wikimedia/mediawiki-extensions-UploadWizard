@@ -29,9 +29,7 @@ return [
 				"categories" => [
 					"type" => "array",
 					"items" => [
-						[
-							"type" => "string"
-						]
+						"type" => "string"
 					]
 				],
 				"wikitext" => [
@@ -42,36 +40,34 @@ return [
 		"fields" => [
 			"type" => "array",
 			"items" => [
-				[
-					"type" => "object",
-					"properties" => [
-						"wikitext" => [
-							"type" => "string"
-						],
-						"label" => [
-							"type" => "string"
-						],
-						"maxLength" => [
-							"type" => "integer"
-						],
-						"pattern" => [
-							"type" => "string"
-						],
-						"initialValue" => [
-							"type" => "string"
-						],
-						"required" => [
-							"type" => "boolean"
-						],
-						"type" => [
-							"type" => "string"
-						],
-						"options" => [
-							// Map of values to labels, or a list of labels
-							"type" => [ "object", "array" ],
-							"properties" => [],
-							"additionalProperties" => true
-						]
+				"type" => "object",
+				"properties" => [
+					"wikitext" => [
+						"type" => "string"
+					],
+					"label" => [
+						"type" => "string"
+					],
+					"maxLength" => [
+						"type" => "integer"
+					],
+					"pattern" => [
+						"type" => "string"
+					],
+					"initialValue" => [
+						"type" => "string"
+					],
+					"required" => [
+						"type" => "boolean"
+					],
+					"type" => [
+						"type" => "string"
+					],
+					"options" => [
+						// Map of values to labels, or a list of labels
+						"type" => [ "object", "array" ],
+						"properties" => [],
+						"additionalProperties" => true
 					]
 				]
 			]
@@ -85,9 +81,7 @@ return [
 				"categories" => [
 					"type" => "array",
 					"items" => [
-						[
-							"type" => "string"
-						]
+						"type" => "string"
 					]
 				],
 				"description" => [
@@ -102,20 +96,18 @@ return [
 				"statements" => [
 					"type" => "array",
 					"items" => [
-						[
-							"type" => "object",
-							"properties" =>
-								[
-									"propertyId" => [
-										"type" => "string"
-									],
-									"dataType" => [
-										// ATM only properties with dataType 'wikibase-entityid'
-										// are supported
-										"type" => "string"
-									]
+						"type" => "object",
+						"properties" =>
+							[
+								"propertyId" => [
+									"type" => "string"
+								],
+								"dataType" => [
+									// ATM only properties with dataType 'wikibase-entityid'
+									// are supported
+									"type" => "string"
 								]
-						]
+							]
 					]
 				]
 			]
@@ -177,19 +169,15 @@ return [
 						"defaults" => [
 							"type" => "array",
 							"items" => [
-								[
-									"type" => "string",
-									"enum" => array_keys( Config::getSetting( 'licenses' ) )
-								]
+								"type" => "string",
+								"enum" => array_keys( Config::getSetting( 'licenses' ) )
 							]
 						],
 						"licenses" => [
 							"type" => "array",
 							"items" => [
-								[
-									"type" => "string",
-									"enum" => array_keys( Config::getSetting( 'licenses' ) )
-								]
+								"type" => "string",
+								"enum" => array_keys( Config::getSetting( 'licenses' ) )
 							]
 
 						],
@@ -207,87 +195,75 @@ return [
 						"defaults" => [
 							"type" => "array",
 							"items" => [
-								[
-									"type" => "string",
-									"enum" => array_keys( Config::getSetting( 'licenses' ) )
-								]
+								"type" => "string",
+								"enum" => array_keys( Config::getSetting( 'licenses' ) )
 							]
 						],
 						"licenseGroups" => [
 							"type" => "array",
 							"items" => [
-								[
-									"type" => "object",
-									"properties" => [
-										"defaults" => [
-											"type" => "array",
-											"items" => [
-												[
-													"type" => "string",
-													"enum" => array_keys( Config::getSetting( 'licenses' ) )
-												]
-											]
-										],
-										"head" => [
-											"type" => "string"
-										],
-										"head-extra" => [
-											"type" => "string"
-										],
-										"icons" => [
-											"type" => "array",
-											"items" => [
-												[
-													"type" => "string",
-													"enum" => [
-														"cc-by",
-														"cc-public-domain",
-														"cc-sa",
-														"cc-zero"
-													]
-												],
-											],
-										],
-										"licenses" => [
-											"type" => "array",
-											"items" => [
-												[
-													"type" => "string",
-													"enum" => array_keys( Config::getSetting( 'licenses' ) )
-												]
-											]
-										],
-										"subhead" => [
-											"type" => "string"
-										],
-										"subhead-extra" => [
-											"type" => "string"
-										],
-										"type" => [
+								"type" => "object",
+								"properties" => [
+									"defaults" => [
+										"type" => "array",
+										"items" => [
 											"type" => "string",
-											"enum" => [
-												"and",
-												"or"
-											]
-										],
-										"url" => [
-											"oneOf" => [
-												[
-													"type" => "string",
-												],
-												[
-													"type" => "array",
-													"items" => [
-														[
-															"type" => "string"
-														],
-													],
-												],
-											]
+											"enum" => array_keys( Config::getSetting( 'licenses' ) )
 										]
 									],
-									"required" => [ "head" ]
-								]
+									"head" => [
+										"type" => "string"
+									],
+									"head-extra" => [
+										"type" => "string"
+									],
+									"icons" => [
+										"type" => "array",
+										"items" => [
+											"type" => "string",
+											"enum" => [
+												"cc-by",
+												"cc-public-domain",
+												"cc-sa",
+												"cc-zero"
+											]
+										],
+									],
+									"licenses" => [
+										"type" => "array",
+										"items" => [
+											"type" => "string",
+											"enum" => array_keys( Config::getSetting( 'licenses' ) )
+										]
+									],
+									"subhead" => [
+										"type" => "string"
+									],
+									"subhead-extra" => [
+										"type" => "string"
+									],
+									"type" => [
+										"type" => "string",
+										"enum" => [
+											"and",
+											"or"
+										]
+									],
+									"url" => [
+										"oneOf" => [
+											[
+												"type" => "string",
+											],
+											[
+												"type" => "array",
+												"items" => [
+													"type" => "string"
+												],
+											],
+										]
+									]
+								],
+								"required" => [ "head" ]
 							]
 						],
 						"type" => [
@@ -335,9 +311,7 @@ return [
 						"categories" => [
 							"type" => "array",
 							"items" => [
-								[
-									"type" => "string"
-								],
+								"type" => "string"
 							],
 						],
 						"wikitext" => [
