@@ -5,6 +5,8 @@
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
 
+// phpcs:disable Generic.Files.LineLength.TooLong
+
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Language\LanguageCode;
 use MediaWiki\Language\LanguageNameUtils;
@@ -497,7 +499,7 @@ return [
 		'pd-art' => [
 			'msg' => 'mwe-upwiz-license-pd-art-70',
 			'templates' => [ 'PD-Art|PD-old-70' ],
-			'url' => '//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
+			'url' => '//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing#Material_in_the_public_domain',
 		],
 		'pd-us-generic' => [
 			'msg' => 'mwe-upwiz-license-pd-us-generic',
@@ -659,7 +661,7 @@ return [
 					'subhead' => 'mwe-upwiz-license-cc0-subhead-2',
 					'subhead-extra' => 'mwe-upwiz-license-cc0-subhead-extra',
 					'icons' => [ 'cc-public-domain' ],
-					'url' => '//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
+					'url' => '//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing#Material_in_the_public_domain',
 					'type' => 'and',
 					'licenses' => [
 						'pd-us',
@@ -690,9 +692,9 @@ return [
 					'head' => 'mwe-upwiz-license-unknown-head',
 					'subhead' => 'mwe-upwiz-license-unknown-subhead',
 					'url' => [
-						'//commons.wikimedia.org/wiki/Commons:Licensing#Acceptable_licenses',
-						'//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
-						'//commons.wikimedia.org/wiki/Commons:Licensing',
+						'//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing#Acceptable_licenses',
+						'//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing#Material_in_the_public_domain',
+						'//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing',
 						'//commons.wikimedia.org/wiki/Commons:Village_pump/Copyright',
 					],
 					'defaults' => [ 'none' ],
