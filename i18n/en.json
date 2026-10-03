@@ -386,6 +386,7 @@
 	"campaigns": "Upload Wizard campaigns",
 	"mwe-upload-campaigns-pagination-next": "Next page",
 	"mwe-upload-campaigns-list-title": "List of upload campaigns",
+	"campaigns-summary": "This page lists the enabled upload campaigns. Each campaign sets up the [[Special:UploadWizard|Upload Wizard]] for a photo contest or another project, e.g. with additional fields and categories.",
 	"mwe-upwiz-upload-comment-own-work": "{{GENDER:$1|Uploaded}} own work with UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "{{GENDER:$3|Uploaded}} a work by $1 from $2 with UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Personal data",

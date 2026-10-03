@@ -420,6 +420,7 @@
 	"campaigns": "{{doc-special|Campaigns}}\nThe UploadWizard campaign page provides a list of Upload Wizard campaigns.\nFor more information, see [[:mw:Extension:UploadWizard/Campaigns]].",
 	"mwe-upload-campaigns-pagination-next": "Link to next page of upload campaigns.\n{{Identical|Next page}}",
 	"mwe-upload-campaigns-list-title": "Title of page that has list of upload campaigns",
+	"campaigns-summary": "{{doc-specialpagesummary|campaigns}}",
 	"mwe-upwiz-upload-comment-own-work": "Own work upload comment shown in upload log.\n* $1 – username of the uploader, for GENDER support\n{{Format|text}}",
 	"mwe-upwiz-upload-comment-third-party": "Third party work upload comment shown in upload log.\n* $1 – author of the work\n* $2 – source of the work\n* $3 – username of the uploader, for GENDER support\n{{Format|text}}",
 	"mwe-upwiz-metadata-notice-header": "Bolded header for Personal Data notice",

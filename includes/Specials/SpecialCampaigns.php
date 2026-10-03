@@ -45,6 +45,7 @@ class SpecialCampaigns extends SpecialPage {
 
 		$this->getOutput()->setPageTitleMsg( $this->msg( 'mwe-upload-campaigns-list-title' ) );
 		$this->getOutput()->addModuleStyles( [ 'ext.uploadWizard.uploadCampaign.display' ] );
+		$this->outputHeader();
 		$this->getOutput()->addHTML( '<ul>' );
 
 		$curCount = 0;
