@@ -1,28 +1,28 @@
 @import 'mediawiki.skin.variables.less';
 
 #mwe-upwiz-stepdiv-deeds:not( :empty ) {
-	padding: 2em 0;
+	padding: @spacing-200 0;
 }
 
 #mwe-upwiz-deeds-intro {
-	margin-bottom: 1.5em;
+	margin-bottom: @spacing-150;
 }
 
 .mwe-upwiz-deed-option-title {
 	&:first-child {
-		margin-top: 0.5em;
+		margin-top: @spacing-50;
 	}
 
 	&:not( :first-child ) {
-		margin-top: 1.5em;
+		margin-top: @spacing-150;
 	}
 }
 
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-ownwork,
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty {
-	margin-top: 1.5em;
+	margin-top: @spacing-150;
 	border-top: @border-width-base @border-style-base @border-color-base;
-	padding-top: 1.5em;
+	padding-top: @spacing-150;
 }
 
 @media screen and ( max-width: @min-width-breakpoint-tablet ) {
@@ -64,11 +64,11 @@
 	}
 
 	label {
-		margin-top: 0.3em;
+		margin-top: @spacing-25;
 	}
 
 	.mwe-upwiz-details-fieldname-input {
-		margin-bottom: 2em;
+		margin-bottom: @spacing-200;
 	}
 
 	.mwe-upwiz-details-fieldname-input .mwe-upwiz-details-fieldname-input {
@@ -82,7 +82,7 @@
 	}
 
 	.mwe-upwiz-thirdparty-checkbox {
-		margin-top: 0.5em;
+		margin-top: @spacing-50;
 
 		.mwe-upwiz-details-fieldname {
 			font-size: 14px;
@@ -103,7 +103,7 @@
 
 	// override default OOUI warning message style
 	.oo-ui-fieldLayout-messages {
-		margin: 1em 0 0;
+		margin: @spacing-100 0 0;
 
 		> .oo-ui-messageWidget {
 			margin-left: 0;
@@ -122,27 +122,27 @@
 
 .mwe-upwiz-deed-license-group-body {
 	label:not( :first-of-type ) {
-		margin-top: 1em;
+		margin-top: @spacing-100;
 	}
 }
 
 .mwe-upwiz-deed-subgroup {
-	padding: 1em 2em;
+	padding: @spacing-100 @spacing-200;
 	background-color: @background-color-neutral-subtle;
 	border-radius: 3px;
 
 	.mwe-upwiz-ai-prompt {
-		margin-top: 1.5em;
+		margin-top: @spacing-150;
 	}
 }
 
 .mwe-upwiz-deed-title {
-	margin-bottom: 1em;
+	margin-bottom: @spacing-100;
 }
 
 @media screen and ( max-width: @min-width-breakpoint-tablet ) {
 	.mwe-upwiz-deed-subgroup {
-		padding: 1em 1em;
+		padding: @spacing-100 @spacing-100;
 	}
 }
 
@@ -151,12 +151,12 @@
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 48em;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+	margin-top: @spacing-50;
+	margin-bottom: @spacing-50;
 
 	.mwe-upwiz-details-input {
 		flex: 1;
-		margin-right: 8px;
+		margin-right: @spacing-50;
 	}
 
 	.oo-ui-inputWidget-input {
@@ -183,11 +183,11 @@ label:has( .mwe-upwiz-license-custom ),
 }
 
 .mwe-upwiz-deed-license-group-container {
-	margin-top: 1em;
+	margin-top: @spacing-100;
 
 	.mwe-upwiz-deed-license-group-head {
 		display: block;
-		margin-bottom: 0.5em;
+		margin-bottom: @spacing-50;
 	}
 
 	// customizations for "custom input" license group (no longer present in default config)
@@ -214,7 +214,7 @@ label:has( .mwe-upwiz-license-custom ),
 .mwe-upwiz-deed-purpose {
 	label:not( :first-of-type ),
 	.mwe-upwiz-deed-warning {
-		margin-top: 1em;
+		margin-top: @spacing-100;
 	}
 
 	.mwe-upwiz-deed-warning.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-warning {
@@ -236,8 +236,9 @@ label:has( .mwe-upwiz-license-custom ),
 .mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-vrt-head > .oo-ui-labelElement-label > .mwe-upwiz-label-extra,
 .mwe-upwiz-label-warning {
 	// show warning style instead of default grey background
-	background: @background-color-warning-subtle ~'url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 24px 16px / 20px';
-	padding: 16px 24px 16px 56px;
+	background: @background-color-warning-subtle url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat @spacing-150 @spacing-100 / 20px;
+	// leave room for the 20px icon, followed by a gap
+	padding: @spacing-100 @spacing-150 @spacing-100 calc( @spacing-150 + 20px + @spacing-75 );
 	border: @border-width-base @border-style-base @border-color-warning;
 	color: @color-notice;
 
@@ -286,7 +287,7 @@ label:has( .mwe-upwiz-license-custom ),
  * a very different style (no checkbox, always visible, etc.)
  */
 .mwe-upwiz-deed-license-group-mwe-upwiz-license-cc0-head .mwe-upwiz-deed-license-group .mwe-upwiz-license-option-custom-pd {
-	margin-top: 2em;
+	margin-top: @spacing-200;
 
 	.oo-ui-checkboxInputWidget {
 		display: none;
@@ -313,7 +314,7 @@ label:has( .mwe-upwiz-license-custom ),
 
 .mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-vrt-head {
 	> .oo-ui-labelElement-label > .mwe-upwiz-label-extra {
-		margin-top: 16px;
+		margin-top: @spacing-100;
 	}
 
 	&:not( .oo-ui-optionWidget-selected ) .mwe-upwiz-label-extra {
@@ -324,12 +325,12 @@ label:has( .mwe-upwiz-license-custom ),
 .mwe-upwiz-source-multiple {
 	display: flex;
 	flex-direction: row;
-	padding-bottom: 1em;
+	padding-bottom: @spacing-100;
 	border-bottom: @border-width-base @border-style-base @border-color-base;
-	margin-bottom: 1em;
+	margin-bottom: @spacing-100;
 
 	label.oo-ui-radioOptionWidget {
-		margin-right: 3em;
+		margin-right: @spacing-300;
 
 		// override OOUI style
 		padding: 0;
@@ -339,11 +340,11 @@ label:has( .mwe-upwiz-license-custom ),
 #mwe-upwiz-deeds-thumbnails {
 	background-color: @background-color-neutral-subtle;
 	border-radius: 2px;
-	margin: 1em 0;
+	margin: @spacing-100 0;
 
 	.mwe-upwiz-thumbnail {
 		display: inline-block;
-		margin: 1em;
+		margin: @spacing-100;
 		vertical-align: middle;
 	}
 }
@@ -351,7 +352,7 @@ label:has( .mwe-upwiz-license-custom ),
 .mwe-upwiz-deeds-individual {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 2em 0;
+	padding: @spacing-200 0;
 
 	&:not( :last-child ) {
 		border-bottom: @border-width-base @border-style-base @border-color-base;
@@ -359,7 +360,7 @@ label:has( .mwe-upwiz-license-custom ),
 
 	.mwe-upwiz-deeds-individual-thumbnail {
 		width: 150px;
-		margin-right: 2em;
+		margin-right: @spacing-200;
 	}
 
 	.mwe-upwiz-deeds-container {
@@ -373,7 +374,7 @@ label:has( .mwe-upwiz-license-custom ),
 }
 
 .mwe-upwiz-patent-rights a + p {
-	margin-top: 2em;
+	margin-top: @spacing-200;
 }
 
 .mwe-upwiz-patent-rights .oo-ui-panelLayout .oo-ui-panelLayout:not( :last-child ) {
@@ -387,7 +388,7 @@ label:has( .mwe-upwiz-license-custom ),
 }
 
 .mwe-upwiz-patent-weapon-policy {
-	margin-top: 1em;
+	margin-top: @spacing-100;
 	padding: 0 1em 0 ~'calc( 32px + 2em )';
 	border: @border-width-base @border-style-base @border-color-subtle;
 	white-space: pre-wrap;
@@ -398,7 +399,7 @@ label:has( .mwe-upwiz-license-custom ),
 
 .mwe-upwiz-license-icon {
 	height: 18px;
-	margin-right: 5px;
+	margin-right: @spacing-30;
 	padding: 9px;
 	width: 18px;
 }
@@ -428,9 +429,9 @@ label:has( .mwe-upwiz-license-custom ),
 }
 
 .mwe-upwiz-source-thirdparty-explain {
-	margin-bottom: 1em;
+	margin-bottom: @spacing-100;
 }
 
 .mwe-upwiz-thirdparty-license {
-	margin-top: 8px;
+	margin-top: @spacing-50;
 }

@@ -3,9 +3,9 @@
 .mwe-upwiz-info-file {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0 2.5em;
-	padding-top: 2em;
-	padding-bottom: 2em;
+	gap: 0 @spacing-250;
+	padding-top: @spacing-200;
+	padding-bottom: @spacing-200;
 
 	.mwe-upwiz-thumbnail {
 		text-align: left;
@@ -26,12 +26,12 @@
 	}
 
 	.oo-ui-fieldLayout-body {
-		margin-bottom: 12px;
+		margin-bottom: @spacing-75;
 	}
 
 	// override default OOUI warning message style
 	.oo-ui-fieldLayout-messages {
-		margin: 1em 0 0;
+		margin: @spacing-100 0 0;
 
 		> .oo-ui-messageWidget {
 			margin-left: 0;
@@ -46,7 +46,7 @@
 	.mwe-upwiz-fieldsetLayout {
 		.oo-ui-inline-help {
 			font-size: inherit;
-			margin-bottom: 24px;
+			margin-bottom: @spacing-150;
 			color: @color-subtle;
 		}
 
@@ -68,36 +68,36 @@
 }
 
 .mwe-upwiz-details-fieldname-input {
-	margin-bottom: 24px;
+	margin-bottom: @spacing-150;
 }
 
 .mwe-upwiz-details-more-options,
 .mwe-upwiz-details-copy-metadata {
-	padding-left: 1.5em;
+	padding-left: @spacing-150;
 	cursor: pointer;
 	outline: 0;
 	display: block;
 }
 
 .mwe-upwiz-copyMetadataWidget {
-	padding: 1em 0;
+	padding: @spacing-100 0;
 
 	.mw-collapsible-content,
 	.mw-collapsible-content .oo-ui-buttonElement {
-		margin-top: 1em;
+		margin-top: @spacing-100;
 	}
 
 	.mwe-upwiz-copy-metadata-subtitle {
-		padding: 1em 0;
+		padding: @spacing-100 0;
 	}
 
 	.oo-ui-checkboxMultioptionWidget {
-		padding: 0.5em 0;
+		padding: @spacing-50 0;
 	}
 
 	.oo-ui-buttonWidget,
 	.mwe-upwiz-copy-metadata-success {
-		padding: 1em 0 0 0;
+		padding: @spacing-100 0 0 0;
 		vertical-align: middle;
 
 		.oo-ui-buttonElement-button label {

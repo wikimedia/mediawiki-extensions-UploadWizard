@@ -1,8 +1,6 @@
 @import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins';
 
-@base-unit: 16px;
-
 #mwe-upwiz-stepdiv-thanks {
 	.mwe-upwiz-thanks-update-delay {
 		width: 100%;
@@ -11,22 +9,22 @@
 	}
 
 	.mwe-upwiz-thanks-message {
-		margin-bottom: 3em;
+		margin-bottom: @spacing-300;
 		font-weight: @font-weight-bold;
 	}
 
 	.mwe-upwiz-thanks {
 		display: flex;
 		flex-wrap: wrap;
-		margin-bottom: 4em;
+		margin-bottom: @spacing-400;
 
 		.mwe-upwiz-thumbnail-side {
 			width: 200px;
-			margin-right: 35px;
+			margin-right: @spacing-250;
 
 			.mwe-upwiz-thumbnail {
 				max-height: 200px;
-				margin-bottom: 0.5em;
+				margin-bottom: @spacing-50;
 			}
 		}
 
@@ -37,7 +35,8 @@
 	}
 
 	.mwe-upwiz-buttons {
-		padding-left: 235px;
+		// align with .mwe-upwiz-data, next to the thumbnail
+		padding-left: calc( 200px + @spacing-250 );
 		text-align: start;
 
 		@media screen and ( max-width: @min-width-breakpoint-tablet ) {
@@ -46,18 +45,18 @@
 	}
 
 	.mwe-upwiz-thanks + .mwe-upwiz-thanks {
-		margin-top: 2em;
+		margin-top: @spacing-200;
 	}
 
 	.mwe-upwiz-mv-cta {
 		box-shadow: @box-shadow-drop-medium;
 		.flex-display();
 		align-items: center;
-		border-radius: (@base-unit / 2);
+		border-radius: 8px;
 		flex-direction: column;
 		justify-content: center;
-		margin-bottom: @base-unit;
-		padding: @base-unit * 1.5;
+		margin-bottom: @spacing-100;
+		padding: @spacing-150;
 		position: relative;
 
 		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
@@ -69,7 +68,7 @@
 		margin: 0;
 		position: absolute;
 		right: 0;
-		top: (@base-unit / 2);
+		top: @spacing-50;
 
 		a {
 			background: transparent;
@@ -88,24 +87,24 @@
 	}
 
 	.mwe-upwiz-mv-cta-content {
-		padding-top: @base-unit;
+		padding-top: @spacing-100;
 
 		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
-			padding-left: @base-unit * 2.5;
+			padding-left: @spacing-250;
 			padding-top: 0;
 		}
 	}
 
 	.mwe-upwiz-mv-cta-heading {
-		margin-bottom: 0.5em;
+		margin-bottom: @spacing-50;
 		padding-top: 0;
 	}
 
 	.mwe-upwiz-mv-cta-checkbox-section {
-		padding-bottom: 1em;
+		padding-bottom: @spacing-100;
 
 		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
-			padding-bottom: 1.5em;
+			padding-bottom: @spacing-150;
 			position: relative;
 		}
 	}
@@ -126,7 +125,7 @@
 		// matches the padding-left of the checkbox label, thus aligning this
 		// text with the checkbox label.
 		margin: 0 0 0 1.42857143em;
-		padding-left: 6px;
+		padding-left: @spacing-35;
 
 		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
 			position: absolute;

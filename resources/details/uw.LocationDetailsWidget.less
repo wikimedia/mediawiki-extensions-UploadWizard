@@ -1,16 +1,17 @@
+@import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins';
 
 .mwe-upwiz-locationDetailsWidget {
 	.oo-ui-fieldLayout {
 		margin-top: 0;
-		margin-right: 1em;
+		margin-right: @spacing-100;
 		margin-bottom: 0;
 		width: 12em;
 	}
 
 	.oo-ui-popupWidget {
 		// Add extra spacing at the bottom if the popup is touching the bottom of viewport
-		margin-bottom: 1em;
+		margin-bottom: @spacing-100;
 	}
 
 	.oo-ui-fieldLayout,
@@ -19,7 +20,7 @@
 		vertical-align: bottom;
 
 		a {
-			margin-bottom: 1em;
+			margin-bottom: @spacing-100;
 		}
 	}
 }

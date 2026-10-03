@@ -60,15 +60,11 @@ form.mwe-upwiz-form {
 }
 
 #mwe-upwiz-content {
-	margin-top: 1em;
+	margin-top: @spacing-100;
 }
 
 #mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice {
 	display: none;
-}
-
-.mwe-upwiz-progress {
-	margin-top: 15px;
 }
 
 .mwe-upwiz-thumbnail {
@@ -88,7 +84,7 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-remove-upload {
 	margin-left: -0.5em;
-	margin-top: 0.5em;
+	margin-top: @spacing-50;
 }
 
 .mwe-upwiz-stepdiv {
@@ -100,11 +96,11 @@ form.mwe-upwiz-form {
 }
 
 .mwe-upwiz-custom-deed {
-	margin-top: 5px;
+	margin-top: @spacing-30;
 }
 
 .mwe-upwiz-buttons {
-	margin-top: 1em;
+	margin-top: @spacing-100;
 	text-align: right;
 
 	// OOUI's HorizontalLayout uses flexbox, which ignores text-align
@@ -122,17 +118,17 @@ a.mwe-upwiz-tooltip-link {
 }
 
 .mwe-upwiz-thanks {
-	margin-bottom: 2em;
+	margin-bottom: @spacing-200;
 }
 
 .mwe-readonly {
 	background-color: @color-disabled;
-	padding: 0.25em;
+	padding: @spacing-25;
 }
 
 .mwe-more-details .mw-collapsible-content {
-	margin-top: 1em;
-	margin-bottom: 1em;
+	margin-top: @spacing-100;
+	margin-bottom: @spacing-100;
 }
 
 .ui-corner-top {
@@ -150,11 +146,11 @@ a.mwe-upwiz-tooltip-link {
 }
 
 .mwe-upwiz-details-texts {
-	padding: 0.5em;
+	padding: @spacing-50;
 }
 
 .mwe-upwiz-details-preview {
-	margin: 1em 0;
+	margin: @spacing-100 0;
 }
 
 .mwe-upwiz-objref-pick-image {
@@ -195,7 +191,7 @@ a.mwe-upwiz-tooltip-link {
 }
 
 .mwe-upwiz-license-metadata {
-	margin-top: 3em;
+	margin-top: @spacing-300;
 	padding: 1em 1em 1em ~'calc( 64px + 2.5em )';
 	border: @border-width-base @border-style-base @border-color-subtle;
 	white-space: pre-wrap;
@@ -205,8 +201,8 @@ a.mwe-upwiz-tooltip-link {
 	background-color: @background-color-neutral-subtle;
 
 	@media screen and ( max-width: @min-width-breakpoint-tablet ) {
-		margin-top: 1em;
-		padding: 0.5em;
+		margin-top: @spacing-100;
+		padding: @spacing-50;
 		background: none;
 		background-color: @background-color-neutral-subtle;
 	}
