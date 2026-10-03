@@ -23,37 +23,39 @@ class SpecialCampaigns extends SpecialPage {
 	public function execute( $subPage ) {
 		$request = $this->getRequest();
 
-		$start = $request->getIntOrNull( 'start' );
+		// Name of the first campaign to list, for pagination
+		$start = $request->getVal( 'start' );
 
 		$limit = 50;
 
 		$cond = [ 'campaign_enabled' => 1 ];
 
 		if ( $start !== null ) {
-			$cond[] = $this->dbr->expr( 'campaign_id', '>', $start );
+			$cond[] = $this->dbr->expr( 'campaign_name', '>=', $start );
 		}
 
 		$res = $this->dbr->newSelectQueryBuilder()
-			->select( [ 'campaign_id', 'campaign_name' ] )
+			->select( [ 'campaign_name' ] )
 			->from( 'uw_campaigns' )
 			->where( $cond )
+			->orderBy( 'campaign_name' )
 			->limit( $limit + 1 )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 
 		$this->getOutput()->setPageTitleMsg( $this->msg( 'mwe-upload-campaigns-list-title' ) );
 		$this->getOutput()->addModuleStyles( [ 'ext.uploadWizard.uploadCampaign.display' ] );
-		$this->getOutput()->addHTML( '<dl>' );
+		$this->getOutput()->addHTML( '<ul>' );
 
 		$curCount = 0;
-		$lastId = null;
+		$nextName = null;
 
 		foreach ( $res as $row ) {
 			$curCount++;
 
 			if ( $curCount > $limit ) {
-				// We've an extra element. Paginate!
-				$lastId = $row->campaign_id;
+				// We've an extra element, the first one of the next page. Paginate!
+				$nextName = $row->campaign_name;
 				break;
 			} else {
 				$campaign = Campaign::newFromName( $row->campaign_name );
@@ -63,31 +65,35 @@ class SpecialCampaigns extends SpecialPage {
 				$this->getOutput()->addHTML( $this->getHtmlForCampaign( $campaign ) );
 			}
 		}
-		$this->getOutput()->addHTML( '</dl>' );
+		$this->getOutput()->addHTML( '</ul>' );
 
 		// Pagination links!
-		if ( $lastId !== null ) {
-			$this->getOutput()->addHTML( $this->getHtmlForPagination( $lastId ) );
+		if ( $nextName !== null ) {
+			$this->getOutput()->addHTML( $this->getHtmlForPagination( $nextName ) );
 		}
 	}
 
 	private function getHtmlForCampaign( Campaign $campaign ): string {
 		$config = $campaign->getParsedConfig();
-		$campaignURL = $campaign->getTitle()->getLocalURL();
-		$campaignTitle = $config['title'] ?? htmlspecialchars( $campaign->getName() );
-		$campaignDescription = $config['description'] ?? '';
-		return Html::rawElement( 'dt', [],
-				Html::rawElement( 'a', [ 'href' => $campaignURL ], $campaignTitle )
-			) . Html::rawElement( 'dd', [], $campaignDescription );
+		// The campaign name, as used in ?campaign=, followed by its title if any
+		$html = $this->getLinkRenderer()->makeKnownLink(
+			$campaign->getTitle(),
+			$campaign->getTitle()->getText()
+		);
+		if ( ( $config['title'] ?? '' ) !== '' ) {
+			$html .= $this->msg( 'colon-separator' )->escaped() . $config['title'];
+		}
+
+		return Html::rawElement( 'li', [], $html );
 	}
 
 	/**
-	 * @param int $firstId
+	 * @param string $firstName Name of the first campaign on the next page
 	 *
 	 * @return string
 	 */
-	private function getHtmlForPagination( $firstId ) {
-		$nextHref = $this->getPageTitle()->getLocalURL( [ 'start' => $firstId ] );
+	private function getHtmlForPagination( string $firstName ) {
+		$nextHref = $this->getPageTitle()->getLocalURL( [ 'start' => $firstName ] );
 		return Html::rawElement( 'div',
 			[ 'id' => 'mwe-upload-campaigns-pagination' ],
 			Html::element( 'a',
