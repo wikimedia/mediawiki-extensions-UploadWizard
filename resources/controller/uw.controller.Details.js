@@ -393,6 +393,13 @@
 		if ( this.config.copyMetadataFeature ) {
 			this.addCopyMetadataFeature();
 		}
+
+		// The error summary doesn't notice errors going away together with their
+		// upload, which would leave the publish button hidden; re-validate instead.
+		// This also clears duplicate title errors if the duplicate was removed.
+		if ( this.ui.hasErrorSummary() ) {
+			this.validate( true ).always( () => this.ui.updateErrorSummary( false ) );
+		}
 	};
 
 }( mw.uploadWizard ) );

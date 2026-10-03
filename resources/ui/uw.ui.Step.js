@@ -140,7 +140,17 @@
 		this.nextButton.$element.show();
 	};
 
-	uw.ui.Step.prototype.updateErrorSummary = function () {
+	/**
+	 * @return {boolean} Whether an error or warning summary is shown
+	 */
+	uw.ui.Step.prototype.hasErrorSummary = function () {
+		return this.$errorCount.children().length > 0;
+	};
+
+	/**
+	 * @param {boolean} [scroll=true] Whether to scroll to the first error or warning
+	 */
+	uw.ui.Step.prototype.updateErrorSummary = function ( scroll ) {
 		// eslint-disable-next-line no-jquery/no-sizzle
 		const getElements = ( kind ) => this.$div.find( '.mwe-upwiz-fieldLayout-' + kind ).filter( ':visible' );
 		const uploadCount = ( this.uploads || [] ).length;
@@ -216,7 +226,9 @@
 					}
 				} );
 
-				scrollToFirst( $elements );
+				if ( scroll !== false ) {
+					scrollToFirst( $elements );
+				}
 			}
 
 			return $elements.length;

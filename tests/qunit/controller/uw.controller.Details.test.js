@@ -497,6 +497,44 @@
 		assert.strictEqual( stubs.acquire.callCount, 1, 'acquireCaptchaToken called' );
 	} );
 
+	function createRemoveTestStep( sandbox, hasErrorSummary ) {
+		const step = new uw.controller.Details(
+			new mw.Api(),
+			{ maxSimultaneousConnections: 1 }
+		);
+		const uploads = [ 1, 2 ].map( () => ( {
+			remove: sandbox.stub(),
+			details: { $div: $( '<div>' ) }
+		} ) );
+		step.uploads = uploads.slice();
+
+		sandbox.stub( step.ui, 'hasErrorSummary' ).returns( hasErrorSummary );
+		const validate = sandbox.stub( step, 'validate' )
+			.returns( $.Deferred().reject().promise() );
+		const updateErrorSummary = sandbox.stub( step.ui, 'updateErrorSummary' );
+
+		return { step, uploads, validate, updateErrorSummary };
+	}
+
+	QUnit.test( 'removeUpload re-validates when an error summary is shown', function ( assert ) {
+		const { step, uploads, validate, updateErrorSummary } = createRemoveTestStep( this.sandbox, true );
+
+		step.removeUpload( uploads[ 0 ] );
+
+		assert.deepEqual( step.uploads, [ uploads[ 1 ] ], 'upload is removed' );
+		assert.true( validate.calledOnceWith( true ), 'remaining uploads are validated thoroughly' );
+		assert.true( updateErrorSummary.calledOnceWith( false ), 'error summary is updated without scrolling' );
+	} );
+
+	QUnit.test( 'removeUpload does not validate when no error summary is shown', function ( assert ) {
+		const { step, uploads, validate, updateErrorSummary } = createRemoveTestStep( this.sandbox, false );
+
+		step.removeUpload( uploads[ 0 ] );
+
+		assert.true( validate.notCalled );
+		assert.true( updateErrorSummary.notCalled );
+	} );
+
 	function createSubmitTestStep( sandbox, opts ) {
 		mw.UploadWizard.config.publishCaptchaRequired = opts.publishCaptchaRequired;
 		mw.UploadWizard.config.publishCaptchaType = opts.publishCaptchaType;
