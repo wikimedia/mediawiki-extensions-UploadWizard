@@ -248,7 +248,9 @@
 			$ul.append( $( '<li>' ).append( $a ) );
 		}
 
-		if ( allDuplicates.length > 1 ) {
+		// allDuplicates is an object, count its keys (T244406)
+		const count = Object.keys( allDuplicates ).length + unknownAmount;
+		if ( count > 1 ) {
 			$ul.makeCollapsible( { collapsed: true } );
 		}
 
@@ -264,7 +266,7 @@
 			override.$element.appendTo( $extra );
 		}
 
-		this.setError( code, mw.message( 'file-exists-duplicate', allDuplicates.length ).parse(), $extra );
+		this.setError( code, mw.message( 'file-exists-duplicate', count ).parse(), $extra );
 	};
 
 	/**
