@@ -138,4 +138,46 @@
 		} );
 	} );
 
+	QUnit.test( 'updateMenuItems with categories without members', ( assert ) => {
+		// T429154: categories without members have no categoryinfo
+		const done = assert.async();
+		const menuItems = [];
+		const widget = createMockWidget( menuItems );
+		const results = $.Deferred().resolve( [
+			{ title: 'Category:Charité', categoryinfo: { subcats: 5 } },
+			{ title: 'Category:Charites' }
+		] ).promise();
+
+		uw.CategoriesDetailsWidget.prototype.updateMenuItems.call( widget, results, 'Charite' );
+
+		results.then( () => {
+			assert.deepEqual(
+				menuItems.map( ( item ) => item.getData().title ),
+				[ 'Category:Charité', 'Category:Charites' ],
+				'All categories are listed'
+			);
+			done();
+		} );
+	} );
+
+	QUnit.test( 'searchCategories keeps the order of the search results', async ( assert ) => {
+		const widget = createMockWidget( [] );
+		widget.cacheSearch = {};
+		widget.api = {
+			abort: function () {},
+			get: () => $.Deferred().resolve( { query: { pages: [
+				{ title: 'Category:C', index: 3 },
+				{ title: 'Category:A', index: 1 },
+				{ title: 'Category:B', index: 2 }
+			] } } ).promise()
+		};
+
+		const results = await uw.CategoriesDetailsWidget.prototype.searchCategories.call( widget, 'X' );
+
+		assert.deepEqual(
+			results.map( ( page ) => page.title ),
+			[ 'Category:A', 'Category:B', 'Category:C' ]
+		);
+	} );
+
 }( mw.uploadWizard ) );

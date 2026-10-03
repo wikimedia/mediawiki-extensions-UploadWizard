@@ -142,8 +142,9 @@
 									// will not navigate to its subcategories, but select it instead)
 									text = $( '<span>' ).addClass( 'mwe-upwiz-categories-category-title' ).text( title.getMainText() )[ 0 ].outerHTML;
 									text = mw.message( 'mwe-upwiz-categories-current', text ).text();
-								} else if ( menuData.categoryinfo.subcats > 0 ) {
-									// indicate that the category has subcategories
+								} else if ( menuData.categoryinfo && menuData.categoryinfo.subcats > 0 ) {
+									// indicate that the category has subcategories (categories without
+									// members, e.g. Category:Charites, have no categoryinfo; T429154)
 									menuData.handler = () => this.updateMenuItems(
 										this.getSubCategories( title.getMainText() ).then( ( subcategories ) => {
 											const navigation = [
@@ -255,7 +256,7 @@
 			prop: 'categoryinfo'
 		} )
 			.then( ( res ) => Object.values( res && res.query && res.query.pages || {} )
-				.sort( ( a, b ) => a.index > b.index )
+				.sort( ( a, b ) => a.index - b.index )
 			)
 			.fail( () => delete this.cacheSearch[ cacheKey ] );
 
