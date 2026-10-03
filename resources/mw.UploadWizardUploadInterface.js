@@ -68,8 +68,10 @@
 				.append( this.$imagePicker );
 		}
 
-		this.$visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
-			.append( this.removeCtrl.$element );
+		// A container of their own makes OOUI align the first button with the text above
+		this.$visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' ).append(
+			$( '<div>' ).addClass( 'mwe-upwiz-file-actions' ).append( this.removeCtrl.$element )
+		);
 
 		this.$form = $( '<form>' )
 			.addClass( 'mwe-upwiz-form' )

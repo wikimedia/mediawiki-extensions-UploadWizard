@@ -211,7 +211,9 @@
 			this.$addFileContainer.add( this.$buttons ).show();
 
 			if ( this.isFlickrImportEnabled() ) {
-				this.$uploadCenterDivide.hide();
+				// Show the Flickr button inside the "Add more files" box
+				this.addFile.$element.append( this.addFlickrFile.$element );
+				this.$flickrAddFileContainer.hide();
 			}
 
 			// fix the rounded corners on file elements.
@@ -233,7 +235,7 @@
 			this.showNoticeForImageMetadata( false );
 
 			if ( this.isFlickrImportEnabled() ) {
-				this.$uploadCenterDivide.show();
+				this.$flickrAddFileContainer.append( this.addFlickrFile.$element ).show();
 			}
 		}
 
@@ -393,7 +395,8 @@
 					)
 			);
 
-			this.$buttons.append( this.$progress );
+			// Above the buttons, hidden by visibility when done, so that the buttons don't move
+			this.$buttons.prepend( this.$progress );
 		} );
 	};
 

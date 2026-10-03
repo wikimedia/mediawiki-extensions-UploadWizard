@@ -16,11 +16,12 @@
 		this.$selector.empty().append(
 			$( '<div>' ).addClass( 'mwe-upwiz-progress-inner' ).append(
 				$( '<div>' ).addClass( 'mwe-upwiz-progress-bar-etr-container' ).append(
-					$( '<div>' ).addClass( 'mwe-upwiz-progress-bar-etr' ).hide().append(
-						$( '<div>' ).addClass( 'mwe-upwiz-etr' )
-					)
+					$( '<div>' ).addClass( 'mwe-upwiz-progress-bar-etr mwe-upwiz-progress-hidden' )
 				),
-				$( '<div>' ).addClass( 'mwe-upwiz-count' )
+				$( '<div>' ).addClass( 'mwe-upwiz-progress-status' ).append(
+					$( '<div>' ).addClass( 'mwe-upwiz-count' ),
+					$( '<div>' ).addClass( 'mwe-upwiz-etr' )
+				)
 			)
 		);
 
@@ -46,9 +47,7 @@
 		 * Show the progress bar
 		 */
 		showBar: function () {
-			// FIXME: Use CSS transition
-			// eslint-disable-next-line no-jquery/no-fade
-			this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeIn( 200 );
+			this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).removeClass( 'mwe-upwiz-progress-hidden' );
 		},
 
 		/**
@@ -110,12 +109,11 @@
 		},
 
 		/**
-		 * Hide the progress bar with a slideup motion
+		 * Hide the progress bar and the count, which would only repeat the result
+		 * shown next to the buttons
 		 */
 		hideBar: function () {
-			// FIXME: Use CSS transition
-			// eslint-disable-next-line no-jquery/no-fade
-			this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeOut( 200 );
+			this.$selector.find( '.mwe-upwiz-progress-bar-etr, .mwe-upwiz-progress-status' ).addClass( 'mwe-upwiz-progress-hidden' );
 		},
 
 		/**

@@ -6,8 +6,8 @@
 
 .mwe-upwiz-add-files-0,
 #mwe-upwiz-files {
-	margin-top: 3em;
-	margin-bottom: 1em;
+	margin-top: @spacing-200;
+	margin-bottom: @spacing-100;
 
 	@media screen and ( max-width: @min-width-breakpoint-tablet ) {
 		.mwe-upwiz-add-files-0,
@@ -42,14 +42,22 @@
 
 #mwe-upwiz-add-file-container:not( .mwe-upwiz-add-files-0 ) {
 	.mwe-upwiz-add-file {
-		display: inline-block;
-		width: auto;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		max-width: none;
 		height: auto;
 
 		&.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-selectButton,
 		&.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-enabled .oo-ui-selectFileWidget-dropLabel {
 			display: inline-block;
-			margin: 0.5em;
+			margin: @spacing-50;
+		}
+
+		/* At the very right, or on a line of its own on narrow screens */
+		#mwe-upwiz-add-flickr-file {
+			margin: @spacing-50 @spacing-50 @spacing-50 auto;
 		}
 	}
 }
@@ -66,15 +74,11 @@
 
 .mwe-upwiz-file-indicator {
 	float: right;
-	padding: 1.5em 1.5em 0 0;
+	padding: @spacing-100 @spacing-100 0 0;
 
 	.oo-ui-messageWidget {
 		width: 20px;
 	}
-}
-
-.mwe-upwiz-count {
-	padding: 0.5em;
 }
 
 .mwe-upwiz-visible-file {
@@ -93,29 +97,26 @@
 	}
 }
 
-#mwe-upwiz-files {
-	max-width: 650px;
-	margin: auto;
-}
-
 .mwe-upwiz-file.filled .mwe-upwiz-visible-file {
 	display: block;
 }
 
 .mwe-upwiz-visible-file-filename {
-	padding: 1.5em;
-	margin-right: 40px;
+	padding: @spacing-100;
+	margin-right: @spacing-250;
 	overflow: hidden;
 }
 
-#mwe-upwiz-filelist {
-	/* We rely on the margin collapsing with that on #mwe-upwiz-files */
-	margin-top: 3em;
+#mwe-upwiz-filelist.mwe-upwiz-filled-filelist {
+	border: @border-width-base @border-style-base @border-color-subtle;
+	border-radius: @border-radius-base;
+	/* Clip the hover background of the files to the rounded corners */
+	overflow: hidden;
 }
 
 .mwe-upwiz-file-license,
 .mwe-upwiz-file-status {
-	margin-top: 0.5em;
+	margin-top: @spacing-50;
 }
 
 .mwe-upwiz-file-status {
@@ -137,7 +138,7 @@
 	 */
 	min-height: 38px;
 	max-height: 120px;
-	margin-right: 1.5em;
+	margin-right: @spacing-100;
 	text-align: center;
 	/* @embed */
 	background: url( ../../images/32px-Blank-document.svg.png ) no-repeat center center;
@@ -159,9 +160,44 @@
 	float: left;
 }
 
-#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n,
-.mwe-upwiz-progress-bar-etr {
+#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n {
 	width: 300px;
+}
+
+/* Progress bar above the buttons, followed by the count and the remaining time */
+.mwe-upwiz-progress-inner {
+	display: flex;
+	align-items: center;
+	gap: @spacing-75;
+	margin-bottom: @spacing-75;
+	text-align: left;
+}
+
+.mwe-upwiz-progress-status {
+	display: flex;
+	flex-wrap: wrap;
+	gap: @spacing-50;
+}
+
+.mwe-upwiz-etr:not( :empty )::before {
+	content: '·';
+	margin-right: @spacing-50;
+}
+
+.mwe-upwiz-progress-bar-etr-container {
+	flex: 1;
+}
+
+.mwe-upwiz-progress-bar-etr,
+.mwe-upwiz-progress-status {
+	transition-property: @transition-property-fade, visibility;
+	transition-duration: @transition-duration-medium;
+	transition-timing-function: @transition-timing-function-system;
+}
+
+.mwe-upwiz-progress-hidden {
+	visibility: hidden;
+	opacity: @opacity-transparent;
 }
 
 /* Flickr Interface CSS */
@@ -211,5 +247,5 @@
 }
 
 #mwe-upwiz-upload-ctrls {
-	margin-top: 1em;
+	margin-top: @spacing-100;
 }

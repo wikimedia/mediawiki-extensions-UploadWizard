@@ -71,14 +71,6 @@ form.mwe-upwiz-form {
 	margin-top: 15px;
 }
 
-.mwe-upwiz-progress-bar-etr {
-	float: left;
-}
-
-.mwe-upwiz-etr {
-	text-align: center;
-}
-
 .mwe-upwiz-thumbnail {
 	background-color: @background-color-base;
 	text-align: center;
@@ -114,6 +106,11 @@ form.mwe-upwiz-form {
 .mwe-upwiz-buttons {
 	margin-top: 1em;
 	text-align: right;
+
+	// OOUI's HorizontalLayout uses flexbox, which ignores text-align
+	.oo-ui-horizontalLayout {
+		justify-content: flex-end;
+	}
 }
 
 .mwe-upwiz-button-previous {
@@ -194,7 +191,7 @@ a.mwe-upwiz-tooltip-link {
 }
 
 .mwe-upwiz-metadata-notice {
-	margin-top: 2em;
+	margin-top: @spacing-100;
 }
 
 .mwe-upwiz-license-metadata {
@@ -219,7 +216,11 @@ a.mwe-upwiz-tooltip-link {
 	text-align: initial;
 	display: flex;
 	justify-content: end;
-	padding: 1em 0;
+	padding: @spacing-100 0;
+
+	&:empty {
+		display: none;
+	}
 }
 
 // wrap buttons to prevent ones with really long text (as is often the
