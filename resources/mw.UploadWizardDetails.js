@@ -1161,7 +1161,7 @@
 			wikiText += deed.getTemplateOptionsWikiText() + '\n\n';
 
 			// categories
-			wikiText += '\n' + this.categoriesDetails.getWikiText();
+			wikiText += '\n' + this.categoriesDetails.getWikiText( this.otherDetails.getWikiText() );
 
 			// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
 			if ( typeof window.TextCleaner !== 'undefined' && typeof window.TextCleaner.sanitizeWikiText === 'function' ) {

@@ -24,7 +24,10 @@
 				14: 'Category'
 			},
 			wgNamespaceIds: {
-				category: 14
+				category: 14,
+				kategorie: 14,
+				// eslint-disable-next-line camelcase
+				catégorie_test: 14
 			}
 		},
 		messages: {
@@ -178,6 +181,30 @@
 			results.map( ( page ) => page.title ),
 			[ 'Category:A', 'Category:B', 'Category:C' ]
 		);
+	} );
+
+	QUnit.test.each( 'getWikiText with missingCategoriesWikiText', {
+		'no categories': [ [], undefined, '\n\n{{Uncategorized}}' ],
+		categories: [ [ 'Foo' ], undefined, '[[Category:Foo]]' ],
+		'categories in other wikitext': [ [], 'Bar\n[[Category:Foo|sort key]]', '' ],
+		'lowercase category in other wikitext': [ [], '[[ category :Foo]]', '' ],
+		'category alias in other wikitext': [ [], '[[KATEGORIE:Foo]]', '' ],
+		'category alias with space in other wikitext': [ [], '[[Catégorie test:Foo]]', '' ],
+		'category talk link in other wikitext': [ [], '[[Category talk:Foo]]', '\n\n{{Uncategorized}}' ],
+		'category link in other wikitext': [ [], '[[:Category:Foo]]', '\n\n{{Uncategorized}}' ],
+		'only links in other wikitext': [ [], '[[Foo]] [[File:Foo.jpg]]', '\n\n{{Uncategorized}}' ]
+	}, ( assert, [ categories, otherWikiText, expected ] ) => {
+		const oldConfig = mw.UploadWizard.config;
+		mw.UploadWizard.config = { autoAdd: {}, missingCategoriesWikiText: '{{Uncategorized}}' };
+		const widget = {
+			getItems: () => categories.map( ( category ) => ( { data: category } ) )
+		};
+
+		assert.strictEqual(
+			uw.CategoriesDetailsWidget.prototype.getWikiText.call( widget, otherWikiText ),
+			expected
+		);
+		mw.UploadWizard.config = oldConfig;
 	} );
 
 }( mw.uploadWizard ) );

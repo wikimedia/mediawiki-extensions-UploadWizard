@@ -413,7 +413,12 @@
 		return status.resolve();
 	};
 
-	uw.CategoriesDetailsWidget.prototype.getWikiText = function () {
+	/**
+	 * @param {string} [otherWikiText] Other wikitext entered by the user, which may contain
+	 *  categories too
+	 * @return {string}
+	 */
+	uw.CategoriesDetailsWidget.prototype.getWikiText = function ( otherWikiText ) {
 		let hiddenCats = [];
 		if ( mw.UploadWizard.config.autoAdd.categories ) {
 			hiddenCats = hiddenCats.concat( mw.UploadWizard.config.autoAdd.categories );
@@ -444,8 +449,15 @@
 			.map( ( cat ) => '[[' + mw.Title.makeTitle( NS_CATEGORY, cat ).getPrefixedText() + ']]' )
 			.join( '\n' );
 
+		// Categories the user entered as wikitext, e.g. in "Other information"
+		const categoryNamespaceNames = Object.keys( mw.config.get( 'wgNamespaceIds' ) )
+			.filter( ( name ) => mw.config.get( 'wgNamespaceIds' )[ name ] === NS_CATEGORY )
+			.map( ( name ) => mw.util.escapeRegExp( name ).replace( /_/g, '[ _]+' ) );
+		const hasOtherCategories = new RegExp( '\\[\\[\\s*(?:' + categoryNamespaceNames.join( '|' ) + ')\\s*:', 'i' )
+			.test( otherWikiText || '' );
+
 		// if so configured, and there are no user-visible categories, add warning
-		if ( missingCatsWikiText !== null && categories.length === 0 ) {
+		if ( missingCatsWikiText !== null && categories.length === 0 && !hasOtherCategories ) {
 			wikiText += '\n\n' + missingCatsWikiText;
 		}
 
