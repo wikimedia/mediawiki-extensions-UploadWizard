@@ -239,6 +239,7 @@
 		// This must match the CSS dimensions of .mwe-upwiz-file-preview
 		this.upload.getThumbnail( 120, 120 ).then( ( thumb ) => {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
+			mw.UploadWizard.linkThumbnailToFullSize( $preview, this.upload );
 			deferred.resolve();
 		} );
 		return deferred.promise();

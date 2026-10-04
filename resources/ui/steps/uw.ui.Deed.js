@@ -85,6 +85,7 @@
 				// This must match the CSS dimensions of .mwe-upwiz-thumbnail
 				upload.getThumbnail( 120, 120 ).then( ( thumb ) => {
 					mw.UploadWizard.placeThumbnail( $element, thumb );
+					mw.UploadWizard.linkThumbnailToFullSize( $element, upload );
 				} );
 
 				this.$thumbsContainer.append( $element );
@@ -107,6 +108,7 @@
 				if ( !upload.file.fromURL ) {
 					upload.getThumbnail( 150, 150 ).then( ( thumb ) => {
 						mw.UploadWizard.placeThumbnail( $element, thumb );
+						mw.UploadWizard.linkThumbnailToFullSize( $element, upload );
 					} );
 
 					$thumbContainer.append( $element );

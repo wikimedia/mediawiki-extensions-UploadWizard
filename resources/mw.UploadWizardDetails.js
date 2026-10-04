@@ -735,6 +735,7 @@
 			// This must match the CSS dimensions of .mwe-upwiz-thumbnail
 			this.upload.getThumbnail( 230 ).then( ( thumb ) => {
 				mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
+				mw.UploadWizard.linkThumbnailToFullSize( $thumbnailDiv, this.upload );
 			} );
 			this.prefillDate();
 			this.prefillTitle();

@@ -202,4 +202,26 @@
 			);
 	};
 
+	/**
+	 * Helper method to let the user check the file of a thumbnail in full size,
+	 * e.g. zoomed in by the browser.
+	 *
+	 * @param {jQuery} $thumbnailDiv Element the thumbnail was placed in
+	 * @param {mw.UploadWizardUpload} upload
+	 */
+	mw.UploadWizard.linkThumbnailToFullSize = function ( $thumbnailDiv, upload ) {
+		$thumbnailDiv.find( '.mwe-upwiz-thumbnail-link' )
+			.attr( {
+				href: '',
+				title: mw.message( 'mwe-upwiz-thumbnail-full-size' ).text()
+			} )
+			.on( 'click', ( e ) => {
+				e.preventDefault();
+				// Only create an object URL when the user wants to see the file
+				window.open( upload.file.fromURL ?
+					upload.file.url :
+					upload.URL().createObjectURL( upload.file ), '_blank' );
+			} );
+	};
+
 }( mw.uploadWizard ) );
