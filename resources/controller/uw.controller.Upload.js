@@ -238,8 +238,13 @@
 	uw.controller.Upload.prototype.addFiles = function ( files ) {
 		const uploadObjs = [];
 
-		for ( let i = 0; i < files.length; i++ ) {
-			const file = files[ i ];
+		// The order depends on the browser and how the files were selected, so sort them by name,
+		// numerically, e.g. IMG_2.jpg before IMG_10.jpg
+		const sortedFiles = Array.from( files ).sort(
+			( a, b ) => a.name.localeCompare( b.name, undefined, { numeric: true } )
+		);
+
+		for ( const file of sortedFiles ) {
 			const uploadObj = this.addFile( file );
 			if ( uploadObj ) {
 				uploadObjs.push( uploadObj );

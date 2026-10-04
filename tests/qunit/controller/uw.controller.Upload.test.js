@@ -49,6 +49,22 @@
 		assert.true( ufcStub.calledWith( true, false ) );
 	} );
 
+	QUnit.test( 'addFiles sorts the files by name', function ( assert ) {
+		const step = new uw.controller.Upload( new mw.Api(), {
+			maxUploads: 10,
+			maxSimultaneousConnections: 3
+		} );
+		const addFile = this.sandbox.stub( step, 'addFile' ).callsFake( ( file ) => file.name );
+		const displayUploads = this.sandbox.stub( step.ui, 'displayUploads' );
+		this.sandbox.stub( step, 'updateFileCounts' );
+
+		step.addFiles( [ { name: 'IMG_10.jpg' }, { name: 'b.jpg' }, { name: 'IMG_2.jpg' }, { name: 'a.jpg' } ] );
+
+		const expected = [ 'a.jpg', 'b.jpg', 'IMG_2.jpg', 'IMG_10.jpg' ];
+		assert.deepEqual( addFile.args.map( ( args ) => args[ 0 ].name ), expected, 'files added in order' );
+		assert.deepEqual( displayUploads.firstCall.args[ 0 ], expected, 'uploads displayed in order' );
+	} );
+
 	QUnit.test( 'canTransition', ( assert ) => {
 		const upload = {},
 			step = new uw.controller.Upload( new mw.Api(), {
