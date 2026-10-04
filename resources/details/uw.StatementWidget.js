@@ -31,7 +31,6 @@
 			hideSnakTypeWidget: true,
 			$overlay: true,
 			icon: '',
-			label: '',
 			placeholder: this.placeholder
 		} );
 		this.input.$element.addClass( 'mwe-upwiz-statement-input' );
