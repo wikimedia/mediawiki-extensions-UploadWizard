@@ -192,6 +192,7 @@
 			assert.strictEqual( params.title, 'File:Bar.jpg' );
 			assert.strictEqual( params.text, 'some wikitext' );
 			assert.true( params.pst, 'pre-save transform applied' );
+			assert.strictEqual( params.prop, 'text|categorieshtml|modules|jsconfigvars', 'jsconfigvars avoids moduleswithoutvars warning' );
 
 			assert.strictEqual( $content.find( '.mw-parser-output' ).length, 1, 'parser output included' );
 			assert.strictEqual( $content.find( '.catlinks' ).length, 1, 'category links included' );

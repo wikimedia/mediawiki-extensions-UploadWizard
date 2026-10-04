@@ -1195,7 +1195,7 @@
 				formatversion: 2,
 				title: title ? title.getPrefixedText() : 'File:UploadWizard preview',
 				text: this.getWikiText(),
-				prop: 'text|categorieshtml|modules',
+				prop: 'text|categorieshtml|modules|jsconfigvars',
 				pst: true,
 				preview: true,
 				disableeditsection: true
