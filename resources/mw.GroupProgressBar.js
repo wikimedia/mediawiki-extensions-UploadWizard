@@ -71,9 +71,6 @@
 				} );
 
 				this.uploads.forEach( ( upload ) => {
-					if ( upload.state === 'aborted' ) {
-						return;
-					}
 					if ( this.successStates.includes( upload.state ) ) {
 						successStateCount++;
 					}
@@ -99,7 +96,7 @@
 				}
 				this.showCount( successStateCount );
 
-				if ( successStateCount + errorStateCount < this.uploads.length - this.countRemoved() ) {
+				if ( successStateCount + errorStateCount < this.uploads.length ) {
 					setTimeout( displayer, 200 );
 				} else {
 					this.showProgress( 1.0 );
@@ -183,23 +180,13 @@
 		 */
 		showCount: function ( completed ) {
 			const formattedCompleted = mw.language.convertNumber( completed );
-			const total = this.uploads.length - this.countRemoved();
+			const total = this.uploads.length;
 			const formattedTotal = mw.language.convertNumber( total );
 			this.$selector
 				.find( '.mwe-upwiz-count' )
 				// Hide if there are no uploads, show otherwise
 				.toggle( total !== 0 )
 				.text( mw.msg( 'mwe-upwiz-upload-count', formattedCompleted, formattedTotal ) );
-		},
-
-		countRemoved: function () {
-			let count = 0;
-			this.uploads.forEach( ( upload ) => {
-				if ( !upload || upload.state === 'aborted' ) {
-					count += 1;
-				}
-			} );
-			return count;
 		}
 	};
 }() );
