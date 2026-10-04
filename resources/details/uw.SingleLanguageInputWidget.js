@@ -125,9 +125,18 @@
 			return this.defaultLanguage;
 		}
 
-		let defaultLanguage = this.getClosestAllowedLanguage( mw.config.get( 'wgUserLanguage' ), null ) ||
-			this.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ), null ) ||
-			this.getClosestAllowedLanguage( 'en', null ) ||
+		const candidates = [ mw.config.get( 'wgUserLanguage' ), mw.config.get( 'wgContentLanguage' ) ];
+		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
+			// Browser languages, previously selected languages and languages spoken
+			// in the user's territory, so that additional inputs don't default to
+			// whatever language comes first, e.g. Abkhazian (T430150)
+			candidates.push( ...mw.uls.getFrequentLanguageList() );
+		}
+		candidates.push( 'en' );
+
+		let defaultLanguage = candidates
+			.map( ( code ) => this.getClosestAllowedLanguage( code, null ) )
+			.find( Boolean ) ||
 			Object.keys( this.config.languages )[ 0 ];
 
 		// Logic copied from MediaWiki:UploadForm.js

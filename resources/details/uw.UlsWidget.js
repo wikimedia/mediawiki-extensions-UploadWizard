@@ -50,10 +50,13 @@
 
 		this.uls = this.$element.uls( {
 			onSelect: function ( language ) {
+				// Remember the language, to suggest it and use it by default next time
+				mw.uls.addPreviousLanguage( language );
 				ulsWidget.setValue( language );
 				ulsWidget.$element.parent().find( '.oo-ui-inputWidget-input' ).trigger( 'focus' );
 			},
 			languages: languages,
+			quickList: () => mw.uls.getFrequentLanguageList().filter( ( l ) => l in languages ),
 			ulsPurpose: 'upload-wizard-description',
 			onVisible: function () {
 				// Re-position the ULS *after* the widget has been rendered, so that we can be
