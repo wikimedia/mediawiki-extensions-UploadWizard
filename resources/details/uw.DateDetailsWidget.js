@@ -45,19 +45,24 @@
 			this.emit( 'change', value );
 		}, 500 ) );
 
-		this.$element
-			.addClass( 'mwe-upwiz-dateDetailsWidget' )
-			.append(
-				this.calendarButtonWidget.$element,
-				$( '<div>' )
-					.addClass( 'mw-widget-dateInputWidget' )
-					.addClass( 'mwe-upwiz-dateDetailsWidget-date' )
-					.append(
-						this.dateInputWidget.$element,
+		this.horizontalLayout = new OO.ui.HorizontalLayout( {
+			items: [
+				this.calendarButtonWidget,
+				// Keep the calendar with the input, so that it opens below the input
+				new OO.ui.Widget( {
+					classes: [ 'mwe-upwiz-dateDetailsWidget-date' ],
+					content: [
+						this.dateInputWidget,
 						this.calendar.$element
 							.addClass( 'mw-widget-dateInputWidget-calendar' )
-					)
-			);
+					]
+				} )
+			]
+		} );
+
+		this.$element
+			.addClass( 'mwe-upwiz-dateDetailsWidget' )
+			.append( this.horizontalLayout.$element );
 	};
 	OO.inheritClass( uw.DateDetailsWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.StatementWidget, uw.ValidatableElement );
