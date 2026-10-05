@@ -323,17 +323,19 @@ label:has( .mwe-upwiz-license-custom ),
 }
 
 .mwe-upwiz-source-multiple {
-	display: flex;
-	flex-direction: row;
 	padding-bottom: @spacing-100;
 	border-bottom: @border-width-base @border-style-base @border-color-base;
 	margin-bottom: @spacing-100;
 
-	label.oo-ui-radioOptionWidget {
-		margin-right: @spacing-300;
+	@media screen and ( min-width: @min-width-breakpoint-tablet ) {
+		display: flex;
+		flex-direction: row;
 
-		// override OOUI style
-		padding: 0;
+		label.oo-ui-radioOptionWidget {
+			margin-right: @spacing-300;
+			// override OOUI style
+			padding: 0;
+		}
 	}
 }
 
