@@ -27,10 +27,8 @@
 	"mwe-upwiz-queued": "En espèra...",
 	"mwe-upwiz-assembling": "En cors d'assemblatge...",
 	"mwe-upwiz-publish": "En cors de publicacion…",
-	"mwe-upwiz-transported": "Cargament acabat...",
 	"mwe-upwiz-stashed-upload": "Cargat",
 	"mwe-upwiz-published": "Publicat !",
-	"mwe-upwiz-failed": "Fracàs.",
 	"mwe-upwiz-remove": "Levar",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<b>Mandar pas {{PLURAL:$1| aqueste fichier|aquestei fichiers}}!</b> {{SITENAME}} autoriza pas l'aubergament de mèdias personals ò privats. Se dobtatz, [[Special:MyLanguage/COM:L|ne’n saber mai sus çò qu'es permés]], o [[Special:MyLanguage/COM:VPC|demandar a de contributors experimentats]] abans de o mandar. Mercés.",
 	"mwe-upwiz-title": "Títol",
@@ -38,14 +36,10 @@
 	"mwe-upwiz-location": "Emplaçament",
 	"mwe-upwiz-location-lat": "Latitud",
 	"mwe-upwiz-location-lon": "Longitud",
-	"mwe-upwiz-location-alt": "Altitud",
 	"mwe-upwiz-location-heading": "Orientation",
-	"mwe-upwiz-ok": "D'acòrdi",
 	"mwe-upwiz-next": "Seguent",
 	"mwe-upwiz-next-file": "Contunhar",
-	"mwe-upwiz-next-deeds": "Seguent",
 	"mwe-upwiz-tooltip-skiptutorial": "Podètz reactivar aqueste didacticial dins [$1  vòstras preferéncias personalas], jos $2 → $3.",
-	"mwe-upwiz-file-need-file": "D'en primièr, apondre un fichièr d'importar.",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Bendèls de licéncia",
 	"mwe-upwiz-license-fal": "Licéncia Art Liura",
 	"mwe-upwiz-license-gfdl": "Licéncia de documentacion liura GNU",
@@ -53,6 +47,5 @@
 	"mwe-upwiz-categories": "Categorias",
 	"mwe-upwiz-subhead-alt-upload": "Retorn a l’ancian formulari",
 	"mwe-upwiz-feedback-prompt": "Daissar un comentari",
-	"mwe-upwiz-errordialog-ok": "D'acòrdi",
-	"mwe-upwiz-mv-cta-description": "Commons possedís una [[c:Special:MyLanguage/Commons:Structured_data/Computer-aided_tagging|new tool]] que suggerirà d'etiquetas per leis imatges que mandatz s'avètz pas encara ajustat d'etiquetas. Quand confirmatz d'etiquetas precisas, facilitatz lei recèrcas en totei."
+	"mwe-upwiz-errordialog-ok": "D'acòrdi"
 }

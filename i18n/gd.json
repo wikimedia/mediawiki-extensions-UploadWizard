@@ -14,7 +14,6 @@
 	"group-upwizcampeditors.css": "/* Cha bhi buaidh aig an CSS a chuireas tu an-seo ach air deasaichean airson iomairtean le draoidh luchdaidh suas */",
 	"group-upwizcampeditors.js": "/* Cha dèid an JavaScript a chuireas tu an-seo a luchdadh ach airson deasaichean airson iomairtean le draoidh luchdaidh suas */",
 	"api-error-noimageinfo": "Shoirbhich leis an luchdadh suas, ach cha dug am frithealaiche fiosrachadh sam bith dhuinn mun fhaidhle.",
-	"mwe-upwiz-campaign-name-duplicate": "Tha iomairt air a bheil an t-ainm seo ann mar-thà.",
 	"mwe-upwiz-feedback-title": "Cuir beachd thugainn mun draoidh luchdaidh suas",
 	"mwe-upwiz-error-nosuchcampaign": "Cha eil iomairt air a bheil \"$1\" ann.",
 	"mwe-upwiz-error-campaigndisabled": "Cha deach an iomairt \"$1\" a chur an comas.",

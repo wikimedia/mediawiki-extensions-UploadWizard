@@ -23,11 +23,7 @@
 	"mwe-upwiz-copy-date-label": "ዕለት ፍጥረት",
 	"mwe-upwiz-location-lat": "ማእገር",
 	"mwe-upwiz-location-lon": "ዝንግሪር",
-	"mwe-upwiz-ok": "ሕራይ",
 	"mwe-upwiz-label-optional": "(ኣማራጽያዊ)",
-	"mwe-upwiz-dialog-yes": "እወ",
-	"mwe-upwiz-dialog-no": "ኣይፋል",
-	"mwe-upwiz-dialog-title": "መጠንቀቕታ",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|ኣበርካቲ|ኣበርከትቲ}}",
 	"mwe-upwiz-license-unknown": "ኣይፈልጥን",
 	"mwe-upwiz-license-custom-preview": "ቅድመ ትርኢት",
@@ -35,6 +31,5 @@
 	"prefs-upwiz-licensing": "ፍቓድ",
 	"mwe-upwiz-prefs-license-own": "ናይ ገዛእ ርእስኻ ስራሕ - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "ናይ ካልእ ሰብ ስራሕ - $1",
-	"mwe-upload-campaigns-pagination-next": "ዝቕጽል ገጽ",
-	"mwe-upwiz-mv-cta-dismiss": "ስጎግ"
+	"mwe-upload-campaigns-pagination-next": "ዝቕጽል ገጽ"
 }
