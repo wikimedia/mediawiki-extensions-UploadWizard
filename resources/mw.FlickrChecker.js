@@ -585,7 +585,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 			let sourceURL;
 			photo.urls.url.forEach( ( url ) => {
 				if ( url.type === 'photopage' ) {
-					sourceURL = url._content;
+					sourceURL = url._content.replace( /^http:\/\//, 'https://' );
 					// break each loop
 					return false;
 				}
