@@ -2,6 +2,11 @@
 
 ( function () {
 
+	/**
+	 * Checks for files the browser can preview.
+	 *
+	 * @namespace mw.fileApi
+	 */
 	mw.fileApi = {
 
 		/**

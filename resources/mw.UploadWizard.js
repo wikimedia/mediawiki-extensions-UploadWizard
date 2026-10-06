@@ -1,12 +1,12 @@
 /**
  * Object that represents the entire multi-step Upload Wizard
  *
- * @param uw
+ * @param {Object} uw The `mw.uploadWizard` namespace
  */
 ( function ( uw ) {
 
 	/**
-	 * @param config
+	 * @param {Object} config
 	 * @class
 	 */
 	mw.UploadWizard = function ( config ) {

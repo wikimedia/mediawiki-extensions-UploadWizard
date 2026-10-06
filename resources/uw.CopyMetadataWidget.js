@@ -110,7 +110,7 @@
 	 *
 	 * Object with key: metadata name and value: boolean value indicating default checked status
 	 *
-	 * @property {Object}
+	 * @type {Object}
 	 * @static
 	 */
 	uw.CopyMetadataWidget.static.copyMetadataTypes = {

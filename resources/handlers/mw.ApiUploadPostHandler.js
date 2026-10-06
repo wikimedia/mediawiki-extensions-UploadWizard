@@ -4,6 +4,7 @@
 	 * This is used when there is no actual file payload (eg. Flickr import)
 	 *
 	 * @class
+	 * @extends mw.ApiUploadHandler
 	 * @param {mw.UploadWizardUpload} upload current upload
 	 * @param {mw.Api} api
 	 */
@@ -15,6 +16,9 @@
 
 	OO.inheritClass( mw.ApiUploadPostHandler, mw.ApiUploadHandler );
 
+	/**
+	 * @inheritdoc
+	 */
 	mw.ApiUploadPostHandler.prototype.abort = function () {
 		this.request.abort();
 	};

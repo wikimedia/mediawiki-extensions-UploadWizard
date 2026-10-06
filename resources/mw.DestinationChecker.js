@@ -15,11 +15,8 @@
 		 * Check title for validity.
 		 *
 		 * @param {string} title Title to check
-		 * @return {jQuery.Promise}
-		 * @return {Function} return.done
-		 * @return {string} return.done.title The title that was passed in
-		 * @return {Object|boolean} return.done.blacklist See #checkBlacklist
-		 * @return {Object|boolean} return.done.unique See #checkUnique
+		 * @return {jQuery.Promise<{title: string, blacklist: Object, unique: Object}>} Resolves
+		 *  with the title that was passed in, and the results of #checkBlacklist and #checkUnique
 		 */
 		checkTitle: function ( title ) {
 			return $.when(
@@ -36,12 +33,9 @@
 		 * Async check if a title is in the titleblacklist.
 		 *
 		 * @param {string} title Title to check against the blacklist
-		 * @return {jQuery.Promise}
-		 * @return {Function} return.done
-		 * @return {boolean} return.done.notBlacklisted
-		 * @return {string} [return.done.blacklistReason] See mw.Api#isBlacklisted
-		 * @return {string} [return.done.blacklistMessage] See mw.Api#isBlacklisted
-		 * @return {string} [return.done.blacklistLine] See mw.Api#isBlacklisted
+		 * @return {jQuery.Promise<{notBlacklisted: boolean, blacklistReason: (string|undefined),
+		 *  blacklistMessage: (string|undefined), blacklistLine: (string|undefined)}>} Resolves with
+		 *  the result of mw.Api#isBlacklisted
 		 */
 		checkBlacklist: function ( title ) {
 			/**
@@ -82,12 +76,10 @@
 		 * This is a more abstract version of AddMedia/UploadHandler.js::doDestCheck
 		 *
 		 * @param {string} title Title to check for uniqueness
-		 * @return {jQuery.Promise}
-		 * @return {Function} return.done
-		 * @return {boolean} return.done.isUnique
-		 * @return {boolean} [return.done.isProtected]
-		 * @return {Object} [return.done.img] Image info
-		 * @return {string} [return.done.href] URL to file description page
+		 * @return {jQuery.Promise<{isUnique: boolean, isProtected: (boolean|undefined),
+		 *  img: (Object|null|undefined), href: (string|null|undefined)}>} Resolves with whether the
+		 *  title is unique, whether it is protected, and the image info and URL of the file
+		 *  description page of the conflicting file, if any
 		 */
 		checkUnique: function ( title ) {
 			const NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;

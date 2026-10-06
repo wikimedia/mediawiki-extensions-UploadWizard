@@ -1,8 +1,8 @@
 /* eslint-disable camelcase, no-underscore-dangle */
 
 /**
- * @param ui
- * @param selectButton
+ * @param {Object} ui The Upload step UI (uw.ui.Upload)
+ * @param {OO.ui.ButtonWidget} selectButton
  * @class
  */
 mw.FlickrChecker = function ( ui, selectButton ) {
@@ -181,7 +181,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	/**
 	 * Retrieves a list of photos in photostream and displays it.
 	 *
-	 * @see #getPhotos
+	 * @see mw.FlickrChecker#getPhotos
 	 * @param {string} mode may be: 'favorites' - user's favorites are retrieved,
 	 * or 'stream' - user's photostream is retrieved
 	 * @param {string} url URL to get the user from.
@@ -210,7 +210,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	 *
 	 * @param {Object} groupPoolMatches Groups in the input URL
 	 * @param {string} url The URL from which to get the group.
-	 * @see {@link getPhotos}
+	 * @see mw.FlickrChecker#getPhotos
 	 * @return {jQuery.Promise}
 	 */
 	getGroupPool: function ( groupPoolMatches, url ) {
@@ -244,7 +244,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	 * @param {boolean} appendId True if you want to append
 	 *  id="mwe-upwiz-files-collection-chooser"; false otherwise
 	 * @param {Object} data The retrieved data
-	 * @see {@link getCollection}
+	 * @see mw.FlickrChecker#getCollection
 	 * @return {jQuery}
 	 */
 	buildCollectionLinks: function ( appendId, data ) {
@@ -312,7 +312,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	/**
 	 * Retrieves a list of photos in gallery and displays it.
 	 *
-	 * @see {@link getPhotos}
+	 * @see mw.FlickrChecker#getPhotos
 	 * @param {string} url URL with which to look up the gallery information.
 	 * @return {jQuery.Promise}
 	 */
@@ -329,7 +329,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	/**
 	 * Retrieves a list of photos in photoset and displays it.
 	 *
-	 * @see {@link getPhotos}
+	 * @see mw.FlickrChecker#getPhotos
 	 * @param {Object} albumIdMatches Result of this.url.match
 	 * @return {jQuery.Promise}
 	 */

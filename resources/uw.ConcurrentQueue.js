@@ -33,19 +33,19 @@
 	/**
 	 * A 'progress' event is emitted when one of the functions' promises is resolved or rejected.
 	 *
-	 * @event uw.ConcurrentQueue.progress
+	 * @event uw.ConcurrentQueue#progress
 	 */
 
 	/**
 	 * A 'complete' event is emitted when all of the functions' promises have been resolved or rejected.
 	 *
-	 * @event uw.ConcurrentQueue.complete
+	 * @event uw.ConcurrentQueue#complete
 	 */
 
 	/**
 	 * A 'change' event is emitted when an item is added to or removed from the queue.
 	 *
-	 * @event uw.ConcurrentQueue.change
+	 * @event uw.ConcurrentQueue#change
 	 */
 
 	/**
@@ -53,6 +53,7 @@
 	 *
 	 * @param {Object} item
 	 * @return {boolean} true
+	 * @fires uw.ConcurrentQueue#event:change
 	 */
 	uw.ConcurrentQueue.prototype.addItem = function ( item ) {
 		this.queued.push( item );
@@ -70,6 +71,7 @@
 	 *
 	 * @param {Object} item
 	 * @return {boolean} Whether the item was removed
+	 * @fires uw.ConcurrentQueue#event:change
 	 */
 	uw.ConcurrentQueue.prototype.removeItem = function ( item ) {
 		let index, found;
@@ -113,6 +115,7 @@
 	/**
 	 * @private
 	 * @param {Object} item
+	 * @fires uw.ConcurrentQueue#event:progress
 	 */
 	uw.ConcurrentQueue.prototype.promiseComplete = function ( item ) {
 		const index = this.running.indexOf( item );
@@ -151,6 +154,8 @@
 	 * Start executing the queue. If the queue is already executing, do nothing.
 	 *
 	 * When the queue finishes executing, a 'complete' event will be emitted.
+	 *
+	 * @fires uw.ConcurrentQueue#event:complete
 	 */
 	uw.ConcurrentQueue.prototype.startExecuting = function () {
 		let i;
@@ -180,6 +185,7 @@
 
 	/**
 	 * @private
+	 * @fires uw.ConcurrentQueue#event:complete
 	 */
 	uw.ConcurrentQueue.prototype.checkIfComplete = function () {
 		if ( this.running.length === 0 && this.queued.length === 0 ) {

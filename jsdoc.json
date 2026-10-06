@@ -24,6 +24,9 @@
 				"mw.UploadWizard": true,
 				"mw.ApiUpload": true,
 				"mw.FlickrChecker": true,
+				"mw.canvas": true,
+				"mw.errorDialog": true,
+				"mw.fileApi": true,
 				"datamodel.": "https://doc.wikimedia.org/Wikibase/master/js/components/view-wikibase-data-model.md",
 				"dataValues.": "https://doc.wikimedia.org/Wikibase/master/js/components/view-wikibase-data-values.md"
 			},

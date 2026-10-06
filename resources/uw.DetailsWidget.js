@@ -19,7 +19,7 @@
 	/**
 	 * A 'change' event is emitted when the state of this widget (and the serialized value) changes.
 	 *
-	 * @event uw.DetailsWidget.change
+	 * @event uw.DetailsWidget#change
 	 */
 
 	/**
@@ -44,6 +44,7 @@
 	 * Get a wikitext snippet generated from current state of the widget.
 	 *
 	 * @method
+	 * @abstract
 	 * @return {string} Wikitext
 	 */
 	uw.DetailsWidget.prototype.getWikiText = null;
@@ -53,6 +54,7 @@
 	 * #setSerialized to restore this state (or to set it for another instance of the same class).
 	 *
 	 * @method
+	 * @abstract
 	 * @return {Object}
 	 */
 	uw.DetailsWidget.prototype.getSerialized = null;
@@ -62,6 +64,7 @@
 	 * #getSerialized.
 	 *
 	 * @method
+	 * @abstract
 	 * @param {Object} serialized
 	 */
 	uw.DetailsWidget.prototype.setSerialized = null;

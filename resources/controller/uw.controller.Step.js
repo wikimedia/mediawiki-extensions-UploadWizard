@@ -30,7 +30,7 @@
 		OO.EventEmitter.call( this );
 
 		/**
-		 * @property {Object} config
+		 * @type {Object}
 		 */
 		this.config = Object.assign(
 			{
@@ -39,7 +39,7 @@
 			config
 		);
 		/**
-		 * @property {mw.Api} api
+		 * @type {mw.Api}
 		 */
 		this.api = api;
 
@@ -58,7 +58,7 @@
 		 * This'll effectively be:
 		 * `upload.on( <key>, <value>.bind( this, upload ) );`
 		 *
-		 * @property {Object}
+		 * @type {Object}
 		 */
 		this.uploadHandlers = {
 			'remove-upload': this.removeUpload,
@@ -74,14 +74,16 @@
 		} );
 
 		/**
-		 * @property {uw.controller.Step} nextStep
 		 * The next step in the process.
+		 *
+		 * @type {uw.controller.Step|null}
 		 */
 		this.nextStep = null;
 
 		/**
-		 * @property {uw.controller.Step} previousStep
 		 * The previous step in the process.
+		 *
+		 * @type {uw.controller.Step|null}
 		 */
 		this.previousStep = null;
 

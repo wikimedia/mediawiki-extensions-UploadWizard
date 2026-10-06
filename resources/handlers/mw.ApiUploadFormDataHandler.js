@@ -4,6 +4,7 @@
 	 * Large files are uploaded in chunks.
 	 *
 	 * @class
+	 * @extends mw.ApiUploadHandler
 	 * @param {mw.UploadWizardUpload} upload
 	 * @param {mw.Api} api
 	 */
@@ -31,6 +32,9 @@
 
 	OO.inheritClass( mw.ApiUploadFormDataHandler, mw.ApiUploadHandler );
 
+	/**
+	 * @inheritdoc
+	 */
 	mw.ApiUploadFormDataHandler.prototype.abort = function () {
 		this.transport.abort();
 	};

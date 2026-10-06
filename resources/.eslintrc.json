@@ -14,7 +14,12 @@
 			"warn",
 			{
 				"definedTypes": [
+					"datamodel.Statement",
+					"datamodel.StatementList",
+					"dataValues.DataValue",
 					"uw",
+					"uw.CategorySuggestionProvider",
+					"uw.ConcurrentQueue",
 					"uw.controller.Step",
 					"uw.DetailsWidget",
 					"uw.FieldLayout",

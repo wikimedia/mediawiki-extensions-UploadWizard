@@ -24,6 +24,8 @@
 	};
 
 	/**
+	 * Abort the upload.
+	 *
 	 * @method
 	 * @abstract
 	 */

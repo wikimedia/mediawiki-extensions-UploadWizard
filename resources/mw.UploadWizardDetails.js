@@ -696,7 +696,7 @@
 		/**
 		 * Check all the fields for validity.
 		 *
-		 * @param thorough
+		 * @param {boolean} thorough
 		 * @return {jQuery.Promise<mw.uploadWizard.ValidationStatus>}
 		 */
 		validate: function ( thorough ) {
@@ -962,7 +962,7 @@
 		 *
 		 * Note that this doesn't include custom deed's state.
 		 *
-		 * @return {Object.<string,Object>}
+		 * @return {Object.<string,Object>|undefined} Undefined if the interface hasn't been built yet
 		 */
 		getSerialized: function () {
 			if ( !this.interfaceBuilt ) {

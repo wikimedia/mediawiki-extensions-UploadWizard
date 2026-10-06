@@ -1,3 +1,8 @@
+/**
+ * Functions UploadWizard adds to the MediaWiki core `mw` namespace.
+ *
+ * @namespace mw
+ */
 ( function () {
 
 	OO.ui.getWindowManager().addWindows( {
@@ -7,6 +12,7 @@
 	/**
 	 * Displays an error message.
 	 *
+	 * @method mw.errorDialog
 	 * @param {jQuery|string} errorMessage
 	 * @param {string} [title]
 	 */
