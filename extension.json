@@ -730,11 +730,11 @@
 			"value": []
 		},
 		"UploadWizardUseCodeEditor": {
-			"value": true,
+			"value": false,
 			"description": "Whether to use CodeEditor as the JSON editor for the Campaign: namespace."
 		},
 		"UploadWizardUseCodeMirror": {
-			"value": false,
+			"value": true,
 			"description": "Whether to use CodeMirror as the JSON editor for the Campaign: namespace."
 		}
 	},
