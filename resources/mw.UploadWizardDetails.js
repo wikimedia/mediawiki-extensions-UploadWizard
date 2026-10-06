@@ -1135,11 +1135,13 @@
 			wikiText += '=={{int:filedesc}}==\n';
 			wikiText += '{{Information\n' + info + '}}\n';
 
-			wikiText += this.locationInput.getWikiText() + '\n';
-			wikiText += this.objectLocationInput.getWikiText() + '\n';
-
-			// add an "anything else" template if needed
-			wikiText += this.otherDetails.getWikiText() + '\n\n';
+			// add location templates and "anything else", without empty lines in between
+			[ this.locationInput, this.objectLocationInput, this.otherDetails ].forEach( ( input ) => {
+				const inputWikiText = input.getWikiText();
+				if ( inputWikiText ) {
+					wikiText += inputWikiText + '\n';
+				}
+			} );
 
 			// add licensing information
 			wikiText += '\n=={{int:license-header}}==\n';
