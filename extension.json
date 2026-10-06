@@ -285,6 +285,7 @@
 				"mwe-upwiz-uploading",
 				"mwe-upwiz-queued",
 				"mwe-upwiz-assembling",
+				"mwe-upwiz-fetching",
 				"mwe-upwiz-publish",
 				"mwe-upwiz-transport-started",
 				"mwe-upwiz-stashed-upload",

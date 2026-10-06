@@ -83,6 +83,7 @@
 	"mwe-upwiz-uploading": "Status message while upload is ongoing.\n{{Identical|Uploading}}",
 	"mwe-upwiz-queued": "Status message once upload is done and queued on the server",
 	"mwe-upwiz-assembling": "Status message while server assembles the uploaded chunks",
+	"mwe-upwiz-fetching": "Status message while server fetches the file from stash, before publishing it",
 	"mwe-upwiz-publish": "Status message while server publishes file from stash",
 	"mwe-upwiz-stashed-upload": "This message is displayed near the thumbnail of the file after it was successfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).\n{{Identical|Uploaded}}",
 	"mwe-upwiz-getting-metadata": "Used as status message.",

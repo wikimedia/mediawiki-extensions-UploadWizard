@@ -378,6 +378,7 @@
 						} else {
 							// Statuses that can be returned:
 							// * queued
+							// * fetching
 							// * publish
 							// * assembling
 							this.emit( 'update-stage', response.upload.stage );

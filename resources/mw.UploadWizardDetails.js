@@ -1560,6 +1560,7 @@
 					} else {
 						// Messages that can be returned:
 						// * mwe-upwiz-queued
+						// * mwe-upwiz-fetching
 						// * mwe-upwiz-publish
 						// * mwe-upwiz-assembling
 						this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
