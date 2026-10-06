@@ -21,7 +21,13 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 	 */
 	protected function newSpecialPage() {
 		$services = $this->getServiceContainer();
-		return new SpecialUploadWizard( $services->getUserOptionsLookup(), $services->getLanguageNameUtils(), null );
+		return new SpecialUploadWizard(
+			$services->getUserOptionsLookup(),
+			$services->getLanguageNameUtils(),
+			$services->getRepoGroup(),
+			$services->getUrlUtils(),
+			null
+		);
 	}
 
 	protected function tearDown(): void {

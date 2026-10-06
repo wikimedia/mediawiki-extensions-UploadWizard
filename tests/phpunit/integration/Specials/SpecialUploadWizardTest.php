@@ -127,6 +127,8 @@ class SpecialUploadWizardTest extends MediaWikiIntegrationTestCase {
 		$special = new SpecialUploadWizard(
 			$services->getUserOptionsLookup(),
 			$services->getLanguageNameUtils(),
+			$services->getRepoGroup(),
+			$services->getUrlUtils(),
 			$captchaFactory
 		);
 

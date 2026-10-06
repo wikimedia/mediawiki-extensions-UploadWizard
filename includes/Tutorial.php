@@ -3,11 +3,13 @@
 namespace MediaWiki\Extension\UploadWizard;
 
 use MediaWiki\FileRepo\File\File;
+use MediaWiki\FileRepo\RepoGroup;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Media\MediaTransformOutput;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use MediaWiki\Utils\UrlUtils;
 
 /**
  * Class to encapsulate all the html generation associated with the UploadWizard tutorial.
@@ -19,6 +21,13 @@ class Tutorial {
 	// Id of imagemap used in tutorial.
 	private const IMAGEMAP_ID = 'tutorialMap';
 
+	public function __construct(
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly RepoGroup $repoGroup,
+		private readonly UrlUtils $urlUtils,
+	) {
+	}
+
 	/**
 	 * Fetches appropriate HTML for the tutorial portion of the wizard.
 	 * Looks up an image on the current wiki. This will work as is on Commons, and will also work
@@ -27,7 +36,7 @@ class Tutorial {
 	 * @param string|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
 	 * @return string html that will display the tutorial.
 	 */
-	public static function getHtml( Language $lang, $campaign = null ) {
+	public function getHtml( Language $lang, $campaign = null ) {
 		$error = null;
 		$errorHtml = '';
 		$tutorialHtml = '';
@@ -36,11 +45,11 @@ class Tutorial {
 
 		$tutorial = Config::getSetting( 'tutorial', $campaign );
 		// getFile returns false if it can't find the right file
-		$tutorialFile = self::getFile( $langCode, $tutorial );
+		$tutorialFile = $this->getFile( $langCode, $tutorial );
 		if ( $tutorialFile === false ) {
 			$error = 'localized-file-missing';
 			foreach ( $lang->getFallbackLanguages() as $langCode ) {
-				$tutorialFile = self::getFile( $langCode, $tutorial );
+				$tutorialFile = $this->getFile( $langCode, $tutorial );
 				if ( $tutorialFile !== false ) {
 					// $langCode remains as the code where a file is found.
 					break;
@@ -67,7 +76,7 @@ class Tutorial {
 			$thumbnailImage = $tutorialFile->transform( [ 'width' => $tutorial['width'] ] );
 
 			if ( $thumbnailImage ) {
-				$tutorialHtml = self::getImageHtml( $thumbnailImage, $tutorial );
+				$tutorialHtml = $this->getImageHtml( $thumbnailImage, $tutorial );
 			} else {
 				$error = 'cannot-transform';
 			}
@@ -81,7 +90,7 @@ class Tutorial {
 			// mwe-upwiz-tutorial-error-cannot-transform
 			$errorMsg = wfMessage( 'mwe-upwiz-tutorial-error-' . $error );
 			if ( $error === 'localized-file-missing' ) {
-				$errorMsg->params( MediaWikiServices::getInstance()->getLanguageNameUtils()
+				$errorMsg->params( $this->languageNameUtils
 					->getLanguageName( $langCode, $lang->getCode() ) );
 			}
 			$errorHtml = Html::errorBox(
@@ -100,10 +109,9 @@ class Tutorial {
 	 *
 	 * @return File|false
 	 */
-	public static function getFile( $langCode, $tutorial ) {
+	private function getFile( $langCode, $tutorial ) {
 		$tutorialName = str_replace( '$1', $langCode, $tutorial['template'] );
-		return MediaWikiServices::getInstance()->getRepoGroup()
-			->findFile( Title::newFromText( $tutorialName, NS_FILE ) );
+		return $this->repoGroup->findFile( Title::newFromText( $tutorialName, NS_FILE ) );
 	}
 
 	/**
@@ -115,12 +123,11 @@ class Tutorial {
 	 *
 	 * @return string HTML representing the image, with clickable helpdesk button
 	 */
-	public static function getImageHtml( MediaTransformOutput $thumb, $tutorial ) {
+	private function getImageHtml( MediaTransformOutput $thumb, $tutorial ) {
 		$helpDeskUrl = wfMessage( 'mwe-upwiz-help-desk-url' )->text();
-		$urlUtils = MediaWikiServices::getInstance()->getUrlUtils();
 
 		// Per convention, we may be either using an absolute URL or a wiki page title in this UI message
-		if ( preg_match( '/^(?:' . $urlUtils->validProtocols() . ')/', $helpDeskUrl ) ) {
+		if ( preg_match( '/^(?:' . $this->urlUtils->validProtocols() . ')/', $helpDeskUrl ) ) {
 			$helpDeskHref = $helpDeskUrl;
 		} else {
 			$helpDeskTitle = Title::newFromText( $helpDeskUrl );

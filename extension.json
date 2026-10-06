@@ -72,7 +72,9 @@
 			"class": "MediaWiki\\Extension\\UploadWizard\\Specials\\SpecialUploadWizard",
 			"services": [
 				"UserOptionsLookup",
-				"LanguageNameUtils"
+				"LanguageNameUtils",
+				"RepoGroup",
+				"UrlUtils"
 			],
 			"optional_services": [
 				"ConfirmEditCaptchaFactory"

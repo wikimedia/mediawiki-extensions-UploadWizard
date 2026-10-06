@@ -18,6 +18,7 @@ use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;
 use MediaWiki\Extension\UploadWizard\PublishCaptchaHandler;
 use MediaWiki\Extension\UploadWizard\Tutorial;
+use MediaWiki\FileRepo\RepoGroup;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Media\BitmapHandler;
@@ -27,6 +28,7 @@ use MediaWiki\Upload\UploadBase;
 use MediaWiki\Upload\UploadFromUrl;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
+use MediaWiki\Utils\UrlUtils;
 
 /**
  * Special:UploadWizard
@@ -41,13 +43,17 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @var string|null
 	 */
 	protected $campaign = null;
+	private readonly Tutorial $tutorial;
 
 	public function __construct(
 		private readonly UserOptionsLookup $userOptionsLookup,
 		private readonly LanguageNameUtils $languageNameUtils,
+		RepoGroup $repoGroup,
+		UrlUtils $urlUtils,
 		private readonly ?CaptchaFactory $captchaFactory,
 	) {
 		parent::__construct( 'UploadWizard' );
+		$this->tutorial = new Tutorial( $languageNameUtils, $repoGroup, $urlUtils );
 	}
 
 	/** @inheritDoc */
@@ -437,7 +443,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// always load the html: even if the tutorial is skipped, users can
 		// still move back to view it
-		$tutorialHtml = Tutorial::getHtml( $this->getLanguage(), $this->campaign );
+		$tutorialHtml = $this->tutorial->getHtml( $this->getLanguage(), $this->campaign );
 
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )
