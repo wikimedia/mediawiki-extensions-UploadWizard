@@ -30,6 +30,7 @@
 			"Valtlait",
 			"Veikk0.ma",
 			"VezonThunder",
+			"Wikipeedikko",
 			"Wix",
 			"Yaamboo"
 		]
@@ -76,6 +77,7 @@
 	"mwe-upwiz-uploading": "Lähetetään…",
 	"mwe-upwiz-queued": "Jonossa…",
 	"mwe-upwiz-assembling": "Kootaan…",
+	"mwe-upwiz-fetching": "Noudetaan…",
 	"mwe-upwiz-publish": "Julkaistaan…",
 	"mwe-upwiz-stashed-upload": "Tallennettu",
 	"mwe-upwiz-getting-metadata": "Haetaan tiedoston tietoja ja esikatselua...",
@@ -89,6 +91,7 @@
 	"mwe-upwiz-override": "Tallenna silti",
 	"mwe-upwiz-override-upload": "Tallenna tämä tiedosto silti.",
 	"mwe-upwiz-remove-upload": "Poista tämä tiedosto tallennettavien tiedostojen listasta",
+	"mwe-upwiz-thumbnail-full-size": "Avaa tiedosto täysikokoisena",
 	"mwe-upwiz-retry-upload": "Yritä uudelleen tiedoston tallentamista",
 	"mwe-upwiz-remove-caption": "Poista kuvateksti",
 	"mwe-upwiz-remove-description": "Poista tämä kuvaus",
