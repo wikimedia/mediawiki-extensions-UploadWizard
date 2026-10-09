@@ -179,6 +179,40 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	},
 
 	/**
+	 * Shows an error for a failed lookup and resets the interface, so the spinner doesn't keep
+	 * spinning.
+	 *
+	 * @return {jQuery.Promise} A rejected promise, to stop the chain the lookup is part of
+	 */
+	showLookupError: function () {
+		const message = mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' );
+
+		mw.errorDialog( message, mw.msg( 'mwe-upwiz-license-photoset-invalid-title' ) );
+		this.$spinner.remove();
+		this.ui.flickrInterfaceReset();
+
+		return $.Deferred().reject( message );
+	},
+
+	/**
+	 * Looks up the Flickr entity (user, group or gallery) a URL points to.
+	 * If that fails, the error is shown with #showLookupError.
+	 *
+	 * @param {string} method Flickr API method, e.g. `flickr.urls.lookupUser`
+	 * @param {string} url URL to look up
+	 * @param {string} key Property of the response holding the entity: `user`, `group` or `gallery`
+	 * @return {jQuery.Promise} Resolves with the entity, which has an `id`
+	 */
+	lookupUrl: function ( method, url, key ) {
+		const fail = () => this.showLookupError();
+
+		return this.flickrRequest( {
+			method: method,
+			url: url
+		} ).then( ( data ) => ( data && data[ key ] ) || fail(), fail );
+	},
+
+	/**
 	 * Retrieves a list of photos in photostream and displays it.
 	 *
 	 * @see mw.FlickrChecker#getPhotos
@@ -188,10 +222,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	 * @return {jQuery.Promise}
 	 */
 	getPhotostream: function ( mode, url ) {
-		return this.flickrRequest( {
-			method: 'flickr.urls.lookupUser',
-			url: url
-		} ).then( ( data ) => {
+		return this.lookupUrl( 'flickr.urls.lookupUser', url, 'user' ).then( ( user ) => {
 			let method;
 			if ( mode === 'stream' ) {
 				method = 'flickr.people.getPublicPhotos';
@@ -200,7 +231,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 			}
 			return this.getPhotos( 'photos', {
 				method: method,
-				user_id: data.user.id
+				user_id: user.id
 			} );
 		} );
 	},
@@ -214,20 +245,18 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	 * @return {jQuery.Promise}
 	 */
 	getGroupPool: function ( groupPoolMatches, url ) {
-		return this.flickrRequest( {
-			method: 'flickr.urls.lookupGroup',
-			url: url
-		} ).then( ( data ) => {
-			const gid = data.group.id;
+		return this.lookupUrl( 'flickr.urls.lookupGroup', url, 'group' ).then( ( group ) => {
+			const gid = group.id;
 
 			if ( groupPoolMatches[ 1 ] ) { // URL contains a user ID
-				return this.flickrRequest( {
-					method: 'flickr.urls.lookupUser',
-					url: 'http://www.flickr.com/photos/' + groupPoolMatches[ 1 ]
-				} ).then( ( data ) => this.getPhotos( 'photos', {
+				return this.lookupUrl(
+					'flickr.urls.lookupUser',
+					'http://www.flickr.com/photos/' + groupPoolMatches[ 1 ],
+					'user'
+				).then( ( user ) => this.getPhotos( 'photos', {
 					method: 'flickr.groups.pools.getPhotos',
 					group_id: gid,
-					user_id: data.user.id
+					user_id: user.id
 				} ) );
 			}
 
@@ -266,6 +295,9 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 					$link.on( 'click', () => {
 						// eslint-disable-next-line no-jquery/no-global-selector
 						$( '#mwe-upwiz-files-collection-chooser' ).remove();
+						this.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
+						// eslint-disable-next-line no-jquery/no-global-selector
+						$( '#mwe-upwiz-flickr-select-list-container' ).after( this.$spinner );
 						this.getPhotos( 'photoset', {
 							method: 'flickr.photosets.getPhotos',
 							photoset_id: $link.data( 'id' )
@@ -288,24 +320,27 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	 * @return {jQuery.Promise}
 	 */
 	getCollection: function ( userCollectionMatches, url ) {
-		return this.flickrRequest( {
-			method: 'flickr.urls.lookupUser',
-			url: url
-		} ).then( ( data ) => {
+		return this.lookupUrl( 'flickr.urls.lookupUser', url, 'user' ).then( ( user ) => {
 			const req = {
 				method: 'flickr.collections.getTree',
 				extras: 'license, url_sq, owner_name, original_format, date_taken, geo',
-				user_id: data.user.id
+				user_id: user.id
 			};
 
 			if ( userCollectionMatches[ 1 ] ) {
 				req.collection_id = userCollectionMatches[ 1 ];
 			}
 
+			const fail = () => this.showLookupError();
+
 			return this.flickrRequest( req ).then( ( data ) => {
+				if ( !data.collections || !data.collections.collection ) {
+					return fail();
+				}
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-files' ).append( this.buildCollectionLinks( true, data.collections ) );
-			} );
+				this.$spinner.remove();
+			}, fail );
 		} );
 	},
 
@@ -317,12 +352,9 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 	 * @return {jQuery.Promise}
 	 */
 	getGallery: function ( url ) {
-		return this.flickrRequest( {
-			method: 'flickr.urls.lookupGallery',
-			url: url
-		} ).then( ( data ) => this.getPhotos( 'photos', {
+		return this.lookupUrl( 'flickr.urls.lookupGallery', url, 'gallery' ).then( ( gallery ) => this.getPhotos( 'photos', {
 			method: 'flickr.galleries.getPhotos',
-			gallery_id: data.gallery.id
+			gallery_id: gallery.id
 		} ) );
 	},
 
@@ -367,10 +399,10 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 				photoset = data.photos;
 			}
 			if ( !photoset ) {
-				$.Deferred().reject( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
+				return $.Deferred().reject( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
 			}
 			return photoset;
-		} );
+		}, () => $.Deferred().reject( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) ) );
 
 		// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
 		return $.when( flickrPromise, this.getBlacklist() ).then( ( photoset, blacklist ) => {
@@ -524,7 +556,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 				return $.Deferred().reject( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
 			}
 			return data.photo;
-		} ).then( ( photo ) => {
+		}, () => $.Deferred().reject( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) ) ).then( ( photo ) => {
 			const isBlacklistedPromise = this.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
 			return isBlacklistedPromise.then( ( isBlacklisted ) => {
 				if ( isBlacklisted ) {

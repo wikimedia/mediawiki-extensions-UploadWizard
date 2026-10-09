@@ -99,4 +99,109 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 
 		assert.true( stub.calledOnceWithExactly( 'favorites', url ) );
 	} );
+
+	QUnit.test( 'lookupUrl() resolves with the entity', function ( assert ) {
+		const flickrChecker = getInstance();
+		this.sandbox.stub( flickrChecker, 'flickrRequest' ).returns(
+			$.Deferred().resolve( { user: { id: '123@N00' } } ).promise()
+		);
+
+		return flickrChecker.lookupUrl( 'flickr.urls.lookupUser', 'https://www.flickr.com/photos/johndoe', 'user' )
+			.then( ( user ) => {
+				assert.strictEqual( user.id, '123@N00' );
+			} );
+	} );
+
+	[
+		[ 'the response has no entity', () => $.Deferred().resolve( { stat: 'fail' } ).promise() ],
+		[ 'the request fails', () => $.Deferred().reject().promise() ]
+	].forEach( ( [ name, response ] ) => {
+		QUnit.test( 'lookupUrl() shows an error and resets the interface when ' + name, function ( assert ) {
+			const flickrChecker = getInstance(),
+				errorDialog = this.sandbox.stub( mw, 'errorDialog' ),
+				reset = this.sandbox.stub(),
+				remove = this.sandbox.stub();
+			flickrChecker.ui = { flickrInterfaceReset: reset };
+			flickrChecker.$spinner = { remove: remove };
+			this.sandbox.stub( flickrChecker, 'flickrRequest' ).returns( response() );
+
+			return flickrChecker.lookupUrl( 'flickr.urls.lookupUser', 'https://www.flickr.com/photos/johndoe', 'user' )
+				.then(
+					() => assert.true( false, 'should not resolve' ),
+					() => {
+						assert.true( errorDialog.calledOnce, 'error shown once' );
+						assert.true( remove.calledOnce, 'spinner removed' );
+						assert.true( reset.calledOnce, 'interface reset' );
+					}
+				);
+		} );
+	} );
+
+	QUnit.test( 'getCollection() shows an error when the user has no collections', function ( assert ) {
+		const flickrChecker = getInstance(),
+			errorDialog = this.sandbox.stub( mw, 'errorDialog' ),
+			remove = this.sandbox.stub();
+		flickrChecker.ui = { flickrInterfaceReset: this.sandbox.stub() };
+		flickrChecker.$spinner = { remove: remove };
+		this.sandbox.stub( flickrChecker, 'flickrRequest' )
+			.onFirstCall().returns( $.Deferred().resolve( { user: { id: '123@N00' } } ).promise() )
+			.onSecondCall().returns( $.Deferred().resolve( { collections: {} } ).promise() );
+
+		return flickrChecker.getCollection( [], 'https://www.flickr.com/photos/johndoe/collections' ).then(
+			() => assert.true( false, 'should not resolve' ),
+			() => {
+				assert.true( errorDialog.calledOnce, 'error shown once' );
+				assert.true( remove.calledOnce, 'spinner removed' );
+			}
+		);
+	} );
+
+	QUnit.test( 'getPhotos() shows the license error when no photo has a usable license', function ( assert ) {
+		const flickrChecker = getInstance(),
+			errorDialog = this.sandbox.stub( mw, 'errorDialog' );
+		flickrChecker.ui = { flickrInterfaceReset: this.sandbox.stub() };
+		flickrChecker.$spinner = { remove: this.sandbox.stub() };
+		flickrChecker.selectButton = {
+			setLabel: this.sandbox.stub(),
+			setDisabled: this.sandbox.stub(),
+			on: this.sandbox.stub()
+		};
+		this.sandbox.stub( flickrChecker, 'flickrRequest' ).returns(
+			$.Deferred().resolve( { photos: { photo: [ { license: '0' } ] } } ).promise()
+		);
+		this.sandbox.stub( flickrChecker, 'getBlacklist' ).returns( $.Deferred().resolve( {} ).promise() );
+		this.sandbox.stub( flickrChecker, 'checkLicense' ).returns( { licenseValue: 'invalid' } );
+
+		return flickrChecker.getPhotos( 'photos', {} ).then(
+			() => assert.true( false, 'should not resolve' ),
+			() => {
+				assert.true( errorDialog.calledOnce, 'error shown once' );
+				assert.strictEqual(
+					errorDialog.firstCall.args[ 0 ],
+					mw.msg( 'mwe-upwiz-license-photoset-invalid' )
+				);
+			}
+		);
+	} );
+
+	QUnit.test( 'getPhotos() shows a message, not the failed request, when the request fails', function ( assert ) {
+		const flickrChecker = getInstance(),
+			errorDialog = this.sandbox.stub( mw, 'errorDialog' );
+		flickrChecker.ui = { flickrInterfaceReset: this.sandbox.stub() };
+		flickrChecker.$spinner = { remove: this.sandbox.stub() };
+		flickrChecker.selectButton = { setLabel: this.sandbox.stub(), setDisabled: this.sandbox.stub() };
+		this.sandbox.stub( flickrChecker, 'flickrRequest' ).returns( $.Deferred().reject( { status: 500 } ).promise() );
+		this.sandbox.stub( flickrChecker, 'getBlacklist' ).returns( $.Deferred().resolve( {} ).promise() );
+
+		return flickrChecker.getPhotos( 'photos', {} ).then(
+			() => assert.true( false, 'should not resolve' ),
+			() => {
+				assert.true( errorDialog.calledOnce, 'error shown once' );
+				assert.strictEqual(
+					errorDialog.firstCall.args[ 0 ],
+					mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' )
+				);
+			}
+		);
+	} );
 } );
