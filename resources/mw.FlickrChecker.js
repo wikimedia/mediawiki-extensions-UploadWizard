@@ -114,7 +114,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 			} else if ( userCollectionMatches ) {
 				this.getCollection( userCollectionMatches, flickrInputUrl );
 			} else if ( userFavoritesMatches && userFavoritesMatches[ 1 ] ) {
-				this.getPhotostream( 'favorites', userPhotostreamMatches, flickrInputUrl );
+				this.getPhotostream( 'favorites', flickrInputUrl );
 			} else if ( userGalleryMatches && userGalleryMatches[ 1 ] ) {
 				this.getGallery( flickrInputUrl );
 			} else if ( userPhotostreamMatches && userPhotostreamMatches[ 1 ] ) {

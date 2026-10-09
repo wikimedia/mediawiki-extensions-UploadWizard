@@ -89,4 +89,14 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', ( hooks ) => {
 		assert.false( sidstub.called );
 		assert.strictEqual( upload.description, '' );
 	} );
+
+	QUnit.test( 'checkFlickr() passes the input URL to getPhotostream() for favorites', function ( assert ) {
+		const flickrChecker = getInstance(),
+			url = 'https://www.flickr.com/photos/johndoe/favorites',
+			stub = this.sandbox.stub( flickrChecker, 'getPhotostream' );
+
+		flickrChecker.checkFlickr( url );
+
+		assert.true( stub.calledOnceWithExactly( 'favorites', url ) );
+	} );
 } );
