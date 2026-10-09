@@ -42,6 +42,8 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadHandler.prototype.start = function () {
+		this.upload.setTransportProgress( 0.0 );
+
 		return this.submit().then(
 			this.setTransported.bind( this ),
 			this.setTransportError.bind( this )

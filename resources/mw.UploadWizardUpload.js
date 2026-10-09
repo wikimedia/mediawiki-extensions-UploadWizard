@@ -82,8 +82,6 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.start = function () {
-		this.setTransportProgress( 0.0 );
-
 		// handler -- usually ApiUploadFormDataHandler
 		this.handler = this.getUploadHandler();
 		return this.handler.start();

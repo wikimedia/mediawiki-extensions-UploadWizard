@@ -35,8 +35,6 @@
 			tempname = tempname.slice( 0, 240 - ext.length - 1 ) + '.' + ext;
 		}
 
-		this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
-
 		this.request = this.api.postWithToken( 'csrf', {
 			action: 'upload',
 			stash: 1,

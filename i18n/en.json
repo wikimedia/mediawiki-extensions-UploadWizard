@@ -45,7 +45,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Please note that by using this tool, your IP address and request details will be available to Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "We could not retrieve the file from $1.",
 	"mwe-upwiz-multi-file-select2": "Select the files you would like to upload. Hold down the Shift key and click to select multiple files at once. You can select up to $1 {{PLURAL:$1|file|files}} to upload.",
-	"mwe-upwiz-transport-started": "Starting…",
 	"mwe-upwiz-uploading": "Uploading…",
 	"mwe-upwiz-queued": "Queued…",
 	"mwe-upwiz-assembling": "Assembling…",

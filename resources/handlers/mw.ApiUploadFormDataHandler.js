@@ -45,8 +45,6 @@
 	mw.ApiUploadFormDataHandler.prototype.submit = function () {
 		return this.configureEditToken().then( () => {
 			this.beginTime = Date.now();
-			this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
-			this.upload.ui.showTransportProgress();
 
 			return this.transport.upload( this.upload.file, this.upload.title.getMainText() )
 				.progress( ( fraction ) => {
