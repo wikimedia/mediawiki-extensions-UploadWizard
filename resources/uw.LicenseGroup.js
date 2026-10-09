@@ -139,7 +139,7 @@
 
 	/**
 	 * @param {Array} classes to add
-	 * @return {OO.ui.RadioSelectWidget}
+	 * @return {uw.RadioSelectWidget}
 	 */
 	uw.LicenseGroup.prototype.createRadioGroup = function ( classes ) {
 		const options = [];
@@ -166,7 +166,7 @@
 			options.push( option );
 		} );
 
-		return new OO.ui.RadioSelectWidget( { items: options, classes: classes } );
+		return new uw.RadioSelectWidget( { items: options, classes: classes } );
 	};
 
 	/**
@@ -512,28 +512,15 @@
 			// Update displayed errors as the user is typing
 			this.emit( 'change' );
 		} );
-		input.$element.on( 'mousedown', ( event ) => {
-			// T294389 "Another reason not mentioned above" license input textarea: Text is unclickable.
-			// When used inside other widgets (e.g. RadioSelectWidget or CheckboxMultioptionWidget),
-			// those may have event handlers to respond to clicks (e.g. selecting the radio/checkbox)
-			// that would steal focus from the input. We do not want that to happen, as it may
-			// interfere with operations within the input field (e.g. selecting text), so we'll
-			// avoid that by not propagating the event (to RadioSelectWidget/CheckboxMultioptionWidget),
-			// but that'll then require those parent widgets to handle such relevant events themselves.
-			event.stopPropagation();
-		} );
 		input.$element.on( 'keydown', ( event ) => {
 			switch ( event.which ) {
 				case OO.ui.Keys.UP:
 				case OO.ui.Keys.LEFT:
 				case OO.ui.Keys.DOWN:
 				case OO.ui.Keys.RIGHT:
-					// Similar to the mouse events issue described above; parent widgets may also
-					// handle some keyboard events (e.g. RadioSelectWidget or CheckboxMultioptionWidget
-					// capture up/left and down/right to navigate to previous/next item)
-					// Once again, this is undesirable, as these keys are likely used for operations
-					// within the input field (moving the cursor), so once again we're preventing
-					// propagation of these events to the parent nodes.
+					// T294389: CheckboxMultioptionWidget moves the focus to the previous/next
+					// option on arrow keys, but they should move the cursor within the input.
+					// (uw.RadioSelectWidget already ignores events from nested inputs.)
 					event.stopPropagation();
 					break;
 				case OO.ui.Keys.ENTER:
