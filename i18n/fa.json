@@ -429,6 +429,7 @@
 	"mwe-upwiz-errordialog-title": "در ثبت شما، خطایی وجود داشت.",
 	"mwe-upwiz-errordialog-ok": "تأیید",
 	"mwe-upwiz-error-nosuchcampaign": "هیچ کمپینی با نام «$1» وجود ندارد.",
+	"mwe-upwiz-campaign-invalid": "پیکربندی نامعتبر پویش: $1",
 	"mwe-upwiz-error-campaigndisabled": "کمپین «$1» فعال نشده است.",
 	"mwe-upwiz-calendar-date": "انتخاب تاریخ از تقویم",
 	"mwe-upwiz-custom-date": "انتخاب فرمت تاریخ",
