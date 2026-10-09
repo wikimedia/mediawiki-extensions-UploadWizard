@@ -202,6 +202,7 @@
 				"resources/uw.ValidationStatus.js",
 				"resources/uw.DetailsWidget.js",
 				"resources/uw.FieldLayout.js",
+				"resources/uw.RadioSelectWidget.js",
 				"resources/uw.LicenseGroup.js",
 				"resources/uw.LicensePreviewDialog.js",
 				"resources/uw.PreviewDialog.js",

@@ -91,13 +91,6 @@
 			// add + 1, otherwise the expected error message will never display.
 			maxLength: this.config.maxAiInputLength + 1
 		} );
-		this.aiTextInput.$element.find( 'textarea' ).on( 'click', function () {
-			// Note: I have not fully figured out exactly why or what is the culprit,
-			// but it appears that some node is preventing clicks from propagating,
-			// and it's making it impossible to access this input by mouse;
-			// this is just a workaround to resolve that
-			$( this ).trigger( 'focus' );
-		} );
 		this.aiTextInput.on( 'change', ( value ) => {
 			this.setAuthorInputValue( value );
 			// let's also emit a 'change' event on the parent radio to satisfy the listener
@@ -175,10 +168,6 @@
 			}
 			return status.resolve();
 		};
-		this.aiPromptTextInput.$element.find( 'textarea' ).on( 'click', function () {
-			// see also this.aiTextInput.$element.find( 'textarea' ).on( 'click' ) above
-			$( this ).trigger( 'focus' );
-		} );
 		this.aiPromptTextInputField = new uw.FieldLayout( this.aiPromptTextInput, {
 			label: $( '<div>' )
 				.addClass( 'mwe-upwiz-deed-title' )
@@ -189,7 +178,7 @@
 		} );
 
 		// Main origin radio
-		this.originRadio = new OO.ui.RadioSelectWidget( {
+		this.originRadio = new uw.RadioSelectWidget( {
 			items: [
 				new OO.ui.RadioOptionWidget( {
 					label: mw.message(
@@ -247,7 +236,7 @@
 		} );
 
 		// Origin sub-radio for "work of others" option
-		this.originOthersRadio = new OO.ui.RadioSelectWidget( {
+		this.originOthersRadio = new uw.RadioSelectWidget( {
 			items: [
 				new OO.ui.RadioOptionWidget( {
 					label: mw.message(
@@ -392,7 +381,7 @@
 			required: true
 		} );
 
-		this.purposeRadio = new OO.ui.RadioSelectWidget( {
+		this.purposeRadio = new uw.RadioSelectWidget( {
 			items: [
 				new OO.ui.RadioOptionWidget( {
 					label: mw.message( 'mwe-upwiz-source-ownwork-purpose-option-knowledge', this.uploadCount, mw.user ).text(),
