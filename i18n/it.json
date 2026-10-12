@@ -397,8 +397,8 @@
 	"campaigns": "Campagne di caricamento guidato",
 	"mwe-upload-campaigns-pagination-next": "Pagina successiva",
 	"mwe-upload-campaigns-list-title": "Elenco delle iniziative per il caricamento guidato",
-	"mwe-upwiz-upload-comment-own-work": "Caricato la propria opera con UploadWizard",
-	"mwe-upwiz-upload-comment-third-party": "Caricato un lavoro di $1 da $2 con UploadWizard",
+	"mwe-upwiz-upload-comment-own-work": "{{GENDER:$1|Ha caricato}} la propria opera con UploadWizard",
+	"mwe-upwiz-upload-comment-third-party": "{{GENDER:$3|Ha caricato}} un'opera di $1 da $2 con UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Dati personali",
 	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in questo file potrebbero contenere la posizione e altri dati personali aggiunti automaticamente dalla tua fotocamera. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Scopri di più] su come modificare o rimuovere i metadati EXIF.",
 	"apihelp-upload-param-uploadwizardpublish": "Parametro interno impostato da [[Special:UploadWizard|UploadWizard]] per contrassegnare una pubblicazione come proveniente da esso."
