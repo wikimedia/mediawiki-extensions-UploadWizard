@@ -73,7 +73,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Huomaa, että käyttäessäsi tätä työkalua ovat IP-osoitteesi ja haun tiedot Flickrin saatavilla.",
 	"mwe-upwiz-error-no-image-retrieved": "Tiedoston lataaminen palvelusta $1 epäonnistui.",
 	"mwe-upwiz-multi-file-select2": "Valitse tiedostot, jotka haluaisit tallentaa. Pidä Shift-näppäintä pohjassa ja klikkaa valitaksesi useamman tiedoston kerralla. Voit valita enintään $1 {{PLURAL:$1|tiedoston|tiedostoa}} tallennettavaksi.",
-	"mwe-upwiz-transport-started": "Aloitetaan…",
 	"mwe-upwiz-uploading": "Lähetetään…",
 	"mwe-upwiz-queued": "Jonossa…",
 	"mwe-upwiz-assembling": "Kootaan…",

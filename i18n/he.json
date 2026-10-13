@@ -66,7 +66,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "לידיעתך שימוש בכלי הזה חושף את כתובת ה־IP שלך ופרטי הבקשה בפני Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "לא הצלחנו לאחזר את הקובץ מ{{GRAMMAR:תחילית|$1}}.",
 	"mwe-upwiz-multi-file-select2": "{{GENDER:|בחר|בחרי}} את הקבצים {{GENDER:|שאתה|שאת}} רוצה להעלות. ניתן להחזיק את המקש Shift כדי לבחור כמה קבצים ביחד. {{GENDER:|אתה יכול|את יכולה}} להעלות {{PLURAL:$1|קובץ אחד|$1 קבצים}} לכל היותר.",
-	"mwe-upwiz-transport-started": "בהליכי הפעלה...",
 	"mwe-upwiz-uploading": "מתבצעת העלאה...",
 	"mwe-upwiz-queued": "נכנס לתור...",
 	"mwe-upwiz-assembling": "הכנה...",

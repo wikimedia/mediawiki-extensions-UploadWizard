@@ -41,7 +41,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Lūdzu, ņem vērā, ka, izmantojot šo rīku, tava IP adrese un pieprasījuma informācija būs pieejama Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Neizdevās iegūt failu no $1.",
 	"mwe-upwiz-multi-file-select2": "Izvēlies augšupielādējamos failus. Lai izvēlētos vairākus failus, pieturi Shift taustiņu un klikšķini uz tiem. Augšupielādei vari izvēlāties līdz $1 {{PLURAL:$1|failiem|failam|failiem}}.",
-	"mwe-upwiz-transport-started": "Uzsāk...",
 	"mwe-upwiz-uploading": "Augšupielādē...",
 	"mwe-upwiz-queued": "Ierindots...",
 	"mwe-upwiz-assembling": "Apkopo...",

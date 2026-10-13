@@ -54,7 +54,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Imati na umu da će korišćenjem ove alatke, vaša IP adresa i detalji zahteva biti dostupni Flickr-u.",
 	"mwe-upwiz-error-no-image-retrieved": "Nije moguće preuzeti datoteku iz izvora $1.",
 	"mwe-upwiz-multi-file-select2": "Izaberite datoteke koje želite da otpremite. Držite Shift da izaberete više datoteka odjednom. Možete otpremiti do: $1 {{PLURAL:$1|datoteke|datoteka}}.",
-	"mwe-upwiz-transport-started": "Počinjem…",
 	"mwe-upwiz-uploading": "Otpremam…",
 	"mwe-upwiz-queued": "Na čekanju…",
 	"mwe-upwiz-assembling": "Sklapanje…",

@@ -75,7 +75,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Observe que ao usar esta ferramenta, seu endereço de IP e outros detalhes obtidos ficarão disponíveis para o Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Não conseguimos obter o arquivo de $1.",
 	"mwe-upwiz-multi-file-select2": "Selecione os arquivos que deseja enviar. Mantenha pressionada a tecla Shift e clique para selecionar vários arquivos de uma só vez. Você pode selecionar até $1 {{PLURAL:$1|arquivo|arquivos}} para carregar.",
-	"mwe-upwiz-transport-started": "Iniciando…",
 	"mwe-upwiz-uploading": "Enviando…",
 	"mwe-upwiz-queued": "Em fila…",
 	"mwe-upwiz-assembling": "Montando…",

@@ -73,7 +73,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Door dit hulpmiddel te gebruiken zijn uw IP-adres en verzoekgegevens beschikbaar voor Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "We hebben het bestand niet van $1 kunnen ophalen.",
 	"mwe-upwiz-multi-file-select2": "Selecteer de bestanden die u wilt uploaden. Houd de Shift-toets ingedrukt en klik om meerdere bestanden tegelijk te selecteren. U kunt maximaal $1 bestand{{PLURAL:$1||en}} selecteren om te uploaden.",
-	"mwe-upwiz-transport-started": "Beginnen...",
 	"mwe-upwiz-uploading": "bezig met uploaden...",
 	"mwe-upwiz-queued": "In de wachtrij geplaatst...",
 	"mwe-upwiz-assembling": "Bezig met samenvoegen...",

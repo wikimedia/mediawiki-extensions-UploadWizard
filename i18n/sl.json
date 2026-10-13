@@ -54,7 +54,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Upoštevajte, da bodo ob uporabi tega orodja Flickrju na voljo vaš IP-naslov in podatki o zahtevku.",
 	"mwe-upwiz-error-no-image-retrieved": "Datoteke iz $1 ni bilo mogoče pridobiti.",
 	"mwe-upwiz-multi-file-select2": "Izberite datoteke za nalaganje. Držite dvigalko (Shift) in poklikajte slike. Izberete lahko največ $1 {{PLURAL:$1|datoteko|datoteki|datoteke|datotek}}.",
-	"mwe-upwiz-transport-started": "Začenjanje ...",
 	"mwe-upwiz-uploading": "Nalaganje ...",
 	"mwe-upwiz-queued": "Na čakanju ...",
 	"mwe-upwiz-assembling": "Združevanje ...",

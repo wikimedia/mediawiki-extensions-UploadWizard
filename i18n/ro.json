@@ -56,7 +56,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Vă rugăm să rețineți că utilizând această unealtă, adresa dumneavoastră IP și detaliile cererii vor fi disponibile pentru Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Nu am putut prelua fișierul de la $1.",
 	"mwe-upwiz-multi-file-select2": "Selectați fișierele pe care v-ar plăcea să le încărcați. Țineți apăsată tasta Shift și apăsați pentru a selecta mai multe fișiere deodată. Puteți selecta să încărcați până la $1 {{PLURAL:$1|fișier|fișiere}}.",
-	"mwe-upwiz-transport-started": "Se pornește...",
 	"mwe-upwiz-uploading": "Se încarcă...",
 	"mwe-upwiz-queued": "În așteptare...",
 	"mwe-upwiz-assembling": "Se asamblează...",

@@ -52,7 +52,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "โปรดทราบว่า โดยการใช้เครื่องมือนี้ ที่อยู่ IP และรายละเอียดที่เกี่ยวข้องจะถูกเปิดเผยแก่ Flickr",
 	"mwe-upwiz-error-no-image-retrieved": "เราไม่สามารถเรียกไฟล์จาก $1",
 	"mwe-upwiz-multi-file-select2": "เลือกไฟล์ที่คุณต้องการอัปโหลด กด Shift ค้างแล้วคลิกเพื่อเลือกไฟล์หลาย ๆ ไฟล์ในครั้งเดียว คุณสามารถเลือกได้มากถึง $1 {{PLURAL:$1|ไฟล์}}เพื่ออัปโหลด",
-	"mwe-upwiz-transport-started": "กำลังเริ่ม...",
 	"mwe-upwiz-uploading": "กำลังอัปโหลด...",
 	"mwe-upwiz-queued": "เข้าคิวไว้...",
 	"mwe-upwiz-assembling": "กำลังประกอบ...",

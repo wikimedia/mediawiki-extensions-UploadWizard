@@ -60,7 +60,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Моля, забележете, че използвайки този инструмент, вашият IP-адрес и данни от заявката ще бъдат достъпни и за Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Файлът не може да бъде извлечен от $1.",
 	"mwe-upwiz-multi-file-select2": "Изберете файловете, които искате да качите. Задръжте Shift и щракнете, за да изберете няколко файла наведнъж. Можете да изберете до $1 {{PLURAL:$1|файл|файлове}} за качване.",
-	"mwe-upwiz-transport-started": "Начало...",
 	"mwe-upwiz-uploading": "Качване...",
 	"mwe-upwiz-queued": "На опашката...",
 	"mwe-upwiz-assembling": "Сглобяване...",

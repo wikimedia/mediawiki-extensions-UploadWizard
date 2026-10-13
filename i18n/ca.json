@@ -64,7 +64,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Tingueu en compte que mitjançant aquesta eina, la vostra adreça IP i les dades de la petició estaran disponibles a Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "No hem pogut recuperar el fitxer de $1.",
 	"mwe-upwiz-multi-file-select2": "Seleccioneu els fitxers que voleu carregar. Mantingueu premuda la tecla Maj i feu clic per seleccionar diversos fitxers alhora. Podeu seleccionar fins a $1 {{PLURAL:$1|fitxer|fitxers}} en una sola càrrega.",
-	"mwe-upwiz-transport-started": "Començant...",
 	"mwe-upwiz-uploading": "En procés de càrrega…",
 	"mwe-upwiz-queued": "En la cua...",
 	"mwe-upwiz-assembling": "Muntant...",

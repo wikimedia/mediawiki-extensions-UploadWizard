@@ -108,7 +108,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "请注意，使用此工具您的IP地址和请求详情将提供给Flickr。",
 	"mwe-upwiz-error-no-image-retrieved": "我们无法从$1获取文件。",
 	"mwe-upwiz-multi-file-select2": "选择您想要上传的文件。按住Shift键并点击选择多个文件。您最多可以选择$1个{{PLURAL:$1|文件}}上传。",
-	"mwe-upwiz-transport-started": "开始...",
 	"mwe-upwiz-uploading": "正在上传...",
 	"mwe-upwiz-queued": "正在排队...",
 	"mwe-upwiz-assembling": "正在组合……",

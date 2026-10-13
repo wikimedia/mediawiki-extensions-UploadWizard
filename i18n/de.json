@@ -74,7 +74,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Bitte beachte beim Verwenden dieses Werkzeugs, dass deine IP-Adresse und Suchanfragen für Flickr verfügbar sind.",
 	"mwe-upwiz-error-no-image-retrieved": "Wir konnten die Datei von $1 nicht abrufen.",
 	"mwe-upwiz-multi-file-select2": "Wähle die Dateien aus, die du hochladen möchtest. Halte die Shift-Taste gedrückt und klicke, um mehrere Dateien auf einmal auszuwählen. Du kannst bis zu {{PLURAL:$1|eine Datei|$1 Dateien}} zum Hochladen auswählen.",
-	"mwe-upwiz-transport-started": "Starte …",
 	"mwe-upwiz-uploading": "Lade hoch …",
 	"mwe-upwiz-queued": "In der Warteschlange …",
 	"mwe-upwiz-assembling": "Verarbeite …",

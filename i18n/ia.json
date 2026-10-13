@@ -49,7 +49,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Per favor nota que le uso de iste instrumento divulga tu adresse IP e le detalios de tu requesta a Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Nos non poteva recuperar le file ab $1.",
 	"mwe-upwiz-multi-file-select2": "Selige le files que tu vole incargar. Tene premite le clave Shift e clicca pro seliger plure files al mesme tempore. Tu pote seliger usque a $1 file{{PLURAL:$1||s}} a incargar.",
-	"mwe-upwiz-transport-started": "Comencia...",
 	"mwe-upwiz-uploading": "incargamento in curso…",
 	"mwe-upwiz-queued": "In cauda...",
 	"mwe-upwiz-assembling": "Assembla...",

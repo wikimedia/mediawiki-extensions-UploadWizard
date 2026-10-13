@@ -60,7 +60,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "कृपया ध्यान रखें कि इस उपकरण का इस्तेमाल करने पर आपका IP पता और आपके अनुरोध की जानकारी Flickr को उपलब्ध होगी।",
 	"mwe-upwiz-error-no-image-retrieved": "हम $1 से चित्र को प्राप्त न कर पाए।",
 	"mwe-upwiz-multi-file-select2": "वे फ़ाइलें चुनें जिन्हें आप अपलोड करना चाहेंगे। कई फ़ाइलें एक बार में चुनने के लिए Shift कुँजी दबाए रखें। आप अधिकतम {{PLURAL:$1|एक फ़ाइल|$1 फ़ाइलें}} अपलोड कर सकते हैं।",
-	"mwe-upwiz-transport-started": "शुरू हो रहा है…",
 	"mwe-upwiz-uploading": "अपलोड हो रहा है…",
 	"mwe-upwiz-queued": "लंबित…",
 	"mwe-upwiz-assembling": "जोड़ा जा रहा है…",

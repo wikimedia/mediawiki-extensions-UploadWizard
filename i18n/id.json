@@ -67,7 +67,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Harap diperhatikan bahwa dengan menggunakan alat ini, alamat IP dan rincian permintaan Anda akan dikirim ke Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Kami tidak dapat mengambil berkas dari $1.",
 	"mwe-upwiz-multi-file-select2": "Pilih berkas yang ingin Anda unggah. Tekan dan tahan tombol Shift dan klik untuk memilih beberapa berkas sekaligus. Anda dapat memilih sampai $1 {{PLURAL:$1|berkas}} untuk diunggah",
-	"mwe-upwiz-transport-started": "Memulai...",
 	"mwe-upwiz-uploading": "Mengunggah...",
 	"mwe-upwiz-queued": "Telah terantre...",
 	"mwe-upwiz-assembling": "Sedang merakit...",

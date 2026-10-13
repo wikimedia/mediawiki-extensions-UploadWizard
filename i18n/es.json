@@ -91,7 +91,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Ten en cuenta que al utilizar esta herramienta, Flickr tendrá a su disposición tu dirección IP y los detalles de la solicitud.",
 	"mwe-upwiz-error-no-image-retrieved": "No pudimos recuperar el archivo de $1.",
 	"mwe-upwiz-multi-file-select2": "Selecciona los archivos que desees cargar. Mantén presionada la tecla Mayús y haz clic para seleccionar varios archivos a la vez. Puedes seleccionar hasta $1 {{PLURAL:$1|archivo|archivos}} para subir.",
-	"mwe-upwiz-transport-started": "Iniciando...",
 	"mwe-upwiz-uploading": "Subiendo...",
 	"mwe-upwiz-queued": "En espera...",
 	"mwe-upwiz-assembling": "Ensamblando...",

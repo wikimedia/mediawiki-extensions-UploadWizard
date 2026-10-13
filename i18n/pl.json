@@ -80,7 +80,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Należy pamiętać, że przy używaniu tego narzędzia, Twój adres IP i szczegóły zapytania będą dostępne w serwisie Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Nie można było załadować pliku z $1.",
 	"mwe-upwiz-multi-file-select2": "Wybierz pliki, które chcesz przesłać. Przytrzymaj klawisz Shift podczas klikania, aby wybrać kilka plików na raz. Możesz wybrać maksymalnie $1 {{PLURAL:$1|plik|pliki|plików}} do przesłania.",
-	"mwe-upwiz-transport-started": "Trwa uruchamianie…",
 	"mwe-upwiz-uploading": "Trwa przesyłanie…",
 	"mwe-upwiz-queued": "W kolejce…",
 	"mwe-upwiz-assembling": "Składanie…",

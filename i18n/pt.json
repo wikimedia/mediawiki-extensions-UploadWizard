@@ -72,7 +72,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Tenha em conta que, ao usar esta ferramenta, o Flickr terá à disposição o seu endereço IP e os detalhes das pesquisas.",
 	"mwe-upwiz-error-no-image-retrieved": "Não nos foi possível obter o ficheiro a partir de $1.",
 	"mwe-upwiz-multi-file-select2": "Selecione os ficheiros que pretende carregar. Pressione a tecla Shift e clique para selecionar vários ficheiros de uma só vez. Pode selecionar até $1 {{PLURAL:$1|ficheiro|ficheiros}} para serem carregados.",
-	"mwe-upwiz-transport-started": "A começar…",
 	"mwe-upwiz-uploading": "A carregar…",
 	"mwe-upwiz-queued": "Em fila de espera…",
 	"mwe-upwiz-assembling": "A montar…",

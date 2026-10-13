@@ -76,7 +76,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "الرجاء الانتباه إِلى أَن استعمالك لهذه الأَداة يجعل عنوان بروتوكول الإِنترنت خاصَّتك مُتاحاً لفليكر.",
 	"mwe-upwiz-error-no-image-retrieved": "تعذَّر جلب الملف مِن $1.",
 	"mwe-upwiz-multi-file-select2": "حدد الملفات الَّتي تَودُّ رفعها. اضغط بشكل مُستَمرٍ على مِفتاح Shift ثُمَّ حدد الملفات أَثناء ذلك. يُمكنك تحديد حتى $1 {{PLURAL:$1|ملف|ملفات}} للرفع.",
-	"mwe-upwiz-transport-started": "البدء...",
 	"mwe-upwiz-uploading": "جارٍ الرَّفع...",
 	"mwe-upwiz-queued": "وُضِع في رتل الانتظار...",
 	"mwe-upwiz-assembling": "تجميعٌ ...",

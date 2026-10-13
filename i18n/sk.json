@@ -53,7 +53,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Pamätajte, že použitím tohto nástroja sprístupníte svoju IP adresu a údaje o požiadavke Flickeru.",
 	"mwe-upwiz-error-no-image-retrieved": "Nepodarilo sa nám nahrať súbor z $1.",
 	"mwe-upwiz-multi-file-select2": "Vyberte súbory, ktoré chcete nahrať. Podržte klávesu Shift a kliknite pre výber viacerých súborov naraz. Môžete vybrať najviac $1 {{PLURAL:$1|súbor|súbory|súborov}} na nahranie.",
-	"mwe-upwiz-transport-started": "Spúšťa sa...",
 	"mwe-upwiz-uploading": "Nahráva sa...",
 	"mwe-upwiz-queued": "V poradí…",
 	"mwe-upwiz-assembling": "Zostavuje sa...",

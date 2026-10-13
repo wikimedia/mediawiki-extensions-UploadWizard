@@ -42,7 +42,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Pane tähele, et kui kasutad seda tööriista, saadetakse Flickrile sinu IP-aadress ja päringu üksikasjad.",
 	"mwe-upwiz-error-no-image-retrieved": "Allikast $1 ei õnnestunud faili kätte saada.",
 	"mwe-upwiz-multi-file-select2": "Vali failid, mida soovid üles laadida. Hoia all tõstuklahvi ja klõpsa, et valida korraga mitu faili. Saad valida üleslaadimiseks kuni $1 {{PLURAL:$1|faili}}.",
-	"mwe-upwiz-transport-started": "Alustamine...",
 	"mwe-upwiz-uploading": "Üleslaadimine...",
 	"mwe-upwiz-queued": "Järjekorras...",
 	"mwe-upwiz-assembling": "Töötlemine...",

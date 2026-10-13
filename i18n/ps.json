@@ -45,7 +45,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "مهرباني وکړئ په ياد ولرئ چې د دې وسيلې په کارولو سره ستاسو د وېبپتې او غوښتنې سپيناوی به په فليکر کې د لاسرسي وړ وي.",
 	"mwe-upwiz-error-no-image-retrieved": "موږ له $1 نه دوتنه بېرته نشو ترلاسه کولای.",
 	"mwe-upwiz-multi-file-select2": "هغه دوتنه غوره کړئ چې تاسو يې راپورته‌کول غواړئ. شفټ تڼۍ ونيسئ او په يو ځل د څو دوتنو غوره‌کولو لپاره کليک وکړئ. تاسو کولی شئ د راپورته‌کولو لپاره په يوځل $1 {{PLURAL:$1|دوتنه|دوتنې}} غوره کړئ.",
-	"mwe-upwiz-transport-started": "پيلېږي...",
 	"mwe-upwiz-uploading": "راپورته کېږي...",
 	"mwe-upwiz-queued": "په کتار کې دی...",
 	"mwe-upwiz-assembling": "راغونډېږي...",
@@ -315,8 +314,8 @@
 	"campaigns": "د کوډگر راپورته کوونکي ټاکنيزې‌سيالۍ",
 	"mwe-upload-campaigns-pagination-next": "بل مخ",
 	"mwe-upload-campaigns-list-title": "د راپورته‌کولو ټاکنيزو سياليو لړليک",
-	"mwe-upwiz-upload-comment-own-work": "خپل کار مو له کوډگر راپورته کوونکی سره راپورته کړئ",
-	"mwe-upwiz-upload-comment-third-party": "د کوډگر راپورته کوونکی په مرسته له $2 څخه $1 راپورته شو",
+	"mwe-upwiz-upload-comment-own-work": "له کوډگر‌راپورته‌کوونکی سره خپل کار {{GENDER:$1|راپورته کړ}}",
+	"mwe-upwiz-upload-comment-third-party": "د کوډگر راپورته‌کوونکی په مرسته له $2 څخه د $1 له‌خوا شوی کار {{GENDER:$3|راپورته شو}}",
 	"mwe-upwiz-metadata-notice-header": "ځاني اومتوکي",
 	"namespaceinfo-description-ns460": "د راپورته کولو سياليو لپاره نوم‌تشيال",
 	"namespaceinfo-description-ns461": "د راپورته کولو سياليو لپاره خبرو اترو مخونه"

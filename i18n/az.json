@@ -55,7 +55,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Nəzərə alın ki, bu alətdən istifadə etməklə IP ünvanınız və sorğu təfərrüatları Flickra göndəriləcək.",
 	"mwe-upwiz-error-no-image-retrieved": "Biz $1 mənbəsindən faylı əldə edə bilmədik.",
 	"mwe-upwiz-multi-file-select2": "Yükləmək istədiyiniz faylları seçin. Shift düyməsini basılı saxlayın və eyni anda birdən çox fayl seçmək üçün klikləyin. Siz yükləmək maksimum $1 ədəd {{PLURAL:$1|fayl}} seçə bilərsiniz.",
-	"mwe-upwiz-transport-started": "Başla...",
 	"mwe-upwiz-uploading": "Yüklənir…",
 	"mwe-upwiz-queued": "Növbəyə alındı…",
 	"mwe-upwiz-assembling": "Birləşdirilir…",

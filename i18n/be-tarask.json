@@ -61,7 +61,6 @@
 	"mwe-upwiz-flickr-disclaimer2": "Зьвярніце ўвагу, што пры выкарыстаньні гэтай прылады ваш IP-адрас і зьвесткі пра запыт будуць даступныя сайту Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Даруйце, не ўдалося атрымаць файл з $1.",
 	"mwe-upwiz-multi-file-select2": "Выберыце файлы, якія вы хочаце даслаць. Утрымлівайце клавішу Shift і пстрыкніце, каб выбраць колькі файлаў адначасова. Вы можаце выбраць да $1 {{PLURAL:$1|файла|файлаў}} каб даслаць.",
-	"mwe-upwiz-transport-started": "Пачатак…",
 	"mwe-upwiz-uploading": "загрузка…",
 	"mwe-upwiz-queued": "У чарзе…",
 	"mwe-upwiz-assembling": "Зьбіраньне…",
