@@ -403,6 +403,7 @@
 	"campaigns": "Kampagner for vejviseren til oplægning af filer",
 	"mwe-upload-campaigns-pagination-next": "Næste side",
 	"mwe-upload-campaigns-list-title": "Liste over upload kampagner",
+	"campaigns-summary": "Denne side viser de aktiverede uploadkampagner. Hver kampagne konfigurerer [[Special:UploadWizard|Upload Wizard]] til en fotokonkurrence eller et andet projekt, f.eks. med yderligere felter og kategorier.",
 	"mwe-upwiz-upload-comment-own-work": "{{GENDER:$1|Uploadede}} eget arbejde med UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "{{GENDER:$3|Uploadede}} et værk af $1 fra $2 med UploadWizard",
 	"mwe-upwiz-metadata-notice-header": "Personlige data",

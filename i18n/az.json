@@ -395,6 +395,7 @@
 	"campaigns": "Yükləmə Sehrbazı kampaniyaları",
 	"mwe-upload-campaigns-pagination-next": "Növbəti səhifə",
 	"mwe-upload-campaigns-list-title": "Yükləmə kampaniyalarının siyahısı",
+	"campaigns-summary": "Bu səhifədə aktiv olan yükləmə kampaniyaları sadalanır. Hər kampaniya foto müsabiqəsi və ya başqa layihə üçün [[Special:UploadWizard|Fayl yükləmə sehrbazını]] əlavə sahələr və kateqoriyalar kimi imkanlarla konfiqurasiya edir.",
 	"mwe-upwiz-upload-comment-own-work": "UploadWizard ilə öz işini {{GENDER:$1|yüklədi}}",
 	"mwe-upwiz-upload-comment-third-party": "UploadWizard ilə $2 mənbəsindəki $1 tərəfindən yaradılan işi {{GENDER:$3|yüklədi}}",
 	"mwe-upwiz-metadata-notice-header": "Şəxsi məlumat",
