@@ -29,7 +29,7 @@
 
 		Object.keys( this.deeds ).forEach( ( name ) => {
 			const deed = this.deeds[ name ],
-				radio = new OO.ui.RadioSelectWidget( { classes: [ 'mwe-upwiz-deed-radio-' + name ] } ),
+				radio = new mw.uploadWizard.RadioSelectWidget( { classes: [ 'mwe-upwiz-deed-radio-' + name ] } ),
 				option = new OO.ui.RadioOptionWidget(),
 				// Separate the radio option from its form
 				$deedRadio = $( '<div>' ).addClass( 'mwe-upwiz-deed-option-title' ).append(

@@ -83,7 +83,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 				} );
 			}
 		} );
-		this.widget = this.type === 'radio' ? new OO.ui.RadioSelectWidget() : new OO.ui.CheckboxMultiselectWidget();
+		this.widget = this.type === 'radio' ? new mw.uploadWizard.RadioSelectWidget() : new OO.ui.CheckboxMultiselectWidget();
 		this.widget.addItems( options );
 
 		const groupFields = config.licenseGroups.map( ( groupConfig ) => {
