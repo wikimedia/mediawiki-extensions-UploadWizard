@@ -19,7 +19,7 @@ $wgUploadWizardConfig = [
             'type' => 'or',
             'template' => 'licensing', // this adds a link to Template:Licensing to the file info page
             'licenses' => [
-                 'generic',
+                'generic',
             ]
         ]
     ]
