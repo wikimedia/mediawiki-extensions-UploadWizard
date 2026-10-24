@@ -207,8 +207,14 @@
 	font-size: @font-size-large;
 }
 
-.mwe-upwiz-flickr-field {
-	margin: 0 @spacing-400;
+// Span the full width like the disclaimer below, instead of the 50em limit of an ActionFieldLayout
+// and of the input in it
+#mwe-upwiz-flickr-url-form .mwe-upwiz-flickr-field {
+	max-width: none;
+
+	.oo-ui-actionFieldLayout-input > .oo-ui-widget {
+		max-width: none;
+	}
 }
 
 #mwe-upwiz-upload-add-flickr-container {
