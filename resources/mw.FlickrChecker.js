@@ -251,7 +251,7 @@ mw.FlickrChecker.prototype = /** @lends mw.FlickrChecker.prototype */ {
 			if ( groupPoolMatches[ 1 ] ) { // URL contains a user ID
 				return this.lookupUrl(
 					'flickr.urls.lookupUser',
-					'http://www.flickr.com/photos/' + groupPoolMatches[ 1 ],
+					'https://www.flickr.com/photos/' + groupPoolMatches[ 1 ],
 					'user'
 				).then( ( user ) => this.getPhotos( 'photos', {
 					method: 'flickr.groups.pools.getPhotos',
