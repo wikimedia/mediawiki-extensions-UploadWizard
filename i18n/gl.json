@@ -395,6 +395,7 @@
 	"campaigns": "Campañas do asistente de cargas",
 	"mwe-upload-campaigns-pagination-next": "Páxina seguinte",
 	"mwe-upload-campaigns-list-title": "Lista de campañas de subidas",
+	"campaigns-summary": "Esta páxina enumera as campañas de subida activadas. Cada campaña configura o [[Special:UploadWizard|asistente de cargas]] para un concurso de fotografía ou outro proxecto; por exemplo, con campos e categorías adicionais.",
 	"mwe-upwiz-upload-comment-own-work": "{{GENDER:$1|Subiu}} obras propias co asistente de cargas",
 	"mwe-upwiz-upload-comment-third-party": "{{GENDER:$3|Subiu}} unha obra de $1 desde $2 co asistente de cargas",
 	"mwe-upwiz-metadata-notice-header": "Datos persoais",
