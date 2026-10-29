@@ -18,6 +18,8 @@
 	"group-upwizcampeditors": "Tafatirayaasha ololayaasha Saaxirka Soo gelinta",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Tafatiraha ololayaasha Saaxirka Soo gelinta}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Tafatirayaasha ololayaasha Saaxirka Soo gelinta",
+	"group-upwizcampeditors.css": "/* CSS halkan la dhigo wuxuu saamayn doonaa oo keliya tifaftirayaasha ololaha saaxirka soo gelinta */",
+	"group-upwizcampeditors.js": "/* JS halkan la dhigo wuxuu saamayn doonaa oo keliya tifaftirayaasha ololaha saaxirka soo gelinta */",
 	"api-error-parsererror": "Seerfarku wuxuu soo celiyay dukumenti JSON aan sax ahayn. Tani waxay noqon kartaa dhibaato ka jirta API-ga, ama waxaad adeegsanaysaa seerfar wakiil oo kaa hor istaagaya inaad faylal soo geliso.",
 	"api-error-aborted": "Soo gelintii waa la joojiyay.",
 	"api-error-noimageinfo": "Soo gelintu way guulaysatay, laakiin serfarku nama siin wax macluumaad ah oo ku saabsan faylka.",

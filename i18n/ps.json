@@ -325,6 +325,8 @@
 	"mwe-upwiz-errordialog-title": "ستاسو سپارنې کې يوه تېروتنه وه",
 	"mwe-upwiz-errordialog-ok": "ښه",
 	"mwe-upwiz-error-nosuchcampaign": "د \"$1\" په نوم هيڅ ټاکنيزه سيالۍ نشته.",
+	"mwe-upwiz-campaign-invalid": "د ټاکنيزې سيالۍ ناسم ترتيب: $1",
+	"mwe-upwiz-campaign-invalid-property": "\"$1\" کې د ټاکنيزې سيالۍ ناسم ترتيب: $2",
 	"mwe-upwiz-error-campaigndisabled": "د \"$1\" ټاکنيزه چارن شوې نه ده.",
 	"mwe-upwiz-calendar-date": "له کليز نه نېټه وټاکئ",
 	"mwe-upwiz-custom-date": "دوديزې نېټې بڼه وکاروئ",
