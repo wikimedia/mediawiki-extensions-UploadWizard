@@ -191,7 +191,7 @@
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename": "Gitt wgl. méi een informativen Titel un ([$2 Beispiller weisen]).",
 	"mwe-upwiz-blacklisted-details-titleblacklist-custom-filename-title": "Titelbeispiller",
 	"mwe-upwiz-blacklisted-details": "An dësem Fichiersnumm kommen ongülteg Zeeche vir oder en huet en ongültegt Format. ([$2 Uleedung, fir de Fichiersnumm ze verbesseren].)",
-	"mwe-upwiz-next": "Nächst",
+	"mwe-upwiz-next": "Weider",
 	"mwe-upwiz-next-file": "Virufueren",
 	"mwe-upwiz-publish-details": "Fichiere verëffentlechen",
 	"mwe-upwiz-previous": "Zeréck",
@@ -222,7 +222,7 @@
 	"mwe-upwiz-error-caption-blank": "Eng Beschrëftung ass obligatoresch",
 	"mwe-upwiz-error-description-blank": "Eng Beschreiwung ass obligatoresch",
 	"mwe-upwiz-error-title-senselessimagename": "Gitt wgl. en Titel un, dee méi ausseet.",
-	"mwe-upwiz-error-title-thumbnail": "Dësen Numm gesäit aus wéi den Numm vun engem Miniaturbild. Luet wgl. keng Miniatur-Biller zréck op déi selwecht Wiki. Sollt et sech ëm een anert Bild handelen da sicht wgl. e Fichiersnumm dee méi verständlech ass an den net sou ufänkt wéi e Miniaturbild.",
+	"mwe-upwiz-error-title-thumbnail": "Dat hei gesäit wéi den Titel vun engem Miniaturbild aus. Luet wgl. keng Miniaturbiller zeréck op déi selwecht Wiki erop. Am anere Fall, ännert de Fichiersnumm wgl. sou, datt e méi ausseet an net mam Prefix vun engem Miniaturbild ufänkt.",
 	"mwe-upwiz-error-title-extension": "Dir braucht keng Erweiderung fir de Fichiersnumm unzeginn. Gitt just e verständlechen Titel un an d'Applikatioun bekëmmert sech ëm de Rescht.",
 	"mwe-upwiz-error-title-protected": "Dësen Titel ass eng gespaarte Säit op dëser Wiki. Sicht Iech wgl. een aneren Numm.",
 	"mwe-upwiz-error-title-duplicate": "Dësen Titel gouf fir méi wéi ee vun de Fichieren uginn, déi Dir eropluede wäert. Ënnerstrécher gi wéi Espacë behandelt an et gëtt automatesch eng Endung un de Fichier drugehaangen.",
@@ -355,8 +355,8 @@
 	"campaigns": "Campagnen vum Assistent fir eropzelueden",
 	"mwe-upload-campaigns-pagination-next": "Nächst Säit",
 	"mwe-upload-campaigns-list-title": "Lëscht vun de Campagne fir Eropzelueden",
-	"mwe-upwiz-upload-comment-own-work": "Eegent Wierk mam Eropluedassistent eropgelueden",
-	"mwe-upwiz-upload-comment-third-party": "E Wierk vum $1 vu(n) $2 mam Eropluedassistent eropgelueden",
+	"mwe-upwiz-upload-comment-own-work": "Eegent Wierk mam Eropluedassistent {{GENDER:$1|eropgelueden}}",
+	"mwe-upwiz-upload-comment-third-party": "E Wierk vum $1 vu(n) $2 mam Eropluedassistent {{GENDER:$3|eropgelueden}}",
 	"mwe-upwiz-metadata-notice-header": "Perséinlech Daten",
 	"mwe-upwiz-metadata-notice-description": "An den EXIF-Metadonnéeën an dësem Fichier kënnen e Standuert oder aner perséinlech Donnéeë stoen, déi automatesch vun Ärer Kamera derbäigesat goufen. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Gitt méi doriwwer gewuer], wéi een EXIF-Metadonnéeën ännert oder ewechmécht."
 }
