@@ -1,14 +1,25 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liashko"
+			"Liashko",
+			"Чаховіч Уладзіслаў"
 		]
 	},
+	"apihelp-flickrblacklist-summary": "Праверыць URL-адрас Flickr з дапамогай ідэнтыфікатара карыстальніка (NSID) для занясення ў чорны спіс.",
+	"apihelp-flickrblacklist-extended-description": "Пры выкарыстанні з параметрам <var>list</var> вяртае ўсе ідэнтыфікатары з чорнага спіса.",
 	"apihelp-flickrblacklist-param-url": "URL-адрас на Flickr, які мусіць быць правераны.",
 	"apihelp-flickrblacklist-param-list": "Пры ўсталяванні вяртаецца поўны чорны спіс. Не можа выкарыстоўвацца разам з $1url.",
 	"apihelp-flickrblacklist-example-1": "Праверыць URL-адрас у чорным спісе",
 	"apihelp-flickrblacklist-example-2": "Вярнуць запіс чорнага спіса",
+	"apihelp-query+allcampaigns-summary": "Пералічыць усе кампаніі Майстра загрузкі.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Спіс толькі тых кампаній, якія зараз актыўныя.",
 	"apihelp-query+allcampaigns-param-limit": "Колькасць кампаній для вяртання.",
-	"apihelp-query+allcampaigns-example-1": "Пералічыць уключаныя кампаніі"
+	"apihelp-query+allcampaigns-example-1": "Пералічыць уключаныя кампаніі",
+	"apihelp-mediadetection-summary": "Вярнуць верагоднасць таго, што схаваная выява, прадстаўленая пададзеным ключом файла, з'яўляецца лагатыпам",
+	"apihelp-mediadetection-param-filename": "Назва старонкі файла",
+	"apihelp-mediadetection-param-filekey": "<var>filekey</var>, атрыманы з API-запыту <kbd>stash</kbd>",
+	"apihelp-mediadetection-example-filename": "Вярнуць верагоднасць таго, што выява, прадстаўленая пададзенай назвай файла, з'яўляецца лагатыпам",
+	"apihelp-mediadetection-example-filekey": "Вярнуць верагоднасць таго, што схаваная выява, прадстаўленая пададзеным ключом файла, з'яўляецца лагатыпам",
+	"apierror-mediadetection-no-valid-thumbnail": "Для выявы няма мініяцюры, таму яе немагчыма адправіць у класіфікатар",
+	"apierror-mediadetection-invalid-mime-type": "Канчатковая кропка API недаступная для гэтага тыпу файла — дазволеныя тыпы: image/jpeg, image/gif, image/png, image/bmp"
 }
