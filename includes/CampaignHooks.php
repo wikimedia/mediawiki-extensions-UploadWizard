@@ -69,7 +69,7 @@ class CampaignHooks implements
 	 * FIXME: This should be done as a DataUpdate
 	 *
 	 * Sets up appropriate entries in the uc_campaigns table for each Campaign
-	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
+	 * Acts every time a page in the NS_CAMPAIGN namespace is saved
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param UserIdentity $userIdentity

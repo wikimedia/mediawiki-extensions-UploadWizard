@@ -22,7 +22,7 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		// Test expects empty defaults; otheriwse they will override the
+		// Test expects empty defaults; otherwise they will override the
 		// parameters passed in by the test.
 		Config::setUrlSetting( 'defaults', [] );
 

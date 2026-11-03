@@ -329,7 +329,7 @@
 		uw.ValidatableElement.decorate( this.originRadio );
 		this.originRadio.validate = ( thorough ) => {
 			const status = new uw.ValidationStatus(),
-				// validate sub option (even if tht choice is not selected),
+				// validate sub option (even if the choice is not selected),
 				// allowing any previous errors to be cleared
 				othersValidationPromise = this.originOthersRadioField.validate( thorough );
 

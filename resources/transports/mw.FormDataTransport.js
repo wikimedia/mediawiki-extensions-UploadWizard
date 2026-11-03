@@ -52,7 +52,7 @@
 
 		this.request = this.api.post( params, {
 			/*
-			 * $.ajax is not quite equiped to handle File uploads with params.
+			 * $.ajax is not quite equipped to handle File uploads with params.
 			 * The most convenient way would be to submit it with a FormData
 			 * object, but mw.Api will already do that for us: it'll transform
 			 * params if it encounters a multipart/form-data POST request, and
