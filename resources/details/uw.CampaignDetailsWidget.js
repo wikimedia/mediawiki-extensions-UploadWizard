@@ -89,7 +89,7 @@
 	/**
 	 * @inheritdoc
 	 * @param {Object} serialized
-	 * @param {string} serialized.value Campaign informations text
+	 * @param {string} serialized.value Campaign information text
 	 */
 	uw.CampaignDetailsWidget.prototype.setSerialized = function ( serialized ) {
 		this.input.setValue( serialized.value );

@@ -1,7 +1,7 @@
 ( function ( uw ) {
 
 	/**
-	 * An other informations field in UploadWizard's "Details" step form.
+	 * An other information field in UploadWizard's "Details" step form.
 	 *
 	 * @class
 	 * @extends uw.DetailsWidget
@@ -45,7 +45,7 @@
 	/**
 	 * @inheritdoc
 	 * @param {Object} serialized
-	 * @param {string} serialized.other Other informations text
+	 * @param {string} serialized.other Other information text
 	 */
 	uw.OtherDetailsWidget.prototype.setSerialized = function ( serialized ) {
 		this.textInput.setValue( serialized.other );
