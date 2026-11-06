@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
-			"شاه زمان پټان"
+			"شاه زمان پټان",
+			"باران"
 		]
 	},
 	"uploadwizard": "کوډگر راپورته کوونکی",
@@ -296,7 +297,7 @@
 	"mwe-upwiz-license-none": "زه باور لرم چې دا {{PLURAL:$1|کار|کارونه}} د پرانېستې منښتليک لاندې يا په قانوني ډول ټولگړې واک‌سيمه کې خپاره شوې دي. زه پوهېږم که زه په وخت د منښتليک اړين مالومات ورگډ نه‌کړم؛ نو دا {{PLURAL:$1|دوتنه به ړنگه شي|دوتنې به ړنگې شي}}.",
 	"mwe-upwiz-license-generic": "ما د دې ويکي لپاره [[{{int:disclaimerpage}}|د ټولگړې واگ اخيستنې]] بياکتنه کړې ده او زما د پوهې له مخې {{PLURAL:$1|کار|کارونه}} د دې ويکي د اومتوک ساتنې کچې څخه لوړ نه {{PLURAL:$1|دی|دي}}.",
 	"mwe-upwiz-license-confirm-remove": "ايا تاسو ډاډه ياست چې دا راپورته‌کول لرې‌کول غواړئ؟",
-	"mwe-upwiz-license-confirm-remove-title": "لری‌کول تاييدول",
+	"mwe-upwiz-license-confirm-remove-title": "لرې‌کول تاييدول",
 	"mwe-upwiz-license-external": "دوتنه په \"$1\" سرچينه وېبځي کې د لاندې منښتليک لاندې خپره شوې: $2.",
 	"mwe-upwiz-license-external-invalid": "دا دوتنه په $1 کې د لاندې منښتليک لاندې خپره شوې ده: $2.\n<br><br>له بده مرغه، دا ويکي هغه منښتليک نه مني.",
 	"mwe-upwiz-license-external-invalid-title": "دا دوتنه نشي کارېدای",
