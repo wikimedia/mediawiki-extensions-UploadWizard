@@ -157,7 +157,6 @@
 
 		for ( let off = 0; off < fileSize; off += chunkSize ) {
 			// Capture offset in a closure
-			// eslint-disable-next-line no-loop-func
 			( ( offset ) => {
 				const
 					newPromise = $.Deferred(),
