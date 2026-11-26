@@ -3,6 +3,13 @@
 	const NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
+	 * The structured data saves of all the files, one after the other (see postStructuredData).
+	 *
+	 * @type {Promise}
+	 */
+	let structuredDataSaves = Promise.resolve();
+
+	/**
 	 * Object that represents the Details (step 2) portion of the UploadWizard
 	 * n.b. each upload gets its own details.
 	 *
@@ -1476,6 +1483,10 @@
 		},
 
 		/**
+		 * Save the structured data of the file. A save may need a CAPTCHA, and a CAPTCHA may
+		 * show a challenge. So the saves of all the files run one after the other: the user
+		 * sees at most one challenge at a time.
+		 *
 		 * @param {string} id
 		 * @param {string} data
 		 * @return {jQuery.Promise}
@@ -1491,11 +1502,14 @@
 					// and this is a new upload so there should be none
 					baserevid: undefined
 				},
-				ajaxOptions = { url: config.wikibase.api };
+				{ withCaptcha } = mw.loader.require( 'wikibase.captcha' ),
+				api = withCaptcha( new mw.Api( { ajax: { url: config.wikibase.api } } ) );
 
-			return this.upload.api.postWithEditToken(
-				params, ajaxOptions
-			).catch( () => {
+			const save = structuredDataSaves.then( () => api.postWithToken( 'csrf', params ) );
+			// The next save waits for this one, whether it succeeds or fails.
+			structuredDataSaves = save.catch( () => {} );
+
+			return $.when( save ).catch( () => {
 				this.structuredDataSubmissionErrors = true;
 			} );
 		},

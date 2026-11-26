@@ -63,6 +63,7 @@
 					this.config.wikibase.enabled = false;
 					return mw.loader.using( [
 						'wikibase.mediainfo.statements',
+						'wikibase.captcha',
 						'wikibase.datamodel',
 						'wikibase.mediainfo.base'
 					] ).then( () => {

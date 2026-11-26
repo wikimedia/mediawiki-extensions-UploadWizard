@@ -156,6 +156,46 @@
 		assert.deepEqual( details.submitWikiText.getCall( 0 ).args, [ 'some wikitext', captchaData ] );
 	} );
 
+	QUnit.test( 'postStructuredData: saves the files one after the other', async function ( assert ) {
+		const oldConfig = mw.UploadWizard.config;
+		mw.UploadWizard.config = { wikibase: { api: '/w/api.php' } };
+		const posts = [];
+		const api = {
+			postWithToken: ( tokenType, params ) => {
+				const deferred = $.Deferred();
+				posts.push( { params, deferred } );
+				return deferred.promise();
+			}
+		};
+		this.sandbox.stub( mw.loader, 'require' ).callThrough()
+			.withArgs( 'wikibase.captcha' ).returns( { withCaptcha: () => api } );
+		const first = { structuredDataSubmissionErrors: false };
+		const second = { structuredDataSubmissionErrors: false };
+		const tick = () => new Promise( ( resolve ) => {
+			setTimeout( resolve );
+		} );
+
+		try {
+			const firstSave = mw.UploadWizardDetails.prototype.postStructuredData.call( first, 'M1', '{}' );
+			const secondSave = mw.UploadWizardDetails.prototype.postStructuredData.call( second, 'M2', '{}' );
+			await tick();
+			assert.deepEqual( posts.map( ( post ) => post.params.id ), [ 'M1' ], 'the second save waits' );
+
+			// The first save fails: the second runs all the same.
+			posts[ 0 ].deferred.reject( 'captcha-failed', {} );
+			await firstSave;
+			await tick();
+			assert.deepEqual( posts.map( ( post ) => post.params.id ), [ 'M1', 'M2' ], 'the second save runs' );
+
+			posts[ 1 ].deferred.resolve( {} );
+			await secondSave;
+			assert.true( first.structuredDataSubmissionErrors, 'the first file has an error' );
+			assert.false( second.structuredDataSubmissionErrors, 'the second file has none' );
+		} finally {
+			mw.UploadWizard.config = oldConfig;
+		}
+	} );
+
 	QUnit.test( 'showPreview: opens the dialog with the rendered wikitext', function ( assert ) {
 		const open = this.sandbox.stub( mw.uploadWizard.PreviewDialog, 'open' );
 		const promise = $.Deferred().promise();
