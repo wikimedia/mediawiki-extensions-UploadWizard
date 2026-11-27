@@ -259,7 +259,7 @@
 	"mwe-upwiz-error-title-protected": "Ta nazwa pasuje do chronionej strony na tej wiki. Proszę wybrać inną.",
 	"mwe-upwiz-error-title-duplicate": "Ten tytuł został podany dla więcej niż jednego z plików, które chcesz przesłać. Podkreślenia są traktowane jak spacje, rozszerzenie pliku jest dodawane automatycznie.",
 	"mwe-upwiz-error-license-wikitext-missing": "Wprowadzenie danych jest wymagane.",
-	"mwe-upwiz-error-license-wikitext-too-short": "Ten wiki-tekst jest za krótki, aby mógł stanowić licencję.",
+	"mwe-upwiz-error-license-wikitext-too-short": "Ten wikikod jest za krótki, aby mógł stanowić licencję.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Ten wiki-tekst jest za długi.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Podany wikikod nie zawiera właściwego szablonu licencji.",
 	"mwe-upwiz-error-patent-disagree": "Musisz zgodzić się z warunkami.",
